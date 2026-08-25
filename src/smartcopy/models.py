@@ -105,9 +105,9 @@ class SkillSlice:
     closed_position_count: int
     market_count: int
     realized_pnl: float
-    positive_event_rate: float | None
+    positive_position_rate: float | None
     top1_positive_pnl_share: float | None
-    effective_profitable_events: float | None
+    effective_profitable_positions: float | None
 
 
 @dataclass(frozen=True, slots=True)
@@ -122,7 +122,7 @@ class WalletMetrics:
     realized_pnl_drawdown_proxy: float
     top1_positive_pnl_share: float | None
     top5_positive_pnl_share: float | None
-    effective_profitable_events: float | None
+    effective_profitable_positions: float | None
     average_trade_usdc: float | None
     median_trade_usdc: float | None
     research_priority_score: float
