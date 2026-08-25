@@ -43,7 +43,7 @@ def _activity(i: int) -> WalletActivity:
 
 
 def test_wallet_profile_is_conditional_and_research_only() -> None:
-    policy = ResearchEligibilityPolicy(min_closed_events=4, min_markets=4, min_active_days=2, max_top1_positive_pnl_share=0.6)
+    policy = ResearchEligibilityPolicy(min_closed_positions=4, min_markets=4, min_active_days=2, max_top1_positive_pnl_share=0.6)
     engine = WalletIntelligenceEngine(policy)
     closed = [_closed(0, 2), _closed(1, 2), _closed(2, -1), _closed(3, 1)]
     activities = [_activity(0), _activity(1), _activity(2), _activity(3)]
@@ -52,12 +52,12 @@ def test_wallet_profile_is_conditional_and_research_only() -> None:
     assert profile.watchlist_status is WatchlistStatus.RESEARCH_ELIGIBLE
     assert profile.strategy_archetype.value == "unknown"
     assert profile.skills[0].market_family is MarketFamily.CRYPTO_UPDOWN_5M
-    assert profile.skills[0].closed_event_count == 4
+    assert profile.skills[0].closed_position_count == 4
     assert 0 <= profile.metrics.research_priority_score <= 1
 
 
 def test_single_lucky_event_is_not_research_eligible() -> None:
-    policy = ResearchEligibilityPolicy(min_closed_events=3, min_markets=3, min_active_days=1, max_top1_positive_pnl_share=0.5)
+    policy = ResearchEligibilityPolicy(min_closed_positions=3, min_markets=3, min_active_days=1, max_top1_positive_pnl_share=0.5)
     engine = WalletIntelligenceEngine(policy)
     closed = [_closed(0, 100), _closed(1, -1), _closed(2, -1)]
     profile = engine.profile(wallet="0xabc", activities=[_activity(0), _activity(1), _activity(2)], closed_positions=closed)
@@ -65,18 +65,18 @@ def test_single_lucky_event_is_not_research_eligible() -> None:
     assert profile.metrics.top1_positive_pnl_share == 1.0
 
 
-def test_max_drawdown_from_chronological_realized_pnl() -> None:
-    policy = ResearchEligibilityPolicy(min_closed_events=1, min_markets=1, min_active_days=1)
+def test_realized_pnl_drawdown_proxy_from_chronological_realized_pnl() -> None:
+    policy = ResearchEligibilityPolicy(min_closed_positions=1, min_markets=1, min_active_days=1)
     profile = WalletIntelligenceEngine(policy).profile(
         wallet="0xabc",
         activities=[_activity(0)],
         closed_positions=[_closed(0, 5), _closed(1, -3), _closed(2, 1), _closed(3, -4)],
     )
-    assert profile.metrics.max_drawdown == 6
+    assert profile.metrics.realized_pnl_drawdown_proxy == 6
 
 
 def test_non_profitable_wallet_stays_watch_only_even_with_sample() -> None:
-    policy = ResearchEligibilityPolicy(min_closed_events=3, min_markets=3, min_active_days=1)
+    policy = ResearchEligibilityPolicy(min_closed_positions=3, min_markets=3, min_active_days=1)
     profile = WalletIntelligenceEngine(policy).profile(
         wallet="0xabc",
         activities=[_activity(0), _activity(1), _activity(2)],
