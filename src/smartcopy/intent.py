@@ -97,14 +97,16 @@ class IntentReconstructor:
 
         clusters: list[FillCluster] = []
         for rows in groups.values():
+            # Process in the order SmartCopy could actually observe fills. Source
+            # timestamps may arrive out of order and must not retroactively merge
+            # an episode that was already sealable from the observer's perspective.
+            rows.sort(key=lambda a: (a.first_observed_time, a.source_event_time, a.transaction_hash or ""))
             current: list[WalletActivity] = []
-            previous_source_time: datetime | None = None
             for row in rows:
-                if previous_source_time is not None and row.source_event_time - previous_source_time > self.policy.max_source_gap:
+                if current and not self._can_join_causally(current, row):
                     clusters.append(self._build_cluster(current))
                     current = []
                 current.append(row)
-                previous_source_time = row.source_event_time
             if current:
                 clusters.append(self._build_cluster(current))
 
@@ -171,13 +173,19 @@ class IntentReconstructor:
                     continue
                 if left.side != "BUY" or right.side != "BUY":
                     continue
-                gap = _interval_gap(
+                source_gap = _interval_gap(
                     left.source_start_time,
                     left.source_end_time,
                     right.source_start_time,
                     right.source_end_time,
                 )
-                if gap > self.policy.max_source_gap:
+                observed_gap = _interval_gap(
+                    left.observed_start_time,
+                    left.observed_end_time,
+                    right.observed_start_time,
+                    right.observed_end_time,
+                )
+                if source_gap > self.policy.max_source_gap or observed_gap > self.policy.max_source_gap:
                     continue
                 flags.append(
                     PairedActivityFlag(
@@ -194,6 +202,19 @@ class IntentReconstructor:
                     )
                 )
         return tuple(flags)
+
+    def _can_join_causally(self, current: list[WalletActivity], row: WalletActivity) -> bool:
+        observed_end = max(item.first_observed_time for item in current)
+        if row.first_observed_time > observed_end + self.policy.max_source_gap:
+            return False
+
+        source_min = min(item.source_event_time for item in current)
+        source_max = max(item.source_event_time for item in current)
+        if row.source_event_time < source_min - self.policy.max_source_gap:
+            return False
+        if row.source_event_time > source_max + self.policy.max_source_gap:
+            return False
+        return True
 
     def _build_cluster(self, rows: list[WalletActivity]) -> FillCluster:
         if not rows:
