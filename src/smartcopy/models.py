@@ -102,7 +102,7 @@ class ClosedPosition:
 @dataclass(frozen=True, slots=True)
 class SkillSlice:
     market_family: MarketFamily
-    closed_event_count: int
+    closed_position_count: int
     market_count: int
     realized_pnl: float
     positive_event_rate: float | None
@@ -116,10 +116,10 @@ class WalletMetrics:
     trade_count: int
     market_count: int
     active_days: int
-    closed_event_count: int
-    positive_closed_events: int
-    negative_closed_events: int
-    max_drawdown: float
+    closed_position_count: int
+    positive_closed_positions: int
+    negative_closed_positions: int
+    realized_pnl_drawdown_proxy: float
     top1_positive_pnl_share: float | None
     top5_positive_pnl_share: float | None
     effective_profitable_events: float | None
