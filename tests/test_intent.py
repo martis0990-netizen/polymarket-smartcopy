@@ -84,3 +84,21 @@ def test_paired_outcome_buys_are_flagged_as_non_directional() -> None:
     assert len(flags) == 1
     assert flags[0].directional_safe is False
     assert "hedge/arbitrage" in flags[0].reason
+
+
+def test_late_observation_cannot_retroactively_merge_sealed_episode() -> None:
+    reconstructor = IntentReconstructor(IntentClusteringPolicy(max_source_gap=timedelta(seconds=5)))
+    first = _trade(0, observed_delay=1)
+    late = _trade(2, observed_delay=20)
+    clusters = reconstructor.cluster([first, late])
+    assert len(clusters) == 2
+    assert clusters[0].sealed_at == BASE + timedelta(seconds=6)
+
+
+def test_paired_flag_requires_observable_time_proximity_too() -> None:
+    reconstructor = IntentReconstructor(IntentClusteringPolicy(max_source_gap=timedelta(seconds=5)))
+    clusters = reconstructor.cluster([
+        _trade(0, asset="yes", outcome="Yes", side="BUY", observed_delay=1),
+        _trade(2, asset="no", outcome="No", side="BUY", price=0.6, observed_delay=20),
+    ])
+    assert reconstructor.paired_activity_flags(clusters) == ()
