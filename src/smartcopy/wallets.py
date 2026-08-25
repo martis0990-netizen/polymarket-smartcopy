@@ -105,7 +105,7 @@ class WalletIntelligenceEngine:
             realized_pnl_drawdown_proxy=drawdown,
             top1_positive_pnl_share=top1,
             top5_positive_pnl_share=top5,
-            effective_profitable_events=effective,
+            effective_profitable_positions=effective,
             average_trade_usdc=(sum(trade_usdc) / len(trade_usdc)) if trade_usdc else None,
             median_trade_usdc=median(trade_usdc) if trade_usdc else None,
             research_priority_score=research_priority,
@@ -128,9 +128,9 @@ class WalletIntelligenceEngine:
                     closed_position_count=len(positions),
                     market_count=len({p.condition_id for p in positions if p.condition_id}),
                     realized_pnl=sum(p.realized_pnl for p in positions),
-                    positive_event_rate=(sum(p.realized_pnl > 0 for p in positions) / len(positions)) if positions else None,
+                    positive_position_rate=(sum(p.realized_pnl > 0 for p in positions) / len(positions)) if positions else None,
                     top1_positive_pnl_share=top1,
-                    effective_profitable_events=effective,
+                    effective_profitable_positions=effective,
                 )
             )
         return tuple(sorted(slices, key=lambda s: (-s.closed_position_count, s.market_family.value)))
