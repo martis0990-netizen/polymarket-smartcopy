@@ -14,6 +14,10 @@ class PolymarketAPIError(RuntimeError):
     pass
 
 
+class PaginationTruncatedError(PolymarketAPIError):
+    """Raised instead of silently scoring an incomplete wallet history."""
+
+
 Transport = Callable[[str, dict[str, str]], Any]
 Clock = Callable[[], datetime]
 
@@ -167,20 +171,55 @@ class PolymarketDataAPI:
         )
 
     def collect_activity(self, user: str, *, max_pages: int = 20) -> tuple[WalletActivity, ...]:
-        return tuple(self._paginate(lambda offset: self.activity_page(user, limit=500, offset=offset), page_size=500, max_pages=max_pages))
+        return tuple(
+            self._paginate(
+                lambda offset: self.activity_page(user, limit=500, offset=offset),
+                page_size=500,
+                max_pages=max_pages,
+                max_offset=10_000,
+                resource="activity",
+            )
+        )
 
     def collect_closed_positions(self, user: str, *, max_pages: int = 200) -> tuple[ClosedPosition, ...]:
-        return tuple(self._paginate(lambda offset: self.closed_positions_page(user, limit=50, offset=offset), page_size=50, max_pages=max_pages))
+        return tuple(
+            self._paginate(
+                lambda offset: self.closed_positions_page(user, limit=50, offset=offset),
+                page_size=50,
+                max_pages=max_pages,
+                max_offset=100_000,
+                resource="closed-positions",
+            )
+        )
 
     @staticmethod
-    def _paginate(fetch_page: Callable[[int], Iterable[Any]], *, page_size: int, max_pages: int) -> Iterable[Any]:
+    def _paginate(
+        fetch_page: Callable[[int], Iterable[Any]],
+        *,
+        page_size: int,
+        max_pages: int,
+        max_offset: int,
+        resource: str,
+    ) -> Iterable[Any]:
         if max_pages < 1:
             raise ValueError("max_pages must be >= 1")
+        last_was_full = False
         for page in range(max_pages):
-            rows = tuple(fetch_page(page * page_size))
+            offset = page * page_size
+            if offset > max_offset:
+                raise PaginationTruncatedError(
+                    f"{resource} history exceeds API offset limit {max_offset}; completeness cannot be proven"
+                )
+            rows = tuple(fetch_page(offset))
             yield from rows
-            if len(rows) < page_size:
+            last_was_full = len(rows) == page_size
+            if not last_was_full:
                 return
+        if last_was_full:
+            raise PaginationTruncatedError(
+                f"{resource} history reached configured max_pages={max_pages} with a full final page; "
+                "refusing to treat the sample as complete"
+            )
 
 
 def _to_optional_str(value: Any) -> str | None:
