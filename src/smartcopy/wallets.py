@@ -23,6 +23,7 @@ class ResearchEligibilityPolicy:
     min_markets: int = 10
     min_active_days: int = 3
     max_top1_positive_pnl_share: float = 0.50
+    require_positive_realized_pnl: bool = True
 
 
 class WalletIntelligenceEngine:
@@ -141,6 +142,8 @@ class WalletIntelligenceEngine:
             deficiencies.append(f"active_days<{p.min_active_days}")
         if deficiencies:
             return WatchlistStatus.INSUFFICIENT_SAMPLE, tuple(deficiencies)
+        if p.require_positive_realized_pnl and metrics.realized_pnl <= 0:
+            return WatchlistStatus.WATCH_ONLY, ("non-positive realized PnL in analyzed closed positions",)
         if metrics.top1_positive_pnl_share is None:
             return WatchlistStatus.WATCH_ONLY, ("no positive closed-event PnL",)
         if metrics.top1_positive_pnl_share > p.max_top1_positive_pnl_share:
