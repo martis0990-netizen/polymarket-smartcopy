@@ -3,6 +3,7 @@
 Evidence-gated selective copy-trading research. Live execution is not authorized.
 """
 
+from .discovery import WalletCandidate, WalletDiscoveryService
 from .models import MarketFamily, StrategyArchetype, WatchlistStatus
 from .polymarket import PolymarketDataAPI
 from .wallets import ResearchEligibilityPolicy, WalletIntelligenceEngine
@@ -12,6 +13,8 @@ __all__ = [
     "PolymarketDataAPI",
     "ResearchEligibilityPolicy",
     "StrategyArchetype",
+    "WalletCandidate",
+    "WalletDiscoveryService",
     "WalletIntelligenceEngine",
     "WatchlistStatus",
 ]
