@@ -73,3 +73,14 @@ def test_max_drawdown_from_chronological_realized_pnl() -> None:
         closed_positions=[_closed(0, 5), _closed(1, -3), _closed(2, 1), _closed(3, -4)],
     )
     assert profile.metrics.max_drawdown == 6
+
+
+def test_non_profitable_wallet_stays_watch_only_even_with_sample() -> None:
+    policy = ResearchEligibilityPolicy(min_closed_events=3, min_markets=3, min_active_days=1)
+    profile = WalletIntelligenceEngine(policy).profile(
+        wallet="0xabc",
+        activities=[_activity(0), _activity(1), _activity(2)],
+        closed_positions=[_closed(0, 1), _closed(1, -2), _closed(2, -2)],
+    )
+    assert profile.watchlist_status is WatchlistStatus.WATCH_ONLY
+    assert profile.metrics.realized_pnl < 0
