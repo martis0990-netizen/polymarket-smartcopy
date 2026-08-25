@@ -3,7 +3,7 @@ from urllib.parse import parse_qs, urlparse
 
 import pytest
 
-from smartcopy.polymarket import PolymarketDataAPI
+from smartcopy.polymarket import PaginationTruncatedError, PolymarketDataAPI
 
 
 def test_leaderboard_maps_public_api_fields() -> None:
@@ -62,3 +62,13 @@ def test_activity_rejects_source_timestamp_after_actual_observation() -> None:
     client = PolymarketDataAPI(transport=transport, clock=lambda: observed)
     with pytest.raises(ValueError, match="cannot precede"):
         client.activity_page("0xabc")
+
+
+def test_pagination_fails_closed_when_configured_cap_is_full() -> None:
+    client = PolymarketDataAPI(transport=lambda _url, _headers: [])
+
+    def full_page(_offset: int):
+        return (1, 2)
+
+    with pytest.raises(PaginationTruncatedError, match="refusing to treat the sample as complete"):
+        tuple(client._paginate(full_page, page_size=2, max_pages=2, max_offset=100, resource="test"))
