@@ -53,7 +53,7 @@ class ReconstructedIntent:
     kind: IntentKind
     position_before: float | None
     position_after: float | None
-    copyable_directional_evidence: bool
+    directional_evidence: bool
     reason: str
 
 
@@ -75,7 +75,17 @@ class IntentReconstructor:
 
     def cluster(self, activities: tuple[WalletActivity, ...] | list[WalletActivity]) -> tuple[FillCluster, ...]:
         trades = [a for a in activities if a.activity_type.upper() == "TRADE" and a.side is not None]
-        trades.sort(key=lambda a: (a.proxy_wallet, a.condition_id, a.asset or "", a.outcome or "", a.side or "", a.source_event_time, a.transaction_hash or ""))
+        trades.sort(
+            key=lambda a: (
+                a.proxy_wallet,
+                a.condition_id,
+                a.asset or "",
+                a.outcome or "",
+                a.side or "",
+                a.source_event_time,
+                a.transaction_hash or "",
+            )
+        )
 
         groups: dict[tuple[str, str, str | None, str | None, str], list[WalletActivity]] = {}
         for activity in trades:
@@ -98,7 +108,9 @@ class IntentReconstructor:
             if current:
                 clusters.append(self._build_cluster(current))
 
-        return tuple(sorted(clusters, key=lambda c: (c.source_start_time, c.proxy_wallet, c.condition_id, c.asset or "", c.side)))
+        return tuple(
+            sorted(clusters, key=lambda c: (c.source_start_time, c.proxy_wallet, c.condition_id, c.asset or "", c.side))
+        )
 
     def reconstruct(
         self,
@@ -108,7 +120,9 @@ class IntentReconstructor:
     ) -> tuple[ReconstructedIntent, ...]:
         positions = dict(initial_positions or {})
         results: list[ReconstructedIntent] = []
-        for cluster in sorted(clusters, key=lambda c: (c.source_start_time, c.source_end_time, c.condition_id, c.asset or "")):
+        for cluster in sorted(
+            clusters, key=lambda c: (c.source_start_time, c.source_end_time, c.condition_id, c.asset or "")
+        ):
             key = (cluster.condition_id, cluster.asset)
             if key not in positions:
                 results.append(
@@ -117,7 +131,7 @@ class IntentReconstructor:
                         kind=IntentKind.UNKNOWN,
                         position_before=None,
                         position_after=None,
-                        copyable_directional_evidence=False,
+                        directional_evidence=False,
                         reason="initial token position is unknown",
                     )
                 )
@@ -135,7 +149,7 @@ class IntentReconstructor:
                     kind=kind,
                     position_before=before,
                     position_after=after,
-                    copyable_directional_evidence=safe,
+                    directional_evidence=safe,
                     reason=reason,
                 )
             )
@@ -157,7 +171,12 @@ class IntentReconstructor:
                     continue
                 if left.side != "BUY" or right.side != "BUY":
                     continue
-                gap = _interval_gap(left.source_start_time, left.source_end_time, right.source_start_time, right.source_end_time)
+                gap = _interval_gap(
+                    left.source_start_time,
+                    left.source_end_time,
+                    right.source_start_time,
+                    right.source_end_time,
+                )
                 if gap > self.policy.max_source_gap:
                     continue
                 flags.append(
@@ -168,7 +187,10 @@ class IntentReconstructor:
                         right_asset=right.asset,
                         start_time=min(left.source_start_time, right.source_start_time),
                         end_time=max(left.source_end_time, right.source_end_time),
-                        reason="near-simultaneous BUY activity in different outcome assets; hedge/arbitrage cannot be excluded",
+                        reason=(
+                            "near-simultaneous BUY activity in different outcome assets; "
+                            "hedge/arbitrage cannot be excluded"
+                        ),
                     )
                 )
         return tuple(flags)
@@ -211,7 +233,12 @@ class IntentReconstructor:
 
         if cluster.side == "SELL":
             if cluster.total_size > before + tol:
-                return IntentKind.UNKNOWN, None, False, "SELL size exceeds known token position; history is incomplete or inconsistent"
+                return (
+                    IntentKind.UNKNOWN,
+                    None,
+                    False,
+                    "SELL size exceeds known token position; history is incomplete or inconsistent",
+                )
             after = max(0.0, before - cluster.total_size)
             if isclose(after, before, abs_tol=tol):
                 return IntentKind.HOLD, after, False, "SELL change is within position tolerance"
