@@ -1,6 +1,25 @@
 """Polymarket SmartCopy.
 
-Project state: specification/research only. Live execution is not authorized.
+Evidence-gated selective copy-trading research. Live execution is not authorized.
 """
 
-__version__ = "0.0.0"
+from .discovery import WalletCandidate, WalletDiscoveryService
+from .intent import IntentClusteringPolicy, IntentReconstructor
+from .models import MarketFamily, StrategyArchetype, WatchlistStatus
+from .polymarket import PolymarketDataAPI
+from .wallets import ResearchEligibilityPolicy, WalletIntelligenceEngine
+
+__all__ = [
+    "IntentClusteringPolicy",
+    "IntentReconstructor",
+    "MarketFamily",
+    "PolymarketDataAPI",
+    "ResearchEligibilityPolicy",
+    "StrategyArchetype",
+    "WalletCandidate",
+    "WalletDiscoveryService",
+    "WalletIntelligenceEngine",
+    "WatchlistStatus",
+]
+
+__version__ = "0.1.0"
