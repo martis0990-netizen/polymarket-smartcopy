@@ -63,7 +63,7 @@ def test_unknown_initial_position_fails_closed() -> None:
     cluster = reconstructor.cluster([_trade(0)])[0]
     intent = reconstructor.reconstruct([cluster])[0]
     assert intent.kind is IntentKind.UNKNOWN
-    assert intent.copyable_directional_evidence is False
+    assert intent.directional_evidence is False
 
 
 def test_sell_larger_than_known_position_fails_closed() -> None:
