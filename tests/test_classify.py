@@ -17,3 +17,9 @@ def test_crypto_updown_5m_from_slug() -> None:
 def test_crypto_threshold() -> None:
     result = classify_market(title="Will Bitcoin reach $100k this month?")
     assert result.family is MarketFamily.CRYPTO_PRICE_THRESHOLD
+
+
+def test_politics_is_not_labeled_long_dated_without_horizon_evidence() -> None:
+    result = classify_market(title="Will the president win the election?")
+    assert result.family is MarketFamily.UNKNOWN
+    assert "not explicit" in result.reason
