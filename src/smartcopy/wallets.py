@@ -19,7 +19,7 @@ from .models import (
 
 @dataclass(frozen=True, slots=True)
 class ResearchEligibilityPolicy:
-    min_closed_events: int = 20
+    min_closed_positions: int = 20
     min_markets: int = 10
     min_active_days: int = 3
     max_top1_positive_pnl_share: float = 0.50
@@ -55,7 +55,11 @@ class WalletIntelligenceEngine:
             watchlist_status=status,
             strategy_archetype=StrategyArchetype.UNKNOWN,
             strategy_confidence=0.0,
-            notes=notes + ("strategy archetype intentionally left UNKNOWN until Stage 2 intent reconstruction",),
+            notes=notes
+            + (
+                "closed-position rows are not independent intent episodes",
+                "strategy archetype intentionally left UNKNOWN until Stage 2 intent reconstruction",
+            ),
         )
 
     def _metrics(self, activities: tuple[WalletActivity, ...], closed_positions: tuple[ClosedPosition, ...]) -> WalletMetrics:
@@ -70,7 +74,7 @@ class WalletIntelligenceEngine:
         trade_usdc = [a.usdc_size for a in trade_activities if a.usdc_size > 0]
 
         p = self.policy
-        sample_score = min(1.0, len(closed_positions) / p.min_closed_events) if p.min_closed_events else 1.0
+        sample_score = min(1.0, len(closed_positions) / p.min_closed_positions) if p.min_closed_positions else 1.0
         diversity_score = min(1.0, len(markets) / p.min_markets) if p.min_markets else 1.0
         activity_score = min(1.0, active_days / p.min_active_days) if p.min_active_days else 1.0
         concentration_score = 0.0 if top1 is None else max(0.0, 1.0 - top1)
@@ -95,10 +99,10 @@ class WalletIntelligenceEngine:
             trade_count=len(trade_activities),
             market_count=len(markets),
             active_days=active_days,
-            closed_event_count=len(closed_positions),
-            positive_closed_events=len(positive),
-            negative_closed_events=len(negative),
-            max_drawdown=drawdown,
+            closed_position_count=len(closed_positions),
+            positive_closed_positions=len(positive),
+            negative_closed_positions=len(negative),
+            realized_pnl_drawdown_proxy=drawdown,
             top1_positive_pnl_share=top1,
             top5_positive_pnl_share=top5,
             effective_profitable_events=effective,
@@ -121,7 +125,7 @@ class WalletIntelligenceEngine:
             slices.append(
                 SkillSlice(
                     market_family=family,
-                    closed_event_count=len(positions),
+                    closed_position_count=len(positions),
                     market_count=len({p.condition_id for p in positions if p.condition_id}),
                     realized_pnl=sum(p.realized_pnl for p in positions),
                     positive_event_rate=(sum(p.realized_pnl > 0 for p in positions) / len(positions)) if positions else None,
@@ -129,13 +133,13 @@ class WalletIntelligenceEngine:
                     effective_profitable_events=effective,
                 )
             )
-        return tuple(sorted(slices, key=lambda s: (-s.closed_event_count, s.market_family.value)))
+        return tuple(sorted(slices, key=lambda s: (-s.closed_position_count, s.market_family.value)))
 
     def _status(self, metrics: WalletMetrics) -> tuple[WatchlistStatus, tuple[str, ...]]:
         p = self.policy
         deficiencies: list[str] = []
-        if metrics.closed_event_count < p.min_closed_events:
-            deficiencies.append(f"closed_event_count<{p.min_closed_events}")
+        if metrics.closed_position_count < p.min_closed_positions:
+            deficiencies.append(f"closed_position_count<{p.min_closed_positions}")
         if metrics.market_count < p.min_markets:
             deficiencies.append(f"market_count<{p.min_markets}")
         if metrics.active_days < p.min_active_days:
@@ -145,7 +149,7 @@ class WalletIntelligenceEngine:
         if p.require_positive_realized_pnl and metrics.realized_pnl <= 0:
             return WatchlistStatus.WATCH_ONLY, ("non-positive realized PnL in analyzed closed positions",)
         if metrics.top1_positive_pnl_share is None:
-            return WatchlistStatus.WATCH_ONLY, ("no positive closed-event PnL",)
+            return WatchlistStatus.WATCH_ONLY, ("no positive closed-position PnL",)
         if metrics.top1_positive_pnl_share > p.max_top1_positive_pnl_share:
             return WatchlistStatus.WATCH_ONLY, ("profit concentration above research-eligibility cap",)
         return WatchlistStatus.RESEARCH_ELIGIBLE, ()
