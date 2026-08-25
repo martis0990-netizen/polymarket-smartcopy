@@ -42,11 +42,11 @@ def classify_market(*, title: str | None, slug: str | None = None, event_slug: s
     if _CRYPTO.search(text) and _THRESHOLD.search(text):
         return MarketClassification(MarketFamily.CRYPTO_PRICE_THRESHOLD, 0.9, "crypto threshold language")
     if _ESPORTS.search(text):
-        return MarketClassification(MarketFamily.ESPORTS_MATCH_WINNER, 0.85, "esports title marker")
+        return MarketClassification(MarketFamily.UNKNOWN, 0.3, "esports detected but market type is not explicit")
     if _OVER_UNDER.search(text):
         return MarketClassification(MarketFamily.SPORTS_OVER_UNDER, 0.8, "over/under market language")
     if _FOOTBALL.search(text):
-        return MarketClassification(MarketFamily.FOOTBALL_MATCH_WINNER, 0.65, "football market marker")
+        return MarketClassification(MarketFamily.UNKNOWN, 0.3, "football detected but market type is not explicit")
     if _POLITICS.search(text):
-        return MarketClassification(MarketFamily.POLITICS_LONG_DATED, 0.6, "politics marker; horizon unverified")
+        return MarketClassification(MarketFamily.UNKNOWN, 0.3, "politics detected but horizon/market type is not explicit")
     return MarketClassification(MarketFamily.UNKNOWN, 0.0, "no supported deterministic rule matched")
