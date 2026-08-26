@@ -1,13 +1,15 @@
 from datetime import datetime, timedelta, timezone
 
+import pytest
+
 from smartcopy.intent import IntentClusteringPolicy, IntentReconstructor
-from smartcopy.models import IntentKind, WalletActivity
+from smartcopy.models import IntentKind, ObservationMode, WalletActivity
 
 
 BASE = datetime(2026, 8, 25, 12, 0, tzinfo=timezone.utc)
 
 
-def _trade(second: int, *, asset: str = "yes", outcome: str = "Yes", side: str = "BUY", size: float = 10, price: float = 0.4, observed_delay: float = 1.0) -> WalletActivity:
+def _trade(second: int, *, asset: str = "yes", outcome: str = "Yes", side: str = "BUY", size: float = 10, price: float = 0.4, observed_delay: float = 1.0, observation_mode: ObservationMode = ObservationMode.LIVE_OBSERVED) -> WalletActivity:
     source = BASE + timedelta(seconds=second)
     return WalletActivity(
         proxy_wallet="0xabc",
@@ -25,6 +27,7 @@ def _trade(second: int, *, asset: str = "yes", outcome: str = "Yes", side: str =
         slug="btc-updown-5m-123",
         event_slug=None,
         outcome=outcome,
+        observation_mode=observation_mode,
     )
 
 
@@ -38,6 +41,12 @@ def test_clusters_related_fills_and_seals_after_observation_gap() -> None:
     assert round(cluster.vwap_price or 0, 6) == round((10 * 0.4 + 20 * 0.5) / 30, 6)
     assert cluster.observed_end_time == BASE + timedelta(seconds=3)
     assert cluster.sealed_at == BASE + timedelta(seconds=8)
+
+
+def test_causal_clustering_rejects_historical_backfill() -> None:
+    reconstructor = IntentReconstructor()
+    with pytest.raises(ValueError, match="LIVE_OBSERVED"):
+        reconstructor.cluster([_trade(0, observation_mode=ObservationMode.BACKFILL)])
 
 
 def test_gap_larger_than_policy_creates_new_episode() -> None:
