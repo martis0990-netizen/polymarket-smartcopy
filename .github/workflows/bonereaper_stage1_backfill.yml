@@ -1,0 +1,143 @@
+name: Bonereaper Stage 1 Backfill
+
+on:
+  push:
+    branches:
+      - verify/bonereaper-stage1-backfill
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install SmartCopy
+        run: python -m pip install -e .
+
+      - name: Run frozen Bonereaper backfill
+        env:
+          OUT: ${{ runner.temp }}/bonereaper-stage1-2026-08-25
+        run: |
+          set -euo pipefail
+          python -m smartcopy.backfill \
+            --wallet 0xeebde7a0e019a63e6b476eb425505b7b3e6eba30 \
+            --start 1787616000 \
+            --end 1787702399 \
+            --output "$OUT"
+
+      - name: Verify immutable evidence independently
+        env:
+          OUT: ${{ runner.temp }}/bonereaper-stage1-2026-08-25
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime
+          from pathlib import Path
+
+          root = Path(os.environ["OUT"])
+          source = root / "activity_source_rows.jsonl"
+          normalized = root / "activity_normalized.jsonl"
+          manifest_path = root / "backfill_manifest.json"
+
+          for path in (source, normalized, manifest_path):
+              if not path.is_file() or path.stat().st_size <= 0:
+                  raise SystemExit(f"missing or empty artifact: {path}")
+
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          expected_wallet = "0xeebde7a0e019a63e6b476eb425505b7b3e6eba30"
+          expected_range = {"start": 1787616000, "end": 1787702399}
+          if manifest.get("wallet") != expected_wallet:
+              raise SystemExit(f"wallet mismatch: {manifest.get('wallet')}")
+          if manifest.get("range") != expected_range:
+              raise SystemExit(f"range mismatch: {manifest.get('range')}")
+          if manifest.get("completeness") != "PROVEN_WITHIN_REQUESTED_RANGE":
+              raise SystemExit(f"completeness not proven: {manifest.get('completeness')}")
+          if manifest.get("observation_mode") != "backfill":
+              raise SystemExit(f"wrong observation mode: {manifest.get('observation_mode')}")
+          row_count = int(manifest.get("row_count", -1))
+          if row_count <= 0:
+              raise SystemExit(f"expected non-empty candidate history, row_count={row_count}")
+
+          source_lines = source.read_text(encoding="utf-8").splitlines()
+          normalized_lines = normalized.read_text(encoding="utf-8").splitlines()
+          if len(source_lines) != row_count or len(normalized_lines) != row_count:
+              raise SystemExit(
+                  f"line-count mismatch source={len(source_lines)} normalized={len(normalized_lines)} manifest={row_count}"
+              )
+
+          times = []
+          condition_ids = set()
+          assets = set()
+          event_slugs = set()
+          for line in normalized_lines:
+              row = json.loads(line)
+              if row.get("observation_mode") != "backfill":
+                  raise SystemExit("normalized row is not BACKFILL evidence")
+              source_time = datetime.fromisoformat(row["source_event_time"].replace("Z", "+00:00"))
+              observed_time = datetime.fromisoformat(row["first_observed_time"].replace("Z", "+00:00"))
+              if observed_time < source_time:
+                  raise SystemExit("first_observed_time precedes source_event_time")
+              times.append(source_time)
+              if row.get("condition_id"):
+                  condition_ids.add(row["condition_id"])
+              if row.get("asset"):
+                  assets.add(row["asset"])
+              if row.get("event_slug"):
+                  event_slugs.add(row["event_slug"])
+
+          if times != sorted(times):
+              raise SystemExit("normalized activity is not source-time sorted")
+
+          first = times[0].isoformat().replace("+00:00", "Z")
+          last = times[-1].isoformat().replace("+00:00", "Z")
+          if manifest.get("first_source_event_time") != first:
+              raise SystemExit("manifest first_source_event_time mismatch")
+          if manifest.get("last_source_event_time") != last:
+              raise SystemExit("manifest last_source_event_time mismatch")
+
+          manifest_artifacts = {item["path"]: item for item in manifest.get("artifacts", [])}
+          artifact_summary = {}
+          for path in (source, normalized):
+              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              record = manifest_artifacts.get(path.name)
+              if record is None:
+                  raise SystemExit(f"manifest missing artifact record: {path.name}")
+              if int(record.get("bytes", -1)) != path.stat().st_size:
+                  raise SystemExit(f"artifact bytes mismatch: {path.name}")
+              if record.get("sha256") != digest:
+                  raise SystemExit(f"artifact sha256 mismatch: {path.name}")
+              artifact_summary[path.name] = {
+                  "bytes": path.stat().st_size,
+                  "sha256": digest,
+              }
+
+          summary = {
+              "verdict": "BONEREAPER_STAGE1_BACKFILL_PASS",
+              "wallet": expected_wallet,
+              "range": expected_range,
+              "row_count": row_count,
+              "first_source_event_time": first,
+              "last_source_event_time": last,
+              "distinct_condition_ids": len(condition_ids),
+              "distinct_assets": len(assets),
+              "distinct_event_slugs": len(event_slugs),
+              "artifacts": artifact_summary,
+          }
+          print(json.dumps(summary, sort_keys=True, indent=2))
+          PY
+
+      - name: Upload frozen evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-stage1-backfill-2026-08-25
+          path: ${{ runner.temp }}/bonereaper-stage1-2026-08-25
+          if-no-files-found: error
+          retention-days: 30
