@@ -63,9 +63,28 @@ A market is `SIMPLE_SETTLEMENT_ELIGIBLE` only when:
 - it has at least one REDEEM row in the combined settlement evidence;
 - it has zero SPLIT rows in the combined settlement evidence;
 - it has zero MERGE rows in the combined settlement evidence;
-- Stage 2H BUY-leg cost fields needed below are present.
+- Stage 2H BUY-leg cost fields needed below are present;
+- the last Stage 2H BUY source timestamp is not later than the first REDEEM source timestamp;
+- its aggregate redemption payout passes the frozen binary-settlement completeness check below.
 
-Any transformed or unresolved market is excluded from simple decomposition and reported separately. Exclusion is not failure.
+Any transformed, unresolved, or incomplete-redemption market is excluded from simple decomposition and reported separately. Exclusion is not failure.
+
+### Frozen binary-settlement completeness check
+
+Set `settlement_tolerance = 0.0001` USDC/tokens.
+
+For a simple binary market let:
+
+- `matched_size = min(up_size, down_size)`
+- `excess_size = abs(up_size - down_size)`
+- `redeem_inflow = sum(REDEEM.usdcSize)`
+
+A fully observed binary settlement should have aggregate payout approximately equal to one of exactly two accounting states:
+
+- `matched_size` — the excess leg lost; or
+- `matched_size + excess_size` — the excess leg won.
+
+The market passes only if `redeem_inflow` is within `settlement_tolerance` of either state. Otherwise it is `INCOMPLETE_OR_INCONSISTENT_REDEMPTION` and is excluded rather than treating the unexplained amount as directional profit.
 
 ## Frozen per-market formulas
 
@@ -112,6 +131,7 @@ Report:
 - combined redeem coverage
 - simple-settlement eligible count/share
 - excluded SPLIT/MERGE count
+- incomplete/inconsistent redemption count
 - unresolved-after-grace count
 - eligible BUY outflow total
 - eligible REDEEM inflow total
@@ -123,6 +143,7 @@ Report:
 - count/share where excess directional cashflow > 0
 - median matched pair cashflow per market
 - median excess directional cashflow per market
+- excess-leg-won count/share from the two-state settlement check
 - unallocated REWARD activity amount
 - unallocated MAKER_REBATE activity amount
 - unallocated TAKER_REBATE activity amount
@@ -133,8 +154,8 @@ No threshold sweep is allowed. Positivity (`>0`) is an accounting sign, not an o
 
 Exactly one:
 
-- `SETTLEMENT_DECOMPOSITION_RECONCILED` — grace retrieval is complete and eligible markets reconcile within numerical tolerance.
-- `SETTLEMENT_DECOMPOSITION_PARTIAL` — retrieval is complete but unresolved/transformed markets prevent full target coverage; eligible subset still reconciles.
+- `SETTLEMENT_DECOMPOSITION_RECONCILED` — grace retrieval is complete and all non-transformed, resolved target markets pass the frozen settlement/reconciliation checks.
+- `SETTLEMENT_DECOMPOSITION_PARTIAL` — retrieval is complete but unresolved/transformed/incomplete-redemption markets prevent full target coverage; eligible subset still reconciles.
 - `DATA_INSUFFICIENT` — API completeness, frozen input identity, or accounting reconciliation cannot be proven.
 
 A PARTIAL verdict may still be useful. It must not be upgraded by extending the frozen grace window.
