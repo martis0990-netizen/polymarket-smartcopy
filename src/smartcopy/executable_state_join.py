@@ -22,6 +22,7 @@ _SCHEMA = "smartcopy-executable-state-join-v1"
 _OUTPUT = "executable_state_join.jsonl"
 _MANIFEST = "join_manifest.json"
 _ELIGIBLE_EVENT_TYPES = {"market_snapshot", "book_delta"}
+_HEX = frozenset("0123456789abcdef")
 
 
 class JoinDataError(ValueError):
@@ -99,8 +100,18 @@ def run_join(
     wallet_activity_path: str | Path,
     market_events_path: str | Path,
     output_dir: str | Path,
+    expected_wallet_sha256: str | None = None,
+    expected_market_sha256: str | None = None,
 ) -> dict[str, Any]:
-    """Join Stage 3A observations to the first evidenced post-observation PM BBO state."""
+    """Join Stage 3A observations to the first evidenced post-observation PM BBO state.
+
+    Optional expected hashes bind a real run to preselected immutable inputs.  Hashes are
+    checked during the same reads already required by the join, so a multi-gigabyte market
+    log is not scanned twice merely to establish evidence identity.
+    """
+
+    expected_wallet = _expected_sha256(expected_wallet_sha256, "expected wallet SHA256")
+    expected_market = _expected_sha256(expected_market_sha256, "expected market SHA256")
 
     wallet_path = Path(wallet_activity_path)
     market_path = Path(market_events_path)
@@ -113,7 +124,18 @@ def run_join(
             raise FileExistsError(f"refusing to overwrite Stage 3B artifact: {path}")
 
     observations, wallet_sha = _load_wallet_observations(wallet_path)
+    if expected_wallet is not None and wallet_sha != expected_wallet:
+        raise JoinDataError(
+            "wallet activity SHA256 mismatch: "
+            f"expected {expected_wallet}, observed {wallet_sha}"
+        )
+
     joins, market_sha, market_lines = _scan_market_events(market_path, observations)
+    if expected_market is not None and market_sha != expected_market:
+        raise JoinDataError(
+            "market events SHA256 mismatch: "
+            f"expected {expected_market}, observed {market_sha}"
+        )
 
     output_digest = hashlib.sha256()
     with output_path.open("xb") as handle:
@@ -143,11 +165,13 @@ def run_join(
                 "path": str(wallet_path),
                 "bytes": wallet_path.stat().st_size,
                 "sha256": wallet_sha,
+                "expected_sha256": expected_wallet,
             },
             "market_events": {
                 "path": str(market_path),
                 "bytes": market_path.stat().st_size,
                 "sha256": market_sha,
+                "expected_sha256": expected_market,
                 "line_count": market_lines,
             },
         },
@@ -407,6 +431,17 @@ def _optional_positive(value: object, label: str) -> float | None:
     return parsed if parsed > 0 else None
 
 
+def _expected_sha256(value: str | None, label: str) -> str | None:
+    if value is None:
+        return None
+    if not isinstance(value, str) or value != value.strip():
+        raise JoinDataError(f"{label} must be a whitespace-normalized 64-character hex digest")
+    normalized = value.lower()
+    if len(normalized) != 64 or any(character not in _HEX for character in normalized):
+        raise JoinDataError(f"{label} must be a 64-character hex digest")
+    return normalized
+
+
 def _summary(values: Iterable[float]) -> dict[str, float | int | None]:
     ordered = sorted(float(value) for value in values)
     return {
@@ -455,11 +490,15 @@ def main() -> None:
     parser.add_argument("--wallet-activity", required=True)
     parser.add_argument("--market-events", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--expected-wallet-sha256")
+    parser.add_argument("--expected-market-sha256")
     args = parser.parse_args()
     manifest = run_join(
         wallet_activity_path=args.wallet_activity,
         market_events_path=args.market_events,
         output_dir=args.output,
+        expected_wallet_sha256=args.expected_wallet_sha256,
+        expected_market_sha256=args.expected_market_sha256,
     )
     print(json.dumps(manifest, sort_keys=True, indent=2))
 
