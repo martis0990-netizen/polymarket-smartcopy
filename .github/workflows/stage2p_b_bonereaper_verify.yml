@@ -1,0 +1,99 @@
+name: Stage 2P-B Bonereaper Verify
+
+on:
+  push:
+    branches:
+      - verify/stage2p-b-bonereaper
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SmartCopy
+        run: python -m pip install -e .
+
+      - name: Download frozen Stage 2H and Stage 2P-A evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p stage2h stage2pa
+          gh run download 32957297806 \
+            --repo martis0990-netizen/polymarket-smartcopy \
+            --name bonereaper-stage2h-paired-leg-2026-08-25 \
+            --dir stage2h
+          gh run download 32957988581 \
+            --repo martis0990-netizen/polymarket-smartcopy \
+            --name bonereaper-stage2p-a-2026-08-25 \
+            --dir stage2pa
+          test "$(sha256sum stage2h/stage2h_paired_markets.jsonl | cut -d' ' -f1)" = "90bd0ebaad300545f2f9aab2ef713ac40d33eb26ec3da42bd6dc0fbe8669d0f7"
+          test "$(sha256sum stage2pa/stage2p_activity_normalized.jsonl | cut -d' ' -f1)" = "6e34113cd17665caa7d333ab35cb49b9beb989ba5c18f5054d438bcc4ce2c10b"
+
+      - name: Run frozen Stage 2P-B settlement decomposition
+        run: |
+          set -euo pipefail
+          python -m smartcopy.settlement \
+            --stage2h-markets stage2h/stage2h_paired_markets.jsonl \
+            --stage2p-a-activity stage2pa/stage2p_activity_normalized.jsonl \
+            --output stage2pb
+
+      - name: Independently verify Stage 2P-B accounting
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          summary = json.loads(Path('stage2pb/stage2p_b_summary.json').read_text())
+          rows = [json.loads(line) for line in Path('stage2pb/stage2p_b_markets.jsonl').read_text().splitlines() if line]
+          grace = [json.loads(line) for line in Path('stage2pb/stage2p_b_grace_normalized.jsonl').read_text().splitlines() if line]
+
+          assert summary['schema_version'] == 'smartcopy-stage2p-b-settlement-decomposition-v1'
+          assert summary['interpretation'] == 'HISTORICAL_GROSS_SETTLEMENT_ACCOUNTING_NOT_NET_PNL'
+          assert summary['settlement_tolerance'] == 0.0001
+          assert summary['target_market_count'] == 763 == len(rows)
+          assert summary['grace']['start'] == 1787702400
+          assert summary['grace']['end'] == 1787875199
+          assert summary['grace']['types'] == ['REDEEM', 'SPLIT', 'MERGE']
+          assert all(row['observation_mode'] == 'backfill' for row in grace)
+          assert all(row['activity_type'] in {'REDEEM', 'SPLIT', 'MERGE'} for row in grace)
+
+          counts = Counter(row['status'] for row in rows)
+          assert summary['status_counts'] == dict(sorted(counts.items()))
+          eligible = [row for row in rows if row['status'] == 'SIMPLE_SETTLEMENT_ELIGIBLE']
+          assert summary['simple_settlement_eligible_count'] == len(eligible)
+          assert summary['transformed_excluded_count'] == counts['TRANSFORMED_EXCLUDED']
+          assert summary['incomplete_inconsistent_redemption_count'] == counts['INCOMPLETE_OR_INCONSISTENT_REDEMPTION']
+          assert summary['unresolved_after_grace_count'] == counts['UNRESOLVED_IN_FROZEN_EVIDENCE']
+
+          gross = sum(row['gross_settlement_cashflow'] for row in eligible)
+          paired = sum(row['matched_pair_cashflow'] for row in eligible)
+          excess = sum(row['excess_directional_cashflow'] for row in eligible)
+          assert abs(summary['eligible_gross_settlement_cashflow_total'] - gross) < 1e-8
+          assert abs(summary['matched_pair_cashflow_total'] - paired) < 1e-8
+          assert abs(summary['excess_directional_cashflow_total'] - excess) < 1e-8
+          assert abs(gross - (paired + excess)) <= summary['absolute_reconciliation_error_total'] + 1e-8
+          assert summary['max_per_market_reconciliation_error'] <= 0.0001
+          assert summary['verdict'] in {
+              'SETTLEMENT_DECOMPOSITION_RECONCILED',
+              'SETTLEMENT_DECOMPOSITION_PARTIAL',
+              'DATA_INSUFFICIENT',
+          }
+          print(json.dumps(summary, sort_keys=True, indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-stage2p-b-settlement-2026-08-25
+          path: stage2pb
+          if-no-files-found: error
+          retention-days: 30
