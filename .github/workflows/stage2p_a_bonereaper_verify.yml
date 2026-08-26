@@ -1,0 +1,110 @@
+name: Stage 2P-A Bonereaper Verify
+
+on:
+  push:
+    branches:
+      - verify/stage2p-a-bonereaper
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install SmartCopy
+        run: python -m pip install -e .
+
+      - name: Download frozen Stage 2H markets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p stage2h
+          gh run download 32957297806 \
+            --repo martis0990-netizen/polymarket-smartcopy \
+            --name bonereaper-stage2h-paired-leg-2026-08-25 \
+            --dir stage2h
+          sha256sum stage2h/stage2h_paired_markets.jsonl
+
+      - name: Run frozen Stage 2P-A public activity sufficiency
+        run: |
+          set -euo pipefail
+          python -m smartcopy.profit_sources \
+            --target-markets stage2h/stage2h_paired_markets.jsonl \
+            --output stage2p
+
+      - name: Independently verify Stage 2P-A artifacts
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          allowed = ["REDEEM", "REWARD", "MAKER_REBATE", "TAKER_REBATE", "SPLIT", "MERGE"]
+          target_markets = Path("stage2h/stage2h_paired_markets.jsonl")
+          raw_path = Path("stage2p/stage2p_activity_raw.jsonl")
+          normalized_path = Path("stage2p/stage2p_activity_normalized.jsonl")
+          summary_path = Path("stage2p/stage2p_summary.json")
+
+          assert hashlib.sha256(target_markets.read_bytes()).hexdigest() == "90bd0ebaad300545f2f9aab2ef713ac40d33eb26ec3da42bd6dc0fbe8669d0f7"
+          target_ids = {json.loads(line)["condition_id"] for line in target_markets.read_text().splitlines() if line}
+          assert len(target_ids) == 763
+
+          summary = json.loads(summary_path.read_text())
+          rows = [json.loads(line) for line in normalized_path.read_text().splitlines() if line]
+          raw_rows = [json.loads(line) for line in raw_path.read_text().splitlines() if line]
+          assert len(rows) == len(raw_rows) == summary["total_requested_type_rows"]
+          assert summary["schema_version"] == "smartcopy-stage2p-a-profit-source-sufficiency-v1"
+          assert summary["requested_types"] == allowed
+          assert summary["observation_mode"] == "backfill"
+          assert summary["completeness"] == "PROVEN_WITHIN_REQUESTED_RANGE"
+          assert summary["interpretation"] == "DATA_SUFFICIENCY_ONLY_NOT_PNL"
+          assert summary["target_stage2h"]["market_count"] == 763
+          assert summary["target_stage2h"]["artifact_sha256"] == "90bd0ebaad300545f2f9aab2ef713ac40d33eb26ec3da42bd6dc0fbe8669d0f7"
+          assert summary["verdict"] == ("PUBLIC_PROFIT_SOURCE_ACTIVITY_PRESENT" if rows else "PUBLIC_PROFIT_SOURCE_ACTIVITY_EMPTY")
+
+          counts = Counter()
+          usdc = defaultdict(float)
+          size = defaultdict(float)
+          overlap = Counter()
+          redeem_target_conditions = set()
+          for row in rows:
+              kind = row["activity_type"]
+              assert kind in allowed
+              assert row["observation_mode"] == "backfill"
+              assert row["proxy_wallet"] == "0xeebde7a0e019a63e6b476eb425505b7b3e6eba30"
+              counts[kind] += 1
+              usdc[kind] += float(row["usdc_size"])
+              size[kind] += float(row["size"])
+              if row["condition_id"] in target_ids:
+                  overlap[kind] += 1
+                  if kind == "REDEEM":
+                      redeem_target_conditions.add(row["condition_id"])
+
+          for kind in allowed:
+              got = summary["by_type"][kind]
+              assert got["row_count"] == counts[kind]
+              assert abs(got["usdc_size_total"] - usdc[kind]) < 1e-9
+              assert abs(got["size_total"] - size[kind]) < 1e-9
+              assert got["target_condition_row_count"] == overlap[kind]
+          assert summary["target_conditions_with_redeem"] == len(redeem_target_conditions)
+          assert summary["target_condition_overlap_rows"] == sum(overlap.values())
+          print(json.dumps(summary, sort_keys=True, indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-stage2p-a-2026-08-25
+          path: stage2p
+          if-no-files-found: error
+          retention-days: 30
