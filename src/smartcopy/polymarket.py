@@ -7,7 +7,13 @@ from typing import Any, Callable, Iterable
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-from .models import ClosedPosition, LeaderboardEntry, WalletActivity, utc_from_unix
+from .models import (
+    ClosedPosition,
+    LeaderboardEntry,
+    ObservationMode,
+    WalletActivity,
+    utc_from_unix,
+)
 
 
 class PolymarketAPIError(RuntimeError):
@@ -41,6 +47,11 @@ class PolymarketDataAPI:
     transport: Transport = _default_transport
     clock: Clock = _default_clock
     user_agent: str = "polymarket-smartcopy/0.1"
+    activity_offset_cap: int = 10_000
+
+    def __post_init__(self) -> None:
+        if self.activity_offset_cap < 0:
+            raise ValueError("activity_offset_cap must be non-negative")
 
     def _get(self, path: str, params: dict[str, Any]) -> Any:
         clean = {k: str(v).lower() if isinstance(v, bool) else str(v) for k, v in params.items() if v is not None}
@@ -89,9 +100,16 @@ class PolymarketDataAPI:
         offset: int = 0,
         activity_type: str | None = "TRADE",
         sort_direction: str = "DESC",
+        start: int | None = None,
+        end: int | None = None,
+        observation_mode: ObservationMode = ObservationMode.BACKFILL,
     ) -> tuple[WalletActivity, ...]:
         if not 0 <= limit <= 500:
             raise ValueError("activity limit must be 0..500")
+        if offset < 0 or offset > self.activity_offset_cap:
+            raise ValueError(f"activity offset must be 0..{self.activity_offset_cap}")
+        _validate_timestamp_window(start, end)
+        observation_mode = ObservationMode(observation_mode)
         rows = self._get(
             "/activity",
             {
@@ -101,6 +119,8 @@ class PolymarketDataAPI:
                 "type": activity_type,
                 "sortBy": "TIMESTAMP",
                 "sortDirection": sort_direction,
+                "start": start,
+                "end": end,
             },
         )
         observed = self.clock()
@@ -126,6 +146,7 @@ class PolymarketDataAPI:
                     slug=_to_optional_str(row.get("slug")),
                     event_slug=_to_optional_str(row.get("eventSlug")),
                     outcome=_to_optional_str(row.get("outcome")),
+                    observation_mode=observation_mode,
                     raw=dict(row),
                 )
             )
@@ -170,16 +191,95 @@ class PolymarketDataAPI:
             for row in rows
         )
 
-    def collect_activity(self, user: str, *, max_pages: int = 20) -> tuple[WalletActivity, ...]:
+    def collect_activity(self, user: str, *, max_pages: int = 21) -> tuple[WalletActivity, ...]:
+        """Collect the offset-addressable activity prefix, failing closed if incomplete.
+
+        High-frequency wallets can exceed the Activity API's offset budget. Call
+        ``collect_activity_range`` when a complete historical interval is required.
+        """
+
         return tuple(
             self._paginate(
                 lambda offset: self.activity_page(user, limit=500, offset=offset),
                 page_size=500,
                 max_pages=max_pages,
-                max_offset=10_000,
+                max_offset=self.activity_offset_cap,
                 resource="activity",
             )
         )
+
+    def collect_activity_range(
+        self,
+        user: str,
+        *,
+        start: int,
+        end: int,
+        page_size: int = 500,
+        max_split_depth: int = 24,
+    ) -> tuple[WalletActivity, ...]:
+        """Collect a provably complete historical activity interval.
+
+        Each timestamp window consumes its own offset budget. If a window still fills the
+        final addressable page, it is bisected deterministically and retried. Inclusive
+        integer-second windows are split as ``[start, midpoint]`` and
+        ``[midpoint + 1, end]`` so no second is duplicated or omitted. A single second that
+        still exceeds the API capacity fails closed rather than silently dropping rows.
+
+        Returned rows are explicitly ``BACKFILL`` evidence. Their ``first_observed_time``
+        is ingestion provenance and must not be used as historical live-observation latency.
+        """
+
+        _validate_timestamp_window(start, end)
+        if start is None or end is None:  # defensive for type checkers/runtime callers
+            raise ValueError("activity range requires start and end")
+        if not 1 <= page_size <= 500:
+            raise ValueError("activity range page_size must be 1..500")
+        if max_split_depth < 0:
+            raise ValueError("max_split_depth must be non-negative")
+
+        max_pages = self.activity_offset_cap // page_size + 1
+
+        def collect_window(window_start: int, window_end: int, depth: int) -> tuple[WalletActivity, ...]:
+            resource = f"activity[{window_start},{window_end}]"
+            try:
+                return tuple(
+                    self._paginate(
+                        lambda offset: self.activity_page(
+                            user,
+                            limit=page_size,
+                            offset=offset,
+                            sort_direction="ASC",
+                            start=window_start,
+                            end=window_end,
+                            observation_mode=ObservationMode.BACKFILL,
+                        ),
+                        page_size=page_size,
+                        max_pages=max_pages,
+                        max_offset=self.activity_offset_cap,
+                        resource=resource,
+                    )
+                )
+            except PaginationTruncatedError as exc:
+                if window_start == window_end:
+                    raise PaginationTruncatedError(
+                        f"activity single-second window {window_start} exceeds API pagination capacity; "
+                        "completeness cannot be proven"
+                    ) from exc
+                if depth >= max_split_depth:
+                    raise PaginationTruncatedError(
+                        f"activity window [{window_start},{window_end}] remained too dense at "
+                        f"max_split_depth={max_split_depth}; completeness cannot be proven"
+                    ) from exc
+                midpoint = (window_start + window_end) // 2
+                return collect_window(window_start, midpoint, depth + 1) + collect_window(
+                    midpoint + 1, window_end, depth + 1
+                )
+
+        collected = collect_window(start, end, 0)
+        unique: dict[tuple[Any, ...], WalletActivity] = {}
+        for item in collected:
+            unique.setdefault(_activity_identity(item), item)
+        return tuple(sorted(unique.values(), key=_activity_sort_key))
 
     def collect_closed_positions(self, user: str, *, max_pages: int = 200) -> tuple[ClosedPosition, ...]:
         return tuple(
@@ -220,6 +320,51 @@ class PolymarketDataAPI:
                 f"{resource} history reached configured max_pages={max_pages} with a full final page; "
                 "refusing to treat the sample as complete"
             )
+
+
+def _validate_timestamp_window(start: int | None, end: int | None) -> None:
+    for field, value in (("start", start), ("end", end)):
+        if value is None:
+            continue
+        if isinstance(value, bool) or not isinstance(value, int):
+            raise ValueError(f"activity {field} must be an integer Unix second")
+        if value < 0:
+            raise ValueError(f"activity {field} must be non-negative")
+    if start is not None and end is not None and start > end:
+        raise ValueError("activity start must be <= end")
+
+
+def _activity_identity(item: WalletActivity) -> tuple[Any, ...]:
+    """Immutable source identity used only to collapse exact duplicate API rows."""
+
+    return (
+        item.proxy_wallet,
+        item.source_event_time,
+        item.condition_id,
+        item.activity_type,
+        item.side,
+        item.size,
+        item.usdc_size,
+        item.price,
+        item.asset,
+        item.transaction_hash,
+        item.outcome,
+    )
+
+
+def _activity_sort_key(item: WalletActivity) -> tuple[Any, ...]:
+    return (
+        item.source_event_time,
+        item.transaction_hash or "",
+        item.condition_id,
+        item.asset or "",
+        item.activity_type,
+        item.side or "",
+        item.outcome or "",
+        item.price if item.price is not None else -1.0,
+        item.size,
+        item.usdc_size,
+    )
 
 
 def _to_optional_str(value: Any) -> str | None:
