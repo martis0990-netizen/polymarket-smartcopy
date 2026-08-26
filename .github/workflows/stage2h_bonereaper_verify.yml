@@ -1,0 +1,86 @@
+name: Stage 2H Bonereaper Verify
+
+on:
+  push:
+    branches:
+      - verify/stage2h-bonereaper
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install SmartCopy
+        run: python -m pip install -e .
+
+      - name: Download frozen Stage 1 evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          gh run download 32954440207 \
+            --repo martis0990-netizen/polymarket-smartcopy \
+            --name bonereaper-stage1-backfill-2026-08-25-r2 \
+            --dir evidence
+          sha256sum evidence/activity_normalized.jsonl
+
+      - name: Run frozen Stage 2H decomposition
+        run: |
+          set -euo pipefail
+          python -m smartcopy.historical \
+            --activity evidence/activity_normalized.jsonl \
+            --output stage2h
+
+      - name: Independently verify frozen Stage 2H summary
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+
+          summary = json.loads(Path('stage2h/stage2h_summary.json').read_text())
+          assert summary['schema_version'] == 'smartcopy-stage2h-paired-leg-v1'
+          assert summary['claims'] == 'SOURCE_TIME_DESCRIPTIVE_ONLY'
+          assert summary['wallet'] == '0xeebde7a0e019a63e6b476eb425505b7b3e6eba30'
+          assert summary['input']['sha256'] == '5fd68d01a6768818303f288c9a61285c3ebc848f90566e2c05380c1bd895b5b4'
+          assert summary['included_market_count'] == 763
+          assert summary['excluded_ambiguous_market_count'] == 0
+          assert summary['markets_with_both_buy_legs'] == 752
+          assert summary['markets_with_one_buy_leg_only'] == 11
+          assert summary['buy_row_count'] == 51343
+          assert summary['sell_row_count'] == 0
+          assert summary['pair_vwap_sum_lt_1_count'] == 314
+          assert summary['pair_vwap_sum_le_099_count'] == 301
+          assert summary['up_first_count'] == 314
+          assert summary['down_first_count'] == 425
+          assert summary['same_second_count'] == 13
+          assert math.isclose(summary['matched_token_size_total'], 403231.496236, rel_tol=0, abs_tol=1e-6)
+          assert math.isclose(summary['excess_up_token_size_total'], 165427.825371, rel_tol=0, abs_tol=1e-6)
+          assert math.isclose(summary['excess_down_token_size_total'], 217350.38655, rel_tol=0, abs_tol=1e-6)
+          assert math.isclose(summary['median_paired_fraction'], 0.7006041082691586, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(summary['median_pair_vwap_sum'], 1.0350075444403917, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(summary['mean_pair_vwap_sum'], 1.0470033875232772, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(summary['median_first_leg_gap_seconds'], 27.0, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(summary['p25_first_leg_gap_seconds'], 14.0, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(summary['p75_first_leg_gap_seconds'], 45.25, rel_tol=0, abs_tol=1e-12)
+          market_lines = Path('stage2h/stage2h_paired_markets.jsonl').read_text().splitlines()
+          assert len(market_lines) == 763
+          print(json.dumps(summary, sort_keys=True, indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-stage2h-paired-leg-2026-08-25
+          path: stage2h
+          if-no-files-found: error
+          retention-days: 30
