@@ -44,6 +44,19 @@ class WatchlistStatus(StrEnum):
     INSUFFICIENT_SAMPLE = "insufficient_sample"
 
 
+class ObservationMode(StrEnum):
+    """How an activity row entered SmartCopy's evidence set.
+
+    ``BACKFILL`` means the row was fetched after the historical source event and its local
+    observation time is ingestion provenance only. ``LIVE_OBSERVED`` is reserved for a
+    prospective path where the row is first seen while monitoring and may later support
+    latency analysis.
+    """
+
+    BACKFILL = "backfill"
+    LIVE_OBSERVED = "live_observed"
+
+
 @dataclass(frozen=True, slots=True)
 class LeaderboardEntry:
     rank: int | None
@@ -72,6 +85,7 @@ class WalletActivity:
     slug: str | None
     event_slug: str | None
     outcome: str | None
+    observation_mode: ObservationMode = ObservationMode.BACKFILL
     raw: dict[str, Any] = field(default_factory=dict, compare=False, repr=False)
 
     def __post_init__(self) -> None:
