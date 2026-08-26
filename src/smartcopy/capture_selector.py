@@ -1,8 +1,8 @@
 """Select one finalized Polymarket capture for a frozen Stage 3B wallet artifact.
 
-The selector does not score captures.  It proves that exactly one finalized ``events.jsonl``
+The selector does not score captures. It proves that exactly one finalized ``events.jsonl``
 under a caller-supplied root spans the complete prospective wallet-observation interval and
-contains exact token-id overlap.  The selected file is hashed during the same streaming pass
+contains exact token-id overlap. The selected file is hashed during the same streaming pass
 used for inspection so its digest can be bound directly into ``executable_state_join``.
 """
 
@@ -41,6 +41,7 @@ class CaptureInspection:
     receive_max: datetime
     overlapping_tokens: tuple[str, ...]
     final_manifest_path: str
+    final_manifest_sha256: str
 
     def covers(self, wallet: WalletEvidence) -> bool:
         return (
@@ -88,10 +89,14 @@ def select_capture(
 ) -> CaptureSelection:
     """Return the unique finalized capture covering the frozen wallet evidence interval.
 
-    Only files named ``events.jsonl`` are inspected.  A candidate is eligible only when a
+    Only files named ``events.jsonl`` are inspected. A candidate is eligible only when a
     sibling final manifest exists, all Polymarket rows have valid receive timestamps, the
     file spans the entire wallet observation interval, and at least one exact token id is
-    shared with the wallet artifact.  Zero or multiple eligible captures fail closed.
+    shared with the wallet artifact. Zero or multiple eligible captures fail closed.
+
+    An ``events.jsonl`` without its final manifest is treated as an unfinished run and is
+    ignored. Once the final manifest exists, corruption in either file fails the selection
+    instead of silently removing a potentially eligible capture from the uniqueness proof.
     """
 
     root = Path(capture_root)
@@ -113,11 +118,11 @@ def select_capture(
         if not manifest_path.is_file():
             rejected.append({"path": str(path), "reason": "FINAL_MANIFEST_MISSING"})
             continue
+        manifest_sha = _validate_final_manifest(manifest_path)
         try:
-            inspected = _inspect_capture(path, wallet.token_ids, manifest_path)
+            inspected = _inspect_capture(path, wallet.token_ids, manifest_path, manifest_sha)
         except CaptureSelectionError as exc:
-            rejected.append({"path": str(path), "reason": f"INVALID_CAPTURE: {exc}"})
-            continue
+            raise CaptureSelectionError(f"invalid finalized capture {path}: {exc}") from exc
         if inspected.covers(wallet):
             eligible.append(inspected)
         else:
@@ -150,9 +155,8 @@ def write_selection(selection: CaptureSelection, output_path: str | Path) -> Non
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
         raise FileExistsError(f"refusing to overwrite capture selection artifact: {path}")
-    raw = _json_line(selection.as_json())
     with path.open("xb") as handle:
-        handle.write(raw)
+        handle.write(_json_line(selection.as_json()))
         handle.flush()
 
 
@@ -191,8 +195,24 @@ def _load_wallet_evidence(path: Path) -> WalletEvidence:
     )
 
 
+def _validate_final_manifest(path: Path) -> str:
+    raw = path.read_bytes()
+    if not raw.strip():
+        raise CaptureSelectionError(f"final manifest is empty: {path}")
+    try:
+        payload = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise CaptureSelectionError(f"final manifest is invalid JSON: {path}") from exc
+    if not isinstance(payload, dict):
+        raise CaptureSelectionError(f"final manifest must be a JSON object: {path}")
+    return hashlib.sha256(raw).hexdigest()
+
+
 def _inspect_capture(
-    path: Path, wallet_tokens: frozenset[str], manifest_path: Path
+    path: Path,
+    wallet_tokens: frozenset[str],
+    manifest_path: Path,
+    manifest_sha: str,
 ) -> CaptureInspection:
     digest = hashlib.sha256()
     line_count = 0
@@ -233,6 +253,7 @@ def _inspect_capture(
         receive_max=receive_max,
         overlapping_tokens=tuple(sorted(overlapping)),
         final_manifest_path=str(manifest_path),
+        final_manifest_sha256=manifest_sha,
     )
 
 
@@ -262,7 +283,13 @@ def _timestamp(value: object, label: str) -> datetime:
 
 def _json_line(payload: Any) -> bytes:
     return (
-        json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
+        json.dumps(
+            payload,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+            allow_nan=False,
+        )
         + "\n"
     ).encode("utf-8")
 
