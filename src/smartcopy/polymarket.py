@@ -47,7 +47,10 @@ class PolymarketDataAPI:
     transport: Transport = _default_transport
     clock: Clock = _default_clock
     user_agent: str = "polymarket-smartcopy/0.1"
-    activity_offset_cap: int = 10_000
+    # Runtime evidence on 2026-08-26: Data API returned HTTP 400 at offset=5500
+    # for /activity even though the docs advertised a larger bound. Use the highest
+    # empirically verified safe offset and split timestamp windows when it is exhausted.
+    activity_offset_cap: int = 5_000
 
     def __post_init__(self) -> None:
         if self.activity_offset_cap < 0:
@@ -191,7 +194,7 @@ class PolymarketDataAPI:
             for row in rows
         )
 
-    def collect_activity(self, user: str, *, max_pages: int = 21) -> tuple[WalletActivity, ...]:
+    def collect_activity(self, user: str, *, max_pages: int = 11) -> tuple[WalletActivity, ...]:
         """Collect the offset-addressable activity prefix, failing closed if incomplete.
 
         High-frequency wallets can exceed the Activity API's offset budget. Call
