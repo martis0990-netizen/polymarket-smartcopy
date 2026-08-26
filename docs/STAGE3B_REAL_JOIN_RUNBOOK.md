@@ -11,20 +11,13 @@ No live trading or COPY/WATCH/SKIP decision is authorized by this runbook.
 git fetch origin
 git checkout main
 git pull --ff-only
-```
-
-Record the commit before the run:
-
-```bash
 git rev-parse HEAD
 ```
 
-The first evidence-bound implementation is introduced after Stage 3B main SHA
-`2e5421b9c73159f494d0bef7257fd99a9ce89e32`.
+Stage 3B executable-state joining is already in `main`. The deterministic finalized-capture
+selector was merged as `2fa3bde4ccdca9916efe5d6ae9e0ac3b5b96c5e0`.
 
-## 2. Download the preserved Stage 3A artifact
-
-The reference artifact expires on 2026-09-25, so preserve a local copy before then.
+## 2. Preserve the Stage 3A wallet evidence
 
 ```bash
 mkdir -p /home/al/workspace/smartcopy-evidence/stage3a-2026-08-26
@@ -35,7 +28,15 @@ gh run download 32971365532 \
   -D /home/al/workspace/smartcopy-evidence/stage3a-2026-08-26
 ```
 
-Verify the file that Stage 3B actually consumes:
+The file consumed by Stage 3B is frozen to:
+
+```text
+live_activity.jsonl
+SHA256 e3a5318d9a54f87c3b044327a38387e853ef5bb3d1fb3d8ea35c70aed27db7fb
+77 LIVE_OBSERVED rows
+```
+
+Verify it:
 
 ```bash
 printf '%s  %s\n' \
@@ -46,32 +47,67 @@ printf '%s  %s\n' \
 
 Do not continue if this check fails.
 
-## 3. Select one immutable Polymarket capture artifact
+## 3. Wait for PM Capture v2 clean finalize
 
-Resolve the exact normalized TradingLab `events.jsonl` that overlaps the Stage 3A window:
+The first real confirmatory join must not read the currently growing 72-hour production file.
+The PM run is eligible only after its normal clean-finalize path writes its final sibling
+`PM_CAPTURE_V2_MANIFEST.json` and the TradingLab completion gate has verified the artifacts.
 
-- Stage 3A source/observation evidence spans approximately
-  `2026-08-26T12:57:10Z` through `2026-08-26T12:58:50.648699Z`.
-- The selected PM capture must contain real `receive_ts` and exact CLOB token ids.
-- Do not concatenate, edit, sort, trim, or rewrite the selected file for the confirmatory
-  run. If a derived slice is ever needed, it becomes a different explicitly hashed input.
+Do not copy, trim, concatenate, sort, or snapshot the active `events.jsonl` merely to run
+Stage 3B earlier. That would create a different evidence artifact.
 
-Set the path only after identifying the correct immutable artifact:
+## 4. Select the PM capture automatically
 
-```bash
-PM_EVENTS=/absolute/path/to/the/frozen/events.jsonl
-```
-
-Bind its identity:
+Point only to the capture root; do not choose `events.jsonl` manually.
 
 ```bash
-PM_SHA256=$(sha256sum "$PM_EVENTS" | awk '{print $1}')
-printf 'PM events SHA256: %s\n' "$PM_SHA256"
+CAPTURE_ROOT=/home/al/workspace/tradinglab-captures
+SELECTION=/home/al/workspace/smartcopy-evidence/stage3b-capture-selection.json
+rm -f "$SELECTION"
+
+python -m smartcopy.capture_selector \
+  --capture-root "$CAPTURE_ROOT" \
+  --wallet-activity /home/al/workspace/smartcopy-evidence/stage3a-2026-08-26/live_activity.jsonl \
+  --output "$SELECTION"
 ```
 
-Record that hash in the result note before interpreting any output.
+The selector accepts a capture only when all of the following are true:
 
-## 4. Run exactly one Stage 3B join
+- a sibling `PM_CAPTURE_V2_MANIFEST.json` exists and is valid JSON;
+- normalized Polymarket rows have real timezone-aware `receive_ts`;
+- the file covers the complete Stage 3A observation interval;
+- at least one exact CLOB token id overlaps the 77 wallet observations;
+- exactly one finalized capture satisfies those conditions.
+
+Zero matches, multiple matches, or corruption in a finalized candidate is a hard failure.
+An active run without its final manifest is reported as unfinished and cannot be selected.
+
+Extract the exact selected path and its already-computed SHA256 from the immutable selection
+artifact:
+
+```bash
+PM_EVENTS=$(python - <<'PY'
+import json
+from pathlib import Path
+p = json.loads(Path('/home/al/workspace/smartcopy-evidence/stage3b-capture-selection.json').read_text())
+print(p['selected']['path'])
+PY
+)
+
+PM_SHA256=$(python - <<'PY'
+import json
+from pathlib import Path
+p = json.loads(Path('/home/al/workspace/smartcopy-evidence/stage3b-capture-selection.json').read_text())
+print(p['selected']['sha256'])
+PY
+)
+
+printf 'PM_EVENTS=%s\nPM_SHA256=%s\n' "$PM_EVENTS" "$PM_SHA256"
+```
+
+Do not substitute another file after this point.
+
+## 5. Run exactly one Stage 3B join
 
 Use a fresh output directory. The joiner refuses overwrite.
 
@@ -90,9 +126,7 @@ python -m smartcopy.executable_state_join \
 Any SHA mismatch, receive-time regression, invalid LIVE_OBSERVED row, or corrupt JSONL is a
 hard failure. Do not remove the guard and rerun merely to obtain a result.
 
-## 5. Verification gate
-
-Before interpreting deterioration, independently verify:
+## 6. Independent verification gate
 
 ```bash
 python - <<'PY'
@@ -103,6 +137,7 @@ from pathlib import Path
 root = Path('/home/al/workspace/smartcopy-evidence/stage3b-first-real-join')
 manifest = json.loads((root / 'join_manifest.json').read_text())
 rows = [json.loads(line) for line in (root / 'executable_state_join.jsonl').read_text().splitlines()]
+selection = json.loads(Path('/home/al/workspace/smartcopy-evidence/stage3b-capture-selection.json').read_text())
 
 assert manifest['schema_version'] == 'smartcopy-executable-state-join-v1'
 assert manifest['wallet_rows'] == 77
@@ -111,6 +146,7 @@ assert manifest['inputs']['wallet_activity']['sha256'] == \
     'e3a5318d9a54f87c3b044327a38387e853ef5bb3d1fb3d8ea35c70aed27db7fb'
 assert manifest['inputs']['wallet_activity']['sha256'] == \
     manifest['inputs']['wallet_activity']['expected_sha256']
+assert manifest['inputs']['market_events']['sha256'] == selection['selected']['sha256']
 assert manifest['inputs']['market_events']['sha256'] == \
     manifest['inputs']['market_events']['expected_sha256']
 assert len(rows) == 77
@@ -122,16 +158,17 @@ print(json.dumps(manifest, indent=2, sort_keys=True))
 PY
 ```
 
-If this gate passes, preserve the entire output directory unchanged and record its hashes.
+If this gate passes, preserve the selection artifact and the entire Stage 3B output directory
+unchanged and record their hashes.
 
-## 6. What may be concluded
+## 7. What may be concluded
 
 The first real result may answer only:
 
 - how many of the 77 prospectively observed wallet rows can be exact-token joined to a
   post-observation executable PM side with evidenced size;
-- how long `first_observed_time → executable state` takes;
-- total `source_event_time → executable state` delay;
+- how long `first_observed_time -> executable state` takes;
+- total `source_event_time -> executable state` delay;
 - signed source-price deterioration by the time the state is available.
 
 Do **not** select a profitable deterioration threshold, infer causality, or promote rows to
