@@ -59,8 +59,10 @@ def allocate_inventory_pnl(
     markets: Iterable[MarketInventoryDecomposition],
     closed_positions: Iterable[ClosedPosition],
 ) -> tuple[InventoryPnlAllocation, ...]:
+    closed_records = tuple(closed_positions)
+    closed_condition_ids = {row.condition_id for row in closed_records if row.condition_id}
     closed: dict[tuple[str, str], list[ClosedPosition]] = {}
-    for row in closed_positions:
+    for row in closed_records:
         if row.condition_id and row.asset:
             closed.setdefault((row.condition_id, row.asset), []).append(row)
 
@@ -68,6 +70,12 @@ def allocate_inventory_pnl(
     for market in markets:
         if not market.valid_binary_pair or len(market.legs) != 2:
             continue
+        # The frozen output population is condition-level joined valid pairs. Activity
+        # markets with no same-day closed-position condition are coverage misses, not
+        # asset-level allocation failures.
+        if market.condition_id not in closed_condition_ids:
+            continue
+
         leg_data = []
         failure: str | None = None
         for leg in market.legs:
