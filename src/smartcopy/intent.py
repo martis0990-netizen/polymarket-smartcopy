@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from math import isclose
 
 from .classify import classify_market
-from .models import IntentKind, MarketFamily, WalletActivity
+from .models import IntentKind, MarketFamily, ObservationMode, WalletActivity
 
 
 @dataclass(frozen=True, slots=True)
@@ -74,7 +74,21 @@ class IntentReconstructor:
         self.policy = policy or IntentClusteringPolicy()
 
     def cluster(self, activities: tuple[WalletActivity, ...] | list[WalletActivity]) -> tuple[FillCluster, ...]:
+        """Cluster only prospectively observed fills.
+
+        Causal clustering depends on when SmartCopy could actually observe each fill.
+        Historical ``BACKFILL`` rows carry API-ingestion provenance rather than historical
+        live latency, so admitting them here would manufacture episode boundaries from
+        page-fetch timing. Historical research must use a separate source-time-only path
+        and must not claim causal observability from this method.
+        """
+
         trades = [a for a in activities if a.activity_type.upper() == "TRADE" and a.side is not None]
+        if any(a.observation_mode != ObservationMode.LIVE_OBSERVED for a in trades):
+            raise ValueError(
+                "causal intent clustering requires LIVE_OBSERVED activities; "
+                "BACKFILL is historical ingestion evidence"
+            )
         trades.sort(
             key=lambda a: (
                 a.proxy_wallet,
