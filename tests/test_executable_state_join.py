@@ -53,7 +53,7 @@ def _market(
     price: float | None = None,
     size: float | None = None,
 ) -> dict:
-    row = {
+    return {
         "venue": "polymarket",
         "event_type": event_type,
         "ts": ts,
@@ -68,7 +68,6 @@ def _market(
         "metrics": metrics or {},
         "raw": {},
     }
-    return row
 
 
 def _run(tmp_path: Path, wallets: list[dict], markets: list[dict]):
@@ -82,7 +81,10 @@ def _run(tmp_path: Path, wallets: list[dict], markets: list[dict]):
         market_events_path=market_path,
         output_dir=output,
     )
-    rows = [json.loads(line) for line in (output / "executable_state_join.jsonl").read_text().splitlines()]
+    rows = [
+        json.loads(line)
+        for line in (output / "executable_state_join.jsonl").read_text().splitlines()
+    ]
     return manifest, rows
 
 
@@ -182,6 +184,31 @@ def test_book_delta_can_supply_size_only_when_delta_price_is_current_bbo(tmp_pat
     assert rows[0]["market_line_number"] == 3
     assert rows[0]["executable_price"] == 0.49
     assert rows[0]["executable_size"] == 7.0
+
+
+def test_zero_size_book_removal_is_non_executable_not_corruption(tmp_path: Path) -> None:
+    _, rows = _run(
+        tmp_path,
+        [_wallet()],
+        [
+            _market(
+                event_type="book_delta",
+                receive="2026-08-26T12:00:03Z",
+                metrics={"best_ask_price": 0.48},
+                price=0.48,
+                size=0.0,
+            ),
+            _market(
+                event_type="book_delta",
+                receive="2026-08-26T12:00:04Z",
+                metrics={"best_ask_price": 0.49},
+                price=0.49,
+                size=2.0,
+            ),
+        ],
+    )
+    assert rows[0]["market_line_number"] == 2
+    assert rows[0]["executable_size"] == 2.0
 
 
 def test_missing_post_observation_liquidity_is_not_fabricated(tmp_path: Path) -> None:
