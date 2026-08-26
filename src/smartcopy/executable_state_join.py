@@ -396,7 +396,15 @@ def _positive(value: object, label: str) -> float:
 def _optional_positive(value: object, label: str) -> float | None:
     if value is None:
         return None
-    return _positive(value, label)
+    if isinstance(value, bool):
+        raise JoinDataError(f"{label} must be numeric, not boolean")
+    try:
+        parsed = float(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError) as exc:
+        raise JoinDataError(f"{label} must be numeric") from exc
+    if not math.isfinite(parsed) or parsed < 0:
+        raise JoinDataError(f"{label} must be finite and non-negative")
+    return parsed if parsed > 0 else None
 
 
 def _summary(values: Iterable[float]) -> dict[str, float | int | None]:
