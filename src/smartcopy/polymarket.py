@@ -47,9 +47,8 @@ class PolymarketDataAPI:
     transport: Transport = _default_transport
     clock: Clock = _default_clock
     user_agent: str = "polymarket-smartcopy/0.1"
-    # Runtime evidence on 2026-08-26: Data API returned HTTP 400 at offset=5500
-    # for /activity even though the docs advertised a larger bound. Use the highest
-    # empirically verified safe offset and split timestamp windows when it is exhausted.
+    # Runtime evidence on 2026-08-26 and current official docs both cap /activity at 5000.
+    # Split timestamp windows when that offset budget is exhausted.
     activity_offset_cap: int = 5_000
 
     def __post_init__(self) -> None:
@@ -195,11 +194,7 @@ class PolymarketDataAPI:
         )
 
     def collect_activity(self, user: str, *, max_pages: int = 11) -> tuple[WalletActivity, ...]:
-        """Collect the offset-addressable activity prefix, failing closed if incomplete.
-
-        High-frequency wallets can exceed the Activity API's offset budget. Call
-        ``collect_activity_range`` when a complete historical interval is required.
-        """
+        """Collect the offset-addressable TRADE prefix, failing closed if incomplete."""
 
         return tuple(
             self._paginate(
@@ -219,31 +214,34 @@ class PolymarketDataAPI:
         end: int,
         page_size: int = 500,
         max_split_depth: int = 24,
+        activity_type: str | None = "TRADE",
     ) -> tuple[WalletActivity, ...]:
         """Collect a provably complete historical activity interval.
 
-        Each timestamp window consumes its own offset budget. If a window still fills the
-        final addressable page, it is bisected deterministically and retried. Inclusive
-        integer-second windows are split as ``[start, midpoint]`` and
-        ``[midpoint + 1, end]`` so no second is duplicated or omitted. A single second that
-        still exceeds the API capacity fails closed rather than silently dropping rows.
+        ``activity_type`` is passed unchanged to Polymarket's comma-separated ``type``
+        filter. Each timestamp window consumes its own offset budget. Dense windows are
+        bisected deterministically as ``[start, midpoint]`` and ``[midpoint + 1, end]``.
+        A single second that still exceeds the API capacity fails closed.
 
         Returned rows are explicitly ``BACKFILL`` evidence. Their ``first_observed_time``
         is ingestion provenance and must not be used as historical live-observation latency.
         """
 
         _validate_timestamp_window(start, end)
-        if start is None or end is None:  # defensive for type checkers/runtime callers
+        if start is None or end is None:
             raise ValueError("activity range requires start and end")
         if not 1 <= page_size <= 500:
             raise ValueError("activity range page_size must be 1..500")
         if max_split_depth < 0:
             raise ValueError("max_split_depth must be non-negative")
+        if activity_type is not None and not activity_type.strip():
+            raise ValueError("activity_type must be non-empty or None")
 
         max_pages = self.activity_offset_cap // page_size + 1
+        resource_type = activity_type or "ALL"
 
         def collect_window(window_start: int, window_end: int, depth: int) -> tuple[WalletActivity, ...]:
-            resource = f"activity[{window_start},{window_end}]"
+            resource = f"activity[{resource_type}][{window_start},{window_end}]"
             try:
                 return tuple(
                     self._paginate(
@@ -251,6 +249,7 @@ class PolymarketDataAPI:
                             user,
                             limit=page_size,
                             offset=offset,
+                            activity_type=activity_type,
                             sort_direction="ASC",
                             start=window_start,
                             end=window_end,
