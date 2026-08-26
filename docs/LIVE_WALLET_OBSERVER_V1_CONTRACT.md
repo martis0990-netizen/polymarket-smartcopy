@@ -6,7 +6,7 @@ Status: FROZEN BEFORE FIRST PROSPECTIVE LIVE RUN
 
 Measure when SmartCopy can first observe public Bonereaper TRADE activity in real time, without placing orders or inferring copyability.
 
-This is the first prospective evidence stage. It exists to establish truthful `source_event_time -> first_observed_time` latency and completeness before any residual-edge backtest uses live wallet observations.
+This is the first prospective evidence stage. It exists to establish truthful `source_event_time -> first_observed_time` latency and bounded catch-up completeness within the public API snapshot before any residual-edge backtest uses live wallet observations.
 
 ## Frozen subject
 
@@ -46,6 +46,12 @@ A polling cycle starts at offset `0` and walks DESC pages only as far as needed 
 On the first polling cycle there is no previous watermark. It establishes a baseline snapshot and MUST NOT label pre-existing rows as newly live-observed signals. Baseline rows are used only to seed dedup/watermark state.
 
 From the second cycle onward, only previously unseen rows are emitted as prospective `LIVE_OBSERVED` evidence.
+
+### Public API visibility boundary
+
+The observer proves catch-up only across rows visible in the Data API pagination snapshots it actually receives. The public endpoint may index an older source event later. If such a row appears deeper than the prior watermark after the observer has already reached known evidence, v1 cannot prove it was never omitted by the API at an earlier poll.
+
+Therefore v1 evidence means **first observed through this public API observer**, not absolute first on-chain/public-system availability and not permanent historical completeness. A custom indexer or alternate source is not added until prospective measurements show this limitation is material.
 
 ## Identity / dedup
 
