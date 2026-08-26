@@ -92,10 +92,10 @@ def test_activity_rejects_source_timestamp_after_actual_observation() -> None:
         client.activity_page("0xabc")
 
 
-def test_activity_enforces_current_offset_cap() -> None:
+def test_activity_enforces_runtime_verified_offset_cap() -> None:
     client = PolymarketDataAPI(transport=lambda _url, _headers: [])
-    with pytest.raises(ValueError, match="0..10000"):
-        client.activity_page("0xabc", offset=10001)
+    with pytest.raises(ValueError, match="0..5000"):
+        client.activity_page("0xabc", offset=5001)
 
 
 def test_pagination_fails_closed_when_configured_cap_is_full() -> None:
