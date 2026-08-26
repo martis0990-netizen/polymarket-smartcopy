@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
+from math import isclose
 from statistics import median
 from typing import Iterable
 
@@ -138,16 +139,16 @@ def summarize_decomposition(
         paired_cost_p25=_quantile(costs, 0.25),
         paired_cost_p75=_quantile(costs, 0.75),
         paired_cost_p90=_quantile(costs, 0.90),
-        paired_cost_lt_1_share=_predicate_share(costs, lambda x: x < 1.0),
-        paired_cost_le_099_share=_predicate_share(costs, lambda x: x <= 0.99),
-        paired_cost_le_098_share=_predicate_share(costs, lambda x: x <= 0.98),
-        paired_cost_le_095_share=_predicate_share(costs, lambda x: x <= 0.95),
+        paired_cost_lt_1_share=_predicate_share(costs, lambda x: x < 1.0 and not isclose(x, 1.0, abs_tol=1e-12)),
+        paired_cost_le_099_share=_predicate_share(costs, lambda x: _leq(x, 0.99)),
+        paired_cost_le_098_share=_predicate_share(costs, lambda x: _leq(x, 0.98)),
+        paired_cost_le_095_share=_predicate_share(costs, lambda x: _leq(x, 0.95)),
         first_leg_gap_median_seconds=median(gaps) if gaps else None,
-        first_leg_gap_le_1s_share=_predicate_share(gaps, lambda x: x <= 1.0),
-        first_leg_gap_le_5s_share=_predicate_share(gaps, lambda x: x <= 5.0),
-        first_leg_gap_le_15s_share=_predicate_share(gaps, lambda x: x <= 15.0),
-        first_leg_gap_le_30s_share=_predicate_share(gaps, lambda x: x <= 30.0),
-        first_leg_gap_le_60s_share=_predicate_share(gaps, lambda x: x <= 60.0),
+        first_leg_gap_le_1s_share=_predicate_share(gaps, lambda x: _leq(x, 1.0)),
+        first_leg_gap_le_5s_share=_predicate_share(gaps, lambda x: _leq(x, 5.0)),
+        first_leg_gap_le_15s_share=_predicate_share(gaps, lambda x: _leq(x, 15.0)),
+        first_leg_gap_le_30s_share=_predicate_share(gaps, lambda x: _leq(x, 30.0)),
+        first_leg_gap_le_60s_share=_predicate_share(gaps, lambda x: _leq(x, 60.0)),
     )
 
 
@@ -228,6 +229,10 @@ def _share(numerator: float, denominator: float) -> float | None:
 
 def _predicate_share(values: list[float], predicate) -> float | None:
     return (sum(1 for value in values if predicate(value)) / len(values)) if values else None
+
+
+def _leq(value: float, threshold: float) -> bool:
+    return value < threshold or isclose(value, threshold, abs_tol=1e-12)
 
 
 def _quantile(values: list[float], q: float) -> float | None:
