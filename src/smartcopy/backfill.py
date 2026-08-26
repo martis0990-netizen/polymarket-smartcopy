@@ -104,12 +104,25 @@ def write_activity_backfill(
 ) -> dict[str, Any]:
     """Collect one complete historical range and materialize immutable evidence.
 
-    The collector is invoked before any artifact is created. If range completeness cannot
-    be proven, ``collect_activity_range`` raises and this function leaves no success-looking
-    manifest behind. Existing evidence files are never overwritten.
+    Existing evidence files are rejected before network collection begins. If range
+    completeness cannot be proven, ``collect_activity_range`` raises and this function
+    leaves no success-looking manifest behind.
     """
 
     normalized_wallet = _normalize_wallet(wallet)
+    root = Path(output_dir)
+    root.mkdir(parents=True, exist_ok=True)
+    source_path = root / _SOURCE_ROWS
+    normalized_path = root / _NORMALIZED_ROWS
+    manifest_path = root / _MANIFEST
+    for target in (source_path, normalized_path, manifest_path):
+        if target.exists():
+            raise FileExistsError(f"refusing to overwrite existing backfill artifact: {target}")
+
+    generated_at = clock()
+    if generated_at.tzinfo is None or generated_at.utcoffset() is None:
+        raise ValueError("backfill manifest clock must be timezone-aware")
+
     history = client.collect_activity_range(
         normalized_wallet,
         start=start,
@@ -120,21 +133,8 @@ def write_activity_backfill(
     if any(item.observation_mode != ObservationMode.BACKFILL for item in history):
         raise ValueError("historical backfill contains non-BACKFILL observation mode")
 
-    root = Path(output_dir)
-    root.mkdir(parents=True, exist_ok=True)
-    source_path = root / _SOURCE_ROWS
-    normalized_path = root / _NORMALIZED_ROWS
-    manifest_path = root / _MANIFEST
-    for target in (source_path, normalized_path, manifest_path):
-        if target.exists():
-            raise FileExistsError(f"refusing to overwrite existing backfill artifact: {target}")
-
     _write_jsonl(source_path, [item.raw for item in history])
     _write_jsonl(normalized_path, [_normalized_activity(item) for item in history])
-
-    generated_at = clock()
-    if generated_at.tzinfo is None or generated_at.utcoffset() is None:
-        raise ValueError("backfill manifest clock must be timezone-aware")
 
     manifest: dict[str, Any] = {
         "schema_version": "smartcopy-activity-backfill-v1",
