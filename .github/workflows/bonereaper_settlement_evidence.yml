@@ -1,0 +1,70 @@
+name: Bonereaper Settlement Evidence
+on:
+  workflow_dispatch:
+  push:
+    branches: [verify/bonereaper-settlement-20260825]
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Collect frozen closed-position interval
+        env:
+          OUT: ${{ runner.temp }}/bonereaper-settlement-2026-08-25
+        run: |
+          mkdir -p "$OUT"
+          python - <<'PY'
+          import hashlib, json, os
+          from dataclasses import asdict
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from smartcopy.polymarket import PolymarketDataAPI
+          from smartcopy.settlement_backfill import collect_closed_positions_interval
+
+          wallet='0xeebde7a0e019a63e6b476eb425505b7b3e6eba30'
+          start=datetime(2026,8,25,0,0,0,tzinfo=timezone.utc)
+          end=datetime(2026,8,25,23,59,59,tzinfo=timezone.utc)
+          evidence=collect_closed_positions_interval(PolymarketDataAPI(), wallet, start=start, end=end)
+          out=Path(os.environ['OUT'])
+          rows_path=out/'closed_positions.jsonl'
+          with rows_path.open('w',encoding='utf-8') as f:
+              for row in evidence.rows:
+                  payload=asdict(row)
+                  payload['closed_time']=row.closed_time.isoformat().replace('+00:00','Z') if row.closed_time else None
+                  f.write(json.dumps(payload,sort_keys=True,separators=(',',':'))+'\n')
+          digest=hashlib.sha256(rows_path.read_bytes()).hexdigest()
+          pnls=[r.realized_pnl for r in evidence.rows]
+          summary={
+              'verdict':'BONEREAPER_SETTLEMENT_EVIDENCE_PASS',
+              'wallet':wallet,
+              'range':{'start':start.isoformat().replace('+00:00','Z'),'end':end.isoformat().replace('+00:00','Z')},
+              'row_count':len(evidence.rows),
+              'distinct_condition_ids':len({r.condition_id for r in evidence.rows if r.condition_id}),
+              'distinct_assets':len({r.asset for r in evidence.rows if r.asset}),
+              'realized_pnl_sum':sum(pnls),
+              'positive_rows':sum(x>0 for x in pnls),
+              'negative_rows':sum(x<0 for x in pnls),
+              'zero_rows':sum(x==0 for x in pnls),
+              'missing_timestamp_count':evidence.missing_timestamp_count,
+              'pages_fetched':evidence.pages_fetched,
+              'last_offset':evidence.last_offset,
+              'first_close_time':evidence.rows[0].closed_time.isoformat().replace('+00:00','Z') if evidence.rows else None,
+              'last_close_time':evidence.rows[-1].closed_time.isoformat().replace('+00:00','Z') if evidence.rows else None,
+              'artifact':{'path':rows_path.name,'bytes':rows_path.stat().st_size,'sha256':digest},
+          }
+          (out/'settlement_manifest.json').write_text(json.dumps(summary,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,sort_keys=True,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-settlement-2026-08-25
+          path: ${{ runner.temp }}/bonereaper-settlement-2026-08-25
+          if-no-files-found: error
+          retention-days: 30
