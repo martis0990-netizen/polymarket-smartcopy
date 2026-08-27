@@ -1,10 +1,13 @@
 from datetime import datetime, timezone
+from email.message import Message
+from io import BytesIO
+from urllib.error import HTTPError
 from urllib.parse import parse_qs, urlparse
 
 import pytest
 
 from smartcopy.models import ObservationMode
-from smartcopy.polymarket import PaginationTruncatedError, PolymarketDataAPI
+from smartcopy.polymarket import PaginationTruncatedError, PolymarketAPIError, PolymarketDataAPI, _request_json
 
 
 def _activity_row(
@@ -96,6 +99,54 @@ def test_activity_enforces_runtime_verified_offset_cap() -> None:
     client = PolymarketDataAPI(transport=lambda _url, _headers: [])
     with pytest.raises(ValueError, match="0..5000"):
         client.activity_page("0xabc", offset=5001)
+
+
+def test_request_json_retries_429_with_retry_after() -> None:
+    calls = 0
+    delays = []
+
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+        def read(self):
+            return b'[{"ok":true}]'
+
+    def opener(request, *, timeout):
+        nonlocal calls
+        calls += 1
+        assert timeout == 20
+        if calls == 1:
+            headers = Message()
+            headers["Retry-After"] = "0.25"
+            raise HTTPError(request.full_url, 429, "rate limited", headers, BytesIO())
+        return Response()
+
+    assert _request_json(
+        "https://data-api.polymarket.com/activity",
+        {},
+        opener=opener,
+        sleeper=delays.append,
+    ) == [{"ok": True}]
+    assert calls == 2
+    assert delays == [0.25]
+
+
+def test_request_json_exhausts_bounded_retries() -> None:
+    def opener(request, *, timeout):
+        raise HTTPError(request.full_url, 503, "unavailable", Message(), BytesIO())
+
+    with pytest.raises(PolymarketAPIError, match="503"):
+        _request_json(
+            "https://data-api.polymarket.com/activity",
+            {},
+            opener=opener,
+            sleeper=lambda _delay: None,
+            max_attempts=2,
+        )
 
 
 def test_pagination_fails_closed_when_configured_cap_is_full() -> None:

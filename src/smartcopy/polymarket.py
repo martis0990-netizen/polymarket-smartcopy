@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Callable, Iterable
+from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -32,13 +34,40 @@ def _default_clock() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def _default_transport(url: str, headers: dict[str, str]) -> Any:
+def _request_json(
+    url: str,
+    headers: dict[str, str],
+    *,
+    opener: Callable[..., Any] = urlopen,
+    sleeper: Callable[[float], None] = time.sleep,
+    max_attempts: int = 6,
+) -> Any:
+    """GET JSON with bounded Retry-After-aware retries for transient HTTP failures."""
+
+    if max_attempts < 1:
+        raise ValueError("max_attempts must be positive")
     request = Request(url, headers=headers, method="GET")
-    try:
-        with urlopen(request, timeout=20) as response:  # noqa: S310 - fixed HTTPS host by caller
-            return json.loads(response.read().decode("utf-8"))
-    except Exception as exc:  # pragma: no cover - network boundary
-        raise PolymarketAPIError(f"GET {url} failed: {exc}") from exc
+    for attempt in range(max_attempts):
+        try:
+            with opener(request, timeout=20) as response:  # noqa: S310 - fixed HTTPS host by caller
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            retryable = exc.code == 429 or 500 <= exc.code < 600
+            if not retryable or attempt + 1 == max_attempts:
+                raise PolymarketAPIError(f"GET {url} failed: {exc}") from exc
+            retry_after = exc.headers.get("Retry-After") if exc.headers else None
+            try:
+                delay = float(retry_after) if retry_after is not None else float(2**attempt)
+            except ValueError:
+                delay = float(2**attempt)
+            sleeper(min(max(delay, 0.0), 30.0))
+        except Exception as exc:  # pragma: no cover - network boundary
+            raise PolymarketAPIError(f"GET {url} failed: {exc}") from exc
+    raise AssertionError("unreachable")
+
+
+def _default_transport(url: str, headers: dict[str, str]) -> Any:
+    return _request_json(url, headers)
 
 
 @dataclass(slots=True)
