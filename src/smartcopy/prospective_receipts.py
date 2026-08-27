@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Sequence
@@ -19,6 +20,7 @@ _RAW = "receipt_responses_raw.jsonl"
 _ROWS = "maker_taker_rows.jsonl"
 _SUMMARY = "maker_taker_summary.json"
 _MANIFEST = "prospective_receipts_manifest.json"
+_COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
 
 def run_prospective_receipts(
@@ -27,11 +29,14 @@ def run_prospective_receipts(
     expected_wallet_sha256: str,
     output_dir: str | Path,
     api: PolygonReceiptAPI,
+    code_commit: str,
     batch_size: int = 25,
 ) -> dict[str, Any]:
     output = Path(output_dir)
     if output.exists():
         raise FileExistsError(f"refusing to overwrite existing output directory: {output}")
+    if _COMMIT.fullmatch(code_commit) is None:
+        raise ValueError("code_commit must be a full lowercase Git SHA")
     source = Path(wallet_activity_path)
     raw_wallet = source.read_bytes()
     wallet_sha = hashlib.sha256(raw_wallet).hexdigest()
@@ -46,8 +51,6 @@ def run_prospective_receipts(
         skip_unsupported_markets=True,
     )
     transaction_hashes = {fill.transaction_hash for fill in evidence.rows}
-    if len(transaction_hashes) != len(evidence.rows):
-        raise ValueError("prospective target input requires one unique transaction per fill")
     chain_id, envelopes = collect_receipts(api, transaction_hashes, batch_size=batch_size)
     if chain_id != _CHAIN_ID:
         raise ValueError(f"expected Polygon chain id {_CHAIN_ID}, got {chain_id}")
@@ -69,6 +72,7 @@ def run_prospective_receipts(
     manifest = {
         "schema_version": _SCHEMA,
         "contract_commit": _CONTRACT_COMMIT,
+        "code_commit": code_commit,
         "collection_time_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "rpc_url": api.rpc_url,
         "chain_id": chain_id,
@@ -77,6 +81,7 @@ def run_prospective_receipts(
             "sha256": wallet_sha,
             "source_rows": source_rows,
             "selected_btc_eth_rows": len(evidence.rows),
+            "selected_unique_transactions": len(transaction_hashes),
             "excluded_unsupported_rows": source_rows - len(evidence.rows),
         },
         "condition_count": len(evidence.specs),
@@ -142,6 +147,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--expected-wallet-sha256", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--rpc-url", required=True)
+    parser.add_argument("--code-commit", required=True)
     parser.add_argument("--batch-size", type=int, default=25)
     return parser
 
@@ -153,6 +159,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         expected_wallet_sha256=args.expected_wallet_sha256,
         output_dir=args.output,
         api=PolygonReceiptAPI(rpc_url=args.rpc_url),
+        code_commit=args.code_commit,
         batch_size=args.batch_size,
     )
     print(json.dumps(result, indent=2, sort_keys=True))
