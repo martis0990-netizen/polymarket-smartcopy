@@ -83,6 +83,23 @@ def test_activity_range_params_and_live_observation_mode_are_explicit() -> None:
     assert activity.first_observed_time == observed
 
 
+def test_complete_range_passes_condition_filter_unchanged() -> None:
+    condition_filter = "0xaaa,0xbbb"
+    seen = []
+
+    def transport(url: str, _headers: dict[str, str]):
+        query = parse_qs(urlparse(url).query)
+        seen.append(query)
+        assert query["market"] == [condition_filter]
+        return []
+
+    client = PolymarketDataAPI(transport=transport)
+    assert client.collect_activity_range(
+        "0xabc", start=10, end=20, market=condition_filter
+    ) == ()
+    assert len(seen) == 1
+
+
 def test_activity_rejects_source_timestamp_after_actual_observation() -> None:
     observed = datetime(2026, 8, 25, 12, 0, tzinfo=timezone.utc)
     source_ts = int(datetime(2026, 8, 25, 12, 0, 1, tzinfo=timezone.utc).timestamp())

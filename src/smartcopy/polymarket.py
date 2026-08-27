@@ -133,6 +133,7 @@ class PolymarketDataAPI:
         sort_direction: str = "DESC",
         start: int | None = None,
         end: int | None = None,
+        market: str | None = None,
         observation_mode: ObservationMode = ObservationMode.BACKFILL,
     ) -> tuple[WalletActivity, ...]:
         if not 0 <= limit <= 500:
@@ -152,6 +153,7 @@ class PolymarketDataAPI:
                 "sortDirection": sort_direction,
                 "start": start,
                 "end": end,
+                "market": market,
             },
         )
         observed = self.clock()
@@ -244,6 +246,7 @@ class PolymarketDataAPI:
         page_size: int = 500,
         max_split_depth: int = 24,
         activity_type: str | None = "TRADE",
+        market: str | None = None,
     ) -> tuple[WalletActivity, ...]:
         """Collect a provably complete historical activity interval.
 
@@ -265,6 +268,8 @@ class PolymarketDataAPI:
             raise ValueError("max_split_depth must be non-negative")
         if activity_type is not None and not activity_type.strip():
             raise ValueError("activity_type must be non-empty or None")
+        if market is not None and not market.strip():
+            raise ValueError("market filter must be non-empty or None")
 
         max_pages = self.activity_offset_cap // page_size + 1
         resource_type = activity_type or "ALL"
@@ -282,6 +287,7 @@ class PolymarketDataAPI:
                             sort_direction="ASC",
                             start=window_start,
                             end=window_end,
+                            market=market,
                             observation_mode=ObservationMode.BACKFILL,
                         ),
                         page_size=page_size,
