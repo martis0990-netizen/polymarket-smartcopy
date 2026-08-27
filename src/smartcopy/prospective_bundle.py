@@ -1,4 +1,4 @@
-"""Run the frozen prospective Chainlink, wallet and public-CLOB bundle v4."""
+"""Run the frozen prospective Chainlink, wallet and split public-CLOB bundle v5."""
 
 from __future__ import annotations
 
@@ -16,8 +16,8 @@ from smartcopy.polymarket import PolymarketDataAPI
 from smartcopy.prospective_signal import ChainlinkTwapRecorder
 from smartcopy.public_book import GammaMarketDiscovery, PublicBookRecorder
 
-_SCHEMA = "smartcopy-bonereaper-prospective-bundle-v4"
-_CONTRACT_COMMIT = "f5404acbfed6e50056d251e5c06a23bda2c38aee"
+_SCHEMA = "smartcopy-bonereaper-prospective-bundle-v5"
+_CONTRACT_COMMIT = "5af360f9eba6e650c42e4ada2ddbcf00ec87f408"
 _WALLET = "0xeebde7a0e019a63e6b476eb425505b7b3e6eba30"
 _MANIFEST = "prospective_bundle_manifest.json"
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
@@ -33,12 +33,14 @@ async def run_bundle(
     twap_recorder: ChainlinkTwapRecorder | None = None,
     wallet_observer: LiveWalletObserver | None = None,
     book_recorder: PublicBookRecorder | None = None,
+    current_book_recorder: PublicBookRecorder | None = None,
+    safe_book_recorder: PublicBookRecorder | None = None,
     market_discovery: GammaMarketDiscovery | None = None,
 ) -> dict[str, Any]:
     if duration_seconds <= 0:
         raise ValueError("duration_seconds must be positive")
     if duration_seconds > _MAX_DURATION_SECONDS:
-        raise ValueError(f"v4 bundle duration must not exceed {_MAX_DURATION_SECONDS:g} seconds")
+        raise ValueError(f"v5 bundle duration must not exceed {_MAX_DURATION_SECONDS:g} seconds")
     if _COMMIT.fullmatch(code_commit) is None:
         raise ValueError("code_commit must be a full lowercase Git SHA")
     root = Path(output_dir)
@@ -56,14 +58,30 @@ async def run_bundle(
     discovery_ended = datetime.now(timezone.utc)
     if not token_metadata:
         raise ValueError("market discovery returned no bound token metadata")
+    current_metadata = [row for row in token_metadata if "current" in row.get("coverage_roles", ())]
+    safe_metadata = [
+        row
+        for row in token_metadata
+        if "safe" in row.get("coverage_roles", ()) and "current" not in row.get("coverage_roles", ())
+    ]
+    current_tokens = {str(row["token_id"]) for row in current_metadata}
+    safe_tokens = {str(row["token_id"]) for row in safe_metadata}
+    if not current_metadata or not safe_metadata:
+        raise ValueError("v5 discovery requires non-empty current and following-safe token groups")
+    if current_tokens & safe_tokens or current_tokens | safe_tokens != {
+        str(row["token_id"]) for row in token_metadata
+    }:
+        raise ValueError("v5 discovery token groups must be disjoint and exhaustive")
 
     root.mkdir(parents=True)
     chainlink_dir = root / "chainlink"
     wallet_dir = root / "wallet"
-    public_book_dir = root / "public_book"
+    current_book_dir = root / "current_public_book"
+    safe_book_dir = root / "safe_public_book"
     manifest_path = root / _MANIFEST
     recorder = twap_recorder or ChainlinkTwapRecorder()
-    clob = book_recorder or PublicBookRecorder()
+    current_clob = current_book_recorder or book_recorder or PublicBookRecorder()
+    safe_clob = safe_book_recorder or book_recorder or PublicBookRecorder()
     observer = wallet_observer or LiveWalletObserver(
         PolymarketDataAPI(),
         wallet=_WALLET,
@@ -80,27 +98,46 @@ async def run_bundle(
             duration_seconds=duration_seconds,
         )
     )
-    book_task = asyncio.create_task(
-        clob.run(
-            output_dir=public_book_dir,
+    current_book_task = asyncio.create_task(
+        current_clob.run(
+            output_dir=current_book_dir,
             duration_seconds=duration_seconds,
-            token_metadata=token_metadata,
+            token_metadata=current_metadata,
+            code_commit=code_commit,
+        )
+    )
+    safe_book_task = asyncio.create_task(
+        safe_clob.run(
+            output_dir=safe_book_dir,
+            duration_seconds=duration_seconds,
+            token_metadata=safe_metadata,
             code_commit=code_commit,
         )
     )
     results = await asyncio.gather(
         chainlink_task,
         wallet_task,
-        book_task,
+        current_book_task,
+        safe_book_task,
         return_exceptions=True,
     )
     errors = [result for result in results if isinstance(result, BaseException)]
     if errors:
         raise errors[0]
-    chainlink_manifest, wallet_manifest, book_manifest = results
+    chainlink_manifest, wallet_manifest, current_book_manifest, safe_book_manifest = results
     ended = datetime.now(timezone.utc)
-    book_manifest_path = public_book_dir / "public_book_manifest.json"
-    token_metadata_path = public_book_dir / "token_metadata.json"
+    def book_binding(directory: Path, child_manifest: dict[str, Any]) -> dict[str, Any]:
+        child_path = directory / "public_book_manifest.json"
+        metadata_path = directory / "token_metadata.json"
+        return {
+            "manifest": str(directory.relative_to(root) / child_path.name),
+            "sha256": _sha256(child_path),
+            "token_metadata": str(directory.relative_to(root) / metadata_path.name),
+            "token_metadata_sha256": _sha256(metadata_path),
+            "event_counts": child_manifest["event_counts"],
+            "reconnect_count": child_manifest["reconnect_count"],
+            "initialized_at_finalize": child_manifest["initialized_at_finalize"],
+        }
     manifest = {
         "schema_version": _SCHEMA,
         "contract_commit": _CONTRACT_COMMIT,
@@ -124,14 +161,9 @@ async def run_bundle(
             "prospective_rows": wallet_manifest["emitted_prospective_row_count"],
             "gap_failures": wallet_manifest["gap_failures"],
         },
-        "public_book": {
-            "manifest": str(Path("public_book") / book_manifest_path.name),
-            "sha256": _sha256(book_manifest_path),
-            "token_metadata": str(Path("public_book") / token_metadata_path.name),
-            "token_metadata_sha256": _sha256(token_metadata_path),
-            "event_counts": book_manifest["event_counts"],
-            "reconnect_count": book_manifest["reconnect_count"],
-            "initialized_at_finalize": book_manifest["initialized_at_finalize"],
+        "public_books": {
+            "current": book_binding(current_book_dir, current_book_manifest),
+            "safe": book_binding(safe_book_dir, safe_book_manifest),
         },
     }
     manifest_path.write_bytes(_json_line(manifest))

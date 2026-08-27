@@ -71,7 +71,7 @@ class GammaMarketDiscovery:
                 if safe_epoch + window_seconds < observed.timestamp() + min_remaining_seconds:
                     safe_epoch += window_seconds
                 bindings = [(safe_epoch, "safe", observed.timestamp() + min_remaining_seconds)]
-                if include_current and current_epoch != safe_epoch:
+                if include_current:
                     bindings.insert(0, (current_epoch, "current", observed.timestamp()))
                 for epoch, role, required_end in bindings:
                     slug = f"{asset.lower()}-updown-{label}-{epoch}"

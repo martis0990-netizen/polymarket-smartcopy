@@ -36,11 +36,20 @@ class FakeMarketDiscovery:
         assert include_current is True
         return [
             {
-                "token_id": "token-up",
-                "condition_id": "condition",
+                "token_id": "current-up",
+                "condition_id": "current-condition",
                 "asset": "BTC",
                 "window_seconds": 300,
                 "outcome": "Up",
+                "coverage_roles": ["current"],
+            },
+            {
+                "token_id": "safe-up",
+                "condition_id": "safe-condition",
+                "asset": "BTC",
+                "window_seconds": 300,
+                "outcome": "Up",
+                "coverage_roles": ["safe"],
             }
         ]
 
@@ -53,7 +62,7 @@ class FakeBookRecorder:
         manifest = {
             "event_counts": {"raw_frames": 5, "snapshot_records": 1, "level_records": 4},
             "reconnect_count": 0,
-            "initialized_at_finalize": {"token-up": True},
+            "initialized_at_finalize": {row["token_id"]: True for row in token_metadata},
         }
         (root / "public_book_manifest.json").write_text(json.dumps(manifest) + "\n")
         return manifest
@@ -75,9 +84,10 @@ def test_bundle_binds_both_clean_child_manifests(tmp_path) -> None:
     assert manifest["chainlink"]["event_counts"] == {"btc/usd": 2, "eth/usd": 2}
     assert manifest["code_commit"] == CODE_COMMIT
     assert manifest["wallet_observer"]["prospective_rows"] == 3
-    assert manifest["schema_version"] == "smartcopy-bonereaper-prospective-bundle-v4"
-    assert manifest["public_book"]["event_counts"]["snapshot_records"] == 1
-    assert manifest["public_book"]["initialized_at_finalize"] == {"token-up": True}
+    assert manifest["schema_version"] == "smartcopy-bonereaper-prospective-bundle-v5"
+    assert manifest["public_books"]["current"]["event_counts"]["snapshot_records"] == 1
+    assert manifest["public_books"]["current"]["initialized_at_finalize"] == {"current-up": True}
+    assert manifest["public_books"]["safe"]["initialized_at_finalize"] == {"safe-up": True}
     child = root / "wallet" / "observer_manifest.json"
     assert manifest["wallet_observer"]["sha256"] == hashlib.sha256(child.read_bytes()).hexdigest()
     assert (root / "prospective_bundle_manifest.json").is_file()
