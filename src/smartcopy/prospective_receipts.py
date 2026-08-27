@@ -6,12 +6,13 @@ import argparse
 import hashlib
 import json
 import re
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-from smartcopy.correction_overlay import load_wallet_evidence
-from smartcopy.maker_taker import PolygonReceiptAPI, collect_receipts, decode_rows, summarize
+from smartcopy.correction_overlay import WalletFill, load_wallet_evidence
+from smartcopy.maker_taker import PolygonReceiptAPI, _decode_fill, collect_receipts, summarize
 
 _SCHEMA = "smartcopy-bonereaper-prospective-receipts-v2"
 _CONTRACT_COMMIT = "0065f7ca8c38e435e0a859b06724040cfd01a900"
@@ -54,7 +55,7 @@ def run_prospective_receipts(
     chain_id, envelopes = collect_receipts(api, transaction_hashes, batch_size=batch_size)
     if chain_id != _CHAIN_ID:
         raise ValueError(f"expected Polygon chain id {_CHAIN_ID}, got {chain_id}")
-    rows = decode_rows(evidence.rows, envelopes)
+    rows = decode_prospective_rows(evidence.rows, envelopes)
     legacy_summary = summarize(
         rows,
         market_slugs={condition_id: spec.slug for condition_id, spec in evidence.specs.items()},
@@ -93,6 +94,74 @@ def run_prospective_receipts(
     }
     _write_json(manifest_path, manifest)
     return {"manifest": manifest, "summary": summary, "output_dir": str(output)}
+
+
+def decode_prospective_rows(
+    fills: Sequence[WalletFill],
+    envelopes: Sequence[dict[str, Any]],
+) -> tuple[dict[str, Any], ...]:
+    """Decode every fill, allowing one transaction to sweep multiple price levels."""
+
+    receipt_by_hash: dict[str, dict[str, Any]] = {}
+    for envelope in envelopes:
+        request = envelope.get("request")
+        response = envelope.get("response")
+        if not isinstance(request, dict) or not isinstance(response, dict):
+            raise ValueError("malformed JSON-RPC envelope")
+        if request.get("method") != "eth_getTransactionReceipt":
+            continue
+        params = request.get("params")
+        receipt = response.get("result")
+        if not isinstance(params, list) or len(params) != 1 or not isinstance(receipt, dict):
+            raise ValueError("malformed prospective receipt envelope")
+        requested = str(params[0]).lower()
+        actual = str(receipt.get("transactionHash") or "").lower()
+        if requested != actual:
+            raise ValueError(f"receipt transaction hash mismatch for {requested}")
+        if requested in receipt_by_hash:
+            raise ValueError(f"duplicate receipt for {requested}")
+        receipt_by_hash[requested] = receipt
+
+    ordered_with_flags = _opposite_flags(fills)
+    rows: list[dict[str, Any]] = []
+    for fill, opposite in ordered_with_flags:
+        receipt = receipt_by_hash.get(fill.transaction_hash.lower())
+        if receipt is None:
+            raise ValueError(f"no collected receipt for {fill.transaction_hash}")
+        rows.append(_decode_fill(fill, receipt, opposite_fill=opposite))
+    return tuple(rows)
+
+
+def _opposite_flags(fills: Sequence[WalletFill]) -> tuple[tuple[WalletFill, bool], ...]:
+    by_condition: dict[str, list[WalletFill]] = defaultdict(list)
+    for fill in fills:
+        by_condition[fill.condition_id].append(fill)
+    output: list[tuple[WalletFill, bool]] = []
+    for condition_id in sorted(by_condition):
+        up_size = 0.0
+        down_size = 0.0
+        by_second: dict[int, list[WalletFill]] = defaultdict(list)
+        for fill in by_condition[condition_id]:
+            by_second[fill.source_second].append(fill)
+        for second in sorted(by_second):
+            dominant = "Up" if up_size > down_size else "Down" if down_size > up_size else None
+            second_fills = sorted(
+                by_second[second],
+                key=lambda fill: (
+                    fill.transaction_hash,
+                    fill.asset_id,
+                    fill.price,
+                    fill.size,
+                    fill.notional,
+                ),
+            )
+            output.extend(
+                (fill, dominant is not None and fill.outcome != dominant)
+                for fill in second_fills
+            )
+            up_size += sum(fill.size for fill in second_fills if fill.outcome == "Up")
+            down_size += sum(fill.size for fill in second_fills if fill.outcome == "Down")
+    return tuple(output)
 
 
 def _prospective_summary(decoded: dict[str, Any]) -> dict[str, Any]:

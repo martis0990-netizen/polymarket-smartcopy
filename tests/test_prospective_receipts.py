@@ -1,4 +1,5 @@
-from smartcopy.prospective_receipts import _prospective_summary
+from smartcopy.correction_overlay import WalletFill
+from smartcopy.prospective_receipts import _opposite_flags, _prospective_summary
 
 
 def test_prospective_summary_drops_stage3a_contract_and_primary_labels() -> None:
@@ -26,3 +27,26 @@ def test_prospective_summary_drops_stage3a_contract_and_primary_labels() -> None
     assert summary["per_market"]["condition"]["roles"] == metrics
     assert "contract_frozen_commit" not in summary
     assert "primary_mechanism" not in summary
+
+
+def test_duplicate_transaction_fills_share_strict_prior_opposite_state() -> None:
+    def fill(number, second, outcome, size, tx):
+        return WalletFill(
+            condition_id="condition",
+            source_second=second,
+            source_event_time=f"1970-01-01T00:00:{second:02d}Z",
+            outcome=outcome,
+            price=0.5,
+            size=size,
+            notional=size * 0.5,
+            asset_id=str(number),
+            transaction_hash=tx,
+        )
+
+    fills = [
+        fill(1, 1, "Up", 10, "0xfirst"),
+        fill(2, 2, "Down", 2, "0xsweep"),
+        fill(2, 2, "Down", 3, "0xsweep"),
+    ]
+    flagged = _opposite_flags(fills)
+    assert [flag for _fill, flag in flagged] == [False, True, True]
