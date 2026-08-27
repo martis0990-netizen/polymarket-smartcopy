@@ -154,3 +154,51 @@ def test_run_analysis_rejects_wrong_receipt_row_hash_before_output(tmp_path):
             code_commit="a" * 40,
         )
     assert not (tmp_path / "analysis").exists()
+
+
+def test_run_analysis_joins_disjoint_v5_book_groups(tmp_path):
+    bundle = tmp_path / "bundle"
+    bindings = {}
+    for name, token, metadata in (
+        ("current", "btc", [_metadata()[0]]),
+        ("safe", "eth", [_metadata()[1]]),
+    ):
+        book = bundle / f"{name}_public_book"
+        book.mkdir(parents=True)
+        levels_sha = _write_jsonl(
+            book / "book_levels.jsonl",
+            [_book(1, 8_000, token=token, kind="snapshot"), _book(2, 8_000, token=token)],
+        )
+        gaps_sha = _write_jsonl(book / "book_gaps.jsonl", [])
+        token_sha = _write_json(book / "token_metadata.json", {"tokens": metadata})
+        manifest_sha = _write_json(
+            book / "public_book_manifest.json",
+            {"artifacts": {"book_levels.jsonl": {"sha256": levels_sha}, "book_gaps.jsonl": {"sha256": gaps_sha}}},
+        )
+        bindings[name] = {
+            "manifest": f"{name}_public_book/public_book_manifest.json",
+            "sha256": manifest_sha,
+            "token_metadata": f"{name}_public_book/token_metadata.json",
+            "token_metadata_sha256": token_sha,
+        }
+    _write_json(
+        bundle / "prospective_bundle_manifest.json",
+        {
+            "schema_version": "smartcopy-bonereaper-prospective-bundle-v5",
+            "clean_finalize": True,
+            "public_books": bindings,
+        },
+    )
+    decoded = tmp_path / "decoded.jsonl"
+    decoded_sha = _write_jsonl(
+        decoded,
+        [_fill("c1", "btc", "MAKER"), _fill("c2", "eth", "MAKER")],
+    )
+    result = run_analysis(
+        bundle_dir=bundle,
+        decoded_rows_path=decoded,
+        expected_decoded_sha256=decoded_sha,
+        output_dir=tmp_path / "analysis",
+        code_commit="b" * 40,
+    )
+    assert set(result["summary"]["conditions"]) == {"c1", "c2"}

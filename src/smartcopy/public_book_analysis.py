@@ -1,4 +1,4 @@
-"""SHA-bound confirmatory analysis for prospective public-book bundle v3 captures."""
+"""SHA-bound confirmatory analysis for prospective public-book bundle captures."""
 
 from __future__ import annotations
 
@@ -14,7 +14,10 @@ from smartcopy.prospective_signal import wilson_lower_bound
 from smartcopy.public_book import classify_captured_level
 
 _SCHEMA = "smartcopy-bonereaper-public-book-analysis-v1"
-_BUNDLE_SCHEMA = "smartcopy-bonereaper-prospective-bundle-v3"
+_BUNDLE_SCHEMAS = {
+    "smartcopy-bonereaper-prospective-bundle-v3",
+    "smartcopy-bonereaper-prospective-bundle-v5",
+}
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 _ROWS = "public_book_ladder_rows.jsonl"
 _SUMMARY = "public_book_ladder_summary.json"
@@ -181,35 +184,66 @@ def run_analysis(
     bundle = Path(bundle_dir)
     root_manifest_path = bundle / "prospective_bundle_manifest.json"
     root_manifest = _load_json(root_manifest_path)
-    if root_manifest.get("schema_version") != _BUNDLE_SCHEMA or root_manifest.get("clean_finalize") is not True:
-        raise PublicBookAnalysisError("analysis requires a clean prospective bundle v3")
-    book_info = root_manifest.get("public_book")
-    if not isinstance(book_info, dict):
-        raise PublicBookAnalysisError("bundle is missing public-book binding")
-    book_manifest_path = bundle / str(book_info["manifest"])
-    _require_sha(book_manifest_path, str(book_info["sha256"]), "public-book manifest")
-    token_path = bundle / str(book_info["token_metadata"])
-    _require_sha(token_path, str(book_info["token_metadata_sha256"]), "token metadata")
-    book_manifest = _load_json(book_manifest_path)
-    book_root = book_manifest_path.parent
-    levels_path = book_root / "book_levels.jsonl"
-    gaps_path = book_root / "book_gaps.jsonl"
-    for path in (levels_path, gaps_path):
-        artifact = book_manifest.get("artifacts", {}).get(path.name)
-        if not isinstance(artifact, dict):
-            raise PublicBookAnalysisError(f"public-book manifest is missing {path.name}")
-        _require_sha(path, str(artifact["sha256"]), path.name)
+    if (
+        root_manifest.get("schema_version") not in _BUNDLE_SCHEMAS
+        or root_manifest.get("clean_finalize") is not True
+    ):
+        raise PublicBookAnalysisError("analysis requires a supported clean prospective bundle")
+
+    book_infos: list[tuple[str, dict[str, Any]]] = []
+    if root_manifest.get("schema_version") == "smartcopy-bonereaper-prospective-bundle-v3":
+        book_info = root_manifest.get("public_book")
+        if not isinstance(book_info, dict):
+            raise PublicBookAnalysisError("bundle is missing public-book binding")
+        book_infos.append(("public_book", book_info))
+    else:
+        split = root_manifest.get("public_books")
+        if not isinstance(split, dict) or set(split) != {"current", "safe"}:
+            raise PublicBookAnalysisError("v5 bundle requires current and safe public-book bindings")
+        for name in ("current", "safe"):
+            if not isinstance(split[name], dict):
+                raise PublicBookAnalysisError(f"v5 {name} public-book binding must be an object")
+            book_infos.append((name, split[name]))
+
+    book_records: list[dict[str, Any]] = []
+    gaps: list[dict[str, Any]] = []
+    token_metadata: list[dict[str, Any]] = []
+    token_groups: dict[str, str] = {}
+    for name, book_info in book_infos:
+        book_manifest_path = bundle / str(book_info["manifest"])
+        _require_sha(book_manifest_path, str(book_info["sha256"]), f"{name} public-book manifest")
+        token_path = bundle / str(book_info["token_metadata"])
+        _require_sha(token_path, str(book_info["token_metadata_sha256"]), f"{name} token metadata")
+        book_manifest = _load_json(book_manifest_path)
+        book_root = book_manifest_path.parent
+        levels_path = book_root / "book_levels.jsonl"
+        gaps_path = book_root / "book_gaps.jsonl"
+        for path in (levels_path, gaps_path):
+            artifact = book_manifest.get("artifacts", {}).get(path.name)
+            if not isinstance(artifact, dict):
+                raise PublicBookAnalysisError(f"{name} public-book manifest is missing {path.name}")
+            _require_sha(path, str(artifact["sha256"]), f"{name} {path.name}")
+        payload = _load_json(token_path)
+        child_tokens = payload.get("tokens")
+        if not isinstance(child_tokens, list):
+            raise PublicBookAnalysisError(f"{name} token metadata must contain a tokens list")
+        for row in child_tokens:
+            token_id = str(row.get("token_id"))
+            if token_id in token_groups:
+                raise PublicBookAnalysisError(
+                    f"token {token_id} appears in both {token_groups[token_id]} and {name} books"
+                )
+            token_groups[token_id] = name
+            token_metadata.append({**row, "book_group": name})
+        book_records.extend(_load_jsonl(levels_path))
+        gaps.extend(_load_jsonl(gaps_path))
 
     decoded_path = Path(decoded_rows_path)
     decoded_sha = _require_sha(decoded_path, expected_decoded_sha256, "decoded receipt rows")
-    token_payload = _load_json(token_path)
-    token_metadata = token_payload.get("tokens")
-    if not isinstance(token_metadata, list):
-        raise PublicBookAnalysisError("token metadata must contain a tokens list")
     rows, summary = analyze_bound_fills(
         _load_jsonl(decoded_path),
-        book_records=_load_jsonl(levels_path),
-        gaps=_load_jsonl(gaps_path),
+        book_records=book_records,
+        gaps=gaps,
         token_metadata=token_metadata,
     )
 
