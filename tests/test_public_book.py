@@ -1,5 +1,6 @@
 import asyncio
 import json
+import threading
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -45,6 +46,31 @@ def test_gamma_discovery_moves_only_near_expiry_window_to_next_slot():
     assert "btc-updown-15m-1787832000" in slugs
     assert len(rows) == 8
     assert len(calls) == 4
+
+
+def test_gamma_discovery_fetches_four_independent_markets_concurrently():
+    barrier = threading.Barrier(4, timeout=2)
+
+    def transport(url, headers):
+        barrier.wait()
+        slug = url.rsplit("/", 1)[-1]
+        asset, _, label, epoch_text = slug.split("-")
+        window = 300 if label == "5m" else 900
+        end = datetime.fromtimestamp(int(epoch_text) + window, timezone.utc)
+        return {
+            "slug": slug,
+            "conditionId": f"condition-{slug}",
+            "active": True,
+            "closed": False,
+            "endDate": end.isoformat().replace("+00:00", "Z"),
+            "outcomes": ["Up", "Down"],
+            "clobTokenIds": [f"{slug}-up", f"{slug}-down"],
+        }
+
+    rows = GammaMarketDiscovery(transport=transport).token_metadata(
+        at=NOW, min_remaining_seconds=30
+    )
+    assert len(rows) == 8
 
 
 def test_gamma_discovery_rejects_inconsistent_slot_end():

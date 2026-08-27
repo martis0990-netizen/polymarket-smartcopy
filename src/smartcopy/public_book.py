@@ -10,6 +10,7 @@ import asyncio
 import hashlib
 import json
 import re
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
@@ -61,7 +62,7 @@ class GammaMarketDiscovery:
         if min_remaining_seconds <= 0:
             raise ValueError("min_remaining_seconds must be positive")
         unix = int(observed.timestamp())
-        rows: list[dict[str, Any]] = []
+        requests: list[tuple[str, str, int, int]] = []
         for asset in ("BTC", "ETH"):
             for window_seconds, label in ((300, "5m"), (900, "15m")):
                 epoch = unix - unix % window_seconds
@@ -69,10 +70,15 @@ class GammaMarketDiscovery:
                     epoch += window_seconds
                 slug = f"{asset.lower()}-updown-{label}-{epoch}"
                 url = f"{self.base_url.rstrip('/')}/markets/slug/{slug}"
-                market = self.transport(
-                    url,
-                    {"Accept": "application/json", "User-Agent": self.user_agent},
-                )
+                requests.append((url, slug, asset, window_seconds, epoch))
+
+        headers = {"Accept": "application/json", "User-Agent": self.user_agent}
+        with ThreadPoolExecutor(max_workers=len(requests)) as pool:
+            futures = [pool.submit(self.transport, url, headers) for url, *_ in requests]
+            markets = [future.result() for future in futures]
+
+        rows: list[dict[str, Any]] = []
+        for market, (_, slug, asset, window_seconds, epoch) in zip(markets, requests, strict=True):
                 rows.extend(
                     _gamma_market_rows(
                         market,
