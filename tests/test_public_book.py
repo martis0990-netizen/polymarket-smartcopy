@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from smartcopy.public_book import (
+    GammaMarketDiscovery,
     PublicBookError,
     PublicBookRecorder,
     classify_captured_level,
@@ -14,6 +15,55 @@ from smartcopy.public_book import (
 
 NOW = datetime(2026, 8, 27, 12, 0, tzinfo=timezone.utc)
 TOKEN = "123456789"
+
+
+def test_gamma_discovery_moves_only_near_expiry_window_to_next_slot():
+    calls = []
+
+    def transport(url, headers):
+        calls.append(url)
+        slug = url.rsplit("/", 1)[-1]
+        asset, _, label, epoch_text = slug.split("-")
+        window = 300 if label == "5m" else 900
+        end = datetime.fromtimestamp(int(epoch_text) + window, timezone.utc)
+        return {
+            "slug": slug,
+            "conditionId": f"condition-{slug}",
+            "active": True,
+            "closed": False,
+            "endDate": end.isoformat().replace("+00:00", "Z"),
+            "outcomes": '["Up","Down"]',
+            "clobTokenIds": json.dumps([f"{slug}-up", f"{slug}-down"]),
+        }
+
+    at = datetime(2026, 8, 27, 12, 4, 50, tzinfo=timezone.utc)
+    rows = GammaMarketDiscovery(transport=transport).token_metadata(
+        at=at, min_remaining_seconds=30
+    )
+    slugs = {row["slug"] for row in rows}
+    assert "btc-updown-5m-1787832300" in slugs
+    assert "btc-updown-15m-1787832000" in slugs
+    assert len(rows) == 8
+    assert len(calls) == 4
+
+
+def test_gamma_discovery_rejects_inconsistent_slot_end():
+    def transport(url, headers):
+        slug = url.rsplit("/", 1)[-1]
+        return {
+            "slug": slug,
+            "conditionId": "condition",
+            "active": True,
+            "closed": False,
+            "endDate": "2026-08-27T00:00:00Z",
+            "outcomes": ["Up", "Down"],
+            "clobTokenIds": ["up", "down"],
+        }
+
+    with pytest.raises(PublicBookError, match="endDate does not match"):
+        GammaMarketDiscovery(transport=transport).token_metadata(
+            at=NOW, min_remaining_seconds=30
+        )
 
 
 def _book(*, timestamp=1_000):

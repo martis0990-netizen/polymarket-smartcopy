@@ -15,10 +15,13 @@ from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, AsyncIterator, Iterable, Sequence
+from urllib.request import Request, urlopen
 
 _SCHEMA = "smartcopy-bonereaper-public-book-v1"
 _CONTRACT_COMMIT = "c16c4e6454c41296662e23d156bcc4b0b2e7b3c2"
 _WS_URL = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
+_GAMMA_URL = "https://gamma-api.polymarket.com"
+_DISCOVERY_SAFETY_SECONDS = 60
 _RAW = "book_frames_raw.jsonl"
 _LEVELS = "book_levels.jsonl"
 _GAPS = "book_gaps.jsonl"
@@ -29,6 +32,58 @@ _SHA = re.compile(r"[0-9a-f]{40}")
 
 class PublicBookError(RuntimeError):
     """Raised when public-book evidence violates the frozen capture semantics."""
+
+
+def _default_gamma_transport(url: str, headers: dict[str, str]) -> Any:
+    request = Request(url, headers=headers, method="GET")
+    try:
+        with urlopen(request, timeout=25) as response:  # noqa: S310 - fixed host by caller
+            return json.loads(response.read().decode("utf-8"))
+    except Exception as exc:  # pragma: no cover - network boundary
+        raise PublicBookError(f"GET {url} failed: {exc}") from exc
+
+
+@dataclass(slots=True)
+class GammaMarketDiscovery:
+    """Resolve bound current/next BTC/ETH 5m/15m token metadata."""
+
+    base_url: str = _GAMMA_URL
+    transport: Any = _default_gamma_transport
+    user_agent: str = "polymarket-smartcopy/0.1"
+
+    def token_metadata(
+        self,
+        *,
+        at: datetime,
+        min_remaining_seconds: float,
+    ) -> list[dict[str, Any]]:
+        observed = _aware(at)
+        if min_remaining_seconds <= 0:
+            raise ValueError("min_remaining_seconds must be positive")
+        unix = int(observed.timestamp())
+        rows: list[dict[str, Any]] = []
+        for asset in ("BTC", "ETH"):
+            for window_seconds, label in ((300, "5m"), (900, "15m")):
+                epoch = unix - unix % window_seconds
+                if epoch + window_seconds < observed.timestamp() + min_remaining_seconds:
+                    epoch += window_seconds
+                slug = f"{asset.lower()}-updown-{label}-{epoch}"
+                url = f"{self.base_url.rstrip('/')}/markets/slug/{slug}"
+                market = self.transport(
+                    url,
+                    {"Accept": "application/json", "User-Agent": self.user_agent},
+                )
+                rows.extend(
+                    _gamma_market_rows(
+                        market,
+                        slug=slug,
+                        asset=asset,
+                        window_seconds=window_seconds,
+                        expected_end=epoch + window_seconds,
+                        required_end=observed.timestamp() + min_remaining_seconds,
+                    )
+                )
+        return rows
 
 
 @dataclass(frozen=True, slots=True)
@@ -488,6 +543,68 @@ def _validate_metadata(rows: Sequence[dict[str, Any]]) -> dict[str, dict[str, An
     return result
 
 
+def _gamma_market_rows(
+    market: Any,
+    *,
+    slug: str,
+    asset: str,
+    window_seconds: int,
+    expected_end: int,
+    required_end: float,
+) -> list[dict[str, Any]]:
+    if not isinstance(market, dict):
+        raise PublicBookError(f"Gamma market {slug} must be an object")
+    if market.get("closed") is True or market.get("active") is not True:
+        raise PublicBookError(f"Gamma market {slug} is not active and open")
+    if str(market.get("slug")) != slug:
+        raise PublicBookError(f"Gamma market slug mismatch for {slug}")
+    condition_id = str(market.get("conditionId") or "").strip()
+    if not condition_id:
+        raise PublicBookError(f"Gamma market {slug} is missing conditionId")
+    outcomes = _json_array(market.get("outcomes"), f"Gamma outcomes for {slug}")
+    tokens = _json_array(market.get("clobTokenIds"), f"Gamma token IDs for {slug}")
+    if outcomes != ["Up", "Down"] or len(tokens) != 2:
+        raise PublicBookError(f"Gamma market {slug} has unexpected outcome/token mapping")
+    end = _parse_utc(market.get("endDate"), f"Gamma endDate for {slug}")
+    if int(end.timestamp()) != expected_end:
+        raise PublicBookError(f"Gamma market {slug} endDate does not match its slot")
+    if end.timestamp() < required_end:
+        raise PublicBookError(f"Gamma market {slug} does not cover the bounded capture")
+    return [
+        {
+            "token_id": str(token),
+            "condition_id": condition_id,
+            "asset": asset,
+            "window_seconds": window_seconds,
+            "outcome": outcome,
+            "slug": slug,
+            "end_date": _iso(end),
+        }
+        for outcome, token in zip(outcomes, tokens)
+    ]
+
+
+def _json_array(value: Any, label: str) -> list[Any]:
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError as exc:
+            raise PublicBookError(f"{label} is not valid JSON") from exc
+    if not isinstance(value, list):
+        raise PublicBookError(f"{label} must be a list")
+    return value
+
+
+def _parse_utc(value: Any, label: str) -> datetime:
+    if not isinstance(value, str):
+        raise PublicBookError(f"{label} must be an ISO timestamp")
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise PublicBookError(f"{label} must be an ISO timestamp") from exc
+    return _aware(parsed)
+
+
 def _decode(payload: str | bytes | dict[str, Any] | list[Any]) -> Any:
     if isinstance(payload, bytes):
         payload = payload.decode("utf-8")
@@ -571,18 +688,27 @@ def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Record a bounded public Polymarket CLOB stream")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--duration-seconds", type=float, required=True)
-    parser.add_argument("--token-metadata", required=True)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--token-metadata")
+    source.add_argument("--discover-current", action="store_true")
+    parser.add_argument("--gamma-url", default=_GAMMA_URL)
     parser.add_argument("--code-commit", required=True)
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
-    metadata = json.loads(Path(args.token_metadata).read_text(encoding="utf-8"))
-    if isinstance(metadata, dict) and "tokens" in metadata:
-        metadata = metadata["tokens"]
-    if not isinstance(metadata, list):
-        raise SystemExit("token metadata must be a JSON list or an object with a tokens list")
+    if args.discover_current:
+        metadata = GammaMarketDiscovery(base_url=args.gamma_url).token_metadata(
+            at=datetime.now(timezone.utc),
+            min_remaining_seconds=args.duration_seconds + _DISCOVERY_SAFETY_SECONDS,
+        )
+    else:
+        metadata = json.loads(Path(args.token_metadata).read_text(encoding="utf-8"))
+        if isinstance(metadata, dict) and "tokens" in metadata:
+            metadata = metadata["tokens"]
+        if not isinstance(metadata, list):
+            raise SystemExit("token metadata must be a JSON list or an object with a tokens list")
     manifest = asyncio.run(
         PublicBookRecorder().run(
             output_dir=args.output_dir,
