@@ -254,14 +254,18 @@ def build_condition_rows(
         label = collapse_primary_taker(episodes.get(condition_id, ()))
         if label is None:
             reasons.append("NO_UNAMBIGUOUS_FIRST_TAKER")
+        decision_ms = int(label["source_second"]) * 1_000 if label is not None else None
+        if decision_ms is not None and decision_ms < start_ms:
+            # K is only bound at market start.  Comparing a pre-open decision
+            # with that later value would leak future information.
+            reasons.append("PRE_OPEN_PRIMARY_TAKER")
         symbol = "btc/usd" if spec.asset == "BTC" else "eth/usd"
         opening = _latest_at_or_before(chainlink[symbol], start_ms)
         if opening is None:
             reasons.append("OPENING_CHAINLINK_UPDATE_MISSING")
         current = None
         momentum = None
-        if label is not None:
-            decision_ms = int(label["source_second"]) * 1_000
+        if label is not None and decision_ms is not None:
             current = _latest_strict_pre(chainlink[symbol], decision_ms)
             if current is None:
                 reasons.append("STRICT_PRE_CHAINLINK_MISSING")
@@ -273,7 +277,7 @@ def build_condition_rows(
                 reasons.append("STRICT_PRE_BINANCE_15S_MISSING")
         barrier_bps = None
         barrier_direction = None
-        if opening is not None and current is not None:
+        if opening is not None and current is not None and decision_ms is not None and decision_ms >= start_ms:
             barrier_bps = 10_000 * math.log(float(current["value_decimal"] / opening["value_decimal"]))
             barrier_direction = _direction(barrier_bps)
         momentum_direction = _direction(momentum) if momentum is not None else None

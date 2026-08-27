@@ -107,3 +107,38 @@ def test_condition_requires_full_pre_open_capture_and_defers_gate() -> None:
     summary = summarize_interim(rows)
     assert summary["study_status"] == "COLLECTING"
     assert summary["stopping_rule"]["gate_evaluation_deferred"] is True
+
+
+def test_pre_open_primary_taker_cannot_use_future_opening_chainlink_value() -> None:
+    spec = market_spec(
+        condition_id="condition",
+        slug="btc-updown-5m-1000",
+        title="Bitcoin Up or Down",
+    )
+    rows = build_condition_rows(
+        specs={"condition": spec},
+        episodes={
+            "condition": (
+                {
+                    "condition_id": "condition",
+                    "outcome": "Up",
+                    "source_second": 999,
+                    "role": "TAKER",
+                    "source_notional": 1.0,
+                },
+            )
+        },
+        chainlink={
+            "btc/usd": (
+                {"source_timestamp_ms": 999_000, "value_decimal": 99},
+                {"source_timestamp_ms": 1_000_000, "value_decimal": 100},
+            )
+        },
+        binance={"BTCUSDT": ()},
+        capture_started_ms=939_000,
+        capture_ended_ms=1_020_000,
+    )
+    assert rows[0]["eligible"] is False
+    assert "PRE_OPEN_PRIMARY_TAKER" in rows[0]["ineligibility_reasons"]
+    assert rows[0]["barrier_bps"] is None
+    assert rows[0]["barrier_aligned"] is None
