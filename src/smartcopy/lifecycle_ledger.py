@@ -249,7 +249,13 @@ def _aggregate(
     comparisons: Sequence[dict[str, Any]],
 ) -> dict[str, Any]:
     complete = [row for row in summaries if row["cash_reconciliation_complete"]]
-    cash = sum((_decimal(row["public_pre_fee_cash_flow"], "cash flow") for row in complete), Decimal(0))
+    cash = sum(
+        (
+            _decimal(row["public_pre_fee_cash_flow"], "cash flow", signed=True)
+            for row in complete
+        ),
+        Decimal(0),
+    )
     negative = [row for row in ledgers if _decimal(row["post_redeem_flow_balance"], "flow balance", signed=True) < 0]
     positive = [row for row in ledgers if _decimal(row["post_redeem_flow_balance"], "flow balance", signed=True) > 0]
     weighted_captured = sum((_decimal(row["captured_buy_size"], "captured") for row in comparisons), Decimal(0))

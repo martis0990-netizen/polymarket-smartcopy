@@ -3,7 +3,7 @@ from decimal import Decimal
 
 import pytest
 
-from smartcopy.lifecycle_ledger import LifecycleLedgerError, build_ledgers
+from smartcopy.lifecycle_ledger import LifecycleLedgerError, _aggregate, build_ledgers
 from smartcopy.models import ObservationMode, WalletActivity
 
 
@@ -71,6 +71,18 @@ def test_negative_balance_reports_minimum_unexplained_inflow() -> None:
     down = next(row for row in ledgers if row["outcome"] == "Down")
     assert down["post_redeem_flow_balance"] == "-12"
     assert down["minimum_unexplained_inflow"] == "12"
+
+
+def test_condition_cash_flow_may_be_negative() -> None:
+    ledgers, conditions, comparisons = build_ledgers(
+        [_activity("TRADE", outcome="Up", side="BUY", size="10", usdc="7")],
+        target_conditions=TARGETS,
+        captured_buy_sizes={},
+    )
+    assert conditions[0]["public_pre_fee_cash_flow"] == "-7"
+    assert _aggregate([], [], ledgers, conditions, comparisons)["public_cash"][
+        "pre_fee_cash_flow_complete_conditions"
+    ] == "-7"
 
 
 def test_trade_requires_supported_outcome_and_side() -> None:
