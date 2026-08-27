@@ -19,6 +19,11 @@ from smartcopy.prospective_signal import collapse_primary_taker
 
 _SCHEMA = "smartcopy-bonereaper-prospective-analysis-v2"
 _CONTRACT_COMMIT = "0065f7ca8c38e435e0a859b06724040cfd01a900"
+_BUNDLE_CONTRACTS = {
+    _CONTRACT_COMMIT,
+    "418489d12dc0affedc19468201413b57e634cc0c",
+    "5af360f9eba6e650c42e4ada2ddbcf00ec87f408",
+}
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 _BINANCE_RAW = "binance_1s_raw.jsonl"
 _CONDITIONS = "condition_signal_rows.jsonl"
@@ -48,7 +53,7 @@ def run_analysis(
         expected_bundle_manifest_sha256,
         "bundle manifest",
     )
-    if bundle_manifest.get("contract_commit") != _CONTRACT_COMMIT:
+    if bundle_manifest.get("contract_commit") not in _BUNDLE_CONTRACTS:
         raise ValueError("bundle contract commit mismatch")
     if bundle_manifest.get("clean_finalize") is not True:
         raise ValueError("bundle did not cleanly finalize")

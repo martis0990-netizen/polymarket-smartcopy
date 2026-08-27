@@ -1,11 +1,20 @@
 from smartcopy.correction_overlay import market_spec
 from smartcopy.external_signal import BinanceKline
 from smartcopy.prospective_analysis import (
+    _BUNDLE_CONTRACTS,
     _momentum_15s,
     build_condition_rows,
     group_receipt_episodes,
     summarize_interim,
 )
+
+
+def test_analysis_accepts_frozen_v2_v3_and_v5_bundle_contracts() -> None:
+    assert _BUNDLE_CONTRACTS == {
+        "0065f7ca8c38e435e0a859b06724040cfd01a900",
+        "418489d12dc0affedc19468201413b57e634cc0c",
+        "5af360f9eba6e650c42e4ada2ddbcf00ec87f408",
+    }
 
 
 def test_grouped_receipt_episodes_collapse_partial_price_levels() -> None:
