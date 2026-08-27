@@ -25,8 +25,16 @@ Status: **HYPOTHESIS TRIAGE AGAINST CURRENT EVIDENCE**
   recorder is still required before calling the mechanism a continuously resting ladder.
 - Pair completion does not prove an on-chain merge.  Merge transactions must be observed
   independently.
-- Exact latency, server-region, fee, minimum-order, win-rate, capital, and “first dollar in 2–4
-  weeks” claims are not strategy evidence.  They require current official mechanics and measured
+- The proposal's statement that crypto takers pay `0.07%` of notional is wrong.  Official docs use
+  `fee = shares × 0.07 × p × (1-p)`: `0.07` is a curve parameter, not a flat percentage.  The fee
+  peaks at `$1.75` for 100 shares at `$0.50`.  Research must use decoded per-fill fees rather than a
+  flat notional haircut.  See [official fee documentation](https://docs.polymarket.com/trading/fees).
+- Chainlink publishes exact 30s/60s TWAP values and observation timestamps, but explicitly does not
+  publish the custom feed's internal sampling boundaries, weighting, rounding, or missing-input
+  behavior.  A future-`K` forecast can be tested, but should not claim to reconstruct the oracle.
+  See [official Chainlink TWAP documentation](https://docs.polymarket.com/market-data/chainlink-twap).
+- Exact latency, server-region, minimum-order, win-rate, capital, and “first dollar in 2–4 weeks”
+  claims are not strategy evidence.  They require current official mechanics and measured
   end-to-end latency; a winning trade is not proof of positive expected value.
 - GPT is appropriate for research, code review, and hypothesis generation, not the deterministic
   subsecond hot path.  Runtime decisions must remain reproducible and bounded.
@@ -44,4 +52,3 @@ The current best architectural reconstruction is therefore narrower than the pro
 `pre-open momentum-led taker positioning + mixed post-open taker decisions + predominantly passive
 opposite-leg rebalancing`.  The probability model behind sizing and price selection remains
 unknown.
-
