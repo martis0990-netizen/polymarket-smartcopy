@@ -18,7 +18,11 @@ formula, technical indicator, or order-placement time.
 - Source:
   `artifacts/bonereaper-prospective-bundle-v5-20260827-01/targeted-prehistory-v1/targeted_activity.jsonl`.
 - Source SHA256:
-  `a858d567e2c4d259c7f28d33d0214c78f8c9ccc670cdad49e8ce7f2af5f0a3f5`.
+  `1a6989f9465b9ea7e4721038602dd1252ffa4a35395d50da0c3a9a90323d9576`.
+
+The raw targeted API envelope has SHA256 `a858d567...`; it is not the selected
+normalized activity file. This distinction was corrected before any receipt was
+retrieved for this stage.
 - Select every `TRADE` / `BUY` row and exclude the five `REDEEM` rows.
 - Expected population: 289 fill rows, 285 unique Polygon transactions, five
   conditions.
