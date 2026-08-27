@@ -56,3 +56,36 @@ signals.  GPT belongs in research and review, not in the deterministic subsecond
    cancellations and fees.  No real-money run until positive net expectancy is reproduced on held-
    out conditions with explicit loss limits and kill switches.
 
+## 14:48 UTC addendum — first clean split-book bundle
+
+Bundle `bonereaper-prospective-bundle-v5-20260827-01` cleanly captured `14:43:03–14:45:12 UTC`.
+Its root manifest SHA256 is
+`3748dbd327adbdfeea8506bcb8f747f1831b721afe3ea782933d82da00b69160`.
+
+- Chainlink: 106 BTC and 106 ETH events, zero reconnects.
+- Wallet: 40 live-observed rows, zero gap failures; 34 supported BTC/ETH receipts and all fee-aware
+  roles unambiguous.
+- Receipts: 11 maker and 23 taker fills; $1,318.54 total notional; receipt-row SHA256
+  `1cbbe07f740682e1f6542d1ed70d7d2b8b63a9099a3366382aa3e3b1bff2ab31`.
+- Both current and safe book groups initialized 8/8 tokens with zero reconnects.  All 34 receipt
+  rows matched one exact bound token; none was excluded as unbound.
+
+Public-book scoring added two independent 5m conditions.  BTC 5m and ETH 5m were both
+`LATE_DOMINANT`: six eligible maker fills and $107.25 eligible maker notional had no exact level
+continuously visible for the frozen one-second lookback.  Five additional maker fills ($87.36)
+remained startup/same-second ineligible.  Cumulative progress is now `4/30`: three late-dominant,
+one pre-positioned-dominant, and one condition in each required asset × horizon stratum.
+
+Pre-open scoring added three conditions:
+
+| Market | Lead | Side | Binance 15s | Chainlink 15s | BTC lead |
+|---|---:|---|---|---|---|
+| ETH 15m | 26 s | Up | Up ✓ | Up ✓ | Up ✓ |
+| BTC 5m | 57 s | Up | Up ✓ | Down ✗ | n/a |
+| ETH 5m | 12 s | Down | Up ✗ | Up ✗ | Up ✗ |
+
+The BTC 5m row is the first prospective discordant Binance-versus-Chainlink observation in this
+study.  It favours Binance momentum for that condition, but one row is not a gate.  Combined frozen
+pre-open progress is `6/30`: Binance `4/6`, Chainlink `3/6`, and descriptive BTC lead for ETH `2/3`.
+Post-open progress remains `2/40`; this bundle correctly contributed zero because current markets
+lacked complete pre-open Chainlink coverage and following-market takers all occurred before open.
