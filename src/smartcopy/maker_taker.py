@@ -386,6 +386,7 @@ def _decode_fill(
     receipt: dict[str, Any],
     *,
     opposite_fill: bool,
+    source_price_required: bool = True,
 ) -> dict[str, Any]:
     tx_hash = _transaction_hash(fill.transaction_hash, "wallet transaction hash")
     if _hex_int(receipt.get("status"), f"receipt {tx_hash} status") != 1:
@@ -437,7 +438,10 @@ def _decode_fill(
         and event.token_id == expected_token
         and abs(event.taker_amount - expected_size) <= 1
         and event.taker_amount > 0
-        and abs(event.maker_amount / event.taker_amount - fill.price) <= 1e-6
+        and (
+            not source_price_required
+            or abs(event.maker_amount / event.taker_amount - fill.price) <= 1e-6
+        )
     ]
     candidates = [
         event for event in common_candidates if abs(event.maker_amount - expected_usdc) <= 1

@@ -251,7 +251,7 @@ def run_lifecycle_study(
     )
     if chain_id != _CHAIN_ID:
         raise ValueError(f"expected Polygon chain id {_CHAIN_ID}, got {chain_id}")
-    decoded = decode_prospective_rows(fills, envelopes)
+    decoded = decode_prospective_rows(fills, envelopes, source_price_required=False)
     rows = label_lifecycle_rows(decoded, slugs=slugs)
     summary = summarize_lifecycle(rows, redemptions=redemptions, slugs=slugs)
 

@@ -99,6 +99,8 @@ def run_prospective_receipts(
 def decode_prospective_rows(
     fills: Sequence[WalletFill],
     envelopes: Sequence[dict[str, Any]],
+    *,
+    source_price_required: bool = True,
 ) -> tuple[dict[str, Any], ...]:
     """Decode every fill, allowing one transaction to sweep multiple price levels."""
 
@@ -128,7 +130,14 @@ def decode_prospective_rows(
         receipt = receipt_by_hash.get(fill.transaction_hash.lower())
         if receipt is None:
             raise ValueError(f"no collected receipt for {fill.transaction_hash}")
-        rows.append(_decode_fill(fill, receipt, opposite_fill=opposite))
+        rows.append(
+            _decode_fill(
+                fill,
+                receipt,
+                opposite_fill=opposite,
+                source_price_required=source_price_required,
+            )
+        )
     return tuple(rows)
 
 
