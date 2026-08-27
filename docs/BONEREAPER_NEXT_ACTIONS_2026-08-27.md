@@ -141,3 +141,21 @@ The next frozen collection should use exact condition-ID filtering from the earl
 `createdAt/startDate`, then decode all target Polygon receipts for fee-aware lifecycle PnL.  This
 takes priority over adding more technical indicators: the current uncertainty is inventory basis,
 not signal vocabulary.
+
+## Targeted prehistory addendum
+
+The condition-filtered extension recovered 19 BUYs, 1,501.025539 tokens and `$701.51` of acquisition
+cost before the slug epoch.  All 275 prior lifecycle rows overlapped exactly, and unexplained token
+inflow fell from 1,459.025539 to zero.  The five-condition public pre-fee cash flow is now fully
+reconciled at `-$448.63`: two conditions positive, three negative.
+
+All recovered trades occurred during the final 54 seconds before the window, not throughout the
+previous day.  Seventeen BTC `Up` buys correctly pre-positioned the eventual winner; two ETH `Down`
+buys were wrong.  The mechanism now has direct evidence for a pre-open directional loop followed by
+two-sided accumulation and terminal redemption.  The clean capture covered only 26.14% of complete
+BUY size.
+
+Next decode all 289 lifecycle TRADE receipts.  Freeze and test two role hypotheses separately:
+pre-open directional entries should be taker-dominant, while later opposite-side inventory should
+be maker-dominant.  Use exact receipt fees to replace public pre-fee cash with fee-aware lifecycle
+economics before evaluating a successor algorithm.
