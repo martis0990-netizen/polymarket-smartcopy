@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Any, AsyncIterator, Sequence
+from typing import Any, AsyncIterator, Iterable, Sequence
 
 _SCHEMA = "smartcopy-bonereaper-public-book-v1"
 _CONTRACT_COMMIT = "c16c4e6454c41296662e23d156bcc4b0b2e7b3c2"
@@ -80,6 +80,86 @@ def normalize_clob_market_message(
             raise PublicBookError("CLOB message list entries must be objects")
         records.extend(_normalize_object(message, received))
     return records
+
+
+def classify_captured_level(
+    records: Iterable[dict[str, Any]],
+    *,
+    token_id: str,
+    side: str,
+    fill_price: str | Decimal,
+    source_timestamp_ms: int,
+    gaps: Iterable[dict[str, Any]] = (),
+) -> str:
+    """Apply the frozen exact-level diagnostic to normalized recorder output."""
+
+    target_side = side.upper()
+    if target_side not in {"BUY", "SELL"}:
+        raise ValueError("side must be BUY or SELL")
+    target_price = _decimal(fill_price, "fill price")
+    required_from = source_timestamp_ms - 1_000
+    for gap in gaps:
+        if str(gap.get("token_id")) != token_id:
+            continue
+        start = gap.get("start_source_timestamp_ms")
+        recovered = gap.get("recovered_source_timestamp_ms")
+        if start is None:
+            return "INELIGIBLE"
+        start_ms = _integer(start, "gap start source timestamp")
+        recovered_ms = (
+            _integer(recovered, "gap recovery source timestamp") if recovered is not None else None
+        )
+        if start_ms < source_timestamp_ms and (recovered_ms is None or recovered_ms >= required_from):
+            return "INELIGIBLE"
+
+    initialized = False
+    current_size = Decimal(0)
+    continuous_start: int | None = None
+    prior_line = 0
+    for row in records:
+        if str(row.get("token_id")) != token_id:
+            continue
+        line = _integer(row.get("line_number"), "book line number")
+        if line <= prior_line:
+            raise PublicBookError("book line numbers must increase per token")
+        prior_line = line
+        timestamp = _integer(row.get("source_timestamp_ms"), "book source timestamp")
+        if timestamp >= source_timestamp_ms:
+            continue
+        record_type = str(row.get("record_type"))
+        if record_type == "snapshot":
+            initialized = bool(row.get("coverage_valid"))
+            current_size = Decimal(0)
+            continuous_start = None
+            continue
+        if not bool(row.get("coverage_valid")):
+            initialized = False
+            current_size = Decimal(0)
+            continuous_start = None
+            continue
+        if not initialized:
+            continue
+        if str(row.get("side")) != target_side:
+            continue
+        if _decimal(row.get("price"), "book price") != target_price:
+            continue
+        new_size = _decimal(row.get("size"), "book size")
+        if new_size > 0:
+            if current_size <= 0:
+                continuous_start = timestamp
+            current_size = new_size
+        else:
+            current_size = Decimal(0)
+            continuous_start = None
+    if not initialized:
+        return "INELIGIBLE"
+    if current_size <= 0 or continuous_start is None:
+        return "LATE_OR_UNSEEN_LEVEL"
+    return (
+        "PRE_POSITIONED_LEVEL"
+        if continuous_start <= required_from
+        else "LATE_OR_UNSEEN_LEVEL"
+    )
 
 
 def _normalize_object(message: dict[str, Any], received: datetime) -> list[BookRecord]:
@@ -222,7 +302,7 @@ class PublicBookRecorder:
         deadline = asyncio.get_running_loop().time() + duration_seconds
         initialized = {token_id: False for token_id in token_ids}
         last_source: dict[str, int] = {}
-        pending_gap: dict[str, datetime] = {}
+        pending_gap: dict[str, dict[str, Any]] = {}
         counts = {
             "raw_frames": 0,
             "snapshot_records": 0,
@@ -240,7 +320,10 @@ class PublicBookRecorder:
                         reconnects += 1
                         for token_id in token_ids:
                             initialized[token_id] = False
-                            pending_gap[token_id] = received
+                            pending_gap[token_id] = {
+                                "receive_timestamp": received,
+                                "start_source_timestamp_ms": last_source.get(token_id),
+                            }
                     counts["raw_frames"] += 1
                     raw_handle.write(
                         _json_line(
@@ -273,12 +356,18 @@ class PublicBookRecorder:
                                             "schema_version": _SCHEMA,
                                             "token_id": record.token_id,
                                             "reason": "CLOB_RECONNECT",
-                                            "start_receive_timestamp": _iso(pending_gap.pop(record.token_id)),
+                                            "start_receive_timestamp": _iso(
+                                                pending_gap[record.token_id]["receive_timestamp"]
+                                            ),
+                                            "start_source_timestamp_ms": pending_gap[
+                                                record.token_id
+                                            ]["start_source_timestamp_ms"],
                                             "recovered_receive_timestamp": _iso(received),
                                             "recovered_source_timestamp_ms": record.source_timestamp_ms,
                                         }
                                     )
                                 )
+                                pending_gap.pop(record.token_id)
                             initialized[record.token_id] = True
                             counts["snapshot_records"] += 1
                         coverage_valid = initialized[record.token_id]
@@ -299,14 +388,15 @@ class PublicBookRecorder:
                     raw_handle.flush()
                     level_handle.flush()
                     gap_handle.flush()
-                for token_id, gap_started in pending_gap.items():
+                for token_id, gap in pending_gap.items():
                     gap_handle.write(
                         _json_line(
                             {
                                 "schema_version": _SCHEMA,
                                 "token_id": token_id,
                                 "reason": "CLOB_RECONNECT_UNRECOVERED",
-                                "start_receive_timestamp": _iso(gap_started),
+                                "start_receive_timestamp": _iso(gap["receive_timestamp"]),
+                                "start_source_timestamp_ms": gap["start_source_timestamp_ms"],
                                 "recovered_receive_timestamp": None,
                                 "recovered_source_timestamp_ms": None,
                             }

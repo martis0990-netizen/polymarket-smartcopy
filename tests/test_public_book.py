@@ -7,6 +7,7 @@ import pytest
 from smartcopy.public_book import (
     PublicBookError,
     PublicBookRecorder,
+    classify_captured_level,
     normalize_clob_market_message,
 )
 
@@ -117,6 +118,84 @@ def test_list_frame_preserves_equal_timestamp_arrival_order():
 def test_naive_receive_time_is_rejected():
     with pytest.raises(PublicBookError, match="timezone-aware"):
         normalize_clob_market_message(_book(), receive_timestamp=NOW.replace(tzinfo=None))
+
+
+def _normalized_row(line, timestamp, *, record_type="level", size="5", price="0.42", valid=True):
+    return {
+        "line_number": line,
+        "record_type": record_type,
+        "event_type": "book" if record_type == "snapshot" else "price_change",
+        "token_id": TOKEN,
+        "source_timestamp_ms": timestamp,
+        "side": None if record_type == "snapshot" else "BUY",
+        "price": None if record_type == "snapshot" else price,
+        "size": None if record_type == "snapshot" else size,
+        "coverage_valid": valid,
+    }
+
+
+def test_captured_level_requires_one_second_continuity():
+    rows = [_normalized_row(1, 8_000, record_type="snapshot"), _normalized_row(2, 8_500)]
+    assert (
+        classify_captured_level(
+            rows, token_id=TOKEN, side="BUY", fill_price="0.42", source_timestamp_ms=10_000
+        )
+        == "PRE_POSITIONED_LEVEL"
+    )
+    late = [_normalized_row(1, 8_000, record_type="snapshot"), _normalized_row(2, 9_001)]
+    assert (
+        classify_captured_level(
+            late, token_id=TOKEN, side="BUY", fill_price="0.42", source_timestamp_ms=10_000
+        )
+        == "LATE_OR_UNSEEN_LEVEL"
+    )
+
+
+def test_full_snapshot_clears_a_level_that_is_not_repeated():
+    rows = [
+        _normalized_row(1, 8_000, record_type="snapshot"),
+        _normalized_row(2, 8_000),
+        _normalized_row(3, 9_500, record_type="snapshot"),
+    ]
+    assert (
+        classify_captured_level(
+            rows, token_id=TOKEN, side="BUY", fill_price="0.42", source_timestamp_ms=10_000
+        )
+        == "LATE_OR_UNSEEN_LEVEL"
+    )
+
+
+def test_same_source_second_update_is_not_used_in_fill_favour():
+    rows = [
+        _normalized_row(1, 9_000, record_type="snapshot"),
+        _normalized_row(2, 10_001),
+    ]
+    assert (
+        classify_captured_level(
+            rows, token_id=TOKEN, side="BUY", fill_price="0.42", source_timestamp_ms=10_000
+        )
+        == "LATE_OR_UNSEEN_LEVEL"
+    )
+
+
+def test_intersecting_reconnect_gap_makes_level_ineligible():
+    rows = [_normalized_row(1, 8_000, record_type="snapshot"), _normalized_row(2, 8_000)]
+    gap = {
+        "token_id": TOKEN,
+        "start_source_timestamp_ms": 9_200,
+        "recovered_source_timestamp_ms": 9_800,
+    }
+    assert (
+        classify_captured_level(
+            rows,
+            token_id=TOKEN,
+            side="BUY",
+            fill_price="0.42",
+            source_timestamp_ms=10_000,
+            gaps=[gap],
+        )
+        == "INELIGIBLE"
+    )
 
 
 def test_recorder_marks_pre_snapshot_delta_ineligible_and_closes_gap(tmp_path):
