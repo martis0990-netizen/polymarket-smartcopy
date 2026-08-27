@@ -2,6 +2,15 @@
 
 Status: **HYPOTHESIS TRIAGE AGAINST CURRENT EVIDENCE**
 
+## Lifecycle receipt update
+
+The later full targeted-lifecycle study supersedes the narrower population
+claim below that opposite-leg rebalancing is predominantly passive. Across 99
+post-open complement rows, 78 were maker, but only 26.80% of notional was
+maker; a few large taker sweeps dominate dollars. Pre-open directional notional
+was 99.38% taker. The updated reconstruction and immutable evidence are in
+`docs/BONEREAPER_LIFECYCLE_MAKER_TAKER_RESULTS_2026-08-27.md`.
+
 ## What the proposal gets right
 
 | Proposal | Current evidence | Disposition |
