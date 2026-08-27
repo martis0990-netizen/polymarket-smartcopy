@@ -57,38 +57,58 @@ class GammaMarketDiscovery:
         *,
         at: datetime,
         min_remaining_seconds: float,
+        include_current: bool = False,
     ) -> list[dict[str, Any]]:
         observed = _aware(at)
         if min_remaining_seconds <= 0:
             raise ValueError("min_remaining_seconds must be positive")
         unix = int(observed.timestamp())
-        requests: list[tuple[str, str, int, int]] = []
+        requests_by_slug: dict[str, dict[str, Any]] = {}
         for asset in ("BTC", "ETH"):
             for window_seconds, label in ((300, "5m"), (900, "15m")):
-                epoch = unix - unix % window_seconds
-                if epoch + window_seconds < observed.timestamp() + min_remaining_seconds:
-                    epoch += window_seconds
-                slug = f"{asset.lower()}-updown-{label}-{epoch}"
-                url = f"{self.base_url.rstrip('/')}/markets/slug/{slug}"
-                requests.append((url, slug, asset, window_seconds, epoch))
+                current_epoch = unix - unix % window_seconds
+                safe_epoch = current_epoch
+                if safe_epoch + window_seconds < observed.timestamp() + min_remaining_seconds:
+                    safe_epoch += window_seconds
+                bindings = [(safe_epoch, "safe", observed.timestamp() + min_remaining_seconds)]
+                if include_current and current_epoch != safe_epoch:
+                    bindings.insert(0, (current_epoch, "current", observed.timestamp()))
+                for epoch, role, required_end in bindings:
+                    slug = f"{asset.lower()}-updown-{label}-{epoch}"
+                    request = requests_by_slug.setdefault(
+                        slug,
+                        {
+                            "url": f"{self.base_url.rstrip('/')}/markets/slug/{slug}",
+                            "slug": slug,
+                            "asset": asset,
+                            "window_seconds": window_seconds,
+                            "epoch": epoch,
+                            "required_end": required_end,
+                            "coverage_roles": [],
+                        },
+                    )
+                    request["required_end"] = max(float(request["required_end"]), required_end)
+                    request["coverage_roles"].append(role)
 
         headers = {"Accept": "application/json", "User-Agent": self.user_agent}
+        requests = list(requests_by_slug.values())
         with ThreadPoolExecutor(max_workers=len(requests)) as pool:
-            futures = [pool.submit(self.transport, url, headers) for url, *_ in requests]
+            futures = [pool.submit(self.transport, request["url"], headers) for request in requests]
             markets = [future.result() for future in futures]
 
         rows: list[dict[str, Any]] = []
-        for market, (_, slug, asset, window_seconds, epoch) in zip(markets, requests, strict=True):
-                rows.extend(
-                    _gamma_market_rows(
-                        market,
-                        slug=slug,
-                        asset=asset,
-                        window_seconds=window_seconds,
-                        expected_end=epoch + window_seconds,
-                        required_end=observed.timestamp() + min_remaining_seconds,
-                    )
+        for market, request in zip(markets, requests, strict=True):
+            rows.extend(
+                _gamma_market_rows(
+                    market,
+                    slug=request["slug"],
+                    asset=request["asset"],
+                    window_seconds=request["window_seconds"],
+                    expected_end=request["epoch"] + request["window_seconds"],
+                    required_end=request["required_end"],
+                    coverage_roles=tuple(request["coverage_roles"]),
                 )
+            )
         return rows
 
 
@@ -557,6 +577,7 @@ def _gamma_market_rows(
     window_seconds: int,
     expected_end: int,
     required_end: float,
+    coverage_roles: Sequence[str] = ("safe",),
 ) -> list[dict[str, Any]]:
     if not isinstance(market, dict):
         raise PublicBookError(f"Gamma market {slug} must be an object")
@@ -582,9 +603,11 @@ def _gamma_market_rows(
             "condition_id": condition_id,
             "asset": asset,
             "window_seconds": window_seconds,
+            "window_start": expected_end - window_seconds,
             "outcome": outcome,
             "slug": slug,
             "end_date": _iso(end),
+            "coverage_roles": sorted(set(coverage_roles)),
         }
         for outcome, token in zip(outcomes, tokens)
     ]

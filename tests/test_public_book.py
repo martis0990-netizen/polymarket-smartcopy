@@ -73,6 +73,34 @@ def test_gamma_discovery_fetches_four_independent_markets_concurrently():
     assert len(rows) == 8
 
 
+def test_gamma_discovery_can_bind_expiring_and_safe_conditions_together():
+    def transport(url, headers):
+        slug = url.rsplit("/", 1)[-1]
+        asset, _, label, epoch_text = slug.split("-")
+        window = 300 if label == "5m" else 900
+        end = datetime.fromtimestamp(int(epoch_text) + window, timezone.utc)
+        return {
+            "slug": slug,
+            "conditionId": f"condition-{slug}",
+            "active": True,
+            "closed": False,
+            "endDate": end.isoformat().replace("+00:00", "Z"),
+            "outcomes": ["Up", "Down"],
+            "clobTokenIds": [f"{slug}-up", f"{slug}-down"],
+        }
+
+    at = datetime(2026, 8, 27, 12, 4, 50, tzinfo=timezone.utc)
+    rows = GammaMarketDiscovery(transport=transport).token_metadata(
+        at=at, min_remaining_seconds=180, include_current=True
+    )
+    by_slug = {row["slug"]: row for row in rows}
+    assert "btc-updown-5m-1787832000" in by_slug
+    assert by_slug["btc-updown-5m-1787832000"]["coverage_roles"] == ["current"]
+    assert "btc-updown-5m-1787832300" in by_slug
+    assert by_slug["btc-updown-5m-1787832300"]["coverage_roles"] == ["safe"]
+    assert by_slug["btc-updown-5m-1787832300"]["window_start"] == 1787832300
+
+
 def test_gamma_discovery_rejects_inconsistent_slot_end():
     def transport(url, headers):
         slug = url.rsplit("/", 1)[-1]

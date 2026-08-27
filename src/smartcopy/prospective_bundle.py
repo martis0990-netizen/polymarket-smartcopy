@@ -1,4 +1,4 @@
-"""Run the frozen prospective Chainlink, wallet and public-CLOB bundle v3."""
+"""Run the frozen prospective Chainlink, wallet and public-CLOB bundle v4."""
 
 from __future__ import annotations
 
@@ -16,8 +16,8 @@ from smartcopy.polymarket import PolymarketDataAPI
 from smartcopy.prospective_signal import ChainlinkTwapRecorder
 from smartcopy.public_book import GammaMarketDiscovery, PublicBookRecorder
 
-_SCHEMA = "smartcopy-bonereaper-prospective-bundle-v3"
-_CONTRACT_COMMIT = "418489d12dc0affedc19468201413b57e634cc0c"
+_SCHEMA = "smartcopy-bonereaper-prospective-bundle-v4"
+_CONTRACT_COMMIT = "f5404acbfed6e50056d251e5c06a23bda2c38aee"
 _WALLET = "0xeebde7a0e019a63e6b476eb425505b7b3e6eba30"
 _MANIFEST = "prospective_bundle_manifest.json"
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
@@ -38,7 +38,7 @@ async def run_bundle(
     if duration_seconds <= 0:
         raise ValueError("duration_seconds must be positive")
     if duration_seconds > _MAX_DURATION_SECONDS:
-        raise ValueError(f"v3 bundle duration must not exceed {_MAX_DURATION_SECONDS:g} seconds")
+        raise ValueError(f"v4 bundle duration must not exceed {_MAX_DURATION_SECONDS:g} seconds")
     if _COMMIT.fullmatch(code_commit) is None:
         raise ValueError("code_commit must be a full lowercase Git SHA")
     root = Path(output_dir)
@@ -51,6 +51,7 @@ async def run_bundle(
         discovery.token_metadata,
         at=discovery_started,
         min_remaining_seconds=duration_seconds + _DISCOVERY_SAFETY_SECONDS,
+        include_current=True,
     )
     discovery_ended = datetime.now(timezone.utc)
     if not token_metadata:

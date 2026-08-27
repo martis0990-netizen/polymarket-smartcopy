@@ -31,8 +31,9 @@ class FakeWalletObserver:
 
 
 class FakeMarketDiscovery:
-    def token_metadata(self, *, at, min_remaining_seconds):
+    def token_metadata(self, *, at, min_remaining_seconds, include_current):
         assert min_remaining_seconds == 61
+        assert include_current is True
         return [
             {
                 "token_id": "token-up",
@@ -74,7 +75,7 @@ def test_bundle_binds_both_clean_child_manifests(tmp_path) -> None:
     assert manifest["chainlink"]["event_counts"] == {"btc/usd": 2, "eth/usd": 2}
     assert manifest["code_commit"] == CODE_COMMIT
     assert manifest["wallet_observer"]["prospective_rows"] == 3
-    assert manifest["schema_version"] == "smartcopy-bonereaper-prospective-bundle-v3"
+    assert manifest["schema_version"] == "smartcopy-bonereaper-prospective-bundle-v4"
     assert manifest["public_book"]["event_counts"]["snapshot_records"] == 1
     assert manifest["public_book"]["initialized_at_finalize"] == {"token-up": True}
     child = root / "wallet" / "observer_manifest.json"
