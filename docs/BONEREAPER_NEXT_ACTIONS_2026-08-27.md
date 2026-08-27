@@ -89,3 +89,17 @@ study.  It favours Binance momentum for that condition, but one row is not a gat
 pre-open progress is `6/30`: Binance `4/6`, Chainlink `3/6`, and descriptive BTC lead for ETH `2/3`.
 Post-open progress remains `2/40`; this bundle correctly contributed zero because current markets
 lacked complete pre-open Chainlink coverage and following-market takers all occurred before open.
+
+## Prospective economics addendum
+
+The first frozen FIFO economics calculation used all 34 exact-bound receipt rows.  Two conditions
+formed 141.670726 paired units, and 100% cost more than `$1` before and after decoded fees.  The
+after-fee weighted costs were `1.24911` for ETH 5m and `1.04636` for BTC 5m.  Therefore this bundle
+does not support a simple deterministic sub-$1 pair-arbitrage explanation.
+
+Residual inventory was much larger than matched inventory, including 1,562.2 following-market BTC
+`Up` units at an after-fee mean cost of `0.50415`.  Taker markout was negative in aggregate at the
+frozen 10/30/60-second horizons; maker markout was negative at 10/30 seconds and positive at 60
+seconds, with material variation by condition.  Economics status is `COLLECTING`, `2/30` paired
+conditions.  The architecture plan must treat the complementary leg as inventory insurance that
+may rationally cost more than `$1` per completed pair, not assume every pair is an arbitrage.
