@@ -139,6 +139,7 @@ def load_wallet_evidence(
     path: str | Path,
     *,
     expected_sha256: str | None = None,
+    skip_unsupported_markets: bool = False,
 ) -> WalletEvidence:
     source = Path(path)
     raw = source.read_bytes()
@@ -162,6 +163,8 @@ def load_wallet_evidence(
         condition_id = _string(payload.get("condition_id"), f"wallet line {line_number} condition_id")
         slug = _string(payload.get("slug"), f"wallet line {line_number} slug")
         title = _string(payload.get("title"), f"wallet line {line_number} title")
+        if skip_unsupported_markets and _SLUG.fullmatch(slug) is None:
+            continue
         outcome = _outcome(payload.get("outcome"), f"wallet line {line_number} outcome")
         timestamp = _unix_second(payload.get("source_event_time"), f"wallet line {line_number}")
         price = _price(payload.get("price"), f"wallet line {line_number} price")

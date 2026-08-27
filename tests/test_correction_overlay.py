@@ -120,6 +120,28 @@ def test_wallet_evidence_is_sha_bound_and_same_second_precision(tmp_path: Path) 
         load_wallet_evidence(path, expected_sha256="0" * 64)
 
 
+def test_prospective_loader_can_explicitly_skip_markets_outside_frozen_universe(tmp_path: Path) -> None:
+    btc = _wallet_row(second=120, outcome="Up", price=0.4, size=2, transaction_hash="btc")
+    sol = {
+        **_wallet_row(second=121, outcome="Down", price=0.6, size=2, transaction_hash="sol"),
+        "condition_id": "0xsol",
+        "slug": "sol-updown-5m-100",
+        "title": "Solana Up or Down",
+    }
+    path = tmp_path / "wallet.jsonl"
+    path.write_text("\n".join((json.dumps(btc), json.dumps(sol))) + "\n")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    with pytest.raises(CorrectionOverlayError, match="unsupported market slug"):
+        load_wallet_evidence(path, expected_sha256=digest)
+    evidence = load_wallet_evidence(
+        path,
+        expected_sha256=digest,
+        skip_unsupported_markets=True,
+    )
+    assert evidence.sha256 == digest
+    assert [row.transaction_hash for row in evidence.rows] == ["btc"]
+
+
 def test_market_collection_paginates_and_fails_closed_at_cap() -> None:
     calls: list[int] = []
 
