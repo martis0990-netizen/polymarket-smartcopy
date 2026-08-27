@@ -103,3 +103,23 @@ frozen 10/30/60-second horizons; maker markout was negative at 10/30 seconds and
 seconds, with material variation by condition.  Economics status is `COLLECTING`, `2/30` paired
 conditions.  The architecture plan must treat the complementary leg as inventory insurance that
 may rationally cost more than `$1` per completed pair, not assume every pair is an arbitrage.
+
+## Prospective settlement addendum
+
+All five frozen markets resolved and had one public target-condition `REDEEM` row by the frozen
+cutoff; there were no public `MERGE` rows.  Holding only the 34 bounded BUY fills unchanged would
+have turned `$1,318.54` of after-fee acquisition cost into `$508.15`, a `-$810.39` terminal edge.
+The largest residual was on the winner in only two of five conditions.  This rejects the bounded
+hold-to-resolution portfolio as a profitable algorithm.
+
+It does not measure wallet PnL.  Target redemptions paid `$4,150.05`, far more than the bounded
+terminal inventory, and one following BTC market redeemed the winning `Down` side even though the
+capture contained only 1,562.2 `Up` units.  Bonereaper therefore materially changed inventory after
+the two-minute capture or carried prior inventory.  One exact exception is informative: the 72
+captured ETH 15m `Up` units were later redeemed after `Down` won, paying zero.  Directional mistakes
+are real rather than hidden by universal pair arbitrage.
+
+The next priority is no longer another isolated indicator.  Capture complete market lifecycles
+from before first fill through resolution, include SELL as well as BUY activity, and reconcile each
+inventory transition to terminal redemption.  Reach 30 resolved independent conditions before
+judging the mechanism or designing a paper-trading successor.
