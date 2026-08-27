@@ -123,3 +123,21 @@ The next priority is no longer another isolated indicator.  Capture complete mar
 from before first fill through resolution, include SELL as well as BUY activity, and reconcile each
 inventory transition to terminal redemption.  Reach 30 resolved independent conditions before
 judging the mechanism or designing a paper-trading successor.
+
+## Lifecycle ledger addendum
+
+The frozen epoch-to-cutoff ledger collected 9,951 complete-range activity rows; 275 belonged to the
+five targets.  All 270 target trades were BUYs.  There were no SELL, SPLIT or MERGE rows, followed
+by five outcome-specific redemptions.  The clean capture represented only 31.33% of lifecycle BUY
+token size.
+
+Four conditions reconcile without an unexplained token deficit and produced a combined public
+pre-fee cash flow of `-$859.61`; only one was positive.  The remaining current BTC condition burned
+1,459.025539 more winning `Up` tokens than were bought after its slug epoch.  Gamma metadata shows
+that it was tradeable roughly a day earlier, so its apparent positive cash flow is missing entry
+cost and must not be scored.
+
+The next frozen collection should use exact condition-ID filtering from the earliest Gamma
+`createdAt/startDate`, then decode all target Polygon receipts for fee-aware lifecycle PnL.  This
+takes priority over adding more technical indicators: the current uncertainty is inventory basis,
+not signal vocabulary.
