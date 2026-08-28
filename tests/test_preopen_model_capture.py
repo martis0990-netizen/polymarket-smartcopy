@@ -34,7 +34,7 @@ def test_capture_binds_both_child_manifests(tmp_path) -> None:
     manifest = asyncio.run(
         run_preopen_model_capture(
             output_dir=output,
-            duration_seconds=900,
+            duration_seconds=960,
             code_commit="a" * 40,
             twap_recorder=FakeTwap(),
             wallet_observer=FakeWallet(),
@@ -50,7 +50,7 @@ def test_capture_rejects_short_or_reused_output(tmp_path) -> None:
         asyncio.run(
             run_preopen_model_capture(
                 output_dir=tmp_path / "short",
-                duration_seconds=899,
+                duration_seconds=959,
                 code_commit="a" * 40,
                 twap_recorder=FakeTwap(),
                 wallet_observer=FakeWallet(),
@@ -62,7 +62,7 @@ def test_capture_rejects_short_or_reused_output(tmp_path) -> None:
         asyncio.run(
             run_preopen_model_capture(
                 output_dir=existing,
-                duration_seconds=900,
+                duration_seconds=960,
                 code_commit="a" * 40,
                 twap_recorder=FakeTwap(),
                 wallet_observer=FakeWallet(),

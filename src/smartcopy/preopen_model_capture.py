@@ -16,9 +16,9 @@ from smartcopy.polymarket import PolymarketDataAPI
 from smartcopy.prospective_signal import ChainlinkTwapRecorder
 
 _SCHEMA = "smartcopy-bonereaper-preopen-model-capture-v1"
-_CONTRACT_COMMIT = "cf96bd8a5447636fe50c7820dac15da0b8f50d58"
+_CONTRACT_COMMIT = "9185f30b9882da98cfbfb0c8e3ca38bac51e73a3"
 _WALLET = "0xeebde7a0e019a63e6b476eb425505b7b3e6eba30"
-_MIN_DURATION_SECONDS = 900.0
+_MIN_DURATION_SECONDS = 960.0
 _MAX_DURATION_SECONDS = 14_400.0
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 

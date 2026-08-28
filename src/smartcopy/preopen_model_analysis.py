@@ -29,7 +29,7 @@ from smartcopy.prospective_analysis import (
 _SCHEMA = "smartcopy-bonereaper-preopen-model-analysis-v4"
 _CONTRACT_COMMIT = "70d6772a5f8ea671f2b2477509d957d25a1d2360"
 _CAPTURE_SCHEMA = "smartcopy-bonereaper-preopen-model-capture-v1"
-_CAPTURE_CONTRACT_COMMIT = "cf96bd8a5447636fe50c7820dac15da0b8f50d58"
+_CAPTURE_CONTRACT_COMMIT = "9185f30b9882da98cfbfb0c8e3ca38bac51e73a3"
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
 
