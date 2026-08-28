@@ -52,3 +52,37 @@ def test_precontract_bundle_can_smoke_but_never_enter_v4_count() -> None:
     assert rows[0]["MOM15"] == "Up"
     assert rows[0]["confirmatory_eligible"] is False
     assert "PRECONTRACT_CAPTURE" in rows[0]["exclusion_reasons"]
+
+
+def test_insufficient_capture_excludes_even_contract_bound_row() -> None:
+    start = 10_000
+    spec = market_spec(
+        condition_id="condition",
+        slug=f"btc-updown-5m-{start}",
+        title="BTC",
+    )
+    decision = start - 10
+    seconds = tuple(
+        _bar(second, 100 + second / 10_000, 1_000)
+        for second in range(decision - 20, decision)
+    )
+    rows = build_model_rows(
+        specs={"condition": spec},
+        episodes={
+            "condition": (
+                {
+                    "role": "TAKER",
+                    "source_second": decision,
+                    "outcome": "Up",
+                    "source_notional": 10,
+                },
+            )
+        },
+        chainlink={"btc/usd": (), "eth/usd": ()},
+        binance={("BTCUSDT", "1s"): seconds},
+        capture_started_ms=(start - 100) * 1_000,
+        capture_ended_ms=(start + 1) * 1_000,
+        confirmatory_capture=True,
+    )
+    assert rows[0]["confirmatory_eligible"] is False
+    assert rows[0]["exclusion_reasons"] == ["INSUFFICIENT_11M_CAPTURE"]

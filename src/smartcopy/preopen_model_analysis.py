@@ -29,7 +29,7 @@ from smartcopy.prospective_analysis import (
 _SCHEMA = "smartcopy-bonereaper-preopen-model-analysis-v4"
 _CONTRACT_COMMIT = "70d6772a5f8ea671f2b2477509d957d25a1d2360"
 _CAPTURE_SCHEMA = "smartcopy-bonereaper-preopen-model-capture-v1"
-_CAPTURE_CONTRACT_COMMIT = "PENDING_CAPTURE_CONTRACT"
+_CAPTURE_CONTRACT_COMMIT = "cf96bd8a5447636fe50c7820dac15da0b8f50d58"
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
 
@@ -172,6 +172,16 @@ def run_model_analysis(
         raise ValueError("v4 requires zero Chainlink reconnects")
     if (bundle / "chainlink" / "chainlink_twap_gaps.jsonl").read_bytes().strip():
         raise ValueError("v4 requires an empty Chainlink gap artifact")
+    wallet_binding = manifest.get("wallet_observer")
+    if not isinstance(wallet_binding, dict):
+        raise ValueError("capture manifest has no wallet observer binding")
+    wallet_manifest = _load_json_sha(
+        bundle / "wallet" / "observer_manifest.json",
+        str(wallet_binding["sha256"]),
+        "wallet observer manifest",
+    )
+    if wallet_manifest.get("gap_failures") != 0:
+        raise ValueError("v4 requires zero wallet observer gap failures")
 
     receipt_rows_path = Path(receipts_dir) / "maker_taker_rows.jsonl"
     receipt_rows = _load_jsonl_sha(
