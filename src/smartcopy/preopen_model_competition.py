@@ -265,6 +265,7 @@ def evaluate_preopen_candidates(
 def summarize_model_competition(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     """Summarize frozen candidates and pairwise disagreement conditions."""
 
+    stopping_rule_reached = len(rows) >= 30
     candidate_summary: dict[str, Any] = {}
     for candidate in _CANDIDATES:
         values = [row for row in rows if row.get("label") and row.get(candidate) in {"Up", "Down"}]
@@ -272,7 +273,9 @@ def summarize_model_competition(rows: Sequence[dict[str, Any]]) -> dict[str, Any
         total = len(values)
         share = aligned / total if total else None
         lower = _wilson_lower(aligned, total) if total else None
-        if total == 0:
+        if not stopping_rule_reached:
+            verdict = "DEFERRED_UNTIL_STOPPING_RULE"
+        elif total == 0:
             verdict = "INCONCLUSIVE"
         elif share is not None and share >= 0.65 and lower is not None and lower > 0.50:
             verdict = "SUPPORTED_DESCRIPTIVELY"
@@ -324,7 +327,7 @@ def summarize_model_competition(rows: Sequence[dict[str, Any]]) -> dict[str, Any
     return {
         "schema_version": _SCHEMA,
         "contract_commit": _CONTRACT_COMMIT,
-        "study_status": "COLLECTING" if len(rows) < 30 else "STOPPING_RULE_REACHED",
+        "study_status": "STOPPING_RULE_REACHED" if stopping_rule_reached else "COLLECTING",
         "eligible_conditions": len(rows),
         "target_conditions": 30,
         "candidates": candidate_summary,

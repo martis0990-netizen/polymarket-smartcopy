@@ -88,6 +88,7 @@ def test_summary_uses_disagreement_gate_not_correlated_votes() -> None:
     assert comparison["discordant_conditions"] == 12
     assert comparison["winner"] == "MOM15"
     assert comparison["verdict"] == "DOMINANT_CANDIDATE"
+    assert summary["candidates"]["MOM15"]["verdict"] == "DEFERRED_UNTIL_STOPPING_RULE"
 
 
 def test_evaluator_keeps_missing_oracle_candidate_local() -> None:
