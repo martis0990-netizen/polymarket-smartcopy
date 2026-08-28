@@ -186,7 +186,7 @@ def normalize_binance_response(envelope: dict[str, Any]) -> tuple[BinanceKline, 
         raise ExternalSignalError("malformed Binance response envelope")
     symbol = _string(request.get("symbol"), "Binance request symbol")
     interval = _string(request.get("interval"), "Binance request interval")
-    if interval not in {"1s", "1m"}:
+    if interval not in {"1s", "1m", "5m", "15m"}:
         raise ExternalSignalError(f"unsupported Binance interval {interval}")
     bars: list[BinanceKline] = []
     for index, row in enumerate(payload):
@@ -216,7 +216,7 @@ def normalize_binance_response(envelope: dict[str, Any]) -> tuple[BinanceKline, 
     bars.sort(key=lambda item: item.open_time_ms)
     if len({item.open_time_ms for item in bars}) != len(bars):
         raise ExternalSignalError(f"{symbol} {interval}: duplicate open times")
-    step = 1_000 if interval == "1s" else 60_000
+    step = {"1s": 1_000, "1m": 60_000, "5m": 300_000, "15m": 900_000}[interval]
     if any(b.open_time_ms - a.open_time_ms != step for a, b in zip(bars, bars[1:])):
         raise ExternalSignalError(f"{symbol} {interval}: non-contiguous bars")
     return tuple(bars)

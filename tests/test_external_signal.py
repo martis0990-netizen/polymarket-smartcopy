@@ -79,6 +79,31 @@ def test_binance_normalization_requires_canonical_contiguous_rows() -> None:
         normalize_binance_response(envelope)
 
 
+def test_binance_normalization_accepts_frozen_higher_timeframes() -> None:
+    for interval, duration in (("5m", 300_000), ("15m", 900_000)):
+        envelope = {
+            "request": {"symbol": "BTCUSDT", "interval": interval},
+            "response": [
+                [
+                    0,
+                    "100",
+                    "101",
+                    "99",
+                    "100",
+                    "1",
+                    duration - 1,
+                    "100",
+                    1,
+                    "0.5",
+                    "50",
+                    "0",
+                ]
+            ],
+        }
+        bars = normalize_binance_response(envelope)
+        assert bars[0].interval == interval
+
+
 def test_same_second_external_price_is_never_used() -> None:
     bars = _bars()
     first = external_features(
