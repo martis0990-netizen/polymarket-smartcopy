@@ -22,7 +22,7 @@ SHA in the analysis stage.
 
 ## Duration and eligibility
 
-- One bundle duration must be between 900 and 14,400 seconds.
+- One bundle duration must be between 960 and 14,400 seconds.
 - A condition is eligible only if nominal market start is at least 660 seconds
   after the recorded bundle start and no later than the bundle end.
 - The taker decision must remain inside the frozen final-60-second pre-open
@@ -30,10 +30,14 @@ SHA in the analysis stage.
 - A bundle may contain zero eligible decisions; that is a valid negative
   observation and cannot be extended after inspecting directions.
 
-The 900-second minimum ensures at least one possible five-minute opening after
-the 11-minute warm-up. The 14,400-second ceiling bounds artifact size and
+The 960-second minimum covers the 660-second warm-up plus the worst-case wait
+of less than 300 seconds to the next five-minute boundary. The 14,400-second ceiling bounds artifact size and
 failure recovery. Multiple immutable bundles may be accumulated until the v4
 stopping rule is reached.
+
+The original 900-second minimum was corrected before any confirmatory-eligible
+condition was observed. A capture started at 08:19:25 UTC would end at 08:34:25:
+the 08:30 opening is too early for warm-up and 08:35 is outside the capture.
 
 ## Clean-finalize gate
 
