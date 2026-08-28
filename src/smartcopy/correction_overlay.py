@@ -140,6 +140,7 @@ def load_wallet_evidence(
     *,
     expected_sha256: str | None = None,
     skip_unsupported_markets: bool = False,
+    allow_empty: bool = False,
 ) -> WalletEvidence:
     source = Path(path)
     raw = source.read_bytes()
@@ -191,7 +192,7 @@ def load_wallet_evidence(
                 transaction_hash=transaction_hash,
             )
         )
-    if not fills:
+    if not fills and not allow_empty:
         raise CorrectionOverlayError("wallet activity artifact is empty")
     return WalletEvidence(
         sha256=digest,

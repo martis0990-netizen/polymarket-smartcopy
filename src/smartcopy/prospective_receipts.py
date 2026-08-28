@@ -50,6 +50,7 @@ def run_prospective_receipts(
         source,
         expected_sha256=expected_wallet_sha256,
         skip_unsupported_markets=True,
+        allow_empty=True,
     )
     transaction_hashes = {fill.transaction_hash for fill in evidence.rows}
     chain_id, envelopes = collect_receipts(api, transaction_hashes, batch_size=batch_size)
