@@ -121,6 +121,36 @@ def test_bounded_recorder_finalizes_both_symbols_and_refuses_overwrite(tmp_path)
         asyncio.run(FakeRecorder().run(output_dir=output, duration_seconds=1))
 
 
+def test_bounded_recorder_accepts_frozen_cross_asset_symbols(tmp_path) -> None:
+    symbols = ("btc/usd", "sol/usd", "hype/usd")
+
+    class FakeRecorder(ChainlinkTwapRecorder):
+        async def _messages(self, deadline):
+            for symbol in symbols:
+                yield json.dumps(_message(symbol=symbol)), NOW, False
+
+    manifest = asyncio.run(
+        FakeRecorder(symbols=symbols).run(
+            output_dir=tmp_path / "seven", duration_seconds=1
+        )
+    )
+    assert manifest["event_counts"] == dict.fromkeys(symbols, 1)
+    rows = (tmp_path / "seven" / "chainlink_twap_raw.jsonl").read_text().splitlines()
+    assert {json.loads(row)["normalized"]["symbol"] for row in rows} == set(symbols)
+    assert normalize_rtds_twap_message(_message(symbol="sol/usd"), receive_timestamp=NOW) is None
+
+
+def test_missing_symbol_does_not_write_clean_manifest(tmp_path) -> None:
+    class FakeRecorder(ChainlinkTwapRecorder):
+        async def _messages(self, deadline):
+            yield json.dumps(_message(symbol="btc/usd")), NOW, False
+
+    output = tmp_path / "missing"
+    with pytest.raises(ProspectiveSignalError, match="missed required"):
+        asyncio.run(FakeRecorder().run(output_dir=output, duration_seconds=1))
+    assert not (output / "chainlink_twap_manifest.json").exists()
+
+
 def test_reconnect_records_a_gap_for_each_previously_seen_symbol(tmp_path) -> None:
     class FakeRecorder(ChainlinkTwapRecorder):
         async def _messages(self, deadline):

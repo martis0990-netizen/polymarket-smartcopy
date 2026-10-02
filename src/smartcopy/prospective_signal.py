@@ -126,6 +126,7 @@ def normalize_rtds_twap_message(
     payload: str | bytes | dict[str, Any],
     *,
     receive_timestamp: datetime,
+    allowed_symbols: Sequence[str] = _SYMBOLS,
 ) -> TwapEvent | None:
     """Normalize one direct RTDS message, preserving the exact E18 value when present."""
 
@@ -151,7 +152,7 @@ def normalize_rtds_twap_message(
     if not isinstance(body, dict):
         raise ProspectiveSignalError("RTDS TWAP payload must be an object")
     symbol = str(body.get("symbol", "")).lower()
-    if symbol not in _SYMBOLS:
+    if symbol not in allowed_symbols:
         return None
     source_timestamp_ms = _integer(body.get("timestamp"), "Chainlink source timestamp")
     publisher_raw = decoded.get("timestamp")
@@ -300,8 +301,14 @@ def classify_visible_level(
 class ChainlinkTwapRecorder:
     """Bounded direct RTDS recorder with reconnect gaps and immutable finalize."""
 
-    def __init__(self, *, url: str = _RTDS_URL) -> None:
+    def __init__(
+        self, *, url: str = _RTDS_URL, symbols: Sequence[str] = _SYMBOLS
+    ) -> None:
+        normalized = tuple(str(symbol).lower() for symbol in symbols)
+        if not normalized or len(set(normalized)) != len(normalized):
+            raise ValueError("symbols must be a non-empty unique sequence")
         self.url = url
+        self.symbols = normalized
 
     async def run(self, *, output_dir: str | Path, duration_seconds: float) -> dict[str, Any]:
         if duration_seconds <= 0:
@@ -315,7 +322,7 @@ class ChainlinkTwapRecorder:
         manifest_path = root / _MANIFEST
         started = datetime.now(timezone.utc)
         deadline = asyncio.get_running_loop().time() + duration_seconds
-        counts = {symbol: 0 for symbol in _SYMBOLS}
+        counts = {symbol: 0 for symbol in self.symbols}
         last_source: dict[str, int] = {}
         reconnects = 0
         pending_gap_symbols: set[str] = set()
@@ -326,7 +333,9 @@ class ChainlinkTwapRecorder:
                     if reconnected:
                         reconnects += 1
                         pending_gap_symbols = set(last_source)
-                    event = normalize_rtds_twap_message(raw, receive_timestamp=received)
+                    event = normalize_rtds_twap_message(
+                        raw, receive_timestamp=received, allowed_symbols=self.symbols
+                    )
                     if event is None:
                         continue
                     if event.symbol in pending_gap_symbols:
@@ -343,6 +352,10 @@ class ChainlinkTwapRecorder:
                     gap_handle.flush()
                     last_source[event.symbol] = event.source_timestamp_ms
                     counts[event.symbol] += 1
+            if not all(counts.values()):
+                raise ProspectiveSignalError(
+                    f"bounded smoke missed required symbols: {counts}"
+                )
             clean = True
         finally:
             if clean:
@@ -363,8 +376,6 @@ class ChainlinkTwapRecorder:
                     },
                 }
                 manifest_path.write_bytes(_json_line(manifest))
-        if not all(counts.values()):
-            raise ProspectiveSignalError(f"bounded smoke missed required symbols: {counts}")
         return json.loads(manifest_path.read_text(encoding="utf-8"))
 
     async def _messages(
@@ -378,8 +389,8 @@ class ChainlinkTwapRecorder:
         while asyncio.get_running_loop().time() < deadline:
             try:
                 async with websockets.connect(self.url, ping_interval=None, open_timeout=15) as socket:
-                    # Omitting filters is the documented way to receive every symbol. Local
-                    # normalization admits only the two frozen BTC/ETH symbols.
+                    # Omitting filters receives every symbol; the configured allowlist
+                    # controls which symbols enter this immutable capture.
                     subscriptions = [
                         {"topic": "crypto_prices_twap_sixty", "type": "update"}
                     ]
