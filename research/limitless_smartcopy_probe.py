@@ -68,9 +68,17 @@ def event_items(payload):
 
 def identity(item, account=""):
     # Do not collapse multiple fills merely because they share a market and time.
-    for key in ("id", "uid"):
+    for key in ("id", "uid", "tradeEventId"):
         if item.get(key) is not None:
             return account + ":" + str(item[key])
+    # Market metadata (status, winner, etc.) changes after execution.
+    stable = {k: item.get(k) for k in (
+        "transactionHash", "orderId", "blockTimestamp", "strategy",
+        "outcomeIndex", "outcomeTokenAmount", "collateralAmount",
+    ) if item.get(k) is not None}
+    if stable:
+        stable["market_id"] = (item.get("market") or {}).get("id")
+        return account + ":" + json.dumps(stable, sort_keys=True)
     return account + ":" + json.dumps(item, sort_keys=True, ensure_ascii=False)
 
 
@@ -101,15 +109,26 @@ def book_prices(book):
             "no_ask": None if bid is None else 1 - bid}
 
 
-def report(events_path, output):
+def report(events_path, output, started_at, books_path):
     rows = [json.loads(s) for s in events_path.read_text(encoding="utf-8").splitlines()] if events_path.exists() else []
     genuine = [r for r in rows if r.get("kind") == "observation"]
     errors = [r for r in rows if r.get("kind") == "request_error"]
     crypto = [r for r in genuine if r.get("crypto_candidate")]
     delays = [r["visible_delay_s"] for r in genuine if isinstance(r.get("visible_delay_s"), (int, float))]
+    start = parse_time(started_at)
+    fresh = [r for r in genuine if (parse_time(r.get("occurred_at")) or dt.datetime.min.replace(
+        tzinfo=dt.timezone.utc)) >= start]
+    books = [json.loads(s) for s in books_path.read_text(encoding="utf-8").splitlines()] if books_path.exists() else []
     output.write_text(json.dumps({
         "status": "API_UNAVAILABLE" if errors and not genuine else "OBSERVATIONS_ONLY_NO_EDGE_CLAIM",
-        "generated_at": now(), "observations": len(genuine), "request_errors": len(errors),
+        "generated_at": now(), "started_at": started_at, "observations": len(genuine),
+        "events_occurred_during_run": len(fresh),
+        "fresh_crypto_trades": sum(bool(r.get("crypto_candidate")) and
+                                   str(r.get("entry_type")).upper() in
+                                   ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY", "SOLD", "SELL", "MARKET SELL")
+                                   for r in fresh),
+        "book_requests": len(books), "book_errors": sum("error" in b for b in books),
+        "request_errors": len(errors),
         "last_error": errors[-1]["error"] if errors else None, "crypto_candidates": len(crypto),
         "wallets_seen": sorted({r.get("account") for r in genuine if r.get("account")}),
         "first_seen_minus_occurred_p50_s": statistics.median(delays) if delays else None,
@@ -126,6 +145,7 @@ def run(args):
     output.mkdir(parents=True, exist_ok=True)
     events_path = output / "observations.jsonl"
     books_path = output / "books.jsonl"
+    started_at = now()
     seen = set()
     accounts = tuple(x.lower() for x in args.account) if args.account else DEFAULT_ACCOUNTS
     if not all(ADDRESS.fullmatch(x) for x in accounts):
@@ -169,7 +189,10 @@ def run(args):
                                "raw": item}
                         append_jsonl(events_path, row)
                         # Book is read only after the event reaches our observer.
-                        if crypto_candidate and meta["slug"] and str(meta["entry_type"]).upper() in ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY"):
+                        if (crypto_candidate and meta["slug"]
+                                and not (item.get("market") or {}).get("closed")
+                                and str(meta["entry_type"]).upper() in
+                                ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY")):
                             slug = urllib.parse.quote(meta["slug"], safe="")
                             try:
                                 book = get_json("/markets/" + slug + "/orderbook")
@@ -181,12 +204,12 @@ def run(args):
                 except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError) as e:
                     append_jsonl(events_path, {"kind": "request_error", "source": source,
                                                "account": account, "fetched_at": fetched_at, "error": str(e)})
-            report(events_path, output / "summary.json")
+            report(events_path, output / "summary.json", started_at, books_path)
             time.sleep(max(0, min(args.interval - (time.monotonic() - started), end - time.monotonic())))
     except KeyboardInterrupt:
         pass
     finally:
-        report(events_path, output / "summary.json")
+        report(events_path, output / "summary.json", started_at, books_path)
         print("Saved", output / "summary.json")
 
 
@@ -199,6 +222,9 @@ def selftest():
                      "facts": {"outcome": "YES", "price": "0.5"},
                      "entryType": "BOUGHT"})["outcome"] == "YES"
     assert len(event_items({"events": [{"id": "1"}]})) == 1
+    a = {"tradeEventId": "t1", "market": {"id": "1", "closed": False}}
+    b = {"tradeEventId": "t1", "market": {"id": "1", "closed": True}}
+    assert identity(a) == identity(b)
     print("Selftest OK")
 
 
