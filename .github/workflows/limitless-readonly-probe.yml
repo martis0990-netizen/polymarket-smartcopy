@@ -1,9 +1,9 @@
 name: Limitless read-only probe
 
 on:
-  push:
+  pull_request:
     branches:
-      - codex/limitless-readonly-probe-20261002
+      - main
     paths:
       - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_PROBE.md
