@@ -1,0 +1,41 @@
+name: Limitless read-only probe
+
+on:
+  push:
+    branches:
+      - codex/limitless-readonly-probe-20261002
+    paths:
+      - research/limitless_smartcopy_probe.py
+      - research/LIMITLESS_PROBE.md
+      - .github/workflows/limitless-readonly-probe.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: limitless-readonly-probe
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify probe
+        run: python3 research/limitless_smartcopy_probe.py --selftest
+      - name: Observe public feed and wallet histories
+        run: python3 research/limitless_smartcopy_probe.py --minutes 3 --interval 15 --out limitless_probe
+      - name: Print summary
+        if: always()
+        run: |
+          if [ -f limitless_probe/summary.json ]; then cat limitless_probe/summary.json; fi
+      - name: Upload observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-probe-${{ github.run_id }}
+          path: limitless_probe/
+          if-no-files-found: warn
+          retention-days: 7
