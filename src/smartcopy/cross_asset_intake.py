@@ -76,7 +76,10 @@ def inspect_v5_capture(*, bundle_dir: str | Path, expected_manifest_sha256: str,
             raise ValueError("TWAP channel sequence is incomplete")
         last_seq = seq
         if row.get("kind") == "snapshot":
-            wire_symbol = raw.get("payload", {}).get("symbol")
+            payload = raw.get("payload")
+            if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):
+                raise ValueError("malformed TWAP snapshot")
+            wire_symbol = payload.get("symbol")
             symbol = _symbol(wire_symbol)
             if symbol in snapshots:
                 raise ValueError("duplicate TWAP snapshot")
@@ -88,6 +91,12 @@ def inspect_v5_capture(*, bundle_dir: str | Path, expected_manifest_sha256: str,
         if not isinstance(event, dict) or event.get("feed_protocol") != "polybolt-v1":
             raise ValueError("missing PolyBolt normalization")
         symbol = _symbol(event.get("symbol"))
+        payload = raw.get("payload")
+        if (not isinstance(payload, dict) or _symbol(payload.get("symbol")) != symbol
+                or payload.get("timestamp") != event.get("source_timestamp_ms")
+                or payload.get("window_seconds") != 60
+                or str(payload.get("full_accuracy_value", payload.get("value"))) != event.get("full_accuracy_value")):
+            raise ValueError("TWAP raw payload differs from normalized event")
         if symbol not in snapshots or event.get("channel_seq") != seq:
             raise ValueError("live TWAP predates its snapshot or has wrong sequence")
         source = event.get("source_timestamp_ms")

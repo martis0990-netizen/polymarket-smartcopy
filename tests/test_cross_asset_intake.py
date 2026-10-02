@@ -37,15 +37,17 @@ def fixture_bundle(tmp_path, *, asset="sol", candidate=True, oracle_start=START 
     lines = []
     for i, asset_symbol in enumerate(SYMBOLS, 1):
         raw = {"v": 1, "channel": "price.crypto.twap", "seq": i,
-               "snapshot": True, "payload": {"symbol": asset_symbol + "usd", "data": []}}
+               "snapshot": True, "payload": {"symbol": asset_symbol + "usd", "data": [], "window_seconds": 60}}
         lines.append({"kind": "snapshot", "raw": raw, "receive_timestamp": iso(oracle_start)})
     for i, asset_symbol in enumerate(SYMBOLS, 8):
         raw = {"v": 1, "channel": "price.crypto.twap", "seq": i,
-               "payload": {"symbol": asset_symbol + "usd", "timestamp": (oracle_start - 1) * 1000}}
+               "payload": {"symbol": asset_symbol + "usd", "timestamp": (oracle_start - 1) * 1000,
+                           "window_seconds": 60, "full_accuracy_value": "123.000000000000000001"}}
         lines.append({"kind": "live", "raw": raw, "normalized": {
             "feed_protocol": "polybolt-v1", "symbol": asset_symbol + "/usd", "channel_seq": i,
             "source_timestamp_ms": (oracle_start - 1) * 1000,
             "receive_timestamp": iso(oracle_start), "value": "123.000000000000000001",
+            "full_accuracy_value": "123.000000000000000001",
         }})
     raw_path, gap_path = chain / "chainlink_twap_raw.jsonl", chain / "chainlink_twap_gaps.jsonl"
     raw_path.write_text("".join(json.dumps(line) + "\n" for line in lines))

@@ -16,6 +16,8 @@ from smartcopy.maker_taker import PolygonReceiptAPI, collect_receipts, summarize
 from smartcopy.prospective_receipts import decode_prospective_rows, _prospective_summary
 
 _SCHEMA = "smartcopy-bonereaper-cross-asset-receipts-v1"
+_CONTRACT = "a696cf068dcb5b4555073d1d5636eec7efa05050"
+_AMENDMENT = "0dd7a371b13f278383f1d81eba44bf88fbb6c3cc"
 _ASSETS = ("btc", "eth", "sol", "xrp", "bnb", "doge", "hype")
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
@@ -50,6 +52,8 @@ def run_v5_receipts(*, bundle_dir: str | Path, intake_dir: str | Path,
     legacy = summarize(rows, market_slugs={condition: spec.slug for condition, spec in evidence.specs.items()})
     summary = _prospective_summary(legacy)
     summary["schema_version"] = _SCHEMA
+    summary["contract_commit"] = _CONTRACT
+    summary["transport_amendment_commit"] = _AMENDMENT
     summary["cohort"] = {"core_assets": list(_ASSETS[:-1]), "hype": "ENGINEERING_ONLY"}
 
     output.mkdir(parents=True)
@@ -63,6 +67,8 @@ def run_v5_receipts(*, bundle_dir: str | Path, intake_dir: str | Path,
     summary_path.write_bytes(_line(summary))
     manifest = {
         "schema_version": _SCHEMA,
+        "contract_commit": _CONTRACT,
+        "transport_amendment_commit": _AMENDMENT,
         "code_commit": code_commit,
         "collection_time_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "intake_manifest_sha256": expected_intake_sha256,
