@@ -85,9 +85,51 @@ python -m smartcopy.cross_asset_receipts \
 
 All selected seven-asset BUY rows are fee-aware decoded; HYPE rows are never
 counted toward the six-asset model score. Missing or ambiguous receipts reject
-the receipt output. The v5 model-analysis and across-bundle stopping-rule
-stages still require their own implementation and verification before a
-confirmatory v5 score can be published. For a cloud run, first validate a
-complete 960+ second bundle with real API credentials, then add process
-supervision and durable backup;
-the command above alone does not provide automatic restart or off-host backup.
+the receipt output.
+
+## Frozen model rows and across-bundle study
+
+Compute the receipt manifest SHA-256 and run the read-only Binance model stage:
+
+```bash
+python -m smartcopy.cross_asset_model \
+  --bundle-dir artifacts/bonereaper-v5-YYYYMMDD-HHMMSS \
+  --intake-dir artifacts/bonereaper-v5-intake-YYYYMMDD-HHMMSS \
+  --expected-intake-sha256 INTAKE_MANIFEST_SHA256 \
+  --receipts-dir artifacts/bonereaper-v5-receipts-YYYYMMDD-HHMMSS \
+  --expected-receipts-sha256 RECEIPTS_MANIFEST_SHA256 \
+  --output-dir artifacts/bonereaper-v5-model-YYYYMMDD-HHMMSS \
+  --code-commit FULL_40_CHARACTER_LOWERCASE_COMMIT_SHA
+```
+
+The output binds all inputs and Binance raw responses. Every core condition
+needs uninterrupted 601 native one-second candles and 100 fully closed native
+five- or fifteen-minute candles. Chainlink producer **and receiver** timestamps
+must precede the wallet trade second. Missing evidence excludes that condition.
+The model stage never produces a candidate verdict from one bundle.
+
+For the cumulative study, repeat `--model-dir` and
+`--expected-manifest-sha256` together for every distinct complete bundle:
+
+```bash
+python -m smartcopy.cross_asset_study \
+  --model-dir artifacts/bonereaper-v5-model-FIRST \
+  --expected-manifest-sha256 FIRST_MODEL_MANIFEST_SHA256 \
+  --model-dir artifacts/bonereaper-v5-model-SECOND \
+  --expected-manifest-sha256 SECOND_MODEL_MANIFEST_SHA256 \
+  --as-of-utc 2026-10-02T00:00:00Z \
+  --output-dir artifacts/bonereaper-v5-study-YYYYMMDD-HHMMSS \
+  --code-commit FULL_40_CHARACTER_LOWERCASE_COMMIT_SHA
+```
+
+Set `--as-of-utc` to the actual UTC reporting time. The deadline is 00:00 UTC
+after seven **complete** UTC calendar days following the day with the first
+eligible condition. It is assessed across all bundles. The first 60 eligible
+independent conditions stop the study earlier. Until a stop, all candidate
+and pairwise verdicts remain deferred; expiry with fewer than 60 is
+`UNDERPOWERED`. Repeated conditions are deduplicated only when their full rows
+are identical; conflicting rows or repeated capture manifests fail.
+
+For a cloud run, first validate a complete 960+ second bundle with real API
+credentials, then add process supervision and durable backup; the capture
+command alone does not provide automatic restart or off-host backup.
