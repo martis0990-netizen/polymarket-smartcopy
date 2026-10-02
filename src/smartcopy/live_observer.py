@@ -11,6 +11,7 @@ import hashlib
 import json
 import math
 import time
+from threading import Event
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -172,7 +173,8 @@ class LiveWalletObserver:
             exhausted_page=exhausted_page,
         )
 
-    def run(self, *, output_dir: str | Path, duration_seconds: float) -> dict[str, Any]:
+    def run(self, *, output_dir: str | Path, duration_seconds: float,
+            stop_event: Event | None = None) -> dict[str, Any]:
         if duration_seconds <= 0:
             raise ValueError("duration_seconds must be positive")
         root = Path(output_dir)
@@ -202,6 +204,8 @@ class LiveWalletObserver:
         # Create streaming evidence files before network I/O, but manifest only after clean finalize.
         with live_path.open("xb") as live_handle, cycles_path.open("xb") as cycles_handle:
             while True:
+                if stop_event is not None and stop_event.is_set():
+                    raise ObservationGapError("wallet capture cancelled after peer failure")
                 try:
                     cycle = self.poll()
                 except ObservationGapError:
@@ -233,7 +237,14 @@ class LiveWalletObserver:
                 now = self.monotonic()
                 if now >= deadline:
                     break
-                self.sleeper(min(self.poll_interval_seconds, max(0.0, deadline - now)))
+                delay = min(self.poll_interval_seconds, max(0.0, deadline - now))
+                if stop_event is None:
+                    self.sleeper(delay)
+                else:
+                    stop_event.wait(delay)
+
+            if stop_event is not None and stop_event.is_set():
+                raise ObservationGapError("wallet capture cancelled after peer failure")
 
         ended_at = _aware(self.clock(), "observer clock")
         if ended_at < started_at:

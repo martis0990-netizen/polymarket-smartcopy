@@ -14,6 +14,7 @@ from typing import Any, Sequence
 from smartcopy.live_observer import LiveWalletObserver
 from smartcopy.polymarket import PolymarketDataAPI
 from smartcopy.prospective_signal import ChainlinkTwapRecorder
+from smartcopy.thread_runtime import run_blocking
 
 _SCHEMA = "smartcopy-bonereaper-preopen-model-capture-v1"
 _CONTRACT_COMMIT = "9185f30b9882da98cfbfb0c8e3ca38bac51e73a3"
@@ -55,7 +56,7 @@ async def run_preopen_model_capture(
             recorder.run(output_dir=chainlink_dir, duration_seconds=duration_seconds)
         ),
         asyncio.create_task(
-            asyncio.to_thread(
+            run_blocking(
                 observer.run,
                 output_dir=wallet_dir,
                 duration_seconds=duration_seconds,

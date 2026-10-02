@@ -14,6 +14,7 @@ from typing import Any, Sequence
 from smartcopy.live_observer import LiveWalletObserver
 from smartcopy.polymarket import PolymarketDataAPI
 from smartcopy.prospective_signal import ChainlinkTwapRecorder
+from smartcopy.thread_runtime import run_blocking
 from smartcopy.public_book import GammaMarketDiscovery, PublicBookRecorder
 
 _SCHEMA = "smartcopy-bonereaper-prospective-bundle-v5"
@@ -49,7 +50,7 @@ async def run_bundle(
 
     discovery_started = datetime.now(timezone.utc)
     discovery = market_discovery or GammaMarketDiscovery()
-    token_metadata = await asyncio.to_thread(
+    token_metadata = await run_blocking(
         discovery.token_metadata,
         at=discovery_started,
         min_remaining_seconds=duration_seconds + _DISCOVERY_SAFETY_SECONDS,
@@ -92,7 +93,7 @@ async def run_bundle(
         recorder.run(output_dir=chainlink_dir, duration_seconds=duration_seconds)
     )
     wallet_task = asyncio.create_task(
-        asyncio.to_thread(
+        run_blocking(
             observer.run,
             output_dir=wallet_dir,
             duration_seconds=duration_seconds,
