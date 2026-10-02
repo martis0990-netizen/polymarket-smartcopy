@@ -32,6 +32,8 @@ _CHART = "correction_overlay.svg"
 _MANIFEST = "collection_manifest.json"
 _HORIZONS = (5, 15, 30)
 _SLUG = re.compile(r"^(btc|eth)-updown-(5m|15m)-(\d+)$")
+_V5_SLUG = re.compile(r"^(btc|eth|sol|xrp|bnb|doge|hype)-updown-(5m|15m)-(\d+)$")
+_V5_ASSETS = frozenset(("btc", "eth", "sol", "xrp", "bnb", "doge", "hype"))
 
 Transport = Callable[[str, dict[str, str]], Any]
 
@@ -141,7 +143,10 @@ def load_wallet_evidence(
     expected_sha256: str | None = None,
     skip_unsupported_markets: bool = False,
     allow_empty: bool = False,
+    allowed_assets: tuple[str, ...] = ("btc", "eth"),
+    skip_non_buy: bool = False,
 ) -> WalletEvidence:
+    slug_pattern = _slug_pattern(allowed_assets)
     source = Path(path)
     raw = source.read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
@@ -159,12 +164,16 @@ def load_wallet_evidence(
             raise CorrectionOverlayError(f"wallet line {line_number}: unexpected proxy_wallet")
         if payload.get("observation_mode") != "live_observed":
             raise CorrectionOverlayError(f"wallet line {line_number}: expected live_observed")
-        if payload.get("activity_type") != "TRADE" or payload.get("side") != "BUY":
+        if payload.get("activity_type") != "TRADE":
+            raise CorrectionOverlayError(f"wallet line {line_number}: expected TRADE")
+        if payload.get("side") != "BUY":
+            if skip_non_buy and payload.get("side") == "SELL":
+                continue
             raise CorrectionOverlayError(f"wallet line {line_number}: expected TRADE BUY")
         condition_id = _string(payload.get("condition_id"), f"wallet line {line_number} condition_id")
         slug = _string(payload.get("slug"), f"wallet line {line_number} slug")
         title = _string(payload.get("title"), f"wallet line {line_number} title")
-        if skip_unsupported_markets and _SLUG.fullmatch(slug) is None:
+        if skip_unsupported_markets and slug_pattern.fullmatch(slug) is None:
             continue
         outcome = _outcome(payload.get("outcome"), f"wallet line {line_number} outcome")
         timestamp = _unix_second(payload.get("source_event_time"), f"wallet line {line_number}")
@@ -175,7 +184,8 @@ def load_wallet_evidence(
         transaction_hash = _string(
             payload.get("transaction_hash"), f"wallet line {line_number} transaction_hash"
         )
-        spec = market_spec(condition_id=condition_id, slug=slug, title=title)
+        spec = market_spec(condition_id=condition_id, slug=slug, title=title,
+                           allowed_assets=allowed_assets)
         previous = specs.setdefault(condition_id, spec)
         if previous != spec:
             raise CorrectionOverlayError(f"wallet condition {condition_id}: inconsistent market metadata")
@@ -201,8 +211,9 @@ def load_wallet_evidence(
     )
 
 
-def market_spec(*, condition_id: str, slug: str, title: str) -> MarketSpec:
-    match = _SLUG.fullmatch(slug)
+def market_spec(*, condition_id: str, slug: str, title: str,
+                allowed_assets: tuple[str, ...] = ("btc", "eth")) -> MarketSpec:
+    match = _slug_pattern(allowed_assets).fullmatch(slug)
     if match is None:
         raise CorrectionOverlayError(f"unsupported market slug: {slug}")
     asset, horizon, start_text = match.groups()
@@ -216,6 +227,16 @@ def market_spec(*, condition_id: str, slug: str, title: str) -> MarketSpec:
         horizon=horizon,
         window_start=start,
         window_end=start + duration,
+    )
+
+
+def _slug_pattern(allowed_assets: tuple[str, ...]) -> re.Pattern[str]:
+    if allowed_assets == ("btc", "eth"):
+        return _SLUG
+    if not allowed_assets or len(set(allowed_assets)) != len(allowed_assets) or set(allowed_assets) - _V5_ASSETS:
+        raise ValueError("unsupported market asset allowlist")
+    return _V5_SLUG if set(allowed_assets) == _V5_ASSETS else re.compile(
+        r"^(" + "|".join(re.escape(asset) for asset in allowed_assets) + r")-updown-(5m|15m)-(\d+)$"
     )
 
 

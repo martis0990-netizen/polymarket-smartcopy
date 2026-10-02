@@ -51,7 +51,41 @@ engineering only; it is not in the confirmatory v5 core.
 - Preserve `source_timestamp_ms` and `receive_timestamp` separately.
   Observation time is not a substitute for source time.
 
-No v4 analysis command accepts a v5 bundle. The v5 receipts and model-analysis
+## Offline intake and receipt roles
+
+After preserving the clean bundle, compute its root manifest SHA-256. Pass that
+exact digest to the fail-closed v5 intake (never use a v4 analysis command):
+
+```bash
+python -m smartcopy.cross_asset_intake \
+  --bundle-dir artifacts/bonereaper-v5-YYYYMMDD-HHMMSS \
+  --expected-manifest-sha256 ROOT_MANIFEST_SHA256 \
+  --output-dir artifacts/bonereaper-v5-intake-YYYYMMDD-HHMMSS \
+  --code-commit FULL_40_CHARACTER_LOWERCASE_COMMIT_SHA
+```
+
+Intake checks the root and child SHA bindings, raw files, all channel sequences,
+first live oracle updates, and wallet baseline timing. It lists *preliminary*
+pre-open BUY conditions; none is labelled maker/taker or confirmatory yet. A
+zero-row clean bundle is valid. HYPE remains engineering-only.
+
+Compute `cross_asset_intake_manifest.json` SHA-256 and collect fee-aware Polygon
+roles against a read-only RPC endpoint. Set `POLYGON_RPC_URL` in the host
+environment if it contains a provider token; the URL is not written to the
+manifest:
+
+```bash
+python -m smartcopy.cross_asset_receipts \
+  --bundle-dir artifacts/bonereaper-v5-YYYYMMDD-HHMMSS \
+  --intake-dir artifacts/bonereaper-v5-intake-YYYYMMDD-HHMMSS \
+  --expected-intake-sha256 INTAKE_MANIFEST_SHA256 \
+  --output-dir artifacts/bonereaper-v5-receipts-YYYYMMDD-HHMMSS \
+  --code-commit FULL_40_CHARACTER_LOWERCASE_COMMIT_SHA
+```
+
+All selected seven-asset BUY rows are fee-aware decoded; HYPE rows are never
+counted toward the six-asset model score. Missing or ambiguous receipts reject
+the receipt output. The v5 model-analysis and across-bundle stopping-rule
 stages still require their own implementation and verification before a
 confirmatory v5 score can be published. For a cloud run, first validate a
 complete 960+ second bundle with real API credentials, then add process
