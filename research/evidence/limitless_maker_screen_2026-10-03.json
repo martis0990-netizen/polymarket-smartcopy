@@ -1,0 +1,1287 @@
+{
+  "schema": "limitless-maker-screen-v1",
+  "status": "DIAGNOSTIC_ONLY_NO_FILL_MODEL",
+  "pnl": null,
+  "fill_probability": null,
+  "errors": [],
+  "provenance": [
+    {
+      "file": "maker-11282611940.zip",
+      "run_id": 37144414604,
+      "artifact_id": 11282611940,
+      "sha256": "b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "head_branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "head_sha": "bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0",
+      "started_at": "2026-10-03T18:30:13.873119+00:00",
+      "ended_at": "2026-10-03T19:25:14.629110+00:00",
+      "size_cap_reached": false
+    },
+    {
+      "file": "maker-11282392465.zip",
+      "run_id": 37146330445,
+      "artifact_id": 11282392465,
+      "sha256": "a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "head_branch": "main",
+      "event": "push",
+      "conclusion": "success",
+      "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+      "started_at": "2026-10-03T19:25:31.760620+00:00",
+      "ended_at": "2026-10-03T19:27:31.905825+00:00",
+      "size_cap_reached": false
+    },
+    {
+      "file": "maker-11284416014.zip",
+      "run_id": 37147962215,
+      "artifact_id": 11284416014,
+      "sha256": "b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "head_branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+      "started_at": "2026-10-03T19:27:48.286455+00:00",
+      "ended_at": "2026-10-03T20:22:48.431447+00:00",
+      "size_cap_reached": false
+    }
+  ],
+  "protocol": {
+    "horizons_s": [
+      1,
+      5,
+      15,
+      30
+    ],
+    "max_gap_source_age_and_horizon_slack_s": 2.0,
+    "anchor_bucket_s": 30,
+    "metadata_max_age_s": 120.0,
+    "nominal_shares_each": 10.0
+  },
+  "segments": [
+    {
+      "segment": "11282611940",
+      "counts": {
+        "ws_connect": 1,
+        "unqualified_metadata": 116,
+        "subscription": 51,
+        "ws_book_frames": 26710,
+        "no_prior_qualified_metadata": 19386,
+        "valid_unique_book_frames": 7183,
+        "duplicate_book_versions": 96,
+        "rejected_book_frames": 45,
+        "reason:INACTIVE_OR_STALE_METADATA": 45,
+        "ws_disconnect": 1
+      },
+      "quarantined_slugs": []
+    },
+    {
+      "segment": "11282392465",
+      "counts": {
+        "ws_connect": 1,
+        "unqualified_metadata": 4,
+        "subscription": 1,
+        "ws_book_frames": 322,
+        "no_prior_qualified_metadata": 257,
+        "valid_unique_book_frames": 65,
+        "ws_disconnect": 1
+      },
+      "quarantined_slugs": []
+    },
+    {
+      "segment": "11284416014",
+      "counts": {
+        "ws_connect": 1,
+        "unqualified_metadata": 115,
+        "subscription": 52,
+        "ws_book_frames": 30457,
+        "no_prior_qualified_metadata": 20551,
+        "valid_unique_book_frames": 9569,
+        "duplicate_book_versions": 97,
+        "rejected_book_frames": 240,
+        "reason:INACTIVE_OR_STALE_METADATA": 236,
+        "reason:SOURCE_TIME_OUTSIDE_BOUND": 4,
+        "ws_disconnect": 1
+      },
+      "quarantined_slugs": []
+    }
+  ],
+  "summary": {
+    "anchors": 422,
+    "conditions": 6,
+    "hour_clusters": 3,
+    "spread": {
+      "n": 422,
+      "median": 0.040000000000000036,
+      "p95": 0.064,
+      "min": 0.0010000000000000009,
+      "max": 0.47100000000000003
+    },
+    "source_receipt_lag_s": {
+      "n": 422,
+      "median": 0.07272744178771973,
+      "p95": 0.11268305778503418,
+      "min": 0.06490397453308105,
+      "max": 0.6736929416656494
+    },
+    "bbo_first_observed_change_s_uncensored_only": {
+      "n": 261,
+      "median": 0.598703145980835,
+      "p95": 4.590975999832153,
+      "min": 0.0005080699920654297,
+      "max": 10.015491008758545
+    },
+    "bbo_change_censored": 161,
+    "anchors_with_fresh_binance_reference": 130,
+    "lp_size_threshold_known": 422,
+    "nominal_size_below_lp_min": 422,
+    "horizons": {
+      "1": {
+        "observed": 267,
+        "unknown": 155,
+        "actual_delay_s": {
+          "n": 267,
+          "median": 1.2001848220825195,
+          "p95": 2.054939031600952,
+          "min": 1.0000028610229492,
+          "max": 2.5220260620117188
+        },
+        "midpoint_change": {
+          "n": 267,
+          "median": 0.0,
+          "p95": 0.011499999999999955,
+          "min": -0.09400000000000003,
+          "max": 0.08650000000000002
+        },
+        "worst_midpoint_margin": {
+          "n": 267,
+          "median": 0.017499999999999988,
+          "p95": 0.028000000000000004,
+          "min": -0.034499999999999975,
+          "max": 0.14900000000000002
+        },
+        "future_midpoint_outside_original_quotes": 11,
+        "underlying_change_bps": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "min": null,
+          "max": null
+        }
+      },
+      "5": {
+        "observed": 129,
+        "unknown": 293,
+        "actual_delay_s": {
+          "n": 129,
+          "median": 5.104795932769775,
+          "p95": 6.201133966445923,
+          "min": 5.00066614151001,
+          "max": 6.621847152709961
+        },
+        "midpoint_change": {
+          "n": 129,
+          "median": 0.0,
+          "p95": 0.03650000000000009,
+          "min": -0.03400000000000003,
+          "max": 0.07299999999999995
+        },
+        "worst_midpoint_margin": {
+          "n": 129,
+          "median": 0.0155,
+          "p95": 0.034499999999999975,
+          "min": -0.0665,
+          "max": 0.1625000000000001
+        },
+        "future_midpoint_outside_original_quotes": 22,
+        "underlying_change_bps": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "min": null,
+          "max": null
+        }
+      },
+      "15": {
+        "observed": 50,
+        "unknown": 372,
+        "actual_delay_s": {
+          "n": 50,
+          "median": 15.027455449104309,
+          "p95": 16.005115032196045,
+          "min": 15.001057147979736,
+          "max": 16.026715993881226
+        },
+        "midpoint_change": {
+          "n": 50,
+          "median": 0.0047499999999999765,
+          "p95": 0.05599999999999994,
+          "min": -0.04400000000000004,
+          "max": 0.25600000000000006
+        },
+        "worst_midpoint_margin": {
+          "n": 50,
+          "median": 0.004750000000000004,
+          "p95": 0.062000000000000055,
+          "min": -0.19950000000000007,
+          "max": 0.21550000000000002
+        },
+        "future_midpoint_outside_original_quotes": 19,
+        "underlying_change_bps": {
+          "n": 6,
+          "median": -0.03723798423338476,
+          "p95": 0.7846277059342377,
+          "min": -0.7437764505491273,
+          "max": 0.7846277059342377
+        }
+      },
+      "30": {
+        "observed": 10,
+        "unknown": 412,
+        "actual_delay_s": {
+          "n": 10,
+          "median": 30.067604422569275,
+          "p95": 31.208405017852783,
+          "min": 30.012593984603882,
+          "max": 31.208405017852783
+        },
+        "midpoint_change": {
+          "n": 10,
+          "median": 0.027249999999999996,
+          "p95": 0.31,
+          "min": -0.12249999999999994,
+          "max": 0.31
+        },
+        "worst_midpoint_margin": {
+          "n": 10,
+          "median": -0.019249999999999934,
+          "p95": 0.11699999999999999,
+          "min": -0.2535,
+          "max": 0.11699999999999999
+        },
+        "future_midpoint_outside_original_quotes": 7,
+        "underlying_change_bps": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "min": null,
+          "max": null
+        }
+      }
+    }
+  },
+  "by_condition": [
+    {
+      "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+      "anchors": 56,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 56,
+        "median": 0.033999999999999996,
+        "p95": 0.05,
+        "min": 0.007999999999999998,
+        "max": 0.05299999999999999
+      },
+      "source_receipt_lag_s": {
+        "n": 56,
+        "median": 0.0668480396270752,
+        "p95": 0.08051609992980957,
+        "min": 0.06490397453308105,
+        "max": 0.16769790649414062
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 30,
+        "median": 0.8014800548553467,
+        "p95": 4.20201301574707,
+        "min": 0.141754150390625,
+        "max": 4.405240058898926
+      },
+      "bbo_change_censored": 26,
+      "anchors_with_fresh_binance_reference": 20,
+      "lp_size_threshold_known": 56,
+      "nominal_size_below_lp_min": 56,
+      "horizons": {
+        "1": {
+          "observed": 31,
+          "unknown": 25,
+          "actual_delay_s": {
+            "n": 31,
+            "median": 1.204681158065796,
+            "p95": 2.4003889560699463,
+            "min": 1.0003960132598877,
+            "max": 2.4024457931518555
+          },
+          "midpoint_change": {
+            "n": 31,
+            "median": 0.0,
+            "p95": 0.005500000000000005,
+            "min": -0.009500000000000001,
+            "max": 0.006499999999999999
+          },
+          "worst_midpoint_margin": {
+            "n": 31,
+            "median": 0.016,
+            "p95": 0.0245,
+            "min": 0.0059999999999999915,
+            "max": 0.024999999999999994
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 9,
+          "unknown": 47,
+          "actual_delay_s": {
+            "n": 9,
+            "median": 5.076308012008667,
+            "p95": 6.599080801010132,
+            "min": 5.001116991043091,
+            "max": 6.599080801010132
+          },
+          "midpoint_change": {
+            "n": 9,
+            "median": -0.0010000000000000009,
+            "p95": 0.005499999999999991,
+            "min": -0.009000000000000001,
+            "max": 0.005499999999999991
+          },
+          "worst_midpoint_margin": {
+            "n": 9,
+            "median": 0.015500000000000014,
+            "p95": 0.020499999999999997,
+            "min": 0.006999999999999999,
+            "max": 0.020499999999999997
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 2,
+          "unknown": 54,
+          "actual_delay_s": {
+            "n": 2,
+            "median": 15.061199426651001,
+            "p95": 15.11997389793396,
+            "min": 15.002424955368042,
+            "max": 15.11997389793396
+          },
+          "midpoint_change": {
+            "n": 2,
+            "median": -0.0020000000000000018,
+            "p95": -0.0010000000000000009,
+            "min": -0.0030000000000000027,
+            "max": -0.0010000000000000009
+          },
+          "worst_midpoint_margin": {
+            "n": 2,
+            "median": 0.018499999999999996,
+            "p95": 0.02049999999999999,
+            "min": 0.0165,
+            "max": 0.02049999999999999
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 1,
+            "median": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          }
+        },
+        "30": {
+          "observed": 0,
+          "unknown": 56,
+          "actual_delay_s": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "midpoint_change": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "worst_midpoint_margin": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+      "anchors": 44,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 44,
+        "median": 0.04499999999999993,
+        "p95": 0.05699999999999994,
+        "min": 0.0010000000000000009,
+        "max": 0.061999999999999944
+      },
+      "source_receipt_lag_s": {
+        "n": 44,
+        "median": 0.07380688190460205,
+        "p95": 0.08874797821044922,
+        "min": 0.07265114784240723,
+        "max": 0.18442392349243164
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 37,
+        "median": 0.7929320335388184,
+        "p95": 8.824729919433594,
+        "min": 0.09609699249267578,
+        "max": 10.015491008758545
+      },
+      "bbo_change_censored": 7,
+      "anchors_with_fresh_binance_reference": 11,
+      "lp_size_threshold_known": 44,
+      "nominal_size_below_lp_min": 44,
+      "horizons": {
+        "1": {
+          "observed": 37,
+          "unknown": 7,
+          "actual_delay_s": {
+            "n": 37,
+            "median": 1.200145959854126,
+            "p95": 2.054939031600952,
+            "min": 1.0002100467681885,
+            "max": 2.2015721797943115
+          },
+          "midpoint_change": {
+            "n": 37,
+            "median": 0.0,
+            "p95": 0.024500000000000077,
+            "min": -0.01749999999999996,
+            "max": 0.030000000000000027
+          },
+          "worst_midpoint_margin": {
+            "n": 37,
+            "median": 0.020000000000000018,
+            "p95": 0.026000000000000023,
+            "min": -0.02749999999999997,
+            "max": 0.026499999999999968
+          },
+          "future_midpoint_outside_original_quotes": 2,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 29,
+          "unknown": 15,
+          "actual_delay_s": {
+            "n": 29,
+            "median": 5.101016998291016,
+            "p95": 6.40283203125,
+            "min": 5.00066614151001,
+            "max": 6.586788177490234
+          },
+          "midpoint_change": {
+            "n": 29,
+            "median": 0.0,
+            "p95": 0.03650000000000009,
+            "min": -0.02849999999999997,
+            "max": 0.038999999999999924
+          },
+          "worst_midpoint_margin": {
+            "n": 29,
+            "median": 0.01649999999999996,
+            "p95": 0.026000000000000023,
+            "min": -0.025499999999999967,
+            "max": 0.027999999999999914
+          },
+          "future_midpoint_outside_original_quotes": 6,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 13,
+          "unknown": 31,
+          "actual_delay_s": {
+            "n": 13,
+            "median": 15.216524839401245,
+            "p95": 16.00650715827942,
+            "min": 15.001405000686646,
+            "max": 16.00650715827942
+          },
+          "midpoint_change": {
+            "n": 13,
+            "median": 0.007000000000000117,
+            "p95": 0.038999999999999924,
+            "min": -0.02849999999999997,
+            "max": 0.038999999999999924
+          },
+          "worst_midpoint_margin": {
+            "n": 13,
+            "median": -0.0035000000000000586,
+            "p95": 0.020500000000000074,
+            "min": -0.025499999999999967,
+            "max": 0.020500000000000074
+          },
+          "future_midpoint_outside_original_quotes": 8,
+          "underlying_change_bps": {
+            "n": 1,
+            "median": 0.7846277059342377,
+            "p95": 0.7846277059342377,
+            "min": 0.7846277059342377,
+            "max": 0.7846277059342377
+          }
+        },
+        "30": {
+          "observed": 1,
+          "unknown": 43,
+          "actual_delay_s": {
+            "n": 1,
+            "median": 30.105671882629395,
+            "p95": 30.105671882629395,
+            "min": 30.105671882629395,
+            "max": 30.105671882629395
+          },
+          "midpoint_change": {
+            "n": 1,
+            "median": 0.04599999999999993,
+            "p95": 0.04599999999999993,
+            "min": 0.04599999999999993,
+            "max": 0.04599999999999993
+          },
+          "worst_midpoint_margin": {
+            "n": 1,
+            "median": -0.015999999999999903,
+            "p95": -0.015999999999999903,
+            "min": -0.015999999999999903,
+            "max": -0.015999999999999903
+          },
+          "future_midpoint_outside_original_quotes": 1,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+      "anchors": 41,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 41,
+        "median": 0.040000000000000036,
+        "p95": 0.05699999999999994,
+        "min": 0.006000000000000005,
+        "max": 0.07899999999999996
+      },
+      "source_receipt_lag_s": {
+        "n": 41,
+        "median": 0.07360386848449707,
+        "p95": 0.0829172134399414,
+        "min": 0.07241320610046387,
+        "max": 0.11268305778503418
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 32,
+        "median": 0.5997873544692993,
+        "p95": 6.412550926208496,
+        "min": 0.19849610328674316,
+        "max": 7.203271865844727
+      },
+      "bbo_change_censored": 9,
+      "anchors_with_fresh_binance_reference": 11,
+      "lp_size_threshold_known": 41,
+      "nominal_size_below_lp_min": 41,
+      "horizons": {
+        "1": {
+          "observed": 35,
+          "unknown": 6,
+          "actual_delay_s": {
+            "n": 35,
+            "median": 1.035526990890503,
+            "p95": 2.159872055053711,
+            "min": 1.0000700950622559,
+            "max": 2.209235906600952
+          },
+          "midpoint_change": {
+            "n": 35,
+            "median": 0.0,
+            "p95": 0.01100000000000012,
+            "min": -0.018000000000000016,
+            "max": 0.011499999999999955
+          },
+          "worst_midpoint_margin": {
+            "n": 35,
+            "median": 0.017000000000000015,
+            "p95": 0.02849999999999997,
+            "min": -0.011500000000000066,
+            "max": 0.039000000000000035
+          },
+          "future_midpoint_outside_original_quotes": 2,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 26,
+          "unknown": 15,
+          "actual_delay_s": {
+            "n": 26,
+            "median": 5.013759970664978,
+            "p95": 5.807327032089233,
+            "min": 5.001075029373169,
+            "max": 6.008703947067261
+          },
+          "midpoint_change": {
+            "n": 26,
+            "median": 0.00024999999999997247,
+            "p95": 0.030000000000000027,
+            "min": -0.03400000000000003,
+            "max": 0.038000000000000034
+          },
+          "worst_midpoint_margin": {
+            "n": 26,
+            "median": 0.011749999999999983,
+            "p95": 0.02300000000000002,
+            "min": -0.017000000000000015,
+            "max": 0.039000000000000035
+          },
+          "future_midpoint_outside_original_quotes": 7,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 16,
+          "unknown": 25,
+          "actual_delay_s": {
+            "n": 16,
+            "median": 15.02563750743866,
+            "p95": 15.966068029403687,
+            "min": 15.003865003585815,
+            "max": 15.966068029403687
+          },
+          "midpoint_change": {
+            "n": 16,
+            "median": 0.007500000000000007,
+            "p95": 0.05599999999999994,
+            "min": -0.04400000000000004,
+            "max": 0.05599999999999994
+          },
+          "worst_midpoint_margin": {
+            "n": 16,
+            "median": 0.0015000000000000013,
+            "p95": 0.026499999999999968,
+            "min": -0.02949999999999997,
+            "max": 0.026499999999999968
+          },
+          "future_midpoint_outside_original_quotes": 7,
+          "underlying_change_bps": {
+            "n": 1,
+            "median": -0.7437764505491273,
+            "p95": -0.7437764505491273,
+            "min": -0.7437764505491273,
+            "max": -0.7437764505491273
+          }
+        },
+        "30": {
+          "observed": 5,
+          "unknown": 36,
+          "actual_delay_s": {
+            "n": 5,
+            "median": 30.217463970184326,
+            "p95": 31.208405017852783,
+            "min": 30.029536962509155,
+            "max": 31.208405017852783
+          },
+          "midpoint_change": {
+            "n": 5,
+            "median": -0.03699999999999992,
+            "p95": 0.05600000000000005,
+            "min": -0.10650000000000004,
+            "max": 0.05600000000000005
+          },
+          "worst_midpoint_margin": {
+            "n": 5,
+            "median": -0.022499999999999964,
+            "p95": 0.009000000000000008,
+            "min": -0.08150000000000002,
+            "max": 0.009000000000000008
+          },
+          "future_midpoint_outside_original_quotes": 4,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "condition": "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+      "anchors": 113,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 113,
+        "median": 0.03700000000000002,
+        "p95": 0.064,
+        "min": 0.0010000000000000009,
+        "max": 0.102
+      },
+      "source_receipt_lag_s": {
+        "n": 113,
+        "median": 0.07319784164428711,
+        "p95": 0.1449899673461914,
+        "min": 0.06546998023986816,
+        "max": 0.6736929416656494
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 52,
+        "median": 0.4839019775390625,
+        "p95": 2.680584192276001,
+        "min": 0.0005080699920654297,
+        "max": 3.0054850578308105
+      },
+      "bbo_change_censored": 61,
+      "anchors_with_fresh_binance_reference": 41,
+      "lp_size_threshold_known": 113,
+      "nominal_size_below_lp_min": 113,
+      "horizons": {
+        "1": {
+          "observed": 49,
+          "unknown": 64,
+          "actual_delay_s": {
+            "n": 49,
+            "median": 1.2042999267578125,
+            "p95": 2.1912899017333984,
+            "min": 1.0007519721984863,
+            "max": 2.5220260620117188
+          },
+          "midpoint_change": {
+            "n": 49,
+            "median": 0.0,
+            "p95": 0.0050000000000000044,
+            "min": -0.030499999999999992,
+            "max": 0.012500000000000011
+          },
+          "worst_midpoint_margin": {
+            "n": 49,
+            "median": 0.017499999999999988,
+            "p95": 0.027499999999999997,
+            "min": -0.0050000000000000044,
+            "max": 0.0305
+          },
+          "future_midpoint_outside_original_quotes": 3,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 6,
+          "unknown": 107,
+          "actual_delay_s": {
+            "n": 6,
+            "median": 5.202431559562683,
+            "p95": 6.203016042709351,
+            "min": 5.009227991104126,
+            "max": 6.203016042709351
+          },
+          "midpoint_change": {
+            "n": 6,
+            "median": -0.0007499999999999937,
+            "p95": 0.0050000000000000044,
+            "min": -0.014499999999999985,
+            "max": 0.0050000000000000044
+          },
+          "worst_midpoint_margin": {
+            "n": 6,
+            "median": 0.019249999999999993,
+            "p95": 0.024500000000000008,
+            "min": 0.008500000000000008,
+            "max": 0.024500000000000008
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 0,
+          "unknown": 113,
+          "actual_delay_s": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "midpoint_change": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "worst_midpoint_margin": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "30": {
+          "observed": 0,
+          "unknown": 113,
+          "actual_delay_s": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "midpoint_change": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "worst_midpoint_margin": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+      "anchors": 112,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 112,
+        "median": 0.049499999999999995,
+        "p95": 0.11399999999999999,
+        "min": 0.0020000000000000018,
+        "max": 0.47100000000000003
+      },
+      "source_receipt_lag_s": {
+        "n": 112,
+        "median": 0.07316398620605469,
+        "p95": 0.12561321258544922,
+        "min": 0.06499195098876953,
+        "max": 0.38379597663879395
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 73,
+        "median": 0.5979931354522705,
+        "p95": 5.2027318477630615,
+        "min": 0.09562397003173828,
+        "max": 10.002648115158081
+      },
+      "bbo_change_censored": 39,
+      "anchors_with_fresh_binance_reference": 31,
+      "lp_size_threshold_known": 112,
+      "nominal_size_below_lp_min": 112,
+      "horizons": {
+        "1": {
+          "observed": 75,
+          "unknown": 37,
+          "actual_delay_s": {
+            "n": 75,
+            "median": 1.2011690139770508,
+            "p95": 2.001497983932495,
+            "min": 1.0000309944152832,
+            "max": 2.391392946243286
+          },
+          "midpoint_change": {
+            "n": 75,
+            "median": 0.0,
+            "p95": 0.01749999999999985,
+            "min": -0.09400000000000003,
+            "max": 0.08650000000000002
+          },
+          "worst_midpoint_margin": {
+            "n": 75,
+            "median": 0.0215,
+            "p95": 0.03549999999999999,
+            "min": -0.034499999999999975,
+            "max": 0.14900000000000002
+          },
+          "future_midpoint_outside_original_quotes": 4,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 41,
+          "unknown": 71,
+          "actual_delay_s": {
+            "n": 41,
+            "median": 5.193698883056641,
+            "p95": 6.005855083465576,
+            "min": 5.000852823257446,
+            "max": 6.407840967178345
+          },
+          "midpoint_change": {
+            "n": 41,
+            "median": -0.0005000000000000004,
+            "p95": 0.040999999999999925,
+            "min": -0.034,
+            "max": 0.07299999999999995
+          },
+          "worst_midpoint_margin": {
+            "n": 41,
+            "median": 0.013999999999999999,
+            "p95": 0.059,
+            "min": -0.0665,
+            "max": 0.1625000000000001
+          },
+          "future_midpoint_outside_original_quotes": 8,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 15,
+          "unknown": 97,
+          "actual_delay_s": {
+            "n": 15,
+            "median": 15.019202947616577,
+            "p95": 16.026715993881226,
+            "min": 15.001057147979736,
+            "max": 16.026715993881226
+          },
+          "midpoint_change": {
+            "n": 15,
+            "median": 0.006500000000000061,
+            "p95": 0.25600000000000006,
+            "min": -0.038500000000000006,
+            "max": 0.25600000000000006
+          },
+          "worst_midpoint_margin": {
+            "n": 15,
+            "median": 0.017500000000000016,
+            "p95": 0.21550000000000002,
+            "min": -0.19950000000000007,
+            "max": 0.21550000000000002
+          },
+          "future_midpoint_outside_original_quotes": 4,
+          "underlying_change_bps": {
+            "n": 2,
+            "median": -0.27943730309398784,
+            "p95": -0.07447596846676952,
+            "min": -0.48439863772120617,
+            "max": -0.07447596846676952
+          }
+        },
+        "30": {
+          "observed": 4,
+          "unknown": 108,
+          "actual_delay_s": {
+            "n": 4,
+            "median": 30.016674876213074,
+            "p95": 30.0289249420166,
+            "min": 30.012593984603882,
+            "max": 30.0289249420166
+          },
+          "midpoint_change": {
+            "n": 4,
+            "median": 0.07900000000000001,
+            "p95": 0.31,
+            "min": -0.12249999999999994,
+            "max": 0.31
+          },
+          "worst_midpoint_margin": {
+            "n": 4,
+            "median": -0.01874999999999996,
+            "p95": 0.11699999999999999,
+            "min": -0.2535,
+            "max": 0.11699999999999999
+          },
+          "future_midpoint_outside_original_quotes": 2,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+      "anchors": 56,
+      "conditions": 1,
+      "hour_clusters": 1,
+      "spread": {
+        "n": 56,
+        "median": 0.036500000000000005,
+        "p95": 0.052999999999999964,
+        "min": 0.0050000000000000044,
+        "max": 0.095
+      },
+      "source_receipt_lag_s": {
+        "n": 56,
+        "median": 0.06674802303314209,
+        "p95": 0.07374000549316406,
+        "min": 0.06548500061035156,
+        "max": 0.167525053024292
+      },
+      "bbo_first_observed_change_s_uncensored_only": {
+        "n": 37,
+        "median": 0.3990960121154785,
+        "p95": 4.00407600402832,
+        "min": 0.0716099739074707,
+        "max": 9.402385950088501
+      },
+      "bbo_change_censored": 19,
+      "anchors_with_fresh_binance_reference": 16,
+      "lp_size_threshold_known": 56,
+      "nominal_size_below_lp_min": 56,
+      "horizons": {
+        "1": {
+          "observed": 40,
+          "unknown": 16,
+          "actual_delay_s": {
+            "n": 40,
+            "median": 1.1996394395828247,
+            "p95": 1.9989309310913086,
+            "min": 1.0000028610229492,
+            "max": 2.401698112487793
+          },
+          "midpoint_change": {
+            "n": 40,
+            "median": 0.0,
+            "p95": 0.00449999999999999,
+            "min": -0.0325,
+            "max": 0.007000000000000006
+          },
+          "worst_midpoint_margin": {
+            "n": 40,
+            "median": 0.0165,
+            "p95": 0.02149999999999999,
+            "min": 0.0025000000000000022,
+            "max": 0.023499999999999993
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "5": {
+          "observed": 18,
+          "unknown": 38,
+          "actual_delay_s": {
+            "n": 18,
+            "median": 5.19809091091156,
+            "p95": 6.621847152709961,
+            "min": 5.001082897186279,
+            "max": 6.621847152709961
+          },
+          "midpoint_change": {
+            "n": 18,
+            "median": 0.0,
+            "p95": 0.006499999999999978,
+            "min": -0.020500000000000004,
+            "max": 0.006499999999999978
+          },
+          "worst_midpoint_margin": {
+            "n": 18,
+            "median": 0.018250000000000016,
+            "p95": 0.023499999999999993,
+            "min": -0.0050000000000000044,
+            "max": 0.023499999999999993
+          },
+          "future_midpoint_outside_original_quotes": 1,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        },
+        "15": {
+          "observed": 4,
+          "unknown": 52,
+          "actual_delay_s": {
+            "n": 4,
+            "median": 15.044722080230713,
+            "p95": 15.205554962158203,
+            "min": 15.002565145492554,
+            "max": 15.205554962158203
+          },
+          "midpoint_change": {
+            "n": 4,
+            "median": -0.0027500000000000024,
+            "p95": 0.0005000000000000004,
+            "min": -0.010999999999999996,
+            "max": 0.0005000000000000004
+          },
+          "worst_midpoint_margin": {
+            "n": 4,
+            "median": 0.016500000000000008,
+            "p95": 0.01949999999999999,
+            "min": 0.004500000000000004,
+            "max": 0.01949999999999999
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 1,
+            "median": 0.0023545478100572836,
+            "p95": 0.0023545478100572836,
+            "min": 0.0023545478100572836,
+            "max": 0.0023545478100572836
+          }
+        },
+        "30": {
+          "observed": 0,
+          "unknown": 56,
+          "actual_delay_s": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "midpoint_change": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "worst_midpoint_margin": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          },
+          "future_midpoint_outside_original_quotes": 0,
+          "underlying_change_bps": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Historical descriptive screen, not a prospective maker strategy or PnL.",
+    "Coalesced books omit queue position, individual fills, cancellations and intermediate states.",
+    "Version jumps do not quantify lost events; publisher restart cannot be inferred safely.",
+    "Future midpoint margins are unconditional quote diagnostics, not fair value or fill-conditional markouts.",
+    "Unknown horizons are excluded from metric denominators and reported; favourable observed subsets may be biased.",
+    "LP minSize check alone proves neither rewards eligibility nor maker rebate income.",
+    "Snapshots/anchors are dependent; sample units for inference remain conditions and hourly clusters."
+  ],
+  "anchor_detail": {
+    "count": 422,
+    "reproduce": "Run limitless_maker_screen.py with the manifest and three original ZIPs; full output contains anchors with source line numbers.",
+    "full_report_sha256": "e44451e4ff59619908c8f8f3efe8290080cd3fc0590fac6d949698a7504fd523"
+  },
+  "validation": {
+    "unit_tests_passed": 12,
+    "fix_verify_cycles": 1,
+    "source_sha256": {
+      "research/limitless_maker_screen.py": "2c71343d162a00187b09ca77fc202c95100fdd71e1477339a86e44e8ddbc830a",
+      "research/test_limitless_maker_screen.py": "1e837b75fe35057ee7330ae262bde06562e046c6b6da2975d964011807875664",
+      "research/LIMITLESS_MAKER_SCREEN.md": "47c53b2d13b974bed26d3aa27b92c7dd6739c43211566713d4169d79a5c9b56c"
+    }
+  }
+}
