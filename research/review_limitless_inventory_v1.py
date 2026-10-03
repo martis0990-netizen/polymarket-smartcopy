@@ -120,6 +120,26 @@ def run():
     findings['R5_NONFINITE_SETTLEMENT_TIME'] = {
         'nan_settlement_time_accepted': manager.report()['settled_positions']==1,
         'observed_violation': manager.report()['settled_positions']==1}
+
+    paper = HourlyPaper()
+    paper.market(market(), MID)
+    manager = InventoryPaper(started_at=MID-1)
+    with patch.object(paper, '_inputs', return_value=(.606, .01, 100, MID)):
+        paper.book('btc-hour', entry_book, MID, MID-.1)
+    manager.book(paper, market(), entry_book, MID, MID-.1)
+    # Exact collector raw=None branch: hourly book() is not called.
+    manager.unavailable_book('btc-hour', MID+2, MID+1.6)
+    status_after_failure = paper.state['episodes']['condition-1']['variants']['model']['status']
+    later_book = book('.54', '.56')
+    paper.book('btc-hour', later_book, MID+18, MID+17.9)
+    manager.book(paper, market(), later_book, MID+18, MID+17.9)
+    later = paper.state['episodes']['condition-1']['variants']['model']
+    findings['R6_ENTRY_RETRIES_AFTER_UNAVAILABLE_FIRST_BOOK'] = {
+        'first_eligible_attempt_failed_at': MID+2, 'hourly_status_after_failure': status_after_failure,
+        'hourly_status_after_later_success': later['status'], 'later_fill_at': later.get('fill_at'),
+        'inventory_admitted_later_fill': 'condition-1' in manager.state['positions'],
+        'observed_violation': status_after_failure=='PENDING' and later['status']=='FILLED'
+            and 'condition-1' in manager.state['positions']}
     hashes = {name: hashlib.sha256(pathlib.Path(__file__).with_name(name).read_bytes()).hexdigest()
         for name in ('limitless_inventory_paper.py', 'limitless_hourly_paper.py', 'limitless_market_capture.py')}
     return {'reviewed_commit': REVIEWED_COMMIT, 'status': 'SYNTHETIC_REVIEW_NOT_TRADING_RESULTS',

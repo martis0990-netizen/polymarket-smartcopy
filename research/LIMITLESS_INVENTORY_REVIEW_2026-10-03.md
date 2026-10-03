@@ -2,7 +2,7 @@
 
 Дата: 2026-10-03. Проверенный commit: [`bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0`](https://github.com/martis0990-netizen/polymarket-smartcopy/commit/bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0), PR #33. Область: inventory policy, frozen hourly probability/entry dependency, capture/checkpoint/settlement integration. Wallet SmartCopy и Polymarket не входят в эту проверку.
 
-**Вердикт: CHANGES_REQUIRED.** Есть одна подтверждённая ошибка торгового ограничения и несколько ошибок проверки/отчётности. Сбор исходных наблюдений полезно продолжать; inventory v1 нельзя использовать для вывода о прибыльности до исправлений и повторной проверки. Реальное исполнение не реализовано и не разрешено. Это отдельная исследовательская стратегия, а не подтверждённый алгоритм Bonereaper.
+**Вердикт: CHANGES_REQUIRED.** Есть подтверждённые ошибки торгового ограничения, первого входа и проверки/отчётности. Сбор исходных наблюдений полезно продолжать; inventory v1 нельзя использовать для вывода о прибыльности до исправлений и повторной проверки. Реальное исполнение не реализовано и не разрешено. Это отдельная исследовательская стратегия, а не подтверждённый алгоритм Bonereaper.
 
 ## Подтверждённые замечания
 
@@ -77,6 +77,18 @@ Capture отмечает `resolved=true` сразу по `status=RESOLVED`, пр
 
 Исправление: проверять конечность и порядок settlement observation time до изменения состояния; проверять временные поля восстановленного checkpoint. Критерий: NaN/Inf/время до expiry не меняют cash и settlement state.
 
+### R6 — P1: entry source повторяет попытку после первого отсутствующего стакана
+
+Место: `research/limitless_market_capture.py`, строки 195–201; `research/limitless_hourly_paper.py`, строки 233–247; `research/limitless_inventory_paper.py`, `admit()` строки 100–108.
+
+При HTTP error/timeout/backoff `raw=None` collector вызывает только `inventory.unavailable_book()`. До inventory admission позиции ещё нет, поэтому этот вызов ничего не закрывает. Ожидающий hourly model entry остаётся PENDING: `HourlyPaper.book()` не получает отсутствующий book. Следующий успешный запрос внутри 30 секунд может исполнить вход; inventory доверяет статусу FILLED и принимает его.
+
+Воспроизведение: decision в MID, первый допустимый запрос неуспешен в MID+2, следующий успешный запрос с более дешёвым ask в MID+18. Hourly проходит PENDING → FILLED, inventory создаёт позицию. Это не соответствует правилу первого execution attempt и может выборочно улучшать бумажные входы после ошибок данных. Контрактный deadline соблюдён, поэтому он не предотвращает повторную попытку.
+
+Исправление: новой inventory версии независимо подтверждать, что seed возник на первом допустимом entry attempt; сохранять окончательный отказ этого attempt даже до admission. Старые model fills без такой проверки не считать подтверждёнными входами новой политики. Исходный frozen hourly benchmark не менять молча: его legacy поведение отметить как limitation, а исправление entry semantics вынести в отдельную версию/исследование. Для v1 анализа нужна сверка initial fill с raw attempts и отдельный учёт affected/missing условий.
+
+Критерий приёмки: HTTP error, raw=None и backoff после entry eligibility исключают более поздний fill из нового inventory; ошибка до eligibility не закрывает ещё не наступившую попытку. Для теста использовать полный collector hook sequence, затем интеграционный mocked-HTTP capture. Здесь воспроизведён именно hook sequence; полный async collector не подменялся.
+
 ## Оценка торговой модели
 
 Корректные части: парный payoff не дисконтируется дважды, YES/NO depth инвертируется согласованно, gross/net buy units и sell fee разнесены, entry и management не исполняются в одном snapshot, funding cap проверяется, cost basis пропорционально списывается, исходный hourly benchmark отделён от inventory ledger. Положительный merge не объявлен доказательством преимущества над удержанием выигрышной стороны.
@@ -98,7 +110,7 @@ REST receipt depth остаётся предположением исполне�
 ## Проверка и воспроизводимость
 
 1. Существующий suite: `python -m unittest discover -s research -p 'test_limitless*.py' -v` — **73 tests PASS**. Эти тесты не покрывают перечисленные дефекты.
-2. Диагностические примеры: `python research/review_limitless_inventory_v1.py --out review.json` — **5/5 findings reproduced** на проверенном commit. Это не acceptance suite: воспроизведение дефекта не означает корректность стратегии. После исправления пробу следует преобразовать в отрицательный regression test новой версии.
+2. Диагностические примеры: `python research/review_limitless_inventory_v1.py --out review.json` — **6/6 findings reproduced** на проверенном commit. Это не acceptance suite: воспроизведение дефекта не означает корректность стратегии. После исправления пробу следует преобразовать в отрицательный regression test новой версии.
 3. [Машинный результат с SHA256 исходников](evidence/limitless_inventory_review_2026-10-03.json). SHA256 позволяют проверить соответствие кода pinned commit.
 4. Ранее проверенный PR smoke artifact `11282000610` содержал 0 inventory positions и cash 100; исторический integration replay — 0 model fills. Эти проверки подтверждали интеграцию, но не работу торговых ограничений на реальном входе/settlement. В данном ревью новый main action/settlement не подтверждался.
 
@@ -106,7 +118,7 @@ REST receipt depth остаётся предположением исполне�
 
 ## Порядок исправлений
 
-1. R1: execution economics gate + regression tests. Исправление меняет допускаемые действия: назвать новую inventory policy version, сохранить v1 artifacts, не сшивать её PnL с исправленной версией. Запуск после изменений — с отдельным prospective started_at; старые fills не импортировать. Исходный hourly holdout не менять.
+1. R1 и R6: execution economics gate и независимая проверка первого entry attempt + regression tests. Исправление меняет допускаемые действия: назвать новую inventory policy version, сохранить v1 artifacts, не сшивать её PnL с исправленной версией. Запуск после изменений — с отдельным prospective started_at; старые fills не импортировать. Исходный hourly holdout не менять.
 2. R2 и R5: строгая проверка состояния и объяснимый ledger; отрицательные checkpoint tests. Старые артефакты перепроверять без переисполнения истории и без придумывания отсутствующих событий.
 3. R4: перенос неподтверждённых settlement obligations через restart. Недостающие observations явно учитывать в coverage.
 4. R3: фазовый matched report. Выводить holdout отдельно, фиксировать coverage/открытый риск. При lineage/version конфликте результат каждой линии отдельно либо INSUFFICIENT_DATA, а не общая сумма.

@@ -57,6 +57,14 @@
     "R5_NONFINITE_SETTLEMENT_TIME": {
       "nan_settlement_time_accepted": true,
       "observed_violation": true
+    },
+    "R6_ENTRY_RETRIES_AFTER_UNAVAILABLE_FIRST_BOOK": {
+      "first_eligible_attempt_failed_at": 1791034202.0,
+      "hourly_status_after_failure": "PENDING",
+      "hourly_status_after_later_success": "FILLED",
+      "later_fill_at": 1791034218.0,
+      "inventory_admitted_later_fill": true,
+      "observed_violation": true
     }
   },
   "all_findings_reproduced": true
