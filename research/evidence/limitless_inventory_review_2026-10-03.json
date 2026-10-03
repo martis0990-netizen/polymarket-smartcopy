@@ -1,0 +1,71 @@
+{
+  "reviewed_commit": "bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0",
+  "status": "SYNTHETIC_REVIEW_NOT_TRADING_RESULTS",
+  "source_sha256": {
+    "limitless_inventory_paper.py": "5d5e71c182ae6c046185208479c5b99b31925ef142e661e983ed2b9685992982",
+    "limitless_hourly_paper.py": "ebeb91ee28e0b9f3f19edc7c788acf8eb808287d02c625f894c1df36303cfcde",
+    "limitless_market_capture.py": "2cf251c0fd67ee809811e259acd82867c5dffa48f7aae0c0c25bdbcfea088ff1"
+  },
+  "findings": {
+    "R1_EXECUTION_PAIR_PROFIT_NOT_RECHECKED": {
+      "entry_cost": "9.98775090",
+      "entry_net_shares": "16.99669890",
+      "decision_action": "COMPLETE_PAIR",
+      "decision_locked_profit": "5.92833123",
+      "decision_buy_cost": "1.07061677",
+      "price_bound": "0.42",
+      "execution_buy_cost": "7.35939540",
+      "execution_price_bound": "0.42",
+      "execution_status": "PAPER_EXECUTED",
+      "merge_pnl": "-0.36044740",
+      "cash": "99.63955260",
+      "observed_violation": true
+    },
+    "R2_CHECKPOINT_RECONCILIATION_INCOMPLETE": {
+      "invented_cash_and_pnl_status": "RECONCILED_PAPER_ONLY",
+      "invented_realized_pnl": "5",
+      "rewritten_pending_order_status": "RECONCILED_PAPER_ONLY",
+      "observed_violation": true
+    },
+    "R3_PHASE_PNL_MISSING": {
+      "true_discovery_managed_pnl": "14.25",
+      "true_holdout_managed_pnl": "-10",
+      "pooled_managed_settled_pnl": "4.25",
+      "reported_phases": {
+        "discovery": {
+          "positions": 1,
+          "settled_positions": 1,
+          "resolved_hour_clusters": 1,
+          "feasibility": "INSUFFICIENT_DATA"
+        },
+        "holdout": {
+          "positions": 1,
+          "settled_positions": 1,
+          "resolved_hour_clusters": 1,
+          "feasibility": "INSUFFICIENT_DATA"
+        }
+      },
+      "observed_violation": true
+    },
+    "R4_UNVERIFIED_SETTLEMENT_RETIRES_WATCH": {
+      "position_still_open": true,
+      "cash": "90",
+      "open_cost_basis": "10",
+      "carried_slugs": [],
+      "observed_violation": true
+    },
+    "R5_NONFINITE_SETTLEMENT_TIME": {
+      "nan_settlement_time_accepted": true,
+      "observed_violation": true
+    },
+    "R6_ENTRY_RETRIES_AFTER_UNAVAILABLE_FIRST_BOOK": {
+      "first_eligible_attempt_failed_at": 1791034202.0,
+      "hourly_status_after_failure": "PENDING",
+      "hourly_status_after_later_success": "FILLED",
+      "later_fill_at": 1791034218.0,
+      "inventory_admitted_later_fill": true,
+      "observed_violation": true
+    }
+  },
+  "all_findings_reproduced": true
+}
