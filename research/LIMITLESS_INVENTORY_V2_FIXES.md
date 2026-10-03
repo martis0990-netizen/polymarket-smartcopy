@@ -38,3 +38,5 @@ Ledger tolerates только Decimal arithmetic residue<=1e-18USDC; исход�
 Готовность software fixes не означает готовности прибыльной стратегии. Следующая приёмка: GitHub CI/PR smoke, фактическое появление v2 в main checkpoint, сохранение started_at/source evidence на следующем сегменте; затем реальные paper entry/management/settlement при появлении сигнала. Нулевое число входов — валидный INSUFFICIENT_DATA, а не повод менять пороги.
 
 Probability calibration, REST depth freshness/matching uncertainty, fee sensitivity и assumed merge cost/latency остаются исследовательскими допущениями. Для edge нужны фиксированный holdout, matched managed-minus-seed-hold по часовым кластерам, coverage и учёт открытого риска. Maker/live stage не открыт.
+
+Фактический статус после merge и проверка реальных архивов: [runtime checkpoint 3 октября, 20:16 UTC](LIMITLESS_INVENTORY_RUNTIME_2026-10-03.md). CI/PR smoke PASS; main v2 ещё ожидает очередь. В старом v1 архиве появилась первая убыточная paper-позиция; она сохранена отдельно и не импортируется в v2. Локальная миграция этого реального checkpoint прошла, но не заменяет приёмку двух последовательных main v2 jobs.
