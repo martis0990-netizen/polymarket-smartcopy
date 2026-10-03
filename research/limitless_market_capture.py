@@ -10,6 +10,7 @@ import re
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 from collections import Counter
 
 BASE = "https://api.limitless.exchange"
@@ -112,8 +113,9 @@ async def capture(args):
                            params=params, raw=raw)
             return raw
         except Exception as error:
+            detail = error.read(2000).decode("utf-8", errors="replace") if isinstance(error, urllib.error.HTTPError) else None
             recorder.write("request_error", operation=kind, slug=slug, path=path,
-                           requested_at=requested_at, error=str(error))
+                           requested_at=requested_at, params=params, error=str(error), detail=detail)
             if getattr(error, "code", None) == 429:
                 backoff_until = time.monotonic() + 60
             return None
@@ -146,12 +148,12 @@ async def capture(args):
         complete = False
         for page in range(1, 21):
             raw = await get("listing", "/markets/active",
-                            {"page": page, "limit": 50, "tradeType": "clob"})
+                            {"page": page, "limit": 25, "tradeType": "clob"})
             if not isinstance(raw, dict) or not isinstance(raw.get("data"), list):
                 break
             rows = raw["data"]
             found.extend(rows)
-            if not rows or len(rows) < 50 or len(found) >= (raw.get("totalMarketsCount") or float("inf")):
+            if not rows or len(rows) < 25 or len(found) >= (raw.get("totalMarketsCount") or float("inf")):
                 complete = True
                 break
         chosen = select(found, time.time())
