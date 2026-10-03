@@ -181,6 +181,12 @@ class AvailabilityTests(unittest.TestCase):
             feed['raw']['market'] = {'collateral':collateral}
             self.assertEqual(build_report(summary,[feed],[b])['records'][0]['status'],'UNSUPPORTED_COLLATERAL')
 
+    def test_malformed_book_object_with_known_token_cannot_crash_identity_check(self):
+        summary,feed,_,b = self.fixtures()
+        feed['raw']['market'] = {'tokens':{'yes':'yes'}}
+        r = build_report(summary,[feed],[{**b,'raw':['invalid-book-object']}])
+        self.assertEqual(r['records'][0]['status'],'INVALID_OR_UNVERIFIED_BOOK')
+
     def test_bad_timestamp_quarantines_duplicate_without_crashing_good_rows(self):
         summary, feed, history, b = self.fixtures()
         good = {**feed, 'id':'good', 'raw':{**feed['raw'],'id':'unrelated'}}

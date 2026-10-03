@@ -39,6 +39,8 @@ def book_identity(row, book):
     market, subject, facts = raw.get('market') or {}, raw.get('subject') or {}, raw.get('facts') or {}
     result = {'slug_validation': 'UNKNOWN', 'yes_token_validation': 'UNKNOWN',
               'collateral_validation': 'UNKNOWN', 'full_market_metadata_verified': False}
+    if not isinstance(book.get('raw'), dict):
+        return 'INVALID_OR_UNVERIFIED_BOOK', result
     slug = row.get('slug')
     if not slug or not book.get('slug'):
         return 'UNVERIFIED_MARKET_IDENTITY', result
