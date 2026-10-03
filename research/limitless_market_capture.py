@@ -12,9 +12,11 @@ import urllib.parse
 import urllib.request
 import urllib.error
 from collections import Counter
+from limitless_hourly_paper import HourlyPaper
 
 BASE = "https://api.limitless.exchange"
 NS = "/markets"
+BINANCE = "https://data-api.binance.vision"
 
 
 def utc():
@@ -51,9 +53,15 @@ def select(markets, current):
 
 
 def request(path, params=None):
-    if not path.startswith("/markets/"):
+    if path == "/api/v3/klines":
+        if (params or {}).get("symbol") not in ("BTCUSDT", "ETHUSDT"):
+            raise ValueError("Only BTCUSDT/ETHUSDT public candles allowed")
+        base = BINANCE
+    elif path.startswith("/markets/"):
+        base = BASE
+    else:
         raise ValueError("Only public market GET routes allowed")
-    url = BASE + path + ("?" + urllib.parse.urlencode(params) if params else "")
+    url = base + path + ("?" + urllib.parse.urlencode(params) if params else "")
     req = urllib.request.Request(url, headers={"Accept": "application/json",
         "User-Agent": "SmartCopyLimitlessMarketResearch/1"})
     with urllib.request.urlopen(req, timeout=8) as response:
@@ -95,12 +103,15 @@ async def capture(args):
     watched = {}
     active = []
     restored = pathlib.Path(args.state) if args.state else None
+    saved = {}
     if restored and restored.exists():
         try:
-            watched = json.loads(restored.read_text()).get("watched", {})
+            saved = json.loads(restored.read_text())
+            watched = saved.get("watched", {})
         except (ValueError, OSError) as error:
             recorder.write("state_error", error=str(error))
     backoff_until = 0
+    paper = HourlyPaper(saved.get("paper"), emit=recorder.write)
 
     async def get(kind, path, params=None, slug=None):
         nonlocal backoff_until
@@ -110,7 +121,7 @@ async def capture(args):
         try:
             raw = await asyncio.to_thread(request, path, params)
             recorder.write(kind, slug=slug, requested_at=requested_at, path=path,
-                           params=params, raw=raw)
+                           params=params, raw=raw, source="binance" if path == "/api/v3/klines" else "limitless")
             return raw
         except Exception as error:
             detail = error.read(2000).decode("utf-8", errors="replace") if isinstance(error, urllib.error.HTTPError) else None
@@ -167,8 +178,20 @@ async def capture(args):
         await subscribe()
 
     async def snapshots():
+        # Collect matching hourly resolution source before decision books.
+        symbols = sorted({paper.state["markets"][slug]["symbol"] for slug in active
+                          if slug in paper.state["markets"]})
+        for symbol in symbols:
+            requested_at = time.time()
+            raw = await get("binance_1m", "/api/v3/klines",
+                            {"symbol": symbol, "interval": "1m", "limit": 181})
+            if raw is not None:
+                paper.candles(symbol, "1m", raw, time.time(), requested_at)
         for slug in list(active):
-            await get("book", "/markets/" + urllib.parse.quote(slug, safe="") + "/orderbook", slug=slug)
+            requested_at = time.time()
+            raw = await get("book", "/markets/" + urllib.parse.quote(slug, safe="") + "/orderbook", slug=slug)
+            if isinstance(raw, dict):
+                paper.book(slug, raw, time.time(), requested_at)
 
     async def metadata():
         due = [(slug, entry) for slug, entry in watched.items()
@@ -180,7 +203,15 @@ async def capture(args):
             if isinstance(raw, dict):
                 entry["market"] = raw
                 entry["resolved"] = raw.get("status") == "RESOLVED"
+                paper.market(raw, time.time())
                 # Unresolved markets remain in the carried checkpoint until resolved.
+        symbols = sorted({paper.state["markets"][slug]["symbol"] for slug in active
+                          if slug in paper.state["markets"]})
+        for symbol in symbols:
+            raw = await get("binance_1h", "/api/v3/klines",
+                            {"symbol": symbol, "interval": "1h", "limit": 2})
+            if raw is not None:
+                paper.candles(symbol, "1h", raw, time.time())
         # One current oracle history per asset; all responses remain observation-timed.
         by_asset = {}
         for slug in active:
@@ -221,8 +252,10 @@ async def capture(args):
             await client.disconnect()
         recorder.flush()
         recorder.file.close()
-        state = {"watched": {slug: item for slug, item in watched.items() if not item.get("resolved")}}
+        state = {"watched": {slug: item for slug, item in watched.items() if not item.get("resolved")},
+                 "paper": paper.state}
         (recorder.out / "state.json").write_text(json.dumps(state, ensure_ascii=False))
+        (recorder.out / "hourly_paper_report.json").write_text(json.dumps(paper.report(), indent=2) + "\n")
         summary = {"status": "CAPTURE_ONLY_NO_PNL", "started_at": started, "ended_at": utc(),
                    "counts": dict(recorder.counts), "uncompressed_bytes": recorder.bytes,
                    "size_cap_reached": recorder.capped, "markets_seen": len(watched),
