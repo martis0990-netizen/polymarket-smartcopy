@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: |
           MINUTES=55
-          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MINUTES=3; fi
+          if [ "$GITHUB_EVENT_NAME" = pull_request ] || [ "$GITHUB_EVENT_NAME" = push ]; then MINUTES=3; fi
           python3 research/limitless_smartcopy_probe.py \
             --minutes "$MINUTES" --interval 30 --until "$CUTOFF_UTC" --out limitless_probe
       - name: Print summary
@@ -72,3 +72,6 @@ jobs:
           path: limitless_probe/
           if-no-files-found: warn
           retention-days: 14
+      - name: Queue next bounded observation
+        if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
+        run: gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/dispatches" -f ref=main
