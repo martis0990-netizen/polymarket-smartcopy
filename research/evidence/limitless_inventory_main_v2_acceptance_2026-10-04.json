@@ -1,0 +1,579 @@
+{
+  "schema": "limitless-inventory-main-v2-acceptance-v1",
+  "as_of": "2026-10-03T23:53:04+00:00",
+  "repository": "martis0990-netizen/polymarket-smartcopy",
+  "verified_source_ref": "9dbc0f22297d32acb90b008825f7d2675f8d795d",
+  "source_hashes": {
+    "research/limitless_inventory_paper.py": {
+      "sha256": "efb12fcee217d5d4277214a39434d53b56974820ad90849a6acd241872c2a143",
+      "git_blob": "d928a6cd7fdc1d10005fdc2f65325e363bd0e01b"
+    },
+    "research/limitless_market_capture.py": {
+      "sha256": "5d71b561fd3e61bce1549674a8d8d6ab2da47082641119dc8e4b5756d6ef4fdd",
+      "git_blob": "8d16b8a7c5d3babf5cee7f032f92c271c3c5e15c"
+    },
+    "research/limitless_hourly_paper.py": {
+      "sha256": "ebeb91ee28e0b9f3f19edc7c788acf8eb808287d02c625f894c1df36303cfcde",
+      "git_blob": "992167fc3410953447f9378ad006741597df2be2"
+    }
+  },
+  "status": "BASE_CHECKPOINT_ACCEPTED_PAPER_ONLY",
+  "economic_status": "INSUFFICIENT_DATA",
+  "archives": [
+    {
+      "run_id": 37151327629,
+      "artifact_id": 11284699716,
+      "run_url": "https://github.com/martis0990-netizen/polymarket-smartcopy/actions/runs/37151327629",
+      "head_sha": "e327a93bbb9f4ae31c1959ee86e673944e7aa63c",
+      "branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "file": "accept-11284699716.zip",
+      "zip_sha256": "519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "artifact_digest": "sha256:519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "zip_digest_match": true,
+      "capture_started_at": "2026-10-03T20:23:04.920280+00:00",
+      "capture_ended_at": "2026-10-03T21:18:05.057714+00:00",
+      "version": "limitless-inventory-paper-v2",
+      "inventory_started_at": 1791058984.920855,
+      "inventory_state_digest": "adcc673b38f5ba77ec6ed4a6ef149b7f970852bb827325e5aa43fa45215ac557",
+      "history_keys": [
+        "cdd8166e55c911a26062daa3af94ea7acd5734eed01dfb9fc4eca1f6a7b21629"
+      ],
+      "saved_report_equals_recomputed": true,
+      "recomputed_report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "100",
+        "open_cost_basis": "0",
+        "realized_pnl": "0",
+        "admission_skips": {},
+        "positions": 0,
+        "management_states": {},
+        "settled_positions": 0,
+        "seed_hold_settled_pnl": "0",
+        "managed_settled_pnl": "0",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      },
+      "inventory_evidence_rows": 0,
+      "uncompressed_evidence_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capture_inventory_event_counts": {},
+      "new_model_decisions": [
+        {
+          "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+          "slug": "btc-up-or-down-hourly-p-1791047104802",
+          "phase": "discovery",
+          "decision_at": 1791059404.371124,
+          "model": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+          "slug": "eth-up-or-down-hourly-p-1791047105907",
+          "phase": "discovery",
+          "decision_at": 1791059404.685,
+          "model": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        }
+      ],
+      "capture_counts": {
+        "listing": 404,
+        "discovery": 52,
+        "ws_connect": 1,
+        "ws_event": 67692,
+        "market": 226,
+        "paper_settlement": 4,
+        "binance_1h": 102,
+        "oracle_candles": 100,
+        "binance_1m": 352,
+        "book": 704,
+        "heartbeat": 178,
+        "subscription": 51,
+        "paper_decision": 2,
+        "paper_execution": 2,
+        "request_error": 3,
+        "ws_disconnect": 1
+      }
+    },
+    {
+      "run_id": 37154622571,
+      "artifact_id": 11286179317,
+      "run_url": "https://github.com/martis0990-netizen/polymarket-smartcopy/actions/runs/37154622571",
+      "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d",
+      "branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "file": "accept-11286179317.zip",
+      "zip_sha256": "c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "artifact_digest": "sha256:c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "zip_digest_match": true,
+      "capture_started_at": "2026-10-03T21:18:21.132165+00:00",
+      "capture_ended_at": "2026-10-03T22:13:21.270357+00:00",
+      "version": "limitless-inventory-paper-v2",
+      "inventory_started_at": 1791058984.920855,
+      "inventory_state_digest": "adcc673b38f5ba77ec6ed4a6ef149b7f970852bb827325e5aa43fa45215ac557",
+      "history_keys": [
+        "cdd8166e55c911a26062daa3af94ea7acd5734eed01dfb9fc4eca1f6a7b21629"
+      ],
+      "saved_report_equals_recomputed": true,
+      "recomputed_report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "100",
+        "open_cost_basis": "0",
+        "realized_pnl": "0",
+        "admission_skips": {},
+        "positions": 0,
+        "management_states": {},
+        "settled_positions": 0,
+        "seed_hold_settled_pnl": "0",
+        "managed_settled_pnl": "0",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      },
+      "inventory_evidence_rows": 0,
+      "uncompressed_evidence_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capture_inventory_event_counts": {},
+      "new_model_decisions": [
+        {
+          "condition": "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+          "slug": "btc-up-or-down-hourly-p-1791050709235",
+          "phase": "discovery",
+          "decision_at": 1791063011.8083458,
+          "model": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+          "slug": "eth-up-or-down-hourly-p-1791050710322",
+          "phase": "discovery",
+          "decision_at": 1791063012.0894437,
+          "model": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        }
+      ],
+      "capture_counts": {
+        "listing": 467,
+        "discovery": 52,
+        "ws_connect": 1,
+        "ws_event": 47782,
+        "market": 222,
+        "binance_1h": 102,
+        "oracle_candles": 100,
+        "binance_1m": 350,
+        "book": 708,
+        "heartbeat": 179,
+        "subscription": 51,
+        "paper_decision": 2,
+        "request_error": 2,
+        "paper_execution": 2,
+        "ws_disconnect": 1
+      }
+    },
+    {
+      "run_id": 37147962215,
+      "artifact_id": 11284416014,
+      "run_url": "https://github.com/martis0990-netizen/polymarket-smartcopy/actions/runs/37147962215",
+      "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+      "branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "file": "accept-11284416014.zip",
+      "zip_sha256": "b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "artifact_digest": "sha256:b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "zip_digest_match": true,
+      "capture_started_at": "2026-10-03T19:27:48.286455+00:00",
+      "capture_ended_at": "2026-10-03T20:22:48.431447+00:00",
+      "version": "limitless-inventory-paper-v1",
+      "inventory_started_at": 1791052213.8738215,
+      "inventory_state_digest": "cdd8166e55c911a26062daa3af94ea7acd5734eed01dfb9fc4eca1f6a7b21629",
+      "history_keys": [],
+      "saved_report_equals_recomputed": null,
+      "recomputed_report": null,
+      "inventory_evidence_rows": 0,
+      "uncompressed_evidence_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capture_inventory_event_counts": {},
+      "new_model_decisions": [],
+      "capture_counts": {}
+    }
+  ],
+  "archive_audits": {
+    "first": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 1,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 0,
+      "latest_artifact": "accept-11284699716.zip",
+      "report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "100",
+        "open_cost_basis": "0",
+        "realized_pnl": "0",
+        "admission_skips": {},
+        "positions": 0,
+        "management_states": {},
+        "settled_positions": 0,
+        "seed_hold_settled_pnl": "0",
+        "managed_settled_pnl": "0",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      }
+    },
+    "second": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 1,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 0,
+      "latest_artifact": "accept-11286179317.zip",
+      "report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "100",
+        "open_cost_basis": "0",
+        "realized_pnl": "0",
+        "admission_skips": {},
+        "positions": 0,
+        "management_states": {},
+        "settled_positions": 0,
+        "seed_hold_settled_pnl": "0",
+        "managed_settled_pnl": "0",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      }
+    },
+    "pair": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 2,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 0,
+      "latest_artifact": "accept-11286179317.zip",
+      "report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "100",
+        "open_cost_basis": "0",
+        "realized_pnl": "0",
+        "admission_skips": {},
+        "positions": 0,
+        "management_states": {},
+        "settled_positions": 0,
+        "seed_hold_settled_pnl": "0",
+        "managed_settled_pnl": "0",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 0,
+            "settled_positions": 0,
+            "matched_conditions": 0,
+            "resolved_hour_clusters": 0,
+            "managed_settled_pnl": "0",
+            "seed_hold_settled_pnl": "0",
+            "managed_minus_seed_hold": "0",
+            "settled_entry_cost": "0",
+            "realized_pnl": "0",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {},
+            "hour_clusters": [],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      }
+    }
+  },
+  "checks": {
+    "zip_digests": "PASS",
+    "main_only_successful_consecutive_jobs": "PASS",
+    "new_started_at_inside_first_capture": "PASS",
+    "same_started_at_next_checkpoint": "PASS",
+    "legacy_exact_state_preserved": "PASS",
+    "no_legacy_positions_or_pnl_imported": "PASS",
+    "empty_ledger_continuity": "PASS",
+    "entry_attempts_admission_skips_positions_unchanged": "PASS_EMPTY",
+    "raw_fingerprint_prefix": "PASS_EMPTY_ONLY",
+    "nonempty_evidence_transfer": "PENDING",
+    "nonempty_entry_or_position_transfer": "PENDING",
+    "saved_reports_recomputed": "PASS",
+    "first_second_and_pair_archive_audits": "PASS",
+    "entry_management_settlement_cycle": "PENDING",
+    "frozen_hourly_source_sha256": "PASS"
+  },
+  "legacy": {
+    "state_digest": "cdd8166e55c911a26062daa3af94ea7acd5734eed01dfb9fc4eca1f6a7b21629",
+    "cash": "84.083584041",
+    "realized_pnl": "-8.383503568",
+    "positions": 2,
+    "status": "UNVERIFIED_V1_HISTORY_EXCLUDED"
+  },
+  "gaps_s": {
+    "legacy_to_first": 16.48883295059204,
+    "first_to_second": 16.074450969696045
+  },
+  "validation": {
+    "method": "One read-only artifact verification; no production changes or regression rerun",
+    "reports_not_summed": true,
+    "pr_smoke_not_used": true,
+    "policy_source_identical_between_checked_heads": true
+  },
+  "limitations": [
+    "Two empty v2 ledgers prove base restart/migration, not nonempty evidence continuity.",
+    "Four new model decisions are NO_TRADE/NO_EXECUTABLE_EDGE; constant50 executions are not v2 entries.",
+    "No v2 entry/management/settlement execution economics or payout observed.",
+    "Discovery and holdout both INSUFFICIENT_DATA; no profitable-strategy verdict."
+  ],
+  "restore_jobs": [
+    {
+      "run_id": 37151327629,
+      "job_id": 111285678201,
+      "restore_step_conclusion": "success",
+      "all_job_steps_success": true,
+      "job_log_sha256": "59073092faeed729ba6de18e6d980a2709976b8029ad2da0c29d51526e014891",
+      "selected_checkpoint_proof": "Exact legacy state equality for first; exact v2 state, started_at and history equality for second. Restore command does not print selected artifact ID."
+    },
+    {
+      "run_id": 37154622571,
+      "job_id": 111295370711,
+      "restore_step_conclusion": "success",
+      "all_job_steps_success": true,
+      "job_log_sha256": "7f9431a1913133ede5d848b648f845d982eb384b90ad17c88e1e9971b7ed6e81",
+      "selected_checkpoint_proof": "Exact legacy state equality for first; exact v2 state, started_at and history equality for second. Restore command does not print selected artifact ID."
+    }
+  ]
+}
