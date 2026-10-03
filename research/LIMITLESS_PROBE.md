@@ -5,7 +5,7 @@ This study is separate from Polymarket v5. It has no signing keys, no order subm
 ## Collection contract
 
 - UTC capture window: 2026-10-03 through **2026-10-10 09:00 UTC**. The workflow stops collecting at that instant and disables its hourly schedule on the next scheduled run.
-- GitHub Actions starts at minute 17 of each hour; each job records at most 55 minutes, polling at 30-second intervals. Scheduled starts can be late or absent. The study reports observed coverage and treats gaps as gaps; it never fills them from historical source prices.
+- GitHub Actions schedules a start at minute 17 of each hour and each completed main-branch observation dispatches the next one. Each full job records at most 55 minutes, polling at 30-second intervals. Scheduled starts can be late or absent; chained starts can fail. The study reports observed coverage and treats gaps as gaps; it never fills them from historical source prices.
 - Fixed initial watchlist: `0xff612b93bf130a2bccdf303e360e89d225685e71`, `0xc2faf128201d89cba789c1dde5424d49bd75e44e`, `0x61761b4ff620607295e894f7c529a4de35dec3b4`. The public all-profile feed is a discovery channel; its other wallets do not enter the predeclared watchlist evaluation.
 - Family: BTC/ETH Up/Down, 5-minute, 15-minute and hourly markets. Each successful poll, source record, first observer timestamp, and current YES book is written to a JSONL artifact. A NO book is derived by price inversion.
 - A book is fetched only for a crypto buy with source event time at or after the current job start and with a market that is not already marked closed. The book is fetched after detection. Missing/inactive/AMM books are unexecutable observations, not assumed fills.
