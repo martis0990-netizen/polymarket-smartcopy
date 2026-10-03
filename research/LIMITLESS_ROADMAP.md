@@ -65,3 +65,9 @@ Hourly paper experiment имеет свой уже установленный di
 - При положительной исследовательской гипотезе: отдельное решение о следующем prospective paper run. Live execution в текущий roadmap реализации не включён.
 
 Ближайший полезный результат — небольшой PR с R1/R2/R4 и ясные знаменатели. Расширение списка стратегий, AI decision engine и торговый исполнитель сейчас не закрывают найденные пробелы.
+
+## Статус первого исправления
+
+Diagnostics-v2: R1 (retrospective conflict/provenance) и R4 (required-time quarantine) реализованы и прошли regression. R2: envelope slug и известные token/collateral/group identifiers проверяются; полная prospective metadata binding остаётся открытой и явно UNKNOWN. Добавление metadata-запросов не выполнено этой правкой. 27 тестов PASS; показатели реального main сегмента совпадают с исходными, invalid data=0.
+
+Следующая ограниченная работа: сохранить точную market metadata с наблюдаемым временем для новых source events, подтвердить YES-token/USDC/decimals и active single CLOB semantics; затем объединить строгую eligibility с объяснимыми знаменателями (R3/R5). До этого не выдавать supported depth quotes за квалифицированные COPY. Историческое ревью не переписывается; улучшения имеют новую schema version и commit provenance.
