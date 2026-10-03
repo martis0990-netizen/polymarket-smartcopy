@@ -1,0 +1,123 @@
+{
+  "source_artifact_id": 11275138151,
+  "source_sha256": "56a1c7e26d739cce2ee4ec78da84f709c3c83c66a8abecf6d9eab8f7784f56d9",
+  "inventory_module_sha256": "5d5e71c182ae6c046185208479c5b99b31925ef142e661e983ed2b9685992982",
+  "scope": "RETROSPECTIVE_INTEGRATION_NOT_HOLDOUT",
+  "raw_records": 42686,
+  "hourly": {
+    "version": "limitless-hourly-v1",
+    "status": "PAPER_ONLY_NOT_LIVE",
+    "phases": {
+      "discovery": {
+        "conditions_seen": 4,
+        "decision_conditions": 2,
+        "hour_clusters": 2,
+        "scored_conditions": 0,
+        "brier_model": null,
+        "brier_50": null,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 2
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 2
+            },
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          },
+          "constant50": {
+            "states": {
+              "FILLED": 2
+            },
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "conditions_seen": 0,
+        "decision_conditions": 0,
+        "hour_clusters": 0,
+        "scored_conditions": 0,
+        "brier_model": null,
+        "brier_50": null,
+        "skips": {},
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          },
+          "constant50": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "assumptions": [
+      "3% buy fee in contracts",
+      "Observed REST depth is assumed executable at receipt",
+      "Queue, matching races and REST cache staleness are not reproduced",
+      "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+    ]
+  },
+  "inventory": {
+    "version": "limitless-inventory-paper-v1",
+    "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+    "started_at": 1791032295.339648,
+    "initial_capital": "100",
+    "cash": "100",
+    "open_cost_basis": "0",
+    "realized_pnl": "0",
+    "admission_skips": {},
+    "positions": 0,
+    "management_states": {},
+    "settled_positions": 0,
+    "seed_hold_settled_pnl": "0",
+    "managed_settled_pnl": "0",
+    "no_trade_control_pnl": "0",
+    "phases": {
+      "discovery": {
+        "positions": 0,
+        "settled_positions": 0,
+        "resolved_hour_clusters": 0,
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "positions": 0,
+        "settled_positions": 0,
+        "resolved_hour_clusters": 0,
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "limitations": [
+      "Entries reuse newly observed frozen hourly model paper fills; no old checkpoint backfill.",
+      "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+      "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+      "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+      "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+      "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+      "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+      "No passive maker fills or profitable-strategy verdict."
+    ]
+  }
+}

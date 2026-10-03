@@ -84,3 +84,8 @@ Diagnostics-v2: R1 (retrospective conflict/provenance) и R4 (required-time quar
 Ретроспективные action categories отделяют обе стороны, Split/Merge и одиночные наблюдаемые покупки с неизвестным исходным инвентарём. Подтверждённых directional entries эти категории не создают. Экономический контракт и блокеры: [LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md](LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md).
 
 Новые raw artifacts retention=90 дней; для старых архивов подготовлен отдельный snapshot с manifest и SHA256. R2 закрыт для будущей identity binding; проверка settlement semantics остаётся открытой. R3 закрыт как единая companion diagnostic, а старый gate сохранён. R5: контракт описан, экономический тест блокирован до квалификации intent/fee/model. R6: telemetry реализована, размер реальных потерь пока неизвестен. Следующая приёмка — main artifact с новым capture_protocol и его попадание в progress audit.
+
+
+## Собственный алгоритм управления инвентарём, 2026-10-03
+
+План и фиксированные правила: [LIMITLESS_INVENTORY_PLAN.md](LIMITLESS_INVENTORY_PLAN.md). Реализован независимый funded paper-контроллер HOLD/SELL/COMPLETE_PAIR с лимитом100USDC, отдельным cash/cost-basis ledger, первым delayed execution attempt, settlement и переносом state. Он использует только новые входы frozen hourly model; старые позиции не импортирует, benchmark не меняет. Полный maker-алгоритм остаётся следующим этапом после проверки вероятностей и исполнения; touch-fill PnL запрещён. Приёмка main fresh entry/management/settlement будет по реально наблюдаемым артефактам, а не по прохождению synthetic tests.

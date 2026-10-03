@@ -13,6 +13,7 @@ import urllib.request
 import urllib.error
 from collections import Counter
 from limitless_hourly_paper import HourlyPaper
+from limitless_inventory_paper import InventoryPaper
 
 BASE = "https://api.limitless.exchange"
 NS = "/markets"
@@ -112,6 +113,7 @@ async def capture(args):
             recorder.write("state_error", error=str(error))
     backoff_until = 0
     paper = HourlyPaper(saved.get("paper"), emit=recorder.write)
+    inventory = InventoryPaper(saved.get("inventory_paper"), started_at=time.time(), emit=recorder.write)
 
     async def get(kind, path, params=None, slug=None):
         nonlocal backoff_until
@@ -191,7 +193,12 @@ async def capture(args):
             requested_at = time.time()
             raw = await get("book", "/markets/" + urllib.parse.quote(slug, safe="") + "/orderbook", slug=slug)
             if isinstance(raw, dict):
-                paper.book(slug, raw, time.time(), requested_at)
+                observed_at = time.time()
+                paper.book(slug, raw, observed_at, requested_at)
+                market = watched.get(slug, {}).get("market", {})
+                inventory.book(paper, market, raw, observed_at, requested_at)
+            else:
+                inventory.unavailable_book(slug, time.time(), requested_at)
 
     async def metadata():
         due = [(slug, entry) for slug, entry in watched.items()
@@ -203,7 +210,9 @@ async def capture(args):
             if isinstance(raw, dict):
                 entry["market"] = raw
                 entry["resolved"] = raw.get("status") == "RESOLVED"
-                paper.market(raw, time.time())
+                observed_at = time.time()
+                paper.market(raw, observed_at)
+                inventory.market(raw, observed_at)
                 # Unresolved markets remain in the carried checkpoint until resolved.
         symbols = sorted({paper.state["markets"][slug]["symbol"] for slug in active
                           if slug in paper.state["markets"]})
@@ -253,8 +262,9 @@ async def capture(args):
         recorder.flush()
         recorder.file.close()
         state = {"watched": {slug: item for slug, item in watched.items() if not item.get("resolved")},
-                 "paper": paper.state}
+                 "paper": paper.state, "inventory_paper": inventory.state}
         (recorder.out / "state.json").write_text(json.dumps(state, ensure_ascii=False))
+        (recorder.out / "inventory_paper_report.json").write_text(json.dumps(inventory.report(), indent=2) + "\n")
         (recorder.out / "hourly_paper_report.json").write_text(json.dumps(paper.report(), indent=2) + "\n")
         summary = {"status": "CAPTURE_ONLY_NO_PNL", "started_at": started, "ended_at": utc(),
                    "counts": dict(recorder.counts), "uncompressed_bytes": recorder.bytes,
