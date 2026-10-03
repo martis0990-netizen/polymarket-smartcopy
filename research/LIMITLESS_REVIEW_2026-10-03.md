@@ -104,3 +104,11 @@ Snapshot 3 октября, 16:44:17 UTC / 19:44:17 МСК; 8 main archives, arch
 ## Рекомендуемое решение
 
 Сначала R1–R3 и проверка dispatch, затем R4–R6 и исследование независимых действий. До этого отчёты использовать для диагностики наблюдения, а не квалификации COPY. Не менять исходную когорту, модель, holdout или пороги в ответ на отрицательные результаты. Не добавлять framework, БД, индексатор или торговый исполнитель. [Описание системы](LIMITLESS_ENTRY_PIPELINE.md); [роадмап](LIMITLESS_ROADMAP.md).
+
+## Исправления после этого ревью
+
+Отдельное изменение diagnostics-v2 закрывает воспроизведения R1 и R4: conflict_observed_at/validation_status исключают поздно противоречивую запись из проверенной статистики, сохраняя исходные status/VWAP/first_seen; required timestamp errors записываются в data_errors и карантин canonical ID без остановки остальных записей. Времена без timezone отклоняются. Invalid book receipt не заменяется более поздним хорошим ответом. Карантинные записи не входят в buy denominator, но перечислены отдельно.
+
+R2 закрыт для совпадения slug и доступных уже наблюдённых идентификаторов: missing/mismatched slug, известный неправильный market.tokens.yes, non-USDC, неправильные collateral decimals и известные group/non-CLOB исключаются. **Полная привязка metadata остаётся открытой:** unknown YES-token binding явно указан в market_identity, full_market_metadata_verified=false. Новых metadata-запросов в этой правке нет; supported остаётся ограниченной диагностикой, а не полным execution validation.
+
+Проверка: 20 entry tests + 8 существующих profile/audit tests PASS. Среди новых cases — conflict между архивами до/после его observation time, сохранение исходной цены, неправильный/отсутствующий slug и известный токен, unsupported collateral, malformed/naive/nonfinite time, поздний valid duplicate после invalid receipt. Реальный main сегмент artifact11278344227: все scope metrics до/после совпадают, data_errors=0; 48 успешных book responses сохраняют UNKNOWN YES-token binding. R3, R5, R6 и end-to-end post-upload dispatch acceptance ещё не закрыты. Исходное ревью выше относится к старому pinned commit; эта секция описывает последующую правку.

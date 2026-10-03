@@ -123,3 +123,11 @@ python3 research/limitless_probe_audit.py archives/*.zip --out limitless_final_a
 ## Что пока отсутствует
 
 Нет подтверждённой стратегии кошелька, полного начального inventory, независимых ENTER/ADD/EXIT, net follower PnL, calibrated residual-edge filter, точной модели queue/funding/cancellations, выполненных реальных заявок или разрешения на live. Ограничения не устраняются более частым polling без измерения причин задержки.
+
+## Изменения diagnostics-v2 после исходной документации
+
+Схемы теперь limitless-entry-availability-v2 и limitless-entry-aggregate-v2. В records `status` сохраняет исходный diagnostic outcome; `validation_status` учитывает поздний конфликт сторон, и именно он используется в status_counts и quote statistics. `conflict_observed_at` показывает, когда противоречие стало доступно. `validated_for_quote_statistics` true только для поддержанной непротиворечивой диагностической котировки; полную валидацию рынка это поле не обещает. Более ранний as-of не видит более поздний конфликт.
+
+Новые статусы: CONFLICTING_SOURCE_OUTCOME (retrospective validation), MARKET_IDENTITY_MISMATCH, UNVERIFIED_MARKET_IDENTITY, UNSUPPORTED_MARKET_METADATA, UNSUPPORTED_COLLATERAL, INVALID_BOOK_TIME. Ошибки обязательных времён/данных перечислены в data_errors с id/account/artifact/field; quarantined_canonical_ids исключены из buy denominator. Missing request-start старых архивов остаётся UNVERIFIED, без выдуманного timestamp.
+
+Проверяются совпадение book/observation/raw market slug и уже имеющиеся market.tokens.yes, collateral symbol/decimals, group/tradeType. market_identity отдельно показывает slug_validation, yes_token_validation, collateral_validation, full_market_metadata_verified. Недостающие metadata не заполняются поздними данными: последний flag пока false. Полная prospective привязка и единый paper eligibility contract ещё требуются.

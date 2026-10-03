@@ -3,7 +3,7 @@ import json
 import pathlib
 import tempfile
 import zipfile
-from limitless_entry_availability import depth_quote, report_directory, aggregate_archives
+from limitless_entry_availability import depth_quote, report_directory, aggregate_archives, build_report
 from limitless_smartcopy_probe import DEFAULT_ACCOUNTS
 
 
@@ -45,6 +45,7 @@ class AvailabilityTests(unittest.TestCase):
             self.assertEqual(depth_quote(b, 'YES', '.5')['status'], 'INVALID_OR_UNVERIFIED_BOOK')
 
     def report(self, books, unknown=False, duplicate=False):
+        books = [{**b, 'slug': b.get('slug', 's')} for b in books]
         uid = '01046332-dc4d-428c-bcf8-deeef19dd43d'
         row = {'kind': 'observation', 'id': 'feed', 'account': DEFAULT_ACCOUNTS[0],
                'first_seen_at': '2026-10-03T09:01:10Z', 'occurred_at': '2026-10-03T09:01:00Z',
@@ -132,6 +133,115 @@ class AvailabilityTests(unittest.TestCase):
         self.assertEqual(r['records'],[])
         self.assertEqual(r['historical_crypto_buy_records_excluded'],1)
         self.assertEqual(len(r['archive_errors']),1)
+
+    def fixtures(self):
+        uid = '01046332-dc4d-428c-bcf8-deeef19dd43d'
+        feed = {'kind':'observation', 'id':'feed', 'account':DEFAULT_ACCOUNTS[0], 'crypto_candidate':True,
+            'slug':'s', 'occurred_at':'2026-10-03T09:01:00Z', 'first_seen_at':'2026-10-03T09:01:10Z',
+            'raw':{'id':'clob:'+uid+':123', 'profile':{'id':123}, 'entryType':'BOUGHT',
+                   'subject':{'slug':'s','title':'BTC Up or Down Hourly'},
+                   'facts':{'outcome':'YES','price':'.5','symbol':'USDC'}}}
+        history = {**feed, 'id':'history', 'first_seen_at':'2026-10-03T09:01:15Z',
+            'raw':{'tradeEventId':uid, 'strategy':'Limit Buy', 'outcomeIndex':1,
+                   'outcomeTokenAmounts':['1','1'], 'outcomeTokenPrice':'.5',
+                   'market':{'title':'BTC Up or Down Hourly','slug':'s'}}}
+        b = {'event_id':'feed', 'slug':'s', 'request_started_at':'2026-10-03T09:01:11Z',
+             'fetched_at':'2026-10-03T09:01:12Z', 'raw':book()}
+        return {'started_at':'2026-10-03T09:00:00Z'}, feed, history, b
+
+    def test_conflict_is_retrospective_and_preserves_original_quote(self):
+        summary, feed, history, b = self.fixtures()
+        before = build_report(summary,[feed],[b])
+        after = build_report(summary,[history,feed],[b])
+        r = after['records'][0]
+        self.assertEqual(r['status'],before['records'][0]['status'])
+        self.assertEqual(r['vwap'],before['records'][0]['vwap'])
+        self.assertEqual(r['first_observed_at'],feed['first_seen_at'])
+        self.assertEqual(r['validation_status'],'CONFLICTING_SOURCE_OUTCOME')
+        self.assertEqual(r['conflict_observed_at'],'2026-10-03T09:01:15+00:00')
+        self.assertFalse(r['validated_for_quote_statistics'])
+        stats = after['scopes']['FIXED_COHORT']
+        self.assertEqual(stats['ten_usdc_depth_quote_fraction'],0)
+        self.assertIsNone(stats['vwap_minus_source_p50'])
+
+    def test_identity_rejects_wrong_and_missing_slug_and_known_wrong_yes_token(self):
+        summary, feed, _, b = self.fixtures()
+        for slug,status in [('other','MARKET_IDENTITY_MISMATCH'),(None,'UNVERIFIED_MARKET_IDENTITY')]:
+            r = build_report(summary,[feed],[{**b,'slug':slug}])['records'][0]
+            self.assertEqual(r['status'],status)
+        feed['raw']['market'] = {'tokens':{'yes':'wrong-token'}}
+        self.assertEqual(build_report(summary,[feed],[b])['records'][0]['status'],'MARKET_IDENTITY_MISMATCH')
+
+    def test_partial_metadata_explicit_and_non_usdc_or_wrong_decimals_rejected(self):
+        summary,feed,_,b = self.fixtures()
+        r = build_report(summary,[feed],[b])['records'][0]
+        self.assertEqual(r['market_identity']['yes_token_validation'],'UNKNOWN')
+        self.assertFalse(r['market_identity']['full_market_metadata_verified'])
+        for collateral in [{'symbol':'DAI','decimals':6},{'symbol':'USDC','decimals':18}]:
+            feed['raw']['market'] = {'collateral':collateral}
+            self.assertEqual(build_report(summary,[feed],[b])['records'][0]['status'],'UNSUPPORTED_COLLATERAL')
+
+    def test_malformed_book_object_with_known_token_cannot_crash_identity_check(self):
+        summary,feed,_,b = self.fixtures()
+        feed['raw']['market'] = {'tokens':{'yes':'yes'}}
+        r = build_report(summary,[feed],[{**b,'raw':['invalid-book-object']}])
+        self.assertEqual(r['records'][0]['status'],'INVALID_OR_UNVERIFIED_BOOK')
+
+    def test_bad_timestamp_quarantines_duplicate_without_crashing_good_rows(self):
+        summary, feed, history, b = self.fixtures()
+        good = {**feed, 'id':'good', 'raw':{**feed['raw'],'id':'unrelated'}}
+        for at in ['malformed',None,'2026-10-03T09:01:10',float('nan')]:
+            r = build_report(summary,[{**feed,'first_seen_at':at},history,good],[b])
+            self.assertEqual(len(r['records']),1)
+            self.assertEqual(r['records'][0]['canonical_trade_id'],DEFAULT_ACCOUNTS[0]+':unrelated')
+            self.assertEqual(len(r['data_errors']),1)
+            self.assertEqual(len(r['quarantined_canonical_ids']),1)
+
+    def test_bad_book_receipt_cannot_be_replaced_by_later_valid_book(self):
+        summary,feed,_,b = self.fixtures()
+        r = build_report(summary,[feed],[{**b,'fetched_at':'broken'},b])
+        self.assertEqual(r['records'][0]['status'],'INVALID_BOOK_TIME')
+        self.assertEqual(len(r['data_errors']),1)
+
+    def test_invalid_source_and_request_times_do_not_become_supported(self):
+        summary,feed,_,b = self.fixtures()
+        r = build_report(summary,[{**feed,'occurred_at':'broken'}],[b])
+        self.assertEqual(r['records'],[])
+        self.assertEqual(len(r['data_errors']),1)
+        for requested in ['broken','2026-10-03T09:01:09Z','2026-10-03T09:01:13Z']:
+            r = build_report(summary,[feed],[{**b,'request_started_at':requested}])
+            self.assertEqual(r['records'][0]['status'],'UNVERIFIED_POST_DETECTION_REQUEST')
+
+    def test_archive_invalid_observation_time_is_visible_and_preserves_valid_rows(self):
+        summary,feed,_,b = self.fixtures()
+        bad = {**feed,'first_seen_at':'broken'}
+        good = {**feed,'id':'good','raw':{**feed['raw'],'id':'other'}}
+        with tempfile.TemporaryDirectory() as tmp:
+            p = pathlib.Path(tmp)/'segment.zip'
+            with zipfile.ZipFile(p,'w') as z:
+                z.writestr('summary.json',json.dumps(summary))
+                z.writestr('observations.jsonl','\n'.join(map(json.dumps,[bad,good])))
+                z.writestr('books.jsonl',json.dumps(b))
+            r = aggregate_archives([p],'2026-10-03T09:02:00Z')
+        self.assertEqual(len(r['records']),1)
+        self.assertEqual(len(r['data_errors']),1)
+        self.assertEqual(r['data_errors'][0]['artifact'],'segment.zip')
+
+    def test_cross_archive_conflict_is_not_available_before_its_observation(self):
+        summary,feed,history,b = self.fixtures()
+        with tempfile.TemporaryDirectory() as tmp:
+            paths=[]
+            for i, rows in enumerate([[feed],[history]]):
+                p=pathlib.Path(tmp)/f'{i}.zip';paths.append(p)
+                with zipfile.ZipFile(p,'w') as z:
+                    z.writestr('summary.json',json.dumps(summary))
+                    z.writestr('observations.jsonl','\n'.join(map(json.dumps,rows)))
+                    if i==0:z.writestr('books.jsonl',json.dumps(b))
+            before=aggregate_archives(paths,'2026-10-03T09:01:14Z')
+            after=aggregate_archives(paths,'2026-10-03T09:01:16Z')
+        self.assertEqual(before['records'][0]['validation_status'],'DEPTH_SUPPORTS_10_USDC_QUOTE')
+        self.assertEqual(after['records'][0]['validation_status'],'CONFLICTING_SOURCE_OUTCOME')
+        self.assertEqual(before['records'][0]['vwap'],after['records'][0]['vwap'])
 
 
 if __name__ == '__main__':
