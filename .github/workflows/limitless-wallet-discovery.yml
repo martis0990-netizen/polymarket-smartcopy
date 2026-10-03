@@ -7,6 +7,8 @@ on:
       - research/limitless_wallet_discovery.py
       - research/test_limitless_wallet_discovery.py
       - research/limitless_wallet_profile.py
+      - research/limitless_wallet_intents.py
+      - research/test_limitless_wallet_intents.py
       - research/test_limitless_wallet_profile.py
       - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_WALLET_DISCOVERY.md
@@ -17,6 +19,8 @@ on:
       - research/limitless_wallet_discovery.py
       - research/test_limitless_wallet_discovery.py
       - research/limitless_wallet_profile.py
+      - research/limitless_wallet_intents.py
+      - research/test_limitless_wallet_intents.py
       - research/test_limitless_wallet_profile.py
       - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_WALLET_DISCOVERY.md
@@ -90,6 +94,11 @@ jobs:
         run: |
           python research/limitless_wallet_profile.py --out limitless_discovery
           cat limitless_discovery/profile.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Trace observed actions without assuming initial inventory
+        if: steps.window.outputs.active == 'true'
+        run: |
+          python research/limitless_wallet_intents.py --out limitless_discovery
+          cat limitless_discovery/intent_traces.md >> "$GITHUB_STEP_SUMMARY"
       - name: Upload discovery evidence
         if: always() && steps.window.outputs.active == 'true'
         uses: actions/upload-artifact@v4
