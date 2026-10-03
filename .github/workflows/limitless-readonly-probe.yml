@@ -7,6 +7,8 @@ on:
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_wallet_profile.py
       - research/limitless_wallet_profile.py
+      - research/limitless_entry_availability.py
+      - research/test_limitless_entry_availability.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   push:
@@ -15,6 +17,8 @@ on:
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_wallet_profile.py
       - research/limitless_wallet_profile.py
+      - research/limitless_entry_availability.py
+      - research/test_limitless_entry_availability.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   schedule:
@@ -59,6 +63,7 @@ jobs:
         run: |
           python3 research/limitless_smartcopy_probe.py --selftest
           python3 -m unittest discover -s research -p 'test_limitless_wallet_profile.py' -v
+          python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
       - name: Observe public feed and wallet histories
         if: steps.window.outputs.active == 'true'
         shell: bash
@@ -68,6 +73,12 @@ jobs:
           if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MINUTES=1; fi
           python3 research/limitless_smartcopy_probe.py \
             --minutes "$MINUTES" --interval 30 --until "$CUTOFF_UTC" --out limitless_probe
+      - name: Measure observed entry availability
+        if: always() && steps.window.outputs.active == 'true'
+        run: |
+          if [ -f limitless_probe/summary.json ]; then
+            python3 research/limitless_entry_availability.py --out limitless_probe
+          fi
       - name: Print summary
         if: always()
         run: |

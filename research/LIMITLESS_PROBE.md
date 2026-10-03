@@ -32,3 +32,15 @@ Coder: add operation, condition/order identifiers and outcome provenance. Record
 Test Engineer / Reviewer: deterministic mapping, ambiguous claims/groups, conflicting labels, zero price, separate fills, order grouping and invalid books; real PR smoke. The public history API documents Limit Buy/Limit Sell as maker fills, Market Buy/Market Sell as taker fills, Buy/Sell as AMM trades and Claim as redemption. Maker fills do not prove a market-making strategy or follower execution at that price.
 
 References: https://docs.limitless.exchange/api-reference/markets/get-market and https://docs.limitless.exchange/api-reference/portfolio/history
+
+## Observed entry availability, 2026-10-03
+
+Measured gap: top-of-book quote gaps do not show whether a follower's fixed budget fits the visible depth. After each observer segment, `limitless_entry_availability.py` writes `entry_availability.json` and `.md` using existing raw captures only. No extra API requests or orders.
+
+Canonicalize verified feed/history duplicates by wallet and trade UUID, preserve earliest observation, and evaluate the first book attempt after detection. A failed first attempt cannot be replaced by a favorable later snapshot. Report detection delay, detection-to-request delay, HTTP latency and source-to-receipt delay. Unknown sides, missing books, errors and requests begun before detection remain separate statuses. Fixed watchlist and discovery-feed wallets have separate denominators. These are observed buy records, not independent intents; cross-segment aggregation must deduplicate again by canonical ID.
+
+Walk YES asks (or NO asks derived from YES bids at 1-price) for a diagnostic 10 USDC budget. Raw CLOB share sizes use 6 decimals. Report gross VWAP, visible capacity at/below the source price, insufficient depth and price deterioration. A 3% contract deduction is an explicit conservative illustration, not a verified account-specific fee or a comparison of equal net fee bases. Source execution and follower budget are different quantities. The budget assumes the studied USDC markets; this diagnostic does not generalize to other collateral currencies.
+
+A supported depth quote is not an execution, approved max price, copy signal or profit. REST has no guaranteed freshness bound; matching-time depth, cancellations and queue priority remain unknown. No later wallet inventory, source PnL or resolution is used to improve an earlier entry. Unknown strategy remains SKIP.
+
+Primary schema reference: https://docs.limitless.exchange/api-reference/trading/orderbook
