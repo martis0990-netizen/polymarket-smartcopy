@@ -1,0 +1,477 @@
+{
+  "schema": "limitless-inventory-runtime-checkpoint-v1",
+  "generated_at": "2026-10-03T20:16:34.504714+00:00",
+  "reviewed_main_commit": "57bd27700dfb64f75ebbe5af9ad642e72bc840e2",
+  "status": "MAIN_V2_CHECKPOINT_PENDING",
+  "artifacts": [
+    {
+      "run_id": 37144414604,
+      "artifact_id": 11282611940,
+      "sha256": "b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "scope": "MAIN_V1_UNVERIFIED_HISTORY",
+      "started_at": "2026-10-03T18:30:13.873119+00:00",
+      "ended_at": "2026-10-03T19:25:14.629110+00:00",
+      "size_cap_reached": false,
+      "counts": {
+        "listing": 416,
+        "discovery": 52,
+        "ws_connect": 1,
+        "ws_event": 54754,
+        "market": 236,
+        "binance_1h": 102,
+        "oracle_candles": 100,
+        "binance_1m": 354,
+        "book": 704,
+        "paper_decision": 2,
+        "heartbeat": 179,
+        "paper_execution": 3,
+        "inventory_entry": 1,
+        "inventory_decision": 1,
+        "subscription": 51,
+        "request_error": 2,
+        "paper_settlement": 2,
+        "inventory_settlement": 1,
+        "ws_disconnect": 1
+      },
+      "rest_book_markets": 12,
+      "metadata_markets": 15,
+      "verified_hourly_metadata_markets": 5,
+      "request_errors": [
+        {
+          "observed_at": "2026-10-03T18:45:22.904559+00:00",
+          "operation": "oracle_candles",
+          "slug": "btc-up-or-down-hourly-p-1791039909677",
+          "error": "HTTP Error 400: Bad Request",
+          "detail": "{\"message\":\"Underlying oracle chart source is not Chainlink for this market\"}"
+        },
+        {
+          "observed_at": "2026-10-03T18:45:23.163840+00:00",
+          "operation": "oracle_candles",
+          "slug": "eth-up-or-down-hourly-p-1791039910750",
+          "error": "HTTP Error 400: Bad Request",
+          "detail": "{\"message\":\"Underlying oracle chart source is not Chainlink for this market\"}"
+        }
+      ],
+      "hourly_rest_receipt_gaps_s": {
+        "n": 352,
+        "median_nearest_rank": 18.01499104499817,
+        "p95_nearest_rank": 21.648482084274292,
+        "max": 26.172996997833252
+      },
+      "new_decisions": [
+        {
+          "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+          "symbol": "BTCUSDT",
+          "decision_at": 1791052222.8355877,
+          "reference_age_s": 1.4857568740844727,
+          "decision_delay_after_midpoint_s": 22.835587739944458,
+          "p_up": 0.4217614069472537,
+          "model": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          },
+          "decision_book_observed_at": "2026-10-03T18:30:22.835478+00:00",
+          "decision_best_yes": 0.441,
+          "decision_best_no": 0.6
+        },
+        {
+          "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+          "symbol": "ETHUSDT",
+          "decision_at": 1791052223.0897539,
+          "reference_age_s": 0.9376256465911865,
+          "decision_delay_after_midpoint_s": 23.08975386619568,
+          "p_up": 0.2509627113603087,
+          "model": {
+            "status": "PENDING",
+            "side": "YES",
+            "max_price": "0.2363435242907761543689320388",
+            "size_cap_shares": "42.311292",
+            "eligible_after": 1791052224.5897539,
+            "expires_at": 1791052253.0897539
+          },
+          "decision_book_observed_at": "2026-10-03T18:30:23.089628+00:00",
+          "decision_best_yes": 0.225,
+          "decision_best_no": 0.834,
+          "first_eligible_request_at": "2026-10-03T18:30:41.058294+00:00",
+          "first_eligible_receipt_at": "2026-10-03T18:30:41.333385+00:00",
+          "decision_to_receipt_s": 18.24374008178711,
+          "model_execution": {
+            "status": "FILLED",
+            "side": "YES",
+            "max_price": "0.2363435242907761543689320388",
+            "size_cap_shares": "42.311292",
+            "eligible_after": 1791052224.5897539,
+            "expires_at": 1791052253.0897539,
+            "fill_at": 1791052241.333494,
+            "gross_shares": "42.311292",
+            "net_shares": "41.04195324",
+            "cost_usdc": "8.383503568",
+            "vwap": "0.1981386805205570182068654391"
+          }
+        }
+      ],
+      "cumulative_hourly": {
+        "conditions_seen": 14,
+        "decision_conditions": 12,
+        "hour_clusters": 7,
+        "scored_conditions": 11,
+        "brier_model": 0.1836615505991519,
+        "brier_50": 0.25,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 2
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 11,
+              "SETTLED": 1
+            },
+            "settled_trades": 1,
+            "net_pnl_usdc": -8.383503568,
+            "settled_cost_usdc": 8.383503568,
+            "net_return_on_spent": -1.0,
+            "mean_pnl_per_settled_trade": -8.383503568
+          },
+          "constant50": {
+            "states": {
+              "SETTLED": 10,
+              "NO_TRADE": 1,
+              "FILLED": 1
+            },
+            "settled_trades": 10,
+            "net_pnl_usdc": 3.631804062999999,
+            "settled_cost_usdc": 58.168194767,
+            "net_return_on_spent": 0.06243625193368378,
+            "mean_pnl_per_settled_trade": 0.36318040629999987
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "inventory_summary": {
+        "version": "limitless-inventory-paper-v1",
+        "started_at": 1791052213.8738215,
+        "cash": "91.616496432",
+        "realized_pnl": "-8.383503568",
+        "positions": 1,
+        "settled_positions": 1,
+        "management_states": {
+          "HOLD": 1
+        }
+      },
+      "inventory_evidence_file_present": false
+    },
+    {
+      "run_id": 37146330445,
+      "artifact_id": 11282392465,
+      "sha256": "a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "scope": "MAIN_V1_UNVERIFIED_HISTORY",
+      "started_at": "2026-10-03T19:25:31.760620+00:00",
+      "ended_at": "2026-10-03T19:27:31.905825+00:00",
+      "size_cap_reached": false,
+      "counts": {
+        "listing": 16,
+        "discovery": 2,
+        "ws_connect": 1,
+        "ws_event": 475,
+        "market": 8,
+        "binance_1h": 4,
+        "oracle_candles": 4,
+        "binance_1m": 12,
+        "book": 24,
+        "heartbeat": 6,
+        "subscription": 1,
+        "ws_disconnect": 1
+      },
+      "rest_book_markets": 4,
+      "metadata_markets": 4,
+      "verified_hourly_metadata_markets": 2,
+      "request_errors": [],
+      "hourly_rest_receipt_gaps_s": {
+        "n": 10,
+        "median_nearest_rank": 17.36689805984497,
+        "p95_nearest_rank": 21.601473093032837,
+        "max": 21.601473093032837
+      },
+      "new_decisions": [],
+      "cumulative_hourly": {
+        "conditions_seen": 14,
+        "decision_conditions": 12,
+        "hour_clusters": 7,
+        "scored_conditions": 11,
+        "brier_model": 0.1836615505991519,
+        "brier_50": 0.25,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 2
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 11,
+              "SETTLED": 1
+            },
+            "settled_trades": 1,
+            "net_pnl_usdc": -8.383503568,
+            "settled_cost_usdc": 8.383503568,
+            "net_return_on_spent": -1.0,
+            "mean_pnl_per_settled_trade": -8.383503568
+          },
+          "constant50": {
+            "states": {
+              "SETTLED": 10,
+              "NO_TRADE": 1,
+              "FILLED": 1
+            },
+            "settled_trades": 10,
+            "net_pnl_usdc": 3.631804062999999,
+            "settled_cost_usdc": 58.168194767,
+            "net_return_on_spent": 0.06243625193368378,
+            "mean_pnl_per_settled_trade": 0.36318040629999987
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "inventory_summary": {
+        "version": "limitless-inventory-paper-v1",
+        "started_at": 1791052213.8738215,
+        "cash": "91.616496432",
+        "realized_pnl": "-8.383503568",
+        "positions": 1,
+        "settled_positions": 1,
+        "management_states": {
+          "HOLD": 1
+        }
+      },
+      "inventory_evidence_file_present": false
+    },
+    {
+      "run_id": 37148198037,
+      "artifact_id": 11282723753,
+      "sha256": "313fe81e63bf6aaf4e3b850c4b4ab2905e7b3a22cddc9c0b7bbc86bfe2a7134b",
+      "scope": "PR_V2_SMOKE_NOT_PROSPECTIVE",
+      "started_at": "2026-10-03T19:31:36.151404+00:00",
+      "ended_at": "2026-10-03T19:33:36.297056+00:00",
+      "size_cap_reached": false,
+      "counts": {
+        "listing": 16,
+        "discovery": 2,
+        "ws_connect": 1,
+        "ws_event": 643,
+        "market": 8,
+        "binance_1h": 4,
+        "oracle_candles": 4,
+        "binance_1m": 14,
+        "book": 28,
+        "heartbeat": 7,
+        "subscription": 1,
+        "ws_disconnect": 1
+      },
+      "rest_book_markets": 4,
+      "metadata_markets": 4,
+      "verified_hourly_metadata_markets": 2,
+      "request_errors": [],
+      "hourly_rest_receipt_gaps_s": {
+        "n": 12,
+        "median_nearest_rank": 17.492257118225098,
+        "p95_nearest_rank": 17.767521858215332,
+        "max": 17.767521858215332
+      },
+      "new_decisions": [],
+      "cumulative_hourly": {
+        "conditions_seen": 2,
+        "decision_conditions": 0,
+        "hour_clusters": 1,
+        "scored_conditions": 0,
+        "brier_model": null,
+        "brier_50": null,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 2
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          },
+          "constant50": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "inventory_summary": {
+        "version": "limitless-inventory-paper-v2",
+        "started_at": 1791055896.1515543,
+        "cash": "100",
+        "realized_pnl": "0",
+        "positions": 0,
+        "settled_positions": 0,
+        "management_states": {}
+      },
+      "inventory_evidence_file_present": true
+    }
+  ],
+  "v1_cumulative_state_identical_across_two_checkpoints": true,
+  "legacy_archive_audit": {
+    "version": "limitless-inventory-paper-v2",
+    "status": "NO_V2_CHECKPOINTS",
+    "checkpoints": 0,
+    "errors": [],
+    "legacy_v1_checkpoints_excluded": 2,
+    "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+    "raw_sources": 0,
+    "latest_artifact": null,
+    "report": null
+  },
+  "pr_smoke_archive_audit": {
+    "version": "limitless-inventory-paper-v2",
+    "status": "RECONCILED_PAPER_ONLY",
+    "checkpoints": 1,
+    "errors": [],
+    "legacy_v1_checkpoints_excluded": 0,
+    "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+    "raw_sources": 0,
+    "latest_artifact": "artifact:11282723753",
+    "report": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+      "started_at": 1791055896.1515543,
+      "initial_capital": "100",
+      "cash": "100",
+      "open_cost_basis": "0",
+      "realized_pnl": "0",
+      "admission_skips": {},
+      "positions": 0,
+      "management_states": {},
+      "settled_positions": 0,
+      "seed_hold_settled_pnl": "0",
+      "managed_settled_pnl": "0",
+      "no_trade_control_pnl": "0",
+      "phases": {
+        "discovery": {
+          "positions": 0,
+          "settled_positions": 0,
+          "matched_conditions": 0,
+          "resolved_hour_clusters": 0,
+          "managed_settled_pnl": "0",
+          "seed_hold_settled_pnl": "0",
+          "managed_minus_seed_hold": "0",
+          "settled_entry_cost": "0",
+          "realized_pnl": "0",
+          "open_positions": 0,
+          "open_cost_basis": "0",
+          "management_states": {},
+          "hour_clusters": [],
+          "no_trade_control_pnl": "0",
+          "feasibility": "INSUFFICIENT_DATA"
+        },
+        "holdout": {
+          "positions": 0,
+          "settled_positions": 0,
+          "matched_conditions": 0,
+          "resolved_hour_clusters": 0,
+          "managed_settled_pnl": "0",
+          "seed_hold_settled_pnl": "0",
+          "managed_minus_seed_hold": "0",
+          "settled_entry_cost": "0",
+          "realized_pnl": "0",
+          "open_positions": 0,
+          "open_cost_basis": "0",
+          "management_states": {},
+          "hour_clusters": [],
+          "no_trade_control_pnl": "0",
+          "feasibility": "INSUFFICIENT_DATA"
+        }
+      },
+      "limitations": [
+        "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+        "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+        "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+        "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+        "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+        "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+        "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+        "No passive maker fills or profitable-strategy verdict."
+      ]
+    }
+  },
+  "offline_migration_probe": {
+    "status": "PASS_NOT_MAIN_RUNTIME",
+    "fixture_artifact": 11282392465,
+    "legacy_cash": "91.616496432",
+    "legacy_realized_pnl": "-8.383503568",
+    "legacy_history_sha256": "681e41b3454868bb434bf7051cd3c20e7eada26f361fd6a75ec5451b92acc00f",
+    "fresh_v2_cash": "100",
+    "fresh_v2_positions": 0,
+    "legacy_state_preserved": true,
+    "restart_preserves_v2_started_at": true,
+    "historical_model_fills_imported": 0
+  },
+  "limitations": [
+    "Only two main v1 checkpoints are inspected here, not full raw history. Cumulative counts use the latest state once.",
+    "PR v2 smoke and offline migration are technical checks, never prospective strategy outcomes.",
+    "REST receipt gaps are local observations, not exchange freshness or matching latency.",
+    "The sole v1 loss is unverified legacy paper history; it is not imported into v2 or evidence of edge.",
+    "No parameter tuning, new signals or real orders."
+  ],
+  "github_runtime": {
+    "observed_at": "2026-10-03T20:16:58Z",
+    "runs": [
+      {
+        "run_id": 37150325487,
+        "event": "schedule",
+        "head_sha": "57bd27700dfb64f75ebbe5af9ad642e72bc840e2",
+        "status": "pending",
+        "conclusion": null,
+        "created_at": "2026-10-03T20:06:14Z",
+        "updated_at": "2026-10-03T20:06:15Z"
+      },
+      {
+        "run_id": 37148551108,
+        "event": "push",
+        "head_sha": "57bd27700dfb64f75ebbe5af9ad642e72bc840e2",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2026-10-03T19:37:16Z",
+        "updated_at": "2026-10-03T20:06:15Z"
+      },
+      {
+        "run_id": 37148198037,
+        "event": "pull_request",
+        "head_sha": "a8e385a4295fc9d5bd20af50a3688d38e96221c5",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-03T19:31:25Z",
+        "updated_at": "2026-10-03T19:33:40Z"
+      },
+      {
+        "run_id": 37147962215,
+        "event": "workflow_dispatch",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+        "status": "in_progress",
+        "conclusion": null,
+        "created_at": "2026-10-03T19:27:34Z",
+        "updated_at": "2026-10-03T19:27:40Z"
+      },
+      {
+        "run_id": 37147825037,
+        "event": "workflow_dispatch",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2026-10-03T19:25:18Z",
+        "updated_at": "2026-10-03T19:27:36Z"
+      }
+    ]
+  }
+}
