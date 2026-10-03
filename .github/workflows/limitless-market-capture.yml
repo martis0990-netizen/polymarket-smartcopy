@@ -10,6 +10,7 @@ on:
       - research/test_limitless_hourly_paper.py
       - research/limitless_inventory_paper.py
       - research/test_limitless_inventory_paper.py
+      - research/test_limitless_capture_integration.py
       - research/LIMITLESS_INVENTORY_PLAN.md
       - research/LIMITLESS_STRATEGY_STUDY.md
       - .github/workflows/limitless-market-capture.yml
@@ -22,6 +23,7 @@ on:
       - research/test_limitless_hourly_paper.py
       - research/limitless_inventory_paper.py
       - research/test_limitless_inventory_paper.py
+      - research/test_limitless_capture_integration.py
       - research/LIMITLESS_INVENTORY_PLAN.md
       - research/LIMITLESS_STRATEGY_STUDY.md
       - .github/workflows/limitless-market-capture.yml
@@ -73,6 +75,7 @@ jobs:
           python research/limitless_market_capture.py --selftest
           python -m unittest discover -s research -p 'test_limitless_hourly_paper.py' -v
           python -m unittest discover -s research -p 'test_limitless_inventory_paper.py' -v
+          python -m unittest discover -s research -p 'test_limitless_capture_integration.py' -v
       - name: Restore unresolved market checkpoint
         if: steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
         shell: bash
@@ -83,7 +86,7 @@ jobs:
               --jq '.artifacts[] | select(.name | startswith("limitless-market-")) | .id' | head -n 1)
             if [ -n "$artifact_id" ]; then
               gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > previous.zip
-              unzip -o previous.zip state.json -d previous
+              python3 -c 'import zipfile; z=zipfile.ZipFile("previous.zip"); [z.extract(n,"previous") for n in ("state.json","inventory_evidence.jsonl.gz") if n in z.namelist()]'
               break
             fi
           done < <(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-market-capture.yml/runs?per_page=10" \

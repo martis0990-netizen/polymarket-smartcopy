@@ -1,0 +1,31 @@
+{
+  "version": "limitless-inventory-paper-v2",
+  "status": "REGRESSION_AND_MOCKED_CAPTURE_PASS_NOT_PROFITABILITY",
+  "reviewed_base": "751526fbbf4dafa1997905f19b7eb19fb180e8ec",
+  "tests": 88,
+  "tests_passed": true,
+  "capture_selftest": "PASS",
+  "yaml": "PASS",
+  "frozen_hourly_unchanged": true,
+  "resolved_findings": {
+    "R1": "Pair locked-profit/2% and SELL/HOLD improvement rechecked at first execution; bad depth economics SKIP before debit",
+    "R2": "Ledger derived from entry/execution/payout records; raw-source fingerprints and pending decision immutability checked",
+    "R3": "Separate discovery/holdout managed, matched seed-hold and cluster PnL; shared cash not split",
+    "R4": "Unverified payout keeps watch alive; restart restores outstanding watches; valid settlement is idempotent",
+    "R5": "Nonfinite and pre-expiry settlement times rejected; persisted temporal fields validated",
+    "R6": "First eligible entry attempt recorded before hourly callback; missing/error frame permanently excludes later fill"
+  },
+  "source_sha256": {
+    "research/limitless_inventory_paper.py": "efb12fcee217d5d4277214a39434d53b56974820ad90849a6acd241872c2a143",
+    "research/limitless_market_capture.py": "5d71b561fd3e61bce1549674a8d8d6ab2da47082641119dc8e4b5756d6ef4fdd",
+    "research/limitless_hourly_paper.py": "ebeb91ee28e0b9f3f19edc7c788acf8eb808287d02c625f894c1df36303cfcde",
+    "research/test_limitless_inventory_paper.py": "baf8f96243bf56eb743895eeb8e34665b28410aa7e17fc13614a4cf25a6ac114",
+    "research/test_limitless_capture_integration.py": "0cd2cd221a61d6fb47db5c8dbccddb41eba1ea75de030163115289d27678359c"
+  },
+  "limitations": [
+    "All regression cases synthetic; no real orders or merge transactions",
+    "No profitability or actual main trade/settlement acceptance yet",
+    "v1 legacy state retained and excluded; v2 starts fresh prospective capital",
+    "Fixed model uncertainty and assumed depth/merge costs remain research assumptions"
+  ]
+}

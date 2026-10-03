@@ -14,7 +14,7 @@ from decimal import ROUND_UP
 from unittest.mock import patch
 
 from limitless_hourly_paper import HourlyPaper
-from limitless_inventory_paper import InventoryPaper, archive_report, number, MICRO, HOLDOUT
+from limitless_inventory_paper import InventoryPaper, archive_report, number, MICRO, HOLDOUT, VERSION
 from test_limitless_inventory_paper import seeded, market, book, START, MID
 
 REVIEWED_COMMIT = 'bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0'
@@ -151,6 +151,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=pathlib.Path, required=True)
     args = parser.parse_args()
+    if VERSION != 'limitless-inventory-paper-v1':
+        parser.error('Pinned v1 diagnostic: use the reviewed bd67203 sources. Current v2 fixes use test_limitless_inventory_paper.py and test_limitless_capture_integration.py.')
     result = run()
     args.out.write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')
     print(json.dumps({'status': result['status'], 'findings': len(result['findings']),

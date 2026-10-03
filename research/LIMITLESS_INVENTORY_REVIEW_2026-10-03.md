@@ -1,5 +1,7 @@
 # Ревью алгоритма Limitless inventory v1
 
+Замечания ниже относятся к pinned v1. Их исправление и regression/mocked capture приёмка в v2 описаны отдельно: [LIMITLESS_INVENTORY_V2_FIXES.md](LIMITLESS_INVENTORY_V2_FIXES.md). Это не переписывает исторический verdict и не подтверждает edge новой версии.
+
 Дата: 2026-10-03. Проверенный commit: [`bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0`](https://github.com/martis0990-netizen/polymarket-smartcopy/commit/bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0), PR #33. Область: inventory policy, frozen hourly probability/entry dependency, capture/checkpoint/settlement integration. Wallet SmartCopy и Polymarket не входят в эту проверку.
 
 **Вердикт: CHANGES_REQUIRED.** Есть подтверждённые ошибки торгового ограничения, первого входа и проверки/отчётности. Сбор исходных наблюдений полезно продолжать; inventory v1 нельзя использовать для вывода о прибыльности до исправлений и повторной проверки. Реальное исполнение не реализовано и не разрешено. Это отдельная исследовательская стратегия, а не подтверждённый алгоритм Bonereaper.

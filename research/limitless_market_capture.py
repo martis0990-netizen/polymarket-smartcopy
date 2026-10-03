@@ -8,12 +8,13 @@ import json
 import pathlib
 import re
 import time
+import shutil
 import urllib.parse
 import urllib.request
 import urllib.error
 from collections import Counter
 from limitless_hourly_paper import HourlyPaper
-from limitless_inventory_paper import InventoryPaper
+from limitless_inventory_paper import InventoryPaper, VERSION, LEGACY_VERSION, digest, payouts, timestamp as finite_time
 
 BASE = "https://api.limitless.exchange"
 NS = "/markets"
@@ -70,10 +71,14 @@ def request(path, params=None):
 
 
 class Recorder:
-    def __init__(self, out):
+    def __init__(self, out, previous_evidence=None):
         self.out = pathlib.Path(out)
         self.out.mkdir(parents=True, exist_ok=True)
         self.file = gzip.open(self.out / "capture.jsonl.gz", "at", encoding="utf-8")
+        evidence_path = self.out / 'inventory_evidence.jsonl.gz'
+        if previous_evidence and pathlib.Path(previous_evidence).exists():
+            shutil.copyfile(previous_evidence, evidence_path)
+        self.evidence = gzip.open(evidence_path, 'at', encoding='utf-8')
         self.counts = Counter()
         self.bytes = 0
         self.capped = False
@@ -86,15 +91,58 @@ class Recorder:
             self.capped = True
             return
         self.file.write(line)
+        if kind == 'inventory_observation':
+            self.evidence.write(line)
         self.counts[kind] += 1
 
     def flush(self):
         self.file.flush()
+        self.evidence.flush()
+
+    def close(self):
+        self.flush(); self.file.close(); self.evidence.close()
+
+
+def restore_inventory(saved, started_at, emit=None):
+    old = saved.get('inventory_paper')
+    history = dict(saved.get('inventory_paper_history', {}))
+    if old is not None and old.get('version') == LEGACY_VERSION:
+        history[digest(old)] = old
+        old = None  # a new funded policy never imports old fills, cash or PnL
+    return InventoryPaper(old, started_at=started_at, emit=emit), history
+
+
+def process_book_attempt(paper, inventory, market, raw, observed, requested):
+    source = inventory.observe_entry_attempt(paper, market, raw, observed, requested)
+    if isinstance(raw, dict):
+        paper.book(market.get('slug'), raw, observed, requested)
+        inventory.book(paper, market, raw, observed, requested, source)
+    else:
+        inventory.unavailable_book(market.get('slug'), observed, requested)
+
+
+def process_market_observation(paper, inventory, market, observed):
+    try:
+        finite_time(observed)
+        end = timestamp(market.get('expirationTimestamp'))
+        finite_time(end)
+    except (ValueError, TypeError, ArithmeticError):
+        return False
+    if market.get('status') == 'RESOLVED' and (observed < end or payouts(market) is None):
+        return False
+    paper.market(market, observed)
+    inventory.market(market, observed)
+    if market.get('status') != 'RESOLVED' or observed < end or payouts(market) is None:
+        return False
+    pos = inventory.state['positions'].get(market.get('conditionId'))
+    ep = paper.state['episodes'].get(market.get('conditionId'))
+    return (pos is None or pos.get('settled_at') is not None) and (ep is None or ep.get('settled_at') is not None)
 
 
 async def capture(args):
     import socketio
-    recorder = Recorder(args.out)
+    previous_evidence = pathlib.Path(args.state).with_name('inventory_evidence.jsonl.gz') if args.state else None
+    recorder = Recorder(args.out, previous_evidence)
     started = utc()
     cutoff = timestamp(args.until)
     end = min(time.monotonic() + args.minutes * 60,
@@ -113,7 +161,13 @@ async def capture(args):
             recorder.write("state_error", error=str(error))
     backoff_until = 0
     paper = HourlyPaper(saved.get("paper"), emit=recorder.write)
-    inventory = InventoryPaper(saved.get("inventory_paper"), started_at=time.time(), emit=recorder.write)
+    inventory, inventory_history = restore_inventory(saved, time.time(), recorder.write)
+    # Rehydrate outstanding obligations even if a prior collector retired watched too early.
+    for pos in inventory.state['positions'].values():
+        if pos.get('settled_at') is None:
+            attempt = inventory.state['entry_attempts'][pos['condition']]
+            watched.setdefault(pos['slug'], {'market':attempt['source']['market'], 'first_observed_at':utc()})
+            watched[pos['slug']]['resolved'] = False
 
     async def get(kind, path, params=None, slug=None):
         nonlocal backoff_until
@@ -192,13 +246,9 @@ async def capture(args):
         for slug in list(active):
             requested_at = time.time()
             raw = await get("book", "/markets/" + urllib.parse.quote(slug, safe="") + "/orderbook", slug=slug)
-            if isinstance(raw, dict):
-                observed_at = time.time()
-                paper.book(slug, raw, observed_at, requested_at)
-                market = watched.get(slug, {}).get("market", {})
-                inventory.book(paper, market, raw, observed_at, requested_at)
-            else:
-                inventory.unavailable_book(slug, time.time(), requested_at)
+            observed_at = time.time()
+            market = watched.get(slug, {}).get('market', {})
+            process_book_attempt(paper, inventory, market, raw, observed_at, requested_at)
 
     async def metadata():
         due = [(slug, entry) for slug, entry in watched.items()
@@ -209,10 +259,8 @@ async def capture(args):
             raw = await get("market", "/markets/" + urllib.parse.quote(slug, safe=""), slug=slug)
             if isinstance(raw, dict):
                 entry["market"] = raw
-                entry["resolved"] = raw.get("status") == "RESOLVED"
                 observed_at = time.time()
-                paper.market(raw, observed_at)
-                inventory.market(raw, observed_at)
+                entry['resolved'] = process_market_observation(paper, inventory, raw, observed_at)
                 # Unresolved markets remain in the carried checkpoint until resolved.
         symbols = sorted({paper.state["markets"][slug]["symbol"] for slug in active
                           if slug in paper.state["markets"]})
@@ -260,9 +308,10 @@ async def capture(args):
         if client.connected:
             await client.disconnect()
         recorder.flush()
-        recorder.file.close()
+        recorder.close()
         state = {"watched": {slug: item for slug, item in watched.items() if not item.get("resolved")},
-                 "paper": paper.state, "inventory_paper": inventory.state}
+                 "paper": paper.state, "inventory_paper": inventory.state,
+                 "inventory_paper_history":inventory_history}
         (recorder.out / "state.json").write_text(json.dumps(state, ensure_ascii=False))
         (recorder.out / "inventory_paper_report.json").write_text(json.dumps(inventory.report(), indent=2) + "\n")
         (recorder.out / "hourly_paper_report.json").write_text(json.dumps(paper.report(), indent=2) + "\n")

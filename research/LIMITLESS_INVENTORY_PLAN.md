@@ -1,6 +1,17 @@
 # Limitless: план алгоритма стоимости и инвентаря v1
 
-Ревью 2026-10-03: **CHANGES_REQUIRED** — [подтверждённые execution/checkpoint/reporting/settlement замечания и порядок исправлений](LIMITLESS_INVENTORY_REVIEW_2026-10-03.md). До исправлений результаты inventory v1 не принимаются как доказательство edge; исходные наблюдения продолжают собираться.
+Текущая исправленная политика: **limitless-inventory-paper-v2**. [Закрытие шести замечаний и проверка](LIMITLESS_INVENTORY_V2_FIXES.md). Ниже сохранён первоначальный контракт v1; результаты v1 не объединяются с v2 и не принимаются как доказательство edge. Историческое [ревью v1](LIMITLESS_INVENTORY_REVIEW_2026-10-03.md) остаётся неизменным по смыслу.
+
+## Поправки v2 к контракту v1
+
+- Независимо сохранить первый допустимый entry attempt до callback frozen hourly. HTTP error/None/backoff/invalid book на этом attempt окончательно исключает поздний fill из v2; ошибка до eligibility не расходует попытку. Подтверждать entry quote/cap/fee/identity и одинаковое время первого receipt и fill.
+- На первом execution book заново оценить суммарную стоимость/выручку фиксированного действия. COMPLETE_PAIR обязан сохранить положительный locked profit и запас2%; оба действия — улучшение HOLD >=0.02 по сохранённому p. При нарушении SKIP без списания/повтора, даже если худшая цена не изменилась.
+- Восстановить ledger из seed/execution/payout, сверить quantity/basis/spent/cash/PnL и хронологическое финансирование. Зафиксировать pending decision и времена; сопоставить источники с `inventory_evidence.jsonl.gz`. Нет raw evidence/есть конфликт — final report=null.
+- Для каждой фазы публиковать managed/seed-hold/delta, matched count, открытый риск и hour clusters. Cash остаётся общим для портфеля.
+- RESOLVED без проверенной выплаты сохраняет watch; открытые v2 obligations восстанавливаются из state после restart. Не применять NaN/Inf/нечисловое или преждевременное settlement time, конфликтующие payouts и изменённую identity.
+- При переходе на v2 сохранить v1 state как необработанный `inventory_paper_history`; новый v2 capital=100 и started_at=первый main запуск этой версии, без импорта старых fills/cash/PnL. Финальный аудит исключает v1; исходный hourly source/параметры/окна не изменены. Legacy hourly повторяет вход после отсутствующего frame, поэтому его прежние fills не подтверждают first-attempt eligibility v2.
+
+88 тестов и capture selftest PASS, включая два полных mocked-HTTP capture. Это проверка корректности, не прибыльности. Main fresh entry/management/settlement и перспективный holdout остаются отдельной приёмкой.
 
 Фиксация: 2026-10-03. Цель — проверить, улучшает ли управление позицией результат собственной hourly probability model после расходов. Результат не гарантирован. Полный селективный maker-алгоритм — цель следующих этапов; эта версия запускает независимый funded paper-вариант HOLD / SELL / COMPLETE_PAIR. Это не копия закрытого алгоритма Bonereaper.
 
