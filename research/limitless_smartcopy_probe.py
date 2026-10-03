@@ -113,16 +113,23 @@ def report(events_path, output, started_at, books_path):
     rows = [json.loads(s) for s in events_path.read_text(encoding="utf-8").splitlines()] if events_path.exists() else []
     genuine = [r for r in rows if r.get("kind") == "observation"]
     errors = [r for r in rows if r.get("kind") == "request_error"]
+    polls = [r for r in rows if r.get("kind") == "poll_success"]
     crypto = [r for r in genuine if r.get("crypto_candidate")]
     delays = [r["visible_delay_s"] for r in genuine if isinstance(r.get("visible_delay_s"), (int, float))]
     start = parse_time(started_at)
     fresh = [r for r in genuine if (parse_time(r.get("occurred_at")) or dt.datetime.min.replace(
         tzinfo=dt.timezone.utc)) >= start]
+    fresh_delays = [r["visible_delay_s"] for r in fresh
+                    if isinstance(r.get("visible_delay_s"), (int, float))]
     books = [json.loads(s) for s in books_path.read_text(encoding="utf-8").splitlines()] if books_path.exists() else []
     output.write_text(json.dumps({
         "status": "API_UNAVAILABLE" if errors and not genuine else "OBSERVATIONS_ONLY_NO_EDGE_CLAIM",
         "generated_at": now(), "started_at": started_at, "observations": len(genuine),
         "events_occurred_during_run": len(fresh),
+        "fresh_delay_p50_s": statistics.median(fresh_delays) if fresh_delays else None,
+        "poll_successes": len(polls),
+        "first_poll_at": polls[0]["fetched_at"] if polls else None,
+        "last_poll_at": polls[-1]["fetched_at"] if polls else None,
         "fresh_crypto_trades": sum(bool(r.get("crypto_candidate")) and
                                    str(r.get("entry_type")).upper() in
                                    ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY", "SOLD", "SELL", "MARKET SELL")
@@ -150,7 +157,12 @@ def run(args):
     accounts = tuple(x.lower() for x in args.account) if args.account else DEFAULT_ACCOUNTS
     if not all(ADDRESS.fullmatch(x) for x in accounts):
         raise SystemExit("Invalid account address")
+    deadline = parse_time(args.until) if args.until else None
+    if args.until and deadline is None:
+        raise SystemExit("--until must be an ISO-8601 UTC timestamp")
     end = time.monotonic() + args.minutes * 60
+    if deadline is not None:
+        end = min(end, time.monotonic() + max(0, (deadline - dt.datetime.now(dt.timezone.utc)).total_seconds()))
     cycle = 0
     try:
         while time.monotonic() < end:
@@ -166,6 +178,12 @@ def run(args):
                     items = event_items(payload)
                     if not isinstance(payload, (dict, list)):
                         raise ValueError("Unexpected payload")
+                    append_jsonl(events_path, {
+                        "kind": "poll_success", "source": source, "account": account,
+                        "fetched_at": fetched_at, "items": len(items),
+                        "has_more": payload.get("hasMore") if isinstance(payload, dict) else None,
+                        "next_cursor_present": bool(payload.get("nextCursor")) if isinstance(payload, dict) else False,
+                    })
                     if not items and cycle == 1:
                         append_jsonl(events_path, {"kind": "empty_response", "source": source,
                                                    "account": account, "fetched_at": fetched_at,
@@ -189,7 +207,8 @@ def run(args):
                                "raw": item}
                         append_jsonl(events_path, row)
                         # Book is read only after the event reaches our observer.
-                        if (crypto_candidate and meta["slug"]
+                        if (crypto_candidate and occurred and occurred >= parse_time(started_at)
+                                and meta["slug"]
                                 and not (item.get("market") or {}).get("closed")
                                 and str(meta["entry_type"]).upper() in
                                 ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY")):
@@ -232,6 +251,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--minutes", type=float, default=60)
     parser.add_argument("--interval", type=float, default=15)
+    parser.add_argument("--until", help="Absolute UTC stop time, e.g. 2026-10-10T09:00:00Z")
     parser.add_argument("--out", default="./limitless_probe")
     parser.add_argument("--account", action="append", help="Repeat for specific public accounts")
     parser.add_argument("--selftest", action="store_true")
