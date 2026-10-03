@@ -7,6 +7,7 @@ on:
       - research/limitless_entry_availability.py
       - research/limitless_inventory_paper.py
       - research/test_limitless_inventory_paper.py
+      - research/test_limitless_capture_integration.py
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
       - research/test_limitless_observation_contract.py
@@ -19,6 +20,7 @@ on:
       - research/limitless_entry_availability.py
       - research/limitless_inventory_paper.py
       - research/test_limitless_inventory_paper.py
+      - research/test_limitless_capture_integration.py
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
       - research/test_limitless_observation_contract.py
@@ -65,6 +67,7 @@ jobs:
           python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
           python3 -m unittest discover -s research -p 'test_limitless_observation_contract.py' -v
           python3 -m unittest discover -s research -p 'test_limitless_inventory_paper.py' -v
+          python3 -m unittest discover -s research -p 'test_limitless_capture_integration.py' -v
       - name: Download forward observer artifacts
         if: steps.window.outputs.ready == 'true'
         shell: bash
@@ -122,7 +125,7 @@ jobs:
           if [ "${#files[@]}" -gt 0 ]; then
             python3 research/limitless_capture_audit.py "${files[@]}" --out limitless_market_final_audit.json
             python3 research/limitless_hourly_paper.py "${files[@]}" --out limitless_hourly_final_report.json
-            python3 research/limitless_inventory_paper.py "${files[@]}" --out limitless_inventory_final_report.json
+            python3 research/limitless_inventory_paper.py "${files[@]}" --as-of "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --out limitless_inventory_final_report.json
           fi
       - name: Publish audit
         if: always() && steps.window.outputs.ready == 'true'
