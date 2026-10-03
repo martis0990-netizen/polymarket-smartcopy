@@ -41,7 +41,8 @@ jobs:
         run: |
           if [ "$(date -u +%s)" -ge "$(date -u -d "$CUTOFF_UTC" +%s)" ]; then
             echo "active=false" >> "$GITHUB_OUTPUT"
-            if [ "$GITHUB_EVENT_NAME" = schedule ]; then
+            if [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+              gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/dispatches" -f ref=main
               gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/disable"
             fi
           else

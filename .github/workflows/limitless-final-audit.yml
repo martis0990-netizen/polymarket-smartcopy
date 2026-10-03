@@ -41,7 +41,7 @@ jobs:
             fi
           done < <(gh api -X GET --paginate \
             "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/runs?per_page=100" \
-            --jq '.workflow_runs[] | select(.event=="schedule" or .event=="push") | .id')
+            --jq '.workflow_runs[] | select(.head_branch=="main" and (.event=="schedule" or .event=="push" or .event=="workflow_dispatch")) | .id')
           shopt -s nullglob
           files=(archives/*.zip)
           echo "Downloaded ${#files[@]} observation segments"
@@ -51,13 +51,34 @@ jobs:
         shell: bash
         run: |
           python3 research/limitless_probe_audit.py archives/*.zip --out limitless_final_audit.json
+      - name: Download independent market captures
+        if: steps.window.outputs.ready == 'true'
+        shell: bash
+        run: |
+          mkdir -p market_archives
+          while read -r run_id; do
+            artifact_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" \
+              --jq '.artifacts[] | select(.name | startswith("limitless-market-")) | .id' | head -n 1)
+            if [ -n "$artifact_id" ]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "market_archives/$artifact_id.zip"
+            fi
+          done < <(gh api --paginate \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-market-capture.yml/runs?per_page=100" \
+            --jq '.workflow_runs[] | select(.head_branch=="main" and .event!="pull_request" and .status=="completed") | .id')
+          shopt -s nullglob
+          files=(market_archives/*.zip)
+          if [ "${#files[@]}" -gt 0 ]; then
+            python3 research/limitless_capture_audit.py "${files[@]}" --out limitless_market_final_audit.json
+          fi
       - name: Publish audit
         if: steps.window.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: limitless-final-audit-${{ github.run_id }}
-          path: limitless_final_audit.json
+          path: |
+            limitless_final_audit.json
+            limitless_market_final_audit.json
           retention-days: 14
       - name: Disable final audit schedule after success
-        if: steps.window.outputs.ready == 'true' && success() && github.event_name == 'schedule'
+        if: steps.window.outputs.ready == 'true' && success()
         run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/disable"

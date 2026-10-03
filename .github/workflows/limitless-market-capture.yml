@@ -1,0 +1,104 @@
+name: Limitless independent market capture
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - research/limitless_market_capture.py
+      - research/limitless_capture_audit.py
+      - research/LIMITLESS_STRATEGY_STUDY.md
+      - .github/workflows/limitless-market-capture.yml
+  push:
+    branches: [main]
+    paths:
+      - research/limitless_market_capture.py
+      - research/limitless_capture_audit.py
+      - research/LIMITLESS_STRATEGY_STUDY.md
+      - .github/workflows/limitless-market-capture.yml
+  schedule:
+    - cron: '29 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: limitless-independent-market-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 63
+    permissions:
+      contents: read
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CUTOFF_UTC: '2026-10-10T09:00:00Z'
+    steps:
+      - name: Check bounded window
+        id: window
+        run: |
+          if [ "$(date -u +%s)" -lt "$(date -u -d "$CUTOFF_UTC" +%s)" ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+            if [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+              gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-market-capture.yml/disable"
+            fi
+          fi
+      - uses: actions/checkout@v4
+        if: steps.window.outputs.active == 'true'
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.active == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install public stream client
+        if: steps.window.outputs.active == 'true'
+        run: python -m pip install 'python-socketio[asyncio_client]>=5.13,<6'
+      - name: Verify selection rules
+        if: steps.window.outputs.active == 'true'
+        run: python research/limitless_market_capture.py --selftest
+      - name: Restore unresolved market checkpoint
+        if: steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          mkdir -p previous
+          while read -r run_id; do
+            artifact_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" \
+              --jq '.artifacts[] | select(.name | startswith("limitless-market-")) | .id' | head -n 1)
+            if [ -n "$artifact_id" ]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > previous.zip
+              unzip -o previous.zip state.json -d previous
+              break
+            fi
+          done < <(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-market-capture.yml/runs?per_page=10" \
+            --jq '.workflow_runs[] | select(.head_branch=="main" and .event!="pull_request" and .status=="completed" and .conclusion=="success") | .id')
+      - name: Capture public markets
+        if: steps.window.outputs.active == 'true'
+        shell: bash
+        run: |
+          MINUTES=55
+          if [ "$GITHUB_EVENT_NAME" = pull_request ] || [ "$GITHUB_EVENT_NAME" = push ]; then MINUTES=2; fi
+          python research/limitless_market_capture.py --minutes "$MINUTES" \
+            --until "$CUTOFF_UTC" --state previous/state.json --out limitless_market
+      - name: Audit this segment
+        if: always() && steps.window.outputs.active == 'true'
+        shell: bash
+        run: |
+          if [ -f limitless_market/summary.json ]; then
+            zip -j segment.zip limitless_market/capture.jsonl.gz limitless_market/summary.json
+            python research/limitless_capture_audit.py segment.zip --out limitless_market/audit.json
+          fi
+      - name: Upload capture and checkpoint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-market-${{ github.run_id }}
+          path: limitless_market/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Continue bounded capture
+        if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
+        run: gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-market-capture.yml/dispatches" -f ref=main
