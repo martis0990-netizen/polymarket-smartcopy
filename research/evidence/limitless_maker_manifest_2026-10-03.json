@@ -1,0 +1,36 @@
+{
+  "repository": "martis0990-netizen/polymarket-smartcopy",
+  "scope": "Three consecutive completed main capture segments with explicit gaps; historical exploratory screen",
+  "artifacts": [
+    {
+      "file": "maker-11282611940.zip",
+      "run_id": 37144414604,
+      "artifact_id": 11282611940,
+      "sha256": "b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "head_branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "head_sha": "bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0"
+    },
+    {
+      "file": "maker-11282392465.zip",
+      "run_id": 37146330445,
+      "artifact_id": 11282392465,
+      "sha256": "a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "head_branch": "main",
+      "event": "push",
+      "conclusion": "success",
+      "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+    },
+    {
+      "file": "maker-11284416014.zip",
+      "run_id": 37147962215,
+      "artifact_id": 11284416014,
+      "sha256": "b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "head_branch": "main",
+      "event": "workflow_dispatch",
+      "conclusion": "success",
+      "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+    }
+  ]
+}
