@@ -8,6 +8,9 @@ on:
       - research/limitless_capture_audit.py
       - research/limitless_hourly_paper.py
       - research/test_limitless_hourly_paper.py
+      - research/limitless_inventory_paper.py
+      - research/test_limitless_inventory_paper.py
+      - research/LIMITLESS_INVENTORY_PLAN.md
       - research/LIMITLESS_STRATEGY_STUDY.md
       - .github/workflows/limitless-market-capture.yml
   push:
@@ -17,6 +20,9 @@ on:
       - research/limitless_capture_audit.py
       - research/limitless_hourly_paper.py
       - research/test_limitless_hourly_paper.py
+      - research/limitless_inventory_paper.py
+      - research/test_limitless_inventory_paper.py
+      - research/LIMITLESS_INVENTORY_PLAN.md
       - research/LIMITLESS_STRATEGY_STUDY.md
       - .github/workflows/limitless-market-capture.yml
   schedule:
@@ -66,6 +72,7 @@ jobs:
         run: |
           python research/limitless_market_capture.py --selftest
           python -m unittest discover -s research -p 'test_limitless_hourly_paper.py' -v
+          python -m unittest discover -s research -p 'test_limitless_inventory_paper.py' -v
       - name: Restore unresolved market checkpoint
         if: steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
         shell: bash

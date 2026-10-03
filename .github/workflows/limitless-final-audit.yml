@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - research/limitless_entry_availability.py
+      - research/limitless_inventory_paper.py
+      - research/test_limitless_inventory_paper.py
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
       - research/test_limitless_observation_contract.py
@@ -15,6 +17,8 @@ on:
     branches: [main]
     paths:
       - research/limitless_entry_availability.py
+      - research/limitless_inventory_paper.py
+      - research/test_limitless_inventory_paper.py
       - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
       - research/test_limitless_observation_contract.py
@@ -60,6 +64,7 @@ jobs:
         run: |
           python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
           python3 -m unittest discover -s research -p 'test_limitless_observation_contract.py' -v
+          python3 -m unittest discover -s research -p 'test_limitless_inventory_paper.py' -v
       - name: Download forward observer artifacts
         if: steps.window.outputs.ready == 'true'
         shell: bash
@@ -117,6 +122,7 @@ jobs:
           if [ "${#files[@]}" -gt 0 ]; then
             python3 research/limitless_capture_audit.py "${files[@]}" --out limitless_market_final_audit.json
             python3 research/limitless_hourly_paper.py "${files[@]}" --out limitless_hourly_final_report.json
+            python3 research/limitless_inventory_paper.py "${files[@]}" --out limitless_inventory_final_report.json
           fi
       - name: Publish audit
         if: always() && steps.window.outputs.ready == 'true'
@@ -130,6 +136,7 @@ jobs:
             limitless_final_audit.json
             limitless_market_final_audit.json
             limitless_hourly_final_report.json
+            limitless_inventory_final_report.json
           retention-days: 90
       - name: Disable final audit schedule after success
         if: steps.window.outputs.final == 'true' && github.event_name != 'pull_request' && success()

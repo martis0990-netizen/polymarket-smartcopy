@@ -113,3 +113,7 @@ Official references:
 
 - https://developers.binance.com/docs/binance-spot-api-docs/faqs/market_data_only
 - https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+
+## Independent inventory paper variant, 2026-10-03
+
+`limitless_inventory_paper.py` observes newly created frozen hourly-model paper fills in a separate funded100USDC ledger. It chooses one HOLD/SELL/COMPLETE_PAIR management decision on the first later book, uses delayed first-attempt execution and observed settlement, carries `inventory_paper` in state.json and emits inventory_paper_report.json. Old carried fills are excluded; original hourly signals/state/controls are unchanged. Details and gates: [LIMITLESS_INVENTORY_PLAN.md](LIMITLESS_INVENTORY_PLAN.md). The module does not simulate passive maker fills or authorize orders. Its cumulative reports must not be summed across segments. New artifact retention is90days, superseding the14-day description above.
