@@ -15,9 +15,6 @@ on:
       - research/test_limitless_entry_availability.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-final-audit.yml
-  workflow_run:
-    workflows: ['Limitless forward paper observer']
-    types: [completed]
   schedule:
     - cron: '37 9 * * *'
   workflow_dispatch:
@@ -32,7 +29,6 @@ concurrency:
 
 jobs:
   audit:
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.repository.full_name == 'martis0990-netizen/polymarket-smartcopy' && github.event.workflow_run.conclusion != 'cancelled')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -130,4 +126,3 @@ jobs:
       - name: Disable final audit schedule after success
         if: steps.window.outputs.final == 'true' && github.event_name != 'pull_request' && success()
         run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/disable"
-

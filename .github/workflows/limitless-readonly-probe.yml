@@ -91,6 +91,12 @@ jobs:
           path: limitless_probe/
           if-no-files-found: warn
           retention-days: 14
+      - name: Queue progress audit after artifact upload
+        if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
+        run: |
+          if [ -f limitless_probe/summary.json ]; then
+            gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/dispatches" -f ref=main
+          fi
       - name: Queue next bounded observation
         if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
         run: gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/dispatches" -f ref=main
