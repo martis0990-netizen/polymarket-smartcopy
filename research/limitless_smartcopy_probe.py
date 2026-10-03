@@ -9,6 +9,7 @@ The program records observations; it does NOT assess trading profitability.
 import argparse
 import datetime as dt
 import json
+import math
 import pathlib
 import re
 import statistics
@@ -82,6 +83,18 @@ def identity(item, account=""):
     return account + ":" + json.dumps(item, sort_keys=True, ensure_ascii=False)
 
 
+def canonical_identity(item, account=""):
+    # Verified public CLOB feed id embeds the same tradeEventId as history.
+    # Keep raw per-source ids in capture; canonicalization is for archive analysis.
+    uid = item.get('id')
+    profile = item.get('profile') or {}
+    match = re.fullmatch(r'clob:([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}):(\d+)', uid) if isinstance(uid, str) else None
+    if (match and str(profile.get('id')) == match[2]
+            and str(item.get('entryType')).upper() in ('BOUGHT', 'SOLD')):
+        return account + ':' + match[1].lower()
+    return identity(item, account)
+
+
 def metadata(item):
     profile = item.get("profile") or {}
     subject = item.get("subject") or {}
@@ -92,18 +105,43 @@ def metadata(item):
     account = profile.get("account") or item.get("account") or item.get("wallet")
     occurred = item.get("occurredAt") or item.get("blockTimestamp") or item.get("createdAt")
     entry_type = item.get("entryType") or item.get("strategy") or item.get("type")
-    outcome = facts.get("outcome") or item.get("outcome") or item.get("side")
+    raw_outcome = facts.get("outcome") or item.get("outcome") or item.get("side")
+    operation = {"BOUGHT": "BUY", "BUY": "BUY", "LIMIT BUY": "BUY", "MARKET BUY": "BUY",
+                 "SOLD": "SELL", "SELL": "SELL", "LIMIT SELL": "SELL", "MARKET SELL": "SELL",
+                 "CLAIM": "CLAIM", "RESOLVED": "RESOLUTION", "SPLIT": "SPLIT",
+                 "MERGE": "MERGE", "CONVERT": "CONVERT"}.get(str(entry_type).upper(), "UNKNOWN")
+    outcome = str(raw_outcome).upper() if raw_outcome is not None else None
+    if outcome not in ("YES", "NO"):
+        outcome = {"UP": "YES", "DOWN": "NO"}.get(outcome) if "up or down" in title.lower() else None
+    # Claims/redemptions may carry a default index; they are not entry-side evidence.
+    index_outcome = None
+    if (operation in ("BUY", "SELL") and "up or down" in title.lower()
+            and not market.get("group") and market.get("marketType") != "group"
+            and isinstance(item.get("outcomeTokenAmounts"), list)
+            and len(item["outcomeTokenAmounts"]) == 2):
+        index = item.get("outcomeIndex")
+        if type(index) is int and index in (0, 1):
+            index_outcome = ("YES", "NO")[index]
+    conflict = outcome is not None and index_outcome is not None and outcome != index_outcome
+    outcome_basis = "CONFLICT" if conflict else "LABEL" if outcome else "BINARY_UP_DOWN_INDEX" if index_outcome else "UNKNOWN"
+    outcome = None if conflict else outcome or index_outcome
+    source_price = facts.get("price") if facts.get("price") is not None else item.get("outcomeTokenPrice")
     return dict(account=account, slug=slug, title=title, occurred_at=occurred,
-                entry_type=entry_type, outcome=outcome,
-                source_price=facts.get("price") or item.get("outcomeTokenPrice"))
+                entry_type=entry_type, operation=operation, outcome=outcome, outcome_basis=outcome_basis,
+                condition_id=market.get("conditionId") or market.get("condition_id"),
+                order_id=item.get("orderId"), source_price=source_price)
 
 
 def book_prices(book):
     def top(levels, reverse):
         values = [float(x["price"]) for x in levels if isinstance(x, dict) and x.get("price") is not None]
+        if any(not math.isfinite(x) or not 0 <= x <= 1 for x in values):
+            raise ValueError("Invalid binary book price")
         return (max(values) if reverse else min(values)) if values else None
     bid = top(book.get("bids") or [], True)
     ask = top(book.get("asks") or [], False)
+    if bid is not None and ask is not None and bid >= ask:
+        raise ValueError("Crossed or locked book")
     return {"yes_bid": bid, "yes_ask": ask,
             "no_bid": None if ask is None else 1 - ask,
             "no_ask": None if bid is None else 1 - bid}
@@ -202,6 +240,7 @@ def run(args):
                         delay = (first_seen - occurred).total_seconds() if occurred else None
                         crypto_candidate = bool(CRYPTO.search(meta["title"]))
                         row = {**meta, "kind": "observation", "source": source, "id": uid,
+                               "canonical_trade_id": canonical_identity(item, observed_account),
                                "account": observed_account, "first_seen_at": fetched_at,
                                "visible_delay_s": delay, "crypto_candidate": crypto_candidate,
                                "raw": item}
@@ -213,10 +252,22 @@ def run(args):
                                 and str(meta["entry_type"]).upper() in
                                 ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY")):
                             slug = urllib.parse.quote(meta["slug"], safe="")
+                            book_request_started_at = now()
                             try:
                                 book = get_json("/markets/" + slug + "/orderbook")
+                                top = book_prices(book)
+                                side_ask = top.get("yes_ask" if meta["outcome"] == "YES" else "no_ask") if meta["outcome"] in ("YES", "NO") else None
+                                try:
+                                    source_price = float(meta["source_price"])
+                                except (TypeError, ValueError):
+                                    source_price = None
+                                gap = side_ask - source_price if side_ask is not None and source_price is not None and math.isfinite(source_price) and 0 <= source_price <= 1 else None
                                 append_jsonl(books_path, {"event_id": uid, "fetched_at": now(),
-                                                          "slug": meta["slug"], "top": book_prices(book), "raw": book})
+                                                          "request_started_at": book_request_started_at,
+                                                          "outcome": meta["outcome"], "source_price": meta["source_price"],
+                                                          "observed_ask_minus_source_price": gap,
+                                                          "comparison": "GROSS_QUOTE_GAP_NOT_FILL_OR_PNL",
+                                                          "slug": meta["slug"], "top": top, "raw": book})
                             except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError) as e:
                                 append_jsonl(books_path, {"event_id": uid, "fetched_at": now(),
                                                           "slug": meta["slug"], "error": str(e)})

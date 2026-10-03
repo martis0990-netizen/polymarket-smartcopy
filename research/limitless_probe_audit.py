@@ -7,6 +7,7 @@ import json
 import pathlib
 import statistics
 import zipfile
+from limitless_smartcopy_probe import metadata, canonical_identity
 
 START = dt.datetime.fromisoformat("2026-10-03T09:00:00+00:00")
 END = dt.datetime.fromisoformat("2026-10-10T09:00:00+00:00")
@@ -42,7 +43,7 @@ def audit(paths):
         except (zipfile.BadZipFile, KeyError, ValueError) as exc:
             segments.append({"artifact": pathlib.Path(path).name, "error": str(exc)})
     polls = collections.defaultdict(set)
-    observed = {}
+    observed, aliases = {}, {}
     for row in rows:
         at = timestamp(row.get("fetched_at") or row.get("first_seen_at"))
         if at is None or not START <= at < END:
@@ -52,8 +53,33 @@ def audit(paths):
             if account in WATCHLIST:
                 polls[account].add(at)
         elif row.get("kind") == "observation":
-            key = row.get("id")
+            # Deterministic decoding of the original immutable source record only.
+            # Do not fetch later market data to enrich an earlier observation.
+            if isinstance(row.get("raw"), dict):
+                decoded = metadata(row["raw"])
+                row = {**row, **{k: decoded[k] for k in
+                       ("outcome", "outcome_basis", "operation", "condition_id", "order_id")}}
+            raw_key = row.get("id")
+            key = canonical_identity(row['raw'], row.get('account') or '') if isinstance(row.get('raw'), dict) else raw_key
+            aliases[raw_key] = key
+            if key in observed:
+                old = observed[key]
+                first, later = (row, old) if at < timestamp(old['first_seen_at']) else (old, row)
+                # Late source identifiers support retrospective intent grouping only.
+                # They never move first-observed time or supply an earlier fill.
+                for field in ('condition_id', 'order_id'):
+                    if not first.get(field) and later.get(field):
+                        first[field] = later[field]
+                        first['grouping_metadata_observed_at'] = later['first_seen_at']
+                if (first.get('outcome_basis') == 'CONFLICT_SOURCE_SIDE' or later.get('outcome_basis') == 'CONFLICT_SOURCE_SIDE'
+                        or (first.get('outcome') and later.get('outcome') and first['outcome'] != later['outcome'])):
+                    first['outcome'] = None
+                    first['outcome_basis'] = 'CONFLICT_SOURCE_SIDE'
+                first['id'] = key
+                observed[key] = first
+                continue
             if key and (key not in observed or at < timestamp(observed[key]["first_seen_at"])):
+                row['id'] = key
                 observed[key] = row
 
     # A successful poll credits only the 30 seconds immediately before it.
@@ -72,7 +98,13 @@ def audit(paths):
                              "covered_seconds": round(seconds, 1),
                              "fraction": round(seconds / window_s, 4)}
 
-    book_by_id = {b["event_id"]: b for b in books if b.get("event_id") and "error" not in b}
+    book_by_id = {}
+    for b in books:
+        key = aliases.get(b.get("event_id"), b.get("event_id"))
+        if key in observed and "error" not in b and b.get("fetched_at"):
+            at = timestamp(b["fetched_at"])
+            if at >= timestamp(observed[key]["first_seen_at"]) and (key not in book_by_id or at < timestamp(book_by_id[key]["fetched_at"])):
+                book_by_id[key] = b
     candidates = []
     for r in observed.values():
         event_time = timestamp(r.get("occurred_at"))
@@ -94,6 +126,10 @@ def audit(paths):
                       "yes_ask" if r["outcome"] == "YES" else "no_ask") is not None]
     delays = [r["visible_delay_s"] for r in episodes
               if isinstance(r.get("visible_delay_s"), (int, float))]
+    gaps = [book_by_id[r['id']].get('observed_ask_minus_source_price') for r in executable]
+    gaps = [x for x in gaps if isinstance(x, (int, float))]
+    grouped = {(r['account'], r.get('condition_id'), r.get('order_id'), r.get('outcome'))
+               for r in candidates if r.get('condition_id') and r.get('order_id') and r.get('outcome')}
     return {
         "status": ("FEASIBLE_FOR_PAPER_REVIEW" if segments
                    and min(v["fraction"] for v in coverage.values()) >= .9
@@ -105,6 +141,11 @@ def audit(paths):
         "independent_episode_proxy_60s": len(episodes),
         "episodes_with_outcome_and_observed_ask": len(executable),
         "episode_first_seen_delay_p50_s": statistics.median(delays) if delays else None,
+        "order_side_groups_not_independent_intents": len(grouped),
+        "candidate_events_unknown_outcome": sum(r.get('outcome') not in ('YES', 'NO') for r in candidates),
+        "gross_quote_gap_sample_count": len(gaps),
+        "observed_ask_minus_source_price_median": statistics.median(gaps) if gaps else None,
+        "quote_gap_is_not_fill_or_pnl": True,
         "reason": "Proxy episodes need source-intent review; this is a data feasibility audit, not PnL.",
     }
 
