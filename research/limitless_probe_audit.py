@@ -7,7 +7,7 @@ import json
 import pathlib
 import statistics
 import zipfile
-from limitless_smartcopy_probe import metadata
+from limitless_smartcopy_probe import metadata, canonical_identity
 
 START = dt.datetime.fromisoformat("2026-10-03T09:00:00+00:00")
 END = dt.datetime.fromisoformat("2026-10-10T09:00:00+00:00")
@@ -43,7 +43,7 @@ def audit(paths):
         except (zipfile.BadZipFile, KeyError, ValueError) as exc:
             segments.append({"artifact": pathlib.Path(path).name, "error": str(exc)})
     polls = collections.defaultdict(set)
-    observed = {}
+    observed, aliases = {}, {}
     for row in rows:
         at = timestamp(row.get("fetched_at") or row.get("first_seen_at"))
         if at is None or not START <= at < END:
@@ -59,8 +59,27 @@ def audit(paths):
                 decoded = metadata(row["raw"])
                 row = {**row, **{k: decoded[k] for k in
                        ("outcome", "outcome_basis", "operation", "condition_id", "order_id")}}
-            key = row.get("id")
+            raw_key = row.get("id")
+            key = canonical_identity(row['raw'], row.get('account') or '') if isinstance(row.get('raw'), dict) else raw_key
+            aliases[raw_key] = key
+            if key in observed:
+                old = observed[key]
+                first, later = (row, old) if at < timestamp(old['first_seen_at']) else (old, row)
+                # Late source identifiers support retrospective intent grouping only.
+                # They never move first-observed time or supply an earlier fill.
+                for field in ('condition_id', 'order_id'):
+                    if not first.get(field) and later.get(field):
+                        first[field] = later[field]
+                        first['grouping_metadata_observed_at'] = later['first_seen_at']
+                if (first.get('outcome_basis') == 'CONFLICT_SOURCE_SIDE' or later.get('outcome_basis') == 'CONFLICT_SOURCE_SIDE'
+                        or (first.get('outcome') and later.get('outcome') and first['outcome'] != later['outcome'])):
+                    first['outcome'] = None
+                    first['outcome_basis'] = 'CONFLICT_SOURCE_SIDE'
+                first['id'] = key
+                observed[key] = first
+                continue
             if key and (key not in observed or at < timestamp(observed[key]["first_seen_at"])):
+                row['id'] = key
                 observed[key] = row
 
     # A successful poll credits only the 30 seconds immediately before it.
@@ -81,7 +100,7 @@ def audit(paths):
 
     book_by_id = {}
     for b in books:
-        key = b.get("event_id")
+        key = aliases.get(b.get("event_id"), b.get("event_id"))
         if key in observed and "error" not in b and b.get("fetched_at"):
             at = timestamp(b["fetched_at"])
             if at >= timestamp(observed[key]["first_seen_at"]) and (key not in book_by_id or at < timestamp(book_by_id[key]["fetched_at"])):

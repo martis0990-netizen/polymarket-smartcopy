@@ -83,6 +83,18 @@ def identity(item, account=""):
     return account + ":" + json.dumps(item, sort_keys=True, ensure_ascii=False)
 
 
+def canonical_identity(item, account=""):
+    # Verified public CLOB feed id embeds the same tradeEventId as history.
+    # Keep raw per-source ids in capture; canonicalization is for archive analysis.
+    uid = item.get('id')
+    profile = item.get('profile') or {}
+    match = re.fullmatch(r'clob:([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}):(\d+)', uid) if isinstance(uid, str) else None
+    if (match and str(profile.get('id')) == match[2]
+            and str(item.get('entryType')).upper() in ('BOUGHT', 'SOLD')):
+        return account + ':' + match[1].lower()
+    return identity(item, account)
+
+
 def metadata(item):
     profile = item.get("profile") or {}
     subject = item.get("subject") or {}
@@ -228,6 +240,7 @@ def run(args):
                         delay = (first_seen - occurred).total_seconds() if occurred else None
                         crypto_candidate = bool(CRYPTO.search(meta["title"]))
                         row = {**meta, "kind": "observation", "source": source, "id": uid,
+                               "canonical_trade_id": canonical_identity(item, observed_account),
                                "account": observed_account, "first_seen_at": fetched_at,
                                "visible_delay_s": delay, "crypto_candidate": crypto_candidate,
                                "raw": item}
