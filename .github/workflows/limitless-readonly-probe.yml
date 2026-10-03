@@ -1,32 +1,65 @@
-name: Limitless read-only probe
+name: Limitless forward paper observer
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
     paths:
       - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
+  push:
+    branches: [main]
+    paths:
+      - research/limitless_smartcopy_probe.py
+      - research/LIMITLESS_PROBE.md
+      - .github/workflows/limitless-readonly-probe.yml
+  schedule:
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: limitless-readonly-probe
+  group: limitless-forward-paper
   cancel-in-progress: false
 
 jobs:
   observe:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 63
+    permissions:
+      contents: read
+      actions: write
+    env:
+      CUTOFF_UTC: '2026-10-10T09:00:00Z'
+      GH_TOKEN: ${{ github.token }}
     steps:
+      - name: Check bounded study window
+        id: window
+        shell: bash
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d "$CUTOFF_UTC" +%s)" ]; then
+            echo "active=false" >> "$GITHUB_OUTPUT"
+            if [ "$GITHUB_EVENT_NAME" = schedule ]; then
+              gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/disable"
+            fi
+          else
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/checkout@v4
+        if: steps.window.outputs.active == 'true'
       - name: Verify probe
+        if: steps.window.outputs.active == 'true'
         run: python3 research/limitless_smartcopy_probe.py --selftest
       - name: Observe public feed and wallet histories
-        run: python3 research/limitless_smartcopy_probe.py --minutes 3 --interval 15 --out limitless_probe
+        if: steps.window.outputs.active == 'true'
+        shell: bash
+        run: |
+          MINUTES=55
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MINUTES=3; fi
+          python3 research/limitless_smartcopy_probe.py \
+            --minutes "$MINUTES" --interval 30 --until "$CUTOFF_UTC" --out limitless_probe
       - name: Print summary
         if: always()
         run: |
@@ -38,4 +71,4 @@ jobs:
           name: limitless-probe-${{ github.run_id }}
           path: limitless_probe/
           if-no-files-found: warn
-          retention-days: 7
+          retention-days: 14
