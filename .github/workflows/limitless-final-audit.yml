@@ -69,6 +69,7 @@ jobs:
           files=(market_archives/*.zip)
           if [ "${#files[@]}" -gt 0 ]; then
             python3 research/limitless_capture_audit.py "${files[@]}" --out limitless_market_final_audit.json
+            python3 research/limitless_hourly_paper.py "${files[@]}" --out limitless_hourly_final_report.json
           fi
       - name: Publish audit
         if: steps.window.outputs.ready == 'true'
@@ -78,6 +79,7 @@ jobs:
           path: |
             limitless_final_audit.json
             limitless_market_final_audit.json
+            limitless_hourly_final_report.json
           retention-days: 14
       - name: Disable final audit schedule after success
         if: steps.window.outputs.ready == 'true' && success()
