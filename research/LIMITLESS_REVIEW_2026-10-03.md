@@ -112,3 +112,16 @@ Snapshot 3 октября, 16:44:17 UTC / 19:44:17 МСК; 8 main archives, arch
 R2 закрыт для совпадения slug и доступных уже наблюдённых идентификаторов: missing/mismatched slug, известный неправильный market.tokens.yes, non-USDC, неправильные collateral decimals и известные group/non-CLOB исключаются. **Полная привязка metadata остаётся открытой:** unknown YES-token binding явно указан в market_identity, full_market_metadata_verified=false. Новых metadata-запросов в этой правке нет; supported остаётся ограниченной диагностикой, а не полным execution validation.
 
 Проверка: 20 entry tests + 8 существующих profile/audit tests PASS. Среди новых cases — conflict между архивами до/после его observation time, сохранение исходной цены, неправильный/отсутствующий slug и известный токен, unsupported collateral, malformed/naive/nonfinite time, поздний valid duplicate после invalid receipt. Реальный main сегмент artifact11278344227: все scope metrics до/после совпадают, data_errors=0; 48 успешных book responses сохраняют UNKNOWN YES-token binding. R3, R5, R6 и end-to-end post-upload dispatch acceptance ещё не закрыты. Исходное ревью выше относится к старому pinned commit; эта секция описывает последующую правку.
+
+
+## Дополнение 2026-10-03: подготовка к завершению сбора
+
+Реализованы prospective metadata до первого book request (один GET на точный slug, максимум 30 за сегмент, ошибка не ретраится), SHA256/raw rules и проверки binary token pair/Base USDC/expiry. Старые записи не обогащаются поздней metadata. Параметры исходного эксперимента не меняются; новый capture_protocol отмечает фазу с дополнительной задержкой.
+
+Единая функция entry_eligibility используется сегментными и aggregate diagnostics, а legacy audit содержит companion entry_diagnostics. Старый full-week feasibility gate сохранён. Data-qualified quote не становится COPY: unknown intent/fee/fair value остаются SKIP, fill/PnL — null.
+
+Добавлены page_ids/overlap/saturation и возможные page-gap warnings, poll gap/error counters; неизвестная схема страницы теперь request_error. Старые страницы имеют completeness unknown. Disjoint pages не доказывают число потерянных событий, global feed не покрывает всю биржу.
+
+Ретроспективные action categories отделяют обе стороны, Split/Merge и одиночные наблюдаемые покупки с неизвестным исходным инвентарём. Подтверждённых directional entries эти категории не создают. Экономический контракт и блокеры: [LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md](LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md).
+
+Новые raw artifacts retention=90 дней; для старых архивов подготовлен отдельный snapshot с manifest и SHA256. R2 закрыт для будущей identity binding; проверка settlement semantics остаётся открытой. R3 закрыт как единая companion diagnostic, а старый gate сохранён. R5: контракт описан, экономический тест блокирован до квалификации intent/fee/model. R6: telemetry реализована, размер реальных потерь пока неизвестен. Следующая приёмка — main artifact с новым capture_protocol и его попадание в progress audit.

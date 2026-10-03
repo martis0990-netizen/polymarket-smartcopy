@@ -5,7 +5,9 @@ import collections
 import datetime as dt
 from decimal import Decimal, InvalidOperation, ROUND_DOWN
 import json
+import hashlib
 import pathlib
+import re
 import statistics
 import zipfile
 from limitless_smartcopy_probe import metadata, canonical_identity, parse_time, DEFAULT_ACCOUNTS
@@ -71,8 +73,124 @@ def book_identity(row, book):
         if str(expected) != str((book.get('raw') or {}).get('tokenId')):
             return 'MARKET_IDENTITY_MISMATCH', result
         result['yes_token_validation'] = 'MATCH'
-    # Presence of some identifiers does not establish all active-market semantics.
+    snapshot = book.get('market_snapshot')
+    if snapshot is None:
+        result['metadata_status'] = 'NOT_CAPTURED_PROSPECTIVELY'
+        return None, result
+    if not isinstance(snapshot, dict) or 'error' in snapshot:
+        result['metadata_status'] = 'METADATA_REQUEST_FAILED_OR_INVALID'
+        return None, result
+    m = snapshot.get('raw')
+    requested, received = valid_time(snapshot.get('request_started_at')), valid_time(snapshot.get('fetched_at'))
+    book_request, book_received = valid_time(book.get('request_started_at')), valid_time(book.get('fetched_at'))
+    if (not isinstance(m, dict) or requested is None or received is None or book_request is None
+            or requested > received or received > book_request):
+        result['metadata_status'] = 'UNVERIFIED_PROSPECTIVE_METADATA_TIME'
+        return None, result
+    digest = hashlib.sha256(json.dumps(m, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    if snapshot.get('raw_sha256') != digest:
+        return 'INVALID_METADATA_DIGEST', result
+    result.update(metadata_received_at=snapshot['fetched_at'], metadata_sha256=digest)
+    if (snapshot.get('slug') != slug or m.get('slug') != slug
+            or market.get('conditionId') and market['conditionId'] != m.get('conditionId')):
+        return 'MARKET_IDENTITY_MISMATCH', result
+    tokens, collateral = m.get('tokens'), m.get('collateralToken')
+    if not isinstance(tokens, dict) or not isinstance(collateral, dict):
+        result['metadata_status'] = 'INCOMPLETE_TOKEN_OR_COLLATERAL_METADATA'
+        return None, result
+    if (market.get('id') is not None and str(market['id']) != str(m.get('id'))
+            or (market.get('tokens') or {}).get('no') and str(market['tokens']['no']) != str(tokens.get('no'))):
+        return 'MARKET_IDENTITY_MISMATCH', result
+    if str(tokens.get('yes')) != str(book['raw'].get('tokenId')):
+        return 'MARKET_IDENTITY_MISMATCH', result
+    if (not all(isinstance(tokens.get(k), str) and tokens[k].isdigit() and int(tokens[k]) > 0 for k in ('yes', 'no'))
+            or tokens['yes'] == tokens['no']
+            or not isinstance(m.get('conditionId'), str)
+            or not re.fullmatch(r'0x[0-9a-fA-F]{64}', m['conditionId'])):
+        result['metadata_status'] = 'INCOMPLETE_BINARY_TOKEN_PAIR'
+        return None, result
+    if (str(collateral.get('symbol')).upper() != 'USDC' or type(collateral.get('decimals')) is not int
+            or collateral['decimals'] != 6
+            or str(collateral.get('address')).lower() != '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913'):
+        return 'UNSUPPORTED_COLLATERAL', result
+    expiry = valid_time(m.get('expirationTimestamp'))
+    if (m.get('tradeType') != 'clob' or m.get('marketType') != 'single'
+            or m.get('groupId') or m.get('groupSlug') or m.get('expired') is not False
+            or m.get('status') != 'FUNDED' or expiry is None or book_received is None or book_received >= expiry):
+        result['metadata_status'] = 'INACTIVE_OR_UNVERIFIED_SINGLE_CLOB_MARKET'
+        return None, result
+    rules = m.get('description')
+    result.update(full_market_metadata_verified=True, metadata_status='PROSPECTIVE_IDENTITY_VERIFIED',
+                  yes_token_validation='MATCH', collateral_validation='BASE_USDC_6_DECIMALS_MATCH',
+                  condition_id=m['conditionId'], yes_token_id=tokens['yes'], no_token_id=tokens['no'],
+                  expiration_at=expiry.isoformat(),
+                  resolution_rules_sha256=hashlib.sha256(rules.encode()).hexdigest() if isinstance(rules, str) and rules else None,
+                  resolution_rules_captured=bool(isinstance(rules, str) and rules),
+                  resolution_semantics_verified=False)
     return None, result
+
+
+def entry_eligibility(record):
+    """Shared data readiness only: a qualified quote is never a COPY decision."""
+    reasons = []
+    if record.get('validation_status', record.get('status')) != 'DEPTH_SUPPORTS_10_USDC_QUOTE':
+        reasons.append(record.get('validation_status', record.get('status', 'NO_QUOTE')))
+    identity = record.get('market_identity') or {}
+    if not identity.get('full_market_metadata_verified'):
+        reasons.append(identity.get('metadata_status', 'MARKET_METADATA_UNVERIFIED'))
+    if not identity.get('resolution_rules_captured'):
+        reasons.append('RESOLUTION_RULES_NOT_CAPTURED')
+    return {'data_qualified_quote': not reasons, 'data_skip_reasons': reasons,
+            'copy_decision': 'SKIP', 'economic_skip_reasons': ['UNQUALIFIED_SOURCE_INTENT',
+                'FOLLOWER_FEE_UNVERIFIED', 'FAIR_VALUE_AND_MAX_PRICE_UNSPECIFIED'],
+            'fill': None, 'copy_pnl': None}
+
+
+def observation_quality(observations):
+    by_source = collections.defaultdict(list)
+    for row in observations:
+        if row.get('kind') in ('poll_success', 'request_error'):
+            by_source[(row.get('source'), row.get('account'))].append(row)
+    report = {}
+    for (source, account), rows in sorted(by_source.items(), key=lambda pair: str(pair[0])):
+        polls = [r for r in rows if r['kind'] == 'poll_success']
+        times = sorted({valid_time(r.get('fetched_at')) for r in polls if valid_time(r.get('fetched_at'))})
+        gaps = [(b-a).total_seconds() for a,b in zip(times, times[1:])]
+        instrumented = [r for r in polls if isinstance(r.get('page_ids'), list)]
+        report[f'{source}:{account or "GLOBAL"}'] = {
+            'successful_polls': len(polls), 'request_errors': len(rows)-len(polls),
+            'instrumented_pages': len(instrumented), 'legacy_pages_completeness_unknown': len(polls)-len(instrumented),
+            'saturated_pages': sum(r.get('page_saturated') is True for r in instrumented),
+            'possible_page_gap_warnings': sum(r.get('possible_page_gap') is True for r in instrumented),
+            'poll_gap_p50_s': statistics.median(gaps) if gaps else None,
+            'poll_gap_max_s': max(gaps) if gaps else None, 'lost_events_count': None,
+            'all_exchange_events_covered': False}
+    return report
+
+
+def observed_actions(selected):
+    groups = collections.defaultdict(list)
+    for row in selected.values():
+        meta = metadata(row['raw'])
+        group = meta.get('condition_id') or row.get('slug')
+        groups[(row['account'], str(group) if group else 'UNKNOWN')].append(meta)
+    wallet = collections.defaultdict(lambda: collections.Counter())
+    conditions = []
+    for (account, condition), metas in sorted(groups.items()):
+        operations = collections.Counter(x['operation'] for x in metas)
+        sides = {x['outcome'] for x in metas if x['operation'] == 'BUY' and x['outcome']}
+        category = ('PAIRED_OPERATION_OBSERVED' if operations['SPLIT'] or operations['MERGE'] else
+                    'BOTH_SIDE_BUYS_OBSERVED' if len(sides) == 2 else
+                    'ONE_SIDE_BUYS_OBSERVED_INCOMPLETE_INVENTORY' if sides else 'UNKNOWN_OR_NON_BUY')
+        wallet[account][category] += 1
+        conditions.append({'account': account, 'condition_or_slug': condition,
+                           'category': category, 'observed_operation_counts': dict(operations),
+                           'initial_inventory': 'UNKNOWN', 'confirmed_directional_entry': False,
+                           'strategy': 'UNKNOWN', 'copy_decision': 'SKIP'})
+    return {'scope': 'RETROSPECTIVE_CANONICAL_OBSERVATIONS_INCLUDING_BACKFILL',
+            'by_wallet': {a: dict(v) for a,v in wallet.items()}, 'conditions': conditions,
+            'confirmed_directional_entries': None,
+            'limitation': 'An observed one-side buy is not proof of entering from flat or positive expected value.'}
 
 
 def decimal(value):
@@ -196,6 +314,9 @@ def build_report(summary, observations, books):
         observed = valid_time(row['first_seen_at'])
         result = {'canonical_trade_id': key, 'account': row['account'], 'slug': row.get('slug'),
                   'condition_id': row.get('condition_id'), 'order_id': row.get('order_id'),
+                  'market_family': ('15_MIN' if '15 Min' in row.get('title', '') else
+                                    '5_MIN' if '5 Min' in row.get('title', '') else
+                                    'HOURLY' if 'Hourly' in row.get('title', '') else 'UNKNOWN'),
                   'scope': 'FIXED_COHORT' if row['account'] in DEFAULT_ACCOUNTS else 'DISCOVERY_FEED',
                   'source_time': source_at.isoformat(), 'first_observed_at': row['first_seen_at'],
                   'detection_delay_s': (observed-source_at).total_seconds(),
@@ -240,6 +361,7 @@ def build_report(summary, observations, books):
         result['validation_status'] = 'CONFLICTING_SOURCE_OUTCOME' if conflict_at else result['status']
         result['conflict_observed_at'] = conflict_at.isoformat() if conflict_at else None
         result['validated_for_quote_statistics'] = conflict_at is None and result['status'] == 'DEPTH_SUPPORTS_10_USDC_QUOTE'
+        result['entry_eligibility'] = entry_eligibility(result)
         results.append(result)
     by_scope = {}
     for scope in ('FIXED_COHORT', 'DISCOVERY_FEED'):
@@ -252,7 +374,9 @@ def build_report(summary, observations, books):
                            'at_or_below_source_price_records': sum(r.get('ten_usdc_available_at_or_below_source') is True for r in supported),
                            'detection_delay_p50_s': statistics.median(delays) if delays else None,
                            'vwap_minus_source_p50': statistics.median(prices) if prices else None,
-                           'independent_intents': None}
+                           'independent_intents': None,
+                           'data_qualified_quotes': sum(r['entry_eligibility']['data_qualified_quote'] for r in rows),
+                           'copy_eligible_records': 0}
     report = {'schema': 'limitless-entry-availability-v2', 'status': 'OBSERVED_DEPTH_DIAGNOSTIC_NO_FILL_NO_PNL',
               'data_errors': errors, 'quarantined_canonical_ids': sorted(invalid_keys),
               'segment_started_at': summary['started_at'], 'scopes': by_scope, 'records': results,
@@ -262,10 +386,20 @@ def build_report(summary, observations, books):
                  '3% fee is a conservative diagnostic assumption; source fee and actual follower fee are not established.',
                  'REST freshness has no guaranteed bound; receipt time is not book matching time.',
                  'Record status preserves the original quote; validation_status includes later retrospective conflicts and drives quote statistics.',
-                 'Market identity checks only observed identifiers. full_market_metadata_verified remains false; unknown YES-token binding is explicit.',
+                 'Prospective metadata binds slug, YES/NO pair, condition, Base USDC units and expiry; absent legacy metadata stays unknown. Captured resolution text is not verified settlement semantics.',
                  'Malformed required observation times quarantine the canonical key; quarantined records are not in buy denominators and are listed separately.',
                  'Missing/inactive/error books stay missing; no historical fill at source price or midpoint.',
                  'No funding, latency races, cancellations, queue or market resolution modeled.']}
+    report['by_market_family'] = {}
+    for family in ('5_MIN', '15_MIN', 'HOURLY', 'UNKNOWN'):
+        rows = [r for r in results if r['market_family'] == family]
+        report['by_market_family'][family] = {
+            'canonical_buy_records': len(rows),
+            'validation_status_counts': dict(collections.Counter(r['validation_status'] for r in rows)),
+            'data_qualified_quotes': sum(r['entry_eligibility']['data_qualified_quote'] for r in rows),
+            'copy_eligible_records': 0}
+    report['observation_quality'] = observation_quality(observations)
+    report['observed_actions'] = observed_actions({k: v for k,v in selected.items() if k not in invalid_keys})
     report['by_wallet'] = {}
     for account in sorted({r['account'] for r in results}):
         rows = [r for r in results if r['account'] == account]
@@ -288,6 +422,12 @@ def save_report(report, json_path):
              '|---|---:|---:|---:|---:|']
     for scope, stats in report['scopes'].items():
         lines.append(f"| {scope} | {stats['canonical_buy_records']} | {stats['status_counts'].get('DEPTH_SUPPORTS_10_USDC_QUOTE',0)} | {stats['at_or_below_source_price_records']} | {stats['detection_delay_p50_s']} |")
+    lines += ['', 'Data-qualified quotes: ' + str(sum(v['data_qualified_quotes'] for v in report['scopes'].values())),
+              'COPY-eligible records: 0 (intent, fee and fair-value contract unqualified).', '',
+              'Page quality (disjoint pages are warnings, lost-event counts remain unknown):',
+              '```json', json.dumps(report['observation_quality'], indent=2), '```', '',
+              'Observed action categories (retrospective; initial inventory unknown):',
+              '```json', json.dumps(report['observed_actions']['by_wallet'], indent=2), '```']
     lines += ['', *['- '+x for x in report['limitations']]]
     lines += ['', f"Data errors: {len(report['data_errors'])}; quarantined canonical IDs: {len(report['quarantined_canonical_ids'])}"]
     if 'coverage_by_wallet' in report:

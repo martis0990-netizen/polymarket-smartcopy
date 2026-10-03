@@ -9,6 +9,7 @@ The program records observations; it does NOT assess trading profitability.
 import argparse
 import datetime as dt
 import json
+import hashlib
 import math
 import pathlib
 import re
@@ -64,7 +65,39 @@ def event_items(payload):
         for key in ("events", "data", "history", "items"):
             if isinstance(payload.get(key), list):
                 return payload[key]
-    return []
+    raise ValueError("UNRECOGNIZED_EVENT_PAGE_SCHEMA")
+
+
+def page_evidence(items, account, previous):
+    """Bounded first-page telemetry. Disjoint pages warn; they do not count lost trades."""
+    if any(not isinstance(x, dict) for x in items):
+        raise ValueError("INVALID_EVENT_PAGE_ITEM")
+    ids = [identity(x, account or "") for x in items]
+    overlap = len(set(ids) & set(previous)) if previous is not None else None
+    return {"page_ids": ids, "page_limit": 30, "page_saturated": len(items) >= 30,
+            "previous_page_overlap": overlap,
+            "possible_page_gap": previous is not None and bool(previous) and bool(ids) and overlap == 0,
+            "lost_events_count": None}
+
+
+def capture_metadata(slug, cache, path, limit=30):
+    """One prospective request per exact slug per segment, including failed requests."""
+    if slug in cache:
+        return cache[slug]
+    envelope = {"slug": slug, "request_started_at": now()}
+    if len(cache) >= limit:
+        return {**envelope, "fetched_at": now(), "error": "METADATA_REQUEST_BUDGET_EXHAUSTED"}
+    try:
+        raw = get_json("/markets/" + urllib.parse.quote(slug, safe=""))
+        if not isinstance(raw, dict):
+            raise ValueError("INVALID_MARKET_METADATA_SCHEMA")
+        envelope.update(raw=raw, fetched_at=now())
+        envelope["raw_sha256"] = hashlib.sha256(json.dumps(raw, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError) as exc:
+        envelope.update(fetched_at=now(), error=str(exc))
+    cache[slug] = envelope
+    append_jsonl(path, envelope)
+    return envelope
 
 
 def identity(item, account=""):
@@ -162,7 +195,8 @@ def report(events_path, output, started_at, books_path):
     books = [json.loads(s) for s in books_path.read_text(encoding="utf-8").splitlines()] if books_path.exists() else []
     output.write_text(json.dumps({
         "status": "API_UNAVAILABLE" if errors and not genuine else "OBSERVATIONS_ONLY_NO_EDGE_CLAIM",
-        "generated_at": now(), "started_at": started_at, "observations": len(genuine),
+        "generated_at": now(), "started_at": started_at,
+        "capture_protocol": "prospective-market-metadata-and-page-evidence-v1", "observations": len(genuine),
         "events_occurred_during_run": len(fresh),
         "fresh_delay_p50_s": statistics.median(fresh_delays) if fresh_delays else None,
         "poll_successes": len(polls),
@@ -192,6 +226,8 @@ def run(args):
     books_path = output / "books.jsonl"
     started_at = now()
     seen = set()
+    previous_pages, market_cache = {}, {}
+    metadata_path = output / "market_metadata.jsonl"
     accounts = tuple(x.lower() for x in args.account) if args.account else DEFAULT_ACCOUNTS
     if not all(ADDRESS.fullmatch(x) for x in accounts):
         raise SystemExit("Invalid account address")
@@ -214,11 +250,12 @@ def run(args):
                     payload = get_json(path, params)
                     fetched_at = now()
                     items = event_items(payload)
-                    if not isinstance(payload, (dict, list)):
-                        raise ValueError("Unexpected payload")
+                    page_key = (source, account)
+                    page = page_evidence(items, account, previous_pages.get(page_key))
+                    previous_pages[page_key] = page["page_ids"]
                     append_jsonl(events_path, {
                         "kind": "poll_success", "source": source, "account": account,
-                        "fetched_at": fetched_at, "items": len(items),
+                        "fetched_at": fetched_at, "items": len(items), **page,
                         "has_more": payload.get("hasMore") if isinstance(payload, dict) else None,
                         "next_cursor_present": bool(payload.get("nextCursor")) if isinstance(payload, dict) else False,
                     })
@@ -252,6 +289,7 @@ def run(args):
                                 and str(meta["entry_type"]).upper() in
                                 ("BOUGHT", "BUY", "LIMIT BUY", "MARKET BUY")):
                             slug = urllib.parse.quote(meta["slug"], safe="")
+                            market_snapshot = capture_metadata(meta["slug"], market_cache, metadata_path)
                             book_request_started_at = now()
                             try:
                                 book = get_json("/markets/" + slug + "/orderbook")
@@ -264,13 +302,15 @@ def run(args):
                                 gap = side_ask - source_price if side_ask is not None and source_price is not None and math.isfinite(source_price) and 0 <= source_price <= 1 else None
                                 append_jsonl(books_path, {"event_id": uid, "fetched_at": now(),
                                                           "request_started_at": book_request_started_at,
+                                                          "market_snapshot": market_snapshot,
                                                           "outcome": meta["outcome"], "source_price": meta["source_price"],
                                                           "observed_ask_minus_source_price": gap,
                                                           "comparison": "GROSS_QUOTE_GAP_NOT_FILL_OR_PNL",
                                                           "slug": meta["slug"], "top": top, "raw": book})
                             except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError) as e:
                                 append_jsonl(books_path, {"event_id": uid, "fetched_at": now(),
-                                                          "slug": meta["slug"], "error": str(e)})
+                                                          "slug": meta["slug"], "request_started_at": book_request_started_at,
+                                                          "market_snapshot": market_snapshot, "error": str(e)})
                 except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError) as e:
                     append_jsonl(events_path, {"kind": "request_error", "source": source,
                                                "account": account, "fetched_at": fetched_at, "error": str(e)})

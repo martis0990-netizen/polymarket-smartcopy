@@ -105,5 +105,5 @@ jobs:
         with:
           name: limitless-discovery-${{ github.run_id }}
           path: limitless_discovery/
-          retention-days: 14
+          retention-days: 90
           if-no-files-found: warn

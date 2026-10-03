@@ -5,14 +5,20 @@ on:
     branches: [main]
     paths:
       - research/limitless_entry_availability.py
+      - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
+      - research/test_limitless_observation_contract.py
+      - research/limitless_probe_audit.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-final-audit.yml
   push:
     branches: [main]
     paths:
       - research/limitless_entry_availability.py
+      - research/limitless_smartcopy_probe.py
       - research/test_limitless_entry_availability.py
+      - research/test_limitless_observation_contract.py
+      - research/limitless_probe_audit.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-final-audit.yml
   schedule:
@@ -51,7 +57,9 @@ jobs:
         if: steps.window.outputs.ready == 'true'
       - name: Verify entry report
         if: steps.window.outputs.ready == 'true'
-        run: python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
+        run: |
+          python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
+          python3 -m unittest discover -s research -p 'test_limitless_observation_contract.py' -v
       - name: Download forward observer artifacts
         if: steps.window.outputs.ready == 'true'
         shell: bash
@@ -122,7 +130,7 @@ jobs:
             limitless_final_audit.json
             limitless_market_final_audit.json
             limitless_hourly_final_report.json
-          retention-days: 14
+          retention-days: 90
       - name: Disable final audit schedule after success
         if: steps.window.outputs.final == 'true' && github.event_name != 'pull_request' && success()
         run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/disable"
