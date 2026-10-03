@@ -130,7 +130,16 @@ def audit(paths):
     gaps = [x for x in gaps if isinstance(x, (int, float))]
     grouped = {(r['account'], r.get('condition_id'), r.get('order_id'), r.get('outcome'))
                for r in candidates if r.get('condition_id') and r.get('order_id') and r.get('outcome')}
+    # Companion diagnostics use the same first-attempt validator as segment reports.
+    # The original frozen full-week feasibility gate below is preserved.
+    from limitless_entry_availability import aggregate_archives
+    strict = aggregate_archives(paths, END.isoformat())
     return {
+        "entry_diagnostics": {"schema": strict['schema'], "scopes": strict['scopes'],
+                              "data_errors": len(strict['data_errors']),
+                              "quarantined_records": len(strict['quarantined_canonical_ids']),
+                              "copy_eligible_records": 0},
+        "legacy_feasibility_gate_unchanged": True,
         "status": ("FEASIBLE_FOR_PAPER_REVIEW" if segments
                    and min(v["fraction"] for v in coverage.values()) >= .9
                    and len(executable) >= 60 else "INSUFFICIENT_DATA"),

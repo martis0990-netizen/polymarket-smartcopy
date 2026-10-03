@@ -131,3 +131,16 @@ python3 research/limitless_probe_audit.py archives/*.zip --out limitless_final_a
 Новые статусы: CONFLICTING_SOURCE_OUTCOME (retrospective validation), MARKET_IDENTITY_MISMATCH, UNVERIFIED_MARKET_IDENTITY, UNSUPPORTED_MARKET_METADATA, UNSUPPORTED_COLLATERAL, INVALID_BOOK_TIME. Ошибки обязательных времён/данных перечислены в data_errors с id/account/artifact/field; quarantined_canonical_ids исключены из buy denominator. Missing request-start старых архивов остаётся UNVERIFIED, без выдуманного timestamp.
 
 Проверяются совпадение book/observation/raw market slug и уже имеющиеся market.tokens.yes, collateral symbol/decimals, group/tradeType. market_identity отдельно показывает slug_validation, yes_token_validation, collateral_validation, full_market_metadata_verified. Недостающие metadata не заполняются поздними данными: последний flag пока false. Полная prospective привязка и единый paper eligibility contract ещё требуются.
+
+
+## Дополнение 2026-10-03: подготовка к завершению сбора
+
+Реализованы prospective metadata до первого book request (один GET на точный slug, максимум 30 за сегмент, ошибка не ретраится), SHA256/raw rules и проверки binary token pair/Base USDC/expiry. Старые записи не обогащаются поздней metadata. Параметры исходного эксперимента не меняются; новый capture_protocol отмечает фазу с дополнительной задержкой.
+
+Единая функция entry_eligibility используется сегментными и aggregate diagnostics, а legacy audit содержит companion entry_diagnostics. Старый full-week feasibility gate сохранён. Data-qualified quote не становится COPY: unknown intent/fee/fair value остаются SKIP, fill/PnL — null.
+
+Добавлены page_ids/overlap/saturation и возможные page-gap warnings, poll gap/error counters; неизвестная схема страницы теперь request_error. Старые страницы имеют completeness unknown. Disjoint pages не доказывают число потерянных событий, global feed не покрывает всю биржу.
+
+Ретроспективные action categories отделяют обе стороны, Split/Merge и одиночные наблюдаемые покупки с неизвестным исходным инвентарём. Подтверждённых directional entries эти категории не создают. Экономический контракт и блокеры: [LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md](LIMITLESS_SMARTCOPY_PAPER_CONTRACT.md).
+
+Новые raw artifacts retention=90 дней; для старых архивов подготовлен отдельный snapshot с manifest и SHA256. R2 закрыт для будущей identity binding; проверка settlement semantics остаётся открытой. R3 закрыт как единая companion diagnostic, а старый gate сохранён. R5: контракт описан, экономический тест блокирован до квалификации intent/fee/model. R6: telemetry реализована, размер реальных потерь пока неизвестен. Следующая приёмка — main artifact с новым capture_protocol и его попадание в progress audit.

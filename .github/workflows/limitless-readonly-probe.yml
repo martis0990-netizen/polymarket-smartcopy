@@ -9,6 +9,8 @@ on:
       - research/limitless_wallet_profile.py
       - research/limitless_entry_availability.py
       - research/test_limitless_entry_availability.py
+      - research/test_limitless_observation_contract.py
+      - research/limitless_probe_audit.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   push:
@@ -19,6 +21,8 @@ on:
       - research/limitless_wallet_profile.py
       - research/limitless_entry_availability.py
       - research/test_limitless_entry_availability.py
+      - research/test_limitless_observation_contract.py
+      - research/limitless_probe_audit.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   schedule:
@@ -64,6 +68,7 @@ jobs:
           python3 research/limitless_smartcopy_probe.py --selftest
           python3 -m unittest discover -s research -p 'test_limitless_wallet_profile.py' -v
           python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
+          python3 -m unittest discover -s research -p 'test_limitless_observation_contract.py' -v
       - name: Observe public feed and wallet histories
         if: steps.window.outputs.active == 'true'
         shell: bash
@@ -90,7 +95,7 @@ jobs:
           name: limitless-probe-${{ github.run_id }}
           path: limitless_probe/
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 90
       - name: Queue progress audit after artifact upload
         if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
         run: |

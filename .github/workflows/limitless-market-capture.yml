@@ -103,7 +103,7 @@ jobs:
         with:
           name: limitless-market-${{ github.run_id }}
           path: limitless_market/
-          retention-days: 14
+          retention-days: 90
           if-no-files-found: warn
       - name: Continue bounded capture
         if: always() && steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
