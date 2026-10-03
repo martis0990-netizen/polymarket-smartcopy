@@ -27,7 +27,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: limitless-independent-market-capture
+  group: ${{ github.event_name == 'pull_request' && format('limitless-market-pr-{0}', github.event.pull_request.number) || 'limitless-hourly-paper-v1' }}
   cancel-in-progress: false
 
 jobs:
