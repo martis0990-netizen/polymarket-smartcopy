@@ -1,0 +1,90 @@
+name: Limitless wallet discovery
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - research/limitless_wallet_discovery.py
+      - research/test_limitless_wallet_discovery.py
+      - research/LIMITLESS_WALLET_DISCOVERY.md
+      - .github/workflows/limitless-wallet-discovery.yml
+  push:
+    branches: [main]
+    paths:
+      - research/limitless_wallet_discovery.py
+      - research/test_limitless_wallet_discovery.py
+      - research/LIMITLESS_WALLET_DISCOVERY.md
+      - .github/workflows/limitless-wallet-discovery.yml
+  workflow_run:
+    workflows: [Limitless independent market capture]
+    types: [completed]
+  schedule:
+    - cron: '37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('limitless-discovery-pr-{0}', github.event.pull_request.number) || 'limitless-discovery-main' }}
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CUTOFF_UTC: '2026-10-10T09:00:00Z'
+    steps:
+      - name: Check bounded window
+        id: window
+        run: |
+          if [ "$(date -u +%s)" -lt "$(date -u -d "$CUTOFF_UTC" +%s)" ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          elif [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+            gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-wallet-discovery.yml/disable"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.window.outputs.active == 'true'
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.active == 'true'
+        with:
+          python-version: '3.12'
+      - name: Verify discovery rules
+        if: steps.window.outputs.active == 'true'
+        run: python -m unittest discover -s research -p 'test_limitless_wallet_discovery.py' -v
+      - name: Restore first-seen catalog
+        if: steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          mkdir -p previous
+          while read -r run_id; do
+            artifact_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" --jq '.artifacts[] | select(.name | startswith("limitless-discovery-")) | .id' | head -n 1)
+            if [ -n "$artifact_id" ]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > previous.zip
+              unzip -o previous.zip state.json -d previous
+              break
+            fi
+          done < <(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-wallet-discovery.yml/runs?per_page=10" --jq '.workflow_runs[] | select(.head_branch=="main" and .event!="pull_request" and .status=="completed" and .conclusion=="success") | .id')
+      - name: Discover and enrich public candidates
+        if: steps.window.outputs.active == 'true'
+        run: |
+          MAX_WALLETS=12
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MAX_WALLETS=3; fi
+          python research/limitless_wallet_discovery.py --state previous/state.json --max-wallets "$MAX_WALLETS" --out limitless_discovery
+          cat limitless_discovery/report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload discovery evidence
+        if: always() && steps.window.outputs.active == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-discovery-${{ github.run_id }}
+          path: limitless_discovery/
+          retention-days: 14
+          if-no-files-found: warn
