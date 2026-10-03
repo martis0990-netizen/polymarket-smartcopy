@@ -1,6 +1,23 @@
 name: Limitless final data audit
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - research/limitless_entry_availability.py
+      - research/test_limitless_entry_availability.py
+      - research/LIMITLESS_PROBE.md
+      - .github/workflows/limitless-final-audit.yml
+  push:
+    branches: [main]
+    paths:
+      - research/limitless_entry_availability.py
+      - research/test_limitless_entry_availability.py
+      - research/LIMITLESS_PROBE.md
+      - .github/workflows/limitless-final-audit.yml
+  workflow_run:
+    workflows: ['Limitless forward paper observer']
+    types: [completed]
   schedule:
     - cron: '37 9 * * *'
   workflow_dispatch:
@@ -9,8 +26,13 @@ permissions:
   contents: read
   actions: write
 
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('limitless-audit-pr-{0}', github.event.pull_request.number) || 'limitless-audit-main' }}
+  cancel-in-progress: false
+
 jobs:
   audit:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.repository.full_name == 'martis0990-netizen/polymarket-smartcopy' && github.event.workflow_run.conclusion != 'cancelled')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -22,26 +44,45 @@ jobs:
         run: |
           if [ "$(date -u +%s)" -ge "$(date -u -d '2026-10-10T09:00:00Z' +%s)" ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "final=true" >> "$GITHUB_OUTPUT"
+          elif [ "$GITHUB_EVENT_NAME" != schedule ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "final=false" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/checkout@v4
         if: steps.window.outputs.ready == 'true'
+      - name: Verify entry report
+        if: steps.window.outputs.ready == 'true'
+        run: python3 -m unittest discover -s research -p 'test_limitless_entry_availability.py' -v
       - name: Download forward observer artifacts
         if: steps.window.outputs.ready == 'true'
         shell: bash
         run: |
           mkdir -p archives
-          while read -r run_id; do
-            [ -n "$run_id" ] || continue
-            artifact_id=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" \
-              --jq '.artifacts[] | select(.name | startswith("limitless-probe-")) | .id' | head -n 1)
-            if [ -n "$artifact_id" ]; then
-              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "archives/$artifact_id.zip"
+          : > observer_manifest.jsonl
+          while read -r record; do
+            run_id=$(jq -r '.id' <<< "$record")
+            download_status=unfinished
+            artifact_id=""
+            if [ "$(jq -r '.status' <<< "$record")" = completed ]; then
+              download_status=missing_artifact
+              artifact_id=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" \
+                --jq '.artifacts[] | select(.name | startswith("limitless-probe-")) | select(.expired==false) | .id' | head -n 1)
+              if [ -n "$artifact_id" ]; then
+                if gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "archives/$artifact_id.zip"; then
+                  download_status=downloaded
+                else
+                  download_status=download_failed
+                fi
+              fi
             fi
+            jq -c --arg download_status "$download_status" --arg artifact_id "$artifact_id" \
+              '. + {download_status:$download_status,artifact_id:$artifact_id}' <<< "$record" >> observer_manifest.jsonl
           done < <(gh api -X GET --paginate \
             "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/runs?per_page=100" \
-            --jq '.workflow_runs[] | select(.head_branch=="main" and (.event=="schedule" or .event=="push" or .event=="workflow_dispatch")) | .id')
+            --jq '.workflow_runs[] | select(.head_branch=="main" and (.event=="schedule" or .event=="push" or .event=="workflow_dispatch") and .created_at>="2026-10-03T09:00:00Z") | {id,head_sha,event,status,conclusion,created_at,updated_at,html_url}')
           shopt -s nullglob
           files=(archives/*.zip)
           echo "Downloaded ${#files[@]} observation segments"
@@ -51,8 +92,10 @@ jobs:
         shell: bash
         run: |
           python3 research/limitless_probe_audit.py archives/*.zip --out limitless_final_audit.json
+          python3 research/limitless_entry_availability.py --archives archives/*.zip \
+            --as-of "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --out limitless_entry_aggregate.json
       - name: Download independent market captures
-        if: steps.window.outputs.ready == 'true'
+        if: steps.window.outputs.final == 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           mkdir -p market_archives
@@ -72,15 +115,19 @@ jobs:
             python3 research/limitless_hourly_paper.py "${files[@]}" --out limitless_hourly_final_report.json
           fi
       - name: Publish audit
-        if: steps.window.outputs.ready == 'true'
+        if: always() && steps.window.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: limitless-final-audit-${{ github.run_id }}
           path: |
+            observer_manifest.jsonl
+            limitless_entry_aggregate.json
+            limitless_entry_aggregate.md
             limitless_final_audit.json
             limitless_market_final_audit.json
             limitless_hourly_final_report.json
           retention-days: 14
       - name: Disable final audit schedule after success
-        if: steps.window.outputs.ready == 'true' && success()
+        if: steps.window.outputs.final == 'true' && github.event_name != 'pull_request' && success()
         run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/disable"
+

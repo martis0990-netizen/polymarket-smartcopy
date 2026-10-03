@@ -2,10 +2,12 @@
 """Observed-depth entry diagnostics; no trades, inferred fills or copy PnL."""
 import argparse
 import collections
+import datetime as dt
 from decimal import Decimal, InvalidOperation, ROUND_DOWN
 import json
 import pathlib
 import statistics
+import zipfile
 from limitless_smartcopy_probe import metadata, canonical_identity, parse_time, DEFAULT_ACCOUNTS
 
 D = Decimal
@@ -81,13 +83,8 @@ def depth_quote(book, outcome, source_price):
         return {'status': 'INVALID_OR_UNVERIFIED_BOOK', 'reason': str(exc)}
 
 
-def report_directory(directory):
-    directory = pathlib.Path(directory)
-    summary = json.loads((directory/'summary.json').read_text())
+def build_report(summary, observations, books):
     start = parse_time(summary['started_at'])
-    observations = [json.loads(x) for x in (directory/'observations.jsonl').read_text().splitlines()]
-    path = directory/'books.jsonl'
-    books = [json.loads(x) for x in path.read_text().splitlines()] if path.exists() else []
     selected, aliases = {}, {}
     for row in observations:
         if row.get('kind') != 'observation':
@@ -112,7 +109,8 @@ def report_directory(directory):
     results = []
     for key, row in selected.items():
         source_at = parse_time(row.get('occurred_at'))
-        if row.get('operation') != 'BUY' or not row.get('crypto_candidate') or source_at is None or source_at < start:
+        segment_start = parse_time(row.get('_segment_started_at')) or start
+        if row.get('operation') != 'BUY' or not row.get('crypto_candidate') or source_at is None or source_at < max(start, segment_start):
             continue
         observed = parse_time(row['first_seen_at'])
         result = {'canonical_trade_id': key, 'account': row['account'], 'slug': row.get('slug'),
@@ -162,19 +160,132 @@ def report_directory(directory):
                  'REST freshness has no guaranteed bound; receipt time is not book matching time.',
                  'Missing/inactive/error books stay missing; no historical fill at source price or midpoint.',
                  'No funding, latency races, cancellations, queue or market resolution modeled.']}
-    (directory/'entry_availability.json').write_text(json.dumps(report, indent=2) + '\n')
+    report['by_wallet'] = {}
+    for account in sorted({r['account'] for r in results}):
+        rows = [r for r in results if r['account'] == account]
+        supported = [r for r in rows if r['status'] == 'DEPTH_SUPPORTS_10_USDC_QUOTE']
+        gaps = [float(r['vwap_minus_source_price']) for r in supported if r.get('vwap_minus_source_price') is not None]
+        report['by_wallet'][account] = {'canonical_buy_records': len(rows),
+            'status_counts': dict(collections.Counter(r['status'] for r in rows)),
+            'detection_delay_p50_s': statistics.median(r['detection_delay_s'] for r in rows),
+            'vwap_minus_source_p50': statistics.median(gaps) if gaps else None,
+            'depth_quote_fraction': len(supported)/len(rows), 'independent_intents': None}
+    return report
+
+
+def save_report(report, json_path):
+    json_path = pathlib.Path(json_path)
+    json_path.write_text(json.dumps(report, indent=2) + '\n')
     lines = ['# Entry availability diagnostics', '', report['status'], '',
              '| Scope | Canonical buys | Depth supports 10 USDC | At/below source price | Median detection delay |',
              '|---|---:|---:|---:|---:|']
-    for scope, stats in by_scope.items():
+    for scope, stats in report['scopes'].items():
         lines.append(f"| {scope} | {stats['canonical_buy_records']} | {stats['status_counts'].get('DEPTH_SUPPORTS_10_USDC_QUOTE',0)} | {stats['at_or_below_source_price_records']} | {stats['detection_delay_p50_s']} |")
     lines += ['', *['- '+x for x in report['limitations']]]
-    (directory/'entry_availability.md').write_text('\n'.join(lines)+'\n')
+    if 'coverage_by_wallet' in report:
+        lines += ['', 'Coverage is successful history poll credit, not guaranteed event completeness.', '',
+                  '| Wallet | Credited seconds | Elapsed-window fraction | Largest uncredited gap (s) |',
+                  '|---|---:|---:|---:|']
+        for account, v in report['coverage_by_wallet'].items():
+            lines.append(f"| {account} | {v['covered_seconds']} | {v['fraction']} | {v['largest_uncredited_gap_s']} |")
+        lines += ['', f"Archive errors: {len(report['archive_errors'])}; window: {report['window_utc']}"]
+    if report['by_wallet']:
+        lines += ['', '| Wallet | Canonical fresh buys | Status counts | Median quote deterioration |',
+                  '|---|---:|---|---:|']
+        for account, v in report['by_wallet'].items():
+            lines.append(f"| {account} | {v['canonical_buy_records']} | {v['status_counts']} | {v['vwap_minus_source_p50']} |")
+    json_path.with_suffix('.md').write_text('\n'.join(lines)+'\n')
+
+
+def report_directory(directory):
+    directory = pathlib.Path(directory)
+    summary = json.loads((directory/'summary.json').read_text())
+    observations = [json.loads(x) for x in (directory/'observations.jsonl').read_text().splitlines()]
+    path = directory/'books.jsonl'
+    books = [json.loads(x) for x in path.read_text().splitlines()] if path.exists() else []
+    report = build_report(summary, observations, books)
+    save_report(report, directory/'entry_availability.json')
+    return report
+
+
+def aggregate_archives(paths, as_of):
+    start = parse_time('2026-10-03T09:00:00Z')
+    end = min(parse_time(as_of), parse_time('2026-10-10T09:00:00Z'))
+    if end <= start:
+        raise ValueError('Audit end must be after study start')
+    rows, books, segments, errors = [], [], [], []
+    for path in paths:
+        try:
+            with zipfile.ZipFile(path) as z:
+                summary = json.loads(z.read('summary.json'))
+                segment_start = parse_time(summary['started_at'])
+                if segment_start is None:
+                    raise ValueError('Missing segment start')
+                captured = [json.loads(x) for x in z.read('observations.jsonl').splitlines()]
+                captured_books = [json.loads(x) for x in z.read('books.jsonl').splitlines()] if 'books.jsonl' in z.namelist() else []
+            segments.append({'artifact': pathlib.Path(path).name, 'started_at': summary['started_at'],
+                             'generated_at': summary.get('generated_at')})
+            for row in captured:
+                at = parse_time(row.get('fetched_at') or row.get('first_seen_at'))
+                if at is not None and start <= at < end:
+                    rows.append({**row, '_segment_started_at': summary['started_at']})
+            books.extend(b for b in captured_books if parse_time(b.get('fetched_at')) is not None and start <= parse_time(b['fetched_at']) < end)
+        except (zipfile.BadZipFile, KeyError, ValueError, OSError) as exc:
+            errors.append({'artifact': pathlib.Path(path).name, 'error': str(exc)})
+    report = build_report({'started_at': start.isoformat()}, rows, books)
+    report.update(schema='limitless-entry-aggregate-v1', as_of=end.isoformat(),
+                  window_utc=[start.isoformat(), end.isoformat()], segments=segments, archive_errors=errors)
+    coverage = {}
+    for account in DEFAULT_ACCOUNTS:
+        at = sorted({parse_time(r['fetched_at']) for r in rows if r.get('kind') == 'poll_success'
+                     and r.get('source') == 'history' and r.get('account') == account})
+        spans = []
+        for t in at:
+            left, right = max(start, t-dt.timedelta(seconds=30)), min(end, t)
+            if spans and left <= spans[-1][1]:
+                spans[-1] = (spans[-1][0], max(right, spans[-1][1]))
+            else:
+                spans.append((left, right))
+        seconds = sum((b-a).total_seconds() for a,b in spans)
+        gaps, previous = [], start
+        for left,right in spans:
+            gaps.append((left-previous).total_seconds())
+            previous = right
+        gaps.append((end-previous).total_seconds())
+        coverage[account] = {'successful_polls': len(at), 'covered_seconds': round(seconds,3),
+                             'fraction': seconds/(end-start).total_seconds(),
+                             'largest_uncredited_gap_s': max(gaps)}
+    report['coverage_by_wallet'] = coverage
+    # Preserve the earliest actual observation even when it is historical backfill.
+    earliest = {}
+    for row in rows:
+        if row.get('kind') == 'observation':
+            key = canonical_identity(row.get('raw') or {}, row.get('account') or '')
+            if key not in earliest or parse_time(row['first_seen_at']) < parse_time(earliest[key]['first_seen_at']):
+                earliest[key] = row
+    report['historical_crypto_buy_records_excluded'] = sum(
+        metadata(r.get('raw') or {})['operation'] == 'BUY' and bool(r.get('crypto_candidate'))
+        and parse_time(r.get('occurred_at')) is not None
+        and parse_time(r['occurred_at']) < parse_time(r['_segment_started_at']) for r in earliest.values())
+    report['limitations'] += ['Main archives only: workflow provenance is saved in the companion manifest.',
+        'Cross-segment canonical deduplication keeps earliest detection; historical first detection never becomes a fresh entry.',
+        'Coverage credits only 30 seconds before successful fixed-wallet history polls, clipped to elapsed study time; no credit for failed polls.',
+        'Unfinished jobs and unavailable artifacts are not observed coverage; gaps include the leading and trailing window.',
+        'This interim elapsed-window coverage does not replace the frozen full-week feasibility gate.']
     return report
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', default='limitless_probe')
+    parser.add_argument('--archives', nargs='+', type=pathlib.Path)
+    parser.add_argument('--as-of', help='UTC report end, required with --archives')
     args = parser.parse_args()
-    print(json.dumps(report_directory(args.out)['scopes']))
+    if args.archives:
+        if not args.as_of:
+            parser.error('--as-of required with --archives')
+        report = aggregate_archives(args.archives, args.as_of)
+        save_report(report, args.out)
+    else:
+        report = report_directory(args.out)
+    print(json.dumps(report['scopes']))

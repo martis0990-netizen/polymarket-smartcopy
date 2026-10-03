@@ -44,3 +44,13 @@ Walk YES asks (or NO asks derived from YES bids at 1-price) for a diagnostic 10 
 A supported depth quote is not an execution, approved max price, copy signal or profit. REST has no guaranteed freshness bound; matching-time depth, cancellations and queue priority remain unknown. No later wallet inventory, source PnL or resolution is used to improve an earlier entry. Unknown strategy remains SKIP.
 
 Primary schema reference: https://docs.limitless.exchange/api-reference/trading/orderbook
+
+## Cross-segment progress audit, 2026-10-03
+
+Measured gap: the final audit previously waited until Oct10 and per-run entry reports could double-count a trade. The existing entry diagnostic now accepts main observer ZIP archives and an explicit UTC as-of time. Re-decode raw source records, retain earliest canonical wallet/trade detection and first book attempt across all archives, then report by wallet and separately by fixed cohort/discovery. Historical first detection cannot turn into a fresh entry through a later duplicate. Unknown request-start timestamps in older captures remain unverified.
+
+Credit only the union of 30-second intervals immediately before successful fixed-wallet history polls, clipped to the elapsed study window. Report coverage, the largest uncredited gap including leading/trailing gaps, archive errors, and excluded historical buys. This describes collection coverage, not complete trade discovery. It does not change the frozen full-week feasibility gate or its 60s episode proxy.
+
+The existing final audit workflow also runs a progress snapshot on PR/push/manual runs and after a completed trusted-main observer run. It downloads main observer artifacts only, saves a run/SHA/download-status manifest (including unfinished/missing jobs), and archives aggregate JSON/Markdown. PR runs validate code using main research data but do not join the study dataset. Independent-market final aggregation and disabling the final schedule remain restricted to the study cutoff.
+
+Current integration limitation: main observer run 37129700774 started before PR27, and the PR27 main push is queued behind it. Existing raw archives can establish source detection delay but lack the new request-start field; no retroactive follower fill is reconstructed. Validate a future main archive before claiming the new segment report is active.

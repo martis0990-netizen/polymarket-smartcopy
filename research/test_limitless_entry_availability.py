@@ -2,7 +2,8 @@ import unittest
 import json
 import pathlib
 import tempfile
-from limitless_entry_availability import depth_quote, report_directory
+import zipfile
+from limitless_entry_availability import depth_quote, report_directory, aggregate_archives
 from limitless_smartcopy_probe import DEFAULT_ACCOUNTS
 
 
@@ -88,6 +89,49 @@ class AvailabilityTests(unittest.TestCase):
         self.assertEqual(r['records'][0]['book_http_latency_s'], 1)
         self.assertEqual(r['scopes']['FIXED_COHORT']['ten_usdc_depth_quote_fraction'], 1)
         self.assertIsNone(r['scopes']['DISCOVERY_FEED']['ten_usdc_depth_quote_fraction'])
+
+    def test_aggregate_dedups_archives_clips_overlapping_poll_credit_and_retains_failure(self):
+        account = DEFAULT_ACCOUNTS[0]
+        raw = {'tradeEventId': 't', 'strategy': 'Limit Buy', 'outcome': 'YES', 'outcomeTokenPrice': '.5'}
+        row = {'kind': 'observation', 'id': 't', 'account': account, 'crypto_candidate': True,
+               'first_seen_at': '2026-10-03T09:00:40Z', 'occurred_at': '2026-10-03T09:00:35Z', 'raw': raw}
+        polls = [{'kind': 'poll_success', 'source': 'history', 'account': account,
+                  'fetched_at': at} for at in ['2026-10-03T09:00:10Z','2026-10-03T09:00:30Z']]
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = []
+            for i in range(2):
+                p = pathlib.Path(tmp)/f'{i}.zip'; paths.append(p)
+                b = {'event_id': 't', 'fetched_at': '2026-10-03T09:00:41Z', 'error': 'timeout'} if i == 0 else {
+                    'event_id': 't', 'request_started_at': '2026-10-03T09:00:45Z',
+                    'fetched_at': '2026-10-03T09:00:46Z', 'raw': book()}
+                with zipfile.ZipFile(p,'w') as z:
+                    z.writestr('summary.json',json.dumps({'started_at':'2026-10-03T09:00:00Z'}))
+                    z.writestr('observations.jsonl','\n'.join(map(json.dumps,[row,*polls])))
+                    z.writestr('books.jsonl',json.dumps(b))
+            r = aggregate_archives(paths,'2026-10-03T09:01:00Z')
+        self.assertEqual(len(r['records']),1)
+        self.assertEqual(r['records'][0]['status'],'FIRST_BOOK_REQUEST_FAILED')
+        self.assertEqual(r['coverage_by_wallet'][account]['covered_seconds'],30)
+        self.assertEqual(r['coverage_by_wallet'][account]['fraction'],.5)
+        self.assertEqual(r['coverage_by_wallet'][account]['largest_uncredited_gap_s'],30)
+        self.assertEqual(r['coverage_by_wallet'][DEFAULT_ACCOUNTS[1]]['fraction'],0)
+
+    def test_aggregate_historical_first_detection_cannot_become_fresh_and_errors_visible(self):
+        row = {'kind':'observation','id':'t','account':DEFAULT_ACCOUNTS[0],'crypto_candidate':True,
+               'first_seen_at':'2026-10-03T09:01:00Z','occurred_at':'2026-10-03T09:00:30Z',
+               'raw':{'tradeEventId':'t','strategy':'Limit Buy','outcome':'YES'}}
+        with tempfile.TemporaryDirectory() as tmp:
+            paths=[]
+            for i, start in enumerate(['2026-10-03T09:01:00Z','2026-10-03T09:00:00Z']):
+                p=pathlib.Path(tmp)/f'{i}.zip';paths.append(p)
+                with zipfile.ZipFile(p,'w') as z:
+                    z.writestr('summary.json',json.dumps({'started_at':start}))
+                    z.writestr('observations.jsonl',json.dumps({**row,'first_seen_at':f'2026-10-03T09:01:0{i}Z'}))
+            bad=pathlib.Path(tmp)/'bad.zip';bad.write_text('broken');paths.append(bad)
+            r=aggregate_archives(paths,'2026-10-03T09:02:00Z')
+        self.assertEqual(r['records'],[])
+        self.assertEqual(r['historical_crypto_buy_records_excluded'],1)
+        self.assertEqual(len(r['archive_errors']),1)
 
 
 if __name__ == '__main__':
