@@ -6,6 +6,9 @@ on:
     paths:
       - research/limitless_wallet_discovery.py
       - research/test_limitless_wallet_discovery.py
+      - research/limitless_wallet_profile.py
+      - research/test_limitless_wallet_profile.py
+      - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_WALLET_DISCOVERY.md
       - .github/workflows/limitless-wallet-discovery.yml
   push:
@@ -13,6 +16,9 @@ on:
     paths:
       - research/limitless_wallet_discovery.py
       - research/test_limitless_wallet_discovery.py
+      - research/limitless_wallet_profile.py
+      - research/test_limitless_wallet_profile.py
+      - research/limitless_smartcopy_probe.py
       - research/LIMITLESS_WALLET_DISCOVERY.md
       - .github/workflows/limitless-wallet-discovery.yml
   workflow_run:
@@ -33,7 +39,7 @@ jobs:
   discover:
     if: github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.repository.full_name == github.repository)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
       actions: write
@@ -59,7 +65,7 @@ jobs:
           python-version: '3.12'
       - name: Verify discovery rules
         if: steps.window.outputs.active == 'true'
-        run: python -m unittest discover -s research -p 'test_limitless_wallet_discovery.py' -v
+        run: python -m unittest discover -s research -p 'test_limitless_wallet*.py' -v
       - name: Restore first-seen catalog
         if: steps.window.outputs.active == 'true' && github.event_name != 'pull_request'
         shell: bash
@@ -77,9 +83,13 @@ jobs:
         if: steps.window.outputs.active == 'true'
         run: |
           MAX_WALLETS=12
-          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MAX_WALLETS=3; fi
           python research/limitless_wallet_discovery.py --state previous/state.json --max-wallets "$MAX_WALLETS" --out limitless_discovery
           cat limitless_discovery/report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Profile crypto candidates without a PnL filter
+        if: steps.window.outputs.active == 'true'
+        run: |
+          python research/limitless_wallet_profile.py --out limitless_discovery
+          cat limitless_discovery/profile.md >> "$GITHUB_STEP_SUMMARY"
       - name: Upload discovery evidence
         if: always() && steps.window.outputs.active == 'true'
         uses: actions/upload-artifact@v4

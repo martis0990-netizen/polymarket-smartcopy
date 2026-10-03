@@ -22,3 +22,13 @@ Reconstruct source ENTER/ADD/REDUCE/EXIT/hedge intent from public history before
 Evaluate BlindCopy and deterministic SmartCopy on identical eligible episodes and identical execution assumptions. Use early data for discovery and the later period for untouched evaluation; freeze the filtering rule before evaluating the later period. Include no-follow control, net return, drawdown, coverage, and concentration by wallet and market. If follower expectancy is not positive and SmartCopy does not beat BlindCopy on unseen episodes, report `NO_EDGE_STOP`; no trading code follows from this study.
 
 This collection workflow does not by itself produce a PnL result. GitHub-hosted schedules can be delayed; hourly 55-minute jobs cannot claim continuous observation. The archived data and gaps must be audited before applying the paper comparison.
+
+## Decoder correction, 2026-10-03
+
+Architect: actual history records carried numeric outcomeIndex but the observer left outcome unknown. Decode 0=YES/Up, 1=NO/Down only for BUY/SELL records on explicitly titled Up or Down markets with two outcomeTokenAmounts and no group object. Claims/default indices, custom/group markets, invalid indices and contradictory labels remain unknown. Explicit YES/NO labels and Up/Down labels on Up/Down markets are normalized. Preserve original raw records; the audit applies the same deterministic decoder to archived raw observations without any later market lookup. The cohort, times, feasibility thresholds and model remain fixed.
+
+Coder: add operation, condition/order identifiers and outcome provenance. Record book request-start plus observed ask minus source price as a descriptive gross quote gap; it is never a fill or PnL. Reject nonfinite, out-of-range, locked and crossed binary books. The audit selects the earliest valid post-observation book rather than the last duplicate and reports order-side groups separately from the existing 60s episode proxy. Order groups are not independent intents. Feed and history event IDs cannot safely be cross-deduplicated without matching provenance; this remains a sample-inflation risk requiring final intent review.
+
+Test Engineer / Reviewer: deterministic mapping, ambiguous claims/groups, conflicting labels, zero price, separate fills, order grouping and invalid books; real PR smoke. The public history API documents Limit Buy/Limit Sell as maker fills, Market Buy/Market Sell as taker fills, Buy/Sell as AMM trades and Claim as redemption. Maker fills do not prove a market-making strategy or follower execution at that price.
+
+References: https://docs.limitless.exchange/api-reference/markets/get-market and https://docs.limitless.exchange/api-reference/portfolio/history

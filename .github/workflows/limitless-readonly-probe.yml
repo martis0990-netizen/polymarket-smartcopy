@@ -5,12 +5,16 @@ on:
     branches: [main]
     paths:
       - research/limitless_smartcopy_probe.py
+      - research/test_limitless_wallet_profile.py
+      - research/limitless_wallet_profile.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   push:
     branches: [main]
     paths:
       - research/limitless_smartcopy_probe.py
+      - research/test_limitless_wallet_profile.py
+      - research/limitless_wallet_profile.py
       - research/LIMITLESS_PROBE.md
       - .github/workflows/limitless-readonly-probe.yml
   schedule:
@@ -21,7 +25,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: limitless-forward-paper
+  group: ${{ github.event_name == 'pull_request' && format('limitless-probe-pr-{0}', github.event.pull_request.number) || 'limitless-forward-paper' }}
   cancel-in-progress: false
 
 jobs:
@@ -52,13 +56,16 @@ jobs:
         if: steps.window.outputs.active == 'true'
       - name: Verify probe
         if: steps.window.outputs.active == 'true'
-        run: python3 research/limitless_smartcopy_probe.py --selftest
+        run: |
+          python3 research/limitless_smartcopy_probe.py --selftest
+          python3 -m unittest discover -s research -p 'test_limitless_wallet_profile.py' -v
       - name: Observe public feed and wallet histories
         if: steps.window.outputs.active == 'true'
         shell: bash
         run: |
           MINUTES=55
           if [ "$GITHUB_EVENT_NAME" = pull_request ] || [ "$GITHUB_EVENT_NAME" = push ]; then MINUTES=3; fi
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then MINUTES=1; fi
           python3 research/limitless_smartcopy_probe.py \
             --minutes "$MINUTES" --interval 30 --until "$CUTOFF_UTC" --out limitless_probe
       - name: Print summary
