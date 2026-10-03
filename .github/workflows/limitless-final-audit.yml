@@ -1,0 +1,63 @@
+name: Limitless final data audit
+
+on:
+  schedule:
+    - cron: '37 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check study completion
+        id: window
+        shell: bash
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d '2026-10-10T09:00:00Z' +%s)" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.window.outputs.ready == 'true'
+      - name: Download forward observer artifacts
+        if: steps.window.outputs.ready == 'true'
+        shell: bash
+        run: |
+          mkdir -p archives
+          while read -r run_id; do
+            [ -n "$run_id" ] || continue
+            artifact_id=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" \
+              --jq '.artifacts[] | select(.name | startswith("limitless-probe-")) | .id' | head -n 1)
+            if [ -n "$artifact_id" ]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "archives/$artifact_id.zip"
+            fi
+          done < <(gh api -X GET --paginate \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-readonly-probe.yml/runs?per_page=100" \
+            --jq '.workflow_runs[] | select(.event=="schedule" or .event=="push") | .id')
+          shopt -s nullglob
+          files=(archives/*.zip)
+          echo "Downloaded ${#files[@]} observation segments"
+          test "${#files[@]}" -gt 0
+      - name: Audit coverage and episode feasibility
+        if: steps.window.outputs.ready == 'true'
+        shell: bash
+        run: |
+          python3 research/limitless_probe_audit.py archives/*.zip --out limitless_final_audit.json
+      - name: Publish audit
+        if: steps.window.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-final-audit-${{ github.run_id }}
+          path: limitless_final_audit.json
+          retention-days: 14
+      - name: Disable final audit schedule after success
+        if: steps.window.outputs.ready == 'true' && success() && github.event_name == 'schedule'
+        run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/limitless-final-audit.yml/disable"
