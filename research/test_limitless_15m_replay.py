@@ -6,8 +6,8 @@ import unittest
 from decimal import Decimal
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from limitless_15m_replay import (_first, candidate, market_spec,
-                                  oracle_probability, settle_accounts)
+from limitless_15m_replay import (_first, _first_received, candidate, market_spec,
+                                  oracle_probability, prepare, settle_accounts)
 
 START = dt.datetime(2026, 10, 5, tzinfo=dt.timezone.utc).timestamp()
 
@@ -20,7 +20,15 @@ def market():
         "collateralToken": {"symbol": "USDC", "decimals": 6,
                             "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"},
         "tokens": {"yes": "y", "no": "n"}, "settings": {"takerDelayMs": 500},
-        "description": "Chainlink BTC/USD 60-second TWAP greater than or equal to the Price to Beat",
+        "description": ('Chainlink BTC/USD 60-second TWAP on October 5, 2026, at 00:15 UTC '
+                        'is greater than or equal to the Price to Beat captured from the same TWAP '
+                        'on October 5, 2026, at 00:00 UTC. Otherwise, this market will resolve to "Down". '
+                        'Chainlink BTC/USD 60-second TWAP is used for both the Price to Beat and resolution. '
+                        'The report at the exact resolution time is used first. If it is unavailable, '
+                        'the first Chainlink observation within the following 5 seconds will be used. '
+                        'If no report exists in that window, the market will not resolve automatically. '
+                        'Price to Beat captured from the Chainlink BTC/USD 60-second TWAP '
+                        'on October 5, 2026, at 00:00 UTC was $100.'),
         "metadata": {"openPrice": "100", "openPriceCapturedAt": START, "chainlinkDataStream": {
             "pair": "BTC/USD", "enabled": True, "streamType": "twap",
             "twapWindowSeconds": 60, "priceDecimals": 18, "feedId": "f"}},
@@ -41,6 +49,9 @@ class ReplayTests(unittest.TestCase):
         raw = market()
         raw["tokens"]["no"] = "y"
         self.assertIsNone(market_spec(raw))
+        raw = market()
+        raw["description"] = raw["description"].replace("October 5, 2026", "January 1, 2010")
+        self.assertIsNone(market_spec(raw))
 
     def test_first_failed_request_consumes_attempt(self):
         failed = {"kind": "request_error", "requested_at": START+451,
@@ -48,6 +59,19 @@ class ReplayTests(unittest.TestCase):
         later = {"kind": "book", "requested_at": START+453,
                  "observed_at": START+454}
         self.assertIs(_first([later, failed], START+450, START+510), failed)
+
+    def test_decision_book_uses_first_completed_attempt_inside_window(self):
+        late = {"requested_at": START+480, "observed_at": START+520}
+        in_window = {"requested_at": START+481, "observed_at": START+500}
+        self.assertIs(_first_received([late, in_window], START+480, START+510), in_window)
+        self.assertIsNone(_first([late, in_window], START+480, START+510))
+
+    def test_malformed_observed_market_is_in_coverage_denominator(self):
+        row = {"kind": "market", "slug": "btc-up-or-down-15-min-1791158400",
+               "raw": {"title": "bad"}, "_proof": {"artifact": 1, "line": 1}}
+        episodes, _, unverified = prepare([row])
+        self.assertEqual(episodes, [])
+        self.assertEqual([r["slug"] for r in unverified], [row["slug"]])
 
     def test_oracle_uses_only_contiguous_closed_candles(self):
         spec = market_spec(market())
