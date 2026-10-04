@@ -1,0 +1,765 @@
+{
+  "as_of": "2026-10-04T08:27:00+00:00",
+  "source_ref": "5f1b996a320ff72115a89e93595198e8df85ab6a",
+  "artifacts": [
+    {
+      "id": 11298028349,
+      "name": "limitless-market-37185875778",
+      "digest": "sha256:80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283",
+      "created_at": "2026-10-04T08:23:29Z",
+      "workflow_run": {
+        "id": 37185875778,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11297181910,
+      "name": "limitless-market-37183121491",
+      "digest": "sha256:4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051",
+      "created_at": "2026-10-04T07:28:12Z",
+      "workflow_run": {
+        "id": 37183121491,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11298150743,
+      "name": "limitless-final-audit-37187497817",
+      "digest": "sha256:a2b2f1b0c2dee3943bfa480d1652f633b6cf540119791ed71b58b8653e32e100",
+      "created_at": "2026-10-04T08:00:52Z",
+      "workflow_run": {
+        "id": 37187497817,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11291658917,
+      "name": "limitless-discovery-37172274035",
+      "digest": "sha256:74e5e9b8cb1ef6cebe2656db86fb13347e3bf8c104a0ebbee5be3f4900a90a35",
+      "created_at": "2026-10-04T02:52:49Z",
+      "workflow_run": {
+        "id": 37172274035,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    }
+  ],
+  "checks": {
+    "11298028349": {
+      "reports_match": true,
+      "raw_sources": 15,
+      "capture": {
+        "status": "CAPTURE_ONLY_NO_PNL",
+        "started_at": "2026-10-04T07:28:26.451281+00:00",
+        "ended_at": "2026-10-04T08:23:26.608101+00:00",
+        "counts": {
+          "listing": 451,
+          "discovery": 52,
+          "ws_connect": 1,
+          "ws_event": 48628,
+          "market": 228,
+          "binance_1h": 102,
+          "oracle_candles": 102,
+          "binance_1m": 360,
+          "book": 728,
+          "heartbeat": 182,
+          "subscription": 51,
+          "paper_decision": 2,
+          "paper_execution": 2,
+          "paper_settlement": 2,
+          "ws_disconnect": 1
+        },
+        "uncompressed_bytes": 115925134,
+        "size_cap_reached": false,
+        "markets_seen": 14,
+        "unresolved_carried": 4,
+        "active_slugs": [
+          "btc-up-or-down-15-min-1791101700",
+          "eth-up-or-down-15-min-1791101700",
+          "btc-up-or-down-hourly-p-1791090309257",
+          "eth-up-or-down-hourly-p-1791090310392"
+        ],
+        "limitations": [
+          "GitHub job gaps are missing observations",
+          "Book frames are coalesced states, not fills or queue events",
+          "Oracle response schemas and settlement streams require verification before paper PnL"
+        ]
+      },
+      "audit": {
+        "status": "READY_FOR_SCHEMA_REVIEW",
+        "segments": 1,
+        "counts": {
+          "listing": 451,
+          "discovery": 52,
+          "ws_connect": 1,
+          "ws_event": 48628,
+          "market": 228,
+          "binance_1h": 102,
+          "oracle_candles": 102,
+          "binance_1m": 360,
+          "book": 728,
+          "heartbeat": 182,
+          "subscription": 51,
+          "paper_decision": 2,
+          "paper_execution": 2,
+          "paper_settlement": 2,
+          "ws_disconnect": 1
+        },
+        "ws_events": {
+          "system": 53,
+          "oraclePriceData": 13058,
+          "orderbookUpdate": 35440,
+          "marketCreated": 36,
+          "marketResolved": 41
+        },
+        "distinct_markets": 14,
+        "oracle_candle_markets": 10,
+        "two_sided_rest_books": 728,
+        "median_rest_spread": 0.04500000000000004,
+        "segment_windows": [
+          {
+            "started_at": "2026-10-04T07:28:26.451281+00:00",
+            "ended_at": "2026-10-04T08:23:26.608101+00:00",
+            "size_cap_reached": false
+          }
+        ],
+        "pnl": null,
+        "interpretation": "Feasibility only; schema review is required. Repeated snapshots are not independent opportunities."
+      }
+    },
+    "11297181910": {
+      "reports_match": true,
+      "raw_sources": 15,
+      "capture": {
+        "status": "CAPTURE_ONLY_NO_PNL",
+        "started_at": "2026-10-04T06:33:09.362852+00:00",
+        "ended_at": "2026-10-04T07:28:09.500081+00:00",
+        "counts": {
+          "listing": 468,
+          "discovery": 52,
+          "ws_connect": 1,
+          "ws_event": 40240,
+          "market": 224,
+          "binance_1h": 102,
+          "oracle_candles": 102,
+          "binance_1m": 358,
+          "book": 724,
+          "heartbeat": 181,
+          "subscription": 51,
+          "paper_settlement": 2,
+          "inventory_observation": 1,
+          "inventory_settlement": 1,
+          "ws_disconnect": 1
+        },
+        "uncompressed_bytes": 108840313,
+        "size_cap_reached": false,
+        "markets_seen": 14,
+        "unresolved_carried": 4,
+        "active_slugs": [
+          "btc-up-or-down-15-min-1791098100",
+          "eth-up-or-down-15-min-1791098100",
+          "btc-up-or-down-hourly-p-1791086705448",
+          "eth-up-or-down-hourly-p-1791086706493"
+        ],
+        "limitations": [
+          "GitHub job gaps are missing observations",
+          "Book frames are coalesced states, not fills or queue events",
+          "Oracle response schemas and settlement streams require verification before paper PnL"
+        ]
+      },
+      "audit": {
+        "status": "READY_FOR_SCHEMA_REVIEW",
+        "segments": 1,
+        "counts": {
+          "listing": 468,
+          "discovery": 52,
+          "ws_connect": 1,
+          "ws_event": 40240,
+          "market": 224,
+          "binance_1h": 102,
+          "oracle_candles": 102,
+          "binance_1m": 358,
+          "book": 724,
+          "heartbeat": 181,
+          "subscription": 51,
+          "paper_settlement": 2,
+          "inventory_observation": 1,
+          "inventory_settlement": 1,
+          "ws_disconnect": 1
+        },
+        "ws_events": {
+          "system": 53,
+          "oraclePriceData": 8559,
+          "orderbookUpdate": 31557,
+          "marketCreated": 34,
+          "marketResolved": 37
+        },
+        "distinct_markets": 14,
+        "oracle_candle_markets": 8,
+        "two_sided_rest_books": 724,
+        "median_rest_spread": 0.04300000000000004,
+        "segment_windows": [
+          {
+            "started_at": "2026-10-04T06:33:09.362852+00:00",
+            "ended_at": "2026-10-04T07:28:09.500081+00:00",
+            "size_cap_reached": false
+          }
+        ],
+        "pnl": null,
+        "interpretation": "Feasibility only; schema review is required. Repeated snapshots are not independent opportunities."
+      }
+    },
+    "nonempty_evidence_prefix_pass": true
+  },
+  "hourly_report": {
+    "version": "limitless-hourly-v1",
+    "status": "PAPER_ONLY_NOT_LIVE",
+    "phases": {
+      "discovery": {
+        "conditions_seen": 40,
+        "decision_conditions": 37,
+        "hour_clusters": 20,
+        "scored_conditions": 37,
+        "brier_model": 0.2406807492784331,
+        "brier_50": 0.25,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 3
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 30,
+              "SETTLED": 7
+            },
+            "settled_trades": 7,
+            "net_pnl_usdc": 43.563524335,
+            "settled_cost_usdc": 64.387545775,
+            "net_return_on_spent": 0.6765830846734117,
+            "mean_pnl_per_settled_trade": 6.223360619285714
+          },
+          "constant50": {
+            "states": {
+              "SETTLED": 34,
+              "NO_TRADE": 3
+            },
+            "settled_trades": 34,
+            "net_pnl_usdc": 26.72577634,
+            "settled_cost_usdc": 199.87421937,
+            "net_return_on_spent": 0.13371297421067696,
+            "mean_pnl_per_settled_trade": 0.7860522452941177
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "conditions_seen": 0,
+        "decision_conditions": 0,
+        "hour_clusters": 0,
+        "scored_conditions": 0,
+        "brier_model": null,
+        "brier_50": null,
+        "skips": {},
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          },
+          "constant50": {
+            "states": {},
+            "settled_trades": 0,
+            "net_pnl_usdc": 0,
+            "settled_cost_usdc": 0,
+            "net_return_on_spent": null,
+            "mean_pnl_per_settled_trade": null
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "assumptions": [
+      "3% buy fee in contracts",
+      "Observed REST depth is assumed executable at receipt",
+      "Queue, matching races and REST cache staleness are not reproduced",
+      "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+    ],
+    "archive_checkpoints": 2,
+    "excluded_conflicting_conditions": []
+  },
+  "hourly_trades": [
+    {
+      "slug": "eth-up-or-down-hourly-p-1791039910750",
+      "pnl": "-8.383503568",
+      "pre_v2": true
+    },
+    {
+      "slug": "eth-up-or-down-hourly-p-1791043510378",
+      "pnl": "51.071221619",
+      "pre_v2": true
+    },
+    {
+      "slug": "btc-up-or-down-hourly-p-1791061509376",
+      "pnl": "3.144887210",
+      "pre_v2": false
+    },
+    {
+      "slug": "eth-up-or-down-hourly-p-1791061510481",
+      "pnl": "1.148187578",
+      "pre_v2": false
+    },
+    {
+      "slug": "btc-up-or-down-hourly-p-1791075904547",
+      "pnl": "4.127065196",
+      "pre_v2": false
+    },
+    {
+      "slug": "btc-up-or-down-hourly-p-1791079504737",
+      "pnl": "1.846117255",
+      "pre_v2": false
+    },
+    {
+      "slug": "eth-up-or-down-hourly-p-1791083110536",
+      "pnl": "-9.390450955",
+      "pre_v2": false
+    }
+  ],
+  "metrics": {
+    "v2_pnl": "0.875806284",
+    "v2_return_on_initial_capital": "0.00875806284",
+    "v2_return_on_spent": "0.01806861707834386246855129423",
+    "wins": 4,
+    "losses": 1,
+    "without_best_trade": "-3.251258912",
+    "post_v2_scored_conditions": 23,
+    "post_v2_brier": 0.267095979812729,
+    "legacy_model_pnl": "42.687718051",
+    "all_hourly_without_biggest": "-7.507697284",
+    "matched_constant50_pnl": "-7.957148053"
+  },
+  "copy": {
+    "as_of": "2026-10-04T08:00:50+00:00",
+    "segments": [
+      {
+        "artifact": "11270614293.zip",
+        "started_at": "2026-10-03T09:04:01.196518+00:00",
+        "generated_at": "2026-10-03T09:59:01.207185+00:00"
+      },
+      {
+        "artifact": "11272146553.zip",
+        "started_at": "2026-10-03T10:44:36.525736+00:00",
+        "generated_at": "2026-10-03T10:47:36.528127+00:00"
+      },
+      {
+        "artifact": "11273137704.zip",
+        "started_at": "2026-10-03T10:47:46.499038+00:00",
+        "generated_at": "2026-10-03T11:42:46.505398+00:00"
+      },
+      {
+        "artifact": "11273812477.zip",
+        "started_at": "2026-10-03T11:42:56.367692+00:00",
+        "generated_at": "2026-10-03T12:37:56.374313+00:00"
+      },
+      {
+        "artifact": "11275637061.zip",
+        "started_at": "2026-10-03T12:38:05.877039+00:00",
+        "generated_at": "2026-10-03T13:33:05.883475+00:00"
+      },
+      {
+        "artifact": "11276615954.zip",
+        "started_at": "2026-10-03T13:33:16.195289+00:00",
+        "generated_at": "2026-10-03T14:28:16.200546+00:00"
+      },
+      {
+        "artifact": "11277168752.zip",
+        "started_at": "2026-10-03T14:28:25.541668+00:00",
+        "generated_at": "2026-10-03T15:23:25.550813+00:00"
+      },
+      {
+        "artifact": "11278344227.zip",
+        "started_at": "2026-10-03T15:23:34.918001+00:00",
+        "generated_at": "2026-10-03T16:18:34.924970+00:00"
+      },
+      {
+        "artifact": "11280141431.zip",
+        "started_at": "2026-10-03T16:18:45.261592+00:00",
+        "generated_at": "2026-10-03T17:13:45.268861+00:00"
+      },
+      {
+        "artifact": "11281321057.zip",
+        "started_at": "2026-10-03T17:13:55.372930+00:00",
+        "generated_at": "2026-10-03T18:08:55.378993+00:00"
+      },
+      {
+        "artifact": "11282670910.zip",
+        "started_at": "2026-10-03T18:09:07.506013+00:00",
+        "generated_at": "2026-10-03T19:04:07.523043+00:00"
+      },
+      {
+        "artifact": "11283329297.zip",
+        "started_at": "2026-10-03T19:04:18.815299+00:00",
+        "generated_at": "2026-10-03T19:59:18.829372+00:00"
+      },
+      {
+        "artifact": "11284996663.zip",
+        "started_at": "2026-10-03T19:59:30.784315+00:00",
+        "generated_at": "2026-10-03T20:54:30.795405+00:00"
+      },
+      {
+        "artifact": "11285319544.zip",
+        "started_at": "2026-10-03T20:54:41.705226+00:00",
+        "generated_at": "2026-10-03T21:49:41.723779+00:00"
+      },
+      {
+        "artifact": "11286677076.zip",
+        "started_at": "2026-10-03T21:52:58.244669+00:00",
+        "generated_at": "2026-10-03T22:47:58.255055+00:00"
+      },
+      {
+        "artifact": "11287932980.zip",
+        "started_at": "2026-10-03T22:48:10.285817+00:00",
+        "generated_at": "2026-10-03T23:43:10.305932+00:00"
+      },
+      {
+        "artifact": "11288553931.zip",
+        "started_at": "2026-10-03T23:43:22.589717+00:00",
+        "generated_at": "2026-10-04T00:38:22.608143+00:00"
+      },
+      {
+        "artifact": "11289827454.zip",
+        "started_at": "2026-10-04T00:38:34.094234+00:00",
+        "generated_at": "2026-10-04T01:33:34.111776+00:00"
+      },
+      {
+        "artifact": "11291227644.zip",
+        "started_at": "2026-10-04T01:33:45.618386+00:00",
+        "generated_at": "2026-10-04T02:28:45.637007+00:00"
+      },
+      {
+        "artifact": "11292352912.zip",
+        "started_at": "2026-10-04T02:28:58.670926+00:00",
+        "generated_at": "2026-10-04T03:23:58.688265+00:00"
+      },
+      {
+        "artifact": "11292834805.zip",
+        "started_at": "2026-10-04T03:24:12.839243+00:00",
+        "generated_at": "2026-10-04T04:19:12.850966+00:00"
+      },
+      {
+        "artifact": "11294594402.zip",
+        "started_at": "2026-10-04T05:14:41.682966+00:00",
+        "generated_at": "2026-10-04T06:09:41.701561+00:00"
+      },
+      {
+        "artifact": "11295125857.zip",
+        "started_at": "2026-10-04T04:19:24.542123+00:00",
+        "generated_at": "2026-10-04T05:14:24.560630+00:00"
+      },
+      {
+        "artifact": "11296796084.zip",
+        "started_at": "2026-10-04T06:09:53.749829+00:00",
+        "generated_at": "2026-10-04T07:04:53.767704+00:00"
+      },
+      {
+        "artifact": "11297836364.zip",
+        "started_at": "2026-10-04T07:05:04.182368+00:00",
+        "generated_at": "2026-10-04T08:00:04.202270+00:00"
+      }
+    ],
+    "archive_errors": [],
+    "data_errors": [],
+    "scopes": {
+      "FIXED_COHORT": {
+        "canonical_buy_records": 7,
+        "status_counts": {
+          "DEPTH_SUPPORTS_10_USDC_QUOTE": 7
+        },
+        "ten_usdc_depth_quote_fraction": 1.0,
+        "at_or_below_source_price_records": 0,
+        "detection_delay_p50_s": 34.403842,
+        "vwap_minus_source_p50": 0.451,
+        "independent_intents": null,
+        "data_qualified_quotes": 4,
+        "copy_eligible_records": 0
+      },
+      "DISCOVERY_FEED": {
+        "canonical_buy_records": 723,
+        "status_counts": {
+          "UNVERIFIED_POST_DETECTION_REQUEST": 204,
+          "FIRST_BOOK_REQUEST_FAILED": 7,
+          "INSUFFICIENT_VISIBLE_DEPTH": 122,
+          "DEPTH_SUPPORTS_10_USDC_QUOTE": 390
+        },
+        "ten_usdc_depth_quote_fraction": 0.5394190871369294,
+        "at_or_below_source_price_records": 78,
+        "detection_delay_p50_s": 51.694681,
+        "vwap_minus_source_p50": 0.05261433187898536,
+        "independent_intents": null,
+        "data_qualified_quotes": 221,
+        "copy_eligible_records": 0
+      }
+    },
+    "coverage_by_wallet": {
+      "0xff612b93bf130a2bccdf303e360e89d225685e71": {
+        "successful_polls": 2646,
+        "covered_seconds": 77625.59,
+        "fraction": 0.93694133993965,
+        "largest_uncredited_gap_s": 2736.683603
+      },
+      "0xc2faf128201d89cba789c1dde5424d49bd75e44e": {
+        "successful_polls": 2646,
+        "covered_seconds": 76800.224,
+        "fraction": 0.9269791659867229,
+        "largest_uncredited_gap_s": 2739.308812
+      },
+      "0x61761b4ff620607295e894f7c529a4de35dec3b4": {
+        "successful_polls": 2646,
+        "covered_seconds": 75382.223,
+        "fraction": 0.9098638837658418,
+        "largest_uncredited_gap_s": 2740.682109
+      }
+    },
+    "historical_crypto_buy_records_excluded": 71
+  },
+  "source_sha256": {
+    "research/limitless_inventory_paper.py": "efb12fcee217d5d4277214a39434d53b56974820ad90849a6acd241872c2a143",
+    "research/limitless_hourly_paper.py": "ebeb91ee28e0b9f3f19edc7c788acf8eb808287d02c625f894c1df36303cfcde"
+  },
+  "status": "INSUFFICIENT_DATA_NO_PROFITABILITY_CLAIM",
+  "inventory_report": {
+    "version": "limitless-inventory-paper-v2",
+    "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+    "started_at": 1791058984.920855,
+    "initial_capital": "100",
+    "cash": "100.875806284",
+    "open_cost_basis": "0",
+    "realized_pnl": "0.875806284",
+    "admission_skips": {},
+    "positions": 5,
+    "management_states": {
+      "HOLD": 5
+    },
+    "settled_positions": 5,
+    "seed_hold_settled_pnl": "0.875806284",
+    "managed_settled_pnl": "0.875806284",
+    "no_trade_control_pnl": "0",
+    "phases": {
+      "discovery": {
+        "positions": 5,
+        "settled_positions": 5,
+        "matched_conditions": 5,
+        "resolved_hour_clusters": 4,
+        "managed_settled_pnl": "0.875806284",
+        "seed_hold_settled_pnl": "0.875806284",
+        "managed_minus_seed_hold": "0E-9",
+        "settled_entry_cost": "48.471129816",
+        "realized_pnl": "0.875806284",
+        "open_positions": 0,
+        "open_cost_basis": "0",
+        "management_states": {
+          "HOLD": 5
+        },
+        "hour_clusters": [
+          {
+            "hour_start": 1791072000.0,
+            "conditions": 2,
+            "managed_settled_pnl": "4.293074788",
+            "seed_hold_settled_pnl": "4.293074788",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791086400.0,
+            "conditions": 1,
+            "managed_settled_pnl": "4.127065196",
+            "seed_hold_settled_pnl": "4.127065196",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791090000.0,
+            "conditions": 1,
+            "managed_settled_pnl": "1.846117255",
+            "seed_hold_settled_pnl": "1.846117255",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791093600.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-9.390450955",
+            "seed_hold_settled_pnl": "-9.390450955",
+            "managed_minus_seed_hold": "0E-9"
+          }
+        ],
+        "no_trade_control_pnl": "0",
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "positions": 0,
+        "settled_positions": 0,
+        "matched_conditions": 0,
+        "resolved_hour_clusters": 0,
+        "managed_settled_pnl": "0",
+        "seed_hold_settled_pnl": "0",
+        "managed_minus_seed_hold": "0",
+        "settled_entry_cost": "0",
+        "realized_pnl": "0",
+        "open_positions": 0,
+        "open_cost_basis": "0",
+        "management_states": {},
+        "hour_clusters": [],
+        "no_trade_control_pnl": "0",
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "limitations": [
+      "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+      "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+      "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+      "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+      "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+      "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+      "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+      "No passive maker fills or profitable-strategy verdict."
+    ]
+  },
+  "inventory_audits": {
+    "11298028349": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 1,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 15,
+      "latest_artifact": "analysis-11298028349.zip"
+    },
+    "11297181910": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 1,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 15,
+      "latest_artifact": "analysis-11297181910.zip"
+    },
+    "pair": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 2,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 15,
+      "latest_artifact": "analysis-11298028349.zip"
+    }
+  },
+  "v2_trades": [
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "slug": "btc-up-or-down-hourly-p-1791061509376",
+      "hour_start_utc": "2026-10-04T00:00:00+00:00",
+      "side": "YES",
+      "p_side": 0.7867130025545759,
+      "cost": "9.947561690",
+      "net_shares": "13.09244890",
+      "vwap": "0.737",
+      "pnl": "3.144887210",
+      "delay_s": 17.181228637695312,
+      "management": "HOLD",
+      "payout": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "slug": "eth-up-or-down-hourly-p-1791061510481",
+      "hour_start_utc": "2026-10-04T00:00:00+00:00",
+      "side": "YES",
+      "p_side": 0.9266353676912662,
+      "cost": "9.967295592",
+      "net_shares": "11.11548317",
+      "vwap": "0.8698026506246781533294337218",
+      "pnl": "1.148187578",
+      "delay_s": 17.222473859786987,
+      "management": "HOLD",
+      "payout": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "slug": "btc-up-or-down-hourly-p-1791075904547",
+      "hour_start_utc": "2026-10-04T04:00:00+00:00",
+      "side": "NO",
+      "p_side": 0.734457941145541,
+      "cost": "9.896882464",
+      "net_shares": "14.02394766",
+      "vwap": "0.6845416299906527175387361650",
+      "pnl": "4.127065196",
+      "delay_s": 17.401020050048828,
+      "management": "HOLD",
+      "payout": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "slug": "btc-up-or-down-hourly-p-1791079504737",
+      "hour_start_utc": "2026-10-04T05:00:00+00:00",
+      "side": "YES",
+      "p_side": 0.9266709012543157,
+      "cost": "9.268939115",
+      "net_shares": "11.11505637",
+      "vwap": "0.8088911690827529289444350339",
+      "pnl": "1.846117255",
+      "delay_s": 18.69466781616211,
+      "management": "HOLD",
+      "payout": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "slug": "eth-up-or-down-hourly-p-1791083110536",
+      "hour_start_utc": "2026-10-04T06:00:00+00:00",
+      "side": "NO",
+      "p_side": 0.9645573555873371,
+      "cost": "9.390450955",
+      "net_shares": "10.67847295",
+      "vwap": "0.853",
+      "pnl": "-9.390450955",
+      "delay_s": 17.20008134841919,
+      "management": "HOLD",
+      "payout": [
+        "1",
+        "0"
+      ]
+    }
+  ],
+  "verification_limits": [
+    "Wallet aggregate read from digest-verified published artifact; its 25 underlying archives were not independently replayed in this analysis.",
+    "Entry sources, first-attempt quotes and report economics reconciled from carried raw evidence; not a replay of every historical capture frame.",
+    "REST visible liquidity is hypothetical execution, not observed live fills.",
+    "SELL and COMPLETE_PAIR remain unobserved; all five management decisions were HOLD.",
+    "No holdout observations; post-v2 Brier is exploratory time cohort, not holdout."
+  ]
+}
