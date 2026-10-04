@@ -58,6 +58,9 @@ for slug,v in markets.items():
     if not v['market']:continue
     observed=sorted(v['market'])
     first=observed[0][1];last=observed[-1][1]
+    identity=lambda m:(m.get('conditionId'),str((m.get('metadata') or {}).get('openPrice')),
+                       str(((m.get('metadata') or {}).get('chainlinkDataStream') or {}).get('feedId')))
+    if len({identity(m) for _,m in observed})>1:stats['conflicting_market_identity']+=1
     start=sec(first['startAt'])
     # Market expiration timestamp is the exact boundary. Never rely on display date.
     expiry=float(first['expirationTimestamp'])
@@ -83,6 +86,8 @@ for slug,v in markets.items():
     except (KeyError, TypeError, InvalidOperation):
         if winners:stats['resolution_price_missing']+=1
     b=sorted(v['books']); o=sorted(v['oracle'])
+    if any(isinstance(raw,dict) and raw.get('tokenId')!=first.get('tokens',{}).get('yes')
+           for _,_,raw in b):stats['markets_with_book_token_mismatch']+=1
     stats['book_envelopes']+=len(b);stats['oracle_envelopes']+=len(o)
     if any(start+450<=request<expiry for request,receipt,raw in b):stats['midpoint_to_expiry_book']+=1
     if any(start+450<=request<expiry and isinstance(raw,dict) and raw.get('bids') and raw.get('asks') for request,receipt,raw in b):stats['midpoint_to_expiry_two_sided_book']+=1
