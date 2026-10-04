@@ -12,6 +12,8 @@ Use only BTC/USD and ETH/USD 15-minute CLOB markets admitted by the existing 15m
 
 The gate never picks a YES/NO side, adjusts model probability or creates an entry. It is evaluated at the **original model's decision time** against Binance BTCUSDT/ETHUSDT 1m responses already received before that instant. Reconstruct UTC H1/M15/M5/M1 from complete closed M1 only using [frozen diagnostic v1 definitions](LIMITLESS_MARKET_REGIME_PROTOCOL.md): 16-bar minimum, 2/2 confirmed pivots, protected anchors and range/transition states. The H4 label is reported separately; it is not a gate until enough data exists. A later response or corrected candle cannot change the prior label. A source conflict, missing latest complete bar, insufficient swings or missing response yields UNKNOWN and SKIP. Record the input view digest and event availability.
 
+The 15m label version is `limitless-15m-structure-label-v2`. A conflicting minute is excluded from the candle stream as soon as its second version becomes available. That gap resets the contiguous warmup on each affected timeframe. Older conflicts remain in the evidence ledger but do not permanently poison a new complete suffix. This is an explicit 15m data-availability rule; it does not change the frozen hourly diagnostic. The same conflict cannot retrospectively alter an earlier decision snapshot.
+
 Gate v1:
 
 | Baseline side | Required H1 state | Required most recent visible M5 close-break |
