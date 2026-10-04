@@ -6,9 +6,12 @@ import collections
 import datetime as dt
 import gzip
 import hashlib
+import html
 import json
 import math
 import pathlib
+import re
+import random
 import statistics
 import zipfile
 from decimal import Decimal, ROUND_DOWN
@@ -59,6 +62,11 @@ def market_spec(raw):
         start, end = seconds(raw["startAt"]), seconds(raw["expirationTimestamp"])
         token = raw["collateralToken"]
         pair = asset + "/USD"
+        description = html.unescape(re.sub(r"<[^>]*>", " ", raw["description"]))
+        description = " ".join(description.split())
+        dates = re.findall(r"on ([A-Z][a-z]+ \d{1,2}, \d{4}), at (\d{2}:\d{2}) UTC", description)
+        parsed_dates = [dt.datetime.strptime(" ".join(pair_date), "%B %d, %Y %H:%M")
+                        .replace(tzinfo=dt.timezone.utc).timestamp() for pair_date in dates]
         if (raw["tradeType"] != "clob" or raw["marketType"] != "single"
                 or raw.get("groupId") or start % 900 or end-start != 900
                 or token["symbol"] != "USDC" or token["decimals"] != 6
@@ -66,8 +74,13 @@ def market_spec(raw):
                 or feed["enabled"] is not True or feed["pair"] != pair
                 or feed["streamType"] != "twap" or feed["twapWindowSeconds"] != 60
                 or feed["priceDecimals"] != 18 or not feed["feedId"]
-                or (f"Chainlink {pair} 60-second TWAP" not in raw["description"])
-                or "greater than or equal to the Price to Beat" not in raw["description"]
+                or description.count(f"Chainlink {pair} 60-second TWAP") < 3
+                or "greater than or equal to the Price to Beat captured from the same TWAP" not in description
+                or 'Otherwise, this market will resolve to "Down"' not in description
+                or "exact resolution time is used first" not in description
+                or "first Chainlink observation within the following 5 seconds" not in description
+                or "If no report exists in that window, the market will not resolve automatically" not in description
+                or len(parsed_dates) != 3 or parsed_dates != [end, start, start]
                 or seconds(meta["openPriceCapturedAt"]) != start
                 or raw["tokens"]["yes"] == raw["tokens"]["no"]
                 or not raw["tokens"]["yes"] or not raw["tokens"]["no"]):
@@ -83,7 +96,7 @@ def market_spec(raw):
                 "yes_token": raw["tokens"]["yes"], "no_token": raw["tokens"]["no"],
                 "delay_s": float(delay)/1000 + 1,
                 "feed_id": feed["feedId"]}
-    except (KeyError, TypeError, ValueError, ArithmeticError):
+    except (KeyError, TypeError, ValueError, ArithmeticError, AttributeError):
         return None
 
 
@@ -165,6 +178,7 @@ def candidate(book, probability):
 def load_archives(manifest):
     """Verify exact main ZIPs, retain every raw request and receipt fingerprint."""
     rows, sources, seen_artifacts = [], [], set()
+    previous_end, previous_state = None, None
     for item in manifest:
         run, artifact = item["run"], item["artifact"]
         if artifact["id"] in seen_artifacts:
@@ -182,6 +196,38 @@ def load_archives(manifest):
             raise ValueError("ZIP_DIGEST_MISMATCH")
         sources.append({"run": run["id"], "artifact": artifact["id"], "sha256": digest})
         with zipfile.ZipFile(path) as archive:
+            state_bytes, summary_bytes = archive.read("state.json"), archive.read("summary.json")
+            state, summary = json.loads(state_bytes), json.loads(summary_bytes)
+            begin, end = seconds(summary["started_at"]), seconds(summary["ended_at"])
+            if (summary["status"] != "CAPTURE_ONLY_NO_PNL" or begin >= end
+                    or (previous_end is not None and
+                        (begin < previous_end or begin-previous_end > 20*60))):
+                raise ValueError("CHECKPOINT_TIMELINE_BROKEN")
+            if previous_state is not None:
+                if (state["paper"]["version"] != previous_state["paper"]["version"]
+                        or state["inventory_paper"]["version"] != previous_state["inventory_paper"]["version"]
+                        or state["inventory_paper"]["started_at"] != previous_state["inventory_paper"]["started_at"]):
+                    raise ValueError("CHECKPOINT_VERSION_BROKEN")
+                for family, field in (("paper", "markets"), ("paper", "episodes"),
+                                      ("inventory_paper", "entry_attempts")):
+                    old = previous_state[family][field]
+                    new = state[family][field]
+                    if not set(old) <= set(new):
+                        raise ValueError("CHECKPOINT_LINEAGE_BROKEN")
+                    for key in old:
+                        prior, current = old[key], new[key]
+                        immutable = ("condition", "slug", "start", "phase", "side")
+                        if isinstance(prior, dict) and any(
+                                k in prior and k in current and prior[k] != current[k]
+                                for k in immutable):
+                            raise ValueError("CHECKPOINT_IDENTITY_BROKEN")
+                if not set(previous_state["inventory_paper_history"]) <= set(state["inventory_paper_history"]):
+                    raise ValueError("CHECKPOINT_HISTORY_BROKEN")
+            sources[-1].update({"state_sha256": hashlib.sha256(state_bytes).hexdigest(),
+                                "summary_sha256": hashlib.sha256(summary_bytes).hexdigest(),
+                                "started_at": summary["started_at"],
+                                "ended_at": summary["ended_at"]})
+            previous_end, previous_state = end, state
             with gzip.GzipFile(fileobj=archive.open("capture.jsonl.gz")) as stream:
                 for line_number, line in enumerate(stream, 1):
                     if not any(tag in line for tag in
@@ -210,6 +256,14 @@ def _first(rows, after, before):
     first = min(eligible, key=lambda r: (seconds(r["requested_at"]),
                                          seconds(r["observed_at"])))
     return first if seconds(first["observed_at"]) <= before else None
+
+
+def _first_received(rows, after, before):
+    """First requested decision book whose response arrived within the window."""
+    eligible = [r for r in rows if seconds(r["requested_at"]) >= after
+                and seconds(r["observed_at"]) <= before]
+    return min(eligible, key=lambda r: (seconds(r["requested_at"]),
+                                         seconds(r["observed_at"]))) if eligible else None
 
 
 def prepare(rows):
@@ -266,7 +320,7 @@ def prepare(rows):
             ep["reason"] = str(exc)
             continue
         book_rows = _attempts(events, "book")
-        decision_book = _first(book_rows, seconds(oracle["observed_at"]), window_end)
+        decision_book = _first_received(book_rows, seconds(oracle["observed_at"]), window_end)
         if decision_book is None:
             ep["reason"] = "MISSED_DECISION_BOOK"
             continue
@@ -329,11 +383,11 @@ def prepare(rows):
                                     "payouts": [str(x) for x in pay],
                                     "proof": first["_proof"]}
             else:
-                ep["settlement_reason"] = "INVALID_OR_CONFLICTING_PAYOUT"
+                raise ValueError("INVALID_OR_CONFLICTING_PAYOUT:" + spec["condition"])
     if len({ep["condition"] for ep in episodes}) != len(episodes):
         raise ValueError("DUPLICATE_CONDITION_ID")
     unverified = []
-    for slug in sorted(discovered - verified_slugs):
+    for slug in sorted((discovered | set(grouped)) - verified_slugs):
         try:
             opened = int(slug.rsplit("-", 1)[1])
         except ValueError:
@@ -414,6 +468,70 @@ def settle_accounts(episodes):
     return result
 
 
+def phase_metrics(selected):
+    scored = [ep for ep in selected if ep["status"] == "DECIDED" and ep["settlement"]]
+    binary = [ep for ep in scored if ep["settlement"]["payouts"] in (["1", "0"], ["0", "1"])]
+    brier = (sum((ep["p_up"] - float(ep["settlement"]["payouts"][0]))**2
+                 for ep in binary)/len(binary)) if binary else None
+    by_asset = {}
+    by_h1 = {}
+    for key, groups in (("asset", by_asset), ("h1", by_h1)):
+        for ep in selected:
+            label = ep["symbol"][:3] if key == "asset" else ep.get("structure", {}).get("h1_state", "UNAVAILABLE")
+            item = groups.setdefault(label, {"conditions": 0, "decisions": 0, "allowed": 0,
+                                              "settled_pnl_usdc": {name: D(0) for name in
+                                                                   ("model", "constant50", "structure")}})
+            item["conditions"] += 1
+            item["decisions"] += ep["status"] == "DECIDED"
+            item["allowed"] += ep.get("structure_gate") == "ALLOW"
+            for name in item["settled_pnl_usdc"]:
+                account = ep.get("accounts", {}).get(name, {})
+                if account.get("status") == "SETTLED":
+                    item["settled_pnl_usdc"][name] += D(account["pnl_usdc"])
+        for item in groups.values():
+            item["settled_pnl_usdc"] = {k: str(v) for k, v in item["settled_pnl_usdc"].items()}
+    summaries = {}
+    for name in ("model", "constant50", "structure"):
+        account_rows = [ep["accounts"][name] for ep in selected if name in ep.get("accounts", {})]
+        settled = [r for r in account_rows if r["status"] == "SETTLED"]
+        spend = sum((D(r["cost_usdc"]) for r in settled), D(0))
+        pnl = sum((D(r["pnl_usdc"]) for r in settled), D(0))
+        timeline = sorted((ep["settlement"]["at"], ep["condition"],
+                           D(ep["accounts"][name]["pnl_usdc"])) for ep in selected
+                          if ep.get("settlement") and ep.get("accounts", {}).get(name, {}).get("status") == "SETTLED")
+        wealth = peak = CAPITAL
+        drawdown = D(0)
+        for _, _, change in timeline:
+            wealth += change
+            peak = max(peak, wealth)
+            drawdown = max(drawdown, peak-wealth)
+        summaries[name] = {"fills": sum(r["status"] in ("FILLED", "SETTLED") for r in account_rows),
+                           "skips": dict(collections.Counter(r.get("reason", "UNSPECIFIED") for r in account_rows
+                                                             if r["status"] in ("SKIP", "NO_TRADE"))),
+                           "pending": sum(r["status"] == "FILLED" for r in account_rows),
+                           "settled": len(settled), "settled_spend_usdc": str(spend),
+                           "settled_pnl_usdc": str(pnl),
+                           "return_on_settled_spend": str(pnl/spend) if spend else None,
+                           "settled_equity_drawdown_usdc": str(drawdown)}
+    clusters = collections.defaultdict(lambda: {"model": D(0), "structure": D(0)})
+    for ep in selected:
+        for name in ("model", "structure"):
+            row = ep.get("accounts", {}).get(name, {})
+            if row.get("status") == "SETTLED":
+                clusters[ep["start"]][name] += D(row["pnl_usdc"])
+    uncertainty = None
+    if len(clusters) >= 60 and len(scored) >= 60:
+        differences = [float(v["structure"]-v["model"]) for _, v in sorted(clusters.items())]
+        rng = random.Random(1506)
+        samples = sorted(sum(rng.choices(differences, k=len(differences))) for _ in range(2000))
+        uncertainty = {"method": "quarter_hour_cluster_bootstrap_2000_fixed_seed",
+                       "structure_minus_model_pnl_usdc_95pct": [samples[49], samples[1949]],
+                       "clusters": len(differences)}
+    return {"brier_p_up": brier, "asset": by_asset, "h1_state": by_h1,
+            "gate_reasons": dict(collections.Counter(ep.get("structure_gate", "NO_DECISION") for ep in selected)),
+            "accounts": summaries, "cluster_uncertainty": uncertainty}
+
+
 def replay(manifest):
     rows, sources = load_archives(manifest)
     episodes, structure_coverage, unverified = prepare(rows)
@@ -443,13 +561,7 @@ def replay(manifest):
                                                   for ep in selected),
                          "reasons": dict(collections.Counter(ep["reason"] for ep in selected
                                                             if ep["reason"])),
-                         "accounts": {name: {"fills": sum(ep.get("accounts", {}).get(name, {}).get("status") in ("FILLED", "SETTLED")
-                                                         for ep in selected),
-                                             "settled_pnl_usdc": str(sum(
-                                                 (D(ep["accounts"][name]["pnl_usdc"])
-                                                  for ep in selected
-                                                  if ep.get("accounts", {}).get(name, {}).get("status") == "SETTLED"), D(0)))}
-                                      for name in accounts}}
+                         **phase_metrics(selected)}
         phases[phase]["review_status"] = (
             "COVERAGE_REVIEW_ONLY" if len(scored) >= 60
             and len({ep["start"] for ep in scored}) >= 60
