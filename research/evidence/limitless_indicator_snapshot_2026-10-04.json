@@ -1,0 +1,309 @@
+{
+  "status": "POSTHOC_DESCRIPTION_NOT_VALIDATED_STRATEGY",
+  "as_of": "2026-10-04T08:27:00+00:00",
+  "source_ref": "1fa8eb865f93f6fbdc8f580b2ee61bee1c1ccfbb",
+  "methods": {
+    "rsi": "Wilder RSI14 over closed-bar close changes; SMA seed14, flat series=50",
+    "atr": "Wilder ATR14; true range max(H-L,abs(H-prevC),abs(L-prevC)), first TR=H-L",
+    "supertrend": "ATR10 Wilder, multiplier3, hl2 basic bands, recursive final bands, initial DOWN at first ATR; close-based reversal",
+    "ema": "EMA20, first close seed",
+    "momentum": "M1 close vs 15 closed minutes earlier",
+    "levels": "Previous15 M1 bars excluding last signal bar; pivots strict left2/non-strict right2, only after both right bars close",
+    "m5": "Aggregate aligned groups of five closed M1 bars; incomplete groups excluded",
+    "h1_atr": "NOT_AVAILABLE: insufficient closed H1 history for ATR14"
+  },
+  "artifacts": [
+    {
+      "id": 11289279685,
+      "digest": "sha256:3eddcebdde12c1a273a4ae7e00522cf69b9b91ff2f2e2b396680e0d0a24a647c",
+      "workflow_run": {
+        "id": 37163767735,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11293569525,
+      "digest": "sha256:eed15602ced5aad1e394547e9ebe24c75d6e19c12b159c71eab7fca1d7ac347e",
+      "workflow_run": {
+        "id": 37174986129,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11295051929,
+      "digest": "sha256:4c7a51975dfceb7a722a91f9c6c039326764cf91edf87c351a6834f213d0196b",
+      "workflow_run": {
+        "id": 37177706938,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11296245826,
+      "digest": "sha256:97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252",
+      "workflow_run": {
+        "id": 37180405302
+      }
+    }
+  ],
+  "results": [
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T00:30:16.606633+00:00",
+      "side": "YES",
+      "pnl": "3.144887210",
+      "p_up": 0.7867130025545759,
+      "opening": "84753.57",
+      "reference_price": 84808.93,
+      "last_closed_utc": "2026-10-04T00:29:59.999000+00:00",
+      "minute_source_sha256": "36926acdee85cfdf21c7f777dbb4449ec664dd300aee94d58f019b5d6e10f5b5",
+      "artifact": 11289279685,
+      "run": 37163767735,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84808.93,
+        "rsi14": 43.00103710227247,
+        "atr14": 10.885169647982405,
+        "ema20": 84829.27178615716,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84838.95017884846
+        },
+        "last_confirmed_pivot_high": 84871.34,
+        "last_confirmed_pivot_low": 84811.26,
+        "momentum15_pct": -0.01308653156572026,
+        "trailing15_support": 84808.93,
+        "trailing15_resistance": 84871.34,
+        "support_distance_atr": 0.0,
+        "resistance_distance_atr": 5.733488959592959,
+        "hour_range_so_far": 117.77999999999884,
+        "hour_range_over_m5_atr14": 3.781538761372498
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84808.93,
+        "rsi14": 52.127658322629465,
+        "atr14": 31.146051232660366,
+        "ema20": 84797.3356849315,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84763.21070863871
+        },
+        "last_confirmed_pivot_high": 84791.69,
+        "last_confirmed_pivot_low": 84708.16
+      }
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T00:30:16.929035+00:00",
+      "side": "YES",
+      "pnl": "1.148187578",
+      "p_up": 0.9266353676912662,
+      "opening": "2687.24",
+      "reference_price": 2690.99,
+      "last_closed_utc": "2026-10-04T00:29:59.999000+00:00",
+      "minute_source_sha256": "195dc2275e38ae2a6e31114a2a4108527ecc3624ba9e44e2d3acc1369ab70fa9",
+      "artifact": 11289279685,
+      "run": 37163767735,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2690.99,
+        "rsi14": 57.09208182421569,
+        "atr14": 0.7459047929002025,
+        "ema20": 2690.499390140242,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2690.8048624276344
+        },
+        "last_confirmed_pivot_high": 2693.83,
+        "last_confirmed_pivot_low": 2686.91,
+        "momentum15_pct": 0.12538975003906216,
+        "trailing15_support": 2687.61,
+        "trailing15_resistance": 2693.98,
+        "support_distance_atr": 4.531409413334977,
+        "resistance_distance_atr": 4.008554481027822,
+        "hour_range_so_far": 7.440000000000055,
+        "hour_range_over_m5_atr14": 5.792351670350864
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2690.99,
+        "rsi14": 62.86491231575318,
+        "atr14": 1.2844523992013397,
+        "ema20": 2688.449909382734,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2688.082074404706
+        },
+        "last_confirmed_pivot_high": 2688.21,
+        "last_confirmed_pivot_low": 2686.54
+      }
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T04:30:08.748280+00:00",
+      "side": "NO",
+      "pnl": "4.127065196",
+      "p_up": 0.26554205885445903,
+      "opening": "84840.88",
+      "reference_price": 84812.0,
+      "last_closed_utc": "2026-10-04T04:29:59.999000+00:00",
+      "minute_source_sha256": "b4cda625fcd005b5465b3efb47865f581a5f219c8fee2ada964dcbe65cc2b739",
+      "artifact": 11293569525,
+      "run": 37174986129,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84812.01,
+        "rsi14": 29.443247356743043,
+        "atr14": 1.3125102666955895,
+        "ema20": 84815.65879771255,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84813.8746470453
+        },
+        "last_confirmed_pivot_high": 84812.01,
+        "last_confirmed_pivot_low": 84808.11,
+        "momentum15_pct": 0.004586824940822076,
+        "trailing15_support": 84808.11,
+        "trailing15_resistance": 84812.01,
+        "support_distance_atr": 2.971405328365867,
+        "resistance_distance_atr": 0.0,
+        "hour_range_so_far": 35.89999999999418,
+        "hour_range_over_m5_atr14": 2.275446679620797
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84812.01,
+        "rsi14": 44.246244916373136,
+        "atr14": 15.777122057624709,
+        "ema20": 84825.23795695067,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84803.421812532
+        },
+        "last_confirmed_pivot_high": 84890.0,
+        "last_confirmed_pivot_low": 84808.11
+      }
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T05:30:11.917453+00:00",
+      "side": "YES",
+      "pnl": "1.846117255",
+      "p_up": 0.9266709012543157,
+      "opening": "84811.94",
+      "reference_price": 84861.33,
+      "last_closed_utc": "2026-10-04T05:29:59.999000+00:00",
+      "minute_source_sha256": "f40f21e6bedf20894914f2a6bae6f3c7bb734599327aa5c64a9edc92dabce149",
+      "artifact": 11295051929,
+      "run": 37177706938,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84861.34,
+        "rsi14": 71.41854390009097,
+        "atr14": 3.960200667027569,
+        "ema20": 84850.65963318908,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84859.63285190832
+        },
+        "last_confirmed_pivot_high": 84872.6,
+        "last_confirmed_pivot_low": 84830.67,
+        "momentum15_pct": 0.03221585305233088,
+        "trailing15_support": 84830.67,
+        "trailing15_resistance": 84872.6,
+        "support_distance_atr": 7.744557051200745,
+        "resistance_distance_atr": 2.8432902639907884,
+        "hour_range_so_far": 60.99000000000524,
+        "hour_range_over_m5_atr14": 4.280392337963333
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84861.34,
+        "rsi14": 58.47185899285569,
+        "atr14": 14.248693854317356,
+        "ema20": 84834.7001608541,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84825.70742176822
+        },
+        "last_confirmed_pivot_high": 84890.0,
+        "last_confirmed_pivot_low": 84811.61
+      }
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T06:30:16.248532+00:00",
+      "side": "NO",
+      "pnl": "-9.390450955",
+      "p_up": 0.03544264441266287,
+      "opening": "2694.74",
+      "reference_price": 2691.25,
+      "last_closed_utc": "2026-10-04T06:29:59.999000+00:00",
+      "minute_source_sha256": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad",
+      "artifact": 11296245826,
+      "run": 37180405302,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2691.72,
+        "rsi14": 26.166920647588753,
+        "atr14": 0.4797428593905723,
+        "ema20": 2693.5804753341286,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2693.243232625905
+        },
+        "last_confirmed_pivot_high": 2697.42,
+        "last_confirmed_pivot_low": 2694.05,
+        "momentum15_pct": -0.09612850785545302,
+        "trailing15_support": 2691.54,
+        "trailing15_resistance": 2697.42,
+        "support_distance_atr": 0.37520099877774976,
+        "resistance_distance_atr": 11.881364961306783,
+        "hour_range_so_far": 6.139999999999873,
+        "hour_range_over_m5_atr14": 5.507613790908699
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2691.72,
+        "rsi14": 41.5846635703173,
+        "atr14": 1.1148203619750972,
+        "ema20": 2694.008613594442,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2695.879372768272
+        },
+        "last_confirmed_pivot_high": 2697.9,
+        "last_confirmed_pivot_low": 2691.4
+      }
+    }
+  ],
+  "limitations": [
+    "Five selected admitted trades, four hour clusters; not all37 forecasts and not independent holdout.",
+    "Indicators were not used by frozen entry model. No strategy performance or optimal filter inferred.",
+    "M5 recursive warmup limited to24 bars; M1 to121, may differ from long TradingView chart history.",
+    "M1 and M5 ATR have different horizons; hour range/M5 ATR is descriptive, not daily ATR exhaustion.",
+    "Historical levels and confirmed pivots do not imply reversal probability.",
+    "Outcome known for selecting this diagnostic; feature values use only contemporaneously available closed candles."
+  ],
+  "checks": {
+    "artifact_digests_match": true,
+    "all_five_archived_probabilities_reproduced": true,
+    "closed_only_contiguous_warmup": true,
+    "independent_weighted_sum_atr_rsi_ema_verification": true,
+    "indicator_range_and_supertrend_side_checks": true
+  }
+}
