@@ -75,6 +75,24 @@ class TestFifteenMinuteStructure(unittest.TestCase):
         self.assertEqual(row["conflicting_minutes"], [0])
         self.assertNotEqual(row["h1_reason"], "CONFLICTING_CLOSED_SOURCE")
 
+    def test_fresh_complete_h1_structure_recovers_after_old_conflict(self):
+        trend = [100, 101, 102, 103, 102, 101, 102, 104, 106, 105, 104,
+                 103, 104, 106, 108, 107, 106, 105, 106, 108, 110]
+        rows = []
+        for hour, price in enumerate(trend, 1):
+            for minute in range(60):
+                opened = (hour*60+minute)*60_000
+                rows.append({"open_ms": opened, "close_ms": opened+59_999,
+                             "o": float(price), "h": price+.1, "l": price-.1,
+                             "c": float(price), "available_ms": opened+60_000})
+        market_open = 22*3_600_000
+        row = label_decision(RecordingStore(rows, [0]), condition="a",
+                             symbol="BTCUSDT", open_ms=market_open,
+                             decision_ms=market_open+480_000)
+        self.assertEqual(row["h1_state"], "TREND_UP")
+        self.assertTrue(row["ready_h1"])
+        self.assertEqual(row["conflicting_minutes"], [0])
+
     def test_conflicted_latest_minute_fails_closed(self):
         store = MinuteStore()
         for close in ("100", "101"):
