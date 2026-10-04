@@ -1,0 +1,444 @@
+{
+  "schema": "limitless-closed-candle-followup-v1",
+  "status": "OBSERVED_SOURCE_VERSIONS_NOT_FINALITY_GUARANTEE",
+  "source_as_of": "2026-10-04T13:55:29.916545+00:00",
+  "checked_targets": 5,
+  "targets": [
+    {
+      "symbol": "ETHUSDT",
+      "open_ms": 1791043980000,
+      "cohort": "original_four",
+      "unique_source_responses": 574,
+      "runs_of_equal_ohlc": [
+        {
+          "ohlc": [
+            "2680.04",
+            "2680.05",
+            "2679.95",
+            "2679.96"
+          ],
+          "first": {
+            "observed_ms": 1791044040884.695,
+            "requested_ms": 1791044040034.683,
+            "source_fingerprint": "7482622a5fa9994e6832398cc5983cad53a1b03cc0e8ce59e0279c54d0ecf5e2",
+            "artifact": 11279146210,
+            "run": 37134283434,
+            "line": 36736,
+            "ohlc": [
+              "2680.04",
+              "2680.05",
+              "2679.95",
+              "2679.96"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791044040884.695,
+            "requested_ms": 1791044040034.683,
+            "source_fingerprint": "7482622a5fa9994e6832398cc5983cad53a1b03cc0e8ce59e0279c54d0ecf5e2",
+            "artifact": 11279146210,
+            "run": 37134283434,
+            "line": 36736,
+            "ohlc": [
+              "2680.04",
+              "2680.05",
+              "2679.95",
+              "2679.96"
+            ]
+          },
+          "responses": 1
+        },
+        {
+          "ohlc": [
+            "2680.04",
+            "2680.05",
+            "2679.95",
+            "2679.95"
+          ],
+          "first": {
+            "observed_ms": 1791044059120.2878,
+            "requested_ms": 1791044058424.139,
+            "source_fingerprint": "0d9ac1d79c51881f00b6fb5f4793a9acba4fd2469793d6580f313d768fb75024",
+            "artifact": 11279146210,
+            "run": 37134283434,
+            "line": 37105,
+            "ohlc": [
+              "2680.04",
+              "2680.05",
+              "2679.95",
+              "2679.95"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791054821413.6301,
+            "requested_ms": 1791054820610.6611,
+            "source_fingerprint": "9a6982c3dd9d820b7a1624fd224c685ea7659444ce6ec9df42d31820faba69d5",
+            "artifact": 11282611940,
+            "run": 37144414604,
+            "line": 45814,
+            "ohlc": [
+              "2680.04",
+              "2680.05",
+              "2679.95",
+              "2679.95"
+            ]
+          },
+          "responses": 573
+        }
+      ],
+      "transitions": 1,
+      "returned_to_initial": false,
+      "new_six_archives_responses": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open_ms": 1791055560000,
+      "cohort": "original_four",
+      "unique_source_responses": 568,
+      "runs_of_equal_ohlc": [
+        {
+          "ohlc": [
+            "2682.99",
+            "2683",
+            "2682.99",
+            "2682.99"
+          ],
+          "first": {
+            "observed_ms": 1791055621099.226,
+            "requested_ms": 1791055620542.553,
+            "source_fingerprint": "e5df14a2f2305279eb9e6c068182975e73b01808d66990b32adaff4188b87958",
+            "artifact": 11282392465,
+            "run": 37146330445,
+            "line": 264,
+            "ohlc": [
+              "2682.99",
+              "2683",
+              "2682.99",
+              "2682.99"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791055621099.226,
+            "requested_ms": 1791055620542.553,
+            "source_fingerprint": "e5df14a2f2305279eb9e6c068182975e73b01808d66990b32adaff4188b87958",
+            "artifact": 11282392465,
+            "run": 37146330445,
+            "line": 264,
+            "ohlc": [
+              "2682.99",
+              "2683",
+              "2682.99",
+              "2682.99"
+            ]
+          },
+          "responses": 1
+        },
+        {
+          "ohlc": [
+            "2682.99",
+            "2683",
+            "2682.99",
+            "2683"
+          ],
+          "first": {
+            "observed_ms": 1791055638367.7249,
+            "requested_ms": 1791055637810.467,
+            "source_fingerprint": "48fbb3b5d3103a6cedba1e6d3a57c993689e23ab196c46aaa0fc0322a3075426",
+            "artifact": 11282392465,
+            "run": 37146330445,
+            "line": 417,
+            "ohlc": [
+              "2682.99",
+              "2683",
+              "2682.99",
+              "2683"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791066398117.401,
+            "requested_ms": 1791066397564.2732,
+            "source_fingerprint": "329c2ac5d26f0a9bbe92df5ef2fd24102ab3072babd2548a298cc46a21dae5d1",
+            "artifact": 11286969562,
+            "run": 37157688574,
+            "line": 12139,
+            "ohlc": [
+              "2682.99",
+              "2683",
+              "2682.99",
+              "2683"
+            ]
+          },
+          "responses": 567
+        }
+      ],
+      "transitions": 1,
+      "returned_to_initial": false,
+      "new_six_archives_responses": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open_ms": 1791075840000,
+      "cohort": "original_four",
+      "unique_source_responses": 577,
+      "runs_of_equal_ohlc": [
+        {
+          "ohlc": [
+            "2692.54",
+            "2692.59",
+            "2692.16",
+            "2692.59"
+          ],
+          "first": {
+            "observed_ms": 1791075901292.6208,
+            "requested_ms": 1791075900329.5742,
+            "source_fingerprint": "3bcadf361b4eb2a8fc726d724b5472ed8b5707ec80e3d857046383fed707a918",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 3056,
+            "ohlc": [
+              "2692.54",
+              "2692.59",
+              "2692.16",
+              "2692.59"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791075901292.6208,
+            "requested_ms": 1791075900329.5742,
+            "source_fingerprint": "3bcadf361b4eb2a8fc726d724b5472ed8b5707ec80e3d857046383fed707a918",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 3056,
+            "ohlc": [
+              "2692.54",
+              "2692.59",
+              "2692.16",
+              "2692.59"
+            ]
+          },
+          "responses": 1
+        },
+        {
+          "ohlc": [
+            "2692.54",
+            "2692.59",
+            "2692.16",
+            "2692.58"
+          ],
+          "first": {
+            "observed_ms": 1791075918534.043,
+            "requested_ms": 1791075917970.257,
+            "source_fingerprint": "b183627d00ab075eda0da6f3a3a2b5106da847b629517ce5e74c56aceda6b623",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 3323,
+            "ohlc": [
+              "2692.54",
+              "2692.59",
+              "2692.16",
+              "2692.58"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791086698253.2908,
+            "requested_ms": 1791086697511.963,
+            "source_fingerprint": "b65008c82eaa73063b1e630363e1613f69f02f400e18017113e7d94fc6f437fc",
+            "artifact": 11293569525,
+            "run": 37174986129,
+            "line": 12631,
+            "ohlc": [
+              "2692.54",
+              "2692.59",
+              "2692.16",
+              "2692.58"
+            ]
+          },
+          "responses": 576
+        }
+      ],
+      "transitions": 1,
+      "returned_to_initial": false,
+      "new_six_archives_responses": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open_ms": 1791077760000,
+      "cohort": "original_four",
+      "unique_source_responses": 577,
+      "runs_of_equal_ohlc": [
+        {
+          "ohlc": [
+            "2691.79",
+            "2692.95",
+            "2691.79",
+            "2692.72"
+          ],
+          "first": {
+            "observed_ms": 1791077821002.148,
+            "requested_ms": 1791077820240.375,
+            "source_fingerprint": "670ca2eca1420071b873fff4e8f9ba5fdca2bf3b247c405fc106a37b01efb82b",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 31130,
+            "ohlc": [
+              "2691.79",
+              "2692.95",
+              "2691.79",
+              "2692.72"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791077821002.148,
+            "requested_ms": 1791077820240.375,
+            "source_fingerprint": "670ca2eca1420071b873fff4e8f9ba5fdca2bf3b247c405fc106a37b01efb82b",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 31130,
+            "ohlc": [
+              "2691.79",
+              "2692.95",
+              "2691.79",
+              "2692.72"
+            ]
+          },
+          "responses": 1
+        },
+        {
+          "ohlc": [
+            "2691.79",
+            "2692.95",
+            "2691.79",
+            "2692.73"
+          ],
+          "first": {
+            "observed_ms": 1791077841887.849,
+            "requested_ms": 1791077841347.7969,
+            "source_fingerprint": "18ea03651dba04c4fec1c19480afc02b516d43d97fc94c24a7c045c4935786b4",
+            "artifact": 11291030053,
+            "run": 37166631973,
+            "line": 31586,
+            "ohlc": [
+              "2691.79",
+              "2692.95",
+              "2691.79",
+              "2692.73"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791088617019.9968,
+            "requested_ms": 1791088616263.0442,
+            "source_fingerprint": "a00ee812fdd1befbe93da8d797774594024a17fed2b8b4900b744c7688074e54",
+            "artifact": 11293569525,
+            "run": 37174986129,
+            "line": 37866,
+            "ohlc": [
+              "2691.79",
+              "2692.95",
+              "2691.79",
+              "2692.73"
+            ]
+          },
+          "responses": 576
+        }
+      ],
+      "transitions": 1,
+      "returned_to_initial": false,
+      "new_six_archives_responses": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open_ms": 1791121620000,
+      "cohort": "new_conflict",
+      "unique_source_responses": 25,
+      "runs_of_equal_ohlc": [
+        {
+          "ohlc": [
+            "2698.96",
+            "2699.09",
+            "2698.94",
+            "2698.94"
+          ],
+          "first": {
+            "observed_ms": 1791121680685.3992,
+            "requested_ms": 1791121680004.03,
+            "source_fingerprint": "7cb97f904794aeb793e487cca9eb0d974d591088a92fbfb5dc4524caecc51bc8",
+            "artifact": 11305700455,
+            "run": 37204069133,
+            "line": 38474,
+            "ohlc": [
+              "2698.96",
+              "2699.09",
+              "2698.94",
+              "2698.94"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791121680685.3992,
+            "requested_ms": 1791121680004.03,
+            "source_fingerprint": "7cb97f904794aeb793e487cca9eb0d974d591088a92fbfb5dc4524caecc51bc8",
+            "artifact": 11305700455,
+            "run": 37204069133,
+            "line": 38474,
+            "ohlc": [
+              "2698.96",
+              "2699.09",
+              "2698.94",
+              "2698.94"
+            ]
+          },
+          "responses": 1
+        },
+        {
+          "ohlc": [
+            "2698.96",
+            "2699.09",
+            "2698.94",
+            "2698.95"
+          ],
+          "first": {
+            "observed_ms": 1791121698196.857,
+            "requested_ms": 1791121697484.61,
+            "source_fingerprint": "a3be28716b9bb4fac2a3187f23f577f8ccf2c646462924f3b02c90d728580cd6",
+            "artifact": 11305700455,
+            "run": 37204069133,
+            "line": 38698,
+            "ohlc": [
+              "2698.96",
+              "2699.09",
+              "2698.94",
+              "2698.95"
+            ]
+          },
+          "last": {
+            "observed_ms": 1791122124839.984,
+            "requested_ms": 1791122124137.365,
+            "source_fingerprint": "0a5c05437ab41d394a0ee3fcc5f295f143a1b897c5782339e918b648c7d79910",
+            "artifact": 11305700455,
+            "run": 37204069133,
+            "line": 43165,
+            "ohlc": [
+              "2698.96",
+              "2699.09",
+              "2698.94",
+              "2698.95"
+            ]
+          },
+          "responses": 24
+        }
+      ],
+      "transitions": 1,
+      "returned_to_initial": false,
+      "new_six_archives_responses": 25
+    }
+  ],
+  "methods": {
+    "selection": "All conflicts in the extended28-archive snapshot; original4 and newly observed conflict labelled separately; no tolerance or overwrite.",
+    "eligibility": "Nominal candle close strictly before request_start; sort by receipt; unique response fingerprints.",
+    "identity": "Decimal-normalized O/H/L/C; each repeated identical response counted as observation, not independent candle.",
+    "scope": "28 completed main capture archives; no new public API request or collector changes."
+  },
+  "limitations": [
+    "The six new segments no longer contain the four old minutes in their rolling181 window; persistence for them uses earlier archived responses.",
+    "Observed persistence of a version is not an exchange finality guarantee or a new safety delay.",
+    "Frozen diagnostic retains all conflicts as-of; earlier labels are never repaired with later data."
+  ]
+}

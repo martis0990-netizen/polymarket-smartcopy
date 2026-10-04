@@ -1,0 +1,85 @@
+{
+  "schema": "limitless-regime-followup-validation-v1",
+  "status": "PASS_DIAGNOSTIC_CONTINUITY_ONLY",
+  "source_as_of": "2026-10-04T13:55:29.916545+00:00",
+  "source_ref": "ef1919d902935f7a666597b596c96369b28e5ddf",
+  "evidence_sha256": "7604d0c38102db2affdbb1b111923644d7498d0e556b585c59934213c5c9db37",
+  "version_history_evidence_sha256": "def83f5335bd45eba71138a43844b4c4ae2308b9c746685615de7995bb8f6042",
+  "implementation_sha256": "565f8f3404aaca9ce1cbe71f52b31958a4dd90950471f17577503053e9f6568e",
+  "checks": {
+    "classifier_unchanged": true,
+    "all37_old_snapshots_exact_unchanged": true,
+    "no_duplicate_condition": true,
+    "fifth_later_conflict_absent_from_all_earlier_decisions": true,
+    "all52_episodes_accounted": true
+  },
+  "new_decisions": 9,
+  "new_hour_clusters": 5,
+  "added_state_counts": {
+    "H4": {
+      "UNKNOWN": 9
+    },
+    "H1": {
+      "UNKNOWN": 9
+    },
+    "M15": {
+      "UNKNOWN": 4,
+      "TRANSITION": 1,
+      "TREND_UP": 4
+    },
+    "M5": {
+      "UNKNOWN": 4,
+      "TREND_UP": 3,
+      "TRANSITION": 2
+    },
+    "M1": {
+      "UNKNOWN": 4,
+      "TREND_UP": 4,
+      "TRANSITION": 1
+    }
+  },
+  "missed_decision_episodes": [
+    {
+      "condition": "0xfbc296ab5874f4730bf73d3c9afffea827f352a6c9a14c6b4e4a28d5b9c7abd5",
+      "start": 1791028800.0,
+      "reason": "MISSED_DECISION_WINDOW"
+    },
+    {
+      "condition": "0x4e42a2a151c4cee6515fb7efb9b1b84b957cffadabcf42183138b4588d817a78",
+      "start": 1791028800.0,
+      "reason": "MISSED_DECISION_WINDOW"
+    },
+    {
+      "condition": "0xdbf330db6be8fddf46003ed1e767d1429077eecf4ebab3ef3c0c7215aa07eb75",
+      "start": 1791090000.0,
+      "reason": "MISSED_DECISION_WINDOW"
+    },
+    {
+      "condition": "0x77e857d54002a29437c60378ec67de9d0637c18ee8f093f22fe62c6ccbd7c910",
+      "start": 1791108000.0,
+      "reason": "MISSED_DECISION_WINDOW"
+    }
+  ],
+  "pending_unscored_episodes": [
+    {
+      "condition": "0x5a20448aee2e9376a9d7bebd42bbdcef33986090e147a1aaf9726ac463c4c1cc",
+      "decision_at": 1791120608.6400132,
+      "symbol": "BTCUSDT"
+    },
+    {
+      "condition": "0x654f993807b2eef6a453a92c9b07da9e4b3d1ab6f3fe8faaab5d94c609052ce3",
+      "decision_at": 1791120608.9682374,
+      "symbol": "ETHUSDT"
+    }
+  ],
+  "denominators": {
+    "episodes": 52,
+    "scored_decisions": 46,
+    "missed_decisions": 4,
+    "pending_unscored": 2
+  },
+  "limitations": [
+    "All new rows remain discovery; this is not the October6\u201310 holdout evaluation.",
+    "No cash/PnL replay; existing frozen paper state untouched."
+  ]
+}
