@@ -1,0 +1,894 @@
+{
+  "status": "DISCOVERY_DIAGNOSTIC_INSUFFICIENT_DATA",
+  "as_of": "2026-10-04T08:27:00+00:00",
+  "source_ref": "0f0a153364e7aa7fb2325bad549ab069ed4abd20",
+  "input_market_artifacts": [
+    {
+      "run": 37185875778,
+      "artifact": 11298028349,
+      "sha256": "80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283"
+    },
+    {
+      "run": 37183121491,
+      "artifact": 11297181910,
+      "sha256": "4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051"
+    },
+    {
+      "run": 37180405302,
+      "artifact": 11296245826,
+      "sha256": "97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252"
+    }
+  ],
+  "loss": {
+    "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+    "slug": "eth-up-or-down-hourly-p-1791083110536",
+    "hour_start_utc": "2026-10-04T06:00:00+00:00",
+    "decision_utc": "2026-10-04T06:30:16.248532+00:00",
+    "opening": "2694.74",
+    "decision_price": 2691.25,
+    "closed_hour_ohlc": [
+      1791093600000,
+      "2694.74000000",
+      "2697.42000000",
+      "2691.23000000",
+      "2696.19000000"
+    ],
+    "p_down": 0.9645573555873371,
+    "sigma_1m": 0.00013159208239359806,
+    "remaining_minutes": 29.729191132386525,
+    "remaining_sigma_log": 0.0007174990098694383,
+    "distance_z": -1.8062116310585556,
+    "reference_age_s": 0.42040276527404785,
+    "source_fingerprints": {
+      "minute": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad",
+      "hour": "92f53e1ef0576cb55adf750b04a77886422e6c0e7768f07494a31668f7c0bb99",
+      "decision_book": "4abbfbbe6b0ece0e4685562a75753008b1fff5e0507dbfd064d85792038f5c9f"
+    },
+    "entry_delay_s": 17.20008134841919,
+    "payout": [
+      "1",
+      "0"
+    ],
+    "pnl": "-9.390450955",
+    "management": {
+      "action": "HOLD",
+      "conservative_value": "9.7901511914365646373240075",
+      "incremental_value": "0",
+      "status": "HOLD",
+      "decision_at": 1791095450.593489,
+      "p_up": "0.05318808903883915",
+      "reference_observed_at": 1791095450.079616,
+      "decision_cash": "100.875806284",
+      "alternatives": [
+        {
+          "action": "HOLD",
+          "conservative_value": "9.7901511914365646373240075",
+          "incremental_value": "0"
+        },
+        {
+          "action": "SELL",
+          "side": "NO",
+          "quantity": "10.67847295",
+          "gross_quantity": "10.67847295",
+          "gross_cash": "8.12092555020",
+          "net_quantity": "10.67847295",
+          "net_cash": "7.99911166694700",
+          "price_bound": "0.756",
+          "conservative_value": "7.99911166694700",
+          "incremental_value": "-1.7910395244895646373240075"
+        },
+        {
+          "action": "COMPLETE_PAIR",
+          "side": "YES",
+          "gross_quantity": "11.008735",
+          "gross_cash": "2.638131340",
+          "net_quantity": "10.67847295",
+          "net_cash": "2.638131340",
+          "price_bound": "0.244",
+          "quantity": "11.008735",
+          "locked_profit": "-1.360109345",
+          "risk_allowed": false,
+          "conservative_value": "8.0303416100000000000000000",
+          "incremental_value": "-1.7598095814365646373240075",
+          "paired_quantity": "10.67847295"
+        }
+      ],
+      "eligible_after": 1791095452.093489,
+      "expires_at": 1791095480.593489,
+      "yes_token": "21786018447205533316794595542781771309118877583112892992962800929422802415462",
+      "end": 1791097200.0
+    },
+    "minute_candles": 60,
+    "post_decision_first_close_at_or_above_open_utc": "2026-10-04T06:53:59.999000+00:00"
+  },
+  "calibration": [
+    {
+      "confidence_bin": "0.5-0.6",
+      "n": 6,
+      "hour_clusters": 5,
+      "mean_confidence": 0.5695525132439948,
+      "wins": 5,
+      "realized_win_rate": 0.8333333333333334,
+      "conditions": [
+        "0x61885291ede27812c051bd9b463948a34d45bd3ddfc86f7a15ad8f40c9dd823f",
+        "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+        "0x6479e714cade7f1db9f108f4109569fe9aaaaff50a95cb0e20897d0a3989b4c2",
+        "0xb280d313d049e6e9034e52132b1cb84b9a7029673441ea8b2f1cf4b65a72d2a6",
+        "0xc3a156df4a6c0bbe97f8063e279916646ad8600057b701e165b81f6cce05ed05",
+        "0xd23a6f651c321242d9058b62231d414fd48cc44eda92fcf152c73e7906583e8b"
+      ]
+    },
+    {
+      "confidence_bin": "0.6-0.7",
+      "n": 7,
+      "hour_clusters": 5,
+      "mean_confidence": 0.6455488829789915,
+      "wins": 5,
+      "realized_win_rate": 0.7142857142857143,
+      "conditions": [
+        "0x05c90c6cd099c61e08bb4becdf6d45c019d9e720d9484cc6df249f21260af8c3",
+        "0xb972a168458d95ca355591f1e9779340f95f37ab0f6ffea638f2bfdd65a4fe6f",
+        "0x92a5f25a970ee2d37440a606b7aea8dab2a3ca1d88551dcde3e73f9d82945789",
+        "0xc7371f89d74fe3243ab876236e002b513d86ef7d1d4624edee78c4190a2baa76",
+        "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+        "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+        "0xbc319a5dbf9e34f3a4d75a72f3a231502823651d33d15add106ac65147baf05b"
+      ]
+    },
+    {
+      "confidence_bin": "0.7-0.8",
+      "n": 13,
+      "hour_clusters": 11,
+      "mean_confidence": 0.7529277066277488,
+      "wins": 7,
+      "realized_win_rate": 0.5384615384615384,
+      "conditions": [
+        "0x263d9050b4fa72d8c034602f10ce835ca4a9a7a4e821331ec599f6c47699532e",
+        "0x09a00e856ae7e94093d475986f967399c72f5217f792a9cd7da9c0deb5cd1ccc",
+        "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+        "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+        "0x0840acbe88dbf8ab6f91c81607502f94b3d3f18ecea6afa4c8f4fd2f4d5cb08c",
+        "0xa30fc2938e028a15f611b98a67ff3494f3c34bdb0f10c784325dfcce42256bbb",
+        "0xe551cfe039f545f146ea9443881d95e1f735e55671954d89360bbe0a78d1b986",
+        "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+        "0x9cb95fb0fff117ac412f1aacdcca6559d440a8dd8884d8021b0a5646d52e3a3f",
+        "0x22bcfc588919cd225da778cb85d29828c1c2a0ce1930a3f345f3cbdd2e8e6807",
+        "0x9a53625301129b464a76678577cc876bc307ddccf748d02d5554cda42bea0fe6",
+        "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+        "0x0e069546d20d539e2b34cce5a55d34f13d593487b2952e95551c36660be65ad2"
+      ]
+    },
+    {
+      "confidence_bin": "0.8-0.9",
+      "n": 6,
+      "hour_clusters": 6,
+      "mean_confidence": 0.8355123433428157,
+      "wins": 4,
+      "realized_win_rate": 0.6666666666666666,
+      "conditions": [
+        "0xa3b9ffc1190a74eb5b7f094b64e5c89cbb7a17ffb67cfeebb8955ab76fadc600",
+        "0x896cea742471a1c27ef764f4eca8e3a2f9b41725bbdf909a9cf096d339f4d544",
+        "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+        "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+        "0x378f72ffa1ae828957068e7cfb16cdd5444cb35387f6dbe666903e3d636aded1",
+        "0xc97194cb1855327c389b97d86bd9573593c31a3106838832b6a1805bfd6d1bcc"
+      ]
+    },
+    {
+      "confidence_bin": "0.9-1.0",
+      "n": 5,
+      "hour_clusters": 5,
+      "mean_confidence": 0.9271821874666235,
+      "wins": 4,
+      "realized_win_rate": 0.8,
+      "conditions": [
+        "0x4971ba885a5ec4ad2b552f9238c15b6df0e44c4aeee9bebea65ce122ffe122a0",
+        "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+        "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+        "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+        "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0"
+      ]
+    }
+  ],
+  "scored_conditions": 37,
+  "brier": 0.24068074927843314,
+  "brier_without_loss_sensitivity": 0.22152268975234413,
+  "forecasts": [
+    {
+      "condition": "0xa3b9ffc1190a74eb5b7f094b64e5c89cbb7a17ffb67cfeebb8955ab76fadc600",
+      "symbol": "BTCUSDT",
+      "start": 1791032400.0,
+      "p_up": 0.17653866116935002,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.031165898887466573
+    },
+    {
+      "condition": "0x4971ba885a5ec4ad2b552f9238c15b6df0e44c4aeee9bebea65ce122ffe122a0",
+      "symbol": "ETHUSDT",
+      "start": 1791032400.0,
+      "p_up": 0.09974385035846539,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.009948835684331936
+    },
+    {
+      "condition": "0x05c90c6cd099c61e08bb4becdf6d45c019d9e720d9484cc6df249f21260af8c3",
+      "symbol": "BTCUSDT",
+      "start": 1791036000.0,
+      "p_up": 0.30873500354130723,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.09531730241165098
+    },
+    {
+      "condition": "0xb972a168458d95ca355591f1e9779340f95f37ab0f6ffea638f2bfdd65a4fe6f",
+      "symbol": "ETHUSDT",
+      "start": 1791036000.0,
+      "p_up": 0.38242733092412495,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.38139600158950027
+    },
+    {
+      "condition": "0x92a5f25a970ee2d37440a606b7aea8dab2a3ca1d88551dcde3e73f9d82945789",
+      "symbol": "BTCUSDT",
+      "start": 1791039600.0,
+      "p_up": 0.3993397942311242,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.3607926827943082
+    },
+    {
+      "condition": "0x896cea742471a1c27ef764f4eca8e3a2f9b41725bbdf909a9cf096d339f4d544",
+      "symbol": "ETHUSDT",
+      "start": 1791039600.0,
+      "p_up": 0.1781937388968276,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.03175300858203077
+    },
+    {
+      "condition": "0x263d9050b4fa72d8c034602f10ce835ca4a9a7a4e821331ec599f6c47699532e",
+      "symbol": "BTCUSDT",
+      "start": 1791043200.0,
+      "p_up": 0.22539700782081218,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.6000097954929509
+    },
+    {
+      "condition": "0xc7371f89d74fe3243ab876236e002b513d86ef7d1d4624edee78c4190a2baa76",
+      "symbol": "ETHUSDT",
+      "start": 1791043200.0,
+      "p_up": 0.32071162325458435,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.10285594529059046
+    },
+    {
+      "condition": "0x61885291ede27812c051bd9b463948a34d45bd3ddfc86f7a15ad8f40c9dd823f",
+      "symbol": "BTCUSDT",
+      "start": 1791046800.0,
+      "p_up": 0.592357240988637,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.1661726189743962
+    },
+    {
+      "condition": "0x09a00e856ae7e94093d475986f967399c72f5217f792a9cd7da9c0deb5cd1ccc",
+      "symbol": "ETHUSDT",
+      "start": 1791046800.0,
+      "p_up": 0.764275852833024,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.05556587355759815
+    },
+    {
+      "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+      "symbol": "BTCUSDT",
+      "start": 1791050400.0,
+      "p_up": 0.4217614069472537,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.17788268439012697
+    },
+    {
+      "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+      "symbol": "ETHUSDT",
+      "start": 1791050400.0,
+      "p_up": 0.2509627113603087,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.06298228249331761
+    },
+    {
+      "condition": "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+      "symbol": "BTCUSDT",
+      "start": 1791054000.0,
+      "p_up": 0.08220883684133629,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.00675829285480545
+    },
+    {
+      "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+      "symbol": "ETHUSDT",
+      "start": 1791054000.0,
+      "p_up": 0.17575551891069074,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.6793789646061846
+    },
+    {
+      "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+      "symbol": "BTCUSDT",
+      "start": 1791057600.0,
+      "p_up": 0.7720009300099551,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.5959854359362355
+    },
+    {
+      "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+      "symbol": "ETHUSDT",
+      "start": 1791057600.0,
+      "p_up": 0.8456824835256394,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.02381389589081457
+    },
+    {
+      "condition": "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+      "symbol": "BTCUSDT",
+      "start": 1791061200.0,
+      "p_up": 0.34472860390340987,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.11883781034919405
+    },
+    {
+      "condition": "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+      "symbol": "ETHUSDT",
+      "start": 1791061200.0,
+      "p_up": 0.39745707203009006,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.1579721241067322
+    },
+    {
+      "condition": "0x0840acbe88dbf8ab6f91c81607502f94b3d3f18ecea6afa4c8f4fd2f4d5cb08c",
+      "symbol": "BTCUSDT",
+      "start": 1791064800.0,
+      "p_up": 0.7542772854626693,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.06037965243959453
+    },
+    {
+      "condition": "0x378f72ffa1ae828957068e7cfb16cdd5444cb35387f6dbe666903e3d636aded1",
+      "symbol": "ETHUSDT",
+      "start": 1791064800.0,
+      "p_up": 0.8295989256869643,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.029036526127036732
+    },
+    {
+      "condition": "0xa30fc2938e028a15f611b98a67ff3494f3c34bdb0f10c784325dfcce42256bbb",
+      "symbol": "BTCUSDT",
+      "start": 1791068400.0,
+      "p_up": 0.26746261986796227,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.07153625302663409
+    },
+    {
+      "condition": "0xe551cfe039f545f146ea9443881d95e1f735e55671954d89360bbe0a78d1b986",
+      "symbol": "ETHUSDT",
+      "start": 1791068400.0,
+      "p_up": 0.7312447800082248,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.07222936827282748
+    },
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "symbol": "BTCUSDT",
+      "start": 1791072000.0,
+      "p_up": 0.7867130025545759,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.045491343279284356
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "symbol": "ETHUSDT",
+      "start": 1791072000.0,
+      "p_up": 0.9266353676912662,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.005382369273795707
+    },
+    {
+      "condition": "0x9cb95fb0fff117ac412f1aacdcca6559d440a8dd8884d8021b0a5646d52e3a3f",
+      "symbol": "BTCUSDT",
+      "start": 1791075600.0,
+      "p_up": 0.2835343814800656,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.5133229825211522
+    },
+    {
+      "condition": "0x22bcfc588919cd225da778cb85d29828c1c2a0ce1930a3f345f3cbdd2e8e6807",
+      "symbol": "ETHUSDT",
+      "start": 1791075600.0,
+      "p_up": 0.20945333734038224,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.6249640258422595
+    },
+    {
+      "condition": "0x9a53625301129b464a76678577cc876bc307ddccf748d02d5554cda42bea0fe6",
+      "symbol": "BTCUSDT",
+      "start": 1791079200.0,
+      "p_up": 0.7124611294428564,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.5076008609669906
+    },
+    {
+      "condition": "0x6479e714cade7f1db9f108f4109569fe9aaaaff50a95cb0e20897d0a3989b4c2",
+      "symbol": "ETHUSDT",
+      "start": 1791079200.0,
+      "p_up": 0.4080197278412413,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.16648009830764063
+    },
+    {
+      "condition": "0xb280d313d049e6e9034e52132b1cb84b9a7029673441ea8b2f1cf4b65a72d2a6",
+      "symbol": "BTCUSDT",
+      "start": 1791082800.0,
+      "p_up": 0.4564091760879948,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.29549098384133266
+    },
+    {
+      "condition": "0xc3a156df4a6c0bbe97f8063e279916646ad8600057b701e165b81f6cce05ed05",
+      "symbol": "ETHUSDT",
+      "start": 1791082800.0,
+      "p_up": 0.5523504698914327,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.20039010180642114
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "symbol": "BTCUSDT",
+      "start": 1791086400.0,
+      "p_up": 0.26554205885445903,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.07051258502066499
+    },
+    {
+      "condition": "0xbc319a5dbf9e34f3a4d75a72f3a231502823651d33d15add106ac65147baf05b",
+      "symbol": "ETHUSDT",
+      "start": 1791086400.0,
+      "p_up": 0.3277583912624188,
+      "payout": [
+        0.0,
+        1.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.1074255630429288
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "symbol": "BTCUSDT",
+      "start": 1791090000.0,
+      "p_up": 0.9266709012543157,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.005377156722854315
+    },
+    {
+      "condition": "0xd23a6f651c321242d9058b62231d414fd48cc44eda92fcf152c73e7906583e8b",
+      "symbol": "BTCUSDT",
+      "start": 1791093600.0,
+      "p_up": 0.5587976794603889,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.1946594876495377
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "symbol": "ETHUSDT",
+      "start": 1791093600.0,
+      "p_up": 0.03544264441266287,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "SETTLED",
+      "brier": 0.9303708922176367
+    },
+    {
+      "condition": "0x0e069546d20d539e2b34cce5a55d34f13d593487b2952e95551c36660be65ad2",
+      "symbol": "BTCUSDT",
+      "start": 1791097200.0,
+      "p_up": 0.23056067742658098,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.592036871122242
+    },
+    {
+      "condition": "0xc97194cb1855327c389b97d86bd9573593c31a3106838832b6a1805bfd6d1bcc",
+      "symbol": "ETHUSDT",
+      "start": 1791097200.0,
+      "p_up": 0.1317194301788414,
+      "payout": [
+        1.0,
+        0.0
+      ],
+      "model_status": "NO_TRADE",
+      "brier": 0.753911147928956
+    }
+  ],
+  "entry_economics": [
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "slug": "btc-up-or-down-hourly-p-1791061509376",
+      "side": "YES",
+      "chance": "0.7867130025545759",
+      "cost": "9.947561690",
+      "net_shares": "13.09244890",
+      "gross_shares": "13.497370",
+      "vwap": "0.737",
+      "break_even_probability": "0.7597938144329896907216494845",
+      "expected_pnl_at_model_probability": "0.352438094911354431921510",
+      "expected_return_at_model_probability": "0.035429596306565295793758480",
+      "probability_margin": "0.0269191881215862092783505155",
+      "max_price": "0.7408850606581928378640776699",
+      "entry_delay_s": 17.181228637695312,
+      "actual_pnl": "3.144887210",
+      "scenario_returns": {
+        "0": "0.035429596306565295793758480",
+        ".01": "0.021568423665245813922356091",
+        ".02": "0.008073464303749832232496697",
+        ".05": "-0.0303537325566218259212198221"
+      },
+      "probability_minus_003_return": "-0.0040547998942488154681139756",
+      "entry_worst_price": "0.737",
+      "stress_gate_check": {
+        "0": {
+          "worst_price_with_stress": "0.737",
+          "gross_cost_with_stress": "9.947561690",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".01": {
+          "worst_price_with_stress": "0.747",
+          "gross_cost_with_stress": "10.082535390",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".02": {
+          "worst_price_with_stress": "0.757",
+          "gross_cost_with_stress": "10.217509090",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".05": {
+          "worst_price_with_stress": "0.787",
+          "gross_cost_with_stress": "10.622430190",
+          "within_saved_price_and_budget_caps": false
+        }
+      }
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "slug": "eth-up-or-down-hourly-p-1791061510481",
+      "side": "YES",
+      "chance": "0.9266353676912662",
+      "cost": "9.967295592",
+      "net_shares": "11.11548317",
+      "gross_shares": "11.459261",
+      "vwap": "0.8698026506246781533294337218",
+      "break_even_probability": "0.8967037635305960343602409503",
+      "expected_pnl_at_model_probability": "0.332704242299031202089854",
+      "expected_return_at_model_probability": "0.033379590203592228539764771",
+      "probability_margin": "0.0299316041606701656397590497",
+      "max_price": "0.8726566084082798194174757282",
+      "entry_delay_s": 17.222473859786987,
+      "actual_pnl": "1.148187578",
+      "scenario_returns": {
+        "0": "0.033379590203592228539764771",
+        ".01": "0.021634006242576979737257951",
+        ".02": "0.010152426529082669752181749",
+        ".05": "-0.0227943939386462731082330874"
+      },
+      "probability_minus_003_return": "-0.0000762747320927249079366924",
+      "entry_worst_price": "0.872",
+      "stress_gate_check": {
+        "0": {
+          "worst_price_with_stress": "0.872",
+          "gross_cost_with_stress": "9.967295592",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".01": {
+          "worst_price_with_stress": "0.882",
+          "gross_cost_with_stress": "10.081888202",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".02": {
+          "worst_price_with_stress": "0.892",
+          "gross_cost_with_stress": "10.196480812",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".05": {
+          "worst_price_with_stress": "0.922",
+          "gross_cost_with_stress": "10.540258642",
+          "within_saved_price_and_budget_caps": false
+        }
+      }
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "slug": "btc-up-or-down-hourly-p-1791075904547",
+      "side": "NO",
+      "chance": "0.734457941145541",
+      "cost": "9.896882464",
+      "net_shares": "14.02394766",
+      "gross_shares": "14.457678",
+      "vwap": "0.6845416299906527175387361650",
+      "break_even_probability": "0.7057130206089203273595218196",
+      "expected_pnl_at_model_probability": "0.40311726109642742638406",
+      "expected_return_at_model_probability": "0.040731741794728807884128874",
+      "probability_margin": "0.0287449205366206726404781804",
+      "max_price": "0.6916739834089075436893203883",
+      "entry_delay_s": 17.401020050048828,
+      "actual_pnl": "4.127065196",
+      "scenario_returns": {
+        "0": "0.040731741794728807884128874",
+        ".01": "0.025747301743111812841617704",
+        ".02": "0.011188228750409868605826953",
+        ".05": "-0.0301105154241011486734379913"
+      },
+      "probability_minus_003_return": "-0.0017784558690675558593700604",
+      "entry_worst_price": "0.688",
+      "stress_gate_check": {
+        "0": {
+          "worst_price_with_stress": "0.688",
+          "gross_cost_with_stress": "9.896882464",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".01": {
+          "worst_price_with_stress": "0.698",
+          "gross_cost_with_stress": "10.041459244",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".02": {
+          "worst_price_with_stress": "0.708",
+          "gross_cost_with_stress": "10.186036024",
+          "within_saved_price_and_budget_caps": false
+        },
+        ".05": {
+          "worst_price_with_stress": "0.738",
+          "gross_cost_with_stress": "10.619766364",
+          "within_saved_price_and_budget_caps": false
+        }
+      }
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "slug": "btc-up-or-down-hourly-p-1791079504737",
+      "side": "YES",
+      "chance": "0.9266709012543157",
+      "cost": "9.268939115",
+      "net_shares": "11.11505637",
+      "gross_shares": "11.458821",
+      "vwap": "0.8088911690827529289444350339",
+      "break_even_probability": "0.8339084217347968339633350865",
+      "expected_pnl_at_model_probability": "1.031060188880422711276009",
+      "expected_return_at_model_probability": "0.111238209258689548666434303",
+      "probability_margin": "0.0927624795195188660366649135",
+      "max_price": "0.8726900720550351737864077670",
+      "entry_delay_s": 18.69466781616211,
+      "actual_pnl": "1.846117255",
+      "scenario_returns": {
+        "0": "0.111238209258689548666434303",
+        ".01": "0.097668173932708477648729925",
+        ".02": "0.084425564831837214672921853",
+        ".05": "0.046547928972921274263047177"
+      },
+      "probability_minus_003_return": "0.075263035944585845008650594",
+      "entry_worst_price": "0.815",
+      "stress_gate_check": {
+        "0": {
+          "worst_price_with_stress": "0.815",
+          "gross_cost_with_stress": "9.268939115",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".01": {
+          "worst_price_with_stress": "0.825",
+          "gross_cost_with_stress": "9.383527325",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".02": {
+          "worst_price_with_stress": "0.835",
+          "gross_cost_with_stress": "9.498115535",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".05": {
+          "worst_price_with_stress": "0.865",
+          "gross_cost_with_stress": "9.841880165",
+          "within_saved_price_and_budget_caps": true
+        }
+      }
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "slug": "eth-up-or-down-hourly-p-1791083110536",
+      "side": "NO",
+      "chance": "0.9645573555873371",
+      "cost": "9.390450955",
+      "net_shares": "10.67847295",
+      "gross_shares": "11.008735",
+      "vwap": "0.853",
+      "break_even_probability": "0.8793814432989690721649484536",
+      "expected_pnl_at_model_probability": "0.909548675362910584881445",
+      "expected_return_at_model_probability": "0.096858892051250864009378664",
+      "probability_margin": "0.0851759122883680278350515464",
+      "max_price": "0.9083695484657446475728155340",
+      "entry_delay_s": 17.20008134841919,
+      "actual_pnl": "-9.390450955",
+      "scenario_returns": {
+        "0": "0.096858892051250864009378664",
+        ".01": "0.084149055526902650057937428",
+        ".02": "0.071730395097041222222222222",
+        ".05": "0.036124734130362111849390919"
+      },
+      "probability_minus_003_return": "0.062744003422880406799531067",
+      "entry_worst_price": "0.853",
+      "stress_gate_check": {
+        "0": {
+          "worst_price_with_stress": "0.853",
+          "gross_cost_with_stress": "9.390450955",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".01": {
+          "worst_price_with_stress": "0.863",
+          "gross_cost_with_stress": "9.500538305",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".02": {
+          "worst_price_with_stress": "0.873",
+          "gross_cost_with_stress": "9.610625655",
+          "within_saved_price_and_budget_caps": true
+        },
+        ".05": {
+          "worst_price_with_stress": "0.903",
+          "gross_cost_with_stress": "9.940887705",
+          "within_saved_price_and_budget_caps": true
+        }
+      }
+    }
+  ],
+  "checks": {
+    "archived_probability_reproduced": true,
+    "hour_close_matches_limitless_resolution": true,
+    "source_digest_verified": true,
+    "calibration_and_economics_arithmetic": true
+  },
+  "limitations": [
+    "Confidence bins contain dependent BTC/ETH hour observations and small n.",
+    "NO_TRADE forecasts included; favoured outcome differs from traded undervalued outcome.",
+    "Fixed 0/1/2/5 cent stresses hold probability and gross size constant; no depth replay and no chosen optimal scenario.",
+    "Loss-free Brier is sensitivity only, not a publishable replacement benchmark.",
+    "Closed minute trajectory reconstructed after event only; not used in original decision.",
+    "SELL/COMPLETE_PAIR not tested by five HOLD outcomes.",
+    "Stress prices crossing saved max_price or 10 USDC budget would reject the original order; their returns are counterfactual sensitivity, not an authorised fill."
+  ]
+}
