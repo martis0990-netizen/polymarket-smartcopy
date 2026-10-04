@@ -1,0 +1,2963 @@
+{
+  "schema": "limitless-range-location-diagnostic-v1",
+  "status": "SAVED_FEATURE_RECOMPUTATION_NOT_CONFIRMED_CONSOLIDATION_NOT_STRATEGY",
+  "generated_at": "2026-10-04T10:39:34.683Z",
+  "source_data_as_of": "2026-10-04T08:27:00+00:00",
+  "source_ref": "ac7ce6a2166a230bf7aabf6fb2fbe892719b64eb",
+  "source_documents": [
+    "research/evidence/limitless_indicator_all_forecasts_2026-10-04.json",
+    "research/evidence/limitless_structure_snapshot_2026-10-04.json"
+  ],
+  "source_artifacts": [
+    {
+      "id": 11298028349,
+      "digest": "sha256:80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283",
+      "workflow_run": {
+        "id": 37185875778,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11297181910,
+      "digest": "sha256:4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051",
+      "workflow_run": {
+        "id": 37183121491,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11296245826,
+      "digest": "sha256:97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252",
+      "workflow_run": {
+        "id": 37180405302,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11295051929,
+      "digest": "sha256:4c7a51975dfceb7a722a91f9c6c039326764cf91edf87c351a6834f213d0196b",
+      "workflow_run": {
+        "id": 37177706938,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11293569525,
+      "digest": "sha256:eed15602ced5aad1e394547e9ebe24c75d6e19c12b159c71eab7fca1d7ac347e",
+      "workflow_run": {
+        "id": 37174986129,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11289279685,
+      "digest": "sha256:3eddcebdde12c1a273a4ae7e00522cf69b9b91ff2f2e2b396680e0d0a24a647c",
+      "workflow_run": {
+        "id": 37163767735,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11284416014,
+      "digest": "sha256:b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "workflow_run": {
+        "id": 37147962215,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+      }
+    },
+    {
+      "id": 11282392465,
+      "digest": "sha256:a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "workflow_run": {
+        "id": 37146330445,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+      }
+    },
+    {
+      "id": 11282611940,
+      "digest": "sha256:b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "workflow_run": {
+        "id": 37144414604,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0"
+      }
+    },
+    {
+      "id": 11277025685,
+      "digest": "sha256:584d77406c07880cf82e83a50ae0daa3d92acad4fba77ef9bea2775517ea6333",
+      "workflow_run": {
+        "id": 37127718840,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c3e70decab3457b80449dbfc1d12e404cd52a291"
+      }
+    },
+    {
+      "id": 11275138151,
+      "digest": "sha256:56a1c7e26d739cce2ee4ec78da84f709c3c83c66a8abecf6d9eab8f7784f56d9",
+      "workflow_run": {
+        "id": 37124589299,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "7cedb6683d6cb035f5a02c941b27ccf37c442947"
+      }
+    },
+    {
+      "id": 11292384638,
+      "digest": "sha256:b2ba49ae0bc90cc1a6f6ba172c0ab5958ce9f5907f0a59ded36bfec3cd865aad",
+      "workflow_run": {
+        "id": 37172271108,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11291114906,
+      "digest": "sha256:9dcad796b23fa73a725de88ed94e45cb07cd16b2291ec36b8a45a7c901a84265",
+      "workflow_run": {
+        "id": 37169445181,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11291030053,
+      "digest": "sha256:12ad05157410c048837a212286727d20f12de88aff16a6df98847414032ce5ba",
+      "workflow_run": {
+        "id": 37166631973,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11289045189,
+      "digest": "sha256:8f08173b33f0127eb161a8db0f93df44699d2201751a1fc4c31a0db38229596a",
+      "workflow_run": {
+        "id": 37160806532,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11286969562,
+      "digest": "sha256:43ce84df0040744bf1bc85afd48994f024374589dccfd9aaa593d435847abf7d",
+      "workflow_run": {
+        "id": 37157688574,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11286179317,
+      "digest": "sha256:c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "workflow_run": {
+        "id": 37154622571,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11284699716,
+      "digest": "sha256:519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "workflow_run": {
+        "id": 37151327629,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "e327a93bbb9f4ae31c1959ee86e673944e7aa63c"
+      }
+    },
+    {
+      "id": 11282026371,
+      "digest": "sha256:eac3ad1f8d5a771822328b893474e68416e90709a9137709c7ac9619cc4fc817",
+      "workflow_run": {
+        "id": 37141021612,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c2d35b4619c7cf057b7672d6e351275d2a695b2d"
+      }
+    },
+    {
+      "id": 11280730994,
+      "digest": "sha256:f1eadbd837af4bd10735293694705a207ca6fad628163cdc53dae9e1dc3e2d5f",
+      "workflow_run": {
+        "id": 37137646755,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c36b693f6fa0185c1cd3a0cc28857b394b7b8f76"
+      }
+    },
+    {
+      "id": 11279146210,
+      "digest": "sha256:f69f6a3916c050d156a9faddea8fb04b48cec3667badb9512a9f49057c16e311",
+      "workflow_run": {
+        "id": 37134283434,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c36b693f6fa0185c1cd3a0cc28857b394b7b8f76"
+      }
+    },
+    {
+      "id": 11278670184,
+      "digest": "sha256:eff4165bd37b41057a3b2dea4faa81612b4f74455de194c611ec9d9286229f10",
+      "workflow_run": {
+        "id": 37130957134,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "f3c11542d1fce3b0e833000456fe28f2b4dd6925"
+      }
+    }
+  ],
+  "methods": {
+    "geometry": "Last two normalized confirmed HIGHs and LOWs: HH/LL EXPANDING, LH/HL CONTRACTING, HH/HL RISING, LH/LL FALLING; equality separate. This is local geometry, not a stable range/trend classifier.",
+    "envelope": "Previously frozen trailing15 M1 extrema, excluding last signal candle, from archived decision-time diagnostics; not claimed consolidation bounds.",
+    "position": "(price-lower)/(upper-lower). Values remain unclamped; <0 below, >1 above. Last closed price and partially formed decision reference price separate.",
+    "atr": "Width divided by M1 Wilder ATR14; not H1/daily ATR exhaustion.",
+    "swing_envelope": "min(last two LOWs),max(last two HIGHs); may already be broken and stale, not an executable support/resistance forecast.",
+    "causality": "Uses saved contemporaneous37 snapshots already raw-verified in previous work. Source fingerprints joined exactly. No raw archive rescan this turn.",
+    "touches": "No raw ordered touch/sweep/return/acceptance replay. Stable consolidation and breakout confirmation remain UNVERIFIED.",
+    "policy": "No added filter, probability, entry or PnL simulation; original holdout and all trading settings unchanged."
+  },
+  "summary": {
+    "conditions": 37,
+    "hour_clusters": 19,
+    "mixed_conditions": 11,
+    "mixed_geometry": {
+      "EXPANDING": 5,
+      "CONTRACTING": 6
+    },
+    "all_geometry": {
+      "FALLING": 13,
+      "RISING": 13,
+      "EXPANDING": 5,
+      "CONTRACTING": 6
+    },
+    "all_previous15_close_locations": {
+      "WITHIN": 31,
+      "ABOVE": 2,
+      "BELOW": 4
+    },
+    "verified_stable_consolidations": 0
+  },
+  "eth_loss": {
+    "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+    "symbol": "ETHUSDT",
+    "decision_utc": "2026-10-04T06:30:16.248532+00:00",
+    "source_artifact": 11296245826,
+    "source_run": 37180405302,
+    "source_fingerprint": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad",
+    "original_structure": "MIXED_OR_EQUAL",
+    "swing_geometry": "EXPANDING",
+    "last_two_highs": [
+      {
+        "type": "HIGH",
+        "price": 2695,
+        "pivot_ms": 1791093900000,
+        "pivot_utc": "2026-10-04T06:05:00+00:00",
+        "confirmed_ms": 1791094079999,
+        "confirmed_utc": "2026-10-04T06:07:59.999000+00:00"
+      },
+      {
+        "type": "HIGH",
+        "price": 2697.42,
+        "pivot_ms": 1791094920000,
+        "pivot_utc": "2026-10-04T06:22:00+00:00",
+        "confirmed_ms": 1791095099999,
+        "confirmed_utc": "2026-10-04T06:24:59.999000+00:00"
+      }
+    ],
+    "last_two_lows": [
+      {
+        "type": "LOW",
+        "price": 2694.63,
+        "pivot_ms": 1791093840000,
+        "pivot_utc": "2026-10-04T06:04:00+00:00",
+        "confirmed_ms": 1791094019999,
+        "confirmed_utc": "2026-10-04T06:06:59.999000+00:00"
+      },
+      {
+        "type": "LOW",
+        "price": 2694.05,
+        "pivot_ms": 1791094440000,
+        "pivot_utc": "2026-10-04T06:14:00+00:00",
+        "confirmed_ms": 1791094619999,
+        "confirmed_utc": "2026-10-04T06:16:59.999000+00:00"
+      }
+    ],
+    "envelope_previous15_closed_m1": {
+      "lower": 2691.54,
+      "upper": 2697.42,
+      "width": 5.880000000000109,
+      "width_over_atr14": 12.256565960084533,
+      "last_closed_price": 2691.72,
+      "last_closed_position": 0.030612244897930775,
+      "decision_reference_price": 2691.25,
+      "reference_position": -0.04931972789114936,
+      "hour_open": 2694.74,
+      "hour_open_position": 0.5442176870747889,
+      "close_location": "WITHIN",
+      "reference_location": "BELOW"
+    },
+    "last_two_swing_envelope": {
+      "lower": 2694.05,
+      "upper": 2697.42,
+      "last_close_position": -0.691394658753845,
+      "reference_position": -0.83086053412471,
+      "hour_open_position": 0.20474777448060005
+    },
+    "stable_consolidation": "UNVERIFIED",
+    "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+    "model_changed": false
+  },
+  "rows": [
+    {
+      "condition": "0xa3b9ffc1190a74eb5b7f094b64e5c89cbb7a17ffb67cfeebb8955ab76fadc600",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T13:30:11.849910+00:00",
+      "source_artifact": 11275138151,
+      "source_run": 37124589299,
+      "source_fingerprint": "67868df1f200122ce818e2d066cc6105e7d52d9c74d4add4b7842f6d0c3dc1b3",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84872.61,
+          "pivot_ms": 1791033000000,
+          "pivot_utc": "2026-10-03T13:10:00+00:00",
+          "confirmed_ms": 1791033179999,
+          "confirmed_utc": "2026-10-03T13:12:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84820.01,
+          "pivot_ms": 1791033900000,
+          "pivot_utc": "2026-10-03T13:25:00+00:00",
+          "confirmed_ms": 1791034079999,
+          "confirmed_utc": "2026-10-03T13:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84828,
+          "pivot_ms": 1791032940000,
+          "pivot_utc": "2026-10-03T13:09:00+00:00",
+          "confirmed_ms": 1791033119999,
+          "confirmed_utc": "2026-10-03T13:11:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84770.35,
+          "pivot_ms": 1791033660000,
+          "pivot_utc": "2026-10-03T13:21:00+00:00",
+          "confirmed_ms": 1791033839999,
+          "confirmed_utc": "2026-10-03T13:23:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84770.35,
+        "upper": 84853.32,
+        "width": 82.97000000000116,
+        "width_over_atr14": 8.621140561070876,
+        "last_closed_price": 84812.01,
+        "last_closed_position": 0.5021091960948337,
+        "decision_reference_price": 84812.01,
+        "reference_position": 0.5021091960948337,
+        "hour_open": 84888.02,
+        "hour_open_position": 1.4182234542605352,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84770.35,
+        "upper": 84872.61,
+        "last_close_position": 0.4073929200077359,
+        "reference_position": 0.4073929200077359,
+        "hour_open_position": 1.1506943086251151
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x4971ba885a5ec4ad2b552f9238c15b6df0e44c4aeee9bebea65ce122ffe122a0",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T13:30:12.244045+00:00",
+      "source_artifact": 11275138151,
+      "source_run": 37124589299,
+      "source_fingerprint": "c71eb9e2c750e86c3df0822b81fb03d58687834600712a0d6ded3120198cc0a8",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2682.78,
+          "pivot_ms": 1791032580000,
+          "pivot_utc": "2026-10-03T13:03:00+00:00",
+          "confirmed_ms": 1791032759999,
+          "confirmed_utc": "2026-10-03T13:05:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2679.23,
+          "pivot_ms": 1791033900000,
+          "pivot_utc": "2026-10-03T13:25:00+00:00",
+          "confirmed_ms": 1791034079999,
+          "confirmed_utc": "2026-10-03T13:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2681.21,
+          "pivot_ms": 1791032520000,
+          "pivot_utc": "2026-10-03T13:02:00+00:00",
+          "confirmed_ms": 1791032699999,
+          "confirmed_utc": "2026-10-03T13:04:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2677.41,
+          "pivot_ms": 1791033660000,
+          "pivot_utc": "2026-10-03T13:21:00+00:00",
+          "confirmed_ms": 1791033839999,
+          "confirmed_utc": "2026-10-03T13:23:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2677.41,
+        "upper": 2681.27,
+        "width": 3.8600000000001273,
+        "width_over_atr14": 8.553100611797358,
+        "last_closed_price": 2678.84,
+        "last_closed_position": 0.37046632124358647,
+        "decision_reference_price": 2678.83,
+        "reference_position": 0.3678756476684005,
+        "hour_open": 2682.67,
+        "hour_open_position": 1.3626943005181462,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2677.41,
+        "upper": 2682.78,
+        "last_close_position": 0.266294227188119,
+        "reference_position": 0.26443202979515484,
+        "hour_open_position": 0.9795158286778175
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x05c90c6cd099c61e08bb4becdf6d45c019d9e720d9484cc6df249f21260af8c3",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T14:30:16.601156+00:00",
+      "source_artifact": 11277025685,
+      "source_run": 37127718840,
+      "source_fingerprint": "38efe50e74d54b3d7a17304866ae5d89173df9d387d5a8fced348169ad0797cb",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84878.01,
+          "pivot_ms": 1791035640000,
+          "pivot_utc": "2026-10-03T13:54:00+00:00",
+          "confirmed_ms": 1791035819999,
+          "confirmed_utc": "2026-10-03T13:56:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84840.01,
+          "pivot_ms": 1791037620000,
+          "pivot_utc": "2026-10-03T14:27:00+00:00",
+          "confirmed_ms": 1791037799999,
+          "confirmed_utc": "2026-10-03T14:29:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84833.42,
+          "pivot_ms": 1791035040000,
+          "pivot_utc": "2026-10-03T13:44:00+00:00",
+          "confirmed_ms": 1791035219999,
+          "confirmed_utc": "2026-10-03T13:46:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84792.42,
+          "pivot_ms": 1791036720000,
+          "pivot_utc": "2026-10-03T14:12:00+00:00",
+          "confirmed_ms": 1791036899999,
+          "confirmed_utc": "2026-10-03T14:14:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84792.42,
+        "upper": 84840.01,
+        "width": 47.58999999999651,
+        "width_over_atr14": 7.804303703949263,
+        "last_closed_price": 84826,
+        "last_closed_position": 0.7056104223577266,
+        "decision_reference_price": 84826,
+        "reference_position": 0.7056104223577266,
+        "hour_open": 84870.03,
+        "hour_open_position": 1.6308047909225947,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84792.42,
+        "upper": 84878.01,
+        "last_close_position": 0.39233555321887037,
+        "reference_position": 0.39233555321887037,
+        "hour_open_position": 0.9067648089730547
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xb972a168458d95ca355591f1e9779340f95f37ab0f6ffea638f2bfdd65a4fe6f",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T14:30:16.900265+00:00",
+      "source_artifact": 11277025685,
+      "source_run": 37127718840,
+      "source_fingerprint": "bb923cc57ee9b778040086c3c5930e870482d3ed6cc1a38c05e1a9987a14922a",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2682.17,
+          "pivot_ms": 1791035580000,
+          "pivot_utc": "2026-10-03T13:53:00+00:00",
+          "confirmed_ms": 1791035759999,
+          "confirmed_utc": "2026-10-03T13:55:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2681.77,
+          "pivot_ms": 1791037620000,
+          "pivot_utc": "2026-10-03T14:27:00+00:00",
+          "confirmed_ms": 1791037799999,
+          "confirmed_utc": "2026-10-03T14:29:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2680.7,
+          "pivot_ms": 1791035040000,
+          "pivot_utc": "2026-10-03T13:44:00+00:00",
+          "confirmed_ms": 1791035219999,
+          "confirmed_utc": "2026-10-03T13:46:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2678.83,
+          "pivot_ms": 1791036840000,
+          "pivot_utc": "2026-10-03T14:14:00+00:00",
+          "confirmed_ms": 1791037019999,
+          "confirmed_utc": "2026-10-03T14:16:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2678.83,
+        "upper": 2681.77,
+        "width": 2.9400000000000546,
+        "width_over_atr14": 12.225135133448283,
+        "last_closed_price": 2681.21,
+        "last_closed_position": 0.8095238095238316,
+        "decision_reference_price": 2681.22,
+        "reference_position": 0.8129251700679688,
+        "hour_open": 2681.99,
+        "hour_open_position": 1.0748299319727197,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2678.83,
+        "upper": 2682.17,
+        "last_close_position": 0.7125748502994028,
+        "reference_position": 0.7155688622753799,
+        "hour_open_position": 0.9461077844310529
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x92a5f25a970ee2d37440a606b7aea8dab2a3ca1d88551dcde3e73f9d82945789",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T15:30:17.523657+00:00",
+      "source_artifact": 11278670184,
+      "source_run": 37130957134,
+      "source_fingerprint": "68ed9faf07d2d15ab00832bb565a7815a82c7b4e4228733608b69190964bef2a",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84857.99,
+          "pivot_ms": 1791039540000,
+          "pivot_utc": "2026-10-03T14:59:00+00:00",
+          "confirmed_ms": 1791039719999,
+          "confirmed_utc": "2026-10-03T15:01:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84864,
+          "pivot_ms": 1791040800000,
+          "pivot_utc": "2026-10-03T15:20:00+00:00",
+          "confirmed_ms": 1791040979999,
+          "confirmed_utc": "2026-10-03T15:22:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84780,
+          "pivot_ms": 1791039660000,
+          "pivot_utc": "2026-10-03T15:01:00+00:00",
+          "confirmed_ms": 1791039839999,
+          "confirmed_utc": "2026-10-03T15:03:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84841.55,
+          "pivot_ms": 1791041040000,
+          "pivot_utc": "2026-10-03T15:24:00+00:00",
+          "confirmed_ms": 1791041219999,
+          "confirmed_utc": "2026-10-03T15:26:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84838,
+        "upper": 84879.05,
+        "width": 41.05000000000291,
+        "width_over_atr14": 4.769771831104175,
+        "last_closed_price": 84838.66,
+        "last_closed_position": 0.01607795371506567,
+        "decision_reference_price": 84834,
+        "reference_position": -0.0974421437271551,
+        "hour_open": 84856.01,
+        "hour_open_position": 0.4387332521313882,
+        "close_location": "WITHIN",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84780,
+        "upper": 84864,
+        "last_close_position": 0.6983333333333749,
+        "reference_position": 0.6428571428571429,
+        "hour_open_position": 0.9048809523808901
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x896cea742471a1c27ef764f4eca8e3a2f9b41725bbdf909a9cf096d339f4d544",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T15:30:17.794263+00:00",
+      "source_artifact": 11278670184,
+      "source_run": 37130957134,
+      "source_fingerprint": "a974e20390895bc90f35b158e0bf0f1006f722c35e0a070de6d27a9e35ebf3e5",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2681.78,
+          "pivot_ms": 1791040800000,
+          "pivot_utc": "2026-10-03T15:20:00+00:00",
+          "confirmed_ms": 1791040979999,
+          "confirmed_utc": "2026-10-03T15:22:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2681.34,
+          "pivot_ms": 1791041220000,
+          "pivot_utc": "2026-10-03T15:27:00+00:00",
+          "confirmed_ms": 1791041399999,
+          "confirmed_utc": "2026-10-03T15:29:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2680.85,
+          "pivot_ms": 1791040680000,
+          "pivot_utc": "2026-10-03T15:18:00+00:00",
+          "confirmed_ms": 1791040859999,
+          "confirmed_utc": "2026-10-03T15:20:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2680.59,
+          "pivot_ms": 1791041100000,
+          "pivot_utc": "2026-10-03T15:25:00+00:00",
+          "confirmed_ms": 1791041279999,
+          "confirmed_utc": "2026-10-03T15:27:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2680.59,
+        "upper": 2682.42,
+        "width": 1.8299999999999272,
+        "width_over_atr14": 3.8231618637394535,
+        "last_closed_price": 2680.82,
+        "last_closed_position": 0.12568306010930455,
+        "decision_reference_price": 2680.82,
+        "reference_position": 0.12568306010930455,
+        "hour_open": 2683.56,
+        "hour_open_position": 1.6229508196720863,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2680.59,
+        "upper": 2681.78,
+        "last_close_position": 0.19327731092437617,
+        "reference_position": 0.19327731092437617,
+        "hour_open_position": 2.4957983193274487
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x263d9050b4fa72d8c034602f10ce835ca4a9a7a4e821331ec599f6c47699532e",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T16:30:05.169760+00:00",
+      "source_artifact": 11279146210,
+      "source_run": 37134283434,
+      "source_fingerprint": "13d27f38593f83041115ae1bb9d46cb5a0b8da7f9e093f7ef28421491371fbfb",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84856,
+          "pivot_ms": 1791043500000,
+          "pivot_utc": "2026-10-03T16:05:00+00:00",
+          "confirmed_ms": 1791043679999,
+          "confirmed_utc": "2026-10-03T16:07:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84846.95,
+          "pivot_ms": 1791043920000,
+          "pivot_utc": "2026-10-03T16:12:00+00:00",
+          "confirmed_ms": 1791044099999,
+          "confirmed_utc": "2026-10-03T16:14:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84836.47,
+          "pivot_ms": 1791043560000,
+          "pivot_utc": "2026-10-03T16:06:00+00:00",
+          "confirmed_ms": 1791043739999,
+          "confirmed_utc": "2026-10-03T16:08:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84782.01,
+          "pivot_ms": 1791044400000,
+          "pivot_utc": "2026-10-03T16:20:00+00:00",
+          "confirmed_ms": 1791044579999,
+          "confirmed_utc": "2026-10-03T16:22:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84782.01,
+        "upper": 84840.17,
+        "width": 58.16000000000349,
+        "width_over_atr14": 10.896792094365937,
+        "last_closed_price": 84813.22,
+        "last_closed_position": 0.5366231086658275,
+        "decision_reference_price": 84813.23,
+        "reference_position": 0.5367950481430415,
+        "hour_open": 84867.27,
+        "hour_open_position": 1.4659559834938822,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84782.01,
+        "upper": 84856,
+        "last_close_position": 0.4218137586160859,
+        "reference_position": 0.421948912015123,
+        "hour_open_position": 1.1523178807947463
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xc7371f89d74fe3243ab876236e002b513d86ef7d1d4624edee78c4190a2baa76",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T16:30:05.480110+00:00",
+      "source_artifact": 11279146210,
+      "source_run": 37134283434,
+      "source_fingerprint": "734f9eeb9ae9a7acfa2eabb07777f3c381fd304e7c8baa6f9c61629a7bd2dafd",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2680.49,
+          "pivot_ms": 1791043860000,
+          "pivot_utc": "2026-10-03T16:11:00+00:00",
+          "confirmed_ms": 1791044039999,
+          "confirmed_utc": "2026-10-03T16:13:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2679.45,
+          "pivot_ms": 1791044700000,
+          "pivot_utc": "2026-10-03T16:25:00+00:00",
+          "confirmed_ms": 1791044879999,
+          "confirmed_utc": "2026-10-03T16:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2679.42,
+          "pivot_ms": 1791043320000,
+          "pivot_utc": "2026-10-03T16:02:00+00:00",
+          "confirmed_ms": 1791043499999,
+          "confirmed_utc": "2026-10-03T16:04:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2678.79,
+          "pivot_ms": 1791044400000,
+          "pivot_utc": "2026-10-03T16:20:00+00:00",
+          "confirmed_ms": 1791044579999,
+          "confirmed_utc": "2026-10-03T16:22:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2678.79,
+        "upper": 2679.96,
+        "width": 1.1700000000000728,
+        "width_over_atr14": 4.661662174702454,
+        "last_closed_price": 2680.29,
+        "last_closed_position": 1.2820512820512022,
+        "decision_reference_price": 2680.29,
+        "reference_position": 1.2820512820512022,
+        "hour_open": 2681.69,
+        "hour_open_position": 2.4786324786324023,
+        "close_location": "ABOVE",
+        "reference_location": "ABOVE"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2678.79,
+        "upper": 2680.49,
+        "last_close_position": 0.882352941176565,
+        "reference_position": 0.882352941176565,
+        "hour_open_position": 1.7058823529414124
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x61885291ede27812c051bd9b463948a34d45bd3ddfc86f7a15ad8f40c9dd823f",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T17:30:18.305015+00:00",
+      "source_artifact": 11280730994,
+      "source_run": 37137646755,
+      "source_fingerprint": "905f966caa31e85c96ae3338fc60100e59b7b1508362d8dbdc62f2f8b48b0244",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84880.01,
+          "pivot_ms": 1791046200000,
+          "pivot_utc": "2026-10-03T16:50:00+00:00",
+          "confirmed_ms": 1791046379999,
+          "confirmed_utc": "2026-10-03T16:52:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84959.99,
+          "pivot_ms": 1791048180000,
+          "pivot_utc": "2026-10-03T17:23:00+00:00",
+          "confirmed_ms": 1791048359999,
+          "confirmed_utc": "2026-10-03T17:25:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84831.89,
+          "pivot_ms": 1791045780000,
+          "pivot_utc": "2026-10-03T16:43:00+00:00",
+          "confirmed_ms": 1791045959999,
+          "confirmed_utc": "2026-10-03T16:45:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84852.87,
+          "pivot_ms": 1791046260000,
+          "pivot_utc": "2026-10-03T16:51:00+00:00",
+          "confirmed_ms": 1791046439999,
+          "confirmed_utc": "2026-10-03T16:53:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84885.36,
+        "upper": 84959.99,
+        "width": 74.63000000000466,
+        "width_over_atr14": 9.153881394061194,
+        "last_closed_price": 84894.01,
+        "last_closed_position": 0.11590513198437143,
+        "decision_reference_price": 84881.4,
+        "reference_position": -0.053061771405683446,
+        "hour_open": 84868.02,
+        "hour_open_position": -0.23234624145779748,
+        "close_location": "WITHIN",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84831.89,
+        "upper": 84959.99,
+        "last_close_position": 0.4849336455893249,
+        "reference_position": 0.3864949258391297,
+        "hour_open_position": 0.2820452771272679
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x09a00e856ae7e94093d475986f967399c72f5217f792a9cd7da9c0deb5cd1ccc",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T17:30:18.616668+00:00",
+      "source_artifact": 11280730994,
+      "source_run": 37137646755,
+      "source_fingerprint": "212b2030ce3af3ca984c60fd1fa3e89be490cfcefb7efc22cfa221c52967ecbc",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "EXPANDING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2685.64,
+          "pivot_ms": 1791047520000,
+          "pivot_utc": "2026-10-03T17:12:00+00:00",
+          "confirmed_ms": 1791047699999,
+          "confirmed_utc": "2026-10-03T17:14:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2686.66,
+          "pivot_ms": 1791048120000,
+          "pivot_utc": "2026-10-03T17:22:00+00:00",
+          "confirmed_ms": 1791048299999,
+          "confirmed_utc": "2026-10-03T17:24:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2684.5,
+          "pivot_ms": 1791047820000,
+          "pivot_utc": "2026-10-03T17:17:00+00:00",
+          "confirmed_ms": 1791047999999,
+          "confirmed_utc": "2026-10-03T17:19:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2683.58,
+          "pivot_ms": 1791048420000,
+          "pivot_utc": "2026-10-03T17:27:00+00:00",
+          "confirmed_ms": 1791048599999,
+          "confirmed_utc": "2026-10-03T17:29:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2683.58,
+        "upper": 2686.66,
+        "width": 3.0799999999999272,
+        "width_over_atr14": 7.235524533768535,
+        "last_closed_price": 2683.94,
+        "last_closed_position": 0.11688311688316098,
+        "decision_reference_price": 2683.31,
+        "reference_position": -0.08766233766233383,
+        "hour_open": 2681.67,
+        "hour_open_position": -0.6201298701298376,
+        "close_location": "WITHIN",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2683.58,
+        "upper": 2686.66,
+        "last_close_position": 0.11688311688316098,
+        "reference_position": -0.08766233766233383,
+        "hour_open_position": -0.6201298701298376
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T18:30:22.835588+00:00",
+      "source_artifact": 11282611940,
+      "source_run": 37144414604,
+      "source_fingerprint": "5c81be5eb6bab933729997615f68e6ba579067a0ab3e354bb2b7c38f43fd0808",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "EXPANDING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 85012.95,
+          "pivot_ms": 1791050520000,
+          "pivot_utc": "2026-10-03T18:02:00+00:00",
+          "confirmed_ms": 1791050699999,
+          "confirmed_utc": "2026-10-03T18:04:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 85014.01,
+          "pivot_ms": 1791051300000,
+          "pivot_utc": "2026-10-03T18:15:00+00:00",
+          "confirmed_ms": 1791051479999,
+          "confirmed_utc": "2026-10-03T18:17:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84977.06,
+          "pivot_ms": 1791051060000,
+          "pivot_utc": "2026-10-03T18:11:00+00:00",
+          "confirmed_ms": 1791051239999,
+          "confirmed_utc": "2026-10-03T18:13:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84954,
+          "pivot_ms": 1791051600000,
+          "pivot_utc": "2026-10-03T18:20:00+00:00",
+          "confirmed_ms": 1791051779999,
+          "confirmed_utc": "2026-10-03T18:22:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84954,
+        "upper": 85014.01,
+        "width": 60.00999999999476,
+        "width_over_atr14": 6.401079238346058,
+        "last_closed_price": 84995.78,
+        "last_closed_position": 0.6962172971171885,
+        "decision_reference_price": 84995.78,
+        "reference_position": 0.6962172971171885,
+        "hour_open": 85012.01,
+        "hour_open_position": 0.9666722212964477,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84954,
+        "upper": 85014.01,
+        "last_close_position": 0.6962172971171885,
+        "reference_position": 0.6962172971171885,
+        "hour_open_position": 0.9666722212964477
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T18:30:23.089754+00:00",
+      "source_artifact": 11282611940,
+      "source_run": 37144414604,
+      "source_fingerprint": "7cc2c8e4edb2eca857d9c5f2c0b3f791e4fe0fd27dc65a97d8c1af7dab4a1986",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2690,
+          "pivot_ms": 1791050760000,
+          "pivot_utc": "2026-10-03T18:06:00+00:00",
+          "confirmed_ms": 1791050939999,
+          "confirmed_utc": "2026-10-03T18:08:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2688.07,
+          "pivot_ms": 1791051300000,
+          "pivot_utc": "2026-10-03T18:15:00+00:00",
+          "confirmed_ms": 1791051479999,
+          "confirmed_utc": "2026-10-03T18:17:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2685.72,
+          "pivot_ms": 1791051120000,
+          "pivot_utc": "2026-10-03T18:12:00+00:00",
+          "confirmed_ms": 1791051299999,
+          "confirmed_utc": "2026-10-03T18:14:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2685.49,
+          "pivot_ms": 1791051480000,
+          "pivot_utc": "2026-10-03T18:18:00+00:00",
+          "confirmed_ms": 1791051659999,
+          "confirmed_utc": "2026-10-03T18:20:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2685.49,
+        "upper": 2688.07,
+        "width": 2.580000000000382,
+        "width_over_atr14": 5.754956580875871,
+        "last_closed_price": 2686.61,
+        "last_closed_position": 0.4341085271318526,
+        "decision_reference_price": 2686.6,
+        "reference_position": 0.43023255813952055,
+        "hour_open": 2689.01,
+        "hour_open_position": 1.364341085271285,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2685.49,
+        "upper": 2690,
+        "last_close_position": 0.2483370288248983,
+        "reference_position": 0.2461197339246283,
+        "hour_open_position": 0.7804878048781078
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T19:30:03.816688+00:00",
+      "source_artifact": 11284416014,
+      "source_run": 37147962215,
+      "source_fingerprint": "675fdcff3a2ebba6449c12e8c37508efa0a8e08719026943758721ba2e0e41c2",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "EXPANDING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84879.33,
+          "pivot_ms": 1791054540000,
+          "pivot_utc": "2026-10-03T19:09:00+00:00",
+          "confirmed_ms": 1791054719999,
+          "confirmed_utc": "2026-10-03T19:11:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84890.01,
+          "pivot_ms": 1791054960000,
+          "pivot_utc": "2026-10-03T19:16:00+00:00",
+          "confirmed_ms": 1791055139999,
+          "confirmed_utc": "2026-10-03T19:18:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84869.84,
+          "pivot_ms": 1791054840000,
+          "pivot_utc": "2026-10-03T19:14:00+00:00",
+          "confirmed_ms": 1791055019999,
+          "confirmed_utc": "2026-10-03T19:16:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84844,
+          "pivot_ms": 1791055140000,
+          "pivot_utc": "2026-10-03T19:19:00+00:00",
+          "confirmed_ms": 1791055319999,
+          "confirmed_utc": "2026-10-03T19:21:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84844,
+        "upper": 84890.01,
+        "width": 46.00999999999476,
+        "width_over_atr14": 7.318255331660347,
+        "last_closed_price": 84828.11,
+        "last_closed_position": -0.345359704412111,
+        "decision_reference_price": 84828.11,
+        "reference_position": -0.345359704412111,
+        "hour_open": 84950,
+        "hour_open_position": 2.3038469897850917,
+        "close_location": "BELOW",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84844,
+        "upper": 84890.01,
+        "last_close_position": -0.345359704412111,
+        "reference_position": -0.345359704412111,
+        "hour_open_position": 2.3038469897850917
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T19:30:04.111479+00:00",
+      "source_artifact": 11284416014,
+      "source_run": 37147962215,
+      "source_fingerprint": "6201b186ebed725c3f16aef4fad11a63f857a29eb19ec63d37477e7dc67cd264",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2685.22,
+          "pivot_ms": 1791053940000,
+          "pivot_utc": "2026-10-03T18:59:00+00:00",
+          "confirmed_ms": 1791054119999,
+          "confirmed_utc": "2026-10-03T19:01:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2685.97,
+          "pivot_ms": 1791054960000,
+          "pivot_utc": "2026-10-03T19:16:00+00:00",
+          "confirmed_ms": 1791055139999,
+          "confirmed_utc": "2026-10-03T19:18:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2682.49,
+          "pivot_ms": 1791054180000,
+          "pivot_utc": "2026-10-03T19:03:00+00:00",
+          "confirmed_ms": 1791054359999,
+          "confirmed_utc": "2026-10-03T19:05:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2682.99,
+          "pivot_ms": 1791055200000,
+          "pivot_utc": "2026-10-03T19:20:00+00:00",
+          "confirmed_ms": 1791055379999,
+          "confirmed_utc": "2026-10-03T19:22:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2682.92,
+        "upper": 2685.97,
+        "width": 3.049999999999727,
+        "width_over_atr14": 9.173087358672799,
+        "last_closed_price": 2681.72,
+        "last_closed_position": -0.39344262295094434,
+        "decision_reference_price": 2681.72,
+        "reference_position": -0.39344262295094434,
+        "hour_open": 2685.15,
+        "hour_open_position": 0.731147540983678,
+        "close_location": "BELOW",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2682.49,
+        "upper": 2685.97,
+        "last_close_position": -0.22126436781608558,
+        "reference_position": -0.22126436781608558,
+        "hour_open_position": 0.7643678160920389
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T20:30:04.371124+00:00",
+      "source_artifact": 11284699716,
+      "source_run": 37151327629,
+      "source_fingerprint": "318c65f22cfd9f597868630fc3ecb8a4287f0a4ca3648f111410b594c40cf67f",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84898.44,
+          "pivot_ms": 1791057780000,
+          "pivot_utc": "2026-10-03T20:03:00+00:00",
+          "confirmed_ms": 1791057959999,
+          "confirmed_utc": "2026-10-03T20:05:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84892.01,
+          "pivot_ms": 1791058500000,
+          "pivot_utc": "2026-10-03T20:15:00+00:00",
+          "confirmed_ms": 1791058679999,
+          "confirmed_utc": "2026-10-03T20:17:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84866.88,
+          "pivot_ms": 1791057900000,
+          "pivot_utc": "2026-10-03T20:05:00+00:00",
+          "confirmed_ms": 1791058079999,
+          "confirmed_utc": "2026-10-03T20:07:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84881.79,
+          "pivot_ms": 1791058560000,
+          "pivot_utc": "2026-10-03T20:16:00+00:00",
+          "confirmed_ms": 1791058739999,
+          "confirmed_utc": "2026-10-03T20:18:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84881.79,
+        "upper": 84915.65,
+        "width": 33.86000000000058,
+        "width_over_atr14": 6.72434305787037,
+        "last_closed_price": 84889.15,
+        "last_closed_position": 0.21736562315417765,
+        "decision_reference_price": 84889.15,
+        "reference_position": 0.21736562315417765,
+        "hour_open": 84842.5,
+        "hour_open_position": -1.1603662138214095,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84866.88,
+        "upper": 84898.44,
+        "last_close_position": 0.705640050696805,
+        "reference_position": 0.705640050696805,
+        "hour_open_position": -0.7724968314323972
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T20:30:04.685000+00:00",
+      "source_artifact": 11284699716,
+      "source_run": 37151327629,
+      "source_fingerprint": "414d9a844c9a159023b0cb59bb0a27c43af1cde184fc6fac190f97c7f692a59d",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2689.06,
+          "pivot_ms": 1791058920000,
+          "pivot_utc": "2026-10-03T20:22:00+00:00",
+          "confirmed_ms": 1791059099999,
+          "confirmed_utc": "2026-10-03T20:24:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2688.24,
+          "pivot_ms": 1791059160000,
+          "pivot_utc": "2026-10-03T20:26:00+00:00",
+          "confirmed_ms": 1791059339999,
+          "confirmed_utc": "2026-10-03T20:28:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2686.95,
+          "pivot_ms": 1791058020000,
+          "pivot_utc": "2026-10-03T20:07:00+00:00",
+          "confirmed_ms": 1791058199999,
+          "confirmed_utc": "2026-10-03T20:09:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2687.56,
+          "pivot_ms": 1791058980000,
+          "pivot_utc": "2026-10-03T20:23:00+00:00",
+          "confirmed_ms": 1791059159999,
+          "confirmed_utc": "2026-10-03T20:25:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2687.45,
+        "upper": 2689.06,
+        "width": 1.6100000000001273,
+        "width_over_atr14": 4.059773896777703,
+        "last_closed_price": 2688.1,
+        "last_closed_position": 0.40372670807455874,
+        "decision_reference_price": 2688.1,
+        "reference_position": 0.40372670807455874,
+        "hour_open": 2685.47,
+        "hour_open_position": -1.2298136645961872,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2686.95,
+        "upper": 2689.06,
+        "last_close_position": 0.5450236966824746,
+        "reference_position": 0.5450236966824746,
+        "hour_open_position": -0.7014218009478336
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T21:30:11.808346+00:00",
+      "source_artifact": 11286179317,
+      "source_run": 37154622571,
+      "source_fingerprint": "12f0045929d90630c8bcdfeb3744827e39d62e1318292ecaff02ade5fa07d5df",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84722.01,
+          "pivot_ms": 1791062280000,
+          "pivot_utc": "2026-10-03T21:18:00+00:00",
+          "confirmed_ms": 1791062459999,
+          "confirmed_utc": "2026-10-03T21:20:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84732.14,
+          "pivot_ms": 1791062700000,
+          "pivot_utc": "2026-10-03T21:25:00+00:00",
+          "confirmed_ms": 1791062879999,
+          "confirmed_utc": "2026-10-03T21:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84558,
+          "pivot_ms": 1791061740000,
+          "pivot_utc": "2026-10-03T21:09:00+00:00",
+          "confirmed_ms": 1791061919999,
+          "confirmed_utc": "2026-10-03T21:11:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84703.78,
+          "pivot_ms": 1791062460000,
+          "pivot_utc": "2026-10-03T21:21:00+00:00",
+          "confirmed_ms": 1791062639999,
+          "confirmed_utc": "2026-10-03T21:23:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84685.04,
+        "upper": 84732.14,
+        "width": 47.10000000000582,
+        "width_over_atr14": 3.745939460654902,
+        "last_closed_price": 84710.68,
+        "last_closed_position": 0.5443736730360138,
+        "decision_reference_price": 84710.69,
+        "reference_position": 0.5445859872612646,
+        "hour_open": 84749.76,
+        "hour_open_position": 1.3740976645433793,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84558,
+        "upper": 84732.14,
+        "last_close_position": 0.8767658206040745,
+        "reference_position": 0.8768232456644243,
+        "hour_open_position": 1.1011829562420776
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T21:30:12.089444+00:00",
+      "source_artifact": 11286179317,
+      "source_run": 37154622571,
+      "source_fingerprint": "aecde52779d0109b4c8a7bc2e7e963c08db3698a3ca313521ed1f61f7cb73f73",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2687.75,
+          "pivot_ms": 1791062160000,
+          "pivot_utc": "2026-10-03T21:16:00+00:00",
+          "confirmed_ms": 1791062339999,
+          "confirmed_utc": "2026-10-03T21:18:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2688,
+          "pivot_ms": 1791062700000,
+          "pivot_utc": "2026-10-03T21:25:00+00:00",
+          "confirmed_ms": 1791062879999,
+          "confirmed_utc": "2026-10-03T21:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2683.14,
+          "pivot_ms": 1791061740000,
+          "pivot_utc": "2026-10-03T21:09:00+00:00",
+          "confirmed_ms": 1791061919999,
+          "confirmed_utc": "2026-10-03T21:11:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2686.99,
+          "pivot_ms": 1791062340000,
+          "pivot_utc": "2026-10-03T21:19:00+00:00",
+          "confirmed_ms": 1791062519999,
+          "confirmed_utc": "2026-10-03T21:21:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2685.62,
+        "upper": 2688,
+        "width": 2.380000000000109,
+        "width_over_atr14": 5.586189525002367,
+        "last_closed_price": 2685.63,
+        "last_closed_position": 0.004201680672360429,
+        "decision_reference_price": 2685.99,
+        "reference_position": 0.1554621848738966,
+        "hour_open": 2686.74,
+        "hour_open_position": 0.4705882352940502,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2683.14,
+        "upper": 2688,
+        "last_close_position": 0.5123456790123809,
+        "reference_position": 0.5864197530863857,
+        "hour_open_position": 0.7407407407407026
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x0840acbe88dbf8ab6f91c81607502f94b3d3f18ecea6afa4c8f4fd2f4d5cb08c",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T22:30:08.642022+00:00",
+      "source_artifact": 11286969562,
+      "source_run": 37157688574,
+      "source_fingerprint": "608969e972ce606338ba6801c9a2d08b3777561bdbf98de74111ee534f954f2c",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84725.42,
+          "pivot_ms": 1791064680000,
+          "pivot_utc": "2026-10-03T21:58:00+00:00",
+          "confirmed_ms": 1791064859999,
+          "confirmed_utc": "2026-10-03T22:00:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84787.86,
+          "pivot_ms": 1791065520000,
+          "pivot_utc": "2026-10-03T22:12:00+00:00",
+          "confirmed_ms": 1791065699999,
+          "confirmed_utc": "2026-10-03T22:14:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84693.73,
+          "pivot_ms": 1791064980000,
+          "pivot_utc": "2026-10-03T22:03:00+00:00",
+          "confirmed_ms": 1791065159999,
+          "confirmed_utc": "2026-10-03T22:05:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84762,
+          "pivot_ms": 1791066360000,
+          "pivot_utc": "2026-10-03T22:26:00+00:00",
+          "confirmed_ms": 1791066539999,
+          "confirmed_utc": "2026-10-03T22:28:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84742.35,
+        "upper": 84798.53,
+        "width": 56.179999999993015,
+        "width_over_atr14": 5.343462189951984,
+        "last_closed_price": 84784.01,
+        "last_closed_position": 0.7415450338197601,
+        "decision_reference_price": 84784.01,
+        "reference_position": 0.7415450338197601,
+        "hour_open": 84715.15,
+        "hour_open_position": -0.4841580633680139,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84693.73,
+        "upper": 84787.86,
+        "last_close_position": 0.9590991182406711,
+        "reference_position": 0.9590991182406711,
+        "hour_open_position": 0.22755763306063098
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x378f72ffa1ae828957068e7cfb16cdd5444cb35387f6dbe666903e3d636aded1",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T22:30:09.005868+00:00",
+      "source_artifact": 11286969562,
+      "source_run": 37157688574,
+      "source_fingerprint": "87dc750d74e7def6084279f5f6fa86f6e3c50bedd6fc60e0bb1d8d369f4e7169",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2689.52,
+          "pivot_ms": 1791065880000,
+          "pivot_utc": "2026-10-03T22:18:00+00:00",
+          "confirmed_ms": 1791066059999,
+          "confirmed_utc": "2026-10-03T22:20:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2688.15,
+          "pivot_ms": 1791066240000,
+          "pivot_utc": "2026-10-03T22:24:00+00:00",
+          "confirmed_ms": 1791066419999,
+          "confirmed_utc": "2026-10-03T22:26:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2687.7,
+          "pivot_ms": 1791066060000,
+          "pivot_utc": "2026-10-03T22:21:00+00:00",
+          "confirmed_ms": 1791066239999,
+          "confirmed_utc": "2026-10-03T22:23:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2687.57,
+          "pivot_ms": 1791066360000,
+          "pivot_utc": "2026-10-03T22:26:00+00:00",
+          "confirmed_ms": 1791066539999,
+          "confirmed_utc": "2026-10-03T22:28:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2687.57,
+        "upper": 2689.52,
+        "width": 1.949999999999818,
+        "width_over_atr14": 3.7261541269467093,
+        "last_closed_price": 2687.92,
+        "last_closed_position": 0.1794871794871496,
+        "decision_reference_price": 2687.92,
+        "reference_position": 0.1794871794871496,
+        "hour_open": 2685.18,
+        "hour_open_position": -1.225641025641308,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2687.57,
+        "upper": 2689.52,
+        "last_close_position": 0.1794871794871496,
+        "reference_position": 0.1794871794871496,
+        "hour_open_position": -1.225641025641308
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xa30fc2938e028a15f611b98a67ff3494f3c34bdb0f10c784325dfcce42256bbb",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T23:30:10.108865+00:00",
+      "source_artifact": 11289045189,
+      "source_run": 37160806532,
+      "source_fingerprint": "5a36d7e4a683e6ca78c1b873c52f5a3d75b4d321c6d0d92d30c9281bf025c5ca",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "EXPANDING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84782.01,
+          "pivot_ms": 1791068520000,
+          "pivot_utc": "2026-10-03T23:02:00+00:00",
+          "confirmed_ms": 1791068699999,
+          "confirmed_utc": "2026-10-03T23:04:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84818.39,
+          "pivot_ms": 1791069840000,
+          "pivot_utc": "2026-10-03T23:24:00+00:00",
+          "confirmed_ms": 1791070019999,
+          "confirmed_utc": "2026-10-03T23:26:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84759.99,
+          "pivot_ms": 1791069360000,
+          "pivot_utc": "2026-10-03T23:16:00+00:00",
+          "confirmed_ms": 1791069539999,
+          "confirmed_utc": "2026-10-03T23:18:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84749.3,
+          "pivot_ms": 1791069960000,
+          "pivot_utc": "2026-10-03T23:26:00+00:00",
+          "confirmed_ms": 1791070139999,
+          "confirmed_utc": "2026-10-03T23:28:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84749.3,
+        "upper": 84818.39,
+        "width": 69.08999999999651,
+        "width_over_atr14": 5.658768582260987,
+        "last_closed_price": 84738.01,
+        "last_closed_position": -0.16341004486913766,
+        "decision_reference_price": 84738.01,
+        "reference_position": -0.16341004486913766,
+        "hour_open": 84776.02,
+        "hour_open_position": 0.38674193081491554,
+        "close_location": "BELOW",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84749.3,
+        "upper": 84818.39,
+        "last_close_position": -0.16341004486913766,
+        "reference_position": -0.16341004486913766,
+        "hour_open_position": 0.38674193081491554
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xe551cfe039f545f146ea9443881d95e1f735e55671954d89360bbe0a78d1b986",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T23:30:10.397488+00:00",
+      "source_artifact": 11289045189,
+      "source_run": 37160806532,
+      "source_fingerprint": "e8285381cf99519eebb4bc478c52bb9b5d597bd6b53b179d1631f2ad8e57c296",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2687.36,
+          "pivot_ms": 1791069420000,
+          "pivot_utc": "2026-10-03T23:17:00+00:00",
+          "confirmed_ms": 1791069599999,
+          "confirmed_utc": "2026-10-03T23:19:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2687.94,
+          "pivot_ms": 1791069840000,
+          "pivot_utc": "2026-10-03T23:24:00+00:00",
+          "confirmed_ms": 1791070019999,
+          "confirmed_utc": "2026-10-03T23:26:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2685.09,
+          "pivot_ms": 1791068820000,
+          "pivot_utc": "2026-10-03T23:07:00+00:00",
+          "confirmed_ms": 1791068999999,
+          "confirmed_utc": "2026-10-03T23:09:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2686.74,
+          "pivot_ms": 1791069600000,
+          "pivot_utc": "2026-10-03T23:20:00+00:00",
+          "confirmed_ms": 1791069779999,
+          "confirmed_utc": "2026-10-03T23:22:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2686.28,
+        "upper": 2687.94,
+        "width": 1.6599999999998545,
+        "width_over_atr14": 4.776980133758911,
+        "last_closed_price": 2688.01,
+        "last_closed_position": 1.0421686746988974,
+        "decision_reference_price": 2688.01,
+        "reference_position": 1.0421686746988974,
+        "hour_open": 2686.59,
+        "hour_open_position": 0.18674698795179073,
+        "close_location": "ABOVE",
+        "reference_location": "ABOVE"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2685.09,
+        "upper": 2687.94,
+        "last_close_position": 1.0245614035088302,
+        "reference_position": 1.0245614035088302,
+        "hour_open_position": 0.5263157894737011
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T00:30:16.606633+00:00",
+      "source_artifact": 11289279685,
+      "source_run": 37163767735,
+      "source_fingerprint": "36926acdee85cfdf21c7f777dbb4449ec664dd300aee94d58f019b5d6e10f5b5",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84840.01,
+          "pivot_ms": 1791072300000,
+          "pivot_utc": "2026-10-04T00:05:00+00:00",
+          "confirmed_ms": 1791072479999,
+          "confirmed_utc": "2026-10-04T00:07:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84871.34,
+          "pivot_ms": 1791073500000,
+          "pivot_utc": "2026-10-04T00:25:00+00:00",
+          "confirmed_ms": 1791073679999,
+          "confirmed_utc": "2026-10-04T00:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84743.2,
+          "pivot_ms": 1791071940000,
+          "pivot_utc": "2026-10-03T23:59:00+00:00",
+          "confirmed_ms": 1791072119999,
+          "confirmed_utc": "2026-10-04T00:01:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84811.26,
+          "pivot_ms": 1791072540000,
+          "pivot_utc": "2026-10-04T00:09:00+00:00",
+          "confirmed_ms": 1791072719999,
+          "confirmed_utc": "2026-10-04T00:11:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84808.93,
+        "upper": 84871.34,
+        "width": 62.41000000000349,
+        "width_over_atr14": 5.733488959592959,
+        "last_closed_price": 84808.93,
+        "last_closed_position": 0,
+        "decision_reference_price": 84808.93,
+        "reference_position": 0,
+        "hour_open": 84753.57,
+        "hour_open_position": -0.8870373337603418,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84743.2,
+        "upper": 84871.34,
+        "last_close_position": 0.5129545809270815,
+        "reference_position": 0.5129545809270815,
+        "hour_open_position": 0.08092711097245156
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T00:30:16.929035+00:00",
+      "source_artifact": 11289279685,
+      "source_run": 37163767735,
+      "source_fingerprint": "195dc2275e38ae2a6e31114a2a4108527ecc3624ba9e44e2d3acc1369ab70fa9",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2687.98,
+          "pivot_ms": 1791072120000,
+          "pivot_utc": "2026-10-04T00:02:00+00:00",
+          "confirmed_ms": 1791072299999,
+          "confirmed_utc": "2026-10-04T00:04:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2693.98,
+          "pivot_ms": 1791073200000,
+          "pivot_utc": "2026-10-04T00:20:00+00:00",
+          "confirmed_ms": 1791073379999,
+          "confirmed_utc": "2026-10-04T00:22:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2686.54,
+          "pivot_ms": 1791072060000,
+          "pivot_utc": "2026-10-04T00:01:00+00:00",
+          "confirmed_ms": 1791072239999,
+          "confirmed_utc": "2026-10-04T00:03:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2686.91,
+          "pivot_ms": 1791072600000,
+          "pivot_utc": "2026-10-04T00:10:00+00:00",
+          "confirmed_ms": 1791072779999,
+          "confirmed_utc": "2026-10-04T00:12:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2687.61,
+        "upper": 2693.98,
+        "width": 6.369999999999891,
+        "width_over_atr14": 8.5399638943628,
+        "last_closed_price": 2690.99,
+        "last_closed_position": 0.530612244897914,
+        "decision_reference_price": 2690.99,
+        "reference_position": 0.530612244897914,
+        "hour_open": 2687.24,
+        "hour_open_position": -0.05808477237054191,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2686.54,
+        "upper": 2693.98,
+        "last_close_position": 0.5981182795698636,
+        "reference_position": 0.5981182795698636,
+        "hour_open_position": 0.09408602150535121
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x9cb95fb0fff117ac412f1aacdcca6559d440a8dd8884d8021b0a5646d52e3a3f",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T01:30:14.608284+00:00",
+      "source_artifact": 11291030053,
+      "source_run": 37166631973,
+      "source_fingerprint": "887df12fffe2bdae9f789993d6706dee6cf179b94fae35b422bbcb5116d170be",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84809.21,
+          "pivot_ms": 1791076200000,
+          "pivot_utc": "2026-10-04T01:10:00+00:00",
+          "confirmed_ms": 1791076379999,
+          "confirmed_utc": "2026-10-04T01:12:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84747.51,
+          "pivot_ms": 1791077160000,
+          "pivot_utc": "2026-10-04T01:26:00+00:00",
+          "confirmed_ms": 1791077339999,
+          "confirmed_utc": "2026-10-04T01:28:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84776.99,
+          "pivot_ms": 1791075840000,
+          "pivot_utc": "2026-10-04T01:04:00+00:00",
+          "confirmed_ms": 1791076019999,
+          "confirmed_utc": "2026-10-04T01:06:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84719.99,
+          "pivot_ms": 1791076680000,
+          "pivot_utc": "2026-10-04T01:18:00+00:00",
+          "confirmed_ms": 1791076859999,
+          "confirmed_utc": "2026-10-04T01:20:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84719.99,
+        "upper": 84770,
+        "width": 50.00999999999476,
+        "width_over_atr14": 8.234896607323565,
+        "last_closed_price": 84747.5,
+        "last_closed_position": 0.5500899820035522,
+        "decision_reference_price": 84747.5,
+        "reference_position": 0.5500899820035522,
+        "hour_open": 84790,
+        "hour_open_position": 1.3999200159968426,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84719.99,
+        "upper": 84809.21,
+        "last_close_position": 0.3083389374579063,
+        "reference_position": 0.3083389374579063,
+        "hour_open_position": 0.7846895314951114
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x22bcfc588919cd225da778cb85d29828c1c2a0ce1930a3f345f3cbdd2e8e6807",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T01:30:14.915774+00:00",
+      "source_artifact": 11291030053,
+      "source_run": 37166631973,
+      "source_fingerprint": "d74e7c5f5a7d231daec4eca1fc255ae7594380c9a8a0950a5694e63964bc3f73",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2695,
+          "pivot_ms": 1791076200000,
+          "pivot_utc": "2026-10-04T01:10:00+00:00",
+          "confirmed_ms": 1791076379999,
+          "confirmed_utc": "2026-10-04T01:12:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2691.5,
+          "pivot_ms": 1791076860000,
+          "pivot_utc": "2026-10-04T01:21:00+00:00",
+          "confirmed_ms": 1791077039999,
+          "confirmed_utc": "2026-10-04T01:23:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2690.38,
+          "pivot_ms": 1791076740000,
+          "pivot_utc": "2026-10-04T01:19:00+00:00",
+          "confirmed_ms": 1791076919999,
+          "confirmed_utc": "2026-10-04T01:21:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2690.93,
+          "pivot_ms": 1791076980000,
+          "pivot_utc": "2026-10-04T01:23:00+00:00",
+          "confirmed_ms": 1791077159999,
+          "confirmed_utc": "2026-10-04T01:25:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2690.38,
+        "upper": 2693.86,
+        "width": 3.480000000000018,
+        "width_over_atr14": 8.02866958826575,
+        "last_closed_price": 2690.55,
+        "last_closed_position": 0.04885057471266433,
+        "decision_reference_price": 2690.54,
+        "reference_position": 0.045977011494210816,
+        "hour_open": 2693.5,
+        "hour_open_position": 0.896551724137895,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2690.38,
+        "upper": 2695,
+        "last_close_position": 0.03679653679655341,
+        "reference_position": 0.034632034632003955,
+        "hour_open_position": 0.6753246753246677
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x9a53625301129b464a76678577cc876bc307ddccf748d02d5554cda42bea0fe6",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T02:30:08.425742+00:00",
+      "source_artifact": 11291114906,
+      "source_run": 37169445181,
+      "source_fingerprint": "314a79c905a33bd08b286ea117bb42d1ee66277850f2644b449d03ece64855e2",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84877.09,
+          "pivot_ms": 1791079500000,
+          "pivot_utc": "2026-10-04T02:05:00+00:00",
+          "confirmed_ms": 1791079679999,
+          "confirmed_utc": "2026-10-04T02:07:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84850,
+          "pivot_ms": 1791080580000,
+          "pivot_utc": "2026-10-04T02:23:00+00:00",
+          "confirmed_ms": 1791080759999,
+          "confirmed_utc": "2026-10-04T02:25:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84800,
+          "pivot_ms": 1791080220000,
+          "pivot_utc": "2026-10-04T02:17:00+00:00",
+          "confirmed_ms": 1791080399999,
+          "confirmed_utc": "2026-10-04T02:19:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84838.28,
+          "pivot_ms": 1791080700000,
+          "pivot_utc": "2026-10-04T02:25:00+00:00",
+          "confirmed_ms": 1791080879999,
+          "confirmed_utc": "2026-10-04T02:27:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84800,
+        "upper": 84850,
+        "width": 50,
+        "width_over_atr14": 5.563209731563965,
+        "last_closed_price": 84836.01,
+        "last_closed_position": 0.7201999999998953,
+        "decision_reference_price": 84836.01,
+        "reference_position": 0.7201999999998953,
+        "hour_open": 84802.6,
+        "hour_open_position": 0.05200000000011642,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84800,
+        "upper": 84877.09,
+        "last_close_position": 0.4671163575041691,
+        "reference_position": 0.4671163575041691,
+        "hour_open_position": 0.033726812816265904
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x6479e714cade7f1db9f108f4109569fe9aaaaff50a95cb0e20897d0a3989b4c2",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T02:30:08.747955+00:00",
+      "source_artifact": 11291114906,
+      "source_run": 37169445181,
+      "source_fingerprint": "bac52e9ac3a0b077cb6dbfe78f2f9106967858d51fe1f98f3a7557c9fb8c9068",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2694.67,
+          "pivot_ms": 1791080340000,
+          "pivot_utc": "2026-10-04T02:19:00+00:00",
+          "confirmed_ms": 1791080519999,
+          "confirmed_utc": "2026-10-04T02:21:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2695.61,
+          "pivot_ms": 1791080580000,
+          "pivot_utc": "2026-10-04T02:23:00+00:00",
+          "confirmed_ms": 1791080759999,
+          "confirmed_utc": "2026-10-04T02:25:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2692.44,
+          "pivot_ms": 1791080220000,
+          "pivot_utc": "2026-10-04T02:17:00+00:00",
+          "confirmed_ms": 1791080399999,
+          "confirmed_utc": "2026-10-04T02:19:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2693.65,
+          "pivot_ms": 1791080520000,
+          "pivot_utc": "2026-10-04T02:22:00+00:00",
+          "confirmed_ms": 1791080699999,
+          "confirmed_utc": "2026-10-04T02:24:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2692.44,
+        "upper": 2695.61,
+        "width": 3.1700000000000728,
+        "width_over_atr14": 6.041689348060241,
+        "last_closed_price": 2693.92,
+        "last_closed_position": 0.46687697160882785,
+        "decision_reference_price": 2693.93,
+        "reference_position": 0.4700315457412453,
+        "hour_open": 2694.8,
+        "hour_open_position": 0.7444794952681619,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2692.44,
+        "upper": 2695.61,
+        "last_close_position": 0.46687697160882785,
+        "reference_position": 0.4700315457412453,
+        "hour_open_position": 0.7444794952681619
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xb280d313d049e6e9034e52132b1cb84b9a7029673441ea8b2f1cf4b65a72d2a6",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T03:30:13.996295+00:00",
+      "source_artifact": 11292384638,
+      "source_run": 37172271108,
+      "source_fingerprint": "b9c1b6639eabfe807699028dc5f0a12c1be7596b7309052beabe29e2bfd95cdd",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84812.36,
+          "pivot_ms": 1791083640000,
+          "pivot_utc": "2026-10-04T03:14:00+00:00",
+          "confirmed_ms": 1791083819999,
+          "confirmed_utc": "2026-10-04T03:16:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84825.48,
+          "pivot_ms": 1791084300000,
+          "pivot_utc": "2026-10-04T03:25:00+00:00",
+          "confirmed_ms": 1791084479999,
+          "confirmed_utc": "2026-10-04T03:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84782.79,
+          "pivot_ms": 1791082320000,
+          "pivot_utc": "2026-10-04T02:52:00+00:00",
+          "confirmed_ms": 1791082499999,
+          "confirmed_utc": "2026-10-04T02:54:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84800.04,
+          "pivot_ms": 1791083760000,
+          "pivot_utc": "2026-10-04T03:16:00+00:00",
+          "confirmed_ms": 1791083939999,
+          "confirmed_utc": "2026-10-04T03:18:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84796.41,
+        "upper": 84825.48,
+        "width": 29.069999999992433,
+        "width_over_atr14": 6.764596364547646,
+        "last_closed_price": 84796.41,
+        "last_closed_position": 0,
+        "decision_reference_price": 84796.42,
+        "reference_position": 0.0003439972478418959,
+        "hour_open": 84802.17,
+        "hour_open_position": 0.19814241486055248,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84782.79,
+        "upper": 84825.48,
+        "last_close_position": 0.3190442726636016,
+        "reference_position": 0.3192785195597075,
+        "hour_open_position": 0.4539704848911595
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xc3a156df4a6c0bbe97f8063e279916646ad8600057b701e165b81f6cce05ed05",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T03:30:14.317624+00:00",
+      "source_artifact": 11292384638,
+      "source_run": 37172271108,
+      "source_fingerprint": "bfa0678026ca33f9b2aa8d66fa4e64c858796962b890d21719590cb6160c376e",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2693.72,
+          "pivot_ms": 1791083880000,
+          "pivot_utc": "2026-10-04T03:18:00+00:00",
+          "confirmed_ms": 1791084059999,
+          "confirmed_utc": "2026-10-04T03:20:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2693.69,
+          "pivot_ms": 1791084180000,
+          "pivot_utc": "2026-10-04T03:23:00+00:00",
+          "confirmed_ms": 1791084359999,
+          "confirmed_utc": "2026-10-04T03:25:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2691.75,
+          "pivot_ms": 1791082980000,
+          "pivot_utc": "2026-10-04T03:03:00+00:00",
+          "confirmed_ms": 1791083159999,
+          "confirmed_utc": "2026-10-04T03:05:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2692.34,
+          "pivot_ms": 1791084060000,
+          "pivot_utc": "2026-10-04T03:21:00+00:00",
+          "confirmed_ms": 1791084239999,
+          "confirmed_utc": "2026-10-04T03:23:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2692.34,
+        "upper": 2693.72,
+        "width": 1.3799999999996544,
+        "width_over_atr14": 5.084214903111093,
+        "last_closed_price": 2693.15,
+        "last_closed_position": 0.5869565217392378,
+        "decision_reference_price": 2693,
+        "reference_position": 0.4782608695652317,
+        "hour_open": 2692.62,
+        "hour_open_position": 0.20289855072450397,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2691.75,
+        "upper": 2693.72,
+        "last_close_position": 0.7106598984772757,
+        "reference_position": 0.6345177664975263,
+        "hour_open_position": 0.44162436548222295
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T04:30:08.748280+00:00",
+      "source_artifact": 11293569525,
+      "source_run": 37174986129,
+      "source_fingerprint": "b4cda625fcd005b5465b3efb47865f581a5f219c8fee2ada964dcbe65cc2b739",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84844.01,
+          "pivot_ms": 1791086580000,
+          "pivot_utc": "2026-10-04T04:03:00+00:00",
+          "confirmed_ms": 1791086759999,
+          "confirmed_utc": "2026-10-04T04:05:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84812.01,
+          "pivot_ms": 1791087600000,
+          "pivot_utc": "2026-10-04T04:20:00+00:00",
+          "confirmed_ms": 1791087779999,
+          "confirmed_utc": "2026-10-04T04:22:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84840.87,
+          "pivot_ms": 1791086160000,
+          "pivot_utc": "2026-10-04T03:56:00+00:00",
+          "confirmed_ms": 1791086339999,
+          "confirmed_utc": "2026-10-04T03:58:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84808.11,
+          "pivot_ms": 1791087180000,
+          "pivot_utc": "2026-10-04T04:13:00+00:00",
+          "confirmed_ms": 1791087359999,
+          "confirmed_utc": "2026-10-04T04:15:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84808.11,
+        "upper": 84812.01,
+        "width": 3.8999999999941792,
+        "width_over_atr14": 2.971405328365867,
+        "last_closed_price": 84812.01,
+        "last_closed_position": 1,
+        "decision_reference_price": 84812,
+        "reference_position": 0.9974358974372368,
+        "hour_open": 84840.88,
+        "hour_open_position": 8.402564102577688,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84808.11,
+        "upper": 84844.01,
+        "last_close_position": 0.10863509749289169,
+        "reference_position": 0.10835654596100414,
+        "hour_open_position": 0.9128133704737991
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xbc319a5dbf9e34f3a4d75a72f3a231502823651d33d15add106ac65147baf05b",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T04:30:09.032291+00:00",
+      "source_artifact": 11293569525,
+      "source_run": 37174986129,
+      "source_fingerprint": "70a0233117d8be16fd975a81210ce717b01d6df7d428ab19a763e8dd79231f22",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2696.85,
+          "pivot_ms": 1791085320000,
+          "pivot_utc": "2026-10-04T03:42:00+00:00",
+          "confirmed_ms": 1791085499999,
+          "confirmed_utc": "2026-10-04T03:44:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2696.13,
+          "pivot_ms": 1791086640000,
+          "pivot_utc": "2026-10-04T04:04:00+00:00",
+          "confirmed_ms": 1791086819999,
+          "confirmed_utc": "2026-10-04T04:06:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2694.29,
+          "pivot_ms": 1791086160000,
+          "pivot_utc": "2026-10-04T03:56:00+00:00",
+          "confirmed_ms": 1791086339999,
+          "confirmed_utc": "2026-10-04T03:58:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2693.33,
+          "pivot_ms": 1791087840000,
+          "pivot_utc": "2026-10-04T04:24:00+00:00",
+          "confirmed_ms": 1791088019999,
+          "confirmed_utc": "2026-10-04T04:26:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2693.33,
+        "upper": 2694.84,
+        "width": 1.5100000000002183,
+        "width_over_atr14": 11.322794702850665,
+        "last_closed_price": 2693.31,
+        "last_closed_position": -0.01324503311256882,
+        "decision_reference_price": 2693.27,
+        "reference_position": -0.03973509933770646,
+        "hour_open": 2694.45,
+        "hour_open_position": 0.7417218543044563,
+        "close_location": "BELOW",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2693.33,
+        "upper": 2696.85,
+        "last_close_position": -0.005681818181813044,
+        "reference_position": -0.01704545454543913,
+        "hour_open_position": 0.3181818181817888
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T05:30:11.917453+00:00",
+      "source_artifact": 11295051929,
+      "source_run": 37177706938,
+      "source_fingerprint": "f40f21e6bedf20894914f2a6bae6f3c7bb734599327aa5c64a9edc92dabce149",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84842.01,
+          "pivot_ms": 1791090540000,
+          "pivot_utc": "2026-10-04T05:09:00+00:00",
+          "confirmed_ms": 1791090719999,
+          "confirmed_utc": "2026-10-04T05:11:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 84872.6,
+          "pivot_ms": 1791091560000,
+          "pivot_utc": "2026-10-04T05:26:00+00:00",
+          "confirmed_ms": 1791091739999,
+          "confirmed_utc": "2026-10-04T05:28:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84828.84,
+          "pivot_ms": 1791090360000,
+          "pivot_utc": "2026-10-04T05:06:00+00:00",
+          "confirmed_ms": 1791090539999,
+          "confirmed_utc": "2026-10-04T05:08:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84830.67,
+          "pivot_ms": 1791091080000,
+          "pivot_utc": "2026-10-04T05:18:00+00:00",
+          "confirmed_ms": 1791091259999,
+          "confirmed_utc": "2026-10-04T05:20:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84830.67,
+        "upper": 84872.6,
+        "width": 41.93000000000757,
+        "width_over_atr14": 10.587847315191533,
+        "last_closed_price": 84861.34,
+        "last_closed_position": 0.7314571905555144,
+        "decision_reference_price": 84861.33,
+        "reference_position": 0.7312186978296675,
+        "hour_open": 84811.94,
+        "hour_open_position": -0.44669687574511197,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84828.84,
+        "upper": 84872.6,
+        "last_close_position": 0.7426873857402442,
+        "reference_position": 0.7424588665447515,
+        "hour_open_position": -0.38619744058479394
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xd23a6f651c321242d9058b62231d414fd48cc44eda92fcf152c73e7906583e8b",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T06:30:16.086884+00:00",
+      "source_artifact": 11296245826,
+      "source_run": 37180405302,
+      "source_fingerprint": "e4b33a0627788865619d43404168b9f0c014c03cd15e033904b598b0a957a350",
+      "original_structure": "HH_HL_UP",
+      "swing_geometry": "RISING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 84922.49,
+          "pivot_ms": 1791093900000,
+          "pivot_utc": "2026-10-04T06:05:00+00:00",
+          "confirmed_ms": 1791094079999,
+          "confirmed_utc": "2026-10-04T06:07:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 85058.01,
+          "pivot_ms": 1791094920000,
+          "pivot_utc": "2026-10-04T06:22:00+00:00",
+          "confirmed_ms": 1791095099999,
+          "confirmed_utc": "2026-10-04T06:24:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84908.43,
+          "pivot_ms": 1791093300000,
+          "pivot_utc": "2026-10-04T05:55:00+00:00",
+          "confirmed_ms": 1791093479999,
+          "confirmed_utc": "2026-10-04T05:57:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84916,
+          "pivot_ms": 1791094440000,
+          "pivot_utc": "2026-10-04T06:14:00+00:00",
+          "confirmed_ms": 1791094619999,
+          "confirmed_utc": "2026-10-04T06:16:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84877.18,
+        "upper": 85058.01,
+        "width": 180.83000000000175,
+        "width_over_atr14": 10.053645678310069,
+        "last_closed_price": 84947.61,
+        "last_closed_position": 0.38948183376655915,
+        "decision_reference_price": 84919.75,
+        "reference_position": 0.23541447768626098,
+        "hour_open": 84912.01,
+        "hour_open_position": 0.19261184537964612,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84908.43,
+        "upper": 85058.01,
+        "last_close_position": 0.2619334135580098,
+        "reference_position": 0.0756785666533417,
+        "hour_open_position": 0.023933680973403558
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T06:30:16.248532+00:00",
+      "source_artifact": 11296245826,
+      "source_run": 37180405302,
+      "source_fingerprint": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "EXPANDING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2695,
+          "pivot_ms": 1791093900000,
+          "pivot_utc": "2026-10-04T06:05:00+00:00",
+          "confirmed_ms": 1791094079999,
+          "confirmed_utc": "2026-10-04T06:07:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2697.42,
+          "pivot_ms": 1791094920000,
+          "pivot_utc": "2026-10-04T06:22:00+00:00",
+          "confirmed_ms": 1791095099999,
+          "confirmed_utc": "2026-10-04T06:24:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2694.63,
+          "pivot_ms": 1791093840000,
+          "pivot_utc": "2026-10-04T06:04:00+00:00",
+          "confirmed_ms": 1791094019999,
+          "confirmed_utc": "2026-10-04T06:06:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2694.05,
+          "pivot_ms": 1791094440000,
+          "pivot_utc": "2026-10-04T06:14:00+00:00",
+          "confirmed_ms": 1791094619999,
+          "confirmed_utc": "2026-10-04T06:16:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2691.54,
+        "upper": 2697.42,
+        "width": 5.880000000000109,
+        "width_over_atr14": 12.256565960084533,
+        "last_closed_price": 2691.72,
+        "last_closed_position": 0.030612244897930775,
+        "decision_reference_price": 2691.25,
+        "reference_position": -0.04931972789114936,
+        "hour_open": 2694.74,
+        "hour_open_position": 0.5442176870747889,
+        "close_location": "WITHIN",
+        "reference_location": "BELOW"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2694.05,
+        "upper": 2697.42,
+        "last_close_position": -0.691394658753845,
+        "reference_position": -0.83086053412471,
+        "hour_open_position": 0.20474777448060005
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0x0e069546d20d539e2b34cce5a55d34f13d593487b2952e95551c36660be65ad2",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T07:30:06.435765+00:00",
+      "source_artifact": 11298028349,
+      "source_run": 37185875778,
+      "source_fingerprint": "3e282b81dddc3d036ff24d3a29c47ac89e7e272a366276318c6f10bd0d407e0e",
+      "original_structure": "MIXED_OR_EQUAL",
+      "swing_geometry": "CONTRACTING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 85072.54,
+          "pivot_ms": 1791096840000,
+          "pivot_utc": "2026-10-04T06:54:00+00:00",
+          "confirmed_ms": 1791097019999,
+          "confirmed_utc": "2026-10-04T06:56:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 85001.79,
+          "pivot_ms": 1791098700000,
+          "pivot_utc": "2026-10-04T07:25:00+00:00",
+          "confirmed_ms": 1791098879999,
+          "confirmed_utc": "2026-10-04T07:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 84934,
+          "pivot_ms": 1791098280000,
+          "pivot_utc": "2026-10-04T07:18:00+00:00",
+          "confirmed_ms": 1791098459999,
+          "confirmed_utc": "2026-10-04T07:20:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 84980.64,
+          "pivot_ms": 1791098760000,
+          "pivot_utc": "2026-10-04T07:26:00+00:00",
+          "confirmed_ms": 1791098939999,
+          "confirmed_utc": "2026-10-04T07:28:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 84934,
+        "upper": 85001.79,
+        "width": 67.7899999999936,
+        "width_over_atr14": 8.463762671310478,
+        "last_closed_price": 84972.74,
+        "last_closed_position": 0.5714707183951748,
+        "decision_reference_price": 84972.73,
+        "reference_position": 0.571323204012385,
+        "hour_open": 85031.74,
+        "hour_open_position": 1.4418055760438777,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 84934,
+        "upper": 85072.54,
+        "last_close_position": 0.2796304316443412,
+        "reference_position": 0.2795582503247995,
+        "hour_open_position": 0.7055002165440288
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    },
+    {
+      "condition": "0xc97194cb1855327c389b97d86bd9573593c31a3106838832b6a1805bfd6d1bcc",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T07:30:06.643360+00:00",
+      "source_artifact": 11298028349,
+      "source_run": 37185875778,
+      "source_fingerprint": "12131fc8b022c1bd1978a1ce11d7e9c69ff39f66df7c798a64ab7a39b7495428",
+      "original_structure": "LH_LL_DOWN",
+      "swing_geometry": "FALLING",
+      "last_two_highs": [
+        {
+          "type": "HIGH",
+          "price": 2696.35,
+          "pivot_ms": 1791097740000,
+          "pivot_utc": "2026-10-04T07:09:00+00:00",
+          "confirmed_ms": 1791097919999,
+          "confirmed_utc": "2026-10-04T07:11:59.999000+00:00"
+        },
+        {
+          "type": "HIGH",
+          "price": 2695,
+          "pivot_ms": 1791098700000,
+          "pivot_utc": "2026-10-04T07:25:00+00:00",
+          "confirmed_ms": 1791098879999,
+          "confirmed_utc": "2026-10-04T07:27:59.999000+00:00"
+        }
+      ],
+      "last_two_lows": [
+        {
+          "type": "LOW",
+          "price": 2695.87,
+          "pivot_ms": 1791097380000,
+          "pivot_utc": "2026-10-04T07:03:00+00:00",
+          "confirmed_ms": 1791097559999,
+          "confirmed_utc": "2026-10-04T07:05:59.999000+00:00"
+        },
+        {
+          "type": "LOW",
+          "price": 2692.4,
+          "pivot_ms": 1791098280000,
+          "pivot_utc": "2026-10-04T07:18:00+00:00",
+          "confirmed_ms": 1791098459999,
+          "confirmed_utc": "2026-10-04T07:20:59.999000+00:00"
+        }
+      ],
+      "envelope_previous15_closed_m1": {
+        "lower": 2692.4,
+        "upper": 2695.57,
+        "width": 3.1700000000000728,
+        "width_over_atr14": 6.740626526763924,
+        "last_closed_price": 2693.04,
+        "last_closed_position": 0.20189274447945046,
+        "decision_reference_price": 2693.11,
+        "reference_position": 0.2239747634069464,
+        "hour_open": 2696.2,
+        "hour_open_position": 1.1987381703468896,
+        "close_location": "WITHIN",
+        "reference_location": "WITHIN"
+      },
+      "last_two_swing_envelope": {
+        "lower": 2692.4,
+        "upper": 2696.35,
+        "last_close_position": 0.16202531645567142,
+        "reference_position": 0.17974683544305547,
+        "hour_open_position": 0.9620253164556715
+      },
+      "stable_consolidation": "UNVERIFIED",
+      "boundary_touch_and_rejection_sequence": "NOT_RECOMPUTED",
+      "model_changed": false
+    }
+  ],
+  "checks": {
+    "source_identity_join_all37": true,
+    "confirmed_pivots_before_decision": true,
+    "geometry_partition_matches_original37": true,
+    "positions_inverse_reproduce_prices": true,
+    "distances_match_independent_saved_indicator_fields": true,
+    "errors": []
+  },
+  "limitations": [
+    "Environment unavailable: raw files cannot be replayed this turn. Results are reproducible arithmetic on pinned GitHub saved features; raw-archive verification is inherited, not repeated.",
+    "A finite lookback always has extrema; inside an envelope does not prove consolidation.",
+    "Last two swing pairs cannot establish repeated boundary tests, protected structure, stable boundaries or higher-timeframe zone.",
+    "No threshold, tolerance or bounce probability selected from known outcomes.",
+    "37 discovery conditions in19 overlapping asset/hour clusters; not independent holdout."
+  ]
+}
