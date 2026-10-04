@@ -1,0 +1,4252 @@
+{
+  "scope": "main_completed_success_available_local_manifest",
+  "segments": [
+    {
+      "run": 37124589299,
+      "artifact": 11275138151,
+      "sha256": "56a1c7e26d739cce2ee4ec78da84f709c3c83c66a8abecf6d9eab8f7784f56d9",
+      "start": "2026-10-03T12:58:15.339648+00:00",
+      "end": "2026-10-03T13:53:15.650835+00:00"
+    },
+    {
+      "run": 37127718840,
+      "artifact": 11277025685,
+      "sha256": "584d77406c07880cf82e83a50ae0daa3d92acad4fba77ef9bea2775517ea6333",
+      "start": "2026-10-03T13:53:35.314241+00:00",
+      "end": "2026-10-03T14:48:35.461970+00:00"
+    },
+    {
+      "run": 37130957134,
+      "artifact": 11278670184,
+      "sha256": "eff4165bd37b41057a3b2dea4faa81612b4f74455de194c611ec9d9286229f10",
+      "start": "2026-10-03T14:48:58.287946+00:00",
+      "end": "2026-10-03T15:43:58.421818+00:00"
+    },
+    {
+      "run": 37134283434,
+      "artifact": 11279146210,
+      "sha256": "f69f6a3916c050d156a9faddea8fb04b48cec3667badb9512a9f49057c16e311",
+      "start": "2026-10-03T15:44:16.977201+00:00",
+      "end": "2026-10-03T16:39:17.114743+00:00"
+    },
+    {
+      "run": 37137646755,
+      "artifact": 11280730994,
+      "sha256": "f1eadbd837af4bd10735293694705a207ca6fad628163cdc53dae9e1dc3e2d5f",
+      "start": "2026-10-03T16:39:36.928923+00:00",
+      "end": "2026-10-03T17:34:37.075546+00:00"
+    },
+    {
+      "run": 37141021612,
+      "artifact": 11282026371,
+      "sha256": "eac3ad1f8d5a771822328b893474e68416e90709a9137709c7ac9619cc4fc817",
+      "start": "2026-10-03T17:34:55.235372+00:00",
+      "end": "2026-10-03T18:29:55.639001+00:00"
+    },
+    {
+      "run": 37144414604,
+      "artifact": 11282611940,
+      "sha256": "b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "start": "2026-10-03T18:30:13.873119+00:00",
+      "end": "2026-10-03T19:25:14.629110+00:00"
+    },
+    {
+      "run": 37146330445,
+      "artifact": 11282392465,
+      "sha256": "a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "start": "2026-10-03T19:25:31.760620+00:00",
+      "end": "2026-10-03T19:27:31.905825+00:00"
+    },
+    {
+      "run": 37147962215,
+      "artifact": 11284416014,
+      "sha256": "b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "start": "2026-10-03T19:27:48.286455+00:00",
+      "end": "2026-10-03T20:22:48.431447+00:00"
+    },
+    {
+      "run": 37151327629,
+      "artifact": 11284699716,
+      "sha256": "519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "start": "2026-10-03T20:23:04.920280+00:00",
+      "end": "2026-10-03T21:18:05.057714+00:00"
+    },
+    {
+      "run": 37154622571,
+      "artifact": 11286179317,
+      "sha256": "c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "start": "2026-10-03T21:18:21.132165+00:00",
+      "end": "2026-10-03T22:13:21.270357+00:00"
+    },
+    {
+      "run": 37157688574,
+      "artifact": 11286969562,
+      "sha256": "43ce84df0040744bf1bc85afd48994f024374589dccfd9aaa593d435847abf7d",
+      "start": "2026-10-03T22:13:42.663181+00:00",
+      "end": "2026-10-03T23:08:42.809304+00:00"
+    },
+    {
+      "run": 37160806532,
+      "artifact": 11289045189,
+      "sha256": "8f08173b33f0127eb161a8db0f93df44699d2201751a1fc4c31a0db38229596a",
+      "start": "2026-10-03T23:09:06.900590+00:00",
+      "end": "2026-10-04T00:04:07.118445+00:00"
+    },
+    {
+      "run": 37163767735,
+      "artifact": 11289279685,
+      "sha256": "3eddcebdde12c1a273a4ae7e00522cf69b9b91ff2f2e2b396680e0d0a24a647c",
+      "start": "2026-10-04T00:04:29.571046+00:00",
+      "end": "2026-10-04T00:59:29.959968+00:00"
+    },
+    {
+      "run": 37166631973,
+      "artifact": 11291030053,
+      "sha256": "12ad05157410c048837a212286727d20f12de88aff16a6df98847414032ce5ba",
+      "start": "2026-10-04T00:59:57.304999+00:00",
+      "end": "2026-10-04T01:54:57.467006+00:00"
+    },
+    {
+      "run": 37169445181,
+      "artifact": 11291114906,
+      "sha256": "9dcad796b23fa73a725de88ed94e45cb07cd16b2291ec36b8a45a7c901a84265",
+      "start": "2026-10-04T01:55:17.650254+00:00",
+      "end": "2026-10-04T02:50:17.797364+00:00"
+    },
+    {
+      "run": 37172271108,
+      "artifact": 11292384638,
+      "sha256": "b2ba49ae0bc90cc1a6f6ba172c0ab5958ce9f5907f0a59ded36bfec3cd865aad",
+      "start": "2026-10-04T02:50:35.784929+00:00",
+      "end": "2026-10-04T03:45:35.940904+00:00"
+    },
+    {
+      "run": 37174986129,
+      "artifact": 11293569525,
+      "sha256": "eed15602ced5aad1e394547e9ebe24c75d6e19c12b159c71eab7fca1d7ac347e",
+      "start": "2026-10-04T03:45:53.999428+00:00",
+      "end": "2026-10-04T04:40:54.160756+00:00"
+    },
+    {
+      "run": 37177706938,
+      "artifact": 11295051929,
+      "sha256": "4c7a51975dfceb7a722a91f9c6c039326764cf91edf87c351a6834f213d0196b",
+      "start": "2026-10-04T04:41:52.390316+00:00",
+      "end": "2026-10-04T05:36:52.559763+00:00"
+    },
+    {
+      "run": 37180405302,
+      "artifact": 11296245826,
+      "sha256": "97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252",
+      "start": "2026-10-04T05:37:47.646176+00:00",
+      "end": "2026-10-04T06:32:47.784114+00:00"
+    },
+    {
+      "run": 37183121491,
+      "artifact": 11297181910,
+      "sha256": "4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051",
+      "start": "2026-10-04T06:33:09.362852+00:00",
+      "end": "2026-10-04T07:28:09.500081+00:00"
+    },
+    {
+      "run": 37185875778,
+      "artifact": 11298028349,
+      "sha256": "80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283",
+      "start": "2026-10-04T07:28:26.451281+00:00",
+      "end": "2026-10-04T08:23:26.608101+00:00"
+    },
+    {
+      "run": 37188767283,
+      "artifact": 11298753953,
+      "sha256": "dc60e2ca85b75b68d3af2c4a86f4a6b8016b225415141eb5bb7a7211f8a4aa38",
+      "start": "2026-10-04T08:23:46.789037+00:00",
+      "end": "2026-10-04T09:18:47.167283+00:00"
+    },
+    {
+      "run": 37191749465,
+      "artifact": 11300397847,
+      "sha256": "09b01568a371709ad56effb4645409609044e83371388de855114ebdd6cc7742",
+      "start": "2026-10-04T09:19:07.459728+00:00",
+      "end": "2026-10-04T10:14:07.724279+00:00"
+    },
+    {
+      "run": 37194710029,
+      "artifact": 11300559741,
+      "sha256": "7dce69baba28d7194ae76b41965fd1f952f138b71fd349ae8cd787fdad4f647d",
+      "start": "2026-10-04T10:14:27.729787+00:00",
+      "end": "2026-10-04T11:09:27.880886+00:00"
+    },
+    {
+      "run": 37197771115,
+      "artifact": 11303195171,
+      "sha256": "3ecfa2a86d79d905c20eff4e772b351b034306d33144d1c7b4548b06e6c937d9",
+      "start": "2026-10-04T11:09:48.506223+00:00",
+      "end": "2026-10-04T12:04:48.719237+00:00"
+    },
+    {
+      "run": 37200884545,
+      "artifact": 11304201261,
+      "sha256": "362ad8b11671a170ddf2ffbfc5c23a348dcf1faaf48a04dbe822e1bcab6648b4",
+      "start": "2026-10-04T12:05:13.204296+00:00",
+      "end": "2026-10-04T13:00:13.353777+00:00"
+    },
+    {
+      "run": 37204069133,
+      "artifact": 11305700455,
+      "sha256": "f8bc95daeae7909657fce68d467518dbb6917057c57f1fed5037156a443a455a",
+      "start": "2026-10-04T13:00:29.764123+00:00",
+      "end": "2026-10-04T13:55:29.916545+00:00"
+    },
+    {
+      "run": 37207365378,
+      "artifact": 11306172779,
+      "sha256": "8d41ac305694528fe09cbb104b085085d57ca478fb3de03974508f6ba40f12cf",
+      "start": "2026-10-04T13:55:49.492690+00:00",
+      "end": "2026-10-04T14:50:49.825304+00:00"
+    }
+  ],
+  "stats": {
+    "markets": 210,
+    "first_seen_after_midpoint": 2,
+    "observed_resolved": 207,
+    "resolution_price_and_winner": 207,
+    "resolution_price_consistent": 207,
+    "book_envelopes": 9840,
+    "oracle_envelopes": 2802,
+    "midpoint_to_expiry_book": 208,
+    "midpoint_to_expiry_two_sided_book": 208,
+    "midpoint_to_expiry_oracle_request": 208,
+    "exact_open_oracle_row_envelopes": 2504,
+    "chainlink_twap60_description": 210,
+    "seen_by_midpoint": 208,
+    "midpoint_60s_book_receipt": 206,
+    "midpoint_60s_oracle_receipt": 187,
+    "midpoint_60s_both_receipts": 187,
+    "midpoint_60s_two_sided_book": 206,
+    "midpoint_60s_oracle_120_returns": 187,
+    "no_observed_resolution": 3
+  },
+  "market_status_last": {
+    "RESOLVED": 207,
+    "FUNDED": 3
+  },
+  "oracle_sources": {
+    "chainlink": 2802
+  },
+  "oracle_first_midpoint_lag_seconds": {
+    "n": 187,
+    "median": 104.99062609672546,
+    "p10": 81.16260695457458,
+    "p90": 127.71969699859619
+  },
+  "contiguous_closed_oracle_rows": {
+    "n": 187,
+    "median": 178,
+    "min": 177
+  },
+  "pnl": null,
+  "market_rows": [
+    {
+      "slug": "btc-up-or-down-15-min-1791031500",
+      "start": "2026-10-03T12:45:00.000Z",
+      "first_seen": 1791032302.228357,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 7,
+      "oracle_count": 2,
+      "midpoint_60s_book": false,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791031500",
+      "start": "2026-10-03T12:45:00.000Z",
+      "first_seen": 1791032302.556718,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 7,
+      "oracle_count": 2,
+      "midpoint_60s_book": false,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791032400",
+      "start": "2026-10-03T13:00:00.000Z",
+      "first_seen": 1791032442.109418,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791032400",
+      "start": "2026-10-03T13:00:00.000Z",
+      "first_seen": 1791032442.355966,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791033300",
+      "start": "2026-10-03T13:15:00.000Z",
+      "first_seen": 1791033370.350973,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791033300",
+      "start": "2026-10-03T13:15:00.000Z",
+      "first_seen": 1791033370.773655,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791034200",
+      "start": "2026-10-03T13:30:00.000Z",
+      "first_seen": 1791034231.850017,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791034200",
+      "start": "2026-10-03T13:30:00.000Z",
+      "first_seen": 1791034231.918698,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791035100",
+      "start": "2026-10-03T13:45:00.000Z",
+      "first_seen": 1791035164.046781,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791035100",
+      "start": "2026-10-03T13:45:00.000Z",
+      "first_seen": 1791035164.556629,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791036000",
+      "start": "2026-10-03T14:00:00.000Z",
+      "first_seen": 1791036022.652049,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791036000",
+      "start": "2026-10-03T14:00:00.000Z",
+      "first_seen": 1791036023.057963,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791036900",
+      "start": "2026-10-03T14:15:00.000Z",
+      "first_seen": 1791036953.98212,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791036900",
+      "start": "2026-10-03T14:15:00.000Z",
+      "first_seen": 1791036954.34247,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791037800",
+      "start": "2026-10-03T14:30:00.000Z",
+      "first_seen": 1791037881.08602,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791037800",
+      "start": "2026-10-03T14:30:00.000Z",
+      "first_seen": 1791037881.454033,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791038700",
+      "start": "2026-10-03T14:45:00.000Z",
+      "first_seen": 1791038744.480412,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791038700",
+      "start": "2026-10-03T14:45:00.000Z",
+      "first_seen": 1791038744.853918,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791039600",
+      "start": "2026-10-03T15:00:00.000Z",
+      "first_seen": 1791039661.061259,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791039600",
+      "start": "2026-10-03T15:00:00.000Z",
+      "first_seen": 1791039661.092394,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791040500",
+      "start": "2026-10-03T15:15:00.000Z",
+      "first_seen": 1791040569.354336,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791040500",
+      "start": "2026-10-03T15:15:00.000Z",
+      "first_seen": 1791040569.370008,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791041400",
+      "start": "2026-10-03T15:30:00.000Z",
+      "first_seen": 1791041474.66435,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791041400",
+      "start": "2026-10-03T15:30:00.000Z",
+      "first_seen": 1791041474.6831,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791042300",
+      "start": "2026-10-03T15:45:00.000Z",
+      "first_seen": 1791042385.435813,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791042300",
+      "start": "2026-10-03T15:45:00.000Z",
+      "first_seen": 1791042385.542874,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791043200",
+      "start": "2026-10-03T16:00:00.000Z",
+      "first_seen": 1791043233.034375,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791043200",
+      "start": "2026-10-03T16:00:00.000Z",
+      "first_seen": 1791043233.117457,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791044100",
+      "start": "2026-10-03T16:15:00.000Z",
+      "first_seen": 1791044208.616419,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 44,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791044100",
+      "start": "2026-10-03T16:15:00.000Z",
+      "first_seen": 1791044208.682205,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 44,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791045000",
+      "start": "2026-10-03T16:30:00.000Z",
+      "first_seen": 1791045117.018609,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791045000",
+      "start": "2026-10-03T16:30:00.000Z",
+      "first_seen": 1791045117.094143,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791045900",
+      "start": "2026-10-03T16:45:00.000Z",
+      "first_seen": 1791045977.536048,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791045900",
+      "start": "2026-10-03T16:45:00.000Z",
+      "first_seen": 1791045977.863017,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791046800",
+      "start": "2026-10-03T17:00:00.000Z",
+      "first_seen": 1791046839.213639,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791046800",
+      "start": "2026-10-03T17:00:00.000Z",
+      "first_seen": 1791046839.971929,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791047700",
+      "start": "2026-10-03T17:15:00.000Z",
+      "first_seen": 1791047767.586954,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791047700",
+      "start": "2026-10-03T17:15:00.000Z",
+      "first_seen": 1791047767.924944,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791048600",
+      "start": "2026-10-03T17:30:00.000Z",
+      "first_seen": 1791048687.737476,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791048600",
+      "start": "2026-10-03T17:30:00.000Z",
+      "first_seen": 1791048688.066864,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791049500",
+      "start": "2026-10-03T17:45:00.000Z",
+      "first_seen": 1791049543.846412,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791049500",
+      "start": "2026-10-03T17:45:00.000Z",
+      "first_seen": 1791049543.903078,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791050400",
+      "start": "2026-10-03T18:00:00.000Z",
+      "first_seen": 1791050455.770544,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791050400",
+      "start": "2026-10-03T18:00:00.000Z",
+      "first_seen": 1791050455.933296,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791051300",
+      "start": "2026-10-03T18:15:00.000Z",
+      "first_seen": 1791051424.520638,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 43,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791051300",
+      "start": "2026-10-03T18:15:00.000Z",
+      "first_seen": 1791051424.57532,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 43,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791052200",
+      "start": "2026-10-03T18:30:00.000Z",
+      "first_seen": 1791052216.043841,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791052200",
+      "start": "2026-10-03T18:30:00.000Z",
+      "first_seen": 1791052216.060752,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791053100",
+      "start": "2026-10-03T18:45:00.000Z",
+      "first_seen": 1791053183.81061,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791053100",
+      "start": "2026-10-03T18:45:00.000Z",
+      "first_seen": 1791053183.839928,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791054000",
+      "start": "2026-10-03T19:00:00.000Z",
+      "first_seen": 1791054087.88419,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791054000",
+      "start": "2026-10-03T19:00:00.000Z",
+      "first_seen": 1791054087.930328,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791054900",
+      "start": "2026-10-03T19:15:00.000Z",
+      "first_seen": 1791054991.43727,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791054900",
+      "start": "2026-10-03T19:15:00.000Z",
+      "first_seen": 1791054991.455249,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791055800",
+      "start": "2026-10-03T19:30:00.000Z",
+      "first_seen": 1791055869.749114,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791055800",
+      "start": "2026-10-03T19:30:00.000Z",
+      "first_seen": 1791055869.770839,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791056700",
+      "start": "2026-10-03T19:45:00.000Z",
+      "first_seen": 1791056778.151485,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791056700",
+      "start": "2026-10-03T19:45:00.000Z",
+      "first_seen": 1791056778.205955,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791057600",
+      "start": "2026-10-03T20:00:00.000Z",
+      "first_seen": 1791057685.283823,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791057600",
+      "start": "2026-10-03T20:00:00.000Z",
+      "first_seen": 1791057685.387496,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791058500",
+      "start": "2026-10-03T20:15:00.000Z",
+      "first_seen": 1791058595.132469,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791058500",
+      "start": "2026-10-03T20:15:00.000Z",
+      "first_seen": 1791058595.196295,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791059400",
+      "start": "2026-10-03T20:30:00.000Z",
+      "first_seen": 1791059442.973948,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791059400",
+      "start": "2026-10-03T20:30:00.000Z",
+      "first_seen": 1791059443.02777,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791060300",
+      "start": "2026-10-03T20:45:00.000Z",
+      "first_seen": 1791060351.39159,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791060300",
+      "start": "2026-10-03T20:45:00.000Z",
+      "first_seen": 1791060351.46878,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791061200",
+      "start": "2026-10-03T21:00:00.000Z",
+      "first_seen": 1791061258.115703,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791061200",
+      "start": "2026-10-03T21:00:00.000Z",
+      "first_seen": 1791061258.265987,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791062100",
+      "start": "2026-10-03T21:15:00.000Z",
+      "first_seen": 1791062245.485522,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 43,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791062100",
+      "start": "2026-10-03T21:15:00.000Z",
+      "first_seen": 1791062245.53078,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 43,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791063000",
+      "start": "2026-10-03T21:30:00.000Z",
+      "first_seen": 1791063086.516473,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791063000",
+      "start": "2026-10-03T21:30:00.000Z",
+      "first_seen": 1791063086.532476,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791063900",
+      "start": "2026-10-03T21:45:00.000Z",
+      "first_seen": 1791063998.352557,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791063900",
+      "start": "2026-10-03T21:45:00.000Z",
+      "first_seen": 1791063998.369805,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791064800",
+      "start": "2026-10-03T22:00:00.000Z",
+      "first_seen": 1791064902.990737,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791064800",
+      "start": "2026-10-03T22:00:00.000Z",
+      "first_seen": 1791064903.038909,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791065700",
+      "start": "2026-10-03T22:15:00.000Z",
+      "first_seen": 1791065762.946797,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791065700",
+      "start": "2026-10-03T22:15:00.000Z",
+      "first_seen": 1791065763.27736,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791066600",
+      "start": "2026-10-03T22:30:00.000Z",
+      "first_seen": 1791066616.417842,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791066600",
+      "start": "2026-10-03T22:30:00.000Z",
+      "first_seen": 1791066616.745208,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791067500",
+      "start": "2026-10-03T22:45:00.000Z",
+      "first_seen": 1791067603.956496,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791067500",
+      "start": "2026-10-03T22:45:00.000Z",
+      "first_seen": 1791067604.322471,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791068400",
+      "start": "2026-10-03T23:00:00.000Z",
+      "first_seen": 1791068458.470339,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791068400",
+      "start": "2026-10-03T23:00:00.000Z",
+      "first_seen": 1791068459.133576,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791069300",
+      "start": "2026-10-03T23:15:00.000Z",
+      "first_seen": 1791069341.55978,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791069300",
+      "start": "2026-10-03T23:15:00.000Z",
+      "first_seen": 1791069341.601753,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791070200",
+      "start": "2026-10-03T23:30:00.000Z",
+      "first_seen": 1791070310.278585,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791070200",
+      "start": "2026-10-03T23:30:00.000Z",
+      "first_seen": 1791070310.29794,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791071100",
+      "start": "2026-10-03T23:45:00.000Z",
+      "first_seen": 1791071217.091742,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791071100",
+      "start": "2026-10-03T23:45:00.000Z",
+      "first_seen": 1791071217.135521,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791072000",
+      "start": "2026-10-04T00:00:00.000Z",
+      "first_seen": 1791072119.629649,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791072000",
+      "start": "2026-10-04T00:00:00.000Z",
+      "first_seen": 1791072119.720731,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791072900",
+      "start": "2026-10-04T00:15:00.000Z",
+      "first_seen": 1791072942.203056,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791072900",
+      "start": "2026-10-04T00:15:00.000Z",
+      "first_seen": 1791072942.523758,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791073800",
+      "start": "2026-10-04T00:30:00.000Z",
+      "first_seen": 1791073856.650279,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791073800",
+      "start": "2026-10-04T00:30:00.000Z",
+      "first_seen": 1791073856.688959,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791074700",
+      "start": "2026-10-04T00:45:00.000Z",
+      "first_seen": 1791074776.871962,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 43,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791074700",
+      "start": "2026-10-04T00:45:00.000Z",
+      "first_seen": 1791074777.203242,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 43,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791075600",
+      "start": "2026-10-04T01:00:00.000Z",
+      "first_seen": 1791075668.251284,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791075600",
+      "start": "2026-10-04T01:00:00.000Z",
+      "first_seen": 1791075668.92533,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791076500",
+      "start": "2026-10-04T01:15:00.000Z",
+      "first_seen": 1791076525.429024,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791076500",
+      "start": "2026-10-04T01:15:00.000Z",
+      "first_seen": 1791076525.472416,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791077400",
+      "start": "2026-10-04T01:30:00.000Z",
+      "first_seen": 1791077444.153924,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791077400",
+      "start": "2026-10-04T01:30:00.000Z",
+      "first_seen": 1791077444.474654,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791078300",
+      "start": "2026-10-04T01:45:00.000Z",
+      "first_seen": 1791078356.577032,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791078300",
+      "start": "2026-10-04T01:45:00.000Z",
+      "first_seen": 1791078356.871667,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791079200",
+      "start": "2026-10-04T02:00:00.000Z",
+      "first_seen": 1791079245.411815,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791079200",
+      "start": "2026-10-04T02:00:00.000Z",
+      "first_seen": 1791079245.492846,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791080100",
+      "start": "2026-10-04T02:15:00.000Z",
+      "first_seen": 1791080155.985885,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791080100",
+      "start": "2026-10-04T02:15:00.000Z",
+      "first_seen": 1791080156.033278,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791081000",
+      "start": "2026-10-04T02:30:00.000Z",
+      "first_seen": 1791081065.804669,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791081000",
+      "start": "2026-10-04T02:30:00.000Z",
+      "first_seen": 1791081065.851293,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791081900",
+      "start": "2026-10-04T02:45:00.000Z",
+      "first_seen": 1791081980.26456,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791081900",
+      "start": "2026-10-04T02:45:00.000Z",
+      "first_seen": 1791081980.316852,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791082800",
+      "start": "2026-10-04T03:00:00.000Z",
+      "first_seen": 1791082825.315498,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791082800",
+      "start": "2026-10-04T03:00:00.000Z",
+      "first_seen": 1791082825.432335,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791083700",
+      "start": "2026-10-04T03:15:00.000Z",
+      "first_seen": 1791083732.881175,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791083700",
+      "start": "2026-10-04T03:15:00.000Z",
+      "first_seen": 1791083732.960226,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791084600",
+      "start": "2026-10-04T03:30:00.000Z",
+      "first_seen": 1791084708.715729,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791084600",
+      "start": "2026-10-04T03:30:00.000Z",
+      "first_seen": 1791084708.784996,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791085500",
+      "start": "2026-10-04T03:45:00.000Z",
+      "first_seen": 1791085557.005157,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791085500",
+      "start": "2026-10-04T03:45:00.000Z",
+      "first_seen": 1791085557.058436,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791086400",
+      "start": "2026-10-04T04:00:00.000Z",
+      "first_seen": 1791086471.663663,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791086400",
+      "start": "2026-10-04T04:00:00.000Z",
+      "first_seen": 1791086471.767183,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791087300",
+      "start": "2026-10-04T04:15:00.000Z",
+      "first_seen": 1791087386.896279,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791087300",
+      "start": "2026-10-04T04:15:00.000Z",
+      "first_seen": 1791087386.942595,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791088200",
+      "start": "2026-10-04T04:30:00.000Z",
+      "first_seen": 1791088292.122398,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 44,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791088200",
+      "start": "2026-10-04T04:30:00.000Z",
+      "first_seen": 1791088292.167147,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 44,
+      "oracle_count": 12,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791089100",
+      "start": "2026-10-04T04:45:00.000Z",
+      "first_seen": 1791089117.340176,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791089100",
+      "start": "2026-10-04T04:45:00.000Z",
+      "first_seen": 1791089117.672257,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791090000",
+      "start": "2026-10-04T05:00:00.000Z",
+      "first_seen": 1791090044.949498,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791090000",
+      "start": "2026-10-04T05:00:00.000Z",
+      "first_seen": 1791090045.397394,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791090900",
+      "start": "2026-10-04T05:15:00.000Z",
+      "first_seen": 1791090964.297024,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791090900",
+      "start": "2026-10-04T05:15:00.000Z",
+      "first_seen": 1791090964.634099,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791091800",
+      "start": "2026-10-04T05:30:00.000Z",
+      "first_seen": 1791091819.722271,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791091800",
+      "start": "2026-10-04T05:30:00.000Z",
+      "first_seen": 1791091819.785244,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791092700",
+      "start": "2026-10-04T05:45:00.000Z",
+      "first_seen": 1791092729.558782,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791092700",
+      "start": "2026-10-04T05:45:00.000Z",
+      "first_seen": 1791092729.57331,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791093600",
+      "start": "2026-10-04T06:00:00.000Z",
+      "first_seen": 1791093636.968033,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791093600",
+      "start": "2026-10-04T06:00:00.000Z",
+      "first_seen": 1791093637.001266,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791094500",
+      "start": "2026-10-04T06:15:00.000Z",
+      "first_seen": 1791094542.29716,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791094500",
+      "start": "2026-10-04T06:15:00.000Z",
+      "first_seen": 1791094542.315028,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791095400",
+      "start": "2026-10-04T06:30:00.000Z",
+      "first_seen": 1791095513.607958,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791095400",
+      "start": "2026-10-04T06:30:00.000Z",
+      "first_seen": 1791095513.635951,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791096300",
+      "start": "2026-10-04T06:45:00.000Z",
+      "first_seen": 1791096370.877011,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791096300",
+      "start": "2026-10-04T06:45:00.000Z",
+      "first_seen": 1791096370.892996,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791097200",
+      "start": "2026-10-04T07:00:00.000Z",
+      "first_seen": 1791097281.734267,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791097200",
+      "start": "2026-10-04T07:00:00.000Z",
+      "first_seen": 1791097282.032334,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791098100",
+      "start": "2026-10-04T07:15:00.000Z",
+      "first_seen": 1791098182.380925,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791098100",
+      "start": "2026-10-04T07:15:00.000Z",
+      "first_seen": 1791098182.403595,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791099000",
+      "start": "2026-10-04T07:30:00.000Z",
+      "first_seen": 1791099042.769763,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791099000",
+      "start": "2026-10-04T07:30:00.000Z",
+      "first_seen": 1791099042.841683,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791099900",
+      "start": "2026-10-04T07:45:00.000Z",
+      "first_seen": 1791099950.538199,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791099900",
+      "start": "2026-10-04T07:45:00.000Z",
+      "first_seen": 1791099950.604036,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791100800",
+      "start": "2026-10-04T08:00:00.000Z",
+      "first_seen": 1791100860.657658,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791100800",
+      "start": "2026-10-04T08:00:00.000Z",
+      "first_seen": 1791100860.788035,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791101700",
+      "start": "2026-10-04T08:15:00.000Z",
+      "first_seen": 1791101774.070681,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791101700",
+      "start": "2026-10-04T08:15:00.000Z",
+      "first_seen": 1791101774.142922,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791102600",
+      "start": "2026-10-04T08:30:00.000Z",
+      "first_seen": 1791102629.389999,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791102600",
+      "start": "2026-10-04T08:30:00.000Z",
+      "first_seen": 1791102629.420025,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791103500",
+      "start": "2026-10-04T08:45:00.000Z",
+      "first_seen": 1791103550.597174,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791103500",
+      "start": "2026-10-04T08:45:00.000Z",
+      "first_seen": 1791103550.906788,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791104400",
+      "start": "2026-10-04T09:00:00.000Z",
+      "first_seen": 1791104469.346229,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791104400",
+      "start": "2026-10-04T09:00:00.000Z",
+      "first_seen": 1791104469.974921,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791105300",
+      "start": "2026-10-04T09:15:00.000Z",
+      "first_seen": 1791105390.108664,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791105300",
+      "start": "2026-10-04T09:15:00.000Z",
+      "first_seen": 1791105390.423464,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791106200",
+      "start": "2026-10-04T09:30:00.000Z",
+      "first_seen": 1791106265.900893,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791106200",
+      "start": "2026-10-04T09:30:00.000Z",
+      "first_seen": 1791106265.965186,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791107100",
+      "start": "2026-10-04T09:45:00.000Z",
+      "first_seen": 1791107171.699201,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791107100",
+      "start": "2026-10-04T09:45:00.000Z",
+      "first_seen": 1791107171.778181,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791108000",
+      "start": "2026-10-04T10:00:00.000Z",
+      "first_seen": 1791108077.749696,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791108000",
+      "start": "2026-10-04T10:00:00.000Z",
+      "first_seen": 1791108077.867403,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791108900",
+      "start": "2026-10-04T10:15:00.000Z",
+      "first_seen": 1791108938.609591,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791108900",
+      "start": "2026-10-04T10:15:00.000Z",
+      "first_seen": 1791108938.953602,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791109800",
+      "start": "2026-10-04T10:30:00.000Z",
+      "first_seen": 1791109862.11851,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791109800",
+      "start": "2026-10-04T10:30:00.000Z",
+      "first_seen": 1791109862.442423,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791110700",
+      "start": "2026-10-04T10:45:00.000Z",
+      "first_seen": 1791110779.846124,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791110700",
+      "start": "2026-10-04T10:45:00.000Z",
+      "first_seen": 1791110780.075416,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 46,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791111600",
+      "start": "2026-10-04T11:00:00.000Z",
+      "first_seen": 1791111630.23666,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791111600",
+      "start": "2026-10-04T11:00:00.000Z",
+      "first_seen": 1791111630.536206,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791112500",
+      "start": "2026-10-04T11:15:00.000Z",
+      "first_seen": 1791112524.341955,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791112500",
+      "start": "2026-10-04T11:15:00.000Z",
+      "first_seen": 1791112524.408514,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 51,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791113400",
+      "start": "2026-10-04T11:30:00.000Z",
+      "first_seen": 1791113443.045676,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791113400",
+      "start": "2026-10-04T11:30:00.000Z",
+      "first_seen": 1791113443.377601,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 50,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791114300",
+      "start": "2026-10-04T11:45:00.000Z",
+      "first_seen": 1791114364.927922,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791114300",
+      "start": "2026-10-04T11:45:00.000Z",
+      "first_seen": 1791114364.979416,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791115200",
+      "start": "2026-10-04T12:00:00.000Z",
+      "first_seen": 1791115277.640181,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791115200",
+      "start": "2026-10-04T12:00:00.000Z",
+      "first_seen": 1791115278.274431,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791116100",
+      "start": "2026-10-04T12:15:00.000Z",
+      "first_seen": 1791116166.763327,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791116100",
+      "start": "2026-10-04T12:15:00.000Z",
+      "first_seen": 1791116166.781976,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 49,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791117000",
+      "start": "2026-10-04T12:30:00.000Z",
+      "first_seen": 1791117069.448646,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791117000",
+      "start": "2026-10-04T12:30:00.000Z",
+      "first_seen": 1791117069.490607,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791117900",
+      "start": "2026-10-04T12:45:00.000Z",
+      "first_seen": 1791117975.774767,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791117900",
+      "start": "2026-10-04T12:45:00.000Z",
+      "first_seen": 1791117975.79593,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 47,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791118800",
+      "start": "2026-10-04T13:00:00.000Z",
+      "first_seen": 1791118833.023479,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791118800",
+      "start": "2026-10-04T13:00:00.000Z",
+      "first_seen": 1791118833.187783,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791119700",
+      "start": "2026-10-04T13:15:00.000Z",
+      "first_seen": 1791119752.493823,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791119700",
+      "start": "2026-10-04T13:15:00.000Z",
+      "first_seen": 1791119752.563052,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 47,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791120600",
+      "start": "2026-10-04T13:30:00.000Z",
+      "first_seen": 1791120728.280746,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 44,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791120600",
+      "start": "2026-10-04T13:30:00.000Z",
+      "first_seen": 1791120728.37024,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 44,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791121500",
+      "start": "2026-10-04T13:45:00.000Z",
+      "first_seen": 1791121572.31611,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791121500",
+      "start": "2026-10-04T13:45:00.000Z",
+      "first_seen": 1791121572.421423,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 0,
+      "book_count": 48,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791122400",
+      "start": "2026-10-04T14:00:00.000Z",
+      "first_seen": 1791122479.181563,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791122400",
+      "start": "2026-10-04T14:00:00.000Z",
+      "first_seen": 1791122479.250032,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 45,
+      "oracle_count": 13,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791123300",
+      "start": "2026-10-04T14:15:00.000Z",
+      "first_seen": 1791123384.930095,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791123300",
+      "start": "2026-10-04T14:15:00.000Z",
+      "first_seen": 1791123384.973296,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791124200",
+      "start": "2026-10-04T14:30:00.000Z",
+      "first_seen": 1791124291.062078,
+      "status": "FUNDED",
+      "winningOutcomeIndex": null,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791124200",
+      "start": "2026-10-04T14:30:00.000Z",
+      "first_seen": 1791124291.093237,
+      "status": "RESOLVED",
+      "winningOutcomeIndex": 1,
+      "book_count": 48,
+      "oracle_count": 14,
+      "midpoint_60s_book": true,
+      "midpoint_60s_oracle": true
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791125100",
+      "start": "2026-10-04T14:45:00.000Z",
+      "first_seen": 1791125195.407348,
+      "status": "FUNDED",
+      "winningOutcomeIndex": null,
+      "book_count": 16,
+      "oracle_count": 4,
+      "midpoint_60s_book": false,
+      "midpoint_60s_oracle": false
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791125100",
+      "start": "2026-10-04T14:45:00.000Z",
+      "first_seen": 1791125195.447659,
+      "status": "FUNDED",
+      "winningOutcomeIndex": null,
+      "book_count": 16,
+      "oracle_count": 4,
+      "midpoint_60s_book": false,
+      "midpoint_60s_oracle": false
+    }
+  ],
+  "quarter_hour_clusters": 105,
+  "both_midpoint_receipts_with_observed_resolution": 186,
+  "exploratory_oracle_midpoint_forecast": {
+    "n": 186,
+    "clusters": 96,
+    "brier": 0.17481281498954107,
+    "constant50_brier": 0.25,
+    "favourite_accuracy": 0.7634408602150538,
+    "mean_p_up": 0.5078569835334095
+  },
+  "exploratory_forecast_rows": [
+    {
+      "slug": "btc-up-or-down-15-min-1791032400",
+      "start": 1791032400,
+      "p_up": 0.0914901644248759,
+      "up": 0,
+      "reference_age_s": 89.59381699562073,
+      "decision_at": 1791032909.593817,
+      "sigma": 0.00015834682880406283
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791033300",
+      "start": 1791033300,
+      "p_up": 0.09234436119914496,
+      "up": 0,
+      "reference_age_s": 111.87560105323792,
+      "decision_at": 1791033771.875601,
+      "sigma": 0.00016608138184658747
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791033300",
+      "start": 1791033300,
+      "p_up": 0.06828352437986135,
+      "up": 0,
+      "reference_age_s": 113.25634098052979,
+      "decision_at": 1791033773.256341,
+      "sigma": 0.0001897879125371491
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791034200",
+      "start": 1791034200,
+      "p_up": 0.9941655765668291,
+      "up": 1,
+      "reference_age_s": 82.59976196289062,
+      "decision_at": 1791034702.599762,
+      "sigma": 0.00019694999673791397
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791034200",
+      "start": 1791034200,
+      "p_up": 0.9507140065051998,
+      "up": 1,
+      "reference_age_s": 83.91625595092773,
+      "decision_at": 1791034703.916256,
+      "sigma": 0.00019821300659500705
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791035100",
+      "start": 1791035100,
+      "p_up": 0.6539003949432501,
+      "up": 1,
+      "reference_age_s": 105.55087995529175,
+      "decision_at": 1791035565.55088,
+      "sigma": 0.00020675504145474744
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791035100",
+      "start": 1791035100,
+      "p_up": 0.6523944774247978,
+      "up": 1,
+      "reference_age_s": 106.84381103515625,
+      "decision_at": 1791035566.843811,
+      "sigma": 0.00020258771362911013
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791036000",
+      "start": 1791036000,
+      "p_up": 0.05816632880986383,
+      "up": 0,
+      "reference_age_s": 73.79868006706238,
+      "decision_at": 1791036493.79868,
+      "sigma": 0.00021046253786661102
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791036000",
+      "start": 1791036000,
+      "p_up": 0.035190025079963716,
+      "up": 0,
+      "reference_age_s": 75.09476089477539,
+      "decision_at": 1791036495.094761,
+      "sigma": 0.0002055293220786743
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791036900",
+      "start": 1791036900,
+      "p_up": 0.6069813038093924,
+      "up": 1,
+      "reference_age_s": 94.87083601951599,
+      "decision_at": 1791037354.870836,
+      "sigma": 0.0001944567361502193
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791036900",
+      "start": 1791036900,
+      "p_up": 0.7614246101984481,
+      "up": 1,
+      "reference_age_s": 96.18951296806335,
+      "decision_at": 1791037356.189513,
+      "sigma": 0.00020053249036934751
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791037800",
+      "start": 1791037800,
+      "p_up": 0.13070159701205608,
+      "up": 0,
+      "reference_age_s": 125.5940330028534,
+      "decision_at": 1791038285.594033,
+      "sigma": 0.00017956009183864844
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791037800",
+      "start": 1791037800,
+      "p_up": 0.19249925355710118,
+      "up": 0,
+      "reference_age_s": 126.91558909416199,
+      "decision_at": 1791038286.915589,
+      "sigma": 0.000175188472920776
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791038700",
+      "start": 1791038700,
+      "p_up": 0.981697859319982,
+      "up": 1,
+      "reference_age_s": 87.24523997306824,
+      "decision_at": 1791039207.24524,
+      "sigma": 0.00017458809178007198
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791038700",
+      "start": 1791038700,
+      "p_up": 0.9673988242589979,
+      "up": 1,
+      "reference_age_s": 88.61006498336792,
+      "decision_at": 1791039208.610065,
+      "sigma": 0.00017616519202828397
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791039600",
+      "start": 1791039600,
+      "p_up": 0.17896858266998628,
+      "up": 1,
+      "reference_age_s": 95.4334990978241,
+      "decision_at": 1791040055.433499,
+      "sigma": 0.00017715469666868805
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791039600",
+      "start": 1791039600,
+      "p_up": 0.09110919239929388,
+      "up": 0,
+      "reference_age_s": 96.6631441116333,
+      "decision_at": 1791040056.663144,
+      "sigma": 0.00019766589038986392
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791040500",
+      "start": 1791040500,
+      "p_up": 0.5129824241338283,
+      "up": 1,
+      "reference_age_s": 99.91916990280151,
+      "decision_at": 1791040959.91917,
+      "sigma": 0.0001804468454345865
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791040500",
+      "start": 1791040500,
+      "p_up": 0.652057165084423,
+      "up": 1,
+      "reference_age_s": 101.20333290100098,
+      "decision_at": 1791040961.203333,
+      "sigma": 0.0002014393086842575
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791041400",
+      "start": 1791041400,
+      "p_up": 0.11622995053685031,
+      "up": 0,
+      "reference_age_s": 109.35550498962402,
+      "decision_at": 1791041869.355505,
+      "sigma": 0.00015610328227512704
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791041400",
+      "start": 1791041400,
+      "p_up": 0.24388078771192195,
+      "up": 0,
+      "reference_age_s": 110.66131091117859,
+      "decision_at": 1791041870.661311,
+      "sigma": 0.00019521259958758078
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791042300",
+      "start": 1791042300,
+      "p_up": 0.6044586002586774,
+      "up": 1,
+      "reference_age_s": 119.7186119556427,
+      "decision_at": 1791042779.718612,
+      "sigma": 0.00014658445192348486
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791042300",
+      "start": 1791042300,
+      "p_up": 0.8503280058662092,
+      "up": 1,
+      "reference_age_s": 120.96991491317749,
+      "decision_at": 1791042780.969915,
+      "sigma": 0.00019005189562426017
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791043200",
+      "start": 1791043200,
+      "p_up": 0.19235958635128547,
+      "up": 0,
+      "reference_age_s": 73.75630807876587,
+      "decision_at": 1791043693.756308,
+      "sigma": 0.00014371946786167832
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791043200",
+      "start": 1791043200,
+      "p_up": 0.0790819758792497,
+      "up": 0,
+      "reference_age_s": 75.1016058921814,
+      "decision_at": 1791043695.101606,
+      "sigma": 0.00019429740339050767
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791044100",
+      "start": 1791044100,
+      "p_up": 0.08662834756330301,
+      "up": 0,
+      "reference_age_s": 81.16260695457458,
+      "decision_at": 1791044601.162607,
+      "sigma": 0.000144901292085196
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791044100",
+      "start": 1791044100,
+      "p_up": 0.2758658803204711,
+      "up": 1,
+      "reference_age_s": 82.76217198371887,
+      "decision_at": 1791044602.762172,
+      "sigma": 0.00019265054107488747
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791045900",
+      "start": 1791045900,
+      "p_up": 0.8424250339326735,
+      "up": 1,
+      "reference_age_s": 119.82468104362488,
+      "decision_at": 1791046379.824681,
+      "sigma": 0.00013206200737739726
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791045900",
+      "start": 1791045900,
+      "p_up": 0.21099947767146332,
+      "up": 0,
+      "reference_age_s": 121.13463711738586,
+      "decision_at": 1791046381.134637,
+      "sigma": 0.00018307493417755788
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791046800",
+      "start": 1791046800,
+      "p_up": 0.6178207165976022,
+      "up": 1,
+      "reference_age_s": 86.69579410552979,
+      "decision_at": 1791047306.695794,
+      "sigma": 0.00011861728663042745
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791046800",
+      "start": 1791046800,
+      "p_up": 0.8284048110171189,
+      "up": 1,
+      "reference_age_s": 88.03857493400574,
+      "decision_at": 1791047308.038575,
+      "sigma": 0.00014622681956116604
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791047700",
+      "start": 1791047700,
+      "p_up": 0.9300896436662573,
+      "up": 1,
+      "reference_age_s": 109.09717297554016,
+      "decision_at": 1791048169.097173,
+      "sigma": 0.00010342985681340418
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791047700",
+      "start": 1791047700,
+      "p_up": 0.7275897070749843,
+      "up": 0,
+      "reference_age_s": 110.55164098739624,
+      "decision_at": 1791048170.551641,
+      "sigma": 0.00013854625625797995
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791048600",
+      "start": 1791048600,
+      "p_up": 0.4432242966098367,
+      "up": 1,
+      "reference_age_s": 74.37832999229431,
+      "decision_at": 1791049094.37833,
+      "sigma": 0.00010869187480766455
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791048600",
+      "start": 1791048600,
+      "p_up": 0.46333961656880174,
+      "up": 1,
+      "reference_age_s": 75.68439888954163,
+      "decision_at": 1791049095.684399,
+      "sigma": 0.00014562478551659132
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791049500",
+      "start": 1791049500,
+      "p_up": 0.629935076321379,
+      "up": 1,
+      "reference_age_s": 84.85396790504456,
+      "decision_at": 1791050004.853968,
+      "sigma": 0.00015410686586989097
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791049500",
+      "start": 1791049500,
+      "p_up": 0.9350276201911583,
+      "up": 1,
+      "reference_age_s": 86.09011793136597,
+      "decision_at": 1791050006.090118,
+      "sigma": 0.00019380230103378197
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791051300",
+      "start": 1791051300,
+      "p_up": 0.20562339710256872,
+      "up": 1,
+      "reference_age_s": 94.01452898979187,
+      "decision_at": 1791051754.014529,
+      "sigma": 0.0001732328764227468
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791051300",
+      "start": 1791051300,
+      "p_up": 0.4017135657971555,
+      "up": 0,
+      "reference_age_s": 95.23197102546692,
+      "decision_at": 1791051755.231971,
+      "sigma": 0.00023762574074582347
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791052200",
+      "start": 1791052200,
+      "p_up": 0.22353672697941285,
+      "up": 0,
+      "reference_age_s": 111.70962691307068,
+      "decision_at": 1791052671.709627,
+      "sigma": 0.00017428703453355803
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791052200",
+      "start": 1791052200,
+      "p_up": 0.2635960010247492,
+      "up": 0,
+      "reference_age_s": 112.9248559474945,
+      "decision_at": 1791052672.924856,
+      "sigma": 0.00023476179034746737
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791053100",
+      "start": 1791053100,
+      "p_up": 0.5094261637650589,
+      "up": 1,
+      "reference_age_s": 114.5481948852539,
+      "decision_at": 1791053574.548195,
+      "sigma": 0.000174426025350805
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791053100",
+      "start": 1791053100,
+      "p_up": 0.3270342785519034,
+      "up": 0,
+      "reference_age_s": 115.81068992614746,
+      "decision_at": 1791053575.81069,
+      "sigma": 0.00023595252737599294
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791054000",
+      "start": 1791054000,
+      "p_up": 0.024531371039726968,
+      "up": 0,
+      "reference_age_s": 117.47311091423035,
+      "decision_at": 1791054477.473111,
+      "sigma": 0.00018701246197947677
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791054000",
+      "start": 1791054000,
+      "p_up": 0.1427674394937849,
+      "up": 0,
+      "reference_age_s": 118.73883509635925,
+      "decision_at": 1791054478.738835,
+      "sigma": 0.00024337771946917488
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791054900",
+      "start": 1791054900,
+      "p_up": 0.4043569401449102,
+      "up": 0,
+      "reference_age_s": 128.37978291511536,
+      "decision_at": 1791055388.379783,
+      "sigma": 0.00018847096844405833
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791054900",
+      "start": 1791054900,
+      "p_up": 0.30064042935326174,
+      "up": 0,
+      "reference_age_s": 129.69959902763367,
+      "decision_at": 1791055389.699599,
+      "sigma": 0.0002449727132156398
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791055800",
+      "start": 1791055800,
+      "p_up": 0.24684601290994718,
+      "up": 0,
+      "reference_age_s": 100.63554310798645,
+      "decision_at": 1791056260.635543,
+      "sigma": 0.00017895367373063102
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791055800",
+      "start": 1791055800,
+      "p_up": 0.37434693949236975,
+      "up": 1,
+      "reference_age_s": 101.90240406990051,
+      "decision_at": 1791056261.902404,
+      "sigma": 0.0002388756735316508
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791056700",
+      "start": 1791056700,
+      "p_up": 0.2783752027423163,
+      "up": 1,
+      "reference_age_s": 109.990473985672,
+      "decision_at": 1791057169.990474,
+      "sigma": 0.0001471589740619718
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791056700",
+      "start": 1791056700,
+      "p_up": 0.43616916192939575,
+      "up": 1,
+      "reference_age_s": 111.36414194107056,
+      "decision_at": 1791057171.364142,
+      "sigma": 0.00020412729372393723
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791057600",
+      "start": 1791057600,
+      "p_up": 0.8264034525993139,
+      "up": 1,
+      "reference_age_s": 118.81879210472107,
+      "decision_at": 1791058078.818792,
+      "sigma": 0.00014909270535734515
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791057600",
+      "start": 1791057600,
+      "p_up": 0.9807366054465841,
+      "up": 1,
+      "reference_age_s": 120.09332394599915,
+      "decision_at": 1791058080.093324,
+      "sigma": 0.0001832634124917457
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791058500",
+      "start": 1791058500,
+      "p_up": 0.6375007352077063,
+      "up": 1,
+      "reference_age_s": 130.09539103507996,
+      "decision_at": 1791058990.095391,
+      "sigma": 0.00013717604092022682
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791058500",
+      "start": 1791058500,
+      "p_up": 0.7835000281558069,
+      "up": 1,
+      "reference_age_s": 131.66991591453552,
+      "decision_at": 1791058991.669916,
+      "sigma": 0.00016458322081312657
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791059400",
+      "start": 1791059400,
+      "p_up": 0.2757854343063272,
+      "up": 0,
+      "reference_age_s": 81.75133204460144,
+      "decision_at": 1791059901.751332,
+      "sigma": 0.00013736629059847712
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791059400",
+      "start": 1791059400,
+      "p_up": 0.37645540298837177,
+      "up": 0,
+      "reference_age_s": 82.60755896568298,
+      "decision_at": 1791059902.607559,
+      "sigma": 0.00016810714035184204
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791060300",
+      "start": 1791060300,
+      "p_up": 0.001936866448345953,
+      "up": 0,
+      "reference_age_s": 88.70671200752258,
+      "decision_at": 1791060808.706712,
+      "sigma": 0.0001735787678263597
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791061200",
+      "start": 1791061200,
+      "p_up": 0.002167433215914838,
+      "up": 0,
+      "reference_age_s": 105.78908205032349,
+      "decision_at": 1791061665.789082,
+      "sigma": 0.00020034433692153652
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791061200",
+      "start": 1791061200,
+      "p_up": 0.06474532657888843,
+      "up": 1,
+      "reference_age_s": 107.1461079120636,
+      "decision_at": 1791061667.146108,
+      "sigma": 0.00019121990194691417
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791062100",
+      "start": 1791062100,
+      "p_up": 0.6745309138121127,
+      "up": 1,
+      "reference_age_s": 113.50640892982483,
+      "decision_at": 1791062573.506409,
+      "sigma": 0.00021221662025558871
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791062100",
+      "start": 1791062100,
+      "p_up": 0.560908990090616,
+      "up": 0,
+      "reference_age_s": 114.888906955719,
+      "decision_at": 1791062574.888907,
+      "sigma": 0.00019325793408413476
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791063000",
+      "start": 1791063000,
+      "p_up": 0.531561626797711,
+      "up": 0,
+      "reference_age_s": 121.00671005249023,
+      "decision_at": 1791063481.00671,
+      "sigma": 0.00021556923259433234
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791063000",
+      "start": 1791063000,
+      "p_up": 0.4447527445984004,
+      "up": 0,
+      "reference_age_s": 122.28977799415588,
+      "decision_at": 1791063482.289778,
+      "sigma": 0.00019484954302630597
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791063900",
+      "start": 1791063900,
+      "p_up": 0.7257895729145133,
+      "up": 1,
+      "reference_age_s": 131.16284489631653,
+      "decision_at": 1791064391.162845,
+      "sigma": 0.00021194801601998937
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791063900",
+      "start": 1791063900,
+      "p_up": 0.6710403787496013,
+      "up": 0,
+      "reference_age_s": 132.41616702079773,
+      "decision_at": 1791064392.416167,
+      "sigma": 0.00019076550580884394
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791064800",
+      "start": 1791064800,
+      "p_up": 0.8701863818087545,
+      "up": 1,
+      "reference_age_s": 73.88785004615784,
+      "decision_at": 1791065293.88785,
+      "sigma": 0.00020980190707823915
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791064800",
+      "start": 1791064800,
+      "p_up": 0.9348586562435428,
+      "up": 1,
+      "reference_age_s": 75.19540500640869,
+      "decision_at": 1791065295.195405,
+      "sigma": 0.00018677871189449555
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791065700",
+      "start": 1791065700,
+      "p_up": 0.39358979526845694,
+      "up": 0,
+      "reference_age_s": 98.73328709602356,
+      "decision_at": 1791066158.733287,
+      "sigma": 0.00021634474890265938
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791065700",
+      "start": 1791065700,
+      "p_up": 0.3678193090451929,
+      "up": 0,
+      "reference_age_s": 100.03569602966309,
+      "decision_at": 1791066160.035696,
+      "sigma": 0.00019216785683824926
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791066600",
+      "start": 1791066600,
+      "p_up": 0.5497355532940983,
+      "up": 1,
+      "reference_age_s": 121.59203100204468,
+      "decision_at": 1791067081.592031,
+      "sigma": 0.00021612156729258362
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791066600",
+      "start": 1791066600,
+      "p_up": 0.5430761536317017,
+      "up": 1,
+      "reference_age_s": 122.87610793113708,
+      "decision_at": 1791067082.876108,
+      "sigma": 0.00019283633442090524
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791067500",
+      "start": 1791067500,
+      "p_up": 0.5806847581791317,
+      "up": 0,
+      "reference_age_s": 81.36423206329346,
+      "decision_at": 1791068001.364232,
+      "sigma": 0.00018542616597191756
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791067500",
+      "start": 1791067500,
+      "p_up": 0.5637257535513047,
+      "up": 0,
+      "reference_age_s": 82.63427305221558,
+      "decision_at": 1791068002.634273,
+      "sigma": 0.00018221685115381954
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791068400",
+      "start": 1791068400,
+      "p_up": 0.42689078378917555,
+      "up": 0,
+      "reference_age_s": 95.11618709564209,
+      "decision_at": 1791068855.116187,
+      "sigma": 0.0001397693627676657
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791068400",
+      "start": 1791068400,
+      "p_up": 0.26941064752734495,
+      "up": 1,
+      "reference_age_s": 96.374596118927,
+      "decision_at": 1791068856.374596,
+      "sigma": 0.00016462770942871123
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791069300",
+      "start": 1791069300,
+      "p_up": 0.5132755328641988,
+      "up": 0,
+      "reference_age_s": 77.5193030834198,
+      "decision_at": 1791069797.519303,
+      "sigma": 0.0001188079578814436
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791069300",
+      "start": 1791069300,
+      "p_up": 0.435022606020373,
+      "up": 1,
+      "reference_age_s": 78.9026050567627,
+      "decision_at": 1791069798.902605,
+      "sigma": 0.0001514931069177449
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791070200",
+      "start": 1791070200,
+      "p_up": 0.8631947772035818,
+      "up": 1,
+      "reference_age_s": 81.87694597244263,
+      "decision_at": 1791070701.876946,
+      "sigma": 0.0001285590709733977
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791070200",
+      "start": 1791070200,
+      "p_up": 0.7469738348452063,
+      "up": 1,
+      "reference_age_s": 83.37302994728088,
+      "decision_at": 1791070703.37303,
+      "sigma": 0.0001490212863277015
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791071100",
+      "start": 1791071100,
+      "p_up": 0.228199800859684,
+      "up": 0,
+      "reference_age_s": 85.55531096458435,
+      "decision_at": 1791071605.555311,
+      "sigma": 0.00012334785390978863
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791071100",
+      "start": 1791071100,
+      "p_up": 0.42182926463534726,
+      "up": 0,
+      "reference_age_s": 86.14824795722961,
+      "decision_at": 1791071606.148248,
+      "sigma": 0.0001454720494170573
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791072000",
+      "start": 1791072000,
+      "p_up": 0.9848334613103249,
+      "up": 1,
+      "reference_age_s": 121.89509201049805,
+      "decision_at": 1791072481.895092,
+      "sigma": 0.0001509465856949271
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791072000",
+      "start": 1791072000,
+      "p_up": 0.6257844654624722,
+      "up": 1,
+      "reference_age_s": 123.13581490516663,
+      "decision_at": 1791072483.135815,
+      "sigma": 0.00014740130252102862
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791072900",
+      "start": 1791072900,
+      "p_up": 0.8998454797380543,
+      "up": 0,
+      "reference_age_s": 84.51183104515076,
+      "decision_at": 1791073404.511831,
+      "sigma": 0.00014148903755021938
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791072900",
+      "start": 1791072900,
+      "p_up": 0.99997759814149,
+      "up": 1,
+      "reference_age_s": 85.73549604415894,
+      "decision_at": 1791073405.735496,
+      "sigma": 0.00016239286250433962
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791073800",
+      "start": 1791073800,
+      "p_up": 0.8229433523477125,
+      "up": 0,
+      "reference_age_s": 97.09484100341797,
+      "decision_at": 1791074257.094841,
+      "sigma": 0.0001541526849594264
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791073800",
+      "start": 1791073800,
+      "p_up": 0.9113245010893729,
+      "up": 0,
+      "reference_age_s": 98.39711403846741,
+      "decision_at": 1791074258.397114,
+      "sigma": 0.00018984427707581758
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791074700",
+      "start": 1791074700,
+      "p_up": 0.727238518837959,
+      "up": 0,
+      "reference_age_s": 113.54039096832275,
+      "decision_at": 1791075173.540391,
+      "sigma": 0.00015914144269785568
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791074700",
+      "start": 1791074700,
+      "p_up": 0.5632589081172436,
+      "up": 1,
+      "reference_age_s": 114.78196001052856,
+      "decision_at": 1791075174.78196,
+      "sigma": 0.0001941488091623823
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791075600",
+      "start": 1791075600,
+      "p_up": 0.469259032972974,
+      "up": 0,
+      "reference_age_s": 110.23387908935547,
+      "decision_at": 1791076070.233879,
+      "sigma": 0.0001645596732317891
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791075600",
+      "start": 1791075600,
+      "p_up": 0.4247475432694484,
+      "up": 1,
+      "reference_age_s": 111.4616711139679,
+      "decision_at": 1791076071.461671,
+      "sigma": 0.00023084880957044906
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791076500",
+      "start": 1791076500,
+      "p_up": 0.17451174672806463,
+      "up": 0,
+      "reference_age_s": 125.49567890167236,
+      "decision_at": 1791076985.495679,
+      "sigma": 0.00017347935271152121
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791076500",
+      "start": 1791076500,
+      "p_up": 0.08930296862575576,
+      "up": 0,
+      "reference_age_s": 126.75025510787964,
+      "decision_at": 1791076986.750255,
+      "sigma": 0.0002523394833217985
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791077400",
+      "start": 1791077400,
+      "p_up": 0.8203808575564742,
+      "up": 1,
+      "reference_age_s": 84.3055510520935,
+      "decision_at": 1791077904.305551,
+      "sigma": 0.00016303032115985773
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791077400",
+      "start": 1791077400,
+      "p_up": 0.8679391250798114,
+      "up": 1,
+      "reference_age_s": 85.61150002479553,
+      "decision_at": 1791077905.6115,
+      "sigma": 0.00025614804405417046
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791078300",
+      "start": 1791078300,
+      "p_up": 0.5078872113797936,
+      "up": 1,
+      "reference_age_s": 91.83641290664673,
+      "decision_at": 1791078751.836413,
+      "sigma": 0.00016156253009904202
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791078300",
+      "start": 1791078300,
+      "p_up": 0.5901631249229445,
+      "up": 1,
+      "reference_age_s": 93.124596118927,
+      "decision_at": 1791078753.124596,
+      "sigma": 0.0002590135896702382
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791079200",
+      "start": 1791079200,
+      "p_up": 0.847839561264182,
+      "up": 1,
+      "reference_age_s": 85.2896499633789,
+      "decision_at": 1791079705.28965,
+      "sigma": 0.00013444442073268844
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791079200",
+      "start": 1791079200,
+      "p_up": 0.3843239009624527,
+      "up": 0,
+      "reference_age_s": 86.51160001754761,
+      "decision_at": 1791079706.5116,
+      "sigma": 0.0002597450012474673
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791081000",
+      "start": 1791081000,
+      "p_up": 0.4368414174105307,
+      "up": 0,
+      "reference_age_s": 104.99062609672546,
+      "decision_at": 1791081464.990626,
+      "sigma": 0.00013085997106983
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791081000",
+      "start": 1791081000,
+      "p_up": 0.6016541305866777,
+      "up": 0,
+      "reference_age_s": 106.26639199256897,
+      "decision_at": 1791081466.266392,
+      "sigma": 0.00024435388513755635
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791081900",
+      "start": 1791081900,
+      "p_up": 0.5414031744858043,
+      "up": 1,
+      "reference_age_s": 115.55373501777649,
+      "decision_at": 1791082375.553735,
+      "sigma": 0.0001317180083066152
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791081900",
+      "start": 1791081900,
+      "p_up": 0.755478208429708,
+      "up": 1,
+      "reference_age_s": 116.91798400878906,
+      "decision_at": 1791082376.917984,
+      "sigma": 0.00025051164530800845
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791082800",
+      "start": 1791082800,
+      "p_up": 0.48520079606570166,
+      "up": 1,
+      "reference_age_s": 123.47028994560242,
+      "decision_at": 1791083283.47029,
+      "sigma": 0.00012051928956994069
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791082800",
+      "start": 1791082800,
+      "p_up": 0.40249843356735376,
+      "up": 1,
+      "reference_age_s": 124.77836799621582,
+      "decision_at": 1791083284.778368,
+      "sigma": 0.00021602281943237692
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791083700",
+      "start": 1791083700,
+      "p_up": 0.38953294273610656,
+      "up": 0,
+      "reference_age_s": 128.9690339565277,
+      "decision_at": 1791084188.969034,
+      "sigma": 0.00010653486396576562
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791083700",
+      "start": 1791083700,
+      "p_up": 0.3910133286070406,
+      "up": 1,
+      "reference_age_s": 130.2528259754181,
+      "decision_at": 1791084190.252826,
+      "sigma": 0.00019014998605578146
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791084600",
+      "start": 1791084600,
+      "p_up": 0.9193545254559845,
+      "up": 1,
+      "reference_age_s": 80.96471691131592,
+      "decision_at": 1791085100.964717,
+      "sigma": 0.00011289045762580907
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791084600",
+      "start": 1791084600,
+      "p_up": 0.7598832401126847,
+      "up": 1,
+      "reference_age_s": 81.78849291801453,
+      "decision_at": 1791085101.788493,
+      "sigma": 0.0002077869290806791
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791086400",
+      "start": 1791086400,
+      "p_up": 0.5469189379654824,
+      "up": 0,
+      "reference_age_s": 110.93412399291992,
+      "decision_at": 1791086870.934124,
+      "sigma": 0.00011214983073922132
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791086400",
+      "start": 1791086400,
+      "p_up": 0.7693178051634046,
+      "up": 1,
+      "reference_age_s": 112.27197194099426,
+      "decision_at": 1791086872.271972,
+      "sigma": 0.00020847611620865747
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791087300",
+      "start": 1791087300,
+      "p_up": 0.543955781506121,
+      "up": 1,
+      "reference_age_s": 117.6786470413208,
+      "decision_at": 1791087777.678647,
+      "sigma": 0.00010328738874750584
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791087300",
+      "start": 1791087300,
+      "p_up": 0.29884192599864895,
+      "up": 0,
+      "reference_age_s": 118.98241090774536,
+      "decision_at": 1791087778.982411,
+      "sigma": 0.00017662985075030365
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791088200",
+      "start": 1791088200,
+      "p_up": 0.5194132265938314,
+      "up": 1,
+      "reference_age_s": 128.5449550151825,
+      "decision_at": 1791088688.544955,
+      "sigma": 0.00008264737410306492
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791088200",
+      "start": 1791088200,
+      "p_up": 0.20738958296176485,
+      "up": 0,
+      "reference_age_s": 129.85881090164185,
+      "decision_at": 1791088689.858811,
+      "sigma": 0.00016588221856578744
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791089100",
+      "start": 1791089100,
+      "p_up": 0.5475545502152231,
+      "up": 1,
+      "reference_age_s": 129.4144630432129,
+      "decision_at": 1791089589.414463,
+      "sigma": 0.00007048852347444933
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791089100",
+      "start": 1791089100,
+      "p_up": 0.43561841068258017,
+      "up": 1,
+      "reference_age_s": 130.68391299247742,
+      "decision_at": 1791089590.683913,
+      "sigma": 0.0001450454160478672
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791090900",
+      "start": 1791090900,
+      "p_up": 0.6062918917297,
+      "up": 1,
+      "reference_age_s": 100.8072280883789,
+      "decision_at": 1791091360.807228,
+      "sigma": 0.00008175651310322913
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791090900",
+      "start": 1791090900,
+      "p_up": 0.7930925723659985,
+      "up": 1,
+      "reference_age_s": 101.53276300430298,
+      "decision_at": 1791091361.532763,
+      "sigma": 0.00014412637769707333
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791091800",
+      "start": 1791091800,
+      "p_up": 0.900867629867356,
+      "up": 1,
+      "reference_age_s": 115.98540592193604,
+      "decision_at": 1791092275.985406,
+      "sigma": 0.00007042888294492502
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791091800",
+      "start": 1791091800,
+      "p_up": 0.40756029672584515,
+      "up": 1,
+      "reference_age_s": 117.16312909126282,
+      "decision_at": 1791092277.163129,
+      "sigma": 0.000101093896116659
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791092700",
+      "start": 1791092700,
+      "p_up": 0.33012527220879295,
+      "up": 0,
+      "reference_age_s": 126.383131980896,
+      "decision_at": 1791093186.383132,
+      "sigma": 0.00006616478163493218
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791092700",
+      "start": 1791092700,
+      "p_up": 0.24118136177026056,
+      "up": 0,
+      "reference_age_s": 127.86909008026123,
+      "decision_at": 1791093187.86909,
+      "sigma": 0.00010992615863179413
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791093600",
+      "start": 1791093600,
+      "p_up": 0.821968478941957,
+      "up": 1,
+      "reference_age_s": 131.27797198295593,
+      "decision_at": 1791094091.277972,
+      "sigma": 0.00006974194849007432
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791093600",
+      "start": 1791093600,
+      "p_up": 0.585296471355491,
+      "up": 0,
+      "reference_age_s": 132.5239450931549,
+      "decision_at": 1791094092.523945,
+      "sigma": 0.0001044792558545292
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791094500",
+      "start": 1791094500,
+      "p_up": 0.9994223673300817,
+      "up": 0,
+      "reference_age_s": 78.74891996383667,
+      "decision_at": 1791094998.74892,
+      "sigma": 0.00007623244190236528
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791094500",
+      "start": 1791094500,
+      "p_up": 0.9905937674198761,
+      "up": 0,
+      "reference_age_s": 79.96626305580139,
+      "decision_at": 1791094999.966263,
+      "sigma": 0.00010749532219510896
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791095400",
+      "start": 1791095400,
+      "p_up": 0.9987273128304159,
+      "up": 1,
+      "reference_age_s": 94.72378897666931,
+      "decision_at": 1791095854.723789,
+      "sigma": 0.00014839132504988368
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791095400",
+      "start": 1791095400,
+      "p_up": 0.975442452011406,
+      "up": 1,
+      "reference_age_s": 95.98080897331238,
+      "decision_at": 1791095855.980809,
+      "sigma": 0.00015782116107007237
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791096300",
+      "start": 1791096300,
+      "p_up": 0.8090188243473974,
+      "up": 1,
+      "reference_age_s": 104.4832820892334,
+      "decision_at": 1791096764.483282,
+      "sigma": 0.0001576201021175806
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791096300",
+      "start": 1791096300,
+      "p_up": 0.7164562027134836,
+      "up": 1,
+      "reference_age_s": 105.71451306343079,
+      "decision_at": 1791096765.714513,
+      "sigma": 0.00016553045424022543
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791097200",
+      "start": 1791097200,
+      "p_up": 0.39139002901225084,
+      "up": 0,
+      "reference_age_s": 110.72075510025024,
+      "decision_at": 1791097670.720755,
+      "sigma": 0.00016480976286605288
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791097200",
+      "start": 1791097200,
+      "p_up": 0.40963924316004774,
+      "up": 0,
+      "reference_age_s": 111.88815689086914,
+      "decision_at": 1791097671.888157,
+      "sigma": 0.000173091465897955
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791098100",
+      "start": 1791098100,
+      "p_up": 0.25213865351597686,
+      "up": 0,
+      "reference_age_s": 112.2734649181366,
+      "decision_at": 1791098572.273465,
+      "sigma": 0.00016697924940768874
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791098100",
+      "start": 1791098100,
+      "p_up": 0.057153930835229905,
+      "up": 0,
+      "reference_age_s": 113.55515193939209,
+      "decision_at": 1791098573.555152,
+      "sigma": 0.00018081806470900426
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791099000",
+      "start": 1791099000,
+      "p_up": 0.30318466922991893,
+      "up": 0,
+      "reference_age_s": 79.92443108558655,
+      "decision_at": 1791099499.924431,
+      "sigma": 0.00017519655704114267
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791099000",
+      "start": 1791099000,
+      "p_up": 0.6862795103881293,
+      "up": 1,
+      "reference_age_s": 81.33321905136108,
+      "decision_at": 1791099501.333219,
+      "sigma": 0.00020037488540089362
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791099900",
+      "start": 1791099900,
+      "p_up": 0.8892430245847089,
+      "up": 1,
+      "reference_age_s": 86.67259907722473,
+      "decision_at": 1791100406.672599,
+      "sigma": 0.00017872142370845397
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791099900",
+      "start": 1791099900,
+      "p_up": 0.8627931059433712,
+      "up": 1,
+      "reference_age_s": 87.9343490600586,
+      "decision_at": 1791100407.934349,
+      "sigma": 0.0001929660615583339
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791100800",
+      "start": 1791100800,
+      "p_up": 0.7486481351027608,
+      "up": 1,
+      "reference_age_s": 96.92571997642517,
+      "decision_at": 1791101256.92572,
+      "sigma": 0.000200587722458929
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791100800",
+      "start": 1791100800,
+      "p_up": 0.2277973738907798,
+      "up": 0,
+      "reference_age_s": 98.18377804756165,
+      "decision_at": 1791101258.183778,
+      "sigma": 0.0002948061182780846
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791101700",
+      "start": 1791101700,
+      "p_up": 0.2637495220147883,
+      "up": 1,
+      "reference_age_s": 109.68538808822632,
+      "decision_at": 1791102169.685388,
+      "sigma": 0.00021363617918325242
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791101700",
+      "start": 1791101700,
+      "p_up": 0.16988851280775108,
+      "up": 0,
+      "reference_age_s": 110.34119701385498,
+      "decision_at": 1791102170.341197,
+      "sigma": 0.00030833082668926847
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791102600",
+      "start": 1791102600,
+      "p_up": 0.015856216758929398,
+      "up": 0,
+      "reference_age_s": 133.01984906196594,
+      "decision_at": 1791103093.019849,
+      "sigma": 0.0001974083080141387
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791102600",
+      "start": 1791102600,
+      "p_up": 0.12568225707772562,
+      "up": 0,
+      "reference_age_s": 74.60319209098816,
+      "decision_at": 1791103094.603192,
+      "sigma": 0.0003223163205923202
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791104400",
+      "start": 1791104400,
+      "p_up": 0.21249813197829126,
+      "up": 1,
+      "reference_age_s": 109.1222460269928,
+      "decision_at": 1791104869.122246,
+      "sigma": 0.00019376221622347906
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791104400",
+      "start": 1791104400,
+      "p_up": 0.22341803110813763,
+      "up": 0,
+      "reference_age_s": 110.35587406158447,
+      "decision_at": 1791104870.355874,
+      "sigma": 0.00031991362014373824
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791105300",
+      "start": 1791105300,
+      "p_up": 0.5814302550890429,
+      "up": 1,
+      "reference_age_s": 91.7044370174408,
+      "decision_at": 1791105751.704437,
+      "sigma": 0.0003152180495857785
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791106200",
+      "start": 1791106200,
+      "p_up": 0.07034064792172368,
+      "up": 1,
+      "reference_age_s": 96.64340496063232,
+      "decision_at": 1791106656.643405,
+      "sigma": 0.0001961560804095095
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791106200",
+      "start": 1791106200,
+      "p_up": 0.1826734760802744,
+      "up": 1,
+      "reference_age_s": 97.90689992904663,
+      "decision_at": 1791106657.9069,
+      "sigma": 0.0003114092413264321
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791107100",
+      "start": 1791107100,
+      "p_up": 0.39224474116020447,
+      "up": 0,
+      "reference_age_s": 102.19206500053406,
+      "decision_at": 1791107562.192065,
+      "sigma": 0.00020796522018923293
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791107100",
+      "start": 1791107100,
+      "p_up": 0.48818053410607537,
+      "up": 0,
+      "reference_age_s": 103.43829488754272,
+      "decision_at": 1791107563.438295,
+      "sigma": 0.00032199484899386185
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791108000",
+      "start": 1791108000,
+      "p_up": 0.7707577727058803,
+      "up": 1,
+      "reference_age_s": 112.80420207977295,
+      "decision_at": 1791108472.804202,
+      "sigma": 0.00019258761260417497
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791108000",
+      "start": 1791108000,
+      "p_up": 0.7363561335743052,
+      "up": 1,
+      "reference_age_s": 114.1711950302124,
+      "decision_at": 1791108474.171195,
+      "sigma": 0.00023617374914470968
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791108900",
+      "start": 1791108900,
+      "p_up": 0.9984345401754872,
+      "up": 1,
+      "reference_age_s": 86.90547490119934,
+      "decision_at": 1791109406.905475,
+      "sigma": 0.0002023537902646647
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791108900",
+      "start": 1791108900,
+      "p_up": 0.9741334335018856,
+      "up": 1,
+      "reference_age_s": 88.21603798866272,
+      "decision_at": 1791109408.216038,
+      "sigma": 0.00023961157499327793
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791109800",
+      "start": 1791109800,
+      "p_up": 0.03827349945755987,
+      "up": 0,
+      "reference_age_s": 99.07693004608154,
+      "decision_at": 1791110259.07693,
+      "sigma": 0.00019655508092308735
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791109800",
+      "start": 1791109800,
+      "p_up": 0.08130590220965844,
+      "up": 0,
+      "reference_age_s": 100.42647504806519,
+      "decision_at": 1791110260.426475,
+      "sigma": 0.0002152856321785454
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791110700",
+      "start": 1791110700,
+      "p_up": 0.43364432303532147,
+      "up": 0,
+      "reference_age_s": 117.60589003562927,
+      "decision_at": 1791111177.60589,
+      "sigma": 0.00020256677868366786
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791110700",
+      "start": 1791110700,
+      "p_up": 0.48813992800684813,
+      "up": 0,
+      "reference_age_s": 118.96715211868286,
+      "decision_at": 1791111178.967152,
+      "sigma": 0.00022459956292334904
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791111600",
+      "start": 1791111600,
+      "p_up": 0.44448010896260215,
+      "up": 0,
+      "reference_age_s": 132.68098306655884,
+      "decision_at": 1791112092.680983,
+      "sigma": 0.0002137448978645862
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791111600",
+      "start": 1791111600,
+      "p_up": 0.5726863555530465,
+      "up": 0,
+      "reference_age_s": 74.12060403823853,
+      "decision_at": 1791112094.120604,
+      "sigma": 0.0002281098351027866
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791112500",
+      "start": 1791112500,
+      "p_up": 0.6911848681005367,
+      "up": 1,
+      "reference_age_s": 127.71969699859619,
+      "decision_at": 1791112987.719697,
+      "sigma": 0.00021026915533278867
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791112500",
+      "start": 1791112500,
+      "p_up": 0.7898944200484563,
+      "up": 1,
+      "reference_age_s": 129.04362988471985,
+      "decision_at": 1791112989.04363,
+      "sigma": 0.0002292868619849033
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791113400",
+      "start": 1791113400,
+      "p_up": 0.40259879012881666,
+      "up": 0,
+      "reference_age_s": 89.01896595954895,
+      "decision_at": 1791113909.018966,
+      "sigma": 0.0001994607821254158
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791114300",
+      "start": 1791114300,
+      "p_up": 0.6282090462424573,
+      "up": 1,
+      "reference_age_s": 99.26042008399963,
+      "decision_at": 1791114759.26042,
+      "sigma": 0.00018792563424054027
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791114300",
+      "start": 1791114300,
+      "p_up": 0.5779824911700373,
+      "up": 0,
+      "reference_age_s": 100.54761409759521,
+      "decision_at": 1791114760.547614,
+      "sigma": 0.0002055259685876247
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791115200",
+      "start": 1791115200,
+      "p_up": 0.6446140731272518,
+      "up": 0,
+      "reference_age_s": 91.99075508117676,
+      "decision_at": 1791115651.990755,
+      "sigma": 0.00020631481680286602
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791116100",
+      "start": 1791116100,
+      "p_up": 0.39924154917760046,
+      "up": 1,
+      "reference_age_s": 96.79482388496399,
+      "decision_at": 1791116556.794824,
+      "sigma": 0.00019414975695165873
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791116100",
+      "start": 1791116100,
+      "p_up": 0.7631628455669961,
+      "up": 1,
+      "reference_age_s": 98.19123911857605,
+      "decision_at": 1791116558.191239,
+      "sigma": 0.00020116326583000886
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791117000",
+      "start": 1791117000,
+      "p_up": 0.3713330568034787,
+      "up": 0,
+      "reference_age_s": 102.9244110584259,
+      "decision_at": 1791117462.924411,
+      "sigma": 0.00018363913812547775
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791117000",
+      "start": 1791117000,
+      "p_up": 0.5420088325168052,
+      "up": 0,
+      "reference_age_s": 104.14191198348999,
+      "decision_at": 1791117464.141912,
+      "sigma": 0.0001921780372730888
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791117900",
+      "start": 1791117900,
+      "p_up": 0.17018734644436134,
+      "up": 0,
+      "reference_age_s": 107.62227988243103,
+      "decision_at": 1791118367.62228,
+      "sigma": 0.00018212774725530483
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791117900",
+      "start": 1791117900,
+      "p_up": 0.13584610888782728,
+      "up": 0,
+      "reference_age_s": 108.86813998222351,
+      "decision_at": 1791118368.86814,
+      "sigma": 0.00019156936860974442
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791118800",
+      "start": 1791118800,
+      "p_up": 0.6147367280995789,
+      "up": 1,
+      "reference_age_s": 76.74265909194946,
+      "decision_at": 1791119296.742659,
+      "sigma": 0.00017257916408056976
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791118800",
+      "start": 1791118800,
+      "p_up": 0.7033778897643147,
+      "up": 1,
+      "reference_age_s": 78.01597809791565,
+      "decision_at": 1791119298.015978,
+      "sigma": 0.0002002045982221482
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791120600",
+      "start": 1791120600,
+      "p_up": 0.5888765780314081,
+      "up": 1,
+      "reference_age_s": 97.70893502235413,
+      "decision_at": 1791121057.708935,
+      "sigma": 0.00017926752155302282
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791120600",
+      "start": 1791120600,
+      "p_up": 0.3384540556520169,
+      "up": 0,
+      "reference_age_s": 99.11056995391846,
+      "decision_at": 1791121059.11057,
+      "sigma": 0.00021565383799226713
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791121500",
+      "start": 1791121500,
+      "p_up": 0.8441195033957927,
+      "up": 1,
+      "reference_age_s": 104.77502703666687,
+      "decision_at": 1791121964.775027,
+      "sigma": 0.0001925382087230146
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791121500",
+      "start": 1791121500,
+      "p_up": 0.7138063797726187,
+      "up": 1,
+      "reference_age_s": 105.99959111213684,
+      "decision_at": 1791121965.999591,
+      "sigma": 0.00023394010576189496
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791122400",
+      "start": 1791122400,
+      "p_up": 0.5329513616323308,
+      "up": 0,
+      "reference_age_s": 113.04751491546631,
+      "decision_at": 1791122873.047515,
+      "sigma": 0.00018919695595634388
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791122400",
+      "start": 1791122400,
+      "p_up": 0.2018493026648997,
+      "up": 0,
+      "reference_age_s": 114.30031895637512,
+      "decision_at": 1791122874.300319,
+      "sigma": 0.00023772363069874653
+    },
+    {
+      "slug": "btc-up-or-down-15-min-1791123300",
+      "start": 1791123300,
+      "p_up": 0.13159357350490508,
+      "up": 0,
+      "reference_age_s": 117.16813492774963,
+      "decision_at": 1791123777.168135,
+      "sigma": 0.000162389791149131
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791123300",
+      "start": 1791123300,
+      "p_up": 0.12561190134953787,
+      "up": 0,
+      "reference_age_s": 118.47803092002869,
+      "decision_at": 1791123778.478031,
+      "sigma": 0.00022784280816828055
+    },
+    {
+      "slug": "eth-up-or-down-15-min-1791124200",
+      "start": 1791124200,
+      "p_up": 0.8624280012937692,
+      "up": 0,
+      "reference_age_s": 123.18215799331665,
+      "decision_at": 1791124683.182158,
+      "sigma": 0.00021992250976523997
+    }
+  ],
+  "descriptive_cluster_bootstrap_95pct_brier_improvement": [
+    0.03751077096541501,
+    0.10785850314599298
+  ],
+  "bootstrap_seed": 4,
+  "bootstrap_reps": 5000
+}
