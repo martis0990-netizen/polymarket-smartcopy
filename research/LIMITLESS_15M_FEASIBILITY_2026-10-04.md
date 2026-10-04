@@ -20,3 +20,16 @@ Next bounded work, in order:
 4. Show independent conditions, missing windows, decisions, attempted and filled paper entries, execution assumptions, settlement and uncertainty. Until those exist, 15m profitability remains **INSUFFICIENT_DATA**.
 
 Structure H1/M15 annotations may be recorded causally as diagnostics; the current H4/H1 warmup is incomplete and cannot justify a trading filter. No thresholds or strategy have been selected by this snapshot.
+
+## Cross-archive causal coverage audit (completed main only)
+
+A second pass included **29 distinct successful main capture segments** from 2026-10-03 12:58:15 UTC through 2026-10-04 14:50:49 UTC, excluding PR smoke and wallet/discovery workflows. Each downloaded ZIP SHA256 matched its GitHub artifact digest. Market slugs were deduplicated across segments, and observations were ordered by receipt/request time:
+
+- **210** distinct detailed 15-minute BTC/ETH markets, in **105** UTC quarter-hour start clusters. Two had first detail after the candidate midpoint; do not retrospectively insert them into a decision window.
+- **207** observed RESOLVED, three latest observed FUNDED. All 207 recorded `metadata.resolvePrice`, `metadata.openPrice` and `winningOutcomeIndex` consistently by comparison (index 0 corresponds to Up in these records). This is an internal exchange-metadata consistency check, not independent Chainlink report reconstruction.
+- **9,840** REST book envelopes and **2,802** oracle-candle envelopes associated with these markets. All 210 descriptions identify Chainlink 60-second TWAP, and all 2,802 oracle responses identify `source=chainlink`. Repeated envelopes are not independent trades.
+- In the **[open+7m30s, open+8m30s]** diagnostic window, 206 markets have a received book, 187 have a received oracle response, and 187 have both. Of the latter, 186 have an observed resolution. This window is a **coverage probe only**, not a frozen trading decision rule or fee/entry choice. The 187 first eligible oracle responses each contain at least 120 consecutive fully closed one-minute candle returns under the timestamp+60s <= request-start rule.
+- In those 187 responses, the age of the last fully closed oracle minute at **response receipt** has median **104.99s**, approximate p10 **81.16s** and p90 **127.72s**; it cannot be treated as a current tick. The captured 1m oracle arrays include opening-minute rows but **no exact expiry-timestamp row**. Do not assert independent exact-report/tolerance reconstruction from this evidence.
+- Neither market metadata nor a book touch proves an actual fill. No 15-minute forecast, independent intent, delayed first execution, fee-adjusted return or 15-minute PnL has been calculated. **INSUFFICIENT_DATA_FOR_PROFITABILITY**.
+
+Machine evidence: [LIMITLESS_15M_FEASIBILITY_EVIDENCE_2026-10-04.json](LIMITLESS_15M_FEASIBILITY_EVIDENCE_2026-10-04.json) (run/artifact/hash plus per-market coverage). The raw capture artifacts in the listed runs remain the source of truth.
