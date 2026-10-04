@@ -545,12 +545,17 @@ def replay(manifest):
         ep.pop("_execution_book", None)
     phases = {}
     for phase in ("discovery", "holdout"):
+        phase_start, phase_end = ((START, HOLDOUT) if phase == "discovery"
+                                  else (HOLDOUT, CUTOFF))
+        complete_span = (bool(sources) and seconds(sources[0]["started_at"]) <= phase_start
+                         and seconds(sources[-1]["ended_at"]) >= phase_end)
         selected = [ep for ep in episodes if ep["phase"] == phase]
         missing = [row for row in unverified if row["start"] is None or
                    (row["start"] < HOLDOUT) == (phase == "discovery")]
         scored = [ep for ep in selected if ep["status"] == "DECIDED" and ep["settlement"]]
         decided = sum(ep["status"] == "DECIDED" for ep in selected)
         phases[phase] = {"conditions": len(selected),
+                         "capture_span_complete": complete_span,
                          "discovered_without_verified_market": len(missing),
                          "unverified_discovery_slugs": missing,
                          "quarter_hour_clusters": len({ep["start"] for ep in selected}),
@@ -567,7 +572,7 @@ def replay(manifest):
                                                             if ep["reason"])),
                          **phase_metrics(selected)}
         phases[phase]["review_status"] = (
-            "COVERAGE_REVIEW_ONLY" if len(scored) >= 60
+            "COVERAGE_REVIEW_ONLY" if complete_span and len(scored) >= 60
             and len({ep["start"] for ep in scored}) >= 60
             and decided/(len(selected)+len(missing)) >= .9
             and phases[phase]["h1_known"] > 0
