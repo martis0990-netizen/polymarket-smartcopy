@@ -1,13 +1,18 @@
 """Economic and causality regressions for the offline 15m paper replay."""
 import datetime as dt
+import gzip
+import hashlib
+import json
 import pathlib
 import sys
+import tempfile
 import unittest
+import zipfile
 from decimal import Decimal
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from limitless_15m_replay import (_first, _first_received, candidate, market_spec,
-                                  oracle_probability, prepare, settle_accounts)
+from limitless_15m_replay import (_first, _first_received, candidate, load_archives,
+                                  market_spec, oracle_probability, prepare, settle_accounts)
 
 START = dt.datetime(2026, 10, 5, tzinfo=dt.timezone.utc).timestamp()
 
@@ -72,6 +77,36 @@ class ReplayTests(unittest.TestCase):
         episodes, _, unverified = prepare([row])
         self.assertEqual(episodes, [])
         self.assertEqual([r["slug"] for r in unverified], [row["slug"]])
+
+    def test_cumulative_checkpoint_lineage_rejects_missing_episode(self):
+        with tempfile.TemporaryDirectory() as directory:
+            entries = []
+            for index, episodes in enumerate(({"c": {"condition": "c"}}, {})):
+                state = {"paper": {"version": "v", "markets": {}, "episodes": episodes},
+                         "inventory_paper": {"version": "v", "started_at": 1,
+                                             "entry_attempts": {}},
+                         "inventory_paper_history": {}}
+                summary = {"status": "CAPTURE_ONLY_NO_PNL",
+                           "started_at": START+index*60,
+                           "ended_at": START+index*60+50}
+                path = pathlib.Path(directory)/f"{index}.zip"
+                with zipfile.ZipFile(path, "w") as archive:
+                    archive.writestr("state.json", json.dumps(state))
+                    archive.writestr("summary.json", json.dumps(summary))
+                    archive.writestr("capture.jsonl.gz", gzip.compress(b""))
+                run_id = index+1
+                sha = "sha"
+                entries.append({"run": {"id": run_id, "head_branch": "main",
+                                        "event": "workflow_dispatch", "status": "completed",
+                                        "conclusion": "success",
+                                        "name": "Limitless independent market capture",
+                                        "head_sha": sha},
+                                "artifact": {"id": run_id, "digest": "sha256:" +
+                                             hashlib.sha256(path.read_bytes()).hexdigest(),
+                                             "workflow_run": {"id": run_id, "head_sha": sha}},
+                                "file": {"path": str(path)}})
+            with self.assertRaisesRegex(ValueError, "CHECKPOINT_LINEAGE_BROKEN"):
+                load_archives(entries)
 
     def test_oracle_uses_only_contiguous_closed_candles(self):
         spec = market_spec(market())
