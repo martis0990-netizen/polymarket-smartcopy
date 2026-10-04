@@ -1,0 +1,2304 @@
+{
+  "status": "POSTHOC_DESCRIPTION_NOT_VALIDATED_STRATEGY",
+  "as_of": "2026-10-04T08:27:00+00:00",
+  "source_ref": "1a3be4aa9c501b176ffde85de58f8570c6ca0064",
+  "methods": {
+    "rsi": "Wilder RSI14 over closed-bar close changes; SMA seed14, flat series=50",
+    "atr": "Wilder ATR14; true range max(H-L,abs(H-prevC),abs(L-prevC)), first TR=H-L",
+    "supertrend": "ATR10 Wilder, multiplier3, hl2 basic bands, recursive final bands, initial DOWN at first ATR; close-based reversal",
+    "ema": "EMA20, first close seed",
+    "momentum": "M1 close vs 15 closed minutes earlier",
+    "levels": "Previous15 M1 bars excluding last signal bar; pivots strict left2/non-strict right2, only after both right bars close",
+    "m5": "Aggregate aligned groups of five closed M1 bars; incomplete groups excluded",
+    "h1_atr": "NOT_AVAILABLE: insufficient closed H1 history for ATR14"
+  },
+  "artifacts": [
+    {
+      "id": 11298028349,
+      "digest": "sha256:80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283",
+      "workflow_run": {
+        "id": 37185875778,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11297181910,
+      "digest": "sha256:4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051",
+      "workflow_run": {
+        "id": 37183121491,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11296245826,
+      "digest": "sha256:97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252",
+      "workflow_run": {
+        "id": 37180405302,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11295051929,
+      "digest": "sha256:4c7a51975dfceb7a722a91f9c6c039326764cf91edf87c351a6834f213d0196b",
+      "workflow_run": {
+        "id": 37177706938,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11293569525,
+      "digest": "sha256:eed15602ced5aad1e394547e9ebe24c75d6e19c12b159c71eab7fca1d7ac347e",
+      "workflow_run": {
+        "id": 37174986129,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11289279685,
+      "digest": "sha256:3eddcebdde12c1a273a4ae7e00522cf69b9b91ff2f2e2b396680e0d0a24a647c",
+      "workflow_run": {
+        "id": 37163767735,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11284416014,
+      "digest": "sha256:b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "workflow_run": {
+        "id": 37147962215,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+      }
+    },
+    {
+      "id": 11282392465,
+      "digest": "sha256:a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "workflow_run": {
+        "id": 37146330445,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "751526fbbf4dafa1997905f19b7eb19fb180e8ec"
+      }
+    },
+    {
+      "id": 11282611940,
+      "digest": "sha256:b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "workflow_run": {
+        "id": 37144414604,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "bd67203e8d35eb8768e85eb4e6a1ec30c8c81df0"
+      }
+    },
+    {
+      "id": 11277025685,
+      "digest": "sha256:584d77406c07880cf82e83a50ae0daa3d92acad4fba77ef9bea2775517ea6333",
+      "workflow_run": {
+        "id": 37127718840,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c3e70decab3457b80449dbfc1d12e404cd52a291"
+      }
+    },
+    {
+      "id": 11275138151,
+      "digest": "sha256:56a1c7e26d739cce2ee4ec78da84f709c3c83c66a8abecf6d9eab8f7784f56d9",
+      "workflow_run": {
+        "id": 37124589299,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "7cedb6683d6cb035f5a02c941b27ccf37c442947"
+      }
+    },
+    {
+      "id": 11292384638,
+      "digest": "sha256:b2ba49ae0bc90cc1a6f6ba172c0ab5958ce9f5907f0a59ded36bfec3cd865aad",
+      "workflow_run": {
+        "id": 37172271108,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11291114906,
+      "digest": "sha256:9dcad796b23fa73a725de88ed94e45cb07cd16b2291ec36b8a45a7c901a84265",
+      "workflow_run": {
+        "id": 37169445181,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11291030053,
+      "digest": "sha256:12ad05157410c048837a212286727d20f12de88aff16a6df98847414032ce5ba",
+      "workflow_run": {
+        "id": 37166631973,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "5f1b996a320ff72115a89e93595198e8df85ab6a"
+      }
+    },
+    {
+      "id": 11289045189,
+      "digest": "sha256:8f08173b33f0127eb161a8db0f93df44699d2201751a1fc4c31a0db38229596a",
+      "workflow_run": {
+        "id": 37160806532,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11286969562,
+      "digest": "sha256:43ce84df0040744bf1bc85afd48994f024374589dccfd9aaa593d435847abf7d",
+      "workflow_run": {
+        "id": 37157688574,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11286179317,
+      "digest": "sha256:c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "workflow_run": {
+        "id": 37154622571,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "9dbc0f22297d32acb90b008825f7d2675f8d795d"
+      }
+    },
+    {
+      "id": 11284699716,
+      "digest": "sha256:519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "workflow_run": {
+        "id": 37151327629,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "e327a93bbb9f4ae31c1959ee86e673944e7aa63c"
+      }
+    },
+    {
+      "id": 11282026371,
+      "digest": "sha256:eac3ad1f8d5a771822328b893474e68416e90709a9137709c7ac9619cc4fc817",
+      "workflow_run": {
+        "id": 37141021612,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c2d35b4619c7cf057b7672d6e351275d2a695b2d"
+      }
+    },
+    {
+      "id": 11280730994,
+      "digest": "sha256:f1eadbd837af4bd10735293694705a207ca6fad628163cdc53dae9e1dc3e2d5f",
+      "workflow_run": {
+        "id": 37137646755,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c36b693f6fa0185c1cd3a0cc28857b394b7b8f76"
+      }
+    },
+    {
+      "id": 11279146210,
+      "digest": "sha256:f69f6a3916c050d156a9faddea8fb04b48cec3667badb9512a9f49057c16e311",
+      "workflow_run": {
+        "id": 37134283434,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "c36b693f6fa0185c1cd3a0cc28857b394b7b8f76"
+      }
+    },
+    {
+      "id": 11278670184,
+      "digest": "sha256:eff4165bd37b41057a3b2dea4faa81612b4f74455de194c611ec9d9286229f10",
+      "workflow_run": {
+        "id": 37130957134,
+        "repository_id": 1346482867,
+        "head_repository_id": 1346482867,
+        "head_branch": "main",
+        "head_sha": "f3c11542d1fce3b0e833000456fe28f2b4dd6925"
+      }
+    }
+  ],
+  "results": [
+    {
+      "condition": "0xa3b9ffc1190a74eb5b7f094b64e5c89cbb7a17ffb67cfeebb8955ab76fadc600",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T13:30:11.849910+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.031165898887466573,
+      "p_up": 0.17653866116935002,
+      "opening": "84888.02",
+      "reference_price": 84812.01,
+      "last_closed_utc": "2026-10-03T13:29:59.999000+00:00",
+      "minute_source_sha256": "67868df1f200122ce818e2d066cc6105e7d52d9c74d4add4b7842f6d0c3dc1b3",
+      "artifact": 11275138151,
+      "run": 37124589299,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84812.01,
+        "rsi14": 43.22747929342715,
+        "atr14": 9.624016615000537,
+        "ema20": 84821.28980064417,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84821.42699965881
+        },
+        "last_confirmed_pivot_high": 84820.01,
+        "last_confirmed_pivot_low": 84770.35,
+        "momentum15_pct": -0.04868401142112955,
+        "trailing15_support": 84770.35,
+        "trailing15_resistance": 84853.32,
+        "support_distance_atr": 4.328753956539861,
+        "resistance_distance_atr": 4.292386604531015,
+        "hour_range_so_far": 125.86999999999534,
+        "hour_range_over_m5_atr14": 3.3546884886547508
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84812.01,
+        "rsi14": 60.51897518372883,
+        "atr14": 37.520622384366284,
+        "ema20": 84803.05134610434,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84785.18666790047
+        },
+        "last_confirmed_pivot_high": 84926.47,
+        "last_confirmed_pivot_low": 84785.5
+      }
+    },
+    {
+      "condition": "0x4971ba885a5ec4ad2b552f9238c15b6df0e44c4aeee9bebea65ce122ffe122a0",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T13:30:12.244045+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.009948835684331936,
+      "p_up": 0.09974385035846539,
+      "opening": "2682.67",
+      "reference_price": 2678.83,
+      "last_closed_utc": "2026-10-03T13:29:59.999000+00:00",
+      "minute_source_sha256": "c71eb9e2c750e86c3df0822b81fb03d58687834600712a0d6ded3120198cc0a8",
+      "artifact": 11275138151,
+      "run": 37124589299,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2678.84,
+        "rsi14": 37.83013060853758,
+        "atr14": 0.451298327378027,
+        "ema20": 2679.634390535948,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2679.700839501034
+        },
+        "last_confirmed_pivot_high": 2679.23,
+        "last_confirmed_pivot_low": 2677.41,
+        "momentum15_pct": -0.09062869461112788,
+        "trailing15_support": 2677.41,
+        "trailing15_resistance": 2681.27,
+        "support_distance_atr": 3.1686357188788365,
+        "resistance_distance_atr": 5.384464892918522,
+        "hour_range_so_far": 5.370000000000346,
+        "hour_range_over_m5_atr14": 3.576885509481427
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2678.84,
+        "rsi14": 33.63781709244698,
+        "atr14": 1.5013060903866846,
+        "ema20": 2682.078408543371,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2683.344398776432
+        },
+        "last_confirmed_pivot_high": 2683.54,
+        "last_confirmed_pivot_low": 2680.49
+      }
+    },
+    {
+      "condition": "0x05c90c6cd099c61e08bb4becdf6d45c019d9e720d9484cc6df249f21260af8c3",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T14:30:16.601156+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.09531730241165098,
+      "p_up": 0.30873500354130723,
+      "opening": "84870.03",
+      "reference_price": 84826.0,
+      "last_closed_utc": "2026-10-03T14:29:59.999000+00:00",
+      "minute_source_sha256": "38efe50e74d54b3d7a17304866ae5d89173df9d387d5a8fced348169ad0797cb",
+      "artifact": 11277025685,
+      "run": 37127718840,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84826.0,
+        "rsi14": 52.9366971425881,
+        "atr14": 6.097917483133598,
+        "ema20": 84820.05516780377,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84815.20782729542
+        },
+        "last_confirmed_pivot_high": 84840.01,
+        "last_confirmed_pivot_low": 84792.42,
+        "momentum15_pct": 0.039602596552845704,
+        "trailing15_support": 84792.42,
+        "trailing15_resistance": 84840.01,
+        "support_distance_atr": 5.50679803275161,
+        "resistance_distance_atr": 2.297505671197653,
+        "hour_range_so_far": 96.0399999999936,
+        "hour_range_over_m5_atr14": 2.536913495766383
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84826.0,
+        "rsi14": 47.58162099658352,
+        "atr14": 37.85702593338943,
+        "ema20": 84838.37242810446,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84919.2961613934
+        },
+        "last_confirmed_pivot_high": 84962.2,
+        "last_confirmed_pivot_low": 84774.0
+      }
+    },
+    {
+      "condition": "0xb972a168458d95ca355591f1e9779340f95f37ab0f6ffea638f2bfdd65a4fe6f",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T14:30:16.900265+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.38139600158950027,
+      "p_up": 0.38242733092412495,
+      "opening": "2681.99",
+      "reference_price": 2681.22,
+      "last_closed_utc": "2026-10-03T14:29:59.999000+00:00",
+      "minute_source_sha256": "bb923cc57ee9b778040086c3c5930e870482d3ed6cc1a38c05e1a9987a14922a",
+      "artifact": 11277025685,
+      "run": 37127718840,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2681.21,
+        "rsi14": 59.370069433289984,
+        "atr14": 0.24048813922360165,
+        "ema20": 2680.7780739359414,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2680.97454494661
+        },
+        "last_confirmed_pivot_high": 2681.77,
+        "last_confirmed_pivot_low": 2678.83,
+        "momentum15_pct": 0.08847112929477596,
+        "trailing15_support": 2678.83,
+        "trailing15_resistance": 2681.77,
+        "support_distance_atr": 9.896537965172689,
+        "resistance_distance_atr": 2.3285971682755933,
+        "hour_range_so_far": 3.1599999999998545,
+        "hour_range_over_m5_atr14": 2.406835759449862
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2681.21,
+        "rsi14": 49.16635725675103,
+        "atr14": 1.312927144111464,
+        "ema20": 2680.878457667086,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2683.231334622511
+        },
+        "last_confirmed_pivot_high": 2682.63,
+        "last_confirmed_pivot_low": 2678.83
+      }
+    },
+    {
+      "condition": "0x92a5f25a970ee2d37440a606b7aea8dab2a3ca1d88551dcde3e73f9d82945789",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T15:30:17.523657+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.3607926827943082,
+      "p_up": 0.3993397942311242,
+      "opening": "84856.01",
+      "reference_price": 84834.0,
+      "last_closed_utc": "2026-10-03T15:29:59.999000+00:00",
+      "minute_source_sha256": "68ed9faf07d2d15ab00832bb565a7815a82c7b4e4228733608b69190964bef2a",
+      "artifact": 11278670184,
+      "run": 37130957134,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84838.66,
+        "rsi14": 49.5136679923028,
+        "atr14": 8.606281695135104,
+        "ema20": 84842.7512953216,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84825.99107396918
+        },
+        "last_confirmed_pivot_high": 84864.0,
+        "last_confirmed_pivot_low": 84841.55,
+        "momentum15_pct": -0.0405782279662259,
+        "trailing15_support": 84838.0,
+        "trailing15_resistance": 84879.05,
+        "support_distance_atr": 0.07668817073191694,
+        "resistance_distance_atr": 4.693083660372258,
+        "hour_range_so_far": 99.05000000000291,
+        "hour_range_over_m5_atr14": 2.697011193381014
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84838.66,
+        "rsi14": 45.28180547511356,
+        "atr14": 36.72583941923961,
+        "ema20": 84837.93921217114,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84739.88552895801
+        },
+        "last_confirmed_pivot_high": 84879.05,
+        "last_confirmed_pivot_low": 84780.0
+      }
+    },
+    {
+      "condition": "0x896cea742471a1c27ef764f4eca8e3a2f9b41725bbdf909a9cf096d339f4d544",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T15:30:17.794263+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.03175300858203077,
+      "p_up": 0.1781937388968276,
+      "opening": "2683.56",
+      "reference_price": 2680.82,
+      "last_closed_utc": "2026-10-03T15:29:59.999000+00:00",
+      "minute_source_sha256": "a974e20390895bc90f35b158e0bf0f1006f722c35e0a070de6d27a9e35ebf3e5",
+      "artifact": 11278670184,
+      "run": 37130957134,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2680.82,
+        "rsi14": 45.684575953899525,
+        "atr14": 0.47866139735187546,
+        "ema20": 2681.204139294568,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2682.401077330765
+        },
+        "last_confirmed_pivot_high": 2681.34,
+        "last_confirmed_pivot_low": 2680.59,
+        "momentum15_pct": -0.05927505489465856,
+        "trailing15_support": 2680.59,
+        "trailing15_resistance": 2682.42,
+        "support_distance_atr": 0.48050668232796656,
+        "resistance_distance_atr": 3.342655181411487,
+        "hour_range_so_far": 3.5700000000001637,
+        "hour_range_over_m5_atr14": 2.313525161446868
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2680.82,
+        "rsi14": 48.321888196796976,
+        "atr14": 1.5430997075335469,
+        "ema20": 2681.283085995179,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2678.5178740786996
+        },
+        "last_confirmed_pivot_high": 2684.66,
+        "last_confirmed_pivot_low": 2679.99
+      }
+    },
+    {
+      "condition": "0x263d9050b4fa72d8c034602f10ce835ca4a9a7a4e821331ec599f6c47699532e",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T16:30:05.169760+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.6000097954929509,
+      "p_up": 0.22539700782081218,
+      "opening": "84867.27",
+      "reference_price": 84813.23,
+      "last_closed_utc": "2026-10-03T16:29:59.999000+00:00",
+      "minute_source_sha256": "13d27f38593f83041115ae1bb9d46cb5a0b8da7f9e093f7ef28421491371fbfb",
+      "artifact": 11279146210,
+      "run": 37134283434,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84813.22,
+        "rsi14": 50.08952632382101,
+        "atr14": 5.337350616249204,
+        "ema20": 84807.91557887684,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84788.6590748898
+        },
+        "last_confirmed_pivot_high": 84846.95,
+        "last_confirmed_pivot_low": 84782.01,
+        "momentum15_pct": -0.031753829790048815,
+        "trailing15_support": 84782.01,
+        "trailing15_resistance": 84840.17,
+        "support_distance_atr": 5.847470448163863,
+        "resistance_distance_atr": 5.049321646202075,
+        "hour_range_so_far": 85.27000000000407,
+        "hour_range_over_m5_atr14": 2.8595279057480543
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84813.22,
+        "rsi14": 49.93171323869165,
+        "atr14": 29.819607575292185,
+        "ema20": 84826.07130686584,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84881.97670362478
+        },
+        "last_confirmed_pivot_high": 84867.28,
+        "last_confirmed_pivot_low": 84761.24
+      }
+    },
+    {
+      "condition": "0xc7371f89d74fe3243ab876236e002b513d86ef7d1d4624edee78c4190a2baa76",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T16:30:05.480110+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.10285594529059046,
+      "p_up": 0.32071162325458435,
+      "opening": "2681.69",
+      "reference_price": 2680.29,
+      "last_closed_utc": "2026-10-03T16:29:59.999000+00:00",
+      "minute_source_sha256": "734f9eeb9ae9a7acfa2eabb07777f3c381fd304e7c8baa6f9c61629a7bd2dafd",
+      "artifact": 11279146210,
+      "run": 37134283434,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2680.29,
+        "rsi14": 61.405805057103265,
+        "atr14": 0.2509834381284293,
+        "ema20": 2679.579184359068,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2679.2262652434347
+        },
+        "last_confirmed_pivot_high": 2679.45,
+        "last_confirmed_pivot_low": 2678.79,
+        "momentum15_pct": 0.0179117176217769,
+        "trailing15_support": 2678.79,
+        "trailing15_resistance": 2679.96,
+        "support_distance_atr": 5.976489967566877,
+        "resistance_distance_atr": -1.3148277928644232,
+        "hour_range_so_far": 2.900000000000091,
+        "hour_range_over_m5_atr14": 2.1072673926404124
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2680.29,
+        "rsi14": 47.57302624894504,
+        "atr14": 1.3761898514295248,
+        "ema20": 2680.62165618378,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2682.8319702053122
+        },
+        "last_confirmed_pivot_high": 2682.68,
+        "last_confirmed_pivot_low": 2679.42
+      }
+    },
+    {
+      "condition": "0x61885291ede27812c051bd9b463948a34d45bd3ddfc86f7a15ad8f40c9dd823f",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T17:30:18.305015+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.1661726189743962,
+      "p_up": 0.592357240988637,
+      "opening": "84868.02",
+      "reference_price": 84881.4,
+      "last_closed_utc": "2026-10-03T17:29:59.999000+00:00",
+      "minute_source_sha256": "905f966caa31e85c96ae3338fc60100e59b7b1508362d8dbdc62f2f8b48b0244",
+      "artifact": 11280730994,
+      "run": 37137646755,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84894.01,
+        "rsi14": 43.80726153979273,
+        "atr14": 8.152825756342299,
+        "ema20": 84912.4362857053,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84926.05746769479
+        },
+        "last_confirmed_pivot_high": 84959.99,
+        "last_confirmed_pivot_low": 84869.37,
+        "momentum15_pct": 0.005030054279808738,
+        "trailing15_support": 84885.36,
+        "trailing15_resistance": 84959.99,
+        "support_distance_atr": 1.0609818311479446,
+        "resistance_distance_atr": 8.09289956291325,
+        "hour_range_so_far": 91.97000000000116,
+        "hour_range_over_m5_atr14": 3.3624468375120977
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84894.01,
+        "rsi14": 58.862166581722676,
+        "atr14": 27.352105310325303,
+        "ema20": 84867.78310319965,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84868.18946831254
+        },
+        "last_confirmed_pivot_high": 84867.28,
+        "last_confirmed_pivot_low": 84782.01
+      }
+    },
+    {
+      "condition": "0x09a00e856ae7e94093d475986f967399c72f5217f792a9cd7da9c0deb5cd1ccc",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T17:30:18.616668+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.05556587355759815,
+      "p_up": 0.764275852833024,
+      "opening": "2681.67",
+      "reference_price": 2683.31,
+      "last_closed_utc": "2026-10-03T17:29:59.999000+00:00",
+      "minute_source_sha256": "212b2030ce3af3ca984c60fd1fa3e89be490cfcefb7efc22cfa221c52967ecbc",
+      "artifact": 11280730994,
+      "run": 37137646755,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2683.94,
+        "rsi14": 45.44487767251394,
+        "atr14": 0.42567750072927285,
+        "ema20": 2684.5829946973113,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2685.240598354891
+        },
+        "last_confirmed_pivot_high": 2686.66,
+        "last_confirmed_pivot_low": 2683.58,
+        "momentum15_pct": -0.041712289483286646,
+        "trailing15_support": 2683.58,
+        "trailing15_resistance": 2686.66,
+        "support_distance_atr": 0.8457106597914466,
+        "resistance_distance_atr": 6.389813873977088,
+        "hour_range_so_far": 5.039999999999964,
+        "hour_range_over_m5_atr14": 4.050690771891534
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2683.94,
+        "rsi14": 59.72745412749161,
+        "atr14": 1.2442322270002497,
+        "ema20": 2682.5592370457143,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2682.4762613636863
+        },
+        "last_confirmed_pivot_high": 2682.87,
+        "last_confirmed_pivot_low": 2680.94
+      }
+    },
+    {
+      "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T18:30:22.835588+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.17788268439012697,
+      "p_up": 0.4217614069472537,
+      "opening": "85012.01",
+      "reference_price": 84995.78,
+      "last_closed_utc": "2026-10-03T18:29:59.999000+00:00",
+      "minute_source_sha256": "5c81be5eb6bab933729997615f68e6ba579067a0ab3e354bb2b7c38f43fd0808",
+      "artifact": 11282611940,
+      "run": 37144414604,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84995.78,
+        "rsi14": 56.98183692336396,
+        "atr14": 9.374981587558107,
+        "ema20": 84979.99441861454,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84971.11119199429
+        },
+        "last_confirmed_pivot_high": 85014.01,
+        "last_confirmed_pivot_low": 84954.0,
+        "momentum15_pct": 0.007683324655771706,
+        "trailing15_support": 84954.0,
+        "trailing15_resistance": 85014.01,
+        "support_distance_atr": 4.4565420859542435,
+        "resistance_distance_atr": 1.9445371523918136,
+        "hour_range_so_far": 83.63000000000466,
+        "hour_range_over_m5_atr14": 2.4896482548647447
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84995.78,
+        "rsi14": 63.831443863999205,
+        "atr14": 33.59109056333262,
+        "ema20": 84945.05398857412,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84916.45909763956
+        },
+        "last_confirmed_pivot_high": 85037.63,
+        "last_confirmed_pivot_low": 84840.0
+      }
+    },
+    {
+      "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T18:30:23.089754+00:00",
+      "side": "YES",
+      "pnl": "-8.383503568",
+      "is_v2_admitted": false,
+      "model_status": "SETTLED",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.06298228249331761,
+      "p_up": 0.2509627113603087,
+      "opening": "2689.01",
+      "reference_price": 2686.6,
+      "last_closed_utc": "2026-10-03T18:29:59.999000+00:00",
+      "minute_source_sha256": "7cc2c8e4edb2eca857d9c5f2c0b3f791e4fe0fd27dc65a97d8c1af7dab4a1986",
+      "artifact": 11282611940,
+      "run": 37144414604,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2686.61,
+        "rsi14": 48.36837515547106,
+        "atr14": 0.44830920333507035,
+        "ema20": 2686.6689945357925,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2687.222893622845
+        },
+        "last_confirmed_pivot_high": 2688.07,
+        "last_confirmed_pivot_low": 2686.24,
+        "momentum15_pct": -0.01563064052132468,
+        "trailing15_support": 2685.49,
+        "trailing15_resistance": 2688.07,
+        "support_distance_atr": 2.4982757250317866,
+        "resistance_distance_atr": 3.256680855844084,
+        "hour_range_so_far": 4.510000000000218,
+        "hour_range_over_m5_atr14": 2.801361877847516
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2686.61,
+        "rsi14": 59.16043454722135,
+        "atr14": 1.6099312393961644,
+        "ema20": 2685.6767398007296,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2684.1501522661642
+        },
+        "last_confirmed_pivot_high": 2690.0,
+        "last_confirmed_pivot_low": 2685.49
+      }
+    },
+    {
+      "condition": "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T19:30:03.816688+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.00675829285480545,
+      "p_up": 0.08220883684133629,
+      "opening": "84950",
+      "reference_price": 84828.11,
+      "last_closed_utc": "2026-10-03T19:29:59.999000+00:00",
+      "minute_source_sha256": "675fdcff3a2ebba6449c12e8c37508efa0a8e08719026943758721ba2e0e41c2",
+      "artifact": 11284416014,
+      "run": 37147962215,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84828.11,
+        "rsi14": 22.227456819820716,
+        "atr14": 6.2870175902370615,
+        "ema20": 84858.16272606495,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84855.5682060176
+        },
+        "last_confirmed_pivot_high": 84890.01,
+        "last_confirmed_pivot_low": 84847.04,
+        "momentum15_pct": -0.04918118742993638,
+        "trailing15_support": 84844.0,
+        "trailing15_resistance": 84890.01,
+        "support_distance_atr": -2.5274304981545725,
+        "resistance_distance_atr": 9.84568582981492,
+        "hour_range_so_far": 121.89999999999418,
+        "hour_range_over_m5_atr14": 3.6369525415933968
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84828.11,
+        "rsi14": 41.467741644036,
+        "atr14": 33.51707194578574,
+        "ema20": 84906.48828895624,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84932.4437136243
+        },
+        "last_confirmed_pivot_high": 84890.01,
+        "last_confirmed_pivot_low": 84850.51
+      }
+    },
+    {
+      "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T19:30:04.111479+00:00",
+      "side": "YES",
+      "pnl": "51.071221619",
+      "is_v2_admitted": false,
+      "model_status": "SETTLED",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.6793789646061846,
+      "p_up": 0.17575551891069074,
+      "opening": "2685.15",
+      "reference_price": 2681.72,
+      "last_closed_utc": "2026-10-03T19:29:59.999000+00:00",
+      "minute_source_sha256": "6201b186ebed725c3f16aef4fad11a63f857a29eb19ec63d37477e7dc67cd264",
+      "artifact": 11284416014,
+      "run": 37147962215,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2681.72,
+        "rsi14": 26.300647577195534,
+        "atr14": 0.3324943806532127,
+        "ema20": 2683.33466404634,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2683.3136851178547
+        },
+        "last_confirmed_pivot_high": 2685.97,
+        "last_confirmed_pivot_low": 2682.99,
+        "momentum15_pct": -0.10318533501707527,
+        "trailing15_support": 2682.92,
+        "trailing15_resistance": 2685.97,
+        "support_distance_atr": -3.609083550954376,
+        "resistance_distance_atr": 12.782170909627176,
+        "hour_range_so_far": 4.25,
+        "hour_range_over_m5_atr14": 2.644103510077049
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2681.72,
+        "rsi14": 43.42469686084865,
+        "atr14": 1.6073500843679738,
+        "ema20": 2684.3710439815995,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2686.9478545025995
+        },
+        "last_confirmed_pivot_high": 2685.97,
+        "last_confirmed_pivot_low": 2682.49
+      }
+    },
+    {
+      "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T20:30:04.371124+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "YES",
+      "favored_correct": false,
+      "brier": 0.5959854359362355,
+      "p_up": 0.7720009300099551,
+      "opening": "84842.5",
+      "reference_price": 84889.15,
+      "last_closed_utc": "2026-10-03T20:29:59.999000+00:00",
+      "minute_source_sha256": "318c65f22cfd9f597868630fc3ecb8a4287f0a4ca3648f111410b594c40cf67f",
+      "artifact": 11284699716,
+      "run": 37151327629,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84889.15,
+        "rsi14": 58.00349266827554,
+        "atr14": 5.035436132362378,
+        "ema20": 84884.77445854647,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84883.92936641384
+        },
+        "last_confirmed_pivot_high": 84915.65,
+        "last_confirmed_pivot_low": 84889.15,
+        "momentum15_pct": 0.0017317000535310711,
+        "trailing15_support": 84881.79,
+        "trailing15_resistance": 84915.65,
+        "support_distance_atr": 1.4616410190764615,
+        "resistance_distance_atr": 5.2627020387939085,
+        "hour_range_so_far": 73.15999999998894,
+        "hour_range_over_m5_atr14": 2.626816047683904
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84889.15,
+        "rsi14": 45.74116529883276,
+        "atr14": 27.851207953634596,
+        "ema20": 84874.3052232953,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84812.48137866252
+        },
+        "last_confirmed_pivot_high": 84898.44,
+        "last_confirmed_pivot_low": 84700.0
+      }
+    },
+    {
+      "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T20:30:04.685000+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.02381389589081457,
+      "p_up": 0.8456824835256394,
+      "opening": "2685.47",
+      "reference_price": 2688.1,
+      "last_closed_utc": "2026-10-03T20:29:59.999000+00:00",
+      "minute_source_sha256": "414d9a844c9a159023b0cb59bb0a27c43af1cde184fc6fac190f97c7f692a59d",
+      "artifact": 11284699716,
+      "run": 37151327629,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2688.1,
+        "rsi14": 57.602685215145485,
+        "atr14": 0.39657380951141297,
+        "ema20": 2687.7888108828647,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2687.3661242421795
+        },
+        "last_confirmed_pivot_high": 2688.24,
+        "last_confirmed_pivot_low": 2687.56,
+        "momentum15_pct": 0.013022044460986315,
+        "trailing15_support": 2687.45,
+        "trailing15_resistance": 2689.06,
+        "support_distance_atr": 1.6390391508730853,
+        "resistance_distance_atr": 2.420734745904617,
+        "hour_range_so_far": 3.599999999999909,
+        "hour_range_over_m5_atr14": 2.477968756443361
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2688.1,
+        "rsi14": 58.4371115010718,
+        "atr14": 1.4528028211166812,
+        "ema20": 2685.7374787418803,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2683.662684707985
+        },
+        "last_confirmed_pivot_high": 2688.99,
+        "last_confirmed_pivot_low": 2680.9
+      }
+    },
+    {
+      "condition": "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T21:30:11.808346+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.11883781034919405,
+      "p_up": 0.34472860390340987,
+      "opening": "84749.76",
+      "reference_price": 84710.69,
+      "last_closed_utc": "2026-10-03T21:29:59.999000+00:00",
+      "minute_source_sha256": "12f0045929d90630c8bcdfeb3744827e39d62e1318292ecaff02ade5fa07d5df",
+      "artifact": 11286179317,
+      "run": 37154622571,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84710.68,
+        "rsi14": 50.81522399105343,
+        "atr14": 12.573614842075246,
+        "ema20": 84704.38341824975,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84687.66605563645
+        },
+        "last_confirmed_pivot_high": 84732.14,
+        "last_confirmed_pivot_low": 84703.78,
+        "momentum15_pct": 0.030276894242486918,
+        "trailing15_support": 84685.04,
+        "trailing15_resistance": 84732.14,
+        "support_distance_atr": 2.0391908231672535,
+        "resistance_distance_atr": 1.7067486374876486,
+        "hour_range_so_far": 215.88999999999942,
+        "hour_range_over_m5_atr14": 4.984683670937298
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84710.68,
+        "rsi14": 43.49664637829609,
+        "atr14": 43.31067210116553,
+        "ema20": 84763.83451333726,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84775.32992162286
+        },
+        "last_confirmed_pivot_high": 84773.89,
+        "last_confirmed_pivot_low": 84558.0
+      }
+    },
+    {
+      "condition": "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T21:30:12.089444+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.1579721241067322,
+      "p_up": 0.39745707203009006,
+      "opening": "2686.74",
+      "reference_price": 2685.99,
+      "last_closed_utc": "2026-10-03T21:29:59.999000+00:00",
+      "minute_source_sha256": "aecde52779d0109b4c8a7bc2e7e963c08db3698a3ca313521ed1f61f7cb73f73",
+      "artifact": 11286179317,
+      "run": 37154622571,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2685.63,
+        "rsi14": 38.929563431200556,
+        "atr14": 0.42605070761524166,
+        "ema20": 2686.601740502394,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2686.820550986553
+        },
+        "last_confirmed_pivot_high": 2688.0,
+        "last_confirmed_pivot_low": 2686.99,
+        "momentum15_pct": -0.04577834349389631,
+        "trailing15_support": 2685.62,
+        "trailing15_resistance": 2688.0,
+        "support_distance_atr": 0.023471384559344728,
+        "resistance_distance_atr": 5.562718140443022,
+        "hour_range_so_far": 4.920000000000073,
+        "hour_range_over_m5_atr14": 3.1576538341721716
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2685.63,
+        "rsi14": 55.44037957118715,
+        "atr14": 1.558118862414799,
+        "ema20": 2686.134670062047,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2689.399139854465
+        },
+        "last_confirmed_pivot_high": 2688.93,
+        "last_confirmed_pivot_low": 2683.14
+      }
+    },
+    {
+      "condition": "0x0840acbe88dbf8ab6f91c81607502f94b3d3f18ecea6afa4c8f4fd2f4d5cb08c",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T22:30:08.642022+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.06037965243959453,
+      "p_up": 0.7542772854626693,
+      "opening": "84715.15",
+      "reference_price": 84784.01,
+      "last_closed_utc": "2026-10-03T22:29:59.999000+00:00",
+      "minute_source_sha256": "608969e972ce606338ba6801c9a2d08b3777561bdbf98de74111ee534f954f2c",
+      "artifact": 11286969562,
+      "run": 37157688574,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84784.01,
+        "rsi14": 58.51995873168156,
+        "atr14": 10.513782638087283,
+        "ema20": 84769.67407788264,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84760.52689394259
+        },
+        "last_confirmed_pivot_high": 84772.01,
+        "last_confirmed_pivot_low": 84762.0,
+        "momentum15_pct": -0.0041869349701850744,
+        "trailing15_support": 84742.35,
+        "trailing15_resistance": 84798.53,
+        "support_distance_atr": 3.9624178503625527,
+        "resistance_distance_atr": 1.3810443395894307,
+        "hour_range_so_far": 104.80000000000291,
+        "hour_range_over_m5_atr14": 2.591929076217445
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84784.01,
+        "rsi14": 44.676611187934725,
+        "atr14": 40.43320512185608,
+        "ema20": 84759.56504195523,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84838.16424096572
+        },
+        "last_confirmed_pivot_high": 84732.14,
+        "last_confirmed_pivot_low": 84693.73
+      }
+    },
+    {
+      "condition": "0x378f72ffa1ae828957068e7cfb16cdd5444cb35387f6dbe666903e3d636aded1",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T22:30:09.005868+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.029036526127036732,
+      "p_up": 0.8295989256869643,
+      "opening": "2685.18",
+      "reference_price": 2687.92,
+      "last_closed_utc": "2026-10-03T22:29:59.999000+00:00",
+      "minute_source_sha256": "87dc750d74e7def6084279f5f6fa86f6e3c50bedd6fc60e0bb1d8d369f4e7169",
+      "artifact": 11286969562,
+      "run": 37157688574,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2687.92,
+        "rsi14": 52.60573565659935,
+        "atr14": 0.5233277888045093,
+        "ema20": 2687.867840481704,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2686.808200835624
+        },
+        "last_confirmed_pivot_high": 2688.15,
+        "last_confirmed_pivot_low": 2687.57,
+        "momentum15_pct": -0.03718965235113281,
+        "trailing15_support": 2687.57,
+        "trailing15_resistance": 2689.52,
+        "support_distance_atr": 0.6687968945800672,
+        "resistance_distance_atr": 3.057357232366642,
+        "hour_range_so_far": 5.460000000000036,
+        "hour_range_over_m5_atr14": 3.75819567079488
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2687.92,
+        "rsi14": 52.82941705690584,
+        "atr14": 1.4528248335843608,
+        "ema20": 2687.011145760309,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2689.11722370379
+        },
+        "last_confirmed_pivot_high": 2689.52,
+        "last_confirmed_pivot_low": 2684.06
+      }
+    },
+    {
+      "condition": "0xa30fc2938e028a15f611b98a67ff3494f3c34bdb0f10c784325dfcce42256bbb",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-03T23:30:10.108865+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.07153625302663409,
+      "p_up": 0.26746261986796227,
+      "opening": "84776.02",
+      "reference_price": 84738.01,
+      "last_closed_utc": "2026-10-03T23:29:59.999000+00:00",
+      "minute_source_sha256": "5a36d7e4a683e6ca78c1b873c52f5a3d75b4d321c6d0d92d30c9281bf025c5ca",
+      "artifact": 11289045189,
+      "run": 37160806532,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84738.01,
+        "rsi14": 33.521968055036936,
+        "atr14": 12.209370112179297,
+        "ema20": 84771.47016090459,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84788.37406690897
+        },
+        "last_confirmed_pivot_high": 84818.39,
+        "last_confirmed_pivot_low": 84749.3,
+        "momentum15_pct": -0.02595563639031795,
+        "trailing15_support": 84749.3,
+        "trailing15_resistance": 84818.39,
+        "support_distance_atr": -0.9246996279313343,
+        "resistance_distance_atr": 6.583468210192321,
+        "hour_range_so_far": 80.38999999999942,
+        "hour_range_over_m5_atr14": 3.0207554531773013
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84738.01,
+        "rsi14": 47.1721510911792,
+        "atr14": 26.612548167526548,
+        "ema20": 84767.11037650538,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84735.6903473496
+        },
+        "last_confirmed_pivot_high": 84805.0,
+        "last_confirmed_pivot_low": 84693.73
+      }
+    },
+    {
+      "condition": "0xe551cfe039f545f146ea9443881d95e1f735e55671954d89360bbe0a78d1b986",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-03T23:30:10.397488+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.07222936827282748,
+      "p_up": 0.7312447800082248,
+      "opening": "2686.59",
+      "reference_price": 2688.01,
+      "last_closed_utc": "2026-10-03T23:29:59.999000+00:00",
+      "minute_source_sha256": "e8285381cf99519eebb4bc478c52bb9b5d597bd6b53b179d1631f2ad8e57c296",
+      "artifact": 11289045189,
+      "run": 37160806532,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2688.01,
+        "rsi14": 63.073643477788046,
+        "atr14": 0.34749987513421654,
+        "ema20": 2687.1618650728315,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2686.9439373257196
+        },
+        "last_confirmed_pivot_high": 2687.94,
+        "last_confirmed_pivot_low": 2686.74,
+        "momentum15_pct": 0.04280089025852085,
+        "trailing15_support": 2686.28,
+        "trailing15_resistance": 2687.94,
+        "support_distance_atr": 4.978419055062486,
+        "resistance_distance_atr": -0.20143892130357535,
+        "hour_range_so_far": 2.9200000000000728,
+        "hour_range_over_m5_atr14": 2.659674982579405
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2688.01,
+        "rsi14": 59.40271510049195,
+        "atr14": 1.0978785073837103,
+        "ema20": 2687.0960230042133,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2688.8576500752392
+        },
+        "last_confirmed_pivot_high": 2688.23,
+        "last_confirmed_pivot_low": 2685.09
+      }
+    },
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T00:30:16.606633+00:00",
+      "side": "YES",
+      "pnl": "3.144887210",
+      "is_v2_admitted": true,
+      "model_status": "SETTLED",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.045491343279284356,
+      "p_up": 0.7867130025545759,
+      "opening": "84753.57",
+      "reference_price": 84808.93,
+      "last_closed_utc": "2026-10-04T00:29:59.999000+00:00",
+      "minute_source_sha256": "36926acdee85cfdf21c7f777dbb4449ec664dd300aee94d58f019b5d6e10f5b5",
+      "artifact": 11289279685,
+      "run": 37163767735,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84808.93,
+        "rsi14": 43.00103710227247,
+        "atr14": 10.885169647982405,
+        "ema20": 84829.27178615716,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84838.95017884846
+        },
+        "last_confirmed_pivot_high": 84871.34,
+        "last_confirmed_pivot_low": 84811.26,
+        "momentum15_pct": -0.01308653156572026,
+        "trailing15_support": 84808.93,
+        "trailing15_resistance": 84871.34,
+        "support_distance_atr": 0.0,
+        "resistance_distance_atr": 5.733488959592959,
+        "hour_range_so_far": 117.77999999999884,
+        "hour_range_over_m5_atr14": 3.781538761372498
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84808.93,
+        "rsi14": 52.127658322629465,
+        "atr14": 31.146051232660366,
+        "ema20": 84797.3356849315,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84763.21070863871
+        },
+        "last_confirmed_pivot_high": 84791.69,
+        "last_confirmed_pivot_low": 84708.16
+      }
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T00:30:16.929035+00:00",
+      "side": "YES",
+      "pnl": "1.148187578",
+      "is_v2_admitted": true,
+      "model_status": "SETTLED",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.005382369273795707,
+      "p_up": 0.9266353676912662,
+      "opening": "2687.24",
+      "reference_price": 2690.99,
+      "last_closed_utc": "2026-10-04T00:29:59.999000+00:00",
+      "minute_source_sha256": "195dc2275e38ae2a6e31114a2a4108527ecc3624ba9e44e2d3acc1369ab70fa9",
+      "artifact": 11289279685,
+      "run": 37163767735,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2690.99,
+        "rsi14": 57.09208182421569,
+        "atr14": 0.7459047929002025,
+        "ema20": 2690.499390140242,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2690.8048624276344
+        },
+        "last_confirmed_pivot_high": 2693.83,
+        "last_confirmed_pivot_low": 2686.91,
+        "momentum15_pct": 0.12538975003906216,
+        "trailing15_support": 2687.61,
+        "trailing15_resistance": 2693.98,
+        "support_distance_atr": 4.531409413334977,
+        "resistance_distance_atr": 4.008554481027822,
+        "hour_range_so_far": 7.440000000000055,
+        "hour_range_over_m5_atr14": 5.792351670350864
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2690.99,
+        "rsi14": 62.86491231575318,
+        "atr14": 1.2844523992013397,
+        "ema20": 2688.449909382734,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2688.082074404706
+        },
+        "last_confirmed_pivot_high": 2688.21,
+        "last_confirmed_pivot_low": 2686.54
+      }
+    },
+    {
+      "condition": "0x9cb95fb0fff117ac412f1aacdcca6559d440a8dd8884d8021b0a5646d52e3a3f",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T01:30:14.608284+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.5133229825211522,
+      "p_up": 0.2835343814800656,
+      "opening": "84790",
+      "reference_price": 84747.5,
+      "last_closed_utc": "2026-10-04T01:29:59.999000+00:00",
+      "minute_source_sha256": "887df12fffe2bdae9f789993d6706dee6cf179b94fae35b422bbcb5116d170be",
+      "artifact": 11291030053,
+      "run": 37166631973,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84747.5,
+        "rsi14": 44.61173989744143,
+        "atr14": 6.072935992361971,
+        "ema20": 84749.27383491783,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84732.1704070435
+        },
+        "last_confirmed_pivot_high": 84747.51,
+        "last_confirmed_pivot_low": 84719.99,
+        "momentum15_pct": -0.026542408871066403,
+        "trailing15_support": 84719.99,
+        "trailing15_resistance": 84770.0,
+        "support_distance_atr": 4.529934126523733,
+        "resistance_distance_atr": 3.7049624807998325,
+        "hour_range_so_far": 95.09999999999127,
+        "hour_range_over_m5_atr14": 2.8566804086398445
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84747.5,
+        "rsi14": 46.189329582734544,
+        "atr14": 33.29038828157588,
+        "ema20": 84779.92708368938,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84823.78391402941
+        },
+        "last_confirmed_pivot_high": 84840.0,
+        "last_confirmed_pivot_low": 84719.99
+      }
+    },
+    {
+      "condition": "0x22bcfc588919cd225da778cb85d29828c1c2a0ce1930a3f345f3cbdd2e8e6807",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T01:30:14.915774+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.6249640258422595,
+      "p_up": 0.20945333734038224,
+      "opening": "2693.5",
+      "reference_price": 2690.54,
+      "last_closed_utc": "2026-10-04T01:29:59.999000+00:00",
+      "minute_source_sha256": "d74e7c5f5a7d231daec4eca1fc255ae7594380c9a8a0950a5694e63964bc3f73",
+      "artifact": 11291030053,
+      "run": 37166631973,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2690.55,
+        "rsi14": 38.90399910956691,
+        "atr14": 0.4334466578480437,
+        "ema20": 2691.486328889212,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2691.634026015536
+        },
+        "last_confirmed_pivot_high": 2691.5,
+        "last_confirmed_pivot_low": 2690.93,
+        "momentum15_pct": -0.12287201265098746,
+        "trailing15_support": 2690.38,
+        "trailing15_resistance": 2693.86,
+        "support_distance_atr": 0.39220512356487197,
+        "resistance_distance_atr": 7.636464464700877,
+        "hour_range_so_far": 4.619999999999891,
+        "hour_range_over_m5_atr14": 2.750789590688573
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2690.55,
+        "rsi14": 51.84114600764306,
+        "atr14": 1.6795177703298712,
+        "ema20": 2690.9443383616062,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2688.7731291727778
+        },
+        "last_confirmed_pivot_high": 2695.0,
+        "last_confirmed_pivot_low": 2690.38
+      }
+    },
+    {
+      "condition": "0x9a53625301129b464a76678577cc876bc307ddccf748d02d5554cda42bea0fe6",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T02:30:08.425742+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "YES",
+      "favored_correct": false,
+      "brier": 0.5076008609669906,
+      "p_up": 0.7124611294428564,
+      "opening": "84802.6",
+      "reference_price": 84836.01,
+      "last_closed_utc": "2026-10-04T02:29:59.999000+00:00",
+      "minute_source_sha256": "314a79c905a33bd08b286ea117bb42d1ee66277850f2644b449d03ece64855e2",
+      "artifact": 11291114906,
+      "run": 37169445181,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84836.01,
+        "rsi14": 54.63260251193496,
+        "atr14": 8.987617295158794,
+        "ema20": 84829.45697189169,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84847.74551019543
+        },
+        "last_confirmed_pivot_high": 84850.0,
+        "last_confirmed_pivot_low": 84838.28,
+        "momentum15_pct": 0.009430847193048209,
+        "trailing15_support": 84800.0,
+        "trailing15_resistance": 84850.0,
+        "support_distance_atr": 4.006623648671785,
+        "resistance_distance_atr": 1.5565860828921803,
+        "hour_range_so_far": 77.08999999999651,
+        "hour_range_over_m5_atr14": 2.780624042729118
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84836.01,
+        "rsi14": 52.76395590873232,
+        "atr14": 27.723992461898757,
+        "ema20": 84809.10493349764,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84766.0269746078
+        },
+        "last_confirmed_pivot_high": 84877.09,
+        "last_confirmed_pivot_low": 84800.0
+      }
+    },
+    {
+      "condition": "0x6479e714cade7f1db9f108f4109569fe9aaaaff50a95cb0e20897d0a3989b4c2",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T02:30:08.747955+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.16648009830764063,
+      "p_up": 0.4080197278412413,
+      "opening": "2694.8",
+      "reference_price": 2693.93,
+      "last_closed_utc": "2026-10-04T02:29:59.999000+00:00",
+      "minute_source_sha256": "bac52e9ac3a0b077cb6dbfe78f2f9106967858d51fe1f98f3a7557c9fb8c9068",
+      "artifact": 11291114906,
+      "run": 37169445181,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2693.92,
+        "rsi14": 50.079981684246974,
+        "atr14": 0.5246876854100154,
+        "ema20": 2693.940764731218,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2692.847707932916
+        },
+        "last_confirmed_pivot_high": 2695.61,
+        "last_confirmed_pivot_low": 2693.65,
+        "momentum15_pct": 0.00593965312425393,
+        "trailing15_support": 2692.44,
+        "trailing15_resistance": 2695.61,
+        "support_distance_atr": 2.8207256262236786,
+        "resistance_distance_atr": 3.2209637218365623,
+        "hour_range_so_far": 4.099999999999909,
+        "hour_range_over_m5_atr14": 2.2249852446114464
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2693.92,
+        "rsi14": 52.68567314994261,
+        "atr14": 1.8427088493865047,
+        "ema20": 2693.2491486653153,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2696.57887
+        },
+        "last_confirmed_pivot_high": 2696.54,
+        "last_confirmed_pivot_low": 2692.44
+      }
+    },
+    {
+      "condition": "0xb280d313d049e6e9034e52132b1cb84b9a7029673441ea8b2f1cf4b65a72d2a6",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T03:30:13.996295+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.29549098384133266,
+      "p_up": 0.4564091760879948,
+      "opening": "84802.17",
+      "reference_price": 84796.42,
+      "last_closed_utc": "2026-10-04T03:29:59.999000+00:00",
+      "minute_source_sha256": "b9c1b6639eabfe807699028dc5f0a12c1be7596b7309052beabe29e2bfd95cdd",
+      "artifact": 11292384638,
+      "run": 37172271108,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84796.41,
+        "rsi14": 38.84157396071431,
+        "atr14": 4.29737392054084,
+        "ema20": 84809.2369812633,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84810.24558957733
+        },
+        "last_confirmed_pivot_high": 84825.48,
+        "last_confirmed_pivot_low": 84800.04,
+        "momentum15_pct": -0.01880622116869901,
+        "trailing15_support": 84796.41,
+        "trailing15_resistance": 84825.48,
+        "support_distance_atr": 0.0,
+        "resistance_distance_atr": 6.764596364547646,
+        "hour_range_so_far": 29.069999999992433,
+        "hour_range_over_m5_atr14": 1.473737762010655
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84796.41,
+        "rsi14": 51.98226493279894,
+        "atr14": 19.72535463862414,
+        "ema20": 84805.61632503942,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84856.46470670291
+        },
+        "last_confirmed_pivot_high": 84855.48,
+        "last_confirmed_pivot_low": 84781.05
+      }
+    },
+    {
+      "condition": "0xc3a156df4a6c0bbe97f8063e279916646ad8600057b701e165b81f6cce05ed05",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T03:30:14.317624+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.20039010180642114,
+      "p_up": 0.5523504698914327,
+      "opening": "2692.62",
+      "reference_price": 2693.0,
+      "last_closed_utc": "2026-10-04T03:29:59.999000+00:00",
+      "minute_source_sha256": "bfa0678026ca33f9b2aa8d66fa4e64c858796962b890d21719590cb6160c376e",
+      "artifact": 11292384638,
+      "run": 37172271108,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2693.15,
+        "rsi14": 51.030710539142625,
+        "atr14": 0.2714283377666069,
+        "ema20": 2693.1597523845458,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2692.8892096810687
+        },
+        "last_confirmed_pivot_high": 2693.69,
+        "last_confirmed_pivot_low": 2692.34,
+        "momentum15_pct": 0.00668407000450344,
+        "trailing15_support": 2692.34,
+        "trailing15_resistance": 2693.72,
+        "support_distance_atr": 2.9842130953048835,
+        "resistance_distance_atr": 2.1000018078062097,
+        "hour_range_so_far": 1.9699999999998,
+        "hour_range_over_m5_atr14": 1.472312596721541
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2693.15,
+        "rsi14": 54.26722292532213,
+        "atr14": 1.3380310705664544,
+        "ema20": 2693.0342245019406,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2696.65066472187
+        },
+        "last_confirmed_pivot_high": 2693.72,
+        "last_confirmed_pivot_low": 2691.75
+      }
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T04:30:08.748280+00:00",
+      "side": "NO",
+      "pnl": "4.127065196",
+      "is_v2_admitted": true,
+      "model_status": "SETTLED",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.07051258502066499,
+      "p_up": 0.26554205885445903,
+      "opening": "84840.88",
+      "reference_price": 84812.0,
+      "last_closed_utc": "2026-10-04T04:29:59.999000+00:00",
+      "minute_source_sha256": "b4cda625fcd005b5465b3efb47865f581a5f219c8fee2ada964dcbe65cc2b739",
+      "artifact": 11293569525,
+      "run": 37174986129,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84812.01,
+        "rsi14": 29.443247356743043,
+        "atr14": 1.3125102666955895,
+        "ema20": 84815.65879771255,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 84813.8746470453
+        },
+        "last_confirmed_pivot_high": 84812.01,
+        "last_confirmed_pivot_low": 84808.11,
+        "momentum15_pct": 0.004586824940822076,
+        "trailing15_support": 84808.11,
+        "trailing15_resistance": 84812.01,
+        "support_distance_atr": 2.971405328365867,
+        "resistance_distance_atr": 0.0,
+        "hour_range_so_far": 35.89999999999418,
+        "hour_range_over_m5_atr14": 2.275446679620797
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84812.01,
+        "rsi14": 44.246244916373136,
+        "atr14": 15.777122057624709,
+        "ema20": 84825.23795695067,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84803.421812532
+        },
+        "last_confirmed_pivot_high": 84890.0,
+        "last_confirmed_pivot_low": 84808.11
+      }
+    },
+    {
+      "condition": "0xbc319a5dbf9e34f3a4d75a72f3a231502823651d33d15add106ac65147baf05b",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T04:30:09.032291+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": false,
+      "favored_side": "NO",
+      "favored_correct": true,
+      "brier": 0.1074255630429288,
+      "p_up": 0.3277583912624188,
+      "opening": "2694.45",
+      "reference_price": 2693.27,
+      "last_closed_utc": "2026-10-04T04:29:59.999000+00:00",
+      "minute_source_sha256": "70a0233117d8be16fd975a81210ce717b01d6df7d428ab19a763e8dd79231f22",
+      "artifact": 11293569525,
+      "run": 37174986129,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2693.31,
+        "rsi14": 25.205544588620327,
+        "atr14": 0.13335930215356245,
+        "ema20": 2693.9118483258717,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2693.6452151763283
+        },
+        "last_confirmed_pivot_high": 2696.13,
+        "last_confirmed_pivot_low": 2693.33,
+        "momentum15_pct": -0.04453499894230273,
+        "trailing15_support": 2693.33,
+        "trailing15_resistance": 2694.84,
+        "support_distance_atr": -0.1499707907660759,
+        "resistance_distance_atr": 11.472765493616741,
+        "hour_range_so_far": 2.8200000000001637,
+        "hour_range_over_m5_atr14": 2.557903160258196
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2693.31,
+        "rsi14": 44.785058787605756,
+        "atr14": 1.1024655052678036,
+        "ema20": 2694.1571446899384,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2696.3816577776843
+        },
+        "last_confirmed_pivot_high": 2696.13,
+        "last_confirmed_pivot_low": 2694.29
+      }
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T05:30:11.917453+00:00",
+      "side": "YES",
+      "pnl": "1.846117255",
+      "is_v2_admitted": true,
+      "model_status": "SETTLED",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.005377156722854315,
+      "p_up": 0.9266709012543157,
+      "opening": "84811.94",
+      "reference_price": 84861.33,
+      "last_closed_utc": "2026-10-04T05:29:59.999000+00:00",
+      "minute_source_sha256": "f40f21e6bedf20894914f2a6bae6f3c7bb734599327aa5c64a9edc92dabce149",
+      "artifact": 11295051929,
+      "run": 37177706938,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84861.34,
+        "rsi14": 71.41854390009097,
+        "atr14": 3.960200667027569,
+        "ema20": 84850.65963318908,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84859.63285190832
+        },
+        "last_confirmed_pivot_high": 84872.6,
+        "last_confirmed_pivot_low": 84830.67,
+        "momentum15_pct": 0.03221585305233088,
+        "trailing15_support": 84830.67,
+        "trailing15_resistance": 84872.6,
+        "support_distance_atr": 7.744557051200745,
+        "resistance_distance_atr": 2.8432902639907884,
+        "hour_range_so_far": 60.99000000000524,
+        "hour_range_over_m5_atr14": 4.280392337963333
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84861.34,
+        "rsi14": 58.47185899285569,
+        "atr14": 14.248693854317356,
+        "ema20": 84834.7001608541,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84825.70742176822
+        },
+        "last_confirmed_pivot_high": 84890.0,
+        "last_confirmed_pivot_low": 84811.61
+      }
+    },
+    {
+      "condition": "0xd23a6f651c321242d9058b62231d414fd48cc44eda92fcf152c73e7906583e8b",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T06:30:16.086884+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "YES",
+      "favored_correct": true,
+      "brier": 0.1946594876495377,
+      "p_up": 0.5587976794603889,
+      "opening": "84912.01",
+      "reference_price": 84919.75,
+      "last_closed_utc": "2026-10-04T06:29:59.999000+00:00",
+      "minute_source_sha256": "e4b33a0627788865619d43404168b9f0c014c03cd15e033904b598b0a957a350",
+      "artifact": 11296245826,
+      "run": 37180405302,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84947.61,
+        "rsi14": 56.38456775430684,
+        "atr14": 17.986510146277375,
+        "ema20": 84927.83459459036,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84855.63630157751
+        },
+        "last_confirmed_pivot_high": 85058.01,
+        "last_confirmed_pivot_low": 84916.0,
+        "momentum15_pct": 0.029450346550863316,
+        "trailing15_support": 84877.18,
+        "trailing15_resistance": 85058.01,
+        "support_distance_atr": 3.915712354827448,
+        "resistance_distance_atr": 6.137933323482621,
+        "hour_range_so_far": 180.83000000000175,
+        "hour_range_over_m5_atr14": 7.529252599693461
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84947.61,
+        "rsi14": 77.21153594451295,
+        "atr14": 24.016992072674505,
+        "ema20": 84896.47803113292,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84925.29559561028
+        },
+        "last_confirmed_pivot_high": 84924.53,
+        "last_confirmed_pivot_low": 84908.43
+      }
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T06:30:16.248532+00:00",
+      "side": "NO",
+      "pnl": "-9.390450955",
+      "is_v2_admitted": true,
+      "model_status": "SETTLED",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.9303708922176367,
+      "p_up": 0.03544264441266287,
+      "opening": "2694.74",
+      "reference_price": 2691.25,
+      "last_closed_utc": "2026-10-04T06:29:59.999000+00:00",
+      "minute_source_sha256": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad",
+      "artifact": 11296245826,
+      "run": 37180405302,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2691.72,
+        "rsi14": 26.166920647588753,
+        "atr14": 0.4797428593905723,
+        "ema20": 2693.5804753341286,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2693.243232625905
+        },
+        "last_confirmed_pivot_high": 2697.42,
+        "last_confirmed_pivot_low": 2694.05,
+        "momentum15_pct": -0.09612850785545302,
+        "trailing15_support": 2691.54,
+        "trailing15_resistance": 2697.42,
+        "support_distance_atr": 0.37520099877774976,
+        "resistance_distance_atr": 11.881364961306783,
+        "hour_range_so_far": 6.139999999999873,
+        "hour_range_over_m5_atr14": 5.507613790908699
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2691.72,
+        "rsi14": 41.5846635703173,
+        "atr14": 1.1148203619750972,
+        "ema20": 2694.008613594442,
+        "supertrend_10_3": {
+          "direction": "DOWN",
+          "line": 2695.879372768272
+        },
+        "last_confirmed_pivot_high": 2697.9,
+        "last_confirmed_pivot_low": 2691.4
+      }
+    },
+    {
+      "condition": "0x0e069546d20d539e2b34cce5a55d34f13d593487b2952e95551c36660be65ad2",
+      "symbol": "BTCUSDT",
+      "decision_utc": "2026-10-04T07:30:06.435765+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.592036871122242,
+      "p_up": 0.23056067742658098,
+      "opening": "85031.74",
+      "reference_price": 84972.73,
+      "last_closed_utc": "2026-10-04T07:29:59.999000+00:00",
+      "minute_source_sha256": "3e282b81dddc3d036ff24d3a29c47ac89e7e272a366276318c6f10bd0d407e0e",
+      "artifact": 11298028349,
+      "run": 37185875778,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 84972.74,
+        "rsi14": 43.729818706445755,
+        "atr14": 8.00944008387435,
+        "ema20": 84982.25155655087,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84968.32682042135
+        },
+        "last_confirmed_pivot_high": 85001.79,
+        "last_confirmed_pivot_low": 84980.64,
+        "momentum15_pct": -0.0192848191292172,
+        "trailing15_support": 84934.0,
+        "trailing15_resistance": 85001.79,
+        "support_distance_atr": 4.836792534100063,
+        "resistance_distance_atr": 3.626970137210416,
+        "hour_range_so_far": 97.74000000000524,
+        "hour_range_over_m5_atr14": 2.6778081817421406
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 84972.74,
+        "rsi14": 55.23545619622362,
+        "atr14": 36.500000510274454,
+        "ema20": 84968.13454730286,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 84924.6425028458
+        },
+        "last_confirmed_pivot_high": 85072.54,
+        "last_confirmed_pivot_low": 84934.0
+      }
+    },
+    {
+      "condition": "0xc97194cb1855327c389b97d86bd9573593c31a3106838832b6a1805bfd6d1bcc",
+      "symbol": "ETHUSDT",
+      "decision_utc": "2026-10-04T07:30:06.643360+00:00",
+      "side": null,
+      "pnl": "0",
+      "is_v2_admitted": false,
+      "model_status": "NO_TRADE",
+      "actual_up": true,
+      "favored_side": "NO",
+      "favored_correct": false,
+      "brier": 0.753911147928956,
+      "p_up": 0.1317194301788414,
+      "opening": "2696.2",
+      "reference_price": 2693.11,
+      "last_closed_utc": "2026-10-04T07:29:59.999000+00:00",
+      "minute_source_sha256": "12131fc8b022c1bd1978a1ce11d7e9c69ff39f66df7c798a64ab7a39b7495428",
+      "artifact": 11298028349,
+      "run": 37185875778,
+      "m1": {
+        "closed_bars": 121,
+        "last_close": 2693.04,
+        "rsi14": 36.38612046463505,
+        "atr14": 0.470282693665561,
+        "ema20": 2694.133891664949,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2692.9520365888848
+        },
+        "last_confirmed_pivot_high": 2695.0,
+        "last_confirmed_pivot_low": 2692.4,
+        "momentum15_pct": -0.09385769985569281,
+        "trailing15_support": 2692.4,
+        "trailing15_resistance": 2695.57,
+        "support_distance_atr": 1.3608835889993545,
+        "resistance_distance_atr": 5.3797429377645685,
+        "hour_range_so_far": 3.949999999999818,
+        "hour_range_over_m5_atr14": 2.7495123448461207
+      },
+      "m5": {
+        "closed_bars": 24,
+        "last_close": 2693.04,
+        "rsi14": 44.243649623379206,
+        "atr14": 1.43661839067716,
+        "ema20": 2694.3816206546066,
+        "supertrend_10_3": {
+          "direction": "UP",
+          "line": 2692.2579208464667
+        },
+        "last_confirmed_pivot_high": 2697.34,
+        "last_confirmed_pivot_low": 2692.4
+      }
+    }
+  ],
+  "limitations": [
+    "All37 scored discovery forecasts from fixed 08:23 snapshot, nineteen scored hour clusters; not independent holdout. Three missed decision windows have no feature snapshot.",
+    "Indicators were not used by frozen entry model. No strategy performance or optimal filter inferred.",
+    "M5 recursive warmup limited to24 bars; M1 to121, may differ from long TradingView chart history.",
+    "M1 and M5 ATR have different horizons; hour range/M5 ATR is descriptive, not daily ATR exhaustion.",
+    "Historical levels and confirmed pivots do not imply reversal probability.",
+    "Outcome known for selecting this diagnostic; feature values use only contemporaneously available closed candles."
+  ],
+  "checks": {
+    "artifact_digests_match": true,
+    "all_37_archived_probabilities_reproduced": true,
+    "closed_only_contiguous_warmup": true,
+    "independent_weighted_atr_rsi_ema_all_37_m1_m5": true,
+    "unique_condition_and_summary_arithmetic": true
+  },
+  "summary": {
+    "scored_conditions": 37,
+    "scored_hour_clusters": 19,
+    "model_favored_direction_correct": 25,
+    "indicator_direction_diagnostics": {
+      "SUPERTREND_M1": {
+        "n": 37,
+        "direction_correct": 24
+      },
+      "SUPERTREND_M5": {
+        "n": 37,
+        "direction_correct": 19
+      },
+      "EMA20_M1": {
+        "n": 37,
+        "direction_correct": 19
+      },
+      "MOM15": {
+        "n": 37,
+        "direction_correct": 16
+      }
+    },
+    "groups": {
+      "RSI_M1_LT30": {
+        "n": 5,
+        "hour_clusters": 3,
+        "favored_correct": 3,
+        "mean_brier": 0.35888925954844414,
+        "actual_up": 2
+      },
+      "RSI_M1_30_TO70": {
+        "n": 31,
+        "hour_clusters": 16,
+        "favored_correct": 21,
+        "mean_brier": 0.22920529899474035,
+        "actual_up": 18
+      },
+      "RSI_M1_GT70": {
+        "n": 1,
+        "hour_clusters": 1,
+        "favored_correct": 1,
+        "mean_brier": 0.005377156722854315,
+        "actual_up": 1
+      },
+      "ST_M1_M5_AGREE": {
+        "n": 16,
+        "hour_clusters": 12,
+        "favored_correct": 9,
+        "mean_brier": 0.30607421175392646,
+        "actual_up": 10
+      },
+      "ST_M1_M5_DISAGREE": {
+        "n": 21,
+        "hour_clusters": 14,
+        "favored_correct": 16,
+        "mean_brier": 0.1908571588209144,
+        "actual_up": 11
+      },
+      "ST_BOTH_AGREE_WITH_MODEL": {
+        "n": 12,
+        "hour_clusters": 9,
+        "favored_correct": 8,
+        "mean_brier": 0.25104700015226583,
+        "actual_up": 7
+      }
+    }
+  }
+}
