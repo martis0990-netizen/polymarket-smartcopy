@@ -187,7 +187,7 @@ def load_archives(manifest):
                     if not any(tag in line for tag in
                                (b'"kind":"market"', b'"kind":"oracle_candles"',
                                 b'"kind":"book"', b'"kind":"request_error"',
-                                b'"kind":"binance_1m"')):
+                                b'"kind":"binance_1m"', b'"kind":"discovery"')):
                         continue
                     row = json.loads(line)
                     row["_proof"] = {"artifact": artifact["id"], "line": line_number,
@@ -215,14 +215,18 @@ def _first(rows, after, before):
 def prepare(rows):
     store = MinuteStore()
     grouped = collections.defaultdict(list)
+    discovered = set()
     for row in rows:
         if row["kind"] == "binance_1m":
             store.add(row, row["_proof"])
+        elif row["kind"] == "discovery":
+            discovered.update(slug for slug in row.get("selected", [])
+                              if isinstance(slug, str) and "15-min-" in slug)
         elif row.get("slug") and "15-min-" in row["slug"]:
             grouped[row["slug"]].append(row)
     if store.errors:
         raise ValueError("INVALID_BINANCE_RESPONSE")
-    episodes, labels = [], []
+    episodes, labels, verified_slugs = [], [], set()
     for slug, events in grouped.items():
         market_rows = [r for r in events if r["kind"] == "market"
                        and isinstance(r.get("raw"), dict)]
@@ -231,6 +235,7 @@ def prepare(rows):
         spec = market_spec(market_rows[0]["raw"])
         if spec is None or not START <= spec["start"] < CUTOFF:
             continue
+        verified_slugs.add(slug)
         ep = {"slug": slug, "condition": spec["condition"], "start": spec["start"],
               "phase": "discovery" if spec["start"] < HOLDOUT else "holdout",
               "symbol": spec["symbol"], "status": "SKIP", "reason": None,
@@ -327,7 +332,15 @@ def prepare(rows):
                 ep["settlement_reason"] = "INVALID_OR_CONFLICTING_PAYOUT"
     if len({ep["condition"] for ep in episodes}) != len(episodes):
         raise ValueError("DUPLICATE_CONDITION_ID")
-    return episodes, coverage(labels)
+    unverified = []
+    for slug in sorted(discovered - verified_slugs):
+        try:
+            opened = int(slug.rsplit("-", 1)[1])
+        except ValueError:
+            opened = None
+        if opened is None or START <= opened < CUTOFF:
+            unverified.append({"slug": slug, "start": opened})
+    return episodes, coverage(labels), unverified
 
 
 def settle_accounts(episodes):
@@ -403,7 +416,7 @@ def settle_accounts(episodes):
 
 def replay(manifest):
     rows, sources = load_archives(manifest)
-    episodes, structure_coverage = prepare(rows)
+    episodes, structure_coverage, unverified = prepare(rows)
     accounts = settle_accounts(episodes)
     # Actual depth is a REST approximation, not a guaranteed exchange fill.
     for ep in episodes:
@@ -411,12 +424,17 @@ def replay(manifest):
     phases = {}
     for phase in ("discovery", "holdout"):
         selected = [ep for ep in episodes if ep["phase"] == phase]
+        missing = [row for row in unverified if row["start"] is None or
+                   (row["start"] < HOLDOUT) == (phase == "discovery")]
         scored = [ep for ep in selected if ep["status"] == "DECIDED" and ep["settlement"]]
         decided = sum(ep["status"] == "DECIDED" for ep in selected)
         phases[phase] = {"conditions": len(selected),
+                         "discovered_without_verified_market": len(missing),
+                         "unverified_discovery_slugs": missing,
                          "quarter_hour_clusters": len({ep["start"] for ep in selected}),
                          "decisions": decided,
-                         "observation_coverage": decided/len(selected) if selected else None,
+                         "observation_coverage": decided/(len(selected)+len(missing))
+                         if selected or missing else None,
                          "resolved_scored_conditions": len(scored),
                          "resolved_scored_clusters": len({ep["start"] for ep in scored}),
                          "h1_known": sum(ep.get("structure", {}).get("ready_h1", False)
@@ -435,7 +453,7 @@ def replay(manifest):
         phases[phase]["review_status"] = (
             "COVERAGE_REVIEW_ONLY" if len(scored) >= 60
             and len({ep["start"] for ep in scored}) >= 60
-            and decided/len(selected) >= .9
+            and decided/(len(selected)+len(missing)) >= .9
             and phases[phase]["h1_known"] > 0
             and phases[phase]["structure_allowed"] > 0
             else "INSUFFICIENT_DATA")
