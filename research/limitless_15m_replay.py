@@ -65,6 +65,9 @@ def market_spec(raw):
         description = html.unescape(re.sub(r"<[^>]*>", " ", raw["description"]))
         description = " ".join(description.split())
         dates = re.findall(r"on ([A-Z][a-z]+ \d{1,2}, \d{4}), at (\d{2}:\d{2}) UTC", description)
+        stated_open = re.search(r"Price to Beat captured from the Chainlink " +
+                                re.escape(pair) +
+                                r" 60-second TWAP on [^.]+ was \$([0-9]+(?:\.[0-9]+)?)", description)
         parsed_dates = [dt.datetime.strptime(" ".join(pair_date), "%B %d, %Y %H:%M")
                         .replace(tzinfo=dt.timezone.utc).timestamp() for pair_date in dates]
         if (raw["tradeType"] != "clob" or raw["marketType"] != "single"
@@ -81,6 +84,7 @@ def market_spec(raw):
                 or "first Chainlink observation within the following 5 seconds" not in description
                 or "If no report exists in that window, the market will not resolve automatically" not in description
                 or len(parsed_dates) != 3 or parsed_dates != [end, start, start]
+                or stated_open is None or D(stated_open.group(1)) != D(str(meta["openPrice"]))
                 or seconds(meta["openPriceCapturedAt"]) != start
                 or raw["tokens"]["yes"] == raw["tokens"]["no"]
                 or not raw["tokens"]["yes"] or not raw["tokens"]["no"]):
