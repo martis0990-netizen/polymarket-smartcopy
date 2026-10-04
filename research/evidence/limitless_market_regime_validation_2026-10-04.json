@@ -1,0 +1,205 @@
+{
+  "schema": "limitless-regime-validation-v1",
+  "status": "PASS_TECHNICAL_ONLY",
+  "evidence_sha256": "a13b8e60a93cd2cfcfc68a75056cd71f646522a597911bd98778ec97026552c1",
+  "implementation_sha256": "565f8f3404aaca9ce1cbe71f52b31958a4dd90950471f17577503053e9f6568e",
+  "source_as_of": "2026-10-04T08:23:26.608101+00:00",
+  "checks": {
+    "original_37_decision_features_unchanged": true,
+    "eight_conflict_source_rows_rehashed": true,
+    "raw_closed_before_request_and_received_later": true,
+    "real_eth_candle_every_prefix_invariant": {
+      "M1": {
+        "prefixes_verified": 121,
+        "last_state": "TRANSITION"
+      },
+      "M5": {
+        "prefixes_verified": 24,
+        "last_state": "UNKNOWN"
+      },
+      "M15": {
+        "prefixes_verified": 8,
+        "last_state": "UNKNOWN"
+      }
+    }
+  },
+  "conflict_raw_sources": [
+    {
+      "artifact": 11279146210,
+      "line": 36736,
+      "source_fingerprint": "7482622a5fa9994e6832398cc5983cad53a1b03cc0e8ce59e0279c54d0ecf5e2",
+      "requested_at": "2026-10-03T16:14:00.034683+00:00",
+      "observed_at": "2026-10-03T16:14:00.884695+00:00",
+      "raw_candle": [
+        1791043980000,
+        "2680.04000000",
+        "2680.05000000",
+        "2679.95000000",
+        "2679.96000000",
+        "105.19010000",
+        1791044039999,
+        "281908.97733900",
+        528,
+        "1.28760000",
+        "3450.81931200",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11279146210,
+      "line": 37105,
+      "source_fingerprint": "0d9ac1d79c51881f00b6fb5f4793a9acba4fd2469793d6580f313d768fb75024",
+      "requested_at": "2026-10-03T16:14:18.424139+00:00",
+      "observed_at": "2026-10-03T16:14:19.120288+00:00",
+      "raw_candle": [
+        1791043980000,
+        "2680.04000000",
+        "2680.05000000",
+        "2679.95000000",
+        "2679.95000000",
+        "105.19320000",
+        1791044039999,
+        "281917.28518400",
+        529,
+        "1.28760000",
+        "3450.81931200",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11282392465,
+      "line": 264,
+      "source_fingerprint": "e5df14a2f2305279eb9e6c068182975e73b01808d66990b32adaff4188b87958",
+      "requested_at": "2026-10-03T19:27:00.542553+00:00",
+      "observed_at": "2026-10-03T19:27:01.099226+00:00",
+      "raw_candle": [
+        1791055560000,
+        "2682.99000000",
+        "2683.00000000",
+        "2682.99000000",
+        "2682.99000000",
+        "20.73600000",
+        1791055619999,
+        "55634.64911700",
+        116,
+        "16.84770000",
+        "45202.37910000",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11282392465,
+      "line": 417,
+      "source_fingerprint": "48fbb3b5d3103a6cedba1e6d3a57c993689e23ab196c46aaa0fc0322a3075426",
+      "requested_at": "2026-10-03T19:27:17.810467+00:00",
+      "observed_at": "2026-10-03T19:27:18.367725+00:00",
+      "raw_candle": [
+        1791055560000,
+        "2682.99000000",
+        "2683.00000000",
+        "2682.99000000",
+        "2683.00000000",
+        "20.73900000",
+        1791055619999,
+        "55642.69811700",
+        117,
+        "16.85070000",
+        "45210.42810000",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11291030053,
+      "line": 3056,
+      "source_fingerprint": "3bcadf361b4eb2a8fc726d724b5472ed8b5707ec80e3d857046383fed707a918",
+      "requested_at": "2026-10-04T01:05:00.329574+00:00",
+      "observed_at": "2026-10-04T01:05:01.292621+00:00",
+      "raw_candle": [
+        1791075840000,
+        "2692.54000000",
+        "2692.59000000",
+        "2692.16000000",
+        "2692.59000000",
+        "75.71460000",
+        1791075899999,
+        "203844.78102700",
+        331,
+        "27.60480000",
+        "74319.79796400",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11291030053,
+      "line": 3323,
+      "source_fingerprint": "b183627d00ab075eda0da6f3a3a2b5106da847b629517ce5e74c56aceda6b623",
+      "requested_at": "2026-10-04T01:05:17.970257+00:00",
+      "observed_at": "2026-10-04T01:05:18.534043+00:00",
+      "raw_candle": [
+        1791075840000,
+        "2692.54000000",
+        "2692.59000000",
+        "2692.16000000",
+        "2692.58000000",
+        "77.34070000",
+        1791075899999,
+        "208223.20039500",
+        339,
+        "29.10780000",
+        "78366.76073400",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11291030053,
+      "line": 31130,
+      "source_fingerprint": "670ca2eca1420071b873fff4e8f9ba5fdca2bf3b247c405fc106a37b01efb82b",
+      "requested_at": "2026-10-04T01:37:00.240375+00:00",
+      "observed_at": "2026-10-04T01:37:01.002148+00:00",
+      "raw_candle": [
+        1791077760000,
+        "2691.79000000",
+        "2692.95000000",
+        "2691.79000000",
+        "2692.72000000",
+        "29.82760000",
+        1791077819999,
+        "80315.34276400",
+        471,
+        "15.28340000",
+        "41150.97184700",
+        "0"
+      ]
+    },
+    {
+      "artifact": 11291030053,
+      "line": 31586,
+      "source_fingerprint": "18ea03651dba04c4fec1c19480afc02b516d43d97fc94c24a7c045c4935786b4",
+      "requested_at": "2026-10-04T01:37:21.347797+00:00",
+      "observed_at": "2026-10-04T01:37:21.887849+00:00",
+      "raw_candle": [
+        1791077760000,
+        "2691.79000000",
+        "2692.95000000",
+        "2691.79000000",
+        "2692.73000000",
+        "29.96060000",
+        1791077819999,
+        "80673.47585400",
+        476,
+        "15.41640000",
+        "41509.10493700",
+        "0"
+      ]
+    }
+  ],
+  "real_prefix_source": {
+    "source_artifact": 11296245826,
+    "source_run": 37180405302,
+    "source_fingerprint": "b68bdf40e54fafff8a8f7e67d5304a9fac29b9b8d6c0c0cac9074b161b56ccad"
+  },
+  "limitations": [
+    "Actual source conflict quarantine is conservative and can affect historical context beyond recent feature windows.",
+    "No original frozen paper state changed; this check does not replay execution or claim profit."
+  ]
+}
