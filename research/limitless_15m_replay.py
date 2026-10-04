@@ -552,16 +552,27 @@ def replay(manifest):
         selected = [ep for ep in episodes if ep["phase"] == phase]
         missing = [row for row in unverified if row["start"] is None or
                    (row["start"] < HOLDOUT) == (phase == "discovery")]
+        expected_slots = int((phase_end-phase_start)/900)
+        if expected_slots <= 0 or phase_end-phase_start != expected_slots*900:
+            raise ValueError("INVALID_PHASE_BOUNDARY")
+        observed_keys = [(ep["start"], ep["symbol"]) for ep in selected]
+        if (len(set(observed_keys)) != len(observed_keys)
+                or any(not phase_start <= opened < phase_end for opened, _ in observed_keys)):
+            raise ValueError("DUPLICATE_OR_OUT_OF_PHASE_MARKET")
+        expected_conditions = expected_slots*2  # one BTC and one ETH each UTC quarter-hour
+        if len(selected) > expected_conditions:
+            raise ValueError("EXCESS_MARKET_CONDITIONS")
         scored = [ep for ep in selected if ep["status"] == "DECIDED" and ep["settlement"]]
         decided = sum(ep["status"] == "DECIDED" for ep in selected)
         phases[phase] = {"conditions": len(selected),
                          "capture_span_complete": complete_span,
+                         "expected_conditions": expected_conditions,
+                         "unobserved_expected_conditions": expected_conditions-len(selected),
                          "discovered_without_verified_market": len(missing),
                          "unverified_discovery_slugs": missing,
                          "quarter_hour_clusters": len({ep["start"] for ep in selected}),
                          "decisions": decided,
-                         "observation_coverage": decided/(len(selected)+len(missing))
-                         if selected or missing else None,
+                         "observation_coverage": decided/expected_conditions,
                          "resolved_scored_conditions": len(scored),
                          "resolved_scored_clusters": len({ep["start"] for ep in scored}),
                          "h1_known": sum(ep.get("structure", {}).get("ready_h1", False)
@@ -574,7 +585,7 @@ def replay(manifest):
         phases[phase]["review_status"] = (
             "COVERAGE_REVIEW_ONLY" if complete_span and len(scored) >= 60
             and len({ep["start"] for ep in scored}) >= 60
-            and decided/(len(selected)+len(missing)) >= .9
+            and decided/expected_conditions >= .9
             and phases[phase]["h1_known"] > 0
             and phases[phase]["structure_allowed"] > 0
             else "INSUFFICIENT_DATA")
