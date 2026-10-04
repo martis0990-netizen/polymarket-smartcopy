@@ -8,12 +8,14 @@ from limitless_market_regime import MinuteStore
 
 
 class RecordingStore:
-    def __init__(self):
+    def __init__(self, rows=None, conflicts=None):
         self.calls = []
+        self.rows = rows or []
+        self.conflicts = conflicts or []
 
     def view(self, symbol, at_ms):
         self.calls.append((symbol, at_ms))
-        return [], []
+        return self.rows, self.conflicts
 
 
 class TestFifteenMinuteStructure(unittest.TestCase):
@@ -63,6 +65,31 @@ class TestFifteenMinuteStructure(unittest.TestCase):
         after = label_decision(store, condition="a", symbol="BTCUSDT",
                                open_ms=900_000, decision_ms=1_380_000)
         self.assertEqual(before, after)
+
+    def test_old_conflict_is_visible_but_not_a_permanent_poison(self):
+        # An old missing minute forces a fresh contiguous warmup; it cannot
+        # override the computed reason forever after that history has aged out.
+        store = RecordingStore(conflicts=[0])
+        row = label_decision(store, condition="a", symbol="BTCUSDT",
+                             open_ms=900_000, decision_ms=1_380_000)
+        self.assertEqual(row["conflicting_minutes"], [0])
+        self.assertNotEqual(row["h1_reason"], "CONFLICTING_CLOSED_SOURCE")
+
+    def test_conflicted_latest_minute_fails_closed(self):
+        store = MinuteStore()
+        for close in ("100", "101"):
+            store.add({
+                "kind": "binance_1m", "source": "binance",
+                "path": "/api/v3/klines",
+                "params": {"symbol": "BTCUSDT", "interval": "1m"},
+                "requested_at": 420, "observed_at": 421,
+                "raw": [[300_000, "100", "101", "99", close, "1", 359_999]],
+            }, {"artifact": 1, "line": close})
+        row = label_decision(store, condition="a", symbol="BTCUSDT",
+                             open_ms=0, decision_ms=480_000)
+        self.assertEqual(row["conflicting_minutes"], [300_000])
+        self.assertEqual(row["h1_state"], "UNKNOWN")
+        self.assertNotEqual(structural_gate(row, "YES"), "ALLOW")
 
     def test_gate_uses_last_observed_m5_break_and_skips_unknown(self):
         row = label_decision(RecordingStore(), condition="a", symbol="BTCUSDT",
