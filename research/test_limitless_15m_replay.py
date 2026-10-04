@@ -9,10 +9,12 @@ import tempfile
 import unittest
 import zipfile
 from decimal import Decimal
+from unittest.mock import patch
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from limitless_15m_replay import (_first, _first_received, candidate, load_archives,
-                                  market_spec, oracle_probability, prepare, settle_accounts)
+                                  market_spec, oracle_probability, prepare, replay,
+                                  settle_accounts)
 
 START = dt.datetime(2026, 10, 5, tzinfo=dt.timezone.utc).timestamp()
 
@@ -107,6 +109,23 @@ class ReplayTests(unittest.TestCase):
                                 "file": {"path": str(path)}})
             with self.assertRaisesRegex(ValueError, "CHECKPOINT_LINEAGE_BROKEN"):
                 load_archives(entries)
+
+    def test_unseen_quarter_hour_assets_remain_in_coverage_denominator(self):
+        episode = {"condition": "c", "slug": "btc-15-min-test", "symbol": "BTCUSDT",
+                   "phase": "discovery", "start": START, "status": "SKIP",
+                   "reason": "MISSED_ORACLE_WINDOW"}
+        sources = [{"started_at": START-60, "ended_at": START+1800}]
+        with (patch("limitless_15m_replay.START", START),
+              patch("limitless_15m_replay.HOLDOUT", START+900),
+              patch("limitless_15m_replay.CUTOFF", START+1800),
+              patch("limitless_15m_replay.load_archives", return_value=([], sources)),
+              patch("limitless_15m_replay.prepare", return_value=([episode], {}, []))):
+            report = replay([])
+        phase = report["phases"]["discovery"]
+        self.assertEqual(phase["expected_conditions"], 2)
+        self.assertEqual(phase["unobserved_expected_conditions"], 1)
+        self.assertEqual(phase["observation_coverage"], 0)
+        self.assertEqual(phase["review_status"], "INSUFFICIENT_DATA")
 
     def test_oracle_uses_only_contiguous_closed_candles(self):
         spec = market_spec(market())
