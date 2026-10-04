@@ -9,7 +9,7 @@ import math
 
 from limitless_market_regime import describe
 
-VERSION = "limitless-15m-structure-label-v1"
+VERSION = "limitless-15m-structure-label-v2"
 ALLOWED = {"TREND_UP", "TREND_DOWN", "RANGE", "TRANSITION", "UNKNOWN"}
 
 
@@ -29,7 +29,12 @@ def label_decision(store, *, condition, symbol, open_ms, decision_ms):
     if open_ms % 900_000 or not open_ms <= decision_ms < open_ms + 900_000:
         raise ValueError("decision outside 15m market")
     rows, conflicts = store.view(symbol, decision_ms)
-    snapshot = describe(rows, conflicts, decision_ms)
+    # MinuteStore excludes conflicting minutes from rows. UTC aggregation then
+    # restarts at that gap and requires a fresh contiguous warmup. Passing every
+    # historical conflict to the hourly diagnostic would permanently mark all
+    # frames UNKNOWN even after the affected minute has left the current suffix.
+    # The conflict ledger remains visible below; no disputed candle is used.
+    snapshot = describe(rows, [], decision_ms)
     frames = snapshot["frames"]
     if any(frames[f]["state"] not in ALLOWED for f in ("H4", "H1", "M15", "M5", "M1")):
         raise ValueError("unexpected regime state")
