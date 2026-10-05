@@ -1,0 +1,3368 @@
+{
+  "matched_resolved_conditions": 75,
+  "matched_brier_minus_fixed_pnl_usdc": "-50.911038520",
+  "version": "limitless-hourly-brier-sizing-v1",
+  "status": "DISCOVERY_ONLY",
+  "report": {
+    "fixed": {
+      "states": {
+        "NO_TRADE": 62,
+        "SETTLED": 13,
+        "SKIP": 2
+      },
+      "skip_reasons": {
+        "FROZEN_MODEL_NO_TRADE": 62,
+        "PRICE_OR_DEPTH": 2
+      },
+      "cash_usdc": "153.372829291",
+      "open_cost_basis_usdc": "0",
+      "settled_pnl_usdc": "53.372829291",
+      "settled_spend_usdc": "112.696525109",
+      "return_on_settled_spend": "0.4735978260144031678388491101",
+      "max_settled_equity_drawdown_usdc": "34.735634612",
+      "ledger": [
+        {
+          "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+          "kind": "ENTRY",
+          "time": 1791052241.333385,
+          "amount": "-8.383503568",
+          "cash_after": "91.616496432",
+          "source": "f0f534b0b87498bae48655da28ec0a7fe59a4b8e1dd2689709d69015c61af870"
+        },
+        {
+          "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+          "kind": "PAYOUT",
+          "time": 1791055057.3156,
+          "amount": "0E-8",
+          "cash_after": "91.616496432",
+          "source": "407d3447a3a6cd2b5a650b38a6992c9b476b7f4520be5477d8556c724701ed19"
+        },
+        {
+          "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+          "kind": "ENTRY",
+          "time": 1791055822.686677,
+          "amount": "-7.532912391",
+          "cash_after": "84.083584041",
+          "source": "c52550b000eb492a5974bfe757a91304d2680c8940bbd2d0c7005017f1d3fdba"
+        },
+        {
+          "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+          "kind": "PAYOUT",
+          "time": 1791058987.640413,
+          "amount": "58.60413401",
+          "cash_after": "142.687718051",
+          "source": "3146afd4ec748ef7da9256b9c00aa6eae09697ec2a74722130934d72df1dbe40"
+        },
+        {
+          "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+          "kind": "ENTRY",
+          "time": 1791073833.787769,
+          "amount": "-9.947561690",
+          "cash_after": "132.740156361",
+          "source": "b916ac983673f932c23835034b3449669a81d6252b61bdb152214b5a6026fdd7"
+        },
+        {
+          "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+          "kind": "ENTRY",
+          "time": 1791073834.151412,
+          "amount": "-9.967295592",
+          "cash_after": "122.772860769",
+          "source": "e3c67529d405dded7b3868aee8dfcd36d7a8d2c50e2e04a34eb81efb32ad25a3"
+        },
+        {
+          "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+          "kind": "PAYOUT",
+          "time": 1791076656.798226,
+          "amount": "13.09244890",
+          "cash_after": "135.865309669",
+          "source": "1b96456a57f0b79695379a7383806de4bafa63e0f57f26f0341515e22938a387"
+        },
+        {
+          "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+          "kind": "PAYOUT",
+          "time": 1791076658.874511,
+          "amount": "11.11548317",
+          "cash_after": "146.980792839",
+          "source": "4132a4e425b06f6a40e2f4710d66b2d0f793d48bf6b24caf353dd01c5a3d9886"
+        },
+        {
+          "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+          "kind": "ENTRY",
+          "time": 1791088226.149209,
+          "amount": "-9.896882464",
+          "cash_after": "137.083910375",
+          "source": "1aabb2ae2af44d02bdfd814e9e629d1e8de7048d9116d800de15bb09f1b7b7ef"
+        },
+        {
+          "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+          "kind": "PAYOUT",
+          "time": 1791091030.884722,
+          "amount": "14.02394766",
+          "cash_after": "151.107858035",
+          "source": "f1ed37f2a9f6a325d897057d56a80518cd1c808d0889dfc034268bcc89a543f4"
+        },
+        {
+          "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+          "kind": "ENTRY",
+          "time": 1791091830.612031,
+          "amount": "-9.268939115",
+          "cash_after": "141.838918920",
+          "source": "a036afea0d6248c903bd3c073b262ffe38ebcafe678a00797bdf014df36506ca"
+        },
+        {
+          "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+          "kind": "PAYOUT",
+          "time": 1791094608.916158,
+          "amount": "11.11505637",
+          "cash_after": "152.953975290",
+          "source": "09375c7314b8dbeea921925693133611177ac805fb382bc1752fb64f4f4fa3db"
+        },
+        {
+          "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+          "kind": "ENTRY",
+          "time": 1791095433.448517,
+          "amount": "-9.390450955",
+          "cash_after": "143.563524335",
+          "source": "731c7a7a5d13c243b23b37b0350daef40a0b227374b7d1552a93adf26400e34e"
+        },
+        {
+          "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+          "kind": "PAYOUT",
+          "time": 1791098247.861337,
+          "amount": "0E-8",
+          "cash_after": "143.563524335",
+          "source": "cffbc9646d9f9999197e42d279d7c54e790943cd74c1e79db3fa0edabc99ff2f"
+        },
+        {
+          "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+          "kind": "ENTRY",
+          "time": 1791102636.882628,
+          "amount": "-8.142084900",
+          "cash_after": "135.421439435",
+          "source": "62f8791156bc622953239394c331c78cbbf80a332c965f8d7a83fff68b4617ab"
+        },
+        {
+          "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+          "kind": "PAYOUT",
+          "time": 1791105457.532177,
+          "amount": "16.98456420",
+          "cash_after": "152.406003635",
+          "source": "b2de48968d723d0809f0d6ac832a81e7f39cddbfabe03bc3cab4ff1656864ced"
+        },
+        {
+          "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+          "kind": "ENTRY",
+          "time": 1791106237.728524,
+          "amount": "-8.612551130",
+          "cash_after": "143.793452505",
+          "source": "315d3cd2dedbe6ee81d19f620a0dc5944165d1593cae5a3d8cb1db7c1b94fe79"
+        },
+        {
+          "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+          "kind": "PAYOUT",
+          "time": 1791109071.977862,
+          "amount": "0E-8",
+          "cash_after": "143.793452505",
+          "source": "eec79b28558c6537df3add482684ddc870d844f0068605c0e990f1d01829c42e"
+        },
+        {
+          "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+          "kind": "ENTRY",
+          "time": 1791117029.732761,
+          "amount": "-8.788566270",
+          "cash_after": "135.004886235",
+          "source": "6ae2a532dea1ce9ccd8395d3bfc9a31d430968acd429cbc6823b4f291f220b21"
+        },
+        {
+          "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+          "kind": "PAYOUT",
+          "time": 1791119817.715543,
+          "amount": "0E-8",
+          "cash_after": "135.004886235",
+          "source": "68519bda056cbda2ef646d3d16594ba01cb21f6fcab1c21a5643aec4e9fd11b6"
+        },
+        {
+          "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+          "kind": "ENTRY",
+          "time": 1791142223.211626,
+          "amount": "-9.437170748",
+          "cash_after": "125.567715487",
+          "source": "50b36a96924e163537faacf24772870d6c35ca7b5149cc49b40f3e84229ae7d2"
+        },
+        {
+          "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+          "kind": "PAYOUT",
+          "time": 1791145066.549972,
+          "amount": "0E-8",
+          "cash_after": "125.567715487",
+          "source": "d27f3e2969bc5e397cad24183bed15b1ff493bc2acc409ed8676a91494886146"
+        },
+        {
+          "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+          "kind": "ENTRY",
+          "time": 1791181831.705908,
+          "amount": "-7.349374809",
+          "cash_after": "118.218340678",
+          "source": "e9e335668497a0f2e12f46aa35ea868bc51a74c8d5fce7b5a1c9a43afd145bc4"
+        },
+        {
+          "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+          "kind": "PAYOUT",
+          "time": 1791184594.322562,
+          "amount": "0E-8",
+          "cash_after": "118.218340678",
+          "source": "43023913c85a2bd2d71ef0f6dc93ab82ca6acc93e0f8bd0243c6a9f9ad0ee278"
+        },
+        {
+          "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+          "kind": "ENTRY",
+          "time": 1791189022.918726,
+          "amount": "-5.979231477",
+          "cash_after": "112.239109201",
+          "source": "dfe28e4b89d67863ba8bbefa24f6dbead9f5d2c19231e2c4334aab3751d2b453"
+        },
+        {
+          "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+          "kind": "PAYOUT",
+          "time": 1791191868.895953,
+          "amount": "41.13372009",
+          "cash_after": "153.372829291",
+          "source": "c7da7081af819491721b182fc8553ae0adcebbef00f277a4d556cc74948c96d9"
+        }
+      ]
+    },
+    "brier_sizing": {
+      "states": {
+        "NO_TRADE": 62,
+        "SETTLED": 14,
+        "FILLED": 1
+      },
+      "skip_reasons": {
+        "FROZEN_MODEL_NO_TRADE": 62
+      },
+      "cash_usdc": "102.108470727",
+      "open_cost_basis_usdc": "0.353320044",
+      "settled_pnl_usdc": "2.461790771",
+      "settled_spend_usdc": "11.688906789",
+      "return_on_settled_spend": "0.2106091540841698468265542433",
+      "max_settled_equity_drawdown_usdc": "2.662338391",
+      "ledger": [
+        {
+          "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+          "kind": "ENTRY",
+          "time": 1791052241.333385,
+          "amount": "-0.202993482",
+          "cash_after": "99.797006518",
+          "source": "f0f534b0b87498bae48655da28ec0a7fe59a4b8e1dd2689709d69015c61af870"
+        },
+        {
+          "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+          "kind": "PAYOUT",
+          "time": 1791055057.3156,
+          "amount": "0E-8",
+          "cash_after": "99.797006518",
+          "source": "407d3447a3a6cd2b5a650b38a6992c9b476b7f4520be5477d8556c724701ed19"
+        },
+        {
+          "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+          "kind": "ENTRY",
+          "time": 1791055822.686677,
+          "amount": "-0.264143420",
+          "cash_after": "99.532863098",
+          "source": "c52550b000eb492a5974bfe757a91304d2680c8940bbd2d0c7005017f1d3fdba"
+        },
+        {
+          "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+          "kind": "PAYOUT",
+          "time": 1791058987.640413,
+          "amount": "2.10015670",
+          "cash_after": "101.633019798",
+          "source": "3146afd4ec748ef7da9256b9c00aa6eae09697ec2a74722130934d72df1dbe40"
+        },
+        {
+          "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+          "kind": "ENTRY",
+          "time": 1791073833.787769,
+          "amount": "-1.219189620",
+          "cash_after": "100.413830178",
+          "source": "b916ac983673f932c23835034b3449669a81d6252b61bdb152214b5a6026fdd7"
+        },
+        {
+          "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+          "kind": "ENTRY",
+          "time": 1791073834.151412,
+          "amount": "-1.47765509",
+          "cash_after": "98.936175088",
+          "source": "e3c67529d405dded7b3868aee8dfcd36d7a8d2c50e2e04a34eb81efb32ad25a3"
+        },
+        {
+          "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+          "kind": "PAYOUT",
+          "time": 1791076656.798226,
+          "amount": "1.60463220",
+          "cash_after": "100.540807288",
+          "source": "1b96456a57f0b79695379a7383806de4bafa63e0f57f26f0341515e22938a387"
+        },
+        {
+          "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+          "kind": "PAYOUT",
+          "time": 1791076658.874511,
+          "amount": "1.65162579",
+          "cash_after": "102.192433078",
+          "source": "4132a4e425b06f6a40e2f4710d66b2d0f793d48bf6b24caf353dd01c5a3d9886"
+        },
+        {
+          "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+          "kind": "ENTRY",
+          "time": 1791088226.149209,
+          "amount": "-1.077449124",
+          "cash_after": "101.114983954",
+          "source": "1aabb2ae2af44d02bdfd814e9e629d1e8de7048d9116d800de15bb09f1b7b7ef"
+        },
+        {
+          "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+          "kind": "PAYOUT",
+          "time": 1791091030.884722,
+          "amount": "1.54148326",
+          "cash_after": "102.656467214",
+          "source": "f1ed37f2a9f6a325d897057d56a80518cd1c808d0889dfc034268bcc89a543f4"
+        },
+        {
+          "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+          "kind": "ENTRY",
+          "time": 1791091830.612031,
+          "amount": "-2.361401490",
+          "cash_after": "100.295065724",
+          "source": "a036afea0d6248c903bd3c073b262ffe38ebcafe678a00797bdf014df36506ca"
+        },
+        {
+          "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+          "kind": "PAYOUT",
+          "time": 1791094608.916158,
+          "amount": "2.84541546",
+          "cash_after": "103.140481184",
+          "source": "09375c7314b8dbeea921925693133611177ac805fb382bc1752fb64f4f4fa3db"
+        },
+        {
+          "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+          "kind": "ENTRY",
+          "time": 1791095433.448517,
+          "amount": "-2.662338391",
+          "cash_after": "100.478142793",
+          "source": "731c7a7a5d13c243b23b37b0350daef40a0b227374b7d1552a93adf26400e34e"
+        },
+        {
+          "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+          "kind": "PAYOUT",
+          "time": 1791098247.861337,
+          "amount": "0E-8",
+          "cash_after": "100.478142793",
+          "source": "cffbc9646d9f9999197e42d279d7c54e790943cd74c1e79db3fa0edabc99ff2f"
+        },
+        {
+          "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+          "kind": "ENTRY",
+          "time": 1791102636.882628,
+          "amount": "-0.738726435",
+          "cash_after": "99.739416358",
+          "source": "62f8791156bc622953239394c331c78cbbf80a332c965f8d7a83fff68b4617ab"
+        },
+        {
+          "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+          "kind": "PAYOUT",
+          "time": 1791105457.532177,
+          "amount": "1.54099923",
+          "cash_after": "101.280415588",
+          "source": "b2de48968d723d0809f0d6ac832a81e7f39cddbfabe03bc3cab4ff1656864ced"
+        },
+        {
+          "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+          "kind": "ENTRY",
+          "time": 1791106237.728524,
+          "amount": "-0.258135888",
+          "cash_after": "101.022279700",
+          "source": "315d3cd2dedbe6ee81d19f620a0dc5944165d1593cae5a3d8cb1db7c1b94fe79"
+        },
+        {
+          "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+          "kind": "PAYOUT",
+          "time": 1791109071.977862,
+          "amount": "0E-8",
+          "cash_after": "101.022279700",
+          "source": "eec79b28558c6537df3add482684ddc870d844f0068605c0e990f1d01829c42e"
+        },
+        {
+          "condition": "0x3219b188712d253d6bd55ae4899971859d99171f4997d0e3839676097b25c0cc",
+          "kind": "ENTRY",
+          "time": 1791113428.193941,
+          "amount": "-0.205750700",
+          "cash_after": "100.816529000",
+          "source": "e810c6772f6675d95bc3c69143bb1ec1536bd931b5850ab631573c9966e4752c"
+        },
+        {
+          "condition": "0x3219b188712d253d6bd55ae4899971859d99171f4997d0e3839676097b25c0cc",
+          "kind": "PAYOUT",
+          "time": 1791116231.610835,
+          "amount": "0.92827060",
+          "cash_after": "101.744799600",
+          "source": "91760423f988f2041be4a1077a17a48768ab1e8003f208d24e0b63fb873f9d89"
+        },
+        {
+          "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+          "kind": "ENTRY",
+          "time": 1791117029.732761,
+          "amount": "-0.601255512",
+          "cash_after": "101.143544088",
+          "source": "6ae2a532dea1ce9ccd8395d3bfc9a31d430968acd429cbc6823b4f291f220b21"
+        },
+        {
+          "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+          "kind": "PAYOUT",
+          "time": 1791119817.715543,
+          "amount": "0E-8",
+          "cash_after": "101.143544088",
+          "source": "68519bda056cbda2ef646d3d16594ba01cb21f6fcab1c21a5643aec4e9fd11b6"
+        },
+        {
+          "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+          "kind": "ENTRY",
+          "time": 1791142223.211626,
+          "amount": "-0.148837640",
+          "cash_after": "100.994706448",
+          "source": "50b36a96924e163537faacf24772870d6c35ca7b5149cc49b40f3e84229ae7d2"
+        },
+        {
+          "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+          "kind": "PAYOUT",
+          "time": 1791145066.549972,
+          "amount": "0E-8",
+          "cash_after": "100.994706448",
+          "source": "d27f3e2969bc5e397cad24183bed15b1ff493bc2acc409ed8676a91494886146"
+        },
+        {
+          "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+          "kind": "ENTRY",
+          "time": 1791181831.705908,
+          "amount": "-0.189304101",
+          "cash_after": "100.805402347",
+          "source": "e9e335668497a0f2e12f46aa35ea868bc51a74c8d5fce7b5a1c9a43afd145bc4"
+        },
+        {
+          "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+          "kind": "PAYOUT",
+          "time": 1791184594.322562,
+          "amount": "0E-8",
+          "cash_after": "100.805402347",
+          "source": "43023913c85a2bd2d71ef0f6dc93ab82ca6acc93e0f8bd0243c6a9f9ad0ee278"
+        },
+        {
+          "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+          "kind": "ENTRY",
+          "time": 1791189022.918726,
+          "amount": "-0.281725896",
+          "cash_after": "100.523676451",
+          "source": "dfe28e4b89d67863ba8bbefa24f6dbead9f5d2c19231e2c4334aab3751d2b453"
+        },
+        {
+          "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+          "kind": "PAYOUT",
+          "time": 1791191868.895953,
+          "amount": "1.93811432",
+          "cash_after": "102.461790771",
+          "source": "c7da7081af819491721b182fc8553ae0adcebbef00f277a4d556cc74948c96d9"
+        },
+        {
+          "condition": "0xee85dc2db0f2e0e0d4ed7485810701a414f0bd2cf7bda224c33e8f2fa893423b",
+          "kind": "ENTRY",
+          "time": 1791192623.647211,
+          "amount": "-0.353320044",
+          "cash_after": "102.108470727",
+          "source": "82d74550feaef982f64fa29997b01228867fb21bda12317a3cb52470921de2de"
+        }
+      ]
+    }
+  },
+  "comparison_started_at": null,
+  "as_of": "2026-10-05T10:12:54Z",
+  "conditions": 77,
+  "hour_clusters": 40,
+  "scored_conditions": 75,
+  "brier_model": 0.23610341707888466,
+  "brier_market_mid": 0.23876142666666667,
+  "holdout_conditions": 0,
+  "conflicts": [],
+  "episodes": [
+    {
+      "condition": "0xfd31d342c37755957bd2faca0b81c7b724adf53123afea7a72f11f7b407bb9a1",
+      "slug": "btc-up-or-down-hourly-p-1791039909677",
+      "start": 1791050400.0,
+      "decision_at": 1791052222.8355877,
+      "p_up": 0.4217614069472537,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "c9f90ebd71d117a8e52446febbdfec79e5a0e140f0bbff6f0cbd1df4e58d2222",
+      "decision_source": "04f84eec84067b82844ec3ceee32691f42698053296db14df959c511b939ce0b",
+      "q": "0.4205",
+      "decision_book_source": "e7ea64eb2c2ba02194d6a757b40d9d53ca6f48d73c48f8a770d106d95518a213",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791055057.646205,
+      "brier_model": 0.17788268439012697,
+      "brier_market": 0.17682024999999998
+    },
+    {
+      "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+      "slug": "eth-up-or-down-hourly-p-1791039910750",
+      "start": 1791050400.0,
+      "decision_at": 1791052223.0897539,
+      "p_up": 0.2509627113603087,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.2363435242907761543689320388",
+          "size_cap_shares": "42.311292",
+          "first_attempt_requested": 1791052241.058294,
+          "first_attempt_received": 1791052241.333385,
+          "execution_source": "f0f534b0b87498bae48655da28ec0a7fe59a4b8e1dd2689709d69015c61af870",
+          "fill_at": 1791052241.333385,
+          "gross_shares": "42.311292",
+          "net_shares": "41.04195324",
+          "cost_usdc": "8.383503568",
+          "vwap": "0.1981386805205570182068654391",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-8.383503568"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.2363435242907761543689320388",
+          "size_cap_shares": "1.109254",
+          "first_attempt_requested": 1791052241.058294,
+          "first_attempt_received": 1791052241.333385,
+          "execution_source": "f0f534b0b87498bae48655da28ec0a7fe59a4b8e1dd2689709d69015c61af870",
+          "fill_at": 1791052241.333385,
+          "gross_shares": "1.109254",
+          "net_shares": "1.07597638",
+          "cost_usdc": "0.202993482",
+          "vwap": "0.183",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-0.202993482"
+        }
+      },
+      "decision_identity": "aef4d91ace6ad6982c88b2e38906e8cb85f8afbbc1392904905d76dd3f66b03c",
+      "decision_source": "21351694dc0f82fda4ea2fa9fb104ec0a54943c13902685534719be4a1667509",
+      "q": "0.1955",
+      "decision_book_source": "bf58838d47ba322e067fcd8a8784524bf7308fd8e89bf336a8c8fc757e652c8f",
+      "token": "92060606689962500263304858687901288535401766103790474004508158257469676785202",
+      "end": 1791054000.0,
+      "eligible_after": 1791052224.5897539,
+      "expires_at": 1791052253.0897539,
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791055057.3156,
+      "brier_model": 0.06298228249331761,
+      "brier_market": 0.038220250000000004
+    },
+    {
+      "condition": "0xbbe12b3576650120a574f4fae1348df160985b95c6f22b060c69aa19e504b7c2",
+      "slug": "btc-up-or-down-hourly-p-1791043509346",
+      "start": 1791054000.0,
+      "decision_at": 1791055803.816688,
+      "p_up": 0.08220883684133629,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "d1312e360de1001b9899332b7af003c567f1d8a02fcc5d0876e7840938636003",
+      "decision_source": "3eb0a7d7b9d4447818c62cc190bcbbf31ceadf62509c257ca05d9ea72304526d",
+      "q": "0.0585",
+      "decision_book_source": "8449139f2c59346c8fd0910fdefcc956c305f2e4592b1c16625ce4e067626eda",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791058987.311717,
+      "brier_model": 0.00675829285480545,
+      "brier_market": 0.0034222500000000004
+    },
+    {
+      "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+      "slug": "eth-up-or-down-hourly-p-1791043510378",
+      "start": 1791054000.0,
+      "decision_at": 1791055804.1114793,
+      "p_up": 0.17575551891069074,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.1655173333430776871844660194",
+          "size_cap_shares": "60.416633",
+          "first_attempt_requested": 1791055822.400612,
+          "first_attempt_received": 1791055822.686677,
+          "execution_source": "c52550b000eb492a5974bfe757a91304d2680c8940bbd2d0c7005017f1d3fdba",
+          "fill_at": 1791055822.686677,
+          "gross_shares": "60.416633",
+          "net_shares": "58.60413401",
+          "cost_usdc": "7.532912391",
+          "vwap": "0.1246827573294261532250564178",
+          "payout_usdc": "58.60413401",
+          "pnl_usdc": "51.071221619"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.1655173333430776871844660194",
+          "size_cap_shares": "2.165110",
+          "first_attempt_requested": 1791055822.400612,
+          "first_attempt_received": 1791055822.686677,
+          "execution_source": "c52550b000eb492a5974bfe757a91304d2680c8940bbd2d0c7005017f1d3fdba",
+          "fill_at": 1791055822.686677,
+          "gross_shares": "2.165110",
+          "net_shares": "2.10015670",
+          "cost_usdc": "0.264143420",
+          "vwap": "0.122",
+          "payout_usdc": "2.10015670",
+          "pnl_usdc": "1.836013280"
+        }
+      },
+      "decision_identity": "f5b76b34daa6924870ed412b0a81062d4c77ab767d5ab648742d478750751acd",
+      "decision_source": "18cfa243f36242eb67401f7f9b8aada6d800c9101ddebc78eb4703a432b5cf1b",
+      "q": "0.0675",
+      "decision_book_source": "a68b6dd20e69f76856b0f4e4917399ad0b9b8b4878b1c85d6beae5ae909a23de",
+      "token": "23373167199955399600345940909826607538678124176768881007246513371815926125237",
+      "end": 1791057600.0,
+      "eligible_after": 1791055805.6114793,
+      "expires_at": 1791055834.1114793,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791058987.640413,
+      "brier_model": 0.6793789646061846,
+      "brier_market": 0.86955625
+    },
+    {
+      "condition": "0x6eef10042d97b93c31893b25f03890e560711784c7cd14f3c47ce9bff63c012a",
+      "slug": "btc-up-or-down-hourly-p-1791047104802",
+      "start": 1791057600.0,
+      "decision_at": 1791059404.371124,
+      "p_up": 0.7720009300099551,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "788a2002e99af53bc02eef74e06a59d95e75a3283215d4ab7f77873aa6b51ddf",
+      "decision_source": "17369645562ef6b55c0373dc4c6c3813d29b076e3073b6b7d4ee4c37a20deba4",
+      "q": "0.7835",
+      "decision_book_source": "88bee06c177b4b8225ffd47cc1f379f1af41ac99494f5b026e004a9a54951684",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791062246.450036,
+      "brier_model": 0.5959854359362355,
+      "brier_market": 0.61387225
+    },
+    {
+      "condition": "0xa83879b091fa448fa5f5ebe32d981047ca57e7e246ac705b27d15bac87fc977f",
+      "slug": "eth-up-or-down-hourly-p-1791047105907",
+      "start": 1791057600.0,
+      "decision_at": 1791059404.685,
+      "p_up": 0.8456824835256394,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "d06ce95a7b2e655c0da47196af968b626896d78a8843ede31a65d758a8c120a8",
+      "decision_source": "70f7bb82d914217da1f16914e3dabd43a967d8d999e898657320c5a62e0a3ebd",
+      "q": "0.839",
+      "decision_book_source": "968975b32d0d6d2391b5649ed4ce190fd99921d254cab0f26515abcda4cdd104",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791062246.110436,
+      "brier_model": 0.02381389589081457,
+      "brier_market": 0.02592100000000001
+    },
+    {
+      "condition": "0xa120a250cad3f4ef0ca2ec48dcc1b81ee4f0fbcf6b173050b3dcddba093f5fdf",
+      "slug": "btc-up-or-down-hourly-p-1791050709235",
+      "start": 1791061200.0,
+      "decision_at": 1791063011.8083458,
+      "p_up": 0.34472860390340987,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "19a3aa2d21d14c80357429e962c6d9ed6adc1b0db0429cf9b4f8ed733e30747a",
+      "decision_source": "69144b5fcd452dc073e8ff23ef02a9cb0274c017276e76b4f753f8e478837db1",
+      "q": "0.3595",
+      "decision_book_source": "59f454db78c5ab97810e818aaa338a25ff74bb88b908d4ceac299956ca0193c0",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791065896.010811,
+      "brier_model": 0.11883781034919405,
+      "brier_market": 0.12924025
+    },
+    {
+      "condition": "0x5a77dbe90373dc0d51549df444107820c1cff75fe5e72f3f1df614de814551c3",
+      "slug": "eth-up-or-down-hourly-p-1791050710322",
+      "start": 1791061200.0,
+      "decision_at": 1791063012.0894437,
+      "p_up": 0.39745707203009006,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "840c43a9f38c3d280da6928730af0c791881e9ca082462323f7c4c0c8c3a6f83",
+      "decision_source": "3f057c4368925cb34f8c93855e6b2fe60932f957b92d3e964805967df8dfa4d2",
+      "q": "0.3855",
+      "decision_book_source": "d2fcd6b23760666279fe9e1d47fff1253c81a5282012fa45e273f18239cd4ff4",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791065896.407563,
+      "brier_model": 0.1579721241067322,
+      "brier_market": 0.14861025
+    },
+    {
+      "condition": "0x0840acbe88dbf8ab6f91c81607502f94b3d3f18ecea6afa4c8f4fd2f4d5cb08c",
+      "slug": "btc-up-or-down-hourly-p-1791054304861",
+      "start": 1791064800.0,
+      "decision_at": 1791066608.6420221,
+      "p_up": 0.7542772854626693,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "99afbde52d74c1aa94c1769bd6cf56913f4ea88ba87dc8bda8c7c18da3f2c7ab",
+      "decision_source": "d7ef0f604ffff02155b9acb4a45c733ecb46250dfe53cd8ee5aa4f78a9b23f21",
+      "q": "0.7745",
+      "decision_book_source": "0b47720a8e7bee8f799ce4c44509fd5c6be0f9c2bd2d99a25d672d1bbb8af601",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791069795.08357,
+      "brier_model": 0.06037965243959453,
+      "brier_market": 0.050850250000000013
+    },
+    {
+      "condition": "0x378f72ffa1ae828957068e7cfb16cdd5444cb35387f6dbe666903e3d636aded1",
+      "slug": "eth-up-or-down-hourly-p-1791054305943",
+      "start": 1791064800.0,
+      "decision_at": 1791066609.0058684,
+      "p_up": 0.8295989256869643,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "17302676c7d6c30d39640ec272e6e053da64dfd65c285106bfbefdbc58080e53",
+      "decision_source": "2a9738ab692828960c0ec016409fac0e8dc9a04531a68096306ac1d6428287f7",
+      "q": "0.8315",
+      "decision_book_source": "54f5dfdafeef70bc60b150e8a039fae6555f83adae7326c6fe3ef3e7c0389729",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791069795.1321,
+      "brier_model": 0.029036526127036732,
+      "brier_market": 0.028392249999999994
+    },
+    {
+      "condition": "0xa30fc2938e028a15f611b98a67ff3494f3c34bdb0f10c784325dfcce42256bbb",
+      "slug": "btc-up-or-down-hourly-p-1791057909345",
+      "start": 1791068400.0,
+      "decision_at": 1791070210.1088648,
+      "p_up": 0.26746261986796227,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "07d8e6435136c4fd95f558c2c6e8fb80e5d1c0488a2350f915db6e2938cef457",
+      "decision_source": "80f606126554dbb327d864c91c0eba51dca400ece31d7205dcfb94145746d281",
+      "q": "0.3255",
+      "decision_book_source": "0d4bb12acc7b699160ec1fb87a5d91b0e1779c6f8c24050b596e2b5f6044ee75",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791073074.52562,
+      "brier_model": 0.07153625302663409,
+      "brier_market": 0.10595025000000001
+    },
+    {
+      "condition": "0xe551cfe039f545f146ea9443881d95e1f735e55671954d89360bbe0a78d1b986",
+      "slug": "eth-up-or-down-hourly-p-1791057910416",
+      "start": 1791068400.0,
+      "decision_at": 1791070210.397488,
+      "p_up": 0.7312447800082248,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "58fcd1b5bec7ecd3553f86777e100cd0b96b9dcbe96b05784cb28f4ef19bc782",
+      "decision_source": "295dde76dfe480f6324833cde28f4a991374a022b493d8886497625d03caecbb",
+      "q": "0.710",
+      "decision_book_source": "9b71bd15d0ecfbeb7565cb51821c99532b6a8f76464a43b9d3f8ff56afe4c321",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791073074.972786,
+      "brier_model": 0.07222936827282748,
+      "brier_market": 0.08410000000000002
+    },
+    {
+      "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+      "slug": "btc-up-or-down-hourly-p-1791061509376",
+      "start": 1791072000.0,
+      "decision_at": 1791073816.6066332,
+      "p_up": 0.7867130025545759,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.7408850606581928378640776699",
+          "size_cap_shares": "13.497370",
+          "first_attempt_requested": 1791073833.485059,
+          "first_attempt_received": 1791073833.787769,
+          "execution_source": "b916ac983673f932c23835034b3449669a81d6252b61bdb152214b5a6026fdd7",
+          "fill_at": 1791073833.787769,
+          "gross_shares": "13.497370",
+          "net_shares": "13.09244890",
+          "cost_usdc": "9.947561690",
+          "vwap": "0.737",
+          "payout_usdc": "13.09244890",
+          "pnl_usdc": "3.144887210"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.7408850606581928378640776699",
+          "size_cap_shares": "1.654260",
+          "first_attempt_requested": 1791073833.485059,
+          "first_attempt_received": 1791073833.787769,
+          "execution_source": "b916ac983673f932c23835034b3449669a81d6252b61bdb152214b5a6026fdd7",
+          "fill_at": 1791073833.787769,
+          "gross_shares": "1.654260",
+          "net_shares": "1.60463220",
+          "cost_usdc": "1.219189620",
+          "vwap": "0.737",
+          "payout_usdc": "1.60463220",
+          "pnl_usdc": "0.385442580"
+        }
+      },
+      "decision_identity": "917197f9591cb862d03ac30cfb9906ddfd54e3d672718f58e60cdb84a1591a94",
+      "decision_source": "25dcf692d35b5a77739692d6fc527f5d6ac9df4286b94872c1a007d09161ac04",
+      "q": "0.704",
+      "decision_book_source": "2bcb4da2b88f571ff5bdd460a084d083d6db246da5d224d55310b99347158dcf",
+      "token": "65966167830892104434766106730568736263677953822622299763568075310185271950832",
+      "end": 1791075600.0,
+      "eligible_after": 1791073818.1066332,
+      "expires_at": 1791073846.6066332,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791076656.798226,
+      "brier_model": 0.045491343279284356,
+      "brier_market": 0.08761600000000003
+    },
+    {
+      "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+      "slug": "eth-up-or-down-hourly-p-1791061510481",
+      "start": 1791072000.0,
+      "decision_at": 1791073816.9290352,
+      "p_up": 0.9266353676912662,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.8726566084082798194174757282",
+          "size_cap_shares": "11.459261",
+          "first_attempt_requested": 1791073833.789153,
+          "first_attempt_received": 1791073834.151412,
+          "execution_source": "e3c67529d405dded7b3868aee8dfcd36d7a8d2c50e2e04a34eb81efb32ad25a3",
+          "fill_at": 1791073834.151412,
+          "gross_shares": "11.459261",
+          "net_shares": "11.11548317",
+          "cost_usdc": "9.967295592",
+          "vwap": "0.8698026506246781533294337218",
+          "payout_usdc": "11.11548317",
+          "pnl_usdc": "1.148187578"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.8726566084082798194174757282",
+          "size_cap_shares": "1.702707",
+          "first_attempt_requested": 1791073833.789153,
+          "first_attempt_received": 1791073834.151412,
+          "execution_source": "e3c67529d405dded7b3868aee8dfcd36d7a8d2c50e2e04a34eb81efb32ad25a3",
+          "fill_at": 1791073834.151412,
+          "gross_shares": "1.702707",
+          "net_shares": "1.65162579",
+          "cost_usdc": "1.47765509",
+          "vwap": "0.8678269896112484414523461758",
+          "payout_usdc": "1.65162579",
+          "pnl_usdc": "0.17397070"
+        }
+      },
+      "decision_identity": "32a859a6066fc0ac8142e4b09ed34848009d207646ccb9b39405cdf0e49a5e9e",
+      "decision_source": "777dcd1c3912ae776e0b323f44c0a8424bd9963663eb5baca4f2a81811434cd9",
+      "q": "0.8415",
+      "decision_book_source": "1814c0c36b05fd8c045cf5f6ed6e8f8a99d78b3197cee7ab8322f6663b14bc4b",
+      "token": "101514496733884914261044594853022143291636974443512752144849876988115774875956",
+      "end": 1791075600.0,
+      "eligible_after": 1791073818.4290352,
+      "expires_at": 1791073846.9290352,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791076658.874511,
+      "brier_model": 0.005382369273795707,
+      "brier_market": 0.025122249999999992
+    },
+    {
+      "condition": "0x9cb95fb0fff117ac412f1aacdcca6559d440a8dd8884d8021b0a5646d52e3a3f",
+      "slug": "btc-up-or-down-hourly-p-1791065109061",
+      "start": 1791075600.0,
+      "decision_at": 1791077414.6082842,
+      "p_up": 0.2835343814800656,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "c09f44dfcca93b4ac9c4e6ec802cbcd38eb06439ab4640c52b04d16b465488c8",
+      "decision_source": "95121e788e994fdb2ebd985a4a0958103de4bd5ad77d1a8f8b4a79c155d74184",
+      "q": "0.281",
+      "decision_book_source": "2153dddc61e84e800b6e995bbb4834fce6f56104c1902d66a4745d20458d245f",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791080221.224002,
+      "brier_model": 0.5133229825211522,
+      "brier_market": 0.516961
+    },
+    {
+      "condition": "0x22bcfc588919cd225da778cb85d29828c1c2a0ce1930a3f345f3cbdd2e8e6807",
+      "slug": "eth-up-or-down-hourly-p-1791065110113",
+      "start": 1791075600.0,
+      "decision_at": 1791077414.9157743,
+      "p_up": 0.20945333734038224,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "1799bd1f169a51951c9f24211bf9e1f09dcf88b048219830da9cf0f1028446ed",
+      "decision_source": "074270154177504cf2d7695360ffe896d50c2a31a1c6f7ff155daca6432f4137",
+      "q": "0.2005",
+      "decision_book_source": "e13fcb8cfbce69a961da88ca0eb18d3ad63260e2831b7e2272dd53bc398db23b",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791080221.269595,
+      "brier_model": 0.6249640258422595,
+      "brier_market": 0.63920025
+    },
+    {
+      "condition": "0x9a53625301129b464a76678577cc876bc307ddccf748d02d5554cda42bea0fe6",
+      "slug": "btc-up-or-down-hourly-p-1791068706261",
+      "start": 1791079200.0,
+      "decision_at": 1791081008.4257424,
+      "p_up": 0.7124611294428564,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "95f3a208479d9fd69e487e91151bdfce1e218981771dde81e9a6d278654069b5",
+      "decision_source": "41d6ab1406e5996b20ea3b28c953f6fc79e928acc80aa9062bd32401841077bd",
+      "q": "0.7045",
+      "decision_book_source": "50804db2c983c8e0db8d545baf1489d04539f99a72dfb5b1b73c2e36a3977668",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791083798.630593,
+      "brier_model": 0.5076008609669906,
+      "brier_market": 0.49632025
+    },
+    {
+      "condition": "0x6479e714cade7f1db9f108f4109569fe9aaaaff50a95cb0e20897d0a3989b4c2",
+      "slug": "eth-up-or-down-hourly-p-1791068707373",
+      "start": 1791079200.0,
+      "decision_at": 1791081008.7479546,
+      "p_up": 0.4080197278412413,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "29eeb7cb4fd39d0a15e9dda0a30eff29a3018d863edb2d6d8625ba15a0ccc57e",
+      "decision_source": "8cd8ba07ba8b837dc19d55ce6415f798907faccf0af72a2d2e6a821ceeefa890",
+      "q": "0.3745",
+      "decision_book_source": "33dd53c8655a0d9f01ca86da5ddc2c5f0cf652da5297d2a4450cd3eb836fa208",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791083798.969071,
+      "brier_model": 0.16648009830764063,
+      "brier_market": 0.14025025
+    },
+    {
+      "condition": "0xb280d313d049e6e9034e52132b1cb84b9a7029673441ea8b2f1cf4b65a72d2a6",
+      "slug": "btc-up-or-down-hourly-p-1791072309383",
+      "start": 1791082800.0,
+      "decision_at": 1791084613.9962952,
+      "p_up": 0.4564091760879948,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "3d177e97d444eb0e98d4154fb4f42ea730b437c3c032ae47b4f1bef5eca70954",
+      "decision_source": "7d029e0975939bd8099930249eab9c890709411b20a13b89cc34d8d2755bbd60",
+      "q": "0.465",
+      "decision_book_source": "cf8c07dc9e68a3124597a951515eaf7c5d680104a6a7ce4981d635dc8152ac3f",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791087451.252936,
+      "brier_model": 0.29549098384133266,
+      "brier_market": 0.2862249999999999
+    },
+    {
+      "condition": "0xc3a156df4a6c0bbe97f8063e279916646ad8600057b701e165b81f6cce05ed05",
+      "slug": "eth-up-or-down-hourly-p-1791072310428",
+      "start": 1791082800.0,
+      "decision_at": 1791084614.3176239,
+      "p_up": 0.5523504698914327,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "487f9c89a95704e4c648165b8014ad18f4a28fed1d48a12883f0224ed64a0d76",
+      "decision_source": "491cee1553e8c37d55dc7863133fc1e376b711c08e5fb1b54c3b9e1d0c129b67",
+      "q": "0.578",
+      "decision_book_source": "d7efd689359c95fd06f666618b0b04840e5a11485f2ee1dcff98194ccc7fc210",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791087451.561876,
+      "brier_model": 0.20039010180642114,
+      "brier_market": 0.17808400000000005
+    },
+    {
+      "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+      "slug": "btc-up-or-down-hourly-p-1791075904547",
+      "start": 1791086400.0,
+      "decision_at": 1791088208.7482796,
+      "p_up": 0.26554205885445903,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.6916739834089075436893203883",
+          "size_cap_shares": "14.457678",
+          "first_attempt_requested": 1791088225.863916,
+          "first_attempt_received": 1791088226.149209,
+          "execution_source": "1aabb2ae2af44d02bdfd814e9e629d1e8de7048d9116d800de15bb09f1b7b7ef",
+          "fill_at": 1791088226.149209,
+          "gross_shares": "14.457678",
+          "net_shares": "14.02394766",
+          "cost_usdc": "9.896882464",
+          "vwap": "0.6845416299906527175387361650",
+          "payout_usdc": "14.02394766",
+          "pnl_usdc": "4.127065196"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.6916739834089075436893203883",
+          "size_cap_shares": "1.589158",
+          "first_attempt_requested": 1791088225.863916,
+          "first_attempt_received": 1791088226.149209,
+          "execution_source": "1aabb2ae2af44d02bdfd814e9e629d1e8de7048d9116d800de15bb09f1b7b7ef",
+          "fill_at": 1791088226.149209,
+          "gross_shares": "1.589158",
+          "net_shares": "1.54148326",
+          "cost_usdc": "1.077449124",
+          "vwap": "0.678",
+          "payout_usdc": "1.54148326",
+          "pnl_usdc": "0.464034136"
+        }
+      },
+      "decision_identity": "c871c815498aa177f7563019f51aa7554b62eb7b249190f52c31c2b835db8f7e",
+      "decision_source": "e01d9d47dc770524e34de3fc464abc7f544ea485265a80264e1f9dcb7c22b062",
+      "q": "0.345",
+      "decision_book_source": "f5e6539ad7c2ccf8a27a4d7657e9c3882c92a06fa2898ab01b61e7b07ad44ebc",
+      "token": "67813064121582132495771705007222430150210934427764637505120818680890977008672",
+      "end": 1791090000.0,
+      "eligible_after": 1791088210.2482796,
+      "expires_at": 1791088238.7482796,
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791091030.884722,
+      "brier_model": 0.07051258502066499,
+      "brier_market": 0.11902499999999998
+    },
+    {
+      "condition": "0xbc319a5dbf9e34f3a4d75a72f3a231502823651d33d15add106ac65147baf05b",
+      "slug": "eth-up-or-down-hourly-p-1791075909773",
+      "start": 1791086400.0,
+      "decision_at": 1791088209.0322907,
+      "p_up": 0.3277583912624188,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "ba46fcb63b5b94ac2ee7d36ffa8065272cc93fe629ad6bfa2691dd12803f23a4",
+      "decision_source": "985820444866ff8da047c49681cfa489646cfdec39d95229aa2538ed6f06e357",
+      "q": "0.3555",
+      "decision_book_source": "f0e7fb35b299775ca7fdaf99776a647e1e5c006fcecbd24a49b039642fe6d299",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791091031.203306,
+      "brier_model": 0.1074255630429288,
+      "brier_market": 0.12638025
+    },
+    {
+      "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+      "slug": "btc-up-or-down-hourly-p-1791079504737",
+      "start": 1791090000.0,
+      "decision_at": 1791091811.9174528,
+      "p_up": 0.9266709012543157,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.8726900720550351737864077670",
+          "size_cap_shares": "11.458821",
+          "first_attempt_requested": 1791091830.28954,
+          "first_attempt_received": 1791091830.612031,
+          "execution_source": "a036afea0d6248c903bd3c073b262ffe38ebcafe678a00797bdf014df36506ca",
+          "fill_at": 1791091830.612031,
+          "gross_shares": "11.458821",
+          "net_shares": "11.11505637",
+          "cost_usdc": "9.268939115",
+          "vwap": "0.8088911690827529289444350339",
+          "payout_usdc": "11.11505637",
+          "pnl_usdc": "1.846117255"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.8726900720550351737864077670",
+          "size_cap_shares": "2.933418",
+          "first_attempt_requested": 1791091830.28954,
+          "first_attempt_received": 1791091830.612031,
+          "execution_source": "a036afea0d6248c903bd3c073b262ffe38ebcafe678a00797bdf014df36506ca",
+          "fill_at": 1791091830.612031,
+          "gross_shares": "2.933418",
+          "net_shares": "2.84541546",
+          "cost_usdc": "2.361401490",
+          "vwap": "0.805",
+          "payout_usdc": "2.84541546",
+          "pnl_usdc": "0.484013970"
+        }
+      },
+      "decision_identity": "ec3d4a09eb18b22ecc41b66d76a9fe3b218f1ffbacbd5d57ac5059123a1476b5",
+      "decision_source": "cbd233120ec7fddd1c47fa9784da946f91c499510598b2118e7b336ba5cd3ea8",
+      "q": "0.780",
+      "decision_book_source": "1504d6b8382efb6d817f76270586745b7d0b6e9f81337fd822af92cd2cbc76d7",
+      "token": "63354200113921014300153914750472823821186872028543133954933524304029968015971",
+      "end": 1791093600.0,
+      "eligible_after": 1791091813.4174528,
+      "expires_at": 1791091841.9174528,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791094608.916158,
+      "brier_model": 0.005377156722854315,
+      "brier_market": 0.04839999999999999
+    },
+    {
+      "condition": "0xd23a6f651c321242d9058b62231d414fd48cc44eda92fcf152c73e7906583e8b",
+      "slug": "btc-up-or-down-hourly-p-1791083109457",
+      "start": 1791093600.0,
+      "decision_at": 1791095416.0868845,
+      "p_up": 0.5587976794603889,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "9c114e25bf24e51ae324579aa9a558023bb3bac1905e5790c3d06d80044dfb98",
+      "decision_source": "3f596d2d26e01495fe8d4750345858022dacafda92ba51121bb6a2064c48a5bc",
+      "q": "0.561",
+      "decision_book_source": "54e258b7c72360de21faacb381c2673b82e7e39a600cf829307a81ae747abb64",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791098247.578521,
+      "brier_model": 0.1946594876495377,
+      "brier_market": 0.19272099999999995
+    },
+    {
+      "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+      "slug": "eth-up-or-down-hourly-p-1791083110536",
+      "start": 1791093600.0,
+      "decision_at": 1791095416.248532,
+      "p_up": 0.03544264441266287,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.9083695484657446475728155340",
+          "size_cap_shares": "11.008735",
+          "first_attempt_requested": 1791095433.139268,
+          "first_attempt_received": 1791095433.448517,
+          "execution_source": "731c7a7a5d13c243b23b37b0350daef40a0b227374b7d1552a93adf26400e34e",
+          "fill_at": 1791095433.448517,
+          "gross_shares": "11.008735",
+          "net_shares": "10.67847295",
+          "cost_usdc": "9.390450955",
+          "vwap": "0.853",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-9.390450955"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.9083695484657446475728155340",
+          "size_cap_shares": "3.121147",
+          "first_attempt_requested": 1791095433.139268,
+          "first_attempt_received": 1791095433.448517,
+          "execution_source": "731c7a7a5d13c243b23b37b0350daef40a0b227374b7d1552a93adf26400e34e",
+          "fill_at": 1791095433.448517,
+          "gross_shares": "3.121147",
+          "net_shares": "3.02751259",
+          "cost_usdc": "2.662338391",
+          "vwap": "0.853",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-2.662338391"
+        }
+      },
+      "decision_identity": "98d732b654839b272090c8626d98af00001f8d56ef47bb87487211fbe537b185",
+      "decision_source": "63606633f197a20756a9a779185b22f33d4b6f114318cdc61458ec0a2291cacb",
+      "q": "0.1915",
+      "decision_book_source": "a5cdfd40de2c5309e3940263a05485a7008764481690615df762418122f285eb",
+      "token": "21786018447205533316794595542781771309118877583112892992962800929422802415462",
+      "end": 1791097200.0,
+      "eligible_after": 1791095417.748532,
+      "expires_at": 1791095446.248532,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791098247.861337,
+      "brier_model": 0.9303708922176367,
+      "brier_market": 0.65367225
+    },
+    {
+      "condition": "0x0e069546d20d539e2b34cce5a55d34f13d593487b2952e95551c36660be65ad2",
+      "slug": "btc-up-or-down-hourly-p-1791086705448",
+      "start": 1791097200.0,
+      "decision_at": 1791099006.4357653,
+      "p_up": 0.23056067742658098,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "bea382fef809607094e9d4fcfe206831dbb45351fa8aec6c8eac7969bf8d219a",
+      "decision_source": "c0ba04dbc5dda86aaa7be1ded09563824399657c20d4025ca3072ef58fa33107",
+      "q": "0.285",
+      "decision_book_source": "23e7ff963fcc4ae7b509ce18b0793b2581e4832974b4066425d4f77f9c2ca38b",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791101839.639026,
+      "brier_model": 0.592036871122242,
+      "brier_market": 0.5112250000000002
+    },
+    {
+      "condition": "0xc97194cb1855327c389b97d86bd9573593c31a3106838832b6a1805bfd6d1bcc",
+      "slug": "eth-up-or-down-hourly-p-1791086706493",
+      "start": 1791097200.0,
+      "decision_at": 1791099006.64336,
+      "p_up": 0.1317194301788414,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "6984c5f2c19fef910fc4c64b475c418d0e0ff02671651517e72dc36b7fcb1e6f",
+      "decision_source": "c3c2a6364a33bbf526a6a567481c3eade76f2f07dff6a624451208e9b6d2508e",
+      "q": "0.1465",
+      "decision_book_source": "fa00786103b645fde05e6e816fe424de6ddc22d2fe6f9f4c915c0fdac8280922",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791101839.707095,
+      "brier_model": 0.753911147928956,
+      "brier_market": 0.7284622500000001
+    },
+    {
+      "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+      "slug": "btc-up-or-down-hourly-p-1791090309257",
+      "start": 1791100800.0,
+      "decision_at": 1791102614.924396,
+      "p_up": 0.6064329664043051,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.5711067741865785893203883495",
+          "size_cap_shares": "17.509860",
+          "first_attempt_requested": 1791102636.615552,
+          "first_attempt_received": 1791102636.882628,
+          "execution_source": "62f8791156bc622953239394c331c78cbbf80a332c965f8d7a83fff68b4617ab",
+          "fill_at": 1791102636.882628,
+          "gross_shares": "17.509860",
+          "net_shares": "16.98456420",
+          "cost_usdc": "8.142084900",
+          "vwap": "0.465",
+          "payout_usdc": "16.98456420",
+          "pnl_usdc": "8.842479300"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.5711067741865785893203883495",
+          "size_cap_shares": "1.588659",
+          "first_attempt_requested": 1791102636.615552,
+          "first_attempt_received": 1791102636.882628,
+          "execution_source": "62f8791156bc622953239394c331c78cbbf80a332c965f8d7a83fff68b4617ab",
+          "fill_at": 1791102636.882628,
+          "gross_shares": "1.588659",
+          "net_shares": "1.54099923",
+          "cost_usdc": "0.738726435",
+          "vwap": "0.465",
+          "payout_usdc": "1.54099923",
+          "pnl_usdc": "0.802272795"
+        }
+      },
+      "decision_identity": "c1387d013b9e79d31a081dd98484dbef71eafef4ae4a9dd89ab484ff88594da5",
+      "decision_source": "0c61c3306f60d1c9c5f83863e7130f462d10ba723ed305756f0388ec15f8b79d",
+      "q": "0.527",
+      "decision_book_source": "9b0d802a1798b6492321a818f76889737385d47747725cf09ec574549b086bde",
+      "token": "88084179239689086835345289197448184528216885691987755590265637220736069142366",
+      "end": 1791104400.0,
+      "eligible_after": 1791102616.424396,
+      "expires_at": 1791102644.924396,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791105457.532177,
+      "brier_model": 0.15489500993331484,
+      "brier_market": 0.22372899999999998
+    },
+    {
+      "condition": "0x830b857a57e3b16f64ce76a6df5354aefb3253b88647e6ae58a299c0858b5548",
+      "slug": "eth-up-or-down-hourly-p-1791090310392",
+      "start": 1791100800.0,
+      "decision_at": 1791102615.3302333,
+      "p_up": 0.18522119175508783,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "f869fc76bbe3b86c27319669c85b96fe2e452a8e8bdc530a8bf5261ef6f19ffa",
+      "decision_source": "f00793aa30c22d7c465c0828ba7c58482f1cc5acea10ac392663282c0bab360a",
+      "q": "0.186",
+      "decision_book_source": "0482cca64683e73f855f73aaef0a3b7b1cbd994b965177274f2efd4cc03f29b8",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791105457.824049,
+      "brier_model": 0.034306889875175016,
+      "brier_market": 0.034596
+    },
+    {
+      "condition": "0xb70502f74ad556631f76b6598d5f12a2965986e465b4da51ffafadc0fe5e23e2",
+      "slug": "btc-up-or-down-hourly-p-1791093904702",
+      "start": 1791104400.0,
+      "decision_at": 1791106218.2827415,
+      "p_up": 0.9701748529428519,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "3c108a95633749ab275eb9f95c6f4a7d5b4dded3c74232b9af1183cdc46dd16c",
+      "decision_source": "218bacd7a6a759d8ed54ee2eb37ee38881258b704bef4eb3e2db8a5d58d7b024",
+      "q": "0.9045",
+      "decision_book_source": "67e5b89a8afe8c817a698319aa8bba4393a3e9c15126b16b77bd0522d9ba28ad",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791109071.616357,
+      "brier_model": 0.0008895393969805109,
+      "brier_market": 0.009120250000000005
+    },
+    {
+      "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+      "slug": "eth-up-or-down-hourly-p-1791093905729",
+      "start": 1791104400.0,
+      "decision_at": 1791106218.5900216,
+      "p_up": 0.7402313958506805,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2446364524513008506796116505",
+          "size_cap_shares": "40.876982",
+          "first_attempt_requested": 1791106237.463085,
+          "first_attempt_received": 1791106237.728524,
+          "execution_source": "315d3cd2dedbe6ee81d19f620a0dc5944165d1593cae5a3d8cb1db7c1b94fe79",
+          "fill_at": 1791106237.728524,
+          "gross_shares": "40.876982",
+          "net_shares": "39.65067254",
+          "cost_usdc": "8.612551130",
+          "vwap": "0.2106943983780407271750150243",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-8.612551130"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2446364524513008506796116505",
+          "size_cap_shares": "1.265372",
+          "first_attempt_requested": 1791106237.463085,
+          "first_attempt_received": 1791106237.728524,
+          "execution_source": "315d3cd2dedbe6ee81d19f620a0dc5944165d1593cae5a3d8cb1db7c1b94fe79",
+          "fill_at": 1791106237.728524,
+          "gross_shares": "1.265372",
+          "net_shares": "1.22741084",
+          "cost_usdc": "0.258135888",
+          "vwap": "0.204",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-0.258135888"
+        }
+      },
+      "decision_identity": "38fae823fd1d079b06e68b0d194138ddad4be5e146340db51e09f96e86db33e5",
+      "decision_source": "16124f8b29c17470fe0e815f36a68ed32c262cd3047b372682c5c2404b1829c8",
+      "q": "0.8035",
+      "decision_book_source": "64a1ff8dab3d96a21db277b754073158eb0fef2d96be054fd6fb7d2d7e48a9bc",
+      "token": "20056422327406585348485428158065208676224223379113185865581210835211614207127",
+      "end": 1791108000.0,
+      "eligible_after": 1791106220.0900216,
+      "expires_at": 1791106248.5900216,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791109071.977862,
+      "brier_model": 0.06747972770168584,
+      "brier_market": 0.03861225
+    },
+    {
+      "condition": "0x79f107f0e1dc9b639c921c4674d5f48d4fc182dfa991ca333808d4cb143bd913",
+      "slug": "btc-up-or-down-hourly-p-1791097509181",
+      "start": 1791108000.0,
+      "decision_at": 1791109805.2791138,
+      "p_up": 0.9269193326046443,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "aa3b7fd49455b075231d8165b08681c6d141739966487ee6c8f1d421f728cb41",
+      "decision_source": "d1ea5bf800dfff8533ad77efd538920890e4b7349e5294747949b47ba6cffb66",
+      "q": "0.860",
+      "decision_book_source": "9ce843435537211d0b87917e06d62a714641f9a948f315e8e2060369abc0176d",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791112655.236795,
+      "brier_model": 0.005340783946950603,
+      "brier_market": 0.019600000000000003
+    },
+    {
+      "condition": "0xee26958407afeca2144b66b5ebe5c8b79a53fd7f61e86085962bf02a45336e9d",
+      "slug": "btc-up-or-down-hourly-p-1791101104736",
+      "start": 1791111600.0,
+      "decision_at": 1791113410.7255385,
+      "p_up": 0.6852873898712585,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "21650a1bd11c9e95d86945ea32a3d61668941a77b9e2a69ba654c459ad5a55cf",
+      "decision_source": "a0c425bf4554d55cfbbe9b86cf919530ccfa99d11dd68dad62066fb78d92a82c",
+      "q": "0.6705",
+      "decision_book_source": "48e61ce0a51d123ed4bd3168ed4abc5a74aedfb2560d9685505831efa42cbe39",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791116231.564376,
+      "brier_model": 0.09904402697404525,
+      "brier_market": 0.10857025000000001
+    },
+    {
+      "condition": "0x3219b188712d253d6bd55ae4899971859d99171f4997d0e3839676097b25c0cc",
+      "slug": "eth-up-or-down-hourly-p-1791101105816",
+      "start": 1791111600.0,
+      "decision_at": 1791113411.0459886,
+      "p_up": 0.756650962397377,
+      "actions": {
+        "fixed": {
+          "status": "SKIP",
+          "side": "NO",
+          "max_price": "0.2291733655092663674757281553",
+          "size_cap_shares": "43.635088",
+          "first_attempt_requested": 1791113427.883577,
+          "first_attempt_received": 1791113428.193941,
+          "execution_source": "e810c6772f6675d95bc3c69143bb1ec1536bd931b5850ab631573c9966e4752c",
+          "reason": "PRICE_OR_DEPTH"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2291733655092663674757281553",
+          "size_cap_shares": "0.956980",
+          "first_attempt_requested": 1791113427.883577,
+          "first_attempt_received": 1791113428.193941,
+          "execution_source": "e810c6772f6675d95bc3c69143bb1ec1536bd931b5850ab631573c9966e4752c",
+          "fill_at": 1791113428.193941,
+          "gross_shares": "0.956980",
+          "net_shares": "0.92827060",
+          "cost_usdc": "0.205750700",
+          "vwap": "0.215",
+          "payout_usdc": "0.92827060",
+          "pnl_usdc": "0.722519900"
+        }
+      },
+      "decision_identity": "f9afe4d03e4e5d927d583b0fae567431ce9e8069bc56c1fce5b472b72abc4afa",
+      "decision_source": "383a07856d6bf07d2c5bd57092703405083012830a0214cc32756f98f18f4c66",
+      "q": "0.8045",
+      "decision_book_source": "c9ae24720461b023607785459d95db9a196c0d7a2e63a9ba892b1d0e95636f22",
+      "token": "62332409994967739364136776850445106377627564412282599270824052606385077266675",
+      "end": 1791115200.0,
+      "eligible_after": 1791113412.5459886,
+      "expires_at": 1791113441.0459886,
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791116231.610835,
+      "brier_model": 0.5725206788968767,
+      "brier_market": 0.6472202499999999
+    },
+    {
+      "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+      "slug": "btc-up-or-down-hourly-p-1791104704710",
+      "start": 1791115200.0,
+      "decision_at": 1791117012.4028363,
+      "p_up": 0.3635444383974299,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.3423670924713660223300970874",
+          "size_cap_shares": "29.208414",
+          "first_attempt_requested": 1791117029.553459,
+          "first_attempt_received": 1791117029.732761,
+          "execution_source": "6ae2a532dea1ce9ccd8395d3bfc9a31d430968acd429cbc6823b4f291f220b21",
+          "fill_at": 1791117029.732761,
+          "gross_shares": "29.208414",
+          "net_shares": "28.33216158",
+          "cost_usdc": "8.788566270",
+          "vwap": "0.3008915947986768470208618654",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-8.788566270"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "YES",
+          "max_price": "0.3423670924713660223300970874",
+          "size_cap_shares": "2.010888",
+          "first_attempt_requested": 1791117029.553459,
+          "first_attempt_received": 1791117029.732761,
+          "execution_source": "6ae2a532dea1ce9ccd8395d3bfc9a31d430968acd429cbc6823b4f291f220b21",
+          "fill_at": 1791117029.732761,
+          "gross_shares": "2.010888",
+          "net_shares": "1.95056136",
+          "cost_usdc": "0.601255512",
+          "vwap": "0.299",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-0.601255512"
+        }
+      },
+      "decision_identity": "8e23d95d0c74d14f25cfe7e344faadb851043dfbba13043dde6578a688341787",
+      "decision_source": "aa9dda2cb6ea95cf0f836e674481ae6748998951e2a2091a9053ed32242bd4a5",
+      "q": "0.263",
+      "decision_book_source": "91b826921fd54c956d95fe1ef6f61a291abebeee9508980fc1a4beaf49eb608e",
+      "token": "78233966033330162058321690255493328783712533198263801249957140456708914626754",
+      "end": 1791118800.0,
+      "eligible_after": 1791117013.9028363,
+      "expires_at": 1791117042.4028363,
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791119817.715543,
+      "brier_model": 0.1321645586897027,
+      "brier_market": 0.06916900000000001
+    },
+    {
+      "condition": "0x249e398fed02feb702e8f6f26607c140aed5e032567c773e23708ae930e94aeb",
+      "slug": "eth-up-or-down-hourly-p-1791104705768",
+      "start": 1791115200.0,
+      "decision_at": 1791117012.6977963,
+      "p_up": 0.7923412175088346,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "bf691aa12cf95d02dc82cb6c11cca694ed4e825b95355f275e277cb98a82ed8e",
+      "decision_source": "7eb06dd879ccc317a639a3e536d7149b2634b68f413dac8f4df577c4da8658c4",
+      "q": "0.803",
+      "decision_book_source": "86683ac16c8fa92c057876f7d3f87534f1d10cae178bcf22dbd9711e9580b488",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791119817.797117,
+      "brier_model": 0.6278046049633823,
+      "brier_market": 0.6448090000000001
+    },
+    {
+      "condition": "0x5a20448aee2e9376a9d7bebd42bbdcef33986090e147a1aaf9726ac463c4c1cc",
+      "slug": "btc-up-or-down-hourly-p-1791108304819",
+      "start": 1791118800.0,
+      "decision_at": 1791120608.6400132,
+      "p_up": 0.8653557072497413,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "255e356e8c5def0f0b7672da21c77c8da9be69d1dde4a52fde6a712b1dd63d12",
+      "decision_source": "30583f7d2e7fe33cd536f405b814c28ba7f76a24efeebe9e7bfca7908f6e2b4e",
+      "q": "0.8445",
+      "decision_book_source": "17e72f14b471d28a45216584ccd0d4f1d764ed980931f19bf95692ccf9a1cfcc",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791123385.341687,
+      "brier_model": 0.018129085570217363,
+      "brier_market": 0.02418024999999999
+    },
+    {
+      "condition": "0x654f993807b2eef6a453a92c9b07da9e4b3d1ab6f3fe8faaab5d94c609052ce3",
+      "slug": "eth-up-or-down-hourly-p-1791108305841",
+      "start": 1791118800.0,
+      "decision_at": 1791120608.9682374,
+      "p_up": 0.8781385398050282,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "7af5720a10628b0dfe501023e2cc32f6cc3f1bb9871bf6f9713f87c0395f0b88",
+      "decision_source": "325c0e78393e7a351bceef6ec145f9be9df5ceaf96af666868c32125ffd33311",
+      "q": "0.855",
+      "decision_book_source": "c7ea646f3b6ff39853c29428270871069741f25c578b151b4ef11cd24a62ee2f",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791123385.626347,
+      "brier_model": 0.014850215480850694,
+      "brier_market": 0.021025000000000005
+    },
+    {
+      "condition": "0x1090221e27214be6c50180da9d846c4b67ca1389b45b45599e479b43e15923cb",
+      "slug": "btc-up-or-down-hourly-p-1791111904774",
+      "start": 1791122400.0,
+      "decision_at": 1791124214.6484244,
+      "p_up": 0.2556907395145791,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "acbedfd857347d355b04a90d37734a1b33f82a13b82bd9528861eef75edcc537",
+      "decision_source": "9d4312fa0b31fa116d58b97d8f9281ae435307abb1da6f75570e5f5b9e825293",
+      "q": "0.2755",
+      "decision_book_source": "f3274e49073540e133dd4a34ced498000214a71bc7f39428a40bf3a50e9a2700",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791127358.432052,
+      "brier_model": 0.5539962752443541,
+      "brier_market": 0.5249002499999998
+    },
+    {
+      "condition": "0x5f798b0855c4eb31651cf6e5732c53ff21c55b3b622e1067549074deeebb4668",
+      "slug": "eth-up-or-down-hourly-p-1791111905868",
+      "start": 1791122400.0,
+      "decision_at": 1791124214.9148507,
+      "p_up": 0.20632579640108528,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "088e3c8131049b24620d846e2ff1d606e58a318cc20f9ff50857b5066f539765",
+      "decision_source": "32a0e3644c2cb2ed2296df006ad0d4a729132fb7af292c6c79e131b26f66e1e3",
+      "q": "0.185",
+      "decision_book_source": "258cc582f1cdbd5976bba9f924d0c455a17398c286f1f62c82efd3ca91ed32c3",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791127358.769661,
+      "brier_model": 0.042570334260542096,
+      "brier_market": 0.034225
+    },
+    {
+      "condition": "0xf6664de538dbcba76c253305abfdaba3b9e794c859c2ebcafd7b9cec2195de24",
+      "slug": "btc-up-or-down-hourly-p-1791115509366",
+      "start": 1791126000.0,
+      "decision_at": 1791127819.9341547,
+      "p_up": 0.6528735937251834,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "e2773ccae99ae4ad2fb45ce33314b9f7c10e93af6cd792dab753030a548e2741",
+      "decision_source": "de959def485f1d1a00a8f4b02526101b6ec717831a5b58e6cc6b0bc4e01fc1f9",
+      "q": "0.634",
+      "decision_book_source": "9ffa05c6315006c8650e7bd8ebc024d9ed98f47222b3d7a74d23d91a289c41b6",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791130650.91136,
+      "brier_model": 0.4262439293836358,
+      "brier_market": 0.40195600000000004
+    },
+    {
+      "condition": "0x78262dd280639f4e153ef847848148c2503f687f783cb34849a4009d27373de0",
+      "slug": "eth-up-or-down-hourly-p-1791115510440",
+      "start": 1791126000.0,
+      "decision_at": 1791127820.2329166,
+      "p_up": 0.6982872470390773,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "ed3e307c3868f2fd1ad3b1ab75eed84008e21ab29fd749e024e16fdd1b45c0fb",
+      "decision_source": "e79a0900f66f899ef26b4d242f26f420dbc84ce5b8c40aa7e520aeb5d9819a03",
+      "q": "0.6795",
+      "decision_book_source": "e09366d754cc629e73edbe3e85b8c6532ba13a5e454ad215f2471d6ce33073f6",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791130651.312604,
+      "brier_model": 0.09103058529925877,
+      "brier_market": 0.10272025
+    },
+    {
+      "condition": "0xed5b4a4cead6f9409b524c5d69427a3ca201e3c0f567fbd41aad9e468097feac",
+      "slug": "btc-up-or-down-hourly-p-1791119106335",
+      "start": 1791129600.0,
+      "decision_at": 1791131407.4655154,
+      "p_up": 0.45447476787098884,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "608b464ac4afc50860c0cf2395fdaea7e1ca72d7e5a7b70b0dc698c9cb82df19",
+      "decision_source": "1f27346ba78d00c6aaa884841652ce41d3c2929e4e3442a7a8d6621c2d3e00ce",
+      "q": "0.4645",
+      "decision_book_source": "300a0dc20267d2d8faa740bb1c3e776ee7d45ddf259b069b7b9d87812edb9f64",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791134553.642816,
+      "brier_model": 0.2975977788894115,
+      "brier_market": 0.28676025
+    },
+    {
+      "condition": "0x7812c4cffcd6b3388a0f8b35af0922eaec0c1c59614f9de552efb0240b3b5c7a",
+      "slug": "eth-up-or-down-hourly-p-1791119107396",
+      "start": 1791129600.0,
+      "decision_at": 1791131407.8507462,
+      "p_up": 0.46086068489746046,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "f43b58413a9e4bbc1b8972a94eebfeb54949b0225eac556c730ecf2fd07d3e77",
+      "decision_source": "77083a2403bb5b190278ab19e904c8e96e437f31075e13845cc5f5afe668a548",
+      "q": "0.447",
+      "decision_book_source": "ffe9d2cec68fa75a97734c0ed92b43ffa1aa31605567424ac73e59dce1f859ed",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791134553.972242,
+      "brier_model": 0.29067120108923544,
+      "brier_market": 0.30580899999999994
+    },
+    {
+      "condition": "0x5fc095d28724e6be26c2dee75c7deda36a7de55b9803e5779aa2b7d1393d3577",
+      "slug": "btc-up-or-down-hourly-p-1791122709422",
+      "start": 1791133200.0,
+      "decision_at": 1791135020.1483927,
+      "p_up": 0.5550496449699276,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "d2aefd2985fdb6755beea2a80b78c86fb3f7d875c292085c90a379e9cded28fd",
+      "decision_source": "c5ac282b032a5c48ba02f721c9ff718c22ddebcf6eac263421a98729c60d5ea9",
+      "q": "0.557",
+      "decision_book_source": "ff370050df99eb8bdc8fe1a49d022266129b73f21ae3f9b335519c9b8099a1bf",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791137824.756866,
+      "brier_model": 0.30808010838124267,
+      "brier_market": 0.31024900000000005
+    },
+    {
+      "condition": "0x8fdf3d88088a3e2557c226aad25566fe9482785726ddc69a05a71f7f2274ab1b",
+      "slug": "eth-up-or-down-hourly-p-1791122710506",
+      "start": 1791133200.0,
+      "decision_at": 1791135020.5355725,
+      "p_up": 0.5153551566178365,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "5749dfb6ea94bd1bebf997b66618a4b5653e430c80c86fccccf249def065f5d6",
+      "decision_source": "8bb574f4ab692809ae57e0fbbcfa2c83413e90bed71922c72b26c9e2f4d0a946",
+      "q": "0.5125",
+      "decision_book_source": "da85e244b7a74f6383910d5635677450ced6b77796ce414968c1b474a59f40bf",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791137825.055684,
+      "brier_model": 0.26559093745259477,
+      "brier_market": 0.26265625
+    },
+    {
+      "condition": "0xe0a7cebd3e72805ba2958480c466303cb1a56e404cd49fd24a9e2da621bfd0ef",
+      "slug": "btc-up-or-down-hourly-p-1791126309566",
+      "start": 1791136800.0,
+      "decision_at": 1791138604.4645977,
+      "p_up": 0.531999549385739,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "413be9dff40d10b774cfcda87132911fe17864acf501ce89f586e63760657b3d",
+      "decision_source": "eebeb44cd5bad593aa8dda83b9dd213651f70dfffe7d8e704561b1bb7939d93f",
+      "q": "0.5845",
+      "decision_book_source": "9f73dc4edddf22072696df1403b55dba2f05330b154038ea386b5146310762a6",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791141477.781657,
+      "brier_model": 0.21902442177515133,
+      "brier_market": 0.17264025
+    },
+    {
+      "condition": "0x77fb2283b570241b0468b9ba03ba1c51d729d1e5b2876d41022a44880df38593",
+      "slug": "eth-up-or-down-hourly-p-1791126310898",
+      "start": 1791136800.0,
+      "decision_at": 1791138605.027801,
+      "p_up": 0.37710026409454894,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "77fd1788431a632df6f99d8365f0aa179f9efd555c073c39a52df5000feeb3c3",
+      "decision_source": "d04ec733f7b076ecc5a109df5921bcfc4b15ff9c466cb3ab01c6700079207371",
+      "q": "0.335",
+      "decision_book_source": "eca1c18e80f00adbb2f954ae20ceeba55431fa2a63e5b94937492bea41f1d778",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791141478.114828,
+      "brier_model": 0.14220460918017855,
+      "brier_market": 0.11222500000000002
+    },
+    {
+      "condition": "0xffeae70eefbb85a085860f8a847e5c40b17a7ec69279de01f564e935d4c415c1",
+      "slug": "btc-up-or-down-hourly-p-1791129909016",
+      "start": 1791140400.0,
+      "decision_at": 1791142204.643171,
+      "p_up": 0.960930292188303,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "dbb94cd47b789898c10f7ba9cf709ce4afc320e1a48b92ab34e7eef8e3184f6a",
+      "decision_source": "14816be49c905322292fc656e5e9b9aa1c536a118816078725c9f4c14e17a810",
+      "q": "0.902",
+      "decision_book_source": "b76a5102eed0280512a28d7d832077c5b9adc01078e53eaf6a994c521e1878b9",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791145066.265625,
+      "brier_model": 0.0015264420684913817,
+      "brier_market": 0.009603999999999994
+    },
+    {
+      "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+      "slug": "eth-up-or-down-hourly-p-1791129910155",
+      "start": 1791140400.0,
+      "decision_at": 1791142204.904444,
+      "p_up": 0.8225402044444312,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.1671223317367978019417475728",
+          "size_cap_shares": "59.836407",
+          "first_attempt_requested": 1791142222.954908,
+          "first_attempt_received": 1791142223.211626,
+          "execution_source": "50b36a96924e163537faacf24772870d6c35ca7b5149cc49b40f3e84229ae7d2",
+          "fill_at": 1791142223.211626,
+          "gross_shares": "59.836407",
+          "net_shares": "58.04131479",
+          "cost_usdc": "9.437170748",
+          "vwap": "0.1577162002390952384557448444",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-9.437170748"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.1671223317367978019417475728",
+          "size_cap_shares": "0.979195",
+          "first_attempt_requested": 1791142222.954908,
+          "first_attempt_received": 1791142223.211626,
+          "execution_source": "50b36a96924e163537faacf24772870d6c35ca7b5149cc49b40f3e84229ae7d2",
+          "fill_at": 1791142223.211626,
+          "gross_shares": "0.979195",
+          "net_shares": "0.94981915",
+          "cost_usdc": "0.148837640",
+          "vwap": "0.152",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-0.148837640"
+        }
+      },
+      "decision_identity": "43d596a2f5db2fe0694d298a8b718caa0655bfeab2865f3fac7d21cab0b2a1bc",
+      "decision_source": "7c12e4beb51726a286e960189cbadd34114f45c449ad193eb5e55f9f57bf0868",
+      "q": "0.8715",
+      "decision_book_source": "4365c45ba33989c3d6b8a0af275158502d19e3c2910f68016add6171298562da",
+      "token": "25789025364426272908501269193920244627211488704029391910369588033591447319180",
+      "end": 1791144000.0,
+      "eligible_after": 1791142206.404444,
+      "expires_at": 1791142234.904444,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791145066.549972,
+      "brier_model": 0.031491979038624274,
+      "brier_market": 0.016512249999999985
+    },
+    {
+      "condition": "0xe07212a0d1c4076b3cfcc2f7337a18bd1f6574cc6d684e733a51cac6439316c0",
+      "slug": "btc-up-or-down-hourly-p-1791133509165",
+      "start": 1791144000.0,
+      "decision_at": 1791145808.83281,
+      "p_up": 0.7177642818819026,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "2576fea66dc0cc1f0720ec67497a89054abfdc61ab1b2b5e57b150fe2ad6f0e6",
+      "decision_source": "13c86428e8bbf2b0984ef3a962feaf49b33137ce2e9bfbc7048d49db425a4e75",
+      "q": "0.674",
+      "decision_book_source": "44b53ddd29e1bd806c6e2b0c3a24c5adafc856f2658aab983d781ede0d8aaf34",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791148711.960486,
+      "brier_model": 0.07965700058163816,
+      "brier_market": 0.10627599999999997
+    },
+    {
+      "condition": "0x5e551ff7772e7f61b2f593f86b1749dabda76accdca4badd9dfa64e0828c4d46",
+      "slug": "eth-up-or-down-hourly-p-1791133510235",
+      "start": 1791144000.0,
+      "decision_at": 1791145808.9993575,
+      "p_up": 0.5543605960848634,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "b4755aa367c929bf2b86735d87e8d70a000f7500d3d1c688e6a5f3bdb47633fe",
+      "decision_source": "f0aadf68c1d46dd180b415ad1ebd7c9e7471b2bb8c7f9163f94bce2930a5438f",
+      "q": "0.53",
+      "decision_book_source": "f20628abb71c6e43515dd736f2a52f72fd5e7749a88ab0f3a79b4838cd8fbcf4",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791148712.316661,
+      "brier_model": 0.19859447832183824,
+      "brier_market": 0.22089999999999999
+    },
+    {
+      "condition": "0x93e984e663b9273b5707776978ac16fd05f3780a388d5e952e4621798610c05d",
+      "slug": "eth-up-or-down-hourly-p-1791137110677",
+      "start": 1791147600.0,
+      "decision_at": 1791149412.3466794,
+      "p_up": 0.44482850113161615,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "b189a0fd811f7f9fd26bf40b919b15b7f51e4140c9c772b87d14bb553ac0e0df",
+      "decision_source": "46ed4d84856141f52db54eaa1b069605e8d86a9067be6889b9d64138bc03a660",
+      "q": "0.451",
+      "decision_book_source": "13d9c1cc10af2a80605adde6bccc3644e2df859db14a7bc769b7c79c27254c35",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791152288.919388,
+      "brier_model": 0.19787239541900023,
+      "brier_market": 0.203401
+    },
+    {
+      "condition": "0x87ff64f96c3811c64c7959faae155f74fe39e715ebd62194269a4294c26d646d",
+      "slug": "btc-up-or-down-hourly-p-1791140709215",
+      "start": 1791151200.0,
+      "decision_at": 1791153017.583815,
+      "p_up": 0.9097614545264425,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "8fa1307a95d2242ba5cfcb84420d818362b03ac91fa7ce62b1b49185139eedaf",
+      "decision_source": "cb0d391a96ca12b2827e373c9fd1ca04ce5235ba0522cd757b25a5861dbde6ab",
+      "q": "0.8795",
+      "decision_book_source": "9feb3603dd97f5765171e23d9982eb20303938a17241ed2be850cddc24242e4f",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791155870.592806,
+      "brier_model": 0.0081429950891833,
+      "brier_market": 0.014520250000000012
+    },
+    {
+      "condition": "0xb0bf7513a2d46898e704454e2c49480e8476bc8ae8f3b7be41a7bfcf49339880",
+      "slug": "eth-up-or-down-hourly-p-1791140710269",
+      "start": 1791151200.0,
+      "decision_at": 1791153017.9022968,
+      "p_up": 0.9971331731194202,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "6786cb029aa37bd327f61be20806da474b931bf1c92683d8fa2c73c7b0e85bca",
+      "decision_source": "daba3d742dfcf3cd4cd8de6b55b25d158f1cfca5afd6b524e41115327de184c2",
+      "q": "0.9545",
+      "decision_book_source": "1b6e5196006e87642f6ff535f1104631514cc2d2e0a37ae545507e4f715e52f8",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791155870.945375,
+      "brier_model": 8.218696363215023e-06,
+      "brier_market": 0.0020702499999999987
+    },
+    {
+      "condition": "0x38944dcbc11c6a7f219eb47b22a6a9d65a588a61f5aa1e4d2ec63c9188ee0964",
+      "slug": "btc-up-or-down-hourly-p-1791144304833",
+      "start": 1791154800.0,
+      "decision_at": 1791156606.5570493,
+      "p_up": 0.8305538370778135,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "2b94414e0b460075b8be34e7ce3a822d3a018c3e6992c4f6d49fe77c262efa99",
+      "decision_source": "b1dfedd5d0afe684593b72710bd57fcdbd3a310887630b2fe7e291ba4ff76f1a",
+      "q": "0.808",
+      "decision_book_source": "2ac10553a2120cb0fec881a31b4aa4b36c49bec8b76150ea2d7ae47194cee4fe",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791159457.601949,
+      "brier_model": 0.028712002129052172,
+      "brier_market": 0.03686399999999998
+    },
+    {
+      "condition": "0x064eed6fb63741842fbb4579fa7c85b80891f4e73a9dd3a371f697917e2a2cdf",
+      "slug": "eth-up-or-down-hourly-p-1791144305928",
+      "start": 1791154800.0,
+      "decision_at": 1791156606.8702087,
+      "p_up": 0.5769514072482455,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "19790e20282c735e5fc2d5b78cb01486e79a0ea3cc5310e7b368b4c16ef7da4f",
+      "decision_source": "af7751c903688529d9f45d416132c00bb8e81dee1976d85879e781f766c76ee5",
+      "q": "0.59",
+      "decision_book_source": "db488f63d30c85ff65dc86f42bcc46aa65161060e6de341ca75541d9b0f3a12c",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791159457.932341,
+      "brier_model": 0.3328729263257308,
+      "brier_market": 0.34809999999999997
+    },
+    {
+      "condition": "0xaba7934e4e8d365c888d63e6679604abbcac4c36f350bb39e4186e8e8d2041e8",
+      "slug": "btc-up-or-down-hourly-p-1791147904611",
+      "start": 1791158400.0,
+      "decision_at": 1791160209.7543094,
+      "p_up": 0.12379919387929061,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "0fe1eedd6757464e82659d0ade0c2f8b16ebc73361709ffdca904eea4e3bc019",
+      "decision_source": "8bfff4cc35040fc0c65f137c1381f51c2b4f771fd47125aead4383d75b2fb3cd",
+      "q": "0.1105",
+      "decision_book_source": "607bcd3819f21f23517234541951bbb24f022f0927a2327424480e7e098f28f2",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791163025.222692,
+      "brier_model": 0.7677278526465809,
+      "brier_market": 0.7912102499999999
+    },
+    {
+      "condition": "0x565c5a83308a2a8ce9b8928a40391dab615d9bebb26b50f69854f8a17c0754b3",
+      "slug": "eth-up-or-down-hourly-p-1791147910039",
+      "start": 1791158400.0,
+      "decision_at": 1791160210.0601833,
+      "p_up": 0.17300645564061107,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "5d0f46f8df55c942a8adf10db67ae62a3caefba70ea22b92f5592b110ae800e9",
+      "decision_source": "722557e5bfd7f800c01a2d1bcdf88dedd2a8b06dfc2b9a46db1c291202a5e52c",
+      "q": "0.164",
+      "decision_book_source": "b18c2f2a367528936d378d49f4ef2c86ba6599adc0584e1bf62ee2c499375bf2",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791163025.573576,
+      "brier_model": 0.6839183224121047,
+      "brier_market": 0.698896
+    },
+    {
+      "condition": "0x639dc96dc083cbf1000d1df392c2581168802d2b9f62d28f56bbbfcd81e31169",
+      "slug": "btc-up-or-down-hourly-p-1791151505921",
+      "start": 1791162000.0,
+      "decision_at": 1791163823.1123195,
+      "p_up": 0.8083957125433258,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "582c5da2cae937f67df596c9ccc8453f9f0b9def908e335c65dd7e83383960dc",
+      "decision_source": "baff6f77587ed225c41e05fdca85e297a8dac81761826e932d9ea080590ae3d4",
+      "q": "0.7545",
+      "decision_book_source": "cba8c0e61899d0576908c103830f13a2a4d46ab9e0cfb906766822fdcef14024",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791166601.40006,
+      "brier_model": 0.6535036280584314,
+      "brier_market": 0.56927025
+    },
+    {
+      "condition": "0xb8fe93dbcd1530a911d55f35135233c50ffbff36325c57d33be5f0c82a65f330",
+      "slug": "eth-up-or-down-hourly-p-1791151511291",
+      "start": 1791162000.0,
+      "decision_at": 1791163823.4721599,
+      "p_up": 0.5614955038736797,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "5e3619cdfdf77d7c86df8b9e4b9b14084e81722d293342bee0da0c1862e0d844",
+      "decision_source": "ac7cf37319d968be21b6b21f2961a510b0b3cdacd2d084275ebae792c55b3ad4",
+      "q": "0.563",
+      "decision_book_source": "1a567bddffa3c253295d734a2e8656e9c5f39b3b954565aa9fa7dd6eba1cfcd8",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791166601.685302,
+      "brier_model": 0.3152772008703575,
+      "brier_market": 0.31696899999999995
+    },
+    {
+      "condition": "0x026e7775f4d0f8ae51b3294817597bc2df709d15e2dfe026aafb3428f975f413",
+      "slug": "btc-up-or-down-hourly-p-1791155104653",
+      "start": 1791165600.0,
+      "decision_at": 1791167409.263344,
+      "p_up": 0.33062059954379525,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "55770c9ab63b6a4a365902df7e15a8faf43f83bf02b9faa62eb375438b4dd38f",
+      "decision_source": "89e724173988df33b56d5c2d445d4710b2d7676f6499ae34247cc279234f5ccd",
+      "q": "0.315",
+      "decision_book_source": "c2ac13bdfbd4bfcf805d205d9f61403c17b628fafe303a548dce8493fd2d19ad",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791170257.434811,
+      "brier_model": 0.10930998084269862,
+      "brier_market": 0.09922500000000001
+    },
+    {
+      "condition": "0xd7db4b83ea261bd6bd8d914d3b7f4270aba29d2502d48df5ea3854630f2ad966",
+      "slug": "eth-up-or-down-hourly-p-1791155109854",
+      "start": 1791165600.0,
+      "decision_at": 1791167409.6244433,
+      "p_up": 0.891363091036935,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "8218c10ddeddaddc137325a563ab9296c5db754f983a4121e5847a75dbc61dc9",
+      "decision_source": "9d54eafd849aa8a655297dd3cfd8ebe7a2464915f8f720167daafb2cfadfcd7b",
+      "q": "0.88",
+      "decision_book_source": "43da884f9b66d8c3a0eebe2b7f6aab3a931fa49c1fdda95335a0b7dbee7e575f",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791170257.782735,
+      "brier_model": 0.011801977989049271,
+      "brier_market": 0.0144
+    },
+    {
+      "condition": "0x12023ff828b856ea81c5fe4e63ff3e9737d07fb7a5f55a6fff50f3cd304f81ec",
+      "slug": "btc-up-or-down-hourly-p-1791158704645",
+      "start": 1791169200.0,
+      "decision_at": 1791171016.4705815,
+      "p_up": 0.360989454204977,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "1351be5d62f64070b7b6abaf52cc747b6719207328be1584d728525eb94c9082",
+      "decision_source": "c02d79aae722d11f52dd2b8d7eca0927e916b68b0709cb9c9a688b170f03aa6b",
+      "q": "0.35",
+      "decision_book_source": "37debf0c8e3308d7b1786bde6e600fd930a9e36e66b1885174d67038917d53fa",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791173822.306861,
+      "brier_model": 0.1303133860472072,
+      "brier_market": 0.12249999999999998
+    },
+    {
+      "condition": "0x1ce01aecef6fb8640536d6bb2967dd4adeee162e324456aaf0fead85212ae265",
+      "slug": "eth-up-or-down-hourly-p-1791158710005",
+      "start": 1791169200.0,
+      "decision_at": 1791171016.6946661,
+      "p_up": 0.33888186114221935,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "e1a1c7f8ae6de12f48fe986370a42b092377f98d00b1ee4d756e2fe94aa7abeb",
+      "decision_source": "e5abb12cfa4d65866bd1d4363bf139a7fb1dfb3aa5379317e4f0ebc93d463b3f",
+      "q": "0.2855",
+      "decision_book_source": "c168f9ee9d4f20158630e1cd6d3c499d676b4bc262f1292c37d6e97083b1a01f",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791173822.66019,
+      "brier_model": 0.11484091581121444,
+      "brier_market": 0.08151024999999999
+    },
+    {
+      "condition": "0xe775afbf3b38ee6f6cfb67dd2b5443623b86b93c0670566b7b1694ede54dbf84",
+      "slug": "btc-up-or-down-hourly-p-1791162304652",
+      "start": 1791172800.0,
+      "decision_at": 1791174615.8960226,
+      "p_up": 0.0615696885665723,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "8dfa64f2cf20e79b2dcf46bf3001da7f63d7e46d0ab13d2a158d1598816324b6",
+      "decision_source": "a5e4abf501032218352d785bd1b428e334b54677e115ee3318bda5d2cb1fb795",
+      "q": "0.0955",
+      "decision_book_source": "e2b26b635e0c99e548486bfed2f2865d3b09b5acb6b8feed88f452acccc6ec6d",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791177446.775847,
+      "brier_model": 0.003790826550184704,
+      "brier_market": 0.00912025
+    },
+    {
+      "condition": "0x65f12b728508cb4b530a334b1e5168141b5d9e189b9cb0ef2b49fcd3326b359f",
+      "slug": "eth-up-or-down-hourly-p-1791162310030",
+      "start": 1791172800.0,
+      "decision_at": 1791174616.2328024,
+      "p_up": 0.16509090849305474,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "70219e2e339b50706428c1ad518bdb32dae2b6b83cd214aec72dc3a80ec66639",
+      "decision_source": "72bf048ec1cc817ad5062e2eb6f4cc8f120e39f03b329877d9c3e272023b5853",
+      "q": "0.159",
+      "decision_book_source": "9ab09829da7701034ff367f9edc1dfe85ded69d1c3f5a4194d2100d14e5b06b3",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791177447.129547,
+      "brier_model": 0.027255008067062176,
+      "brier_market": 0.025281
+    },
+    {
+      "condition": "0x222e97d68f6942dbe1597014b77aa7ca069d7406bc017a35ce242d65f27a8674",
+      "slug": "btc-up-or-down-hourly-p-1791165909390",
+      "start": 1791176400.0,
+      "decision_at": 1791178221.802693,
+      "p_up": 0.4519053064933428,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "03751f78b1079559a7aca9d782d195491f283182b1ea67d4b5cac693f439d79b",
+      "decision_source": "2a025fffdfa86601b10d6cae09eba1d7da865e9e33dfeacedf17347b38e5e6c8",
+      "q": "0.430",
+      "decision_book_source": "b3c7c439d1c85c476de4d3beacb12b5502d6572bc5b279c0cbb2ae81f74d5ed6",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791181022.937626,
+      "brier_model": 0.30040779305015647,
+      "brier_market": 0.3249000000000001
+    },
+    {
+      "condition": "0x4a5586cf0dbedc44f3399371c9360cf4e02600f25284f5995266c7c8dbc0ce67",
+      "slug": "eth-up-or-down-hourly-p-1791165910714",
+      "start": 1791176400.0,
+      "decision_at": 1791178222.1132486,
+      "p_up": 0.183757344871101,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "763839b27f8ace3a4e8bafbfdd9ed62eef57e2a1903c7a769ce10961f2b76931",
+      "decision_source": "2c69a8bf0d3c12b26c17e254dba3046fdce8e0f0a3f68e227c0ef8bdaae3fb69",
+      "q": "0.1755",
+      "decision_book_source": "0f5bf42d64d99650c978134f1ec9b37ee73678a5687cf5e1e22ac82f10574d3c",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791181023.296203,
+      "brier_model": 0.6662520720518749,
+      "brier_market": 0.67980025
+    },
+    {
+      "condition": "0x4cb6f3d484b5f20284d838dc19fcdf60a69e7d7a0506d4998091aeea8e8128c0",
+      "slug": "btc-up-or-down-hourly-p-1791169504779",
+      "start": 1791180000.0,
+      "decision_at": 1791181814.09557,
+      "p_up": 0.7171964756010907,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "248a63242c054d178a399d85ff55ee710647a8a7dd67687e099ed4105a65ed7f",
+      "decision_source": "5a7e6fa8f56a17bfcd8dc3f82124350820f7600aa4fec83f4f4aa3bb30c6b752",
+      "q": "0.757",
+      "decision_book_source": "a6a55445cc7e9fc1ec5f6d6f0378e9abe363718180a88effc8f4d83bd8e1f8ba",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791184594.004522,
+      "brier_model": 0.07997783341244451,
+      "brier_market": 0.059049
+    },
+    {
+      "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+      "slug": "eth-up-or-down-hourly-p-1791169505824",
+      "start": 1791180000.0,
+      "decision_at": 1791181814.446202,
+      "p_up": 0.787610800451884,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2000170131666723212621359223",
+          "size_cap_shares": "49.995747",
+          "first_attempt_requested": 1791181831.37908,
+          "first_attempt_received": 1791181831.705908,
+          "execution_source": "e9e335668497a0f2e12f46aa35ea868bc51a74c8d5fce7b5a1c9a43afd145bc4",
+          "fill_at": 1791181831.705908,
+          "gross_shares": "49.995747",
+          "net_shares": "48.49587459",
+          "cost_usdc": "7.349374809",
+          "vwap": "0.147",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-7.349374809"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2000170131666723212621359223",
+          "size_cap_shares": "1.287783",
+          "first_attempt_requested": 1791181831.37908,
+          "first_attempt_received": 1791181831.705908,
+          "execution_source": "e9e335668497a0f2e12f46aa35ea868bc51a74c8d5fce7b5a1c9a43afd145bc4",
+          "fill_at": 1791181831.705908,
+          "gross_shares": "1.287783",
+          "net_shares": "1.24914951",
+          "cost_usdc": "0.189304101",
+          "vwap": "0.147",
+          "payout_usdc": "0E-8",
+          "pnl_usdc": "-0.189304101"
+        }
+      },
+      "decision_identity": "f49ae032a8b4fce8280e9e168233a94fd2be2e6a6fef39cab6e193c2b4d2e351",
+      "decision_source": "74ae55cdc72476ef2c094c63211da856b1550dc1ab0f334331a6549f4a441a24",
+      "q": "0.852",
+      "decision_book_source": "d97df2723c461513cead066b2369be019eb535dd3e2cb4be37ec839589c890e0",
+      "token": "5086149476456706229661530933784262228769245391955203716375364706981634840212",
+      "end": 1791183600.0,
+      "eligible_after": 1791181815.946202,
+      "expires_at": 1791181844.446202,
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791184594.322562,
+      "brier_model": 0.045109172084689425,
+      "brier_market": 0.021904000000000007
+    },
+    {
+      "condition": "0xbf3ab1f53587f9ef6974dcca427299c578f739e14066342469860f4b36bd43bc",
+      "slug": "btc-up-or-down-hourly-p-1791173109435",
+      "start": 1791183600.0,
+      "decision_at": 1791185412.1441412,
+      "p_up": 0.5750279954460847,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "a5eae533c9ba5f019d2b4afdf967f28c3f44a1a339c39056e0a179b9f1817abf",
+      "decision_source": "4fc9b6ea692a3dafa0a25c04bd7b7171ff900a88c5c885791572dc649b35e92f",
+      "q": "0.58",
+      "decision_book_source": "3c5edd4b588dc1fb455577f20289056d653795091e16b8a2b361cb1a96822ce8",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791188221.336476,
+      "brier_model": 0.33065719554674244,
+      "brier_market": 0.3364
+    },
+    {
+      "condition": "0x2be5f9c206d22aa499df6ec9e90e4dac44df446b0126765a68c7e45509bb12a1",
+      "slug": "eth-up-or-down-hourly-p-1791173110474",
+      "start": 1791183600.0,
+      "decision_at": 1791185412.4148746,
+      "p_up": 0.44391115389407365,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "176b486dc3bee6f749b36fd5cb0f945da71563758ef15374a73faf80127edacb",
+      "decision_source": "531511537e8c30b3f2bb6f8d7a6150a538138fe2db0bd25aa1d379d9b495b8a2",
+      "q": "0.409",
+      "decision_book_source": "f89949363ef4e26f3974bf72a0922679ab8a10edfd856eb2cbb42e6ef5c28433",
+      "payout": [
+        "1",
+        "0"
+      ],
+      "settled_at": 1791188221.620897,
+      "brier_model": 0.30923480476342063,
+      "brier_market": 0.34928099999999995
+    },
+    {
+      "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+      "slug": "btc-up-or-down-hourly-p-1791176704736",
+      "start": 1791187200.0,
+      "decision_at": 1791189004.8166344,
+      "p_up": 0.7495971691569934,
+      "actions": {
+        "fixed": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2358162581725402243689320388",
+          "size_cap_shares": "42.405897",
+          "first_attempt_requested": 1791189022.722467,
+          "first_attempt_received": 1791189022.918726,
+          "execution_source": "dfe28e4b89d67863ba8bbefa24f6dbead9f5d2c19231e2c4334aab3751d2b453",
+          "fill_at": 1791189022.918726,
+          "gross_shares": "42.405897",
+          "net_shares": "41.13372009",
+          "cost_usdc": "5.979231477",
+          "vwap": "0.141",
+          "payout_usdc": "41.13372009",
+          "pnl_usdc": "35.154488613"
+        },
+        "brier_sizing": {
+          "status": "SETTLED",
+          "side": "NO",
+          "max_price": "0.2358162581725402243689320388",
+          "size_cap_shares": "1.998056",
+          "first_attempt_requested": 1791189022.722467,
+          "first_attempt_received": 1791189022.918726,
+          "execution_source": "dfe28e4b89d67863ba8bbefa24f6dbead9f5d2c19231e2c4334aab3751d2b453",
+          "fill_at": 1791189022.918726,
+          "gross_shares": "1.998056",
+          "net_shares": "1.93811432",
+          "cost_usdc": "0.281725896",
+          "vwap": "0.141",
+          "payout_usdc": "1.93811432",
+          "pnl_usdc": "1.656388424"
+        }
+      },
+      "decision_identity": "5bae11a36dae73bdfebb1b49ef3f3f5febe55d7f8c55c2fd17658b366ea637af",
+      "decision_source": "03150523ace40fff805d4bddf6495bd07d81d495a1fdd99d173a7a7be677a646",
+      "q": "0.8495",
+      "decision_book_source": "043c6ac30e8b0aadd9f6940179f73aac5081ad5451e67c6836f72cd0ecb52475",
+      "token": "99903792132415806069700957447633358091244224892636068844214215939222867553440",
+      "end": 1791190800.0,
+      "eligible_after": 1791189006.3166344,
+      "expires_at": 1791189034.8166344,
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791191868.895953,
+      "brier_model": 0.5618959160081781,
+      "brier_market": 0.72165025
+    },
+    {
+      "condition": "0xcb401fa97a0460e948c2198869267d1d54c6abb98786f8dd632d10b8f53c5c90",
+      "slug": "eth-up-or-down-hourly-p-1791176705846",
+      "start": 1791187200.0,
+      "decision_at": 1791189005.115474,
+      "p_up": 0.5319388072062825,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "3a7671581bf2346bf3b341570b0bc518b22353243405856f92a4503b07a443cf",
+      "decision_source": "be98d6a653e22d10964c6ac62675bf79e81e10aad73b449fa66d7f52c322a64a",
+      "q": "0.59",
+      "decision_book_source": "32c8df07ce2d15e5f9d7207eec8fa5c3ca23d15baf0da0c53331d0790dc1d041",
+      "payout": [
+        "0",
+        "1"
+      ],
+      "settled_at": 1791191868.96806,
+      "brier_model": 0.2829588946120426,
+      "brier_market": 0.34809999999999997
+    },
+    {
+      "condition": "0xea3775a944abb92736ab820f5826bc26164136dd4760822d3644791bfae2efcf",
+      "slug": "btc-up-or-down-hourly-p-1791180304666",
+      "start": 1791190800.0,
+      "decision_at": 1791192605.8872905,
+      "p_up": 0.05934204364138179,
+      "actions": {
+        "fixed": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        },
+        "brier_sizing": {
+          "status": "NO_TRADE",
+          "reason": "FROZEN_MODEL_NO_TRADE"
+        }
+      },
+      "decision_identity": "56d306966b65ef91013e2dc5a0c575ce7fdca004adbd1f8790cb65abb610d40e",
+      "decision_source": "750f3a20db6a0c0dbcb6292ea2b61a7cd220c11c671a928e904adb8b903b8649",
+      "q": "0.0605",
+      "decision_book_source": "2212d8849fb55910a45f6abf583b0a71b712e7d2729b90db191326f28174065b"
+    },
+    {
+      "condition": "0xee85dc2db0f2e0e0d4ed7485810701a414f0bd2cf7bda224c33e8f2fa893423b",
+      "slug": "eth-up-or-down-hourly-p-1791180305716",
+      "start": 1791190800.0,
+      "decision_at": 1791192606.1935368,
+      "p_up": 0.3423571755147756,
+      "actions": {
+        "fixed": {
+          "status": "SKIP",
+          "side": "YES",
+          "max_price": "0.3224140390770216815533980583",
+          "size_cap_shares": "31.016019",
+          "first_attempt_requested": 1791192623.341654,
+          "first_attempt_received": 1791192623.647211,
+          "execution_source": "82d74550feaef982f64fa29997b01228867fb21bda12317a3cb52470921de2de",
+          "reason": "PRICE_OR_DEPTH"
+        },
+        "brier_sizing": {
+          "status": "FILLED",
+          "side": "YES",
+          "max_price": "0.3224140390770216815533980583",
+          "size_cap_shares": "1.147143",
+          "first_attempt_requested": 1791192623.341654,
+          "first_attempt_received": 1791192623.647211,
+          "execution_source": "82d74550feaef982f64fa29997b01228867fb21bda12317a3cb52470921de2de",
+          "fill_at": 1791192623.647211,
+          "gross_shares": "1.147143",
+          "net_shares": "1.11272871",
+          "cost_usdc": "0.353320044",
+          "vwap": "0.308"
+        }
+      },
+      "decision_identity": "f79a31617b392aaf3ce5e92606d98e8ff657e8bd1672d91a4beb4901e833f26b",
+      "decision_source": "dd3e31662943805e3cf8579f4c00ef927d3c12521335a40059478f7775465e3f",
+      "q": "0.285",
+      "decision_book_source": "96685524f17e5a1b11cdaf61b004daa03689a45c078614189c02a539578f910b",
+      "token": "91334946991411892221584570093411693171453659073029412082692645342031851097613",
+      "end": 1791194400.0,
+      "eligible_after": 1791192607.6935368,
+      "expires_at": 1791192636.1935368
+    }
+  ],
+  "limitations": [
+    "Gated Brier-inspired sizing, not the theorem strategy",
+    "Midpoint is a probability reference only, never a fill",
+    "First actual request only; hourly missing-frame retry is not inherited",
+    "Drawdown uses settled equity plus open cost basis, not liquidation value",
+    "No fees/threshold/holdout/capture changes"
+  ],
+  "archives": [
+    {
+      "run_id": 37141021612,
+      "artifact_id": 11282026371,
+      "sha256": "eac3ad1f8d5a771822328b893474e68416e90709a9137709c7ac9619cc4fc817",
+      "start": "2026-10-03T17:34:55.235372+00:00",
+      "end": "2026-10-03T18:29:55.639001+00:00"
+    },
+    {
+      "run_id": 37144414604,
+      "artifact_id": 11282611940,
+      "sha256": "b4e638c1001e1fb64a7b11e6d1f6bce645fc17f86fd3731b019ef591913c3560",
+      "start": "2026-10-03T18:30:13.873119+00:00",
+      "end": "2026-10-03T19:25:14.629110+00:00"
+    },
+    {
+      "run_id": 37146330445,
+      "artifact_id": 11282392465,
+      "sha256": "a8ac107f70fdb54cadc407e870cd44640a3d52a288ea6b82b5c4f3fb5405a834",
+      "start": "2026-10-03T19:25:31.760620+00:00",
+      "end": "2026-10-03T19:27:31.905825+00:00"
+    },
+    {
+      "run_id": 37147962215,
+      "artifact_id": 11284416014,
+      "sha256": "b455e07df0644fc2c83e5f3ed2fee671bf7c2e934d083ec9fd9277cebc33d145",
+      "start": "2026-10-03T19:27:48.286455+00:00",
+      "end": "2026-10-03T20:22:48.431447+00:00"
+    },
+    {
+      "run_id": 37151327629,
+      "artifact_id": 11284699716,
+      "sha256": "519fefe7a5d971f6d3022add94e53f5c725308f84b3a164245f5758ea0e2d7af",
+      "start": "2026-10-03T20:23:04.920280+00:00",
+      "end": "2026-10-03T21:18:05.057714+00:00"
+    },
+    {
+      "run_id": 37154622571,
+      "artifact_id": 11286179317,
+      "sha256": "c6198d3e755c2a378ba1e6cd1c9fd865d60e8165b6ee7d009dd1432c8c218c41",
+      "start": "2026-10-03T21:18:21.132165+00:00",
+      "end": "2026-10-03T22:13:21.270357+00:00"
+    },
+    {
+      "run_id": 37157688574,
+      "artifact_id": 11286969562,
+      "sha256": "43ce84df0040744bf1bc85afd48994f024374589dccfd9aaa593d435847abf7d",
+      "start": "2026-10-03T22:13:42.663181+00:00",
+      "end": "2026-10-03T23:08:42.809304+00:00"
+    },
+    {
+      "run_id": 37160806532,
+      "artifact_id": 11289045189,
+      "sha256": "8f08173b33f0127eb161a8db0f93df44699d2201751a1fc4c31a0db38229596a",
+      "start": "2026-10-03T23:09:06.900590+00:00",
+      "end": "2026-10-04T00:04:07.118445+00:00"
+    },
+    {
+      "run_id": 37163767735,
+      "artifact_id": 11289279685,
+      "sha256": "3eddcebdde12c1a273a4ae7e00522cf69b9b91ff2f2e2b396680e0d0a24a647c",
+      "start": "2026-10-04T00:04:29.571046+00:00",
+      "end": "2026-10-04T00:59:29.959968+00:00"
+    },
+    {
+      "run_id": 37166631973,
+      "artifact_id": 11291030053,
+      "sha256": "12ad05157410c048837a212286727d20f12de88aff16a6df98847414032ce5ba",
+      "start": "2026-10-04T00:59:57.304999+00:00",
+      "end": "2026-10-04T01:54:57.467006+00:00"
+    },
+    {
+      "run_id": 37169445181,
+      "artifact_id": 11291114906,
+      "sha256": "9dcad796b23fa73a725de88ed94e45cb07cd16b2291ec36b8a45a7c901a84265",
+      "start": "2026-10-04T01:55:17.650254+00:00",
+      "end": "2026-10-04T02:50:17.797364+00:00"
+    },
+    {
+      "run_id": 37172271108,
+      "artifact_id": 11292384638,
+      "sha256": "b2ba49ae0bc90cc1a6f6ba172c0ab5958ce9f5907f0a59ded36bfec3cd865aad",
+      "start": "2026-10-04T02:50:35.784929+00:00",
+      "end": "2026-10-04T03:45:35.940904+00:00"
+    },
+    {
+      "run_id": 37174986129,
+      "artifact_id": 11293569525,
+      "sha256": "eed15602ced5aad1e394547e9ebe24c75d6e19c12b159c71eab7fca1d7ac347e",
+      "start": "2026-10-04T03:45:53.999428+00:00",
+      "end": "2026-10-04T04:40:54.160756+00:00"
+    },
+    {
+      "run_id": 37177706938,
+      "artifact_id": 11295051929,
+      "sha256": "4c7a51975dfceb7a722a91f9c6c039326764cf91edf87c351a6834f213d0196b",
+      "start": "2026-10-04T04:41:52.390316+00:00",
+      "end": "2026-10-04T05:36:52.559763+00:00"
+    },
+    {
+      "run_id": 37180405302,
+      "artifact_id": 11296245826,
+      "sha256": "97ad91279956caeb2132943d0f46aa31839a9a41325e1d3fa73182c41288a252",
+      "start": "2026-10-04T05:37:47.646176+00:00",
+      "end": "2026-10-04T06:32:47.784114+00:00"
+    },
+    {
+      "run_id": 37183121491,
+      "artifact_id": 11297181910,
+      "sha256": "4cfa3aa958d1fbb4a5284a0f4842c44bcb53714b86f5970cf8a394d7e1a04051",
+      "start": "2026-10-04T06:33:09.362852+00:00",
+      "end": "2026-10-04T07:28:09.500081+00:00"
+    },
+    {
+      "run_id": 37185875778,
+      "artifact_id": 11298028349,
+      "sha256": "80ad979f93066824544f44c14d892608c91e5b064882979dfd1a6f3458c43283",
+      "start": "2026-10-04T07:28:26.451281+00:00",
+      "end": "2026-10-04T08:23:26.608101+00:00"
+    },
+    {
+      "run_id": 37188767283,
+      "artifact_id": 11298753953,
+      "sha256": "dc60e2ca85b75b68d3af2c4a86f4a6b8016b225415141eb5bb7a7211f8a4aa38",
+      "start": "2026-10-04T08:23:46.789037+00:00",
+      "end": "2026-10-04T09:18:47.167283+00:00"
+    },
+    {
+      "run_id": 37191749465,
+      "artifact_id": 11300397847,
+      "sha256": "09b01568a371709ad56effb4645409609044e83371388de855114ebdd6cc7742",
+      "start": "2026-10-04T09:19:07.459728+00:00",
+      "end": "2026-10-04T10:14:07.724279+00:00"
+    },
+    {
+      "run_id": 37194710029,
+      "artifact_id": 11300559741,
+      "sha256": "7dce69baba28d7194ae76b41965fd1f952f138b71fd349ae8cd787fdad4f647d",
+      "start": "2026-10-04T10:14:27.729787+00:00",
+      "end": "2026-10-04T11:09:27.880886+00:00"
+    },
+    {
+      "run_id": 37197771115,
+      "artifact_id": 11303195171,
+      "sha256": "3ecfa2a86d79d905c20eff4e772b351b034306d33144d1c7b4548b06e6c937d9",
+      "start": "2026-10-04T11:09:48.506223+00:00",
+      "end": "2026-10-04T12:04:48.719237+00:00"
+    },
+    {
+      "run_id": 37200884545,
+      "artifact_id": 11304201261,
+      "sha256": "362ad8b11671a170ddf2ffbfc5c23a348dcf1faaf48a04dbe822e1bcab6648b4",
+      "start": "2026-10-04T12:05:13.204296+00:00",
+      "end": "2026-10-04T13:00:13.353777+00:00"
+    },
+    {
+      "run_id": 37204069133,
+      "artifact_id": 11305700455,
+      "sha256": "f8bc95daeae7909657fce68d467518dbb6917057c57f1fed5037156a443a455a",
+      "start": "2026-10-04T13:00:29.764123+00:00",
+      "end": "2026-10-04T13:55:29.916545+00:00"
+    },
+    {
+      "run_id": 37207365378,
+      "artifact_id": 11306172779,
+      "sha256": "8d41ac305694528fe09cbb104b085085d57ca478fb3de03974508f6ba40f12cf",
+      "start": "2026-10-04T13:55:49.492690+00:00",
+      "end": "2026-10-04T14:50:49.825304+00:00"
+    },
+    {
+      "run_id": 37210772462,
+      "artifact_id": 11306859808,
+      "sha256": "5c8966af186c370f541a42eb3af0943dd8fe9a2c52606568c422e0202b4e0b5f",
+      "start": "2026-10-04T14:51:08.064683+00:00",
+      "end": "2026-10-04T15:46:08.212197+00:00"
+    },
+    {
+      "run_id": 37214242349,
+      "artifact_id": 11308499615,
+      "sha256": "2e09ecaf97d68afdf24446afdd9d3233235767fc77719f94242fd09aa52259b6",
+      "start": "2026-10-04T15:46:28.659029+00:00",
+      "end": "2026-10-04T16:41:28.803122+00:00"
+    },
+    {
+      "run_id": 37217704573,
+      "artifact_id": 11309924573,
+      "sha256": "556dc05cdc36fcb505dc304a5d4ea8e4e164479e194dc46ca48faea4bbafaeb7",
+      "start": "2026-10-04T16:41:51.772923+00:00",
+      "end": "2026-10-04T17:36:52.383090+00:00"
+    },
+    {
+      "run_id": 37221185940,
+      "artifact_id": 11311113181,
+      "sha256": "ffb66776f4aefddbc9ebcec46ada5da0fd0564086531f8601ae7129d4632104e",
+      "start": "2026-10-04T17:37:10.619738+00:00",
+      "end": "2026-10-04T18:32:10.764492+00:00"
+    },
+    {
+      "run_id": 37224818632,
+      "artifact_id": 11312467158,
+      "sha256": "336c6eedee34713d0413f2c7eb4b3a97f16d36f54a8c1b820ad1e08d9dc8c002",
+      "start": "2026-10-04T18:32:29.871713+00:00",
+      "end": "2026-10-04T19:27:30.026395+00:00"
+    },
+    {
+      "run_id": 37228344962,
+      "artifact_id": 11313543428,
+      "sha256": "7cd90ddb5ed632bc6eb0ac54f365b5f7b4a509780d3a23748104dac0e2a0d545",
+      "start": "2026-10-04T19:27:47.845987+00:00",
+      "end": "2026-10-04T20:22:47.992801+00:00"
+    },
+    {
+      "run_id": 37231867228,
+      "artifact_id": 11315113546,
+      "sha256": "bb221caab3d4c662ddcb3ed7aabc411bd20868dd53c8d9870a3437243481cb05",
+      "start": "2026-10-04T20:23:05.076017+00:00",
+      "end": "2026-10-04T21:18:05.217878+00:00"
+    },
+    {
+      "run_id": 37235540585,
+      "artifact_id": 11316855831,
+      "sha256": "2f20bfe7fd5e6ca3602a45c1ded44ceb477b8057fe5d40f50d5ed93f0aadd63b",
+      "start": "2026-10-04T21:18:24.964335+00:00",
+      "end": "2026-10-04T22:13:25.117025+00:00"
+    },
+    {
+      "run_id": 37239193650,
+      "artifact_id": 11318380130,
+      "sha256": "964bc112dbf78e910cb0eba11ec0c99b2c64be1f50a9773c89b31584b2dd4282",
+      "start": "2026-10-04T22:13:45.443167+00:00",
+      "end": "2026-10-04T23:08:45.598262+00:00"
+    },
+    {
+      "run_id": 37242684772,
+      "artifact_id": 11319191845,
+      "sha256": "e0b64bd98261b9b4fa3ccc1e30ed1879a53795f746f443668b5e1c3644a4eb13",
+      "start": "2026-10-04T23:09:03.457255+00:00",
+      "end": "2026-10-05T00:04:03.665475+00:00"
+    },
+    {
+      "run_id": 37246016706,
+      "artifact_id": 11320990439,
+      "sha256": "c7d42b832333b1df077b9c7529b77cfb970332ab30d6ce5aaa4c3b3ad6dbf53d",
+      "start": "2026-10-05T00:04:24.221109+00:00",
+      "end": "2026-10-05T00:59:24.390519+00:00"
+    },
+    {
+      "run_id": 37249619047,
+      "artifact_id": 11322140903,
+      "sha256": "71271deef82d63d78fe37023bf2811943776e272dbff4fbf67d582264028eac3",
+      "start": "2026-10-05T00:59:44.176911+00:00",
+      "end": "2026-10-05T01:54:44.331800+00:00"
+    },
+    {
+      "run_id": 37253280899,
+      "artifact_id": 11322922049,
+      "sha256": "a9aea6cf488ba3a0a8aacd2e6601443ce54e4558add72d222821a30cb6f2248a",
+      "start": "2026-10-05T01:55:01.641026+00:00",
+      "end": "2026-10-05T02:50:01.797540+00:00"
+    },
+    {
+      "run_id": 37256941304,
+      "artifact_id": 11324950599,
+      "sha256": "6ed34d84cf739944649a14bc64f999badd3c095a78e29150b9b436144bc7c777",
+      "start": "2026-10-05T02:50:20.168805+00:00",
+      "end": "2026-10-05T03:45:21.061528+00:00"
+    },
+    {
+      "run_id": 37260697529,
+      "artifact_id": 11326490018,
+      "sha256": "820f6b00a8ac321c535b64b0e1a5ea98ad664c9ac45cb3b41ce74d745aadcfe1",
+      "start": "2026-10-05T03:45:39.804618+00:00",
+      "end": "2026-10-05T04:40:40.146264+00:00"
+    },
+    {
+      "run_id": 37264564901,
+      "artifact_id": 11326799614,
+      "sha256": "c17290ac4d66c9417a140afcd0ee3ad51c8e82150132e3f1e11396e5b5d01ec3",
+      "start": "2026-10-05T04:41:01.449083+00:00",
+      "end": "2026-10-05T05:36:01.674696+00:00"
+    },
+    {
+      "run_id": 37268511734,
+      "artifact_id": 11329181459,
+      "sha256": "cd79db484cd8ac80a3f4b1ca36323c672fbb99e5b6c6a02fc008ec8c851cc084",
+      "start": "2026-10-05T05:36:24.029040+00:00",
+      "end": "2026-10-05T06:31:24.261327+00:00"
+    },
+    {
+      "run_id": 37272859934,
+      "artifact_id": 11330887058,
+      "sha256": "f2def6cfe0b1217c1fef0a47cb3199765b5cf845464672a48facb76a22473117",
+      "start": "2026-10-05T06:31:46.388248+00:00",
+      "end": "2026-10-05T07:26:46.559635+00:00"
+    },
+    {
+      "run_id": 37277785767,
+      "artifact_id": 11333186316,
+      "sha256": "7e8df8377dba4ca95d5430f4cfabbcc2b5b02d2730c4bf792534c41270a682d9",
+      "start": "2026-10-05T07:27:07.155956+00:00",
+      "end": "2026-10-05T08:22:08.061098+00:00"
+    },
+    {
+      "run_id": 37283196223,
+      "artifact_id": 11336050647,
+      "sha256": "b54fe1c9b882276345bc720370768a032213ebfac6a498871fae68791b3dbc0f",
+      "start": "2026-10-05T08:22:25.190326+00:00",
+      "end": "2026-10-05T09:17:25.351810+00:00"
+    },
+    {
+      "run_id": 37289060103,
+      "artifact_id": 11338900983,
+      "sha256": "f57dd16396e5d5b168921d5358850dad0dd7d3ed2c836999abc9d860f8ded52f",
+      "start": "2026-10-05T09:17:45.072088+00:00",
+      "end": "2026-10-05T10:12:45.620552+00:00"
+    }
+  ]
+}
