@@ -275,7 +275,8 @@
     "Chainlink open/close raw/1e18 agrees with winner and payoutNumerators",
     "decision oracle receipt before first decision book and first subsequent execution request",
     "YES token book binding",
-    "independent decimal depth walk, 3% net shares, payout, cash/PnL for 37 model and 25 constant50 trades"
+    "independent decimal depth walk, 3% net shares, payout, cash/PnL for 37 model and 25 constant50 trades",
+    "independent scan of all 29 capture archives confirms earliest completed oracle, earliest in-window decision-book request, and first subsequent execution request for each of 50 settled conditions"
   ],
   "fifteen_min": {
     "accounts": {
@@ -2860,5 +2861,7 @@
     "top_two_pnl": "86.225710232",
     "excluding_top_two_pnl": "-45.433633272",
     "gross_shares": "511.240710"
-  }
+  },
+  "first_attempt_independently_verified_conditions": 50,
+  "first_attempt_selected_rows_verified": 150
 }
