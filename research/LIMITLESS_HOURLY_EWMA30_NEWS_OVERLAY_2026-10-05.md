@@ -11,7 +11,7 @@
 
 В окне четыре решения для каждой модели: по два BTC/ETH в час 13:30 и 14:30. Три сделки действительно исполнены и погашены, четвёртое решение — NO_TRADE. В EWMA30 исключены BTC +2.979676788, ETH +1.740016963 и BTC −7.737984768 USDC; сумма **−3.018291017**. Снятие отрицательной группы повышает условный PnL на 3.018291017 USDC, но разница EWMA30 с frozen почти не меняется: **+41.482085511 → +41.195845677 USDC**. Это не свидетельство особой синергии EWMA с новостями. После фильтра осталось лишь **две** сделки EWMA: главный BTC выигрыш +41.717810937 и ETH проигрыш −9.136789790 USDC. Концентрация выросла, устойчивость оценить невозможно.
 
-[Машинное доказательство](LIMITLESS_HOURLY_EWMA30_NEWS_OVERLAY_EVIDENCE_2026-10-05.json) содержит hash исходного [PnL JSON](LIMITLESS_HOURLY_EWMA30_PNL_EVIDENCE_2026-10-05.json), идентификаторы удалённых условий, цены входа и PnL. [Скрипт](limitless_hourly_ewma_news_overlay.py) не переписывает входы и не выбирает лучшую настройку. Повторение:
+[Машинное доказательство](LIMITLESS_HOURLY_EWMA30_NEWS_OVERLAY_EVIDENCE_2026-10-05.json) содержит hash исходного [PnL JSON](LIMITLESS_HOURLY_EWMA30_PNL_EVIDENCE_2026-10-05.json), идентификаторы удалённых условий, затраты и PnL. [Скрипт](limitless_hourly_ewma_news_overlay.py) не переписывает входы и не выбирает лучшую настройку. Повторение:
 
 ```bash
 python research/limitless_hourly_ewma_news_overlay.py research/LIMITLESS_HOURLY_EWMA30_PNL_EVIDENCE_2026-10-05.json --out news_overlay.json
