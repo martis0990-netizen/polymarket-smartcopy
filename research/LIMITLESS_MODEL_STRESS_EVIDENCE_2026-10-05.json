@@ -1,9 +1,9 @@
 {
   "schema": "limitless-offline-check-2026-10-05-v1",
-  "as_of_utc": "2026-10-05T17:35:30Z",
-  "latest_main_run": 37342610834,
-  "latest_artifact": 11361428049,
-  "latest_zip_sha256": "ba0a797fe7d4d1b8dafeb6e2f616bf22412b6446341872ef2a60f5c26e14f113",
+  "as_of_utc": "2026-10-05T18:30:49.466968+00:00",
+  "latest_main_run": 37349579066,
+  "latest_artifact": 11364617509,
+  "latest_zip_sha256": "a7c640795a88116f7ec7cd0745878270e166b5ce40bfdc3cb67612bd7e49ea4f",
   "source_archives": [
     {
       "run": 37210772462,
@@ -265,6 +265,15 @@
       "summary_sha256": "1e663ce6cd7b2a42377e76d49fc59981560d236e55d59e41ee73df33746a9c13",
       "started_at": "2026-10-05T16:40:30.267369+00:00",
       "ended_at": "2026-10-05T17:35:30.432406+00:00"
+    },
+    {
+      "run": 37349579066,
+      "artifact": 11364617509,
+      "sha256": "a7c640795a88116f7ec7cd0745878270e166b5ce40bfdc3cb67612bd7e49ea4f",
+      "state_sha256": "26cec51198b069a48458a46aba408a632bff6f98c2ad9087495c1dbbc47b2016",
+      "summary_sha256": "a3aca01f08e515ec277399992c926df6e7c48058ce6cfa26754e64f03349a2a8",
+      "started_at": "2026-10-05T17:35:48.511081+00:00",
+      "ended_at": "2026-10-05T18:30:49.466968+00:00"
     }
   ],
   "proof_rows_checked": 250,
@@ -275,8 +284,7 @@
     "Chainlink open/close raw/1e18 agrees with winner and payoutNumerators",
     "decision oracle receipt before first decision book and first subsequent execution request",
     "YES token book binding",
-    "independent decimal depth walk, 3% net shares, payout, cash/PnL for 37 model and 25 constant50 trades",
-    "independent scan of all 29 capture archives confirms earliest completed oracle, earliest in-window decision-book request, and first subsequent execution request for each of 50 settled conditions"
+    "independent decimal depth walk, 3% net shares, payout, cash/PnL for 37 model and 25 constant50 trades"
   ],
   "fifteen_min": {
     "accounts": {
@@ -312,26 +320,26 @@
       }
     },
     "discovery": {
-      "conditions": 142,
-      "quarter_hour_clusters": 71,
-      "decisions": 83,
-      "resolved_scored_conditions": 82,
-      "observation_coverage": 0.4322916666666667,
+      "conditions": 148,
+      "quarter_hour_clusters": 74,
+      "decisions": 87,
+      "resolved_scored_conditions": 87,
+      "observation_coverage": 0.453125,
       "review_status": "INSUFFICIENT_DATA"
     },
     "structure_coverage": {
       "version": "limitless-15m-structure-label-v2",
-      "conditions": 83,
-      "quarter_hour_clusters": 44,
+      "conditions": 87,
+      "quarter_hour_clusters": 46,
       "h1_known": 0,
       "full_h4_h1_ready": 0,
       "h1_states": {
-        "UNKNOWN": 83
+        "UNKNOWN": 87
       },
       "h1_unknown_reasons": {
-        "INSUFFICIENT_WARMUP": 60,
+        "INSUFFICIENT_WARMUP": 62,
         "LATEST_COMPLETE_BAR_MISSING": 15,
-        "INSUFFICIENT_SWINGS": 8
+        "INSUFFICIENT_SWINGS": 10
       },
       "status": "INSUFFICIENT_DATA"
     },
@@ -2632,15 +2640,1884 @@
           }
         }
       }
-    ]
+    ],
+    "decision_market_comparison": {
+      "sample": "87 resolved discovery decisions, exact first decision YES orderbook",
+      "brier_model": 0.13615502246379935,
+      "brier_market_mid": 0.11101928448275863,
+      "paired_difference": 0.02513573798104073,
+      "quarter_hour_clusters": 46,
+      "cluster_bootstrap_95": [
+        -0.0009529911370020839,
+        0.05328047558902995
+      ],
+      "seed": 1506,
+      "draws": 10000,
+      "bins": [
+        {
+          "range": "[0,.2)",
+          "n": 18,
+          "mean_p": 0.08400658763321794,
+          "yes_frequency": 0,
+          "mean_mid": 0.10694444444444445
+        },
+        {
+          "range": "[.2,.4)",
+          "n": 22,
+          "mean_p": 0.3067385219259638,
+          "yes_frequency": 0.22727272727272727,
+          "mean_mid": 0.22861363636363635
+        },
+        {
+          "range": "[.4,.6)",
+          "n": 18,
+          "mean_p": 0.4888280414547837,
+          "yes_frequency": 0.4444444444444444,
+          "mean_mid": 0.4483888888888889
+        },
+        {
+          "range": "[.6,.8)",
+          "n": 22,
+          "mean_p": 0.7057089571762759,
+          "yes_frequency": 0.7727272727272727,
+          "mean_mid": 0.760090909090909
+        },
+        {
+          "range": "[.8,1]",
+          "n": 7,
+          "mean_p": 0.9189806651018773,
+          "yes_frequency": 1,
+          "mean_mid": 0.9082857142857143
+        }
+      ],
+      "filled_side_summary": [
+        {
+          "side": "YES",
+          "n": 20,
+          "mean_model_side_p": 0.38022282841888105,
+          "win_frequency": 0.15,
+          "mean_cost_per_net_share": 0.26104836473729975
+        },
+        {
+          "side": "NO",
+          "n": 17,
+          "mean_model_side_p": 0.4230679067478668,
+          "win_frequency": 0.17647058823529413,
+          "mean_cost_per_net_share": 0.23836445190542635
+        }
+      ],
+      "rows": [
+        {
+          "condition": "0x0ffc4b24f92134108d4ae4e365084af1d057c51802061beae7a8ef29a7f2a3bd",
+          "start": 1791158400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3051822437493419,
+          "market_yes_bid": 0.166,
+          "market_yes_ask": 0.216,
+          "market_mid": 0.191,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 2880,
+            "sha256": "0cd1a9caec04cff360d7b4a49015f539c6ba232ad9c3b630cc9d2b7a9942e71e"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x4685bd7d694295b550d3d70394a8ea328061f62f89657b7c28d5c3c1d5107efb",
+          "start": 1791158400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.34615128739103806,
+          "market_yes_bid": 0.137,
+          "market_yes_ask": 0.174,
+          "market_mid": 0.1555,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 2886,
+            "sha256": "7af23b629b8fe9eb9cac23056dd611f1e31f907fcf57fdcd211cbe19e5009ae7"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "7.019725167",
+            "net_shares": "29.75577529",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.019725167"
+          }
+        },
+        {
+          "condition": "0x13b51db4d9b2f551301de348c57a990dac8513f2189eb47a8b06002861187e33",
+          "start": 1791160200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.6580636371567392,
+          "market_yes_bid": 0.635,
+          "market_yes_ask": 0.681,
+          "market_mid": 0.658,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 36528,
+            "sha256": "4210afe6681bce463e47f5e93fff82957bc0245cd8c973275fc2f703578da90d"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x72053e76c0a05226eb15af542cc8bcefa6bb73c62addaa578ddb66be38bf781a",
+          "start": 1791160200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6740826639611859,
+          "market_yes_bid": 0.558,
+          "market_yes_ask": 0.605,
+          "market_mid": 0.5815,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 36535,
+            "sha256": "0d817da4b0f542b60424d04bb96e506ffdd6a3938512bed78b4795cfbbc7823e"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0xab8925da2d0409372e710a1f71ec62ef1893cb0dd86347f51862d1119a662815",
+          "start": 1791161100,
+          "symbol": "BTCUSDT",
+          "p_up": 0.45891733546710173,
+          "market_yes_bid": 0.538,
+          "market_yes_ask": 0.585,
+          "market_mid": 0.5615,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 51613,
+            "sha256": "b9e7742f58a6cecf703af474de9a8f18efb507b85bc705a5248338fe5519670c"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.297194684",
+            "net_shares": "19.03590759",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.297194684"
+          }
+        },
+        {
+          "condition": "0xf6479971b3a99833a185b84714fe97f98be719bf78c83f666a279ab619d14233",
+          "start": 1791161100,
+          "symbol": "ETHUSDT",
+          "p_up": 0.5756234079677351,
+          "market_yes_bid": 0.579,
+          "market_yes_ask": 0.631,
+          "market_mid": 0.605,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11320990439,
+            "line": 51626,
+            "sha256": "0969aff2d904396b34b56c77562ac8d1a727d7a13081601222436e9888768661"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xe2371555f1a53f4263cbad8892f5e9187e248421116ba26ed6820b00d3863ece",
+          "start": 1791162900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7702760991900945,
+          "market_yes_bid": 0.795,
+          "market_yes_ask": 0.842,
+          "market_mid": 0.8185,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11322140903,
+            "line": 25733,
+            "sha256": "6d275e1c14222238bf3b98db7973f17550de3938b2a3f20a88f277bf32f46f98"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x65618c142e644bec2a31acba3fbc017a855550f61e1d74f4350d7b99c1f24037",
+          "start": 1791162900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6428560392852639,
+          "market_yes_bid": 0.619,
+          "market_yes_ask": 0.67,
+          "market_mid": 0.6445000000000001,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11322140903,
+            "line": 25742,
+            "sha256": "d27bed871b427eae0fd4b2b8020aed59c255fba08a87d3858ded1649a0ad142c"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x57efb979d64896561077321f9b1aee4180f07c682022098aaf05e06d971b356b",
+          "start": 1791163800,
+          "symbol": "BTCUSDT",
+          "p_up": 0.016419117657738846,
+          "market_yes_bid": 0.042,
+          "market_yes_ask": 0.068,
+          "market_mid": 0.05500000000000001,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11322140903,
+            "line": 44130,
+            "sha256": "f2033eb73a9fe2656368f13242bf3f47cd932332e07dfe2c07a2769c3f5b0e37"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xb570b358a7cd3fc92e98da8b3419402dfdd7fef469e6d1c185479785bda9ee0b",
+          "start": 1791163800,
+          "symbol": "ETHUSDT",
+          "p_up": 0.02217738633287558,
+          "market_yes_bid": 0.025,
+          "market_yes_ask": 0.052,
+          "market_mid": 0.0385,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11322140903,
+            "line": 44135,
+            "sha256": "16eee7bba85755151e7946fc5fa96e7b1706f44650a64691db4c833c3372582e"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xe65f2fd0d70e6c034250218d4311ff300bfbc057e79bc79f533f20fb94c0389d",
+          "start": 1791168300,
+          "symbol": "BTCUSDT",
+          "p_up": 0.22284630227583885,
+          "market_yes_bid": 0.08,
+          "market_yes_ask": 0.11,
+          "market_mid": 0.095,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11324950599,
+            "line": 1643,
+            "sha256": "62e9c1b3c9393f23070506ccdf23a42de689fc2c621892a45db02e9e81a91610"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.338695225",
+            "net_shares": "46.22019639",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.338695225"
+          }
+        },
+        {
+          "condition": "0x79153f5145cb4f4575ebd9fe8ef9ea2c9a440ea486037cda7c8f473203675229",
+          "start": 1791168300,
+          "symbol": "ETHUSDT",
+          "p_up": 0.1898253591750369,
+          "market_yes_bid": 0.108,
+          "market_yes_ask": 0.148,
+          "market_mid": 0.128,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11324950599,
+            "line": 1658,
+            "sha256": "2da3d7042fdbaa1869418bcce52dae8c841f25c87889a3920245ac63209ff261"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x647afa6a440874ab077e339b554cbc669b5b25c2f15d909a199b0706a93bbc36",
+          "start": 1791169200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3233910838819278,
+          "market_yes_bid": 0.127,
+          "market_yes_ask": 0.164,
+          "market_mid": 0.14550000000000002,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11324950599,
+            "line": 15336,
+            "sha256": "071f4678411d79820cb5cff54c8529ab06f9a4da55c317353e73ff539b7b42f7"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.713079640",
+            "net_shares": "31.84998104",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.713079640"
+          }
+        },
+        {
+          "condition": "0x3a145ffc83afc7e3c11a765bca112d6fb46c62993f09dc2b9f88cfe8b625568d",
+          "start": 1791169200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.32014092869518973,
+          "market_yes_bid": 0.099,
+          "market_yes_ask": 0.132,
+          "market_mid": 0.1155,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11324950599,
+            "line": 15342,
+            "sha256": "761e0bb5ea64695fc1b9826d03b69250ac44ad175f9a02106ccd80dccff744fa"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.430016874",
+            "net_shares": "32.17333054",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.430016874"
+          }
+        },
+        {
+          "condition": "0x46299e404eab839fc5a419b034cd7b316d36851e97792d8169612f913fff4faa",
+          "start": 1791171000,
+          "symbol": "ETHUSDT",
+          "p_up": 0.09174207213397811,
+          "market_yes_bid": 0.052,
+          "market_yes_ask": 0.099,
+          "market_mid": 0.0755,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11324950599,
+            "line": 42874,
+            "sha256": "867960ed4b72f0906fa73fe4cb328ead411df16acd7c63c0bf13e61b71e98f35"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x1c2ae3de308148d096e2b563ac6bee5dc60ad7af176fab07866a057d73e11d39",
+          "start": 1791171900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.514434051474636,
+          "market_yes_bid": 0.315,
+          "market_yes_ask": 0.372,
+          "market_mid": 0.3435,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 5004,
+            "sha256": "1b004f8acb88b7ca163924a97e334a16c6ec07a4f8131718826fdf83b5d7041c"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "9.556893657",
+            "net_shares": "20.02200183",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-9.556893657"
+          }
+        },
+        {
+          "condition": "0x9f31242700faae2134eb3023e253bf3e8e78761c50ac448d0a6ab81f5d9b0522",
+          "start": 1791171900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.2966631220861238,
+          "market_yes_bid": 0.127,
+          "market_yes_ask": 0.174,
+          "market_mid": 0.1505,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 5011,
+            "sha256": "6e2e53e87d7c138e0be68150678dc6ca04f9ff3f5cc55dc79971569d2758a583"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "6.585969960",
+            "net_shares": "34.71951555",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.585969960"
+          }
+        },
+        {
+          "condition": "0xf39d6fa6cc9caa08bfc352054325e330f8c462b8e5caa7a4de28e6e19f15f9db",
+          "start": 1791173700,
+          "symbol": "BTCUSDT",
+          "p_up": 0.09426961587797106,
+          "market_yes_bid": 0.01,
+          "market_yes_ask": 0.038,
+          "market_mid": 0.024,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 34151,
+            "sha256": "232e0473f31094aceb38e4b8492a3d4285efdf199f6efbd80a96e3ff8d15103d"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.222741024",
+            "net_shares": "109.26107936",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.222741024"
+          }
+        },
+        {
+          "condition": "0x47a5e1809da8345b18aff72989d3f89256692a06dde811bfffe6c16e55623321",
+          "start": 1791173700,
+          "symbol": "ETHUSDT",
+          "p_up": 0.09003487246355146,
+          "market_yes_bid": 0.046,
+          "market_yes_ask": 0.121,
+          "market_mid": 0.08349999999999999,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 34159,
+            "sha256": "0432f19d0037d0a23fb7de0fc4ec2ce871b5beb2f72327478a526e44d143f933"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x9e980d6e4fdadf49b322fa18c8b83096468f09f0c2379c46bd1eebdf93e30e33",
+          "start": 1791174600,
+          "symbol": "BTCUSDT",
+          "p_up": 0.011593484436164758,
+          "market_yes_bid": 0.099,
+          "market_yes_ask": 0.111,
+          "market_mid": 0.10500000000000001,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 49877,
+            "sha256": "817bae96f158b5c6b0a95d747595bf6c05d316668ddfb2eb6de2e18014c2cfe1"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0xdcebbfbbde8a3ca8534ee3f7fc699eb3c6fadb4caa6b4d0c165778edb03d3c81",
+          "start": 1791174600,
+          "symbol": "ETHUSDT",
+          "p_up": 0.01190628943397043,
+          "market_yes_bid": 0.07,
+          "market_yes_ask": 0.103,
+          "market_mid": 0.0865,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326490018,
+            "line": 49882,
+            "sha256": "e3fce3d13918964f46ffd1e30220657ce3e56ff744c74df30b047fd324b74d3c"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x1ef5e69fb42f2408f49e24dbc2b7bb3267c9ea6fd4bcb1a7ca009212ffb71988",
+          "start": 1791175500,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3996982140771593,
+          "market_yes_bid": 0.231,
+          "market_yes_ask": 0.279,
+          "market_mid": 0.255,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326799614,
+            "line": 8089,
+            "sha256": "dda70192006dfca392f701eac81df2d2cc53952256a6973fc6dd8a3fb66144d0"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.209028415",
+            "net_shares": "25.76944195",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.209028415"
+          }
+        },
+        {
+          "condition": "0xa91fd39048edbffa623aec9c4c902043a4f637486329e5101ef2e5e38bd4d82a",
+          "start": 1791175500,
+          "symbol": "ETHUSDT",
+          "p_up": 0.632583212023764,
+          "market_yes_bid": 0.387,
+          "market_yes_ask": 0.462,
+          "market_mid": 0.4245,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326799614,
+            "line": 8099,
+            "sha256": "e84856854355ce3bb45c647ac8c3353fd21d90a6d610c39889481c170c8f2a73"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.824806167",
+            "net_shares": "16.28244231",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.824806167"
+          }
+        },
+        {
+          "condition": "0xde4c9e1e4cef5f4e64dde43b0ff3da4d90c837613b1cb7d0ec35bcca8272ddf4",
+          "start": 1791176400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.6246022579670824,
+          "market_yes_bid": 0.64,
+          "market_yes_ask": 0.696,
+          "market_mid": 0.6679999999999999,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326799614,
+            "line": 20896,
+            "sha256": "912e9757bcf116113475692a3f9983b50e9eade33218eb965c44cca6b3de399c"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x48354dfdb3f7679fcb13ed28361da24df0695d74990fbf6d19a765677ab09c0a",
+          "start": 1791176400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.5079228201099487,
+          "market_yes_bid": 0.445,
+          "market_yes_ask": 0.495,
+          "market_mid": 0.47,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11326799614,
+            "line": 20901,
+            "sha256": "8cbbe52532daa51a85b724dfc11be438fad94898fb2bed59d7c9fd5c9acdf7b1"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x84e86d69212696d0395ac36c712350100f7def9fe14b2e375d8a529d908bdd66",
+          "start": 1791178200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7646003965547177,
+          "market_yes_bid": 0.952,
+          "market_yes_ask": 0.977,
+          "market_mid": 0.9644999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 239,
+            "sha256": "44427a22d1010f5aed0cf452f198dcaa761d40a34c841b8a847d4480d2cddcae"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "3.059368724",
+            "net_shares": "43.75538371",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.059368724"
+          }
+        },
+        {
+          "condition": "0x74a654693e632e81a8fbb76a68ce7e7ce2f3619637d2e1137564ac38bf2527c6",
+          "start": 1791178200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.7671459834102898,
+          "market_yes_bid": 0.97,
+          "market_yes_ask": 0.999,
+          "market_mid": 0.9844999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 243,
+            "sha256": "017fa6028b682dd63fecd79a84fecabc4acb29ed978539c24c954977c162aa71"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.143283425",
+            "net_shares": "44.23372175",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.143283425"
+          }
+        },
+        {
+          "condition": "0xac2e31f7e298a502b69b8398db3a132b166191473e552181af7c9cda31e37c4c",
+          "start": 1791179100,
+          "symbol": "BTCUSDT",
+          "p_up": 0.48189912525433776,
+          "market_yes_bid": 0.369,
+          "market_yes_ask": 0.421,
+          "market_mid": 0.395,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 14083,
+            "sha256": "433030c3a267e8331c19d0aa1ec441d6ac59fda3e995aff3971e03dee5355cb7"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.617681116",
+            "net_shares": "21.37376764",
+            "payout_usdc": "21.37376764",
+            "pnl_usdc": "12.756086524"
+          }
+        },
+        {
+          "condition": "0x4fba99e538a692b41e38362750fa50af8392de20dcddaa39988bad805a06d352",
+          "start": 1791179100,
+          "symbol": "ETHUSDT",
+          "p_up": 0.41282044931366335,
+          "market_yes_bid": 0.263,
+          "market_yes_ask": 0.285,
+          "market_mid": 0.274,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 14094,
+            "sha256": "5dfc9987825cc12067ca6b2869b6f460829b855ffa5dc60c5672abdff161a408"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.372529117",
+            "net_shares": "24.95031381",
+            "payout_usdc": "24.95031381",
+            "pnl_usdc": "16.577784693"
+          }
+        },
+        {
+          "condition": "0x8879243c410700531142b8b7b76226fe87bd4e53202f073fe9b1f28e069235d4",
+          "start": 1791180000,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7948339480737137,
+          "market_yes_bid": 0.837,
+          "market_yes_ask": 0.882,
+          "market_mid": 0.8594999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 27317,
+            "sha256": "0d031c39aedc5e913a88187887e4e57b9100f37597be588a895b25c949c75fe3"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "8.719965466",
+            "net_shares": "50.20323658",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.719965466"
+          }
+        },
+        {
+          "condition": "0x88217e8c588789b224de61835be3666c8a4417122a856c83628f4c76471b8ca7",
+          "start": 1791180000,
+          "symbol": "ETHUSDT",
+          "p_up": 0.7376409712684251,
+          "market_yes_bid": 0.857,
+          "market_yes_ask": 0.873,
+          "market_mid": 0.865,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 27322,
+            "sha256": "b80c7d57b826601adbe272f47c61c20bbde7736db3a862a13fc77f0816927edb"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.406628540",
+            "net_shares": "39.25917860",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.406628540"
+          }
+        },
+        {
+          "condition": "0xf45cc9207b376b31b0a19ea4b7de21f4263c7eaeefda561fc9a78bae7609f70b",
+          "start": 1791180900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7377261559239165,
+          "market_yes_bid": 0.584,
+          "market_yes_ask": 0.635,
+          "market_mid": 0.6094999999999999,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 36274,
+            "sha256": "c41c646bcdc0c14c649ca076e2aae8a164ee7741842ef0a94fda3a50fd8ccb4c"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.664964658",
+            "net_shares": "13.96182013",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.664964658"
+          }
+        },
+        {
+          "condition": "0xc72f936ad6171106ed2435725adc6bca3ed4c333372bccf6933fdd1b4e02d443",
+          "start": 1791180900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6819216891998803,
+          "market_yes_bid": 0.568,
+          "market_yes_ask": 0.635,
+          "market_mid": 0.6014999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11329181459,
+            "line": 36279,
+            "sha256": "47c9f3e97aaccb7074e1d1a2c10bb9f4a205b2b0ed7e5ccd6f8108c3a536d04c"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "9.592055704",
+            "net_shares": "15.10437343",
+            "payout_usdc": "15.10437343",
+            "pnl_usdc": "5.512317726"
+          }
+        },
+        {
+          "condition": "0x8e13fff5755078c9908f6caeabdba9ee48cc4002d32a4f4403920cbaba9dff69",
+          "start": 1791182700,
+          "symbol": "BTCUSDT",
+          "p_up": 0.9968329986759275,
+          "market_yes_bid": 0.962,
+          "market_yes_ask": 0.989,
+          "market_mid": 0.9755,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11330887058,
+            "line": 16116,
+            "sha256": "1c2b734f9ca2a9a619416799aacf5fb8a556757e41de96c91bd52330250d9ce4"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xc8a84649724ee10b4ec282315e09d6cd2358862e73dce5aa4cfaaa6b1ac5bdd8",
+          "start": 1791182700,
+          "symbol": "ETHUSDT",
+          "p_up": 0.9357400280289492,
+          "market_yes_bid": 0.963,
+          "market_yes_ask": 0.999,
+          "market_mid": 0.981,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11330887058,
+            "line": 16125,
+            "sha256": "12fe1d4b3d622feaa50bd8bbbcb5341756edd1c234c578fda7e8aadc2c85e493"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x4d8f6b962418c8f571f370325781707c6e27a647e624885de3ffb24c147ecda7",
+          "start": 1791183600,
+          "symbol": "BTCUSDT",
+          "p_up": 0.5333548297997072,
+          "market_yes_bid": 0.569,
+          "market_yes_ask": 0.621,
+          "market_mid": 0.595,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11330887058,
+            "line": 25735,
+            "sha256": "fd504c8f040e093675889b4ef0d78ea8b6285dd6f08cbc6f089c76b2b2018fe2"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.553468224",
+            "net_shares": "22.07244506",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.553468224"
+          }
+        },
+        {
+          "condition": "0x2fd99e8674cb13028ea6fe14ab9f0d6a97c151c90d5ba8a19c4fbd66e63c16ba",
+          "start": 1791183600,
+          "symbol": "ETHUSDT",
+          "p_up": 0.8840404200849339,
+          "market_yes_bid": 0.88,
+          "market_yes_ask": 0.911,
+          "market_mid": 0.8955,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11330887058,
+            "line": 25738,
+            "sha256": "ab07b1e4c098b1377c52dee9751c37e032520945e6b314ae87bd02f8c4dfd35c"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x8f0848c94e80e7374bdd854971ea995a954ddf95eeab71d6310d768a6e2db6e4",
+          "start": 1791186300,
+          "symbol": "ETHUSDT",
+          "p_up": 0.39892188093969894,
+          "market_yes_bid": 0.073,
+          "market_yes_ask": 0.118,
+          "market_mid": 0.0955,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11333186316,
+            "line": 22838,
+            "sha256": "d435c1b497e6f34484e6be531eb919db7f55ce26f50dc5d35be05aeaf3a030e8"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x88a985afa549175cd2139abf5cff077ac9d6275486cbb51bbc17fc5c08f5924f",
+          "start": 1791188100,
+          "symbol": "BTCUSDT",
+          "p_up": 0.26005302410345443,
+          "market_yes_bid": 0.31,
+          "market_yes_ask": 0.36,
+          "market_mid": 0.33499999999999996,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 22,
+            "sha256": "aaf6ea2a84214ebc5e9c5e94b6a30a0e04b9efdb945bfe214a5f88092aa446b6"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.203915358",
+            "net_shares": "13.91991613",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.203915358"
+          }
+        },
+        {
+          "condition": "0x2694ad7e8c430dc6f879e8a5c647a011a3c50c63cea1c2825067bdda51fa1259",
+          "start": 1791188100,
+          "symbol": "ETHUSDT",
+          "p_up": 0.12578829279856524,
+          "market_yes_bid": 0.137,
+          "market_yes_ask": 0.2,
+          "market_mid": 0.1685,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 23,
+            "sha256": "46cab45fb7829b2e99b5f716a37f1eddb76b4b4ca0c63ddcadb942fbdc45df31"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xb6a48f30264ae59fc862b7387f9d074f58391823b2be947de699bb7d86685bbd",
+          "start": 1791189000,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3436629656766531,
+          "market_yes_bid": 0.108,
+          "market_yes_ask": 0.136,
+          "market_mid": 0.122,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 15243,
+            "sha256": "5ecd534c37585748ec53a0ef5ec699c866552751b0f3d36b9264b38efeb8cd52"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.083667069",
+            "net_shares": "29.97122393",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.083667069"
+          }
+        },
+        {
+          "condition": "0xd4f72b21b9e1cd15b1cc407558f51d840620333742a867f0d609852964ab90c0",
+          "start": 1791189000,
+          "symbol": "ETHUSDT",
+          "p_up": 0.35377978539242527,
+          "market_yes_bid": 0.07,
+          "market_yes_ask": 0.1,
+          "market_mid": 0.085,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 15250,
+            "sha256": "1b43075cf52d2604498d729040c637d8c9122b5414f14d0ed34469220b177120"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "2.369959896",
+            "net_shares": "29.11415618",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.369959896"
+          }
+        },
+        {
+          "condition": "0x7941fc0b461401797bb31d1abe908306243970326647656234cef4a38f131e84",
+          "start": 1791189900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.29002326141128193,
+          "market_yes_bid": 0.303,
+          "market_yes_ask": 0.35,
+          "market_mid": 0.3265,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 32015,
+            "sha256": "e909d21058425c7c29cbffea384ab9eac545b6a62e5505937a5a7616438aab73"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x4472f44e3299a81b9165e1faa4e905a4d6fc1e1b834592a05674f03fe9a109de",
+          "start": 1791189900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.19642812302286056,
+          "market_yes_bid": 0.284,
+          "market_yes_ask": 0.355,
+          "market_mid": 0.3195,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11336050647,
+            "line": 32032,
+            "sha256": "e40eac919f4273ed962fe1b8627337d7e1c934459be540a2d06de0d9933ec51e"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x5fe6481895ba764413ea9418a806cad862d4d3d31f92f39e079f8021fcfb527f",
+          "start": 1791191700,
+          "symbol": "BTCUSDT",
+          "p_up": 0.12633438843772177,
+          "market_yes_bid": 0.206,
+          "market_yes_ask": 0.257,
+          "market_mid": 0.23149999999999998,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 5060,
+            "sha256": "38eca5149a27fab952d8cfebbef2d8dc06c09af09078e52f46a906121b8c267e"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "9.686760316",
+            "net_shares": "11.78940716",
+            "payout_usdc": "11.78940716",
+            "pnl_usdc": "2.102646844"
+          }
+        },
+        {
+          "condition": "0x57df0595e3a265beda48d690db7af9681bb90a30970da2d94e2dffe60392fe39",
+          "start": 1791191700,
+          "symbol": "ETHUSDT",
+          "p_up": 0.5963617282202888,
+          "market_yes_bid": 0.795,
+          "market_yes_ask": 0.844,
+          "market_mid": 0.8195,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 5063,
+            "sha256": "19d28dd08bc10129351db2d8fc819eff16fe0bfb860155ab44de0572c8d8e807"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xeb93dd019d163252fea684299ac4570f2e44fb3703d371c2efde52b6ebe440e3",
+          "start": 1791193500,
+          "symbol": "BTCUSDT",
+          "p_up": 0.5996010637748239,
+          "market_yes_bid": 0.755,
+          "market_yes_ask": 0.806,
+          "market_mid": 0.7805,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 33776,
+            "sha256": "b54cfd412ecce64351cdf8a8e8ce03b30d7b23004808c46852ba4d922f15e682"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.285226254",
+            "net_shares": "25.72434374",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.285226254"
+          }
+        },
+        {
+          "condition": "0x12e5473377b33c37a91dbd2742d274a3ecc0fe81c8e15704ee8818d7028aba16",
+          "start": 1791193500,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6205372791303956,
+          "market_yes_bid": 0.745,
+          "market_yes_ask": 0.797,
+          "market_mid": 0.771,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 33786,
+            "sha256": "ce00b6cc7ab909526fdd8fa7ec35e8fc3b1beaca5dae75b634d7afded0326e8e"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.911834345",
+            "net_shares": "27.14364095",
+            "payout_usdc": "27.14364095",
+            "pnl_usdc": "20.231806605"
+          }
+        },
+        {
+          "condition": "0x92655dd8545bc401323e2e8120c5654243d441c9f589213de767b44527bc147d",
+          "start": 1791194400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7313722322325772,
+          "market_yes_bid": 0.879,
+          "market_yes_ask": 0.92,
+          "market_mid": 0.8995,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 47150,
+            "sha256": "d4c6008b03c9fd4acfb3c5167dd511a0ab9e50d6814e75d7091acc36d204c1ae"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.309835174",
+            "net_shares": "38.34302039",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.309835174"
+          }
+        },
+        {
+          "condition": "0x31e10e09c30394750eb17f26a7a8430aae759f993d4d16852cd7dd4ac7263a81",
+          "start": 1791194400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6207554931195172,
+          "market_yes_bid": 0.837,
+          "market_yes_ask": 0.882,
+          "market_mid": 0.8594999999999999,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11338900983,
+            "line": 47154,
+            "sha256": "63522407bda88a44b0b0db3243068880b57bf02224ad51fe1e6a20f02b93b213"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.272456100",
+            "net_shares": "27.15925892",
+            "payout_usdc": "27.15925892",
+            "pnl_usdc": "20.886802820"
+          }
+        },
+        {
+          "condition": "0x7a4dc2a07374154dddfb01388b728408e810de06df7c07b97bf5391e70eb19d1",
+          "start": 1791195300,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7524892326374509,
+          "market_yes_bid": 0.528,
+          "market_yes_ask": 0.582,
+          "market_mid": 0.5549999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 8733,
+            "sha256": "2c368d61304da87cc56f0ebbbf79008892f877a3560ac2b7729754448cb07cb1"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x6aa9f8b5be029dd5a9b221803177932efa590fc28bbfd718fd5fb1868ecbb892",
+          "start": 1791195300,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6963325575784554,
+          "market_yes_bid": 0.528,
+          "market_yes_ask": 0.585,
+          "market_mid": 0.5565,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 8739,
+            "sha256": "1a08c8bb1c0be57083db752c9fd7c712567e668be19eecd09a3a8d73e9bf6f42"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0xecb6110daf537a653110a3c09ee9f280029f83a2fcdadfa8aaf6a48d3d434a54",
+          "start": 1791196200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.4307451128519339,
+          "market_yes_bid": 0.246,
+          "market_yes_ask": 0.298,
+          "market_mid": 0.272,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 25863,
+            "sha256": "81e8f22922217fcda78082165b0ead0650f2e9ab43dc5e94481a59237f327bcf"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.314030175",
+            "net_shares": "23.91205297",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.314030175"
+          }
+        },
+        {
+          "condition": "0xb2f4924ca6460c444ba2aa3a3578a4d7db5655efef5b2c03b21351c1d57d532b",
+          "start": 1791196200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.06657113455687941,
+          "market_yes_bid": 0.001,
+          "market_yes_ask": 0.047,
+          "market_mid": 0.024,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 25869,
+            "sha256": "ec8a45a9af4097f27380f4130f7a20b0aa16d0f5bc932572e89399a66d6150c3"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x0b6365cf2839946bffa6700ceecb4ae3e618b7623ef0d3f813773de4df59c941",
+          "start": 1791197100,
+          "symbol": "BTCUSDT",
+          "p_up": 0.7725961575980764,
+          "market_yes_bid": 0.795,
+          "market_yes_ask": 0.83,
+          "market_mid": 0.8125,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 42109,
+            "sha256": "f295be72aaabf5ad68eccded259cc97c59e82c4e57cb2a53b2a6919022eef2e9"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x59a96b0c69be1d337dfd70d7d840236c20786c0f4ac47b3b38ac361c66b67b23",
+          "start": 1791197100,
+          "symbol": "ETHUSDT",
+          "p_up": 0.6871423434288495,
+          "market_yes_bid": 0.763,
+          "market_yes_ask": 0.815,
+          "market_mid": 0.7889999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 42122,
+            "sha256": "f12652c5d7f8f55c762720fca8c60f2b28c19dced9c29bdce61fa7cada12ca07"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.969572024",
+            "net_shares": "32.92231992",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.969572024"
+          }
+        },
+        {
+          "condition": "0xf0300734901ef0c6449fdef642d29732660dd5c22f8dfd1ef27f23f5d8caca43",
+          "start": 1791198000,
+          "symbol": "ETHUSDT",
+          "p_up": 0.06559417664872913,
+          "market_yes_bid": 0.08,
+          "market_yes_ask": 0.119,
+          "market_mid": 0.0995,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11340867547,
+            "line": 53525,
+            "sha256": "ea6a35de26496bd7ded3d362a9db4c52378e09aa5fc125fe89e1c0f79dc8ca48"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x608bb17e29d8651e2a339bd799ed2ee7d6dbdb58ec55d83435cc6bde44f57c98",
+          "start": 1791198900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.8390102843884111,
+          "market_yes_bid": 0.785,
+          "market_yes_ask": 0.825,
+          "market_mid": 0.8049999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11344077412,
+            "line": 12226,
+            "sha256": "efc2fc81280ea89da180748018af0a0a118175420d2b03b2f6df5ad85adc5521"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xa7220b6c73c922cfea2d731ec5fe568237103bd3625b78f39bb8b81c1965250e",
+          "start": 1791198900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.8203306090320367,
+          "market_yes_bid": 0.745,
+          "market_yes_ask": 0.797,
+          "market_mid": 0.771,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11344077412,
+            "line": 12233,
+            "sha256": "c67c816f6d9b392281816e8aa1d9a2c11162a76113f9ecc8b9ade3adb5cb44c9"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x29bf84c510089a593f8fa46c6bc977880071345cd34747de062f0d583a1d149a",
+          "start": 1791199800,
+          "symbol": "BTCUSDT",
+          "p_up": 0.1058955656443395,
+          "market_yes_bid": 0.165,
+          "market_yes_ask": 0.205,
+          "market_mid": 0.185,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11344077412,
+            "line": 29956,
+            "sha256": "9d10dc413fbc97e4a3d73f0993aeb60634e254872fb95781de0a8acdbfa4184c"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0x052a105b86abb94200210986076d223273589e391b1565314c972f097f1741a6",
+          "start": 1791199800,
+          "symbol": "ETHUSDT",
+          "p_up": 0.14091916601866822,
+          "market_yes_bid": 0.184,
+          "market_yes_ask": 0.225,
+          "market_mid": 0.20450000000000002,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11344077412,
+            "line": 29961,
+            "sha256": "74e73d246dd30ee123e10937100fcf754987a7bd1d6151ce881e02a7c08230c3"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x4b351253deb77714cdf582fd6b62eced2ed0f05cbcb51c923bba712d0e52d2f6",
+          "start": 1791200700,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3519116623492947,
+          "market_yes_bid": 0.3,
+          "market_yes_ask": 0.35,
+          "market_mid": 0.32499999999999996,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11344077412,
+            "line": 45250,
+            "sha256": "ae3b94737b589525cf9a199e33f9d73d8450a7586889a95b828f7eb32281347f"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x7cc5c813bdaaa5e7b3d04308a30f2015a21b4d0d90e13ac121db11dfe380bdff",
+          "start": 1791203400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.15404280817711968,
+          "market_yes_bid": 0.049,
+          "market_yes_ask": 0.079,
+          "market_mid": 0.064,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11345709904,
+            "line": 27786,
+            "sha256": "98cc3a99736266774a51ce8db1569b8ad53952280ea856ec254742032f0680da"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.036017795",
+            "net_shares": "66.86452985",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.036017795"
+          }
+        },
+        {
+          "condition": "0xa9749fbbcebd6e05fddf9125c7401d157e438c25fe85e1f8588a1e02983cc67a",
+          "start": 1791203400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.2265555369285464,
+          "market_yes_bid": 0.053,
+          "market_yes_ask": 0.119,
+          "market_mid": 0.086,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11345709904,
+            "line": 27795,
+            "sha256": "3a65a0cb78925752a83241542438746f7e2d5f9c0241ac17021e58a6dfb09043"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.951973272",
+            "net_shares": "45.46346544",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.951973272"
+          }
+        },
+        {
+          "condition": "0xeac9e2b3c3bcd9bdb0d822d6e82e3f9631925eef6ad198241e33ad97ae2588b2",
+          "start": 1791207900,
+          "symbol": "BTCUSDT",
+          "p_up": 0.9878928598104939,
+          "market_yes_bid": 0.962,
+          "market_yes_ask": 0.999,
+          "market_mid": 0.9804999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11349836430,
+            "line": 51735,
+            "sha256": "097789d2a36290d53f736430221caacaacbc713ba2f39a78f56c219b598bae5a"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xa5596cba1c058d96438e0b603b9a91f83ffad387dd07862e63bfc01865bfe07d",
+          "start": 1791207900,
+          "symbol": "ETHUSDT",
+          "p_up": 0.9690174556923888,
+          "market_yes_bid": 0.932,
+          "market_yes_ask": 0.967,
+          "market_mid": 0.9495,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11349836430,
+            "line": 51745,
+            "sha256": "6794fd181a19e58365b325bb2abd6b1c6a1de0c515fcde7e077c253df7e037aa"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x9fb5f7a9fb413c56695b51bf966c6478edfea278307a8a8c7bba72a18e9bbe0d",
+          "start": 1791208800,
+          "symbol": "BTCUSDT",
+          "p_up": 0.38424923303717445,
+          "market_yes_bid": 0.841,
+          "market_yes_ask": 0.882,
+          "market_mid": 0.8614999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11352548629,
+            "line": 9903,
+            "sha256": "c0ffc54be12701e7b2af6f9854f8fea78a9040e38b4d7c60b8804c354a8f1468"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "1.782360872",
+            "net_shares": "16.72754621",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.782360872"
+          }
+        },
+        {
+          "condition": "0x5116e8adf5dbe808d18ffd257bbb30fc2c35bf11252fafc4a9ffb20595251e9e",
+          "start": 1791208800,
+          "symbol": "ETHUSDT",
+          "p_up": 0.26703171857234953,
+          "market_yes_bid": 0.717,
+          "market_yes_ask": 0.777,
+          "market_mid": 0.747,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11352548629,
+            "line": 9910,
+            "sha256": "67d2849741248759df53c2e319570e193d62e6bec81f1b8939eeff5a25e01489"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.824976895",
+            "net_shares": "14.05244917",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.824976895"
+          }
+        },
+        {
+          "condition": "0x3ded6a846f9100f9128ff0a9acf1408ddede9271eebb69c239a879ad291bd58b",
+          "start": 1791210600,
+          "symbol": "BTCUSDT",
+          "p_up": 0.000333714084203407,
+          "market_yes_bid": 0.001,
+          "market_yes_ask": 0.03,
+          "market_mid": 0.0155,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11352548629,
+            "line": 39888,
+            "sha256": "d4936d5085283485a0ad373f0c21a94f03a2f096904b6ad52e5808f4dcbdcfc2"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x72da83070eb099ceab9523f9d30d3aec16b52eee668b6a7b6da76f0cc766ae5d",
+          "start": 1791210600,
+          "symbol": "ETHUSDT",
+          "p_up": 0.0022430104975490472,
+          "market_yes_bid": 0.001,
+          "market_yes_ask": 0.033,
+          "market_mid": 0.017,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11352548629,
+            "line": 39893,
+            "sha256": "4688ec484e3d897acf52684e1ff95aa7940c1212309244b6e6b0a1e93327c0e0"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x7c2496634f2765d615f4d55fbee3b7cd1f8316634ec10b6b431eb4dcbc7a5275",
+          "start": 1791211500,
+          "symbol": "BTCUSDT",
+          "p_up": 0.2260408587638062,
+          "market_yes_bid": 0.037,
+          "market_yes_ask": 0.069,
+          "market_mid": 0.053000000000000005,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 1890,
+            "sha256": "d38e4affe31564e767105b569591cac87a561e405c28d21ec465f88f73f5f026"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "5.261342352",
+            "net_shares": "45.56698287",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-5.261342352"
+          }
+        },
+        {
+          "condition": "0x108fe45094e07d58b10376ae80d1803facaeb3dcfe4d6249ee3877a45876b550",
+          "start": 1791211500,
+          "symbol": "ETHUSDT",
+          "p_up": 0.4050842631116905,
+          "market_yes_bid": 0.184,
+          "market_yes_ask": 0.226,
+          "market_mid": 0.20500000000000002,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 1899,
+            "sha256": "dbf43d031520887dea1bc3a7c1f04fd52361a390ed0b97b99edc05a7240736bd"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "7.713747996",
+            "net_shares": "25.42680788",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.713747996"
+          }
+        },
+        {
+          "condition": "0x9c1714245061352d92f22e2e2c8c23ae7d2341dac7ea548ad53de7fc0aededb7",
+          "start": 1791212400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.42795943456046387,
+          "market_yes_bid": 0.379,
+          "market_yes_ask": 0.425,
+          "market_mid": 0.402,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 15704,
+            "sha256": "7ad2d7dc6d04329bf22a166b2bf4f02c7420d8e8a7ad4b9705cefb4ba3acbff2"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xecdc921cad122d6b2530c33c86892b4fb4c9d38a893a51d242dd257944a8acc3",
+          "start": 1791212400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.42207466551966666,
+          "market_yes_bid": 0.418,
+          "market_yes_ask": 0.495,
+          "market_mid": 0.4565,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 15711,
+            "sha256": "fb7f3488f9b56cf2cc234429768f80d705736dfc09d948e10a3be30bbcc9d6ed"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x0985307b08a0862fe169cc88b9fba8de010b1152e5785a589c7f54b34cac6f44",
+          "start": 1791213300,
+          "symbol": "BTCUSDT",
+          "p_up": 0.48491798929474894,
+          "market_yes_bid": 0.3,
+          "market_yes_ask": 0.35,
+          "market_mid": 0.32499999999999996,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 32727,
+            "sha256": "c4b48e0cf51882778dd47665249ea4e87604d418b1ae2d6b943d6e8b6884da3b"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xe45ca7677c461cb96fa8a4611a29a3d0ecc3d0a8502c0306cdfaab57d2d73528",
+          "start": 1791213300,
+          "symbol": "ETHUSDT",
+          "p_up": 0.5663810754562311,
+          "market_yes_bid": 0.385,
+          "market_yes_ask": 0.445,
+          "market_mid": 0.41500000000000004,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 32736,
+            "sha256": "f70d4eca6a9976eee4e606a44fdf9f4a9f4a6d5d31e3138f81e2b47267695765"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0x46da56ea769929824b6a21d774d4478849e735f66678825195569e9f111a643a",
+          "start": 1791214200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.2607236165175389,
+          "market_yes_bid": 0.061,
+          "market_yes_ask": 0.09,
+          "market_mid": 0.0755,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 50190,
+            "sha256": "250b9e55fe5bbe4bd7021330d25833b4f97ecb1450cfc4c45366ae8196783aec"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xeccf29374e47c98dcc35821ebca5c77a7507b1836201a31e1ef19ac7c94bf909",
+          "start": 1791214200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.27422543559919427,
+          "market_yes_bid": 0.165,
+          "market_yes_ask": 0.225,
+          "market_mid": 0.195,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11356137271,
+            "line": 50197,
+            "sha256": "909966cf08188f30bc7ba0360d974c7f2f2c1fbf74eb858e15c2890d1fbcf414"
+          },
+          "model_account": {
+            "status": "SKIP",
+            "reason": "NO_FULL_DELAYED_DEPTH"
+          }
+        },
+        {
+          "condition": "0xddd8434b8f4d08183bb8a686392e90595daf2787d75c58cce2c4939d7d5d766c",
+          "start": 1791215100,
+          "symbol": "BTCUSDT",
+          "p_up": 0.4244049905307647,
+          "market_yes_bid": 0.369,
+          "market_yes_ask": 0.421,
+          "market_mid": 0.395,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11359620308,
+            "line": 8872,
+            "sha256": "a17a435771e4021b9057d54bb426b403cdf9234271699d4778903b88519d03bd"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0xe531fdc03b502b9f2a357f40dba47e2e900f01b0b31969f3e2365610be3e0a1d",
+          "start": 1791215100,
+          "symbol": "ETHUSDT",
+          "p_up": 0.33340543112143983,
+          "market_yes_bid": 0.184,
+          "market_yes_ask": 0.25,
+          "market_mid": 0.217,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11359620308,
+            "line": 8883,
+            "sha256": "64f0c7daf0e3780e816abea9f4642cbd0aa6cb038a4576be167bd64c0b51e221"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xc7aba1028c76d240b2da474a773cf55875a35d40fb6157cf9e88b610c1e7c67c",
+          "start": 1791218700,
+          "symbol": "BTCUSDT",
+          "p_up": 0.680264265546468,
+          "market_yes_bid": 0.93,
+          "market_yes_ask": 0.958,
+          "market_mid": 0.944,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11361428049,
+            "line": 9499,
+            "sha256": "dc943d37dbc3f266534d2a267fd324dc97b696b200f68baf3768af9414b8ab22"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.385773880",
+            "net_shares": "32.21410255",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.385773880"
+          }
+        },
+        {
+          "condition": "0xebe9360335ab66edd908629da307f90700a125e104bf0e1b35d5a979503e3db6",
+          "start": 1791218700,
+          "symbol": "ETHUSDT",
+          "p_up": 0.7740110793289781,
+          "market_yes_bid": 0.954,
+          "market_yes_ask": 0.987,
+          "market_mid": 0.9704999999999999,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11361428049,
+            "line": 9515,
+            "sha256": "833e39f90b1d2c1b9627f7f2f92532751d10433f55618b7ee421cab11df6e634"
+          },
+          "model_account": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "1.738521479",
+            "net_shares": "45.57745499",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.738521479"
+          }
+        },
+        {
+          "condition": "0x65522b80bfb0b3e3ab2fece3b857b071ff120b4b88cdf1fabeba1ed73cb797d7",
+          "start": 1791220500,
+          "symbol": "ETHUSDT",
+          "p_up": 0.7037633632622287,
+          "market_yes_bid": 0.859,
+          "market_yes_ask": 0.911,
+          "market_mid": 0.885,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11361428049,
+            "line": 37280,
+            "sha256": "08eeaad408dabc3a54d109478ba31d893ce7cf705065d1d04cb994d1f0b2f319"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xae00fa156c1f5a8d4aea76e32a091ee36539eef9c8e46549afd991e699579b5a",
+          "start": 1791221400,
+          "symbol": "BTCUSDT",
+          "p_up": 0.3140409182926567,
+          "market_yes_bid": 0.118,
+          "market_yes_ask": 0.16,
+          "market_mid": 0.139,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11364617509,
+            "line": 1365,
+            "sha256": "3aa7e9fc53df6d20361eaba3cb0f071c3016097f21a4cd18557036d1bfce616d"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0x8791d7046b65717964715b8b8b3f0099cbc6aadb1daef2684638c7f6429032bc",
+          "start": 1791221400,
+          "symbol": "ETHUSDT",
+          "p_up": 0.40348161725160536,
+          "market_yes_bid": 0.149,
+          "market_yes_ask": 0.205,
+          "market_mid": 0.177,
+          "outcome_yes": 0,
+          "decision_book": {
+            "artifact": 11364617509,
+            "line": 1376,
+            "sha256": "7bf3fde58182c96b8bbaa7492046a97d5c5bf514385bb2da497099ff70307d02"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "INSUFFICIENT_CASH"
+          }
+        },
+        {
+          "condition": "0xe080f8d714941acab14f5da38f9f0979d216d84dfe71a21cee9391262b4f91ab",
+          "start": 1791223200,
+          "symbol": "BTCUSDT",
+          "p_up": 0.24954897150906963,
+          "market_yes_bid": 0.232,
+          "market_yes_ask": 0.285,
+          "market_mid": 0.2585,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11364617509,
+            "line": 27501,
+            "sha256": "a0ca718b6e3c8b73a546a22ea2e52dcb005ada368d3c025ec92db5f4f9fe1f7c"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        },
+        {
+          "condition": "0x1267d75381deed6183a674daf2be8ffa33900ee23a8123231ca5a134e4be0b0f",
+          "start": 1791223200,
+          "symbol": "ETHUSDT",
+          "p_up": 0.5529207862267601,
+          "market_yes_bid": 0.548,
+          "market_yes_ask": 0.611,
+          "market_mid": 0.5795,
+          "outcome_yes": 1,
+          "decision_book": {
+            "artifact": 11364617509,
+            "line": 27507,
+            "sha256": "b3e9c423c93056d91d3db4555400b367763703232ad66f7baaac9f509d5ac605"
+          },
+          "model_account": {
+            "status": "NO_TRADE",
+            "reason": "NO_EXECUTABLE_EDGE"
+          }
+        }
+      ]
+    }
   },
   "hourly": {
     "standalone_discovery": {
-      "conditions_seen": 108,
-      "decision_conditions": 100,
-      "hour_clusters": 54,
-      "scored_conditions": 98,
-      "brier_model": 0.2097084769445493,
+      "conditions_seen": 110,
+      "decision_conditions": 102,
+      "hour_clusters": 55,
+      "scored_conditions": 100,
+      "brier_model": 0.20789455787939423,
       "brier_50": 0.25,
       "skips": {
         "MISSED_DECISION_WINDOW": 8
@@ -2649,28 +4526,27 @@
       "variants": {
         "model": {
           "states": {
-            "NO_TRADE": 79,
-            "SETTLED": 17,
-            "SKIP": 2,
-            "FILLED": 2
+            "NO_TRADE": 81,
+            "SETTLED": 19,
+            "SKIP": 2
           },
-          "settled_trades": 17,
-          "net_pnl_usdc": 40.792076959999996,
-          "settled_cost_usdc": 148.29292237,
-          "net_return_on_spent": 0.2750777063939791,
-          "mean_pnl_per_settled_trade": 2.399533938823529
+          "settled_trades": 19,
+          "net_pnl_usdc": 23.085530853999995,
+          "settled_cost_usdc": 165.999468476,
+          "net_return_on_spent": 0.1390699082710477,
+          "mean_pnl_per_settled_trade": 1.2150279396842103
         },
         "constant50": {
           "states": {
-            "SETTLED": 85,
+            "SETTLED": 87,
             "NO_TRADE": 13,
             "FILLED": 2
           },
-          "settled_trades": 85,
-          "net_pnl_usdc": 43.025518727999994,
-          "settled_cost_usdc": 471.974471522,
-          "net_return_on_spent": 0.09116069051203855,
-          "mean_pnl_per_settled_trade": 0.5061825732705881
+          "settled_trades": 87,
+          "net_pnl_usdc": 30.839230300999997,
+          "settled_cost_usdc": 484.160759949,
+          "net_return_on_spent": 0.0636962613497395,
+          "mean_pnl_per_settled_trade": 0.3544739115057471
         }
       },
       "feasibility": "INSUFFICIENT_DATA"
@@ -2679,12 +4555,12 @@
       "started_at": 1791058984.920855,
       "initial_capital": "100",
       "cash": "80.397812803",
-      "open_cost_basis": "17.706546106",
-      "realized_pnl": "-1.895641091",
+      "open_cost_basis": "0",
+      "realized_pnl": "-19.602187197",
       "positions": 17,
-      "settled_positions": 15,
-      "seed_hold_settled_pnl": "-1.895641091",
-      "managed_settled_pnl": "-1.895641091"
+      "settled_positions": 17,
+      "seed_hold_settled_pnl": "-19.602187197",
+      "managed_settled_pnl": "-19.602187197"
     },
     "settled_model_trades": [
       {
@@ -2788,6 +4664,16 @@
         "pnl": "-7.349374809"
       },
       {
+        "condition": "0xeed3f1f85fab89c71eed5c088d793dce1442694ed26dd5a22aaf3cc1a7c4ff5e",
+        "hour_start": 1791219600,
+        "symbol": "ETHUSDT",
+        "side": "NO",
+        "p_up": 0.6937692715578231,
+        "cost": "7.919304720",
+        "gross_shares": "34.675020",
+        "pnl": "-7.919304720"
+      },
+      {
         "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
         "hour_start": 1791208800,
         "symbol": "BTCUSDT",
@@ -2856,12 +4742,20 @@
         "cost": "9.437170748",
         "gross_shares": "59.836407",
         "pnl": "-9.437170748"
+      },
+      {
+        "condition": "0x80c429806ba47b2fc4e56eb7be743d5ba5a3ac1d614e4c63923af5a68ec26f2c",
+        "hour_start": 1791219600,
+        "symbol": "BTCUSDT",
+        "side": "NO",
+        "p_up": 0.6202003313174609,
+        "cost": "9.787241386",
+        "gross_shares": "27.958309",
+        "pnl": "-9.787241386"
       }
     ],
     "top_two_pnl": "86.225710232",
-    "excluding_top_two_pnl": "-45.433633272",
-    "gross_shares": "511.240710"
-  },
-  "first_attempt_independently_verified_conditions": 50,
-  "first_attempt_selected_rows_verified": 150
+    "excluding_top_two_pnl": "-63.140179378",
+    "gross_shares": "573.874039"
+  }
 }
