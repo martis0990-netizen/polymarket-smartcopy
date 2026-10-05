@@ -198,9 +198,15 @@ def analyze(manifest):
         raise ValueError('raw decision coverage missing: ' + json.dumps(missing))
     base = replay('frozen', rows, episodes, markets, {r['condition']: books[r['condition']][0] for r in rows}, events)
     alt = replay('ewma30', rows, episodes, markets, {r['condition']: books[r['condition']][0] for r in rows}, events)
+    funding_skips = 0
     for row in base['rows']:
         a = episodes[row['condition']]['variants']['model']
         if row['status'] != a['status']:
+            # The legacy source strategy has no funded account. A separate
+            # 100-USDC replay can refuse a source fill for insufficient cash.
+            if row.get('reason') == 'INSUFFICIENT_CASH' and a['status'] in ('FILLED', 'SETTLED'):
+                funding_skips += 1
+                continue
             raise ValueError('frozen action mismatch: ' + row['condition'] + ' ' + row['status'] + ' ' + a['status'])
         if row['status'] == 'SETTLED' and (D(row['cost_usdc']) != D(a['cost_usdc'])
                                            or D(row['pnl_usdc']) != D(a['pnl_usdc'])):
@@ -208,7 +214,9 @@ def analyze(manifest):
     return {'schema': 'limitless-hourly-ewma30-all-raw-decisions-shadow-v1',
             'status': 'RETROSPECTIVE_ONLY', 'source_archives': source_archives,
             'state_artifact': source_archives[-1]['artifact'], 'decisions': len(rows),
-            'frozen_exact_reproduction': len(rows), 'frozen': base, 'ewma30': alt}
+            'frozen_exact_reproduction': len(rows) - funding_skips,
+            **({'frozen_funding_skips': funding_skips} if funding_skips else {}),
+            'frozen': base, 'ewma30': alt}
 
 
 if __name__ == '__main__':
