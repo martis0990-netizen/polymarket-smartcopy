@@ -4756,6 +4756,39 @@
     ],
     "top_two_pnl": "86.225710232",
     "excluding_top_two_pnl": "-63.140179378",
-    "gross_shares": "573.874039"
+    "gross_shares": "573.874039",
+    "official_event_shadow": {
+      "event": "September 2026 ISM Services PMI",
+      "announced_release_at_utc": "2026-10-05T14:00:00Z",
+      "primary_schedule_url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/august/",
+      "timing_note": "10:00 ET October 5 is 14:00 UTC during EDT",
+      "rows": [
+        {
+          "hour_start_utc": "2026-10-05T13:00:00Z",
+          "asset": "BTC",
+          "decision_minutes_from_release": -29.88,
+          "pnl_usdc": "2.981648120"
+        },
+        {
+          "hour_start_utc": "2026-10-05T13:00:00Z",
+          "asset": "ETH",
+          "decision_minutes_from_release": -29.87,
+          "pnl_usdc": "1.741584741"
+        },
+        {
+          "hour_start_utc": "2026-10-05T14:00:00Z",
+          "asset": "BTC",
+          "decision_minutes_from_release": 30.09,
+          "pnl_usdc": "-8.027763712"
+        },
+        {
+          "hour_start_utc": "2026-10-05T14:00:00Z",
+          "asset": "ETH",
+          "decision_minutes_from_release": 30.09,
+          "status": "NO_TRADE"
+        }
+      ],
+      "interpretation": "Retrospective time alignment only; no causal effect or 3-star taxonomy inferred"
+    }
   }
 }
