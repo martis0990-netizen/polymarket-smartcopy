@@ -15,7 +15,10 @@ def main():
     args = parser.parse_args()
     data = args.shadow_pnl.read_bytes()
     shadow = json.loads(data)
-    if shadow["schema"] != "limitless-hourly-ewma30-frozen-cohort-shadow-pnl-v1":
+    if shadow["schema"] not in (
+        "limitless-hourly-ewma30-frozen-cohort-shadow-pnl-v1",
+        "limitless-hourly-ewma30-all-raw-decisions-shadow-v1",
+    ):
         raise ValueError("unexpected shadow source")
 
     # The pre-published ISM release was 14:00 UTC 2026-10-05. The previous
@@ -23,10 +26,12 @@ def main():
     # This is an hour-bucket scenario, not an installed blackout rule.
     excluded_hours = {"2026-10-05T13", "2026-10-05T14"}
     output = {
-        "schema": "limitless-hourly-ewma30-ism-hour-overlay-v1",
+        "schema": ("limitless-hourly-ewma30-all-ism-hour-overlay-v1"
+                   if shadow["schema"] == "limitless-hourly-ewma30-all-raw-decisions-shadow-v1"
+                   else "limitless-hourly-ewma30-ism-hour-overlay-v1"),
         "input_sha256": hashlib.sha256(data).hexdigest(),
         "input_schema": shadow["schema"],
-        "scope": shadow["scope"],
+        "scope": shadow.get("scope", "all raw-reconciled hourly decisions"),
         "event": {
             "name": "ISM Services PMI September 2026",
             "scheduled_at": "2026-10-05T14:00:00Z",
@@ -39,7 +44,7 @@ def main():
     for name in ("frozen", "ewma30"):
         variant = shadow[name]
         rows = variant["rows"]
-        assert len(rows) == shadow["baseline_exact_action_reproduction"]
+        assert len(rows) == shadow.get("baseline_exact_action_reproduction", shadow.get("decisions"))
         affected = []
         for row in rows:
             hour = dt.datetime.fromtimestamp(row["decision_at"], dt.timezone.utc).strftime("%Y-%m-%dT%H")
