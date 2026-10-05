@@ -1,0 +1,2864 @@
+{
+  "schema": "limitless-offline-check-2026-10-05-v1",
+  "as_of_utc": "2026-10-05T17:35:30Z",
+  "latest_main_run": 37342610834,
+  "latest_artifact": 11361428049,
+  "latest_zip_sha256": "ba0a797fe7d4d1b8dafeb6e2f616bf22412b6446341872ef2a60f5c26e14f113",
+  "source_archives": [
+    {
+      "run": 37210772462,
+      "artifact": 11306859808,
+      "sha256": "5c8966af186c370f541a42eb3af0943dd8fe9a2c52606568c422e0202b4e0b5f",
+      "state_sha256": "450698b9ce0e8db86583dd59e5aeea50d3855c938177e9066634f0ddb4ff3bdf",
+      "summary_sha256": "38b0a3a33465bf67ac95b72251baa618bcb3e391bed4e342956aed5beba7a1dc",
+      "started_at": "2026-10-04T14:51:08.064683+00:00",
+      "ended_at": "2026-10-04T15:46:08.212197+00:00"
+    },
+    {
+      "run": 37214242349,
+      "artifact": 11308499615,
+      "sha256": "2e09ecaf97d68afdf24446afdd9d3233235767fc77719f94242fd09aa52259b6",
+      "state_sha256": "b093b55ecbe51bb9698ab602a49953b1dd5ef970d2a7f25e0cf82513197be8f8",
+      "summary_sha256": "9e14fc4fba68c5fec6230d1370b1c6240ee2b7ec38d55f941a0c8720e9c0f77b",
+      "started_at": "2026-10-04T15:46:28.659029+00:00",
+      "ended_at": "2026-10-04T16:41:28.803122+00:00"
+    },
+    {
+      "run": 37217704573,
+      "artifact": 11309924573,
+      "sha256": "556dc05cdc36fcb505dc304a5d4ea8e4e164479e194dc46ca48faea4bbafaeb7",
+      "state_sha256": "ef1f781b18c4a051b6c1c06ed674d3afa98c3e566893b6b30b9ba418ee0c8100",
+      "summary_sha256": "8f2a834386dee601ce2d21a92e96a5c0bc5e5e633cb0b70c9ec05f87370c1b93",
+      "started_at": "2026-10-04T16:41:51.772923+00:00",
+      "ended_at": "2026-10-04T17:36:52.383090+00:00"
+    },
+    {
+      "run": 37221185940,
+      "artifact": 11311113181,
+      "sha256": "ffb66776f4aefddbc9ebcec46ada5da0fd0564086531f8601ae7129d4632104e",
+      "state_sha256": "925ba492cf173e855b388ddc8f69fe040a674905f6e19c572828c1cce9ed9030",
+      "summary_sha256": "3bf11bbcd7d4cc795c4f988ccbe9d50fa6a3e4c804916015509bd05ae3c4b6d5",
+      "started_at": "2026-10-04T17:37:10.619738+00:00",
+      "ended_at": "2026-10-04T18:32:10.764492+00:00"
+    },
+    {
+      "run": 37224818632,
+      "artifact": 11312467158,
+      "sha256": "336c6eedee34713d0413f2c7eb4b3a97f16d36f54a8c1b820ad1e08d9dc8c002",
+      "state_sha256": "4ce54ea4beb3a2991446f6651ffc527d90bdb178d8911e158b114d076c0775ca",
+      "summary_sha256": "005ba0d0679f551b671e6f2bcb105420a25a1c147aeac1e6426778e5ce4be62a",
+      "started_at": "2026-10-04T18:32:29.871713+00:00",
+      "ended_at": "2026-10-04T19:27:30.026395+00:00"
+    },
+    {
+      "run": 37228344962,
+      "artifact": 11313543428,
+      "sha256": "7cd90ddb5ed632bc6eb0ac54f365b5f7b4a509780d3a23748104dac0e2a0d545",
+      "state_sha256": "b64d3aa9781ecbcfcc8a15f490f037290a1089278fe5fc470e5f0661b941962a",
+      "summary_sha256": "770eefd39442d5f9d1098435d631542f326c5af973f7862f173233bc1acdea1e",
+      "started_at": "2026-10-04T19:27:47.845987+00:00",
+      "ended_at": "2026-10-04T20:22:47.992801+00:00"
+    },
+    {
+      "run": 37231867228,
+      "artifact": 11315113546,
+      "sha256": "bb221caab3d4c662ddcb3ed7aabc411bd20868dd53c8d9870a3437243481cb05",
+      "state_sha256": "e155039338c3556422911ebe4f2671d3cf4ebfead14e0622567331d3721c4423",
+      "summary_sha256": "9ccc0aefb3728171625969bc05c291baafe560d058860daa69d38b06c6ec4b34",
+      "started_at": "2026-10-04T20:23:05.076017+00:00",
+      "ended_at": "2026-10-04T21:18:05.217878+00:00"
+    },
+    {
+      "run": 37235540585,
+      "artifact": 11316855831,
+      "sha256": "2f20bfe7fd5e6ca3602a45c1ded44ceb477b8057fe5d40f50d5ed93f0aadd63b",
+      "state_sha256": "1d2beb1ae2d8542cc8cb962df5dea64888d6c041239f2e8e6fb9ca152475908d",
+      "summary_sha256": "61883ec9908f6ee56a5c1b0859d9f29142e55f9a9c50e526a6f37817f959c7b4",
+      "started_at": "2026-10-04T21:18:24.964335+00:00",
+      "ended_at": "2026-10-04T22:13:25.117025+00:00"
+    },
+    {
+      "run": 37239193650,
+      "artifact": 11318380130,
+      "sha256": "964bc112dbf78e910cb0eba11ec0c99b2c64be1f50a9773c89b31584b2dd4282",
+      "state_sha256": "ad5381e0126d8747cc93ce59c8558075bce18275fec70a2c15287a550b9350ff",
+      "summary_sha256": "e12184fc6a225dd32f6e5bbc37ad445dd3d17cf8257fae529a9c319fb642e7d0",
+      "started_at": "2026-10-04T22:13:45.443167+00:00",
+      "ended_at": "2026-10-04T23:08:45.598262+00:00"
+    },
+    {
+      "run": 37242684772,
+      "artifact": 11319191845,
+      "sha256": "e0b64bd98261b9b4fa3ccc1e30ed1879a53795f746f443668b5e1c3644a4eb13",
+      "state_sha256": "f8d22cf14e01da224bacb8855c25dc9c264caf77191add216f9e4a443dbe3455",
+      "summary_sha256": "9f8d2f5ce2af2b4563176aa2897cdf4ee18be25b8eae5ff253af38c9ceb0c712",
+      "started_at": "2026-10-04T23:09:03.457255+00:00",
+      "ended_at": "2026-10-05T00:04:03.665475+00:00"
+    },
+    {
+      "run": 37246016706,
+      "artifact": 11320990439,
+      "sha256": "c7d42b832333b1df077b9c7529b77cfb970332ab30d6ce5aaa4c3b3ad6dbf53d",
+      "state_sha256": "2b3365b3646dcdcb7f425972c4a945844a41bcd8dc529d756dff37d31d758482",
+      "summary_sha256": "ab5e8cc9de9f76e336b354fc7bcefb5268db1d6c3ab8e62852b6880c88ca9a8c",
+      "started_at": "2026-10-05T00:04:24.221109+00:00",
+      "ended_at": "2026-10-05T00:59:24.390519+00:00"
+    },
+    {
+      "run": 37249619047,
+      "artifact": 11322140903,
+      "sha256": "71271deef82d63d78fe37023bf2811943776e272dbff4fbf67d582264028eac3",
+      "state_sha256": "a804e33df45020ed654baf2b48aea7b3be76c09c1796042399e354910a0eb7bb",
+      "summary_sha256": "e70163772258f6dbae8b185c5955c266e57649187929047644734b8c8b75b01a",
+      "started_at": "2026-10-05T00:59:44.176911+00:00",
+      "ended_at": "2026-10-05T01:54:44.331800+00:00"
+    },
+    {
+      "run": 37253280899,
+      "artifact": 11322922049,
+      "sha256": "a9aea6cf488ba3a0a8aacd2e6601443ce54e4558add72d222821a30cb6f2248a",
+      "state_sha256": "219b19dfc94ea19cddbad1552b74ab5655ed3a4bc2813a5f99ae98207b9ad170",
+      "summary_sha256": "b21ca27a796777ab9591b50e44332bcb0179abf4a1a0144970d8e05096389ee3",
+      "started_at": "2026-10-05T01:55:01.641026+00:00",
+      "ended_at": "2026-10-05T02:50:01.797540+00:00"
+    },
+    {
+      "run": 37256941304,
+      "artifact": 11324950599,
+      "sha256": "6ed34d84cf739944649a14bc64f999badd3c095a78e29150b9b436144bc7c777",
+      "state_sha256": "31188b70ddd393863901d435077cd740ad57c79746a45cd2835e4941ee58b389",
+      "summary_sha256": "c83fe200e585a29300fbd0d6d127effaa7f7cbaa3e50af8f49194a997f60e9bc",
+      "started_at": "2026-10-05T02:50:20.168805+00:00",
+      "ended_at": "2026-10-05T03:45:21.061528+00:00"
+    },
+    {
+      "run": 37260697529,
+      "artifact": 11326490018,
+      "sha256": "820f6b00a8ac321c535b64b0e1a5ea98ad664c9ac45cb3b41ce74d745aadcfe1",
+      "state_sha256": "1fe3d7a2709a8d1b844a508db3e5bb069535e047633c9e4fe9eb73ddf82a131c",
+      "summary_sha256": "9d0e83d87e21a00362a561e63527a60c38dcd041394a5dace584990c68045190",
+      "started_at": "2026-10-05T03:45:39.804618+00:00",
+      "ended_at": "2026-10-05T04:40:40.146264+00:00"
+    },
+    {
+      "run": 37264564901,
+      "artifact": 11326799614,
+      "sha256": "c17290ac4d66c9417a140afcd0ee3ad51c8e82150132e3f1e11396e5b5d01ec3",
+      "state_sha256": "606f46190d1e99714cb4b74446840c0ee6ad123ec4dc9473ca8b36fbfe25f481",
+      "summary_sha256": "36384d52b5e9fc353fcb21c4a43ed8bd072a3ad33cb179d56b74896db4947fe3",
+      "started_at": "2026-10-05T04:41:01.449083+00:00",
+      "ended_at": "2026-10-05T05:36:01.674696+00:00"
+    },
+    {
+      "run": 37268511734,
+      "artifact": 11329181459,
+      "sha256": "cd79db484cd8ac80a3f4b1ca36323c672fbb99e5b6c6a02fc008ec8c851cc084",
+      "state_sha256": "92d9d1e85ba5223bc84973a3093aef0e01efd6be81b4d30fe27e9b1ac01cfce1",
+      "summary_sha256": "05f1d95ff8086a0cba01bee209aac06738c65618a5386a0ba1d9f2c90e8dee7b",
+      "started_at": "2026-10-05T05:36:24.029040+00:00",
+      "ended_at": "2026-10-05T06:31:24.261327+00:00"
+    },
+    {
+      "run": 37272859934,
+      "artifact": 11330887058,
+      "sha256": "f2def6cfe0b1217c1fef0a47cb3199765b5cf845464672a48facb76a22473117",
+      "state_sha256": "5570b9a7a9ac1a14bae9797e311e54c303af366f7001b0cd7a37754c4cadf9b6",
+      "summary_sha256": "52ba946dfc16e852adb4e1ed91222288edc4da1f5b9039663842265586bfdeb1",
+      "started_at": "2026-10-05T06:31:46.388248+00:00",
+      "ended_at": "2026-10-05T07:26:46.559635+00:00"
+    },
+    {
+      "run": 37277785767,
+      "artifact": 11333186316,
+      "sha256": "7e8df8377dba4ca95d5430f4cfabbcc2b5b02d2730c4bf792534c41270a682d9",
+      "state_sha256": "8f4d18858e443c3d2364fd466020739e0e4d4217f4e2053e083a9250ce567453",
+      "summary_sha256": "a60dbd6c741b25b61277028fe5a5dcad67241a9d3deeceab7e00ad0ff92f456a",
+      "started_at": "2026-10-05T07:27:07.155956+00:00",
+      "ended_at": "2026-10-05T08:22:08.061098+00:00"
+    },
+    {
+      "run": 37283196223,
+      "artifact": 11336050647,
+      "sha256": "b54fe1c9b882276345bc720370768a032213ebfac6a498871fae68791b3dbc0f",
+      "state_sha256": "d5539fb798c4cb66a42c114a80db7c84081c27a03519b4d45df9db76a6e2becb",
+      "summary_sha256": "45daacece4fee42bac07ee598428f39bb8f752e6b84618fd5b620a9259fe51f1",
+      "started_at": "2026-10-05T08:22:25.190326+00:00",
+      "ended_at": "2026-10-05T09:17:25.351810+00:00"
+    },
+    {
+      "run": 37289060103,
+      "artifact": 11338900983,
+      "sha256": "f57dd16396e5d5b168921d5358850dad0dd7d3ed2c836999abc9d860f8ded52f",
+      "state_sha256": "9468c02eb710b2e7651ca37f735792489bef42a09fa72d82df3e287c67a47171",
+      "summary_sha256": "04f13ef4764e8a10217a0cb18d95472ab59a9188ffc63ad84e9c929772a5e4b3",
+      "started_at": "2026-10-05T09:17:45.072088+00:00",
+      "ended_at": "2026-10-05T10:12:45.620552+00:00"
+    },
+    {
+      "run": 37295123273,
+      "artifact": 11340867547,
+      "sha256": "4720ca35b59c153c693b089e0026aa4c1d1d03562f5eee3d0e67df4ddde66d02",
+      "state_sha256": "b4806c981693b77aa3b771d560924627c375f80150ed23f6aed33ffbf9963689",
+      "summary_sha256": "7a0a89b6ae683998b98a02dbcdd8a7fbfbe61dff21b04c9a2cc0c4dc0f1a243c",
+      "started_at": "2026-10-05T10:13:04.672887+00:00",
+      "ended_at": "2026-10-05T11:08:04.820875+00:00"
+    },
+    {
+      "run": 37300980257,
+      "artifact": 11344077412,
+      "sha256": "1822b2946c2dc48972f3ac75407924647a1482cc0eaab3de7a06b93bcfbf9c9e",
+      "state_sha256": "0f89a4082639a67f01cdddf518a3168a2e691cc1ddb67ecba9900d01c11290ce",
+      "summary_sha256": "dd91f3a94d7fc12852be5b5b4be2985c5b2ad72c678b4f3e09adbaa686abbdee",
+      "started_at": "2026-10-05T11:08:26.523715+00:00",
+      "ended_at": "2026-10-05T12:03:26.677406+00:00"
+    },
+    {
+      "run": 37306934684,
+      "artifact": 11345709904,
+      "sha256": "10fac9a0347f8e2671be0424de6ed67c55390c6d425049066d4e9ad7e1ca03bb",
+      "state_sha256": "74376324f894e18ca521d4479c1d38d4be7214bdeebb9682e26eaca9e72c4e22",
+      "summary_sha256": "f722f7aee611cb5be3d91cf2df0416ad5f576027d38010f115b073a75820e6f7",
+      "started_at": "2026-10-05T12:03:49.693660+00:00",
+      "ended_at": "2026-10-05T12:58:50.488497+00:00"
+    },
+    {
+      "run": 37313335391,
+      "artifact": 11349836430,
+      "sha256": "977c35ec92105df3cb86663fd71e62e4b52bc67e2900a3a52128193ed4ab0159",
+      "state_sha256": "7700c471d84c200e4764723a98d01a5ca538fd3d33d413742cf1702ac1befadc",
+      "summary_sha256": "af6c867c760dfeb21ec2eae43f175f62ca898ebec85b537e144974f106d064d4",
+      "started_at": "2026-10-05T12:59:13.553592+00:00",
+      "ended_at": "2026-10-05T13:54:13.715869+00:00"
+    },
+    {
+      "run": 37320416291,
+      "artifact": 11352548629,
+      "sha256": "9d3e39d91d0fe7a93b0af548fdbe43c0a18e490273c68f72e70e7732f2924eb2",
+      "state_sha256": "0ad2f529fa0f2e8635a8d97aa3e69108b685c27b8dda7d5806889186d6de65b8",
+      "summary_sha256": "3aa38df794e13d4d6a51e10bce7a371181f3ee3dd56622e1df1ecca80a05bf8f",
+      "started_at": "2026-10-05T13:54:32.840607+00:00",
+      "ended_at": "2026-10-05T14:49:33.000363+00:00"
+    },
+    {
+      "run": 37327854527,
+      "artifact": 11356137271,
+      "sha256": "7e8552fa1594bdc8f00cc32818b4cb6b0646a8cd12c417639c6e5140f03d7896",
+      "state_sha256": "97d7f3b3864fde4f21f4c062efe01ff99d85b54b247528f16ca804b2b4a271dd",
+      "summary_sha256": "7c78471f29a2f0480405daa1180c7131ac91624fa5aa9960d35b25de5e866586",
+      "started_at": "2026-10-05T14:49:52.405882+00:00",
+      "ended_at": "2026-10-05T15:44:52.552139+00:00"
+    },
+    {
+      "run": 37335319038,
+      "artifact": 11359620308,
+      "sha256": "9286292448774bc0c6d3216873f9a45a7ee974e880f9892381f99238e60ea8d8",
+      "state_sha256": "ef8887c1e4e926e89e0cca46edbe4b182b8630cda9a9a7ea9217b3876ef6677b",
+      "summary_sha256": "077713e3aad2ec64f4b150cd379cdf2de803dc569558aee80a196489eb7ef981",
+      "started_at": "2026-10-05T15:45:12.269003+00:00",
+      "ended_at": "2026-10-05T16:40:12.417147+00:00"
+    },
+    {
+      "run": 37342610834,
+      "artifact": 11361428049,
+      "sha256": "ba0a797fe7d4d1b8dafeb6e2f616bf22412b6446341872ef2a60f5c26e14f113",
+      "state_sha256": "2718b683eaf958537a82c42008db9ecd44a021c82030b6ff395b5b2cc8b844e7",
+      "summary_sha256": "1e663ce6cd7b2a42377e76d49fc59981560d236e55d59e41ee73df33746a9c13",
+      "started_at": "2026-10-05T16:40:30.267369+00:00",
+      "ended_at": "2026-10-05T17:35:30.432406+00:00"
+    }
+  ],
+  "proof_rows_checked": 250,
+  "raw_conditions_checked": 50,
+  "raw_checks": [
+    "SHA256 per cited capture line",
+    "market condition/slug/tokens constant",
+    "Chainlink open/close raw/1e18 agrees with winner and payoutNumerators",
+    "decision oracle receipt before first decision book and first subsequent execution request",
+    "YES token book binding",
+    "independent decimal depth walk, 3% net shares, payout, cash/PnL for 37 model and 25 constant50 trades"
+  ],
+  "fifteen_min": {
+    "accounts": {
+      "model": {
+        "cash_usdc": "1.090694871",
+        "pending_cost_usdc": "0",
+        "settled_pnl_usdc": "-98.909305129",
+        "debits_usdc": "226.430067039",
+        "payouts_usdc": "127.52076191",
+        "filled": 37,
+        "settled": 37,
+        "pending": 0
+      },
+      "constant50": {
+        "cash_usdc": "0.081576928",
+        "pending_cost_usdc": "0",
+        "settled_pnl_usdc": "-99.918423072",
+        "debits_usdc": "99.918423072",
+        "payouts_usdc": "0E-8",
+        "filled": 25,
+        "settled": 25,
+        "pending": 0
+      },
+      "structure": {
+        "cash_usdc": "100",
+        "pending_cost_usdc": "0",
+        "settled_pnl_usdc": "0",
+        "debits_usdc": "0",
+        "payouts_usdc": "0",
+        "filled": 0,
+        "settled": 0,
+        "pending": 0
+      }
+    },
+    "discovery": {
+      "conditions": 142,
+      "quarter_hour_clusters": 71,
+      "decisions": 83,
+      "resolved_scored_conditions": 82,
+      "observation_coverage": 0.4322916666666667,
+      "review_status": "INSUFFICIENT_DATA"
+    },
+    "structure_coverage": {
+      "version": "limitless-15m-structure-label-v2",
+      "conditions": 83,
+      "quarter_hour_clusters": 44,
+      "h1_known": 0,
+      "full_h4_h1_ready": 0,
+      "h1_states": {
+        "UNKNOWN": 83
+      },
+      "h1_unknown_reasons": {
+        "INSUFFICIENT_WARMUP": 60,
+        "LATEST_COMPLETE_BAR_MISSING": 15,
+        "INSUFFICIENT_SWINGS": 8
+      },
+      "status": "INSUFFICIENT_DATA"
+    },
+    "trades": [
+      {
+        "condition": "0x0ffc4b24f92134108d4ae4e365084af1d057c51802061beae7a8ef29a7f2a3bd",
+        "start": 1791158400,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11319191845,
+          "line": 51514,
+          "sha256": "192f15f6d7803fad7071c06fd1798636cda759b6541592f97c20e4cc3c3255b9"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 2808,
+          "sha256": "bb54a0d42ec88f03075d6ea1313fa58116ff07c186624d3fcd192d5d0d08a594"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 2880,
+          "sha256": "0cd1a9caec04cff360d7b4a49015f539c6ba232ad9c3b630cc9d2b7a9942e71e"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 3190,
+          "sha256": "7be82bfef7d8e56f641cc21a363ff2ee8f5943701adacbc50687558fea5872f8"
+        },
+        "settlement": {
+          "artifact": 11320990439,
+          "line": 18021,
+          "sha256": "2b5faf41d53c74bbc41d25d1f3df4b3288d90d5087833e5807f0c0491efc1b70"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "6.334276465",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.334276465"
+          }
+        }
+      },
+      {
+        "condition": "0x4685bd7d694295b550d3d70394a8ea328061f62f89657b7c28d5c3c1d5107efb",
+        "start": 1791158400,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11319191845,
+          "line": 51518,
+          "sha256": "dd4eafc6fe97f4e14f8141702b475eafa316fa3e25b423c0d9d6d50085ec42a4"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 2830,
+          "sha256": "a4415902114c34400ff0aa027862139c938db6331314cf5434cd3485cd86ee28"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 2886,
+          "sha256": "7af23b629b8fe9eb9cac23056dd611f1e31f907fcf57fdcd211cbe19e5009ae7"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 3199,
+          "sha256": "6ee19a5a0612bdfdd4fccc617eaa447f282f2947cea7948d1f66eda89dfd719d"
+        },
+        "settlement": {
+          "artifact": 11320990439,
+          "line": 18028,
+          "sha256": "5e33cf955b9d13139491be488a57db81ec09ff5763f2ce951ccbcc5a0c1eb216"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "7.019725167",
+            "net_shares": "29.75577529",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.019725167"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.839329103",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.839329103"
+          }
+        }
+      },
+      {
+        "condition": "0x13b51db4d9b2f551301de348c57a990dac8513f2189eb47a8b06002861187e33",
+        "start": 1791160200,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11320990439,
+          "line": 28100,
+          "sha256": "6814354202de6adf955a32ac185dc2b58f330c43eda31fd077b57624b2d99596"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 36362,
+          "sha256": "637a0c4b4b8f32084a1b5c6f636b46c2f6ad12139e2c090416056f7c2fa01774"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 36528,
+          "sha256": "4210afe6681bce463e47f5e93fff82957bc0245cd8c973275fc2f703578da90d"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 36793,
+          "sha256": "e802c7dc4dd7f06893920bd186f96cf85bf44482816a17c36b136cb65a3ba5fd"
+        },
+        "settlement": {
+          "artifact": 11320990439,
+          "line": 49887,
+          "sha256": "719b4b587a58777168d40b1808d187b70dc15deda789e716037a0105b589218d"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.105184544",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.105184544"
+          }
+        }
+      },
+      {
+        "condition": "0x72053e76c0a05226eb15af542cc8bcefa6bb73c62addaa578ddb66be38bf781a",
+        "start": 1791160200,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11320990439,
+          "line": 28101,
+          "sha256": "2d76c7218e4fad2ef95f54262ba33024e20c4f0251cb9be98d654c356a3b8df0"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 36390,
+          "sha256": "7b6c248e4b89806e64df32cf25344c50d4f6f570d19c170a361a8a34550b1398"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 36535,
+          "sha256": "0d817da4b0f542b60424d04bb96e506ffdd6a3938512bed78b4795cfbbc7823e"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 36798,
+          "sha256": "941d7c3d274b0cc36175e6ecafc936342b0c26e04133ae3409c67411c1e95728"
+        },
+        "settlement": {
+          "artifact": 11320990439,
+          "line": 49896,
+          "sha256": "36defe66f1e372f562ce6e8afcc58800ee08ea15071a224554f6506f8a415945"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "8.386082313",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.386082313"
+          }
+        }
+      },
+      {
+        "condition": "0xab8925da2d0409372e710a1f71ec62ef1893cb0dd86347f51862d1119a662815",
+        "start": 1791161100,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11320990439,
+          "line": 43092,
+          "sha256": "a17141b5a9ac7e5b5f2a4cdc4c6acd63dbd0bac3546b517e4f8c4c9d82180c04"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 51344,
+          "sha256": "d6d07ca2a22db678f5088bf30822ef436b6b2399c95a1657c0671dff899e5da0"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 51613,
+          "sha256": "b9e7742f58a6cecf703af474de9a8f18efb507b85bc705a5248338fe5519670c"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 52101,
+          "sha256": "bd0b1ef7d54f2e7fd32066c51bc16db2926d04e750e91f218e3ea04180a60d5a"
+        },
+        "settlement": {
+          "artifact": 11322140903,
+          "line": 6494,
+          "sha256": "768790b1d3447c9776131ad969f57f016c9724dc15816a915d47d79190df50f2"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.297194684",
+            "net_shares": "19.03590759",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.297194684"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.897032036",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.897032036"
+          }
+        }
+      },
+      {
+        "condition": "0xf6479971b3a99833a185b84714fe97f98be719bf78c83f666a279ab619d14233",
+        "start": 1791161100,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11320990439,
+          "line": 43093,
+          "sha256": "c90c740db3e55e2c80114f6ff71928f51c7911c96557199fcf7e5568e62572d3"
+        },
+        "oracle": {
+          "artifact": 11320990439,
+          "line": 51380,
+          "sha256": "c6b4171971f505896e8f69ff74d860ab79debb953d3f57e7f074e4048f3d7bd7"
+        },
+        "decision": {
+          "artifact": 11320990439,
+          "line": 51626,
+          "sha256": "0969aff2d904396b34b56c77562ac8d1a727d7a13081601222436e9888768661"
+        },
+        "execution": {
+          "artifact": 11320990439,
+          "line": 52119,
+          "sha256": "3e14a975d0bb6c3fe5d7e5997d12d99468635a78109266970a3070f08baf252b"
+        },
+        "settlement": {
+          "artifact": 11322140903,
+          "line": 6502,
+          "sha256": "c05cba1c30681e5c6cc48e842f44ce15da565bb43086453ff4b0067fa6c7782c"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "8.176288505",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.176288505"
+          }
+        }
+      },
+      {
+        "condition": "0xe2371555f1a53f4263cbad8892f5e9187e248421116ba26ed6820b00d3863ece",
+        "start": 1791162900,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11322140903,
+          "line": 17126,
+          "sha256": "273ba05c76fb2f6884f31c506d844868aaed3e5ae989107ed2c9636319183317"
+        },
+        "oracle": {
+          "artifact": 11322140903,
+          "line": 25635,
+          "sha256": "7d27d24930e38bbd3eff2ef6b25e83bd22d56c724c878070ebe2677a8e5fae14"
+        },
+        "decision": {
+          "artifact": 11322140903,
+          "line": 25733,
+          "sha256": "6d275e1c14222238bf3b98db7973f17550de3938b2a3f20a88f277bf32f46f98"
+        },
+        "execution": {
+          "artifact": 11322140903,
+          "line": 26147,
+          "sha256": "f72481bae794460ea34588da7911d63bf6b969adce06cf59eef95d54cabf05e2"
+        },
+        "settlement": {
+          "artifact": 11322140903,
+          "line": 42765,
+          "sha256": "9f772e618ebaa1efd0e80e8ac3cc247def685eafeaae8608d6d3b31866bdc70f"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.014704205",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.014704205"
+          }
+        }
+      },
+      {
+        "condition": "0x57efb979d64896561077321f9b1aee4180f07c682022098aaf05e06d971b356b",
+        "start": 1791163800,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11322140903,
+          "line": 36172,
+          "sha256": "76ba687e2741eabb728a804c0d6fe43625615d6bacc46e176377ed96e1e7bbb0"
+        },
+        "oracle": {
+          "artifact": 11322140903,
+          "line": 44066,
+          "sha256": "8151ad44cf077d36233edabd6a345a7de79c3abcd2e3aef745d5793c51bd3e1b"
+        },
+        "decision": {
+          "artifact": 11322140903,
+          "line": 44130,
+          "sha256": "f2033eb73a9fe2656368f13242bf3f47cd932332e07dfe2c07a2769c3f5b0e37"
+        },
+        "execution": {
+          "artifact": 11322140903,
+          "line": 44497,
+          "sha256": "43c94b0eb442c456783858b2dd1f92a7a99c62282ad9178a16165557484fa73b"
+        },
+        "settlement": {
+          "artifact": 11322140903,
+          "line": 58445,
+          "sha256": "6cd06129fe5878033c6253a94ffb2ead96d0f191722e9ec28b942e7b6ff7d0ca"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "1.444360797",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.444360797"
+          }
+        }
+      },
+      {
+        "condition": "0xe65f2fd0d70e6c034250218d4311ff300bfbc057e79bc79f533f20fb94c0389d",
+        "start": 1791168300,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11322922049,
+          "line": 47776,
+          "sha256": "6065e9382b56befd6f85a715f42dc7bbb93ed21ba654ef431b23c06b3ef87f8b"
+        },
+        "oracle": {
+          "artifact": 11324950599,
+          "line": 1401,
+          "sha256": "1c897acf4decce5f997e8cd090c8968650f3d194e62a957f2aa5b7977fc2a6ec"
+        },
+        "decision": {
+          "artifact": 11324950599,
+          "line": 1643,
+          "sha256": "62e9c1b3c9393f23070506ccdf23a42de689fc2c621892a45db02e9e81a91610"
+        },
+        "execution": {
+          "artifact": 11324950599,
+          "line": 1953,
+          "sha256": "f23d6710e64e0036d6da8d2181735dd349b1f071adede1bd1dd5611e952f86b6"
+        },
+        "settlement": {
+          "artifact": 11324950599,
+          "line": 14082,
+          "sha256": "6668b7b441722cb2530c06ec874a935c146a46e684cf712b17cb5995e7aa7f94"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.338695225",
+            "net_shares": "46.22019639",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.338695225"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.716494775",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.716494775"
+          }
+        }
+      },
+      {
+        "condition": "0x79153f5145cb4f4575ebd9fe8ef9ea2c9a440ea486037cda7c8f473203675229",
+        "start": 1791168300,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11322922049,
+          "line": 47780,
+          "sha256": "a02ed54568aaf7ccf3db6fcfb9dc1a180b9708cd840ca9b6935b9676f5759a48"
+        },
+        "oracle": {
+          "artifact": 11324950599,
+          "line": 1424,
+          "sha256": "7b2ed8c1a2b845c5d17e0ad215f65c7d84908cfc289c7c630e8e67e39a4b25f8"
+        },
+        "decision": {
+          "artifact": 11324950599,
+          "line": 1658,
+          "sha256": "2da3d7042fdbaa1869418bcce52dae8c841f25c87889a3920245ac63209ff261"
+        },
+        "execution": {
+          "artifact": 11324950599,
+          "line": 1966,
+          "sha256": "a6b0138d74563927f5421b0319868dbe399c7f06d5251ad1feead2efc1caedf4"
+        },
+        "settlement": {
+          "artifact": 11324950599,
+          "line": 14086,
+          "sha256": "ce8b4acb444fd09e20bed209d8ca2e32eb33f21e10028ea6f3aa27ce860ac18d"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.353608165",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.353608165"
+          }
+        }
+      },
+      {
+        "condition": "0x647afa6a440874ab077e339b554cbc669b5b25c2f15d909a199b0706a93bbc36",
+        "start": 1791169200,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11324950599,
+          "line": 8970,
+          "sha256": "1e167b9fda4e3b7832eb92b751d76afed5460d26707491e8c1677b9d8c4bef19"
+        },
+        "oracle": {
+          "artifact": 11324950599,
+          "line": 15155,
+          "sha256": "719f7ad93430a436631da389f38a888ce078a9b19d3d348a3ebbcd246057e7d8"
+        },
+        "decision": {
+          "artifact": 11324950599,
+          "line": 15336,
+          "sha256": "071f4678411d79820cb5cff54c8529ab06f9a4da55c317353e73ff539b7b42f7"
+        },
+        "execution": {
+          "artifact": 11324950599,
+          "line": 15558,
+          "sha256": "8d4f98c74b9e4fde972771d5e3595049c523027118a8fb77d451db68fcd9f7b1"
+        },
+        "settlement": {
+          "artifact": 11324950599,
+          "line": 27772,
+          "sha256": "00bfa6a6e5956acec6dbff90eafef7b2bdadf737a00fd3279f9e026814b55ee8"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.713079640",
+            "net_shares": "31.84998104",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.713079640"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.031381385",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.031381385"
+          }
+        }
+      },
+      {
+        "condition": "0x3a145ffc83afc7e3c11a765bca112d6fb46c62993f09dc2b9f88cfe8b625568d",
+        "start": 1791169200,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11324950599,
+          "line": 8977,
+          "sha256": "378bd9425deed0935b2b143d60b9e3a65722791472a7d3eea7238f39dd96730e"
+        },
+        "oracle": {
+          "artifact": 11324950599,
+          "line": 15172,
+          "sha256": "be2c1485691897f7b0516ee5ca5c8a5972fc677f395100d647c91d3eebacf345"
+        },
+        "decision": {
+          "artifact": 11324950599,
+          "line": 15342,
+          "sha256": "761e0bb5ea64695fc1b9826d03b69250ac44ad175f9a02106ccd80dccff744fa"
+        },
+        "execution": {
+          "artifact": 11324950599,
+          "line": 15560,
+          "sha256": "daf171959b5768e75ae07b10fdd36712b42febb85460e59342838f0b2b5161a6"
+        },
+        "settlement": {
+          "artifact": 11324950599,
+          "line": 27776,
+          "sha256": "151eab874d054436900e00dc68a7a7f009a62ddb5ebbe3441c445c3eb13ec12e"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.430016874",
+            "net_shares": "32.17333054",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.430016874"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "2.153371091",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.153371091"
+          }
+        }
+      },
+      {
+        "condition": "0x46299e404eab839fc5a419b034cd7b316d36851e97792d8169612f913fff4faa",
+        "start": 1791171000,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11324950599,
+          "line": 36341,
+          "sha256": "cf0b072ed0ad8f4b62e80f6c7f220947f987a5982ee557443f84a57481c8dc41"
+        },
+        "oracle": {
+          "artifact": 11324950599,
+          "line": 42744,
+          "sha256": "1624f11375f8ea7bb8fdb41d5dcc5d6f8781107a1badeb6d78d1fa110c563b83"
+        },
+        "decision": {
+          "artifact": 11324950599,
+          "line": 42874,
+          "sha256": "867960ed4b72f0906fa73fe4cb328ead411df16acd7c63c0bf13e61b71e98f35"
+        },
+        "execution": {
+          "artifact": 11324950599,
+          "line": 43121,
+          "sha256": "1390a4d51a97bb7cfa7c40d865aac24ea37a0817c52a76d0213a847e28135c46"
+        },
+        "settlement": {
+          "artifact": 11326490018,
+          "line": 3363,
+          "sha256": "405b911ce5bb4143016c2730c6713c9d5d7883e3abcd09c065f434caad21f503"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "1.677731927",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.677731927"
+          }
+        }
+      },
+      {
+        "condition": "0x1c2ae3de308148d096e2b563ac6bee5dc60ad7af176fab07866a057d73e11d39",
+        "start": 1791171900,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 12,
+          "sha256": "cab7a92c4ec64b8ae830c797aeb60a1f794c03ba96405507b510e735dc6b78b7"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 4964,
+          "sha256": "a00491d6a964b8e49dfd27bb74d92b40a543affe2288d720c4777082f3880e11"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 5004,
+          "sha256": "1b004f8acb88b7ca163924a97e334a16c6ec07a4f8131718826fdf83b5d7041c"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 5204,
+          "sha256": "4793544710ace699fc140655bdc0cd631f0d0c78f81c53105e43e3877eab802b"
+        },
+        "settlement": {
+          "artifact": 11326490018,
+          "line": 15849,
+          "sha256": "6e121ab12380021c57c45288a488000d6a5fb19eb241ba4af99262e54283adc8"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "9.556893657",
+            "net_shares": "20.02200183",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-9.556893657"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "9.832783319",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-9.832783319"
+          }
+        }
+      },
+      {
+        "condition": "0x9f31242700faae2134eb3023e253bf3e8e78761c50ac448d0a6ab81f5d9b0522",
+        "start": 1791171900,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 13,
+          "sha256": "b366501a99f03a4d897762f26567bf677b91cc0c458e4065e4ff1982a254f352"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 4974,
+          "sha256": "32d8d0f51ccb17b550e429426452f9976a27dd4ec9aef7a93756c5bd0af5b42a"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 5011,
+          "sha256": "6e2e53e87d7c138e0be68150678dc6ca04f9ff3f5cc55dc79971569d2758a583"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 5214,
+          "sha256": "adef94e37706e8e14b8d2e25b1822c481fd9a3d5a92e659ceaeb763a1471dd31"
+        },
+        "settlement": {
+          "artifact": 11326490018,
+          "line": 15850,
+          "sha256": "d478289eccabf05a3151820c9e8deed3e2e18fa3dd360e1430fb16225e7c1757"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "6.585969960",
+            "net_shares": "34.71951555",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.585969960"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.907628792",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.907628792"
+          }
+        }
+      },
+      {
+        "condition": "0xf39d6fa6cc9caa08bfc352054325e330f8c462b8e5caa7a4de28e6e19f15f9db",
+        "start": 1791173700,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 27383,
+          "sha256": "3d518c71353aa25d8ee710c7d534990f276d821ba5af03f3271c0a7bd55ba010"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 33930,
+          "sha256": "bdde019a1f7f06ffac1183f19e898a55f2e7ec0b9390c55ef3e4530344843f05"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 34151,
+          "sha256": "232e0473f31094aceb38e4b8492a3d4285efdf199f6efbd80a96e3ff8d15103d"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 34511,
+          "sha256": "2bf6c405d8b510760e345342a1b7061ad8a58bd328f593e50e43699a89a29271"
+        },
+        "settlement": {
+          "artifact": 11326490018,
+          "line": 48700,
+          "sha256": "c97f7f50f8477461921f4a47a4ff8c847eda3e21c2fbf54dbe20ccddbed23c2a"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.222741024",
+            "net_shares": "109.26107936",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.222741024"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "1.550309249",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.550309249"
+          }
+        }
+      },
+      {
+        "condition": "0x47a5e1809da8345b18aff72989d3f89256692a06dde811bfffe6c16e55623321",
+        "start": 1791173700,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 27384,
+          "sha256": "d9041f44529103b111c78cde7bbea1a65b8ded164da9692a1d6563c3cae0093b"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 33943,
+          "sha256": "17198ec8d337884a90205dfda4be6649610f746493778bc882bbab6a0794d26a"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 34159,
+          "sha256": "0432f19d0037d0a23fb7de0fc4ec2ce871b5beb2f72327478a526e44d143f933"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 34517,
+          "sha256": "5aee7630e3169c4427dc113421f0bc646d65121a01e10ac2cfe467eaf4d64d6c"
+        },
+        "settlement": {
+          "artifact": 11326490018,
+          "line": 48704,
+          "sha256": "e932b2346ec939f478aee464056c6b87e51327d469076bf27a8fcb67d43724bc"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.073278289",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.073278289"
+          }
+        }
+      },
+      {
+        "condition": "0x9e980d6e4fdadf49b322fa18c8b83096468f09f0c2379c46bd1eebdf93e30e33",
+        "start": 1791174600,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 43075,
+          "sha256": "a600ed20a8c14ae6ba8f4f01c422209f52c6d512c716b08ba33cc4ee100013cc"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 49751,
+          "sha256": "2415247ccfe855045d1559ed690481ab4629d35a6f1409cc1c58ff40a3765925"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 49877,
+          "sha256": "817bae96f158b5c6b0a95d747595bf6c05d316668ddfb2eb6de2e18014c2cfe1"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 50185,
+          "sha256": "0f2893aadea14e3b9ae0040306bab42ebc7fcf169ae2f0b29a9d794587e901e9"
+        },
+        "settlement": {
+          "artifact": 11326799614,
+          "line": 6247,
+          "sha256": "8ea703f668c29db76c61923ee943f89a0f59ba649f17b27586b4b90c7c5239de"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "2.229896865",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.229896865"
+          }
+        }
+      },
+      {
+        "condition": "0xdcebbfbbde8a3ca8534ee3f7fc699eb3c6fadb4caa6b4d0c165778edb03d3c81",
+        "start": 1791174600,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11326490018,
+          "line": 43078,
+          "sha256": "a5c3bf37ee6588b90990c4e1365b9773428c188bf73fa3a837ea4b44423c425e"
+        },
+        "oracle": {
+          "artifact": 11326490018,
+          "line": 49770,
+          "sha256": "63f9f3be26ea819b9483060ad81a0f22595ccd6f86eec10bf77332e779c57bb0"
+        },
+        "decision": {
+          "artifact": 11326490018,
+          "line": 49882,
+          "sha256": "e3fce3d13918964f46ffd1e30220657ce3e56ff744c74df30b047fd324b74d3c"
+        },
+        "execution": {
+          "artifact": 11326490018,
+          "line": 50192,
+          "sha256": "75b471856700668c5f6b8c361d55f5cf2c368f19765167baa02fc683b0c71033"
+        },
+        "settlement": {
+          "artifact": 11326799614,
+          "line": 6254,
+          "sha256": "55292501568cf9e86a3ad049e146de874a1cff93366cdd9f7aed58b5eb27de1d"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "1.743917492",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.743917492"
+          }
+        }
+      },
+      {
+        "condition": "0x1ef5e69fb42f2408f49e24dbc2b7bb3267c9ea6fd4bcb1a7ca009212ffb71988",
+        "start": 1791175500,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11326799614,
+          "line": 1379,
+          "sha256": "25f16f01bdea0b231d10ef93cc238b6c881b2f4fb17565dce4b4d3561d1173e0"
+        },
+        "oracle": {
+          "artifact": 11326799614,
+          "line": 8054,
+          "sha256": "a76e473508127d8049762804280fd5d9162c95cacc4cadecd71c57d72f284992"
+        },
+        "decision": {
+          "artifact": 11326799614,
+          "line": 8089,
+          "sha256": "dda70192006dfca392f701eac81df2d2cc53952256a6973fc6dd8a3fb66144d0"
+        },
+        "execution": {
+          "artifact": 11326799614,
+          "line": 8321,
+          "sha256": "fb920e9403baa9c2d22dae17c2014cc381278e5b9f2be08c470d2c4a30c37461"
+        },
+        "settlement": {
+          "artifact": 11326799614,
+          "line": 19344,
+          "sha256": "f8531593c2dee69b6f3c4e9e2db8b108b090e8da647563d50e97894c13e9b871"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.209028415",
+            "net_shares": "25.76944195",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.209028415"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "6.562267917",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.562267917"
+          }
+        }
+      },
+      {
+        "condition": "0xa91fd39048edbffa623aec9c4c902043a4f637486329e5101ef2e5e38bd4d82a",
+        "start": 1791175500,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11326799614,
+          "line": 1388,
+          "sha256": "2efd4fd420e475a025d08bc1137b3c5f14535731e5ccd6ce65975a0c4cdb3456"
+        },
+        "oracle": {
+          "artifact": 11326799614,
+          "line": 8068,
+          "sha256": "f2b697b5c81421e5faa03545ff1d3b8fe8752f614811bc3aba2fdbaac249e701"
+        },
+        "decision": {
+          "artifact": 11326799614,
+          "line": 8099,
+          "sha256": "e84856854355ce3bb45c647ac8c3353fd21d90a6d610c39889481c170c8f2a73"
+        },
+        "execution": {
+          "artifact": 11326799614,
+          "line": 8332,
+          "sha256": "301b6ecf1764384b87a681559ad9c3e53076b446a095a9583df71955f0b35fa5"
+        },
+        "settlement": {
+          "artifact": 11326799614,
+          "line": 19345,
+          "sha256": "1c5554db39d6b17fccedd215447caafe1c7aebdcde8d7ad0a560eb43ef5c1356"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.824806167",
+            "net_shares": "16.28244231",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.824806167"
+          }
+        }
+      },
+      {
+        "condition": "0x84e86d69212696d0395ac36c712350100f7def9fe14b2e375d8a529d908bdd66",
+        "start": 1791178200,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11326799614,
+          "line": 46356,
+          "sha256": "cbed26c25b52a5016ee254da9f650ef55b147cbd86c4904b5be77ece55fd716d"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 149,
+          "sha256": "43b9224ef6f503d65d0ea8a9f400a07ea4be1714732f3087ff7aac47173e8762"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 239,
+          "sha256": "44427a22d1010f5aed0cf452f198dcaa761d40a34c841b8a847d4480d2cddcae"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 570,
+          "sha256": "3660e7ed1ee2e466b5b3c862f1f10dbbc25d44dbebf4a60f2ba07a02cfeafe07"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 11929,
+          "sha256": "916d11e6af43b28de7c40417f2f3b945f403a9396d153faba84c0e54a34620f4"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "3.059368724",
+            "net_shares": "43.75538371",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.059368724"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "1.436104684",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.436104684"
+          }
+        }
+      },
+      {
+        "condition": "0x74a654693e632e81a8fbb76a68ce7e7ce2f3619637d2e1137564ac38bf2527c6",
+        "start": 1791178200,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11326799614,
+          "line": 46365,
+          "sha256": "a51b4a9a8d4d1abfa0aa2306030c10b7a92b0b99dcb6c337e5ee9fbc4c0b1dbd"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 171,
+          "sha256": "08273e3766fe2bb3d30e6b664b207a12fc778fc4949080efba404a9081ba29a9"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 243,
+          "sha256": "017fa6028b682dd63fecd79a84fecabc4acb29ed978539c24c954977c162aa71"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 574,
+          "sha256": "c47eedc1abf7639f5c396ae8711d67622bb9520a4bb37f22ed126f29f09bc33b"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 11936,
+          "sha256": "51927506285b3fa837f1b85d993fafdd9e00b085b35932525816969a91b19142"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.143283425",
+            "net_shares": "44.23372175",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.143283425"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "0.998144311",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-0.998144311"
+          }
+        }
+      },
+      {
+        "condition": "0xac2e31f7e298a502b69b8398db3a132b166191473e552181af7c9cda31e37c4c",
+        "start": 1791179100,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 6056,
+          "sha256": "6c750738bd83fba16ce173fa94b29abc85672067531e3d532843247b96ebcff5"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 14021,
+          "sha256": "766b82a1c35bb7c81c85871236d5dc0995a6bfde13f9f76df2d14cdc28b0835a"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 14083,
+          "sha256": "433030c3a267e8331c19d0aa1ec441d6ac59fda3e995aff3971e03dee5355cb7"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 14381,
+          "sha256": "35fa04153549b5f78b6583a9503c4e26361e0953f4182798925a6465964220e9"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 25866,
+          "sha256": "9916d1756a3a1d832fc053bf4f7d33a44f8bf3e437109e2b469417ea02a1eeda"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.617681116",
+            "net_shares": "21.37376764",
+            "payout_usdc": "21.37376764",
+            "pnl_usdc": "12.756086524"
+          }
+        }
+      },
+      {
+        "condition": "0x4fba99e538a692b41e38362750fa50af8392de20dcddaa39988bad805a06d352",
+        "start": 1791179100,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 6059,
+          "sha256": "4c2642d347ef03c4a3b89b18818099b892351474fcde97c09791640cdaadf738"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 14040,
+          "sha256": "61b2b5fcda56374014b65550c00f38b391cff5689b5d73ea309850dfe1969074"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 14094,
+          "sha256": "5dfc9987825cc12067ca6b2869b6f460829b855ffa5dc60c5672abdff161a408"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 14389,
+          "sha256": "61679f705c54fd6ab2fd4fc7041dbc3efb6ea12d3bc26a2aa8c385e523a76e5d"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 25867,
+          "sha256": "8c6220d9e2edd91c5767d1d9e7e6c74c2bda22581211b4fc2f32cc81f09e2755"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.372529117",
+            "net_shares": "24.95031381",
+            "payout_usdc": "24.95031381",
+            "pnl_usdc": "16.577784693"
+          }
+        }
+      },
+      {
+        "condition": "0x8879243c410700531142b8b7b76226fe87bd4e53202f073fe9b1f28e069235d4",
+        "start": 1791180000,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 20476,
+          "sha256": "f0016a2410e3a97758980a9177d9264ea92684abce418a0f35cc068789939dfa"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 27264,
+          "sha256": "a6802d1c4e4f843108c4b727b48a5e822eaa0316ed2e7fb72ea85886a3ebb809"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 27317,
+          "sha256": "0d031c39aedc5e913a88187887e4e57b9100f37597be588a895b25c949c75fe3"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 27520,
+          "sha256": "3f1775f8874cc399aad9bf1d5abd22c021d0e7d157989feacc6197d3905fb943"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 34927,
+          "sha256": "c8c5288a79f03b5c2c608d051a16e2fea168157133ab3c7441785614ca68f6fe"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "8.719965466",
+            "net_shares": "50.20323658",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.719965466"
+          },
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "3.562288097",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.562288097"
+          }
+        }
+      },
+      {
+        "condition": "0x88217e8c588789b224de61835be3666c8a4417122a856c83628f4c76471b8ca7",
+        "start": 1791180000,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 20484,
+          "sha256": "95158bb52f176c528ad1c2762faceed6139438222619d8493bf8d01d251791a6"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 27279,
+          "sha256": "c09bd83c527e4d92e18d857f6321c03c9e36c7b1ca1d8dd612991053f33c67ee"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 27322,
+          "sha256": "b80c7d57b826601adbe272f47c61c20bbde7736db3a862a13fc77f0816927edb"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 27525,
+          "sha256": "ce68e9e7822d4c45428d27b19ad7316d3cefcc9ee0f036c6faeb2bffceee4af4"
+        },
+        "settlement": {
+          "artifact": 11329181459,
+          "line": 34933,
+          "sha256": "7be568ab54e40bc61e06c99c1fcee32ce4d37fcd1e1c9ba0e7112769eca3d2e2"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.406628540",
+            "net_shares": "39.25917860",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.406628540"
+          }
+        }
+      },
+      {
+        "condition": "0xf45cc9207b376b31b0a19ea4b7de21f4263c7eaeefda561fc9a78bae7609f70b",
+        "start": 1791180900,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 30761,
+          "sha256": "f563da019d70aac4d6d9013a8b09ea8b199a44a01ce02e5844533a81a504209d"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 36116,
+          "sha256": "8982b78f44c2106a44098d33dea67c48c859aa696efa56a8ded805519842e407"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 36274,
+          "sha256": "c41c646bcdc0c14c649ca076e2aae8a164ee7741842ef0a94fda3a50fd8ccb4c"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 36562,
+          "sha256": "dc91328e82ea147f14d73a845261c1fab27ff146f3e782e0f6791335150a3ee2"
+        },
+        "settlement": {
+          "artifact": 11330887058,
+          "line": 3227,
+          "sha256": "a96679466e4cbec55b4a0a45601fef841f11fc3b22b319c0beaa195d4a58669e"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "8.664964658",
+            "net_shares": "13.96182013",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-8.664964658"
+          }
+        }
+      },
+      {
+        "condition": "0xc72f936ad6171106ed2435725adc6bca3ed4c333372bccf6933fdd1b4e02d443",
+        "start": 1791180900,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11329181459,
+          "line": 30768,
+          "sha256": "be01cd03db2cbfc614b8d46ab6b62c2781d48cceae8476b19a8a1a562f48277c"
+        },
+        "oracle": {
+          "artifact": 11329181459,
+          "line": 36142,
+          "sha256": "130d481af698800050cd60f385020004914ca9db8b7be06932bbc6eab2bbdebb"
+        },
+        "decision": {
+          "artifact": 11329181459,
+          "line": 36279,
+          "sha256": "47c9f3e97aaccb7074e1d1a2c10bb9f4a205b2b0ed7e5ccd6f8108c3a536d04c"
+        },
+        "execution": {
+          "artifact": 11329181459,
+          "line": 36572,
+          "sha256": "cc7a49bad4731baeef5c6ed4613779c22c4996d0460a0401ce0aa424a84acd95"
+        },
+        "settlement": {
+          "artifact": 11330887058,
+          "line": 3230,
+          "sha256": "9bd23c1705167287ad9a881227e0cf9f7ace703806adeee6b2ba72c5c5546ada"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "9.592055704",
+            "net_shares": "15.10437343",
+            "payout_usdc": "15.10437343",
+            "pnl_usdc": "5.512317726"
+          }
+        }
+      },
+      {
+        "condition": "0x8e13fff5755078c9908f6caeabdba9ee48cc4002d32a4f4403920cbaba9dff69",
+        "start": 1791182700,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11330887058,
+          "line": 11170,
+          "sha256": "9a23a023c7615155263ae23a92b1f644cc6c3b45c2b61651376f03067e7170f7"
+        },
+        "oracle": {
+          "artifact": 11330887058,
+          "line": 16047,
+          "sha256": "191bc78d9cc1070bd90ffd3807c7d6915e90a681c3cdb9f998db783e043a8f23"
+        },
+        "decision": {
+          "artifact": 11330887058,
+          "line": 16116,
+          "sha256": "1c2b734f9ca2a9a619416799aacf5fb8a556757e41de96c91bd52330250d9ce4"
+        },
+        "execution": {
+          "artifact": 11330887058,
+          "line": 16216,
+          "sha256": "32acb71e5cbe94a0895c81558368146c152f5999782cb7935216e591e43d6315"
+        },
+        "settlement": {
+          "artifact": 11330887058,
+          "line": 23522,
+          "sha256": "d03845fe99e847a26c73d95bd9a3ed84f4145d26a12128fb7945b7b02cc312ff"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "0.339793808",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-0.339793808"
+          }
+        }
+      },
+      {
+        "condition": "0x4d8f6b962418c8f571f370325781707c6e27a647e624885de3ffb24c147ecda7",
+        "start": 1791183600,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11330887058,
+          "line": 19317,
+          "sha256": "afef83ba925d04bd831cce1a4dfe11bb4e3dc1e1a1695f8003a960b1247bc392"
+        },
+        "oracle": {
+          "artifact": 11330887058,
+          "line": 25685,
+          "sha256": "955d1acd47e3aa0752b38b4343ad952c02e2caf24358b6fada0925460a8ac307"
+        },
+        "decision": {
+          "artifact": 11330887058,
+          "line": 25735,
+          "sha256": "fd504c8f040e093675889b4ef0d78ea8b6285dd6f08cbc6f089c76b2b2018fe2"
+        },
+        "execution": {
+          "artifact": 11330887058,
+          "line": 26028,
+          "sha256": "f2d06ba7325d95db0b40d45125c8c2038c920f7d1c097cd88861b5d2d31adec9"
+        },
+        "settlement": {
+          "artifact": 11330887058,
+          "line": 38450,
+          "sha256": "2f13c553a345ed782e3e0acdcdedecd2fb127c13dd02d1121174db089ae0041b"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.553468224",
+            "net_shares": "22.07244506",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.553468224"
+          }
+        }
+      },
+      {
+        "condition": "0x88a985afa549175cd2139abf5cff077ac9d6275486cbb51bbc17fc5c08f5924f",
+        "start": 1791188100,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11333186316,
+          "line": 41808,
+          "sha256": "41b25ee3de96afd66f338d7dfac40fd0ff39bca4a57fc6b84515b3946436cf3a"
+        },
+        "oracle": {
+          "artifact": 11336050647,
+          "line": 18,
+          "sha256": "7ee1f937ad19c9e58be9fb9e076d8035858c392140c582d03098c67d5a20e8d5"
+        },
+        "decision": {
+          "artifact": 11336050647,
+          "line": 22,
+          "sha256": "aaf6ea2a84214ebc5e9c5e94b6a30a0e04b9efdb945bfe214a5f88092aa446b6"
+        },
+        "execution": {
+          "artifact": 11336050647,
+          "line": 29,
+          "sha256": "c6740b78cda2f6f60594d2f7497675aa8331bbc030e8ae10148fc2a91d3c9f66"
+        },
+        "settlement": {
+          "artifact": 11336050647,
+          "line": 13508,
+          "sha256": "39cac78afd3e4316861081a82c123d5ad04efefda1dabad8c92b2d89857f6c24"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.203915358",
+            "net_shares": "13.91991613",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.203915358"
+          }
+        }
+      },
+      {
+        "condition": "0xb6a48f30264ae59fc862b7387f9d074f58391823b2be947de699bb7d86685bbd",
+        "start": 1791189000,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11336050647,
+          "line": 7303,
+          "sha256": "4ced28c0e56d3b846f1428d9997844615abff0dfa86f34c8e636c9edaeab1c23"
+        },
+        "oracle": {
+          "artifact": 11336050647,
+          "line": 14972,
+          "sha256": "3ea06594c8c9200720b93c76547e1c748df3ae950a720fd9bdc434b6048ce527"
+        },
+        "decision": {
+          "artifact": 11336050647,
+          "line": 15243,
+          "sha256": "5ecd534c37585748ec53a0ef5ec699c866552751b0f3d36b9264b38efeb8cd52"
+        },
+        "execution": {
+          "artifact": 11336050647,
+          "line": 15613,
+          "sha256": "ff762abeb3b4ee0042d4b983b71d7034828a72fc798edc8660751cf1675a805f"
+        },
+        "settlement": {
+          "artifact": 11336050647,
+          "line": 24358,
+          "sha256": "f81bb82da6652732491ecc37242148b89884860606e0480357454f52f22b92a6"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "3.083667069",
+            "net_shares": "29.97122393",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-3.083667069"
+          }
+        }
+      },
+      {
+        "condition": "0xd4f72b21b9e1cd15b1cc407558f51d840620333742a867f0d609852964ab90c0",
+        "start": 1791189000,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11336050647,
+          "line": 7304,
+          "sha256": "1c989b309bd4dfac7acd1e4c47df300abbc43bfb1093c3eb33329b0a7041212a"
+        },
+        "oracle": {
+          "artifact": 11336050647,
+          "line": 14994,
+          "sha256": "c62674525de4658c9cfb06fd145617c91050171a45d0a4c3e975f75ee001c0c5"
+        },
+        "decision": {
+          "artifact": 11336050647,
+          "line": 15250,
+          "sha256": "1b43075cf52d2604498d729040c637d8c9122b5414f14d0ed34469220b177120"
+        },
+        "execution": {
+          "artifact": 11336050647,
+          "line": 15622,
+          "sha256": "680c4326b7418ce785087a56b11de7297117c2110d3aa4229a805ce310d2c5e3"
+        },
+        "settlement": {
+          "artifact": 11336050647,
+          "line": 30419,
+          "sha256": "0de62180053bee4d3ee65005405bfca038b5615e207c8219c2cd4eb9386d4895"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "2.369959896",
+            "net_shares": "29.11415618",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.369959896"
+          }
+        }
+      },
+      {
+        "condition": "0x5fe6481895ba764413ea9418a806cad862d4d3d31f92f39e079f8021fcfb527f",
+        "start": 1791191700,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11336050647,
+          "line": 55745,
+          "sha256": "addc10a7cc25568fc5dbd1342f45cf6aaeb6d7e82231c9700907381d115e736e"
+        },
+        "oracle": {
+          "artifact": 11338900983,
+          "line": 4932,
+          "sha256": "4357d707d7157ba3b3c16d7dbdfc990dd12814150d493a3002edd68bd099fd20"
+        },
+        "decision": {
+          "artifact": 11338900983,
+          "line": 5060,
+          "sha256": "38eca5149a27fab952d8cfebbef2d8dc06c09af09078e52f46a906121b8c267e"
+        },
+        "execution": {
+          "artifact": 11338900983,
+          "line": 5310,
+          "sha256": "8671a6c6bfa4e71c42781c633207ba3ee2e406b66ce1c009ab3f8816b620030f"
+        },
+        "settlement": {
+          "artifact": 11338900983,
+          "line": 16738,
+          "sha256": "742b4259ce67c23913eefdcfb529b909097972b16f8380f9e63332aeb7bd5abf"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "9.686760316",
+            "net_shares": "11.78940716",
+            "payout_usdc": "11.78940716",
+            "pnl_usdc": "2.102646844"
+          }
+        }
+      },
+      {
+        "condition": "0xeb93dd019d163252fea684299ac4570f2e44fb3703d371c2efde52b6ebe440e3",
+        "start": 1791193500,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11338900983,
+          "line": 26817,
+          "sha256": "153cc57f3484d7e2581a75165f007720814af336467c8e4c57720c81a749cf9d"
+        },
+        "oracle": {
+          "artifact": 11338900983,
+          "line": 33589,
+          "sha256": "3dcf4e93555275ac5ee79c1f27f53722dbefcc89d92006b7c3c8f911ede25159"
+        },
+        "decision": {
+          "artifact": 11338900983,
+          "line": 33776,
+          "sha256": "b54cfd412ecce64351cdf8a8e8ce03b30d7b23004808c46852ba4d922f15e682"
+        },
+        "execution": {
+          "artifact": 11338900983,
+          "line": 34069,
+          "sha256": "a0a090b8c9cce3b59e3c54f198e47d318d4e1fe3cebf1e3ab1361655734ff46c"
+        },
+        "settlement": {
+          "artifact": 11338900983,
+          "line": 45773,
+          "sha256": "ffe5188157cb8a08e2b5b1170a59d8841d7331f2cf9663675976b8836603ad73"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.285226254",
+            "net_shares": "25.72434374",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.285226254"
+          }
+        }
+      },
+      {
+        "condition": "0x12e5473377b33c37a91dbd2742d274a3ecc0fe81c8e15704ee8818d7028aba16",
+        "start": 1791193500,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11338900983,
+          "line": 26818,
+          "sha256": "116fe4aa3aab945be212cdef4707afd59bd697461fab50da09c1e0fa52c12ef8"
+        },
+        "oracle": {
+          "artifact": 11338900983,
+          "line": 33613,
+          "sha256": "c5513eea7d843539b1b038e05ebee11e4b23d3344ecfb3284aa87b555d7637d4"
+        },
+        "decision": {
+          "artifact": 11338900983,
+          "line": 33786,
+          "sha256": "ce00b6cc7ab909526fdd8fa7ec35e8fc3b1beaca5dae75b634d7afded0326e8e"
+        },
+        "execution": {
+          "artifact": 11338900983,
+          "line": 34080,
+          "sha256": "50b441b132f4917892fd1795a41a0936c2f255aa818bd70e6fc0931c35468066"
+        },
+        "settlement": {
+          "artifact": 11338900983,
+          "line": 45778,
+          "sha256": "e57549006aa8ed8918bf5c0a798f6a7119c1b1c93b08853c7605cb52173441b2"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.911834345",
+            "net_shares": "27.14364095",
+            "payout_usdc": "27.14364095",
+            "pnl_usdc": "20.231806605"
+          }
+        }
+      },
+      {
+        "condition": "0x92655dd8545bc401323e2e8120c5654243d441c9f589213de767b44527bc147d",
+        "start": 1791194400,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11338900983,
+          "line": 40097,
+          "sha256": "9a832321b3f008e37bac61fc1648911bf0cd16ab44d452e4e9047f85bb882d0b"
+        },
+        "oracle": {
+          "artifact": 11338900983,
+          "line": 47091,
+          "sha256": "d4e4711c5b4875a67449d25ba45819d7b59a510b9b73c6214527c9bb21830d86"
+        },
+        "decision": {
+          "artifact": 11338900983,
+          "line": 47150,
+          "sha256": "d4c6008b03c9fd4acfb3c5167dd511a0ab9e50d6814e75d7091acc36d204c1ae"
+        },
+        "execution": {
+          "artifact": 11338900983,
+          "line": 47428,
+          "sha256": "dcc258ff5a1413bbf6b00ee0be0251987d18e6141952a37f8497d986d41fbb25"
+        },
+        "settlement": {
+          "artifact": 11340867547,
+          "line": 6292,
+          "sha256": "a14e51653676ab653fc46a1b61fa5f3bd33662c151e8d9df1deedf51e13b1b22"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "7.309835174",
+            "net_shares": "38.34302039",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.309835174"
+          }
+        }
+      },
+      {
+        "condition": "0x31e10e09c30394750eb17f26a7a8430aae759f993d4d16852cd7dd4ac7263a81",
+        "start": 1791194400,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11338900983,
+          "line": 40099,
+          "sha256": "bb1fe4945d4c39b999da95b9cacd7627669cbb1c497f14366b2000c5f2ec4e2f"
+        },
+        "oracle": {
+          "artifact": 11338900983,
+          "line": 47119,
+          "sha256": "b10f1045c1459e383af38ed9fe16b88bb83c29062b2ae9802d4f9d8102db4e87"
+        },
+        "decision": {
+          "artifact": 11338900983,
+          "line": 47154,
+          "sha256": "63522407bda88a44b0b0db3243068880b57bf02224ad51fe1e6a20f02b93b213"
+        },
+        "execution": {
+          "artifact": 11338900983,
+          "line": 47433,
+          "sha256": "e0235b273f38c696e2107405f91af12cde8265ee6ae421dc6099b24117db4a6c"
+        },
+        "settlement": {
+          "artifact": 11340867547,
+          "line": 6293,
+          "sha256": "413baeb1793a062eeb63cbaaef9f6a8f5973beafe33a0529284d4193ab0bb37c"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.272456100",
+            "net_shares": "27.15925892",
+            "payout_usdc": "27.15925892",
+            "pnl_usdc": "20.886802820"
+          }
+        }
+      },
+      {
+        "condition": "0xecb6110daf537a653110a3c09ee9f280029f83a2fcdadfa8aaf6a48d3d434a54",
+        "start": 1791196200,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11340867547,
+          "line": 14941,
+          "sha256": "502964cfba1e89b0b835df0495c59b6687a2e1bac4136cdf3b7cbeca73c8f881"
+        },
+        "oracle": {
+          "artifact": 11340867547,
+          "line": 25770,
+          "sha256": "03196fb459590c09ae0e7f6cea3aac025f68008775e9186e42cca439fedfddcb"
+        },
+        "decision": {
+          "artifact": 11340867547,
+          "line": 25863,
+          "sha256": "81e8f22922217fcda78082165b0ead0650f2e9ab43dc5e94481a59237f327bcf"
+        },
+        "execution": {
+          "artifact": 11340867547,
+          "line": 26237,
+          "sha256": "119b72ce6dfcc3e1d8bd9f094e7c565030671388130b4eebfe8fe17301541967"
+        },
+        "settlement": {
+          "artifact": 11340867547,
+          "line": 39645,
+          "sha256": "2ef52c3f4b6e88328eb88dc50daedfe7658fcf7e0c90333312f19eb8e369cd61"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.314030175",
+            "net_shares": "23.91205297",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.314030175"
+          }
+        }
+      },
+      {
+        "condition": "0x59a96b0c69be1d337dfd70d7d840236c20786c0f4ac47b3b38ac361c66b67b23",
+        "start": 1791197100,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11340867547,
+          "line": 33691,
+          "sha256": "3248910f9d9b6e865aca6a51e4e1904b3e0ab178196aa6e0f064b71e445c7fb9"
+        },
+        "oracle": {
+          "artifact": 11340867547,
+          "line": 42050,
+          "sha256": "54e0306110ac1e5f94200919abf80179790a01baf3f2466d67f3d4302cb9ba53"
+        },
+        "decision": {
+          "artifact": 11340867547,
+          "line": 42122,
+          "sha256": "f12652c5d7f8f55c762720fca8c60f2b28c19dced9c29bdce61fa7cada12ca07"
+        },
+        "execution": {
+          "artifact": 11340867547,
+          "line": 42410,
+          "sha256": "701b6ee2c8b53bd49d5e01e1669d5dd6807bbc8da8d71bf6ab785b3f866d6d3e"
+        },
+        "settlement": {
+          "artifact": 11340867547,
+          "line": 52137,
+          "sha256": "3729730892b42135bb5b324223a8563e42f2b67aaf2d234b75eb0f4cb8189073"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "6.969572024",
+            "net_shares": "32.92231992",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-6.969572024"
+          }
+        }
+      },
+      {
+        "condition": "0x7cc5c813bdaaa5e7b3d04308a30f2015a21b4d0d90e13ac121db11dfe380bdff",
+        "start": 1791203400,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11345709904,
+          "line": 21517,
+          "sha256": "80cfca3c9fcf467014011ac58f01e4a7bf7e31a66d6ad55355eee8667bd2eca7"
+        },
+        "oracle": {
+          "artifact": 11345709904,
+          "line": 27717,
+          "sha256": "114f49276c40ff5e8b0ef202dd0424e7ec2665a917b72f7674eae72b4684da94"
+        },
+        "decision": {
+          "artifact": 11345709904,
+          "line": 27786,
+          "sha256": "98cc3a99736266774a51ce8db1569b8ad53952280ea856ec254742032f0680da"
+        },
+        "execution": {
+          "artifact": 11345709904,
+          "line": 28079,
+          "sha256": "90a33c8d39fe744232d8cc91240eea280783ebad5dabac31230c2c775ffda9dd"
+        },
+        "settlement": {
+          "artifact": 11345709904,
+          "line": 36073,
+          "sha256": "055be7fdf68edaf917ae76dbc4b312d8b9830bebf0727e5fdb882504b8d352aa"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.036017795",
+            "net_shares": "66.86452985",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.036017795"
+          }
+        }
+      },
+      {
+        "condition": "0xa9749fbbcebd6e05fddf9125c7401d157e438c25fe85e1f8588a1e02983cc67a",
+        "start": 1791203400,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11345709904,
+          "line": 21518,
+          "sha256": "e3f35b52f0f81e1b8d8195805b1802e182e03783f5a8a67da3920b25e297b9c9"
+        },
+        "oracle": {
+          "artifact": 11345709904,
+          "line": 27735,
+          "sha256": "1aeb3b2bb38a67e9eea9fb77576f595c0a91fc2bbb2fd0009e945b2159657417"
+        },
+        "decision": {
+          "artifact": 11345709904,
+          "line": 27795,
+          "sha256": "3a65a0cb78925752a83241542438746f7e2d5f9c0241ac17021e58a6dfb09043"
+        },
+        "execution": {
+          "artifact": 11345709904,
+          "line": 28082,
+          "sha256": "4c952e92d5f5e4a09aaaf06720346215acfce91590d83c72b71dd79fd2a1c409"
+        },
+        "settlement": {
+          "artifact": 11345709904,
+          "line": 36083,
+          "sha256": "dc3d3946816b028c62319f552851f7ffb1498018dc34e837c19f3d5a1d5019cc"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "4.951973272",
+            "net_shares": "45.46346544",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-4.951973272"
+          }
+        }
+      },
+      {
+        "condition": "0x9fb5f7a9fb413c56695b51bf966c6478edfea278307a8a8c7bba72a18e9bbe0d",
+        "start": 1791208800,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11352548629,
+          "line": 1300,
+          "sha256": "5a799f1186be5a2f553597820cb455875405d3041e446e6baa2af24e7d62187e"
+        },
+        "oracle": {
+          "artifact": 11352548629,
+          "line": 9803,
+          "sha256": "ac5431f8ee603a91d9691b2d2dded720e260f323f6fa8a25e2e283ffd2142e25"
+        },
+        "decision": {
+          "artifact": 11352548629,
+          "line": 9903,
+          "sha256": "c0ffc54be12701e7b2af6f9854f8fea78a9040e38b4d7c60b8804c354a8f1468"
+        },
+        "execution": {
+          "artifact": 11352548629,
+          "line": 10292,
+          "sha256": "736ef8c5f2a8e8aa9b22c074c2a8c5237a02f00c836002fdb36351a3162037f6"
+        },
+        "settlement": {
+          "artifact": 11352548629,
+          "line": 23358,
+          "sha256": "59a5e4516860377cab7882ce05ae85e9e07be73f524bcaf3a645f35d0024f94d"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "1.782360872",
+            "net_shares": "16.72754621",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.782360872"
+          }
+        }
+      },
+      {
+        "condition": "0x5116e8adf5dbe808d18ffd257bbb30fc2c35bf11252fafc4a9ffb20595251e9e",
+        "start": 1791208800,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11352548629,
+          "line": 1304,
+          "sha256": "dacb876ce5621b43d6ca18b6cde380f695d3f0126390d4abd844a24b383ac362"
+        },
+        "oracle": {
+          "artifact": 11352548629,
+          "line": 9834,
+          "sha256": "f25f4f23c18a2a0872709e54892ce0d2edb06abb3bad4d40e5bbf2a3df86ee88"
+        },
+        "decision": {
+          "artifact": 11352548629,
+          "line": 9910,
+          "sha256": "67d2849741248759df53c2e319570e193d62e6bec81f1b8939eeff5a25e01489"
+        },
+        "execution": {
+          "artifact": 11352548629,
+          "line": 10297,
+          "sha256": "6aa248a6058dbe50421d75ef51d5d850aa4593c756e8484a7d4020fb3240ac75"
+        },
+        "settlement": {
+          "artifact": 11352548629,
+          "line": 23359,
+          "sha256": "40d44d6f3ab724ffce2b5ed720b4fa770aaac672d1f16f0cedca5c336a6b432a"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.824976895",
+            "net_shares": "14.05244917",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.824976895"
+          }
+        }
+      },
+      {
+        "condition": "0x72da83070eb099ceab9523f9d30d3aec16b52eee668b6a7b6da76f0cc766ae5d",
+        "start": 1791210600,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11352548629,
+          "line": 31997,
+          "sha256": "19ddcbdd40e59047404f796fb6d34989a8d70f607cb711b00badb1991f6167b6"
+        },
+        "oracle": {
+          "artifact": 11352548629,
+          "line": 39856,
+          "sha256": "42a343f33601d382c5d43aa40da2e50b032968ed0f705af29e35b3e2812b2787"
+        },
+        "decision": {
+          "artifact": 11352548629,
+          "line": 39893,
+          "sha256": "4688ec484e3d897acf52684e1ff95aa7940c1212309244b6e6b0a1e93327c0e0"
+        },
+        "execution": {
+          "artifact": 11352548629,
+          "line": 40044,
+          "sha256": "e12655e15f85dae7b0737ffd49c7a3bbb21378a43e664ac8965e26ecfb7fb5fa"
+        },
+        "settlement": {
+          "artifact": 11356137271,
+          "line": 91,
+          "sha256": "123e5d19118ffdbe83614a4fbf109b70352f0b0585af9c6a5a26689f31c12858"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "constant50": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "0.552164938",
+            "net_shares": "20.59999961",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-0.552164938"
+          }
+        }
+      },
+      {
+        "condition": "0x7c2496634f2765d615f4d55fbee3b7cd1f8316634ec10b6b431eb4dcbc7a5275",
+        "start": 1791211500,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11352548629,
+          "line": 42926,
+          "sha256": "a54ffad80aa0a1a0328231a70ce32d7250fe6375dbd146a6d07cbfa5b0772c4d"
+        },
+        "oracle": {
+          "artifact": 11356137271,
+          "line": 1834,
+          "sha256": "963db016216d6be5c058ea34da21f6e6e80eb7d0c6e1a24121512b4b5ead2fb1"
+        },
+        "decision": {
+          "artifact": 11356137271,
+          "line": 1890,
+          "sha256": "d38e4affe31564e767105b569591cac87a561e405c28d21ec465f88f73f5f026"
+        },
+        "execution": {
+          "artifact": 11356137271,
+          "line": 2102,
+          "sha256": "4a5769b10dda54483de927e44f790adfd8129474bccef7547a10031b44142d0b"
+        },
+        "settlement": {
+          "artifact": 11356137271,
+          "line": 12813,
+          "sha256": "e68a876aacbeb7138e7ac43a772fbaccadc806f2f2330e7e221b7362f4a85000"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "5.261342352",
+            "net_shares": "45.56698287",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-5.261342352"
+          }
+        }
+      },
+      {
+        "condition": "0x108fe45094e07d58b10376ae80d1803facaeb3dcfe4d6249ee3877a45876b550",
+        "start": 1791211500,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11352548629,
+          "line": 42927,
+          "sha256": "5f5ea58c7ecb9281072d45d6ef96b83856fc8eafcab34f81fe532e7f55359dd3"
+        },
+        "oracle": {
+          "artifact": 11356137271,
+          "line": 1852,
+          "sha256": "533b0e27518cbddee8d1f4a3473a0f7ef801afd5076b5a0b5b12759c89b84852"
+        },
+        "decision": {
+          "artifact": 11356137271,
+          "line": 1899,
+          "sha256": "dbf43d031520887dea1bc3a7c1f04fd52361a390ed0b97b99edc05a7240736bd"
+        },
+        "execution": {
+          "artifact": 11356137271,
+          "line": 2119,
+          "sha256": "f4dbc0faea4ba73c07770c939d7fb9ab859094f6a1807fccbf7b4ae44cdb9c0e"
+        },
+        "settlement": {
+          "artifact": 11356137271,
+          "line": 12822,
+          "sha256": "b5ec28e5e7e480dbc21d7cc57f5ead651c6bff490ad3923001665a5a1e2b33d9"
+        },
+        "payouts": [
+          "0",
+          "1"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "YES",
+            "cost_usdc": "7.713747996",
+            "net_shares": "25.42680788",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-7.713747996"
+          }
+        }
+      },
+      {
+        "condition": "0xc7aba1028c76d240b2da474a773cf55875a35d40fb6157cf9e88b610c1e7c67c",
+        "start": 1791218700,
+        "symbol": "BTCUSDT",
+        "market": {
+          "artifact": 11361428049,
+          "line": 2956,
+          "sha256": "531532af332b7d7eaef8275d32fb6a9d5dfd1514fd7e4c4bea9967ccf729ea1d"
+        },
+        "oracle": {
+          "artifact": 11361428049,
+          "line": 9426,
+          "sha256": "5e4e89658202c9bb685ad30cc2e57c222ea8986f30ad03af3784bf7c5fbe886f"
+        },
+        "decision": {
+          "artifact": 11361428049,
+          "line": 9499,
+          "sha256": "dc943d37dbc3f266534d2a267fd324dc97b696b200f68baf3768af9414b8ab22"
+        },
+        "execution": {
+          "artifact": 11361428049,
+          "line": 9790,
+          "sha256": "313504f1ab34776e9f61bad210e6ca9c9ead30920c0dd7ac21ef28d1958fb98b"
+        },
+        "settlement": {
+          "artifact": 11361428049,
+          "line": 20285,
+          "sha256": "cc4c57b22b094d294e91cf6d9d027fc7d1756e66f8d7081f03a668e22d5cbc2d"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "2.385773880",
+            "net_shares": "32.21410255",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-2.385773880"
+          }
+        }
+      },
+      {
+        "condition": "0xebe9360335ab66edd908629da307f90700a125e104bf0e1b35d5a979503e3db6",
+        "start": 1791218700,
+        "symbol": "ETHUSDT",
+        "market": {
+          "artifact": 11361428049,
+          "line": 2958,
+          "sha256": "5eadf5f21bf6766524b1c9c6c7f43c8e21dde37c392570f4aba1d54e7f14717a"
+        },
+        "oracle": {
+          "artifact": 11361428049,
+          "line": 9450,
+          "sha256": "b0ad971b8132f752528b938a4246d1bf646f0466a8416059247943041a4837f0"
+        },
+        "decision": {
+          "artifact": 11361428049,
+          "line": 9515,
+          "sha256": "833e39f90b1d2c1b9627f7f2f92532751d10433f55618b7ee421cab11df6e634"
+        },
+        "execution": {
+          "artifact": 11361428049,
+          "line": 9800,
+          "sha256": "4f563d24feb5f08736a0f4605238fd0ccd7ad890d212b2660046ae0ca0be5fd9"
+        },
+        "settlement": {
+          "artifact": 11361428049,
+          "line": 20286,
+          "sha256": "131bb440e6e4ec3c312b7e6843fe5f4d3b6cbd9b1045fcf23a3370ab6db18d87"
+        },
+        "payouts": [
+          "1",
+          "0"
+        ],
+        "accounts": {
+          "model": {
+            "status": "SETTLED",
+            "side": "NO",
+            "cost_usdc": "1.738521479",
+            "net_shares": "45.57745499",
+            "payout_usdc": "0E-8",
+            "pnl_usdc": "-1.738521479"
+          }
+        }
+      }
+    ]
+  },
+  "hourly": {
+    "standalone_discovery": {
+      "conditions_seen": 108,
+      "decision_conditions": 100,
+      "hour_clusters": 54,
+      "scored_conditions": 98,
+      "brier_model": 0.2097084769445493,
+      "brier_50": 0.25,
+      "skips": {
+        "MISSED_DECISION_WINDOW": 8
+      },
+      "no_trade_control_pnl_usdc": 0,
+      "variants": {
+        "model": {
+          "states": {
+            "NO_TRADE": 79,
+            "SETTLED": 17,
+            "SKIP": 2,
+            "FILLED": 2
+          },
+          "settled_trades": 17,
+          "net_pnl_usdc": 40.792076959999996,
+          "settled_cost_usdc": 148.29292237,
+          "net_return_on_spent": 0.2750777063939791,
+          "mean_pnl_per_settled_trade": 2.399533938823529
+        },
+        "constant50": {
+          "states": {
+            "SETTLED": 85,
+            "NO_TRADE": 13,
+            "FILLED": 2
+          },
+          "settled_trades": 85,
+          "net_pnl_usdc": 43.025518727999994,
+          "settled_cost_usdc": 471.974471522,
+          "net_return_on_spent": 0.09116069051203855,
+          "mean_pnl_per_settled_trade": 0.5061825732705881
+        }
+      },
+      "feasibility": "INSUFFICIENT_DATA"
+    },
+    "funded_inventory": {
+      "started_at": 1791058984.920855,
+      "initial_capital": "100",
+      "cash": "80.397812803",
+      "open_cost_basis": "17.706546106",
+      "realized_pnl": "-1.895641091",
+      "positions": 17,
+      "settled_positions": 15,
+      "seed_hold_settled_pnl": "-1.895641091",
+      "managed_settled_pnl": "-1.895641091"
+    },
+    "settled_model_trades": [
+      {
+        "condition": "0xdfd4c7c99214c28d00ee5f6c8babb7a3d3a7f2e598c0c4848c9f5be4861bf867",
+        "hour_start": 1791054000,
+        "symbol": "ETHUSDT",
+        "side": "YES",
+        "p_up": 0.17575551891069074,
+        "cost": "7.532912391",
+        "gross_shares": "60.416633",
+        "pnl": "51.071221619"
+      },
+      {
+        "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+        "hour_start": 1791187200,
+        "symbol": "BTCUSDT",
+        "side": "NO",
+        "p_up": 0.7495971691569934,
+        "cost": "5.979231477",
+        "gross_shares": "42.405897",
+        "pnl": "35.154488613"
+      },
+      {
+        "condition": "0x735ad9e282482198d62cf2b2c4f67ee710960723b3909ebdd6adb178818a2484",
+        "hour_start": 1791100800,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.6064329664043051,
+        "cost": "8.142084900",
+        "gross_shares": "17.509860",
+        "pnl": "8.842479300"
+      },
+      {
+        "condition": "0xcf8bf0c3bf7ebfc5d1da0fa32ff46ccd69ab667d74387757eb991415d26e5d9b",
+        "hour_start": 1791086400,
+        "symbol": "BTCUSDT",
+        "side": "NO",
+        "p_up": 0.26554205885445903,
+        "cost": "9.896882464",
+        "gross_shares": "14.457678",
+        "pnl": "4.127065196"
+      },
+      {
+        "condition": "0x8c9970eaa38b4dc55e6b5798bb63877b5a407c122468d740c41c1d17c1ca0b9d",
+        "hour_start": 1791072000,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.7867130025545759,
+        "cost": "9.947561690",
+        "gross_shares": "13.497370",
+        "pnl": "3.144887210"
+      },
+      {
+        "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+        "hour_start": 1791205200,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.8618356073958249,
+        "cost": "8.969586080",
+        "gross_shares": "12.320860",
+        "pnl": "2.981648120"
+      },
+      {
+        "condition": "0x130a9ad21a6eb2759bc2edc712bb38a8a8c8f98ce6d33ca3d5d8745b1f9cee1c",
+        "hour_start": 1791090000,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.9266709012543157,
+        "cost": "9.268939115",
+        "gross_shares": "11.458821",
+        "pnl": "1.846117255"
+      },
+      {
+        "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+        "hour_start": 1791205200,
+        "symbol": "ETHUSDT",
+        "side": "YES",
+        "p_up": 0.9309126246931925,
+        "cost": "9.322825989",
+        "gross_shares": "11.406609",
+        "pnl": "1.741584741"
+      },
+      {
+        "condition": "0xc0d05b63dcf312544e8ff926f921ef1d109c0004f5c1c4e0190de5fe7a457c07",
+        "hour_start": 1791072000,
+        "symbol": "ETHUSDT",
+        "side": "YES",
+        "p_up": 0.9266353676912662,
+        "cost": "9.967295592",
+        "gross_shares": "11.459261",
+        "pnl": "1.148187578"
+      },
+      {
+        "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+        "hour_start": 1791180000,
+        "symbol": "ETHUSDT",
+        "side": "NO",
+        "p_up": 0.787610800451884,
+        "cost": "7.349374809",
+        "gross_shares": "49.995747",
+        "pnl": "-7.349374809"
+      },
+      {
+        "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+        "hour_start": 1791208800,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.33861864638935635,
+        "cost": "8.027763712",
+        "gross_shares": "31.358452",
+        "pnl": "-8.027763712"
+      },
+      {
+        "condition": "0x026a96673514333d4c6bae4905f713de964a388ec67d24303587926f4a73ca77",
+        "hour_start": 1791050400,
+        "symbol": "ETHUSDT",
+        "side": "YES",
+        "p_up": 0.2509627113603087,
+        "cost": "8.383503568",
+        "gross_shares": "42.311292",
+        "pnl": "-8.383503568"
+      },
+      {
+        "condition": "0x7b323074a2f5e542afe8b4ada3a4eccb77eaba344ad321564a5fc41490efe4b8",
+        "hour_start": 1791104400,
+        "symbol": "ETHUSDT",
+        "side": "NO",
+        "p_up": 0.7402313958506805,
+        "cost": "8.612551130",
+        "gross_shares": "40.876982",
+        "pnl": "-8.612551130"
+      },
+      {
+        "condition": "0x7e35ea706f30eeac8a61dad4583351c7289cba0eff6bf58f4deb1f819093aa46",
+        "hour_start": 1791115200,
+        "symbol": "BTCUSDT",
+        "side": "YES",
+        "p_up": 0.3635444383974299,
+        "cost": "8.788566270",
+        "gross_shares": "29.208414",
+        "pnl": "-8.788566270"
+      },
+      {
+        "condition": "0x1398c0abcb741413e56505f8c9eede7e53e9f396d0386f48ec44ef6976db46fd",
+        "hour_start": 1791216000,
+        "symbol": "ETHUSDT",
+        "side": "YES",
+        "p_up": 0.2053415044860002,
+        "cost": "9.27622148",
+        "gross_shares": "51.711692",
+        "pnl": "-9.276221480"
+      },
+      {
+        "condition": "0x58245bccb136500d93a6d0da0097f2baff74b7bbdcd3edc8adf342110b12e3f0",
+        "hour_start": 1791093600,
+        "symbol": "ETHUSDT",
+        "side": "NO",
+        "p_up": 0.03544264441266287,
+        "cost": "9.390450955",
+        "gross_shares": "11.008735",
+        "pnl": "-9.390450955"
+      },
+      {
+        "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+        "hour_start": 1791140400,
+        "symbol": "ETHUSDT",
+        "side": "NO",
+        "p_up": 0.8225402044444312,
+        "cost": "9.437170748",
+        "gross_shares": "59.836407",
+        "pnl": "-9.437170748"
+      }
+    ],
+    "top_two_pnl": "86.225710232",
+    "excluding_top_two_pnl": "-45.433633272",
+    "gross_shares": "511.240710"
+  }
+}
