@@ -1,0 +1,25 @@
+{
+  "schema": "limitless-maker-incentives-public-snapshot-v1",
+  "observed_at_utc": "2026-10-05T22:20:39Z",
+  "source_urls": {
+    "fee_rules": "https://docs.limitless.exchange/user-guide/fees",
+    "maker_rebates": "https://docs.limitless.exchange/user-guide/maker-rebates",
+    "lp_rewards": "https://docs.limitless.exchange/user-guide/lp-rewards",
+    "live_reward_listing": "https://limitless.exchange/rewards?view=rebates"
+  },
+  "visible_rebate_listing": [
+    {"family": "BTC Up or Down - 5 Min", "rebate_rate_pct": 30},
+    {"family": "ETH Up or Down - 5 Min", "rebate_rate_pct": 30},
+    {"family": "BTC Up or Down - 15 Min", "rebate_rate_pct": 30},
+    {"family": "ETH Up or Down - 15 Min", "rebate_rate_pct": 30}
+  ],
+  "hourly_btc_eth_rebate_rate_pct": null,
+  "hourly_status": "UNKNOWN_NOT_CONFIRMED_BY_VISIBLE_LISTING",
+  "maker_trading_fee_pct_if_resting": 0,
+  "maker_rebate_requires_executed_eligible_fee_generating_fill": true,
+  "lp_rewards_market_specific_min_size_and_spread": true,
+  "historical_10_share_lp_eligible_anchors": 0,
+  "historical_10_share_lp_anchor_count": 422,
+  "paper_rebate_pnl_usdc": null,
+  "paper_lp_reward_pnl_usdc": null
+}
