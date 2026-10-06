@@ -1,0 +1,314 @@
+{
+  "schema": "limitless-hourly-market-blend50-prospective-check-2026-10-06",
+  "as_of_utc": "2026-10-06T09:25:54.377438+00:00",
+  "cohort": "2026-10-06T00:00:00Z through last completed main ZIP",
+  "status": "COLLECTING_PAPER_ONLY",
+  "source_state_version": "limitless-hourly-v1",
+  "source_archives": [
+    {
+      "artifact": 11381034166,
+      "sha256": "52bf2f2e2dc100e114c514da44fa69a6b58235c0d2124bad56e96cab3159a460",
+      "ended_at": "2026-10-06T00:12:16.741733+00:00",
+      "started_at": "2026-10-05T23:17:16.455927+00:00"
+    },
+    {
+      "artifact": 11384130707,
+      "sha256": "0ce5b75832e91e9e624bfd5841ab186c663273ee031de9591a30affef05d11cb",
+      "ended_at": "2026-10-06T01:07:40.512278+00:00",
+      "started_at": "2026-10-06T00:12:40.354382+00:00"
+    },
+    {
+      "artifact": 11385278898,
+      "sha256": "08fb64426b0324344fcfa9b94bb00511736c80e7025c1894a8d69fa94d60792f",
+      "ended_at": "2026-10-06T02:02:59.559660+00:00",
+      "started_at": "2026-10-06T01:07:59.404109+00:00"
+    },
+    {
+      "artifact": 11386758072,
+      "sha256": "5760fda3d85d0cc310da851e8390df71fced3b06b07eee5aeb7c3a36437accfd",
+      "ended_at": "2026-10-06T02:58:21.409571+00:00",
+      "started_at": "2026-10-06T02:03:21.185293+00:00"
+    },
+    {
+      "artifact": 11389526139,
+      "sha256": "35935c4aa0d053b566ee729586fd911ed7b7cd82494021d22e9d6dad52a24f8c",
+      "ended_at": "2026-10-06T03:53:46.204912+00:00",
+      "started_at": "2026-10-06T02:58:45.064701+00:00"
+    },
+    {
+      "artifact": 11391016390,
+      "sha256": "2040b45b4388d0fd00d1ad89f28973e9f5d223650c3c5c0c413f7c06cac137a9",
+      "ended_at": "2026-10-06T04:49:07.967553+00:00",
+      "started_at": "2026-10-06T03:54:07.799649+00:00"
+    },
+    {
+      "artifact": 11392267927,
+      "sha256": "8161b6d47211bad05b6353f10425fd809e4ec484d5602908544fb6d36f941dd0",
+      "ended_at": "2026-10-06T05:44:30.598414+00:00",
+      "started_at": "2026-10-06T04:49:30.428104+00:00"
+    },
+    {
+      "artifact": 11395255294,
+      "sha256": "e0c267b7a3fc9ba6731ec3e1d78eb3a92d874942a9b68281ee4709d3710c4497",
+      "ended_at": "2026-10-06T06:39:51.161354+00:00",
+      "started_at": "2026-10-06T05:44:50.995500+00:00"
+    },
+    {
+      "artifact": 11396721933,
+      "sha256": "b11547ef7763b64c2776469a52b85462e98e0b646f2523a3872025c0c7f74d20",
+      "ended_at": "2026-10-06T07:35:11.637713+00:00",
+      "started_at": "2026-10-06T06:40:10.379271+00:00"
+    },
+    {
+      "artifact": 11399108296,
+      "sha256": "09d6af383eb495fa0315c047111b6d829cf2999dfb9dc2cabb9c269b80162da1",
+      "ended_at": "2026-10-06T08:30:29.684741+00:00",
+      "started_at": "2026-10-06T07:35:29.531251+00:00"
+    },
+    {
+      "artifact": 11401599040,
+      "sha256": "f5c66a6b48862c7dc4470b74d6d57b85c7317d21a577f33fdea06a9376252d8c",
+      "ended_at": "2026-10-06T09:25:54.377438+00:00",
+      "started_at": "2026-10-06T08:30:54.212369+00:00"
+    }
+  ],
+  "decision_inputs": [
+    {
+      "condition": "0x3f496eeff34316c19d9c3dc120aa54daf222eae6ab70691b1b9944bdd96b55c4",
+      "slug": "btc-up-or-down-hourly-p-1791234309333",
+      "decision_at": 1791246607.0450783,
+      "p_up": 0.6456192909981733,
+      "market_mid": "0.608",
+      "p_blend50": 0.6268096454990867,
+      "decision_proof": {
+        "artifact": 11384130707,
+        "line": 15951,
+        "sha256": "fbec0dc89df86b060c0f0108dfb0571befa35d8e3c8b421d41c87afc1be05bbc"
+      }
+    },
+    {
+      "condition": "0xb2371fafbd6d990bb653e53b98a33727becd934980000d7ac0ed2ee11e14af16",
+      "slug": "eth-up-or-down-hourly-p-1791234310558",
+      "decision_at": 1791246607.3997238,
+      "p_up": 0.8130925237132156,
+      "market_mid": "0.756",
+      "p_blend50": 0.7845462618566078,
+      "decision_proof": {
+        "artifact": 11384130707,
+        "line": 15958,
+        "sha256": "be199798620c799c4ed795cb78140a0e5303e94c22198180c15dde3142ab4df4"
+      }
+    },
+    {
+      "condition": "0x947c8f1ced63d9435ca2a348f1f89e226b6e6ff38c8411d4b8edac2b44f2fad4",
+      "slug": "btc-up-or-down-hourly-p-1791237905288",
+      "decision_at": 1791250220.0358276,
+      "p_up": 0.650713119345679,
+      "market_mid": "0.6475",
+      "p_blend50": 0.6491065596728395,
+      "decision_proof": {
+        "artifact": 11385278898,
+        "line": 23990,
+        "sha256": "0ab875eddaee027fbddfd0eac620729f6e9d45c9a41ea468f1750c0774986e79"
+      }
+    },
+    {
+      "condition": "0xbfe5734b6a7b34b904c2d8c34f652d9b76aad9026525a4245fc4f60f85f00247",
+      "slug": "eth-up-or-down-hourly-p-1791237906403",
+      "decision_at": 1791250220.313271,
+      "p_up": 0.3573496813321728,
+      "market_mid": "0.335",
+      "p_blend50": 0.3461748406660864,
+      "decision_proof": {
+        "artifact": 11385278898,
+        "line": 23996,
+        "sha256": "83fc8b53f442416d572663e15ba9ee4ff9a2284ae08c1fcb662bb6fee68b86af"
+      }
+    },
+    {
+      "condition": "0x0bf4ecc59ed50c2dbd2ebf262eb002e9c6276943290c6aa2b78a1a7a94a63eab",
+      "slug": "btc-up-or-down-hourly-p-1791241509235",
+      "decision_at": 1791253822.6671736,
+      "p_up": 0.42480327334080414,
+      "market_mid": "0.4205",
+      "p_blend50": 0.42265163667040206,
+      "decision_proof": {
+        "artifact": 11386758072,
+        "line": 22957,
+        "sha256": "277d9433c3dd8c4a20ecc9cae693167820ed4e6f7c0ef1b3d254cbc799303ade"
+      }
+    },
+    {
+      "condition": "0xce2c7abd84a44e045b912647c0d083e1214ac01762c91175d99ad472bedcbbf1",
+      "slug": "eth-up-or-down-hourly-p-1791241510364",
+      "decision_at": 1791253822.9940894,
+      "p_up": 0.3276816673732909,
+      "market_mid": "0.299",
+      "p_blend50": 0.31334083368664545,
+      "decision_proof": {
+        "artifact": 11386758072,
+        "line": 22963,
+        "sha256": "9e9d28b8cf1f8f8c0ca0888a61c4a80120bb56acc82f85f5bf020291560e5f52"
+      }
+    },
+    {
+      "condition": "0x8761780a32ec65f3fd24ea0539debf02f6da97176ff07f57d4b0ca1f1903ffc4",
+      "slug": "eth-up-or-down-hourly-p-1791245110650",
+      "decision_at": 1791257403.2576714,
+      "p_up": 0.2519133711354572,
+      "market_mid": "0.2155",
+      "p_blend50": 0.2337066855677286,
+      "decision_proof": {
+        "artifact": 11389526139,
+        "line": 35746,
+        "sha256": "206460c96132409f7c1e00b3e4ebe4457ba06c18c80836b5b6ddb363f776a5c6"
+      }
+    },
+    {
+      "condition": "0x281cdbd4cb293ae7c8d7c47dce86d7c8b10a7ce3a4986bba2ae0a2c78cb453a7",
+      "slug": "btc-up-or-down-hourly-p-1791248704815",
+      "decision_at": 1791261004.4415135,
+      "p_up": 0.7334814169748529,
+      "market_mid": "0.7725",
+      "p_blend50": 0.7529907084874264,
+      "decision_proof": {
+        "artifact": 11391016390,
+        "line": 26335,
+        "sha256": "4367d018428e087016471c9fcbd23404d6a8ecd23194f18d45a404e442dd79f1"
+      }
+    },
+    {
+      "condition": "0x563ee0f20048d9469c0b1b73999f07abce08a292487fb190b52e57f0d45b573a",
+      "slug": "eth-up-or-down-hourly-p-1791248705916",
+      "decision_at": 1791261004.7540455,
+      "p_up": 0.8301270788355446,
+      "market_mid": "0.8895",
+      "p_blend50": 0.8598135394177723,
+      "decision_proof": {
+        "artifact": 11391016390,
+        "line": 26337,
+        "sha256": "7d7f9d7aa10fd74b47dbe0012518d9fd025ce2b9c52eef802927bab944629d8c"
+      }
+    },
+    {
+      "condition": "0x95116ed8756202d912e8dc8d2e1df3e3a675a4254e35a41c9ee9a2cfb2aec039",
+      "slug": "eth-up-or-down-hourly-p-1791252310143",
+      "decision_at": 1791264605.2364447,
+      "p_up": 0.5437456926806105,
+      "market_mid": "0.5435",
+      "p_blend50": 0.5436228463403052,
+      "decision_proof": {
+        "artifact": 11392267927,
+        "line": 33350,
+        "sha256": "7d8ac3e6ee6f29b779b085ee1d7ee2663646fdea26e2f8a900550fea20fc31c7"
+      }
+    },
+    {
+      "condition": "0x36680c3e8a7da5e8ad9d2b25d74fec360168a7925058944c860ad3383e97b1f4",
+      "slug": "btc-up-or-down-hourly-p-1791259509296",
+      "decision_at": 1791271820.1024637,
+      "p_up": 0.49136140478979307,
+      "market_mid": "0.4955",
+      "p_blend50": 0.49343070239489656,
+      "decision_proof": {
+        "artifact": 11396721933,
+        "line": 45179,
+        "sha256": "189053d7e5b6c5944ae1c4219e7a2f8d9dfd5d8c5a955dc1ddfb3fc78a8fa434"
+      }
+    },
+    {
+      "condition": "0xd0fa30981c1904bb1a96ec238baccd6ba0249d62988c3354b31c59f573370781",
+      "slug": "eth-up-or-down-hourly-p-1791259510380",
+      "decision_at": 1791271820.3125105,
+      "p_up": 0.524854556287721,
+      "market_mid": "0.5355",
+      "p_blend50": 0.5301772781438605,
+      "decision_proof": {
+        "artifact": 11396721933,
+        "line": 45182,
+        "sha256": "eea14cbbd422e1b48d9160daf42ff7c52ff443537d0ef816ef9a76a238eb32ac"
+      }
+    },
+    {
+      "condition": "0x523cfc3d2c7a8f0e8843b4d575b8de0480a63b9d53db5ef84a76b8ca4bf84895",
+      "slug": "btc-up-or-down-hourly-p-1791263105196",
+      "decision_at": 1791275411.424557,
+      "p_up": 0.9792678066318199,
+      "market_mid": "0.9445",
+      "p_blend50": 0.96188390331591,
+      "decision_proof": {
+        "artifact": 11399108296,
+        "line": 42418,
+        "sha256": "f6efe7e34a228dd4556439a293db1dce7687f871a5daa51439408410b5845f95"
+      }
+    },
+    {
+      "condition": "0x6ccec494095f3e86bc0ce6a7e04f0c2992c537ec6ea1652276a54e28599fdbe8",
+      "slug": "eth-up-or-down-hourly-p-1791263106267",
+      "decision_at": 1791275411.7118638,
+      "p_up": 0.9710494283881377,
+      "market_mid": "0.929",
+      "p_blend50": 0.9500247141940689,
+      "decision_proof": {
+        "artifact": 11399108296,
+        "line": 42422,
+        "sha256": "3264be6a6ee0a241432edd7364f0295c5cc3201b591d75407108414645637c7d"
+      }
+    }
+  ],
+  "verification": {
+    "raw_binance_proofs": 14,
+    "raw_decision_book_proofs": 14,
+    "zip_digest_verified": 11,
+    "source_state_version": "limitless-hourly-v1",
+    "raw_binance_p_and_sigma_recomputed": true,
+    "raw_decision_book_proofs_unique": true,
+    "first_execution_attempt_only": true,
+    "independent_funding_usdc": "100"
+  },
+  "frozen_funded": {
+    "cash": "100",
+    "realized": "0",
+    "states": {
+      "NO_TRADE": 13,
+      "SKIP": 1
+    },
+    "non_no_trade": [
+      {
+        "condition": "0x563ee0f20048d9469c0b1b73999f07abce08a292487fb190b52e57f0d45b573a",
+        "slug": "eth-up-or-down-hourly-p-1791248705916",
+        "symbol": "ETHUSDT",
+        "decision_at": 1791261004.7540455,
+        "p_up": 0.8301270788355446,
+        "status": "SKIP",
+        "decision_proof": {
+          "artifact": 11391016390,
+          "line": 26337,
+          "sha256": "7d7f9d7aa10fd74b47dbe0012518d9fd025ce2b9c52eef802927bab944629d8c"
+        },
+        "side": "NO",
+        "cap": "0.1599774111937104252427184466",
+        "shares": "62.508824",
+        "execution_proof": {
+          "artifact": 11391016390,
+          "line": 26403,
+          "sha256": "8de98e4ae2345dfcd7c0b8a6136693fca6ae9a15b58acd5d4dea08ce6305bdd0"
+        },
+        "reason": "DEPTH_OR_PRICE_BOUND_FAILED"
+      }
+    ]
+  },
+  "blend50_funded": {
+    "cash": "100",
+    "realized": "0",
+    "states": {
+      "NO_TRADE": 14
+    }
+  },
+  "limitations": [
+    "Only 14 prospective decisions through 09:25 UTC; no eligible blend50 fills or realized PnL, not a model edge test.",
+    "Previous retrospective 102-decision sanity reused known data; 3 settled trades are not prospective.",
+    "Capture gap from 2026-10-05 19:26 UTC to 23:17 UTC separates earlier historical sanity from this contiguous 11-ZIP slice.",
+    "Predeclared full 2026-10-06 through 2026-10-12 UTC prospective window is not covered."
+  ]
+}
