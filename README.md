@@ -8,6 +8,10 @@ Polymarket SmartCopy is a selective copy-trading research and execution project.
 - `WATCH`
 - `SKIP`
 
+## Current Limitless research — 2026-10-06
+
+The active venue study is [Limitless](research/LIMITLESS_STATUS_2026-10-06.md). Hourly paper collection continues under frozen rules; the funded inventory account is negative on discovery and the hourly model has no holdout entries yet. The 15-minute Chainlink paper replay lost 98.91 USDC of its independent 100 USDC account in discovery, so that trading version is paused. Wallet copying and maker quoting have no verified fill/PnL edge. No live execution is authorized.
+
 ## Core thesis
 
 A profitable source trade is not automatically profitable for a follower. The project therefore optimizes for **Residual Edge**, not source PnL.
