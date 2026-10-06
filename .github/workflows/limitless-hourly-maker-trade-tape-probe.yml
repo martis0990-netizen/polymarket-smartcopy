@@ -1,0 +1,39 @@
+name: Limitless hourly maker public trade tape probe
+
+on:
+  push:
+    branches:
+      - research/hourly-blend50-maker-diagnostic-20261006
+    paths:
+      - research/limitless_hourly_maker_trade_tape_probe.py
+      - research/test_limitless_hourly_maker_trade_tape_probe.py
+      - .github/workflows/limitless-hourly-maker-trade-tape-probe.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify bounded collector
+        run: python -m unittest discover -s research -p 'test_limitless_hourly_maker_trade_tape_probe.py' -v
+      - name: Fetch public finalized trade pages
+        run: |
+          python research/limitless_hourly_maker_trade_tape_probe.py \
+            --source research/evidence/limitless_hourly_blend50_maker_2026-10-06.json \
+            --out maker_public_tape
+      - name: Upload raw public pages and summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-maker-public-tape-${{ github.run_id }}
+          path: maker_public_tape/
+          retention-days: 90
+          if-no-files-found: warn
