@@ -1,0 +1,1389 @@
+{
+  "schema": "limitless-hourly-ewma30-frozen-cohort-shadow-pnl-v1",
+  "scope": "matched decisions in pinned shadow evidence only",
+  "funding": "separate 100 USDC each at first matched decision",
+  "baseline_exact_action_reproduction": 52,
+  "source_archives": [
+    {
+      "run": 37210772462,
+      "artifact": 11306859808,
+      "sha256": "5c8966af186c370f541a42eb3af0943dd8fe9a2c52606568c422e0202b4e0b5f",
+      "ended_at": "2026-10-04T15:46:08.212197+00:00"
+    },
+    {
+      "run": 37214242349,
+      "artifact": 11308499615,
+      "sha256": "2e09ecaf97d68afdf24446afdd9d3233235767fc77719f94242fd09aa52259b6",
+      "ended_at": "2026-10-04T16:41:28.803122+00:00"
+    },
+    {
+      "run": 37217704573,
+      "artifact": 11309924573,
+      "sha256": "556dc05cdc36fcb505dc304a5d4ea8e4e164479e194dc46ca48faea4bbafaeb7",
+      "ended_at": "2026-10-04T17:36:52.383090+00:00"
+    },
+    {
+      "run": 37221185940,
+      "artifact": 11311113181,
+      "sha256": "ffb66776f4aefddbc9ebcec46ada5da0fd0564086531f8601ae7129d4632104e",
+      "ended_at": "2026-10-04T18:32:10.764492+00:00"
+    },
+    {
+      "run": 37224818632,
+      "artifact": 11312467158,
+      "sha256": "336c6eedee34713d0413f2c7eb4b3a97f16d36f54a8c1b820ad1e08d9dc8c002",
+      "ended_at": "2026-10-04T19:27:30.026395+00:00"
+    },
+    {
+      "run": 37228344962,
+      "artifact": 11313543428,
+      "sha256": "7cd90ddb5ed632bc6eb0ac54f365b5f7b4a509780d3a23748104dac0e2a0d545",
+      "ended_at": "2026-10-04T20:22:47.992801+00:00"
+    },
+    {
+      "run": 37231867228,
+      "artifact": 11315113546,
+      "sha256": "bb221caab3d4c662ddcb3ed7aabc411bd20868dd53c8d9870a3437243481cb05",
+      "ended_at": "2026-10-04T21:18:05.217878+00:00"
+    },
+    {
+      "run": 37235540585,
+      "artifact": 11316855831,
+      "sha256": "2f20bfe7fd5e6ca3602a45c1ded44ceb477b8057fe5d40f50d5ed93f0aadd63b",
+      "ended_at": "2026-10-04T22:13:25.117025+00:00"
+    },
+    {
+      "run": 37239193650,
+      "artifact": 11318380130,
+      "sha256": "964bc112dbf78e910cb0eba11ec0c99b2c64be1f50a9773c89b31584b2dd4282",
+      "ended_at": "2026-10-04T23:08:45.598262+00:00"
+    },
+    {
+      "run": 37242684772,
+      "artifact": 11319191845,
+      "sha256": "e0b64bd98261b9b4fa3ccc1e30ed1879a53795f746f443668b5e1c3644a4eb13",
+      "ended_at": "2026-10-05T00:04:03.665475+00:00"
+    },
+    {
+      "run": 37246016706,
+      "artifact": 11320990439,
+      "sha256": "c7d42b832333b1df077b9c7529b77cfb970332ab30d6ce5aaa4c3b3ad6dbf53d",
+      "ended_at": "2026-10-05T00:59:24.390519+00:00"
+    },
+    {
+      "run": 37249619047,
+      "artifact": 11322140903,
+      "sha256": "71271deef82d63d78fe37023bf2811943776e272dbff4fbf67d582264028eac3",
+      "ended_at": "2026-10-05T01:54:44.331800+00:00"
+    },
+    {
+      "run": 37253280899,
+      "artifact": 11322922049,
+      "sha256": "a9aea6cf488ba3a0a8aacd2e6601443ce54e4558add72d222821a30cb6f2248a",
+      "ended_at": "2026-10-05T02:50:01.797540+00:00"
+    },
+    {
+      "run": 37256941304,
+      "artifact": 11324950599,
+      "sha256": "6ed34d84cf739944649a14bc64f999badd3c095a78e29150b9b436144bc7c777",
+      "ended_at": "2026-10-05T03:45:21.061528+00:00"
+    },
+    {
+      "run": 37260697529,
+      "artifact": 11326490018,
+      "sha256": "820f6b00a8ac321c535b64b0e1a5ea98ad664c9ac45cb3b41ce74d745aadcfe1",
+      "ended_at": "2026-10-05T04:40:40.146264+00:00"
+    },
+    {
+      "run": 37264564901,
+      "artifact": 11326799614,
+      "sha256": "c17290ac4d66c9417a140afcd0ee3ad51c8e82150132e3f1e11396e5b5d01ec3",
+      "ended_at": "2026-10-05T05:36:01.674696+00:00"
+    },
+    {
+      "run": 37268511734,
+      "artifact": 11329181459,
+      "sha256": "cd79db484cd8ac80a3f4b1ca36323c672fbb99e5b6c6a02fc008ec8c851cc084",
+      "ended_at": "2026-10-05T06:31:24.261327+00:00"
+    },
+    {
+      "run": 37272859934,
+      "artifact": 11330887058,
+      "sha256": "f2def6cfe0b1217c1fef0a47cb3199765b5cf845464672a48facb76a22473117",
+      "ended_at": "2026-10-05T07:26:46.559635+00:00"
+    },
+    {
+      "run": 37277785767,
+      "artifact": 11333186316,
+      "sha256": "7e8df8377dba4ca95d5430f4cfabbcc2b5b02d2730c4bf792534c41270a682d9",
+      "ended_at": "2026-10-05T08:22:08.061098+00:00"
+    },
+    {
+      "run": 37283196223,
+      "artifact": 11336050647,
+      "sha256": "b54fe1c9b882276345bc720370768a032213ebfac6a498871fae68791b3dbc0f",
+      "ended_at": "2026-10-05T09:17:25.351810+00:00"
+    },
+    {
+      "run": 37289060103,
+      "artifact": 11338900983,
+      "sha256": "f57dd16396e5d5b168921d5358850dad0dd7d3ed2c836999abc9d860f8ded52f",
+      "ended_at": "2026-10-05T10:12:45.620552+00:00"
+    },
+    {
+      "run": 37295123273,
+      "artifact": 11340867547,
+      "sha256": "4720ca35b59c153c693b089e0026aa4c1d1d03562f5eee3d0e67df4ddde66d02",
+      "ended_at": "2026-10-05T11:08:04.820875+00:00"
+    },
+    {
+      "run": 37300980257,
+      "artifact": 11344077412,
+      "sha256": "1822b2946c2dc48972f3ac75407924647a1482cc0eaab3de7a06b93bcfbf9c9e",
+      "ended_at": "2026-10-05T12:03:26.677406+00:00"
+    },
+    {
+      "run": 37306934684,
+      "artifact": 11345709904,
+      "sha256": "10fac9a0347f8e2671be0424de6ed67c55390c6d425049066d4e9ad7e1ca03bb",
+      "ended_at": "2026-10-05T12:58:50.488497+00:00"
+    },
+    {
+      "run": 37313335391,
+      "artifact": 11349836430,
+      "sha256": "977c35ec92105df3cb86663fd71e62e4b52bc67e2900a3a52128193ed4ab0159",
+      "ended_at": "2026-10-05T13:54:13.715869+00:00"
+    },
+    {
+      "run": 37320416291,
+      "artifact": 11352548629,
+      "sha256": "9d3e39d91d0fe7a93b0af548fdbe43c0a18e490273c68f72e70e7732f2924eb2",
+      "ended_at": "2026-10-05T14:49:33.000363+00:00"
+    },
+    {
+      "run": 37327854527,
+      "artifact": 11356137271,
+      "sha256": "7e8552fa1594bdc8f00cc32818b4cb6b0646a8cd12c417639c6e5140f03d7896",
+      "ended_at": "2026-10-05T15:44:52.552139+00:00"
+    },
+    {
+      "run": 37335319038,
+      "artifact": 11359620308,
+      "sha256": "9286292448774bc0c6d3216873f9a45a7ee974e880f9892381f99238e60ea8d8",
+      "ended_at": "2026-10-05T16:40:12.417147+00:00"
+    },
+    {
+      "run": 37342610834,
+      "artifact": 11361428049,
+      "sha256": "ba0a797fe7d4d1b8dafeb6e2f616bf22412b6446341872ef2a60f5c26e14f113",
+      "ended_at": "2026-10-05T17:35:30.432406+00:00"
+    },
+    {
+      "run": 37349579066,
+      "artifact": 11364617509,
+      "sha256": "a7c640795a88116f7ec7cd0745878270e166b5ce40bfdc3cb67612bd7e49ea4f",
+      "ended_at": "2026-10-05T18:30:49.466968+00:00"
+    }
+  ],
+  "frozen": {
+    "cash": "88.080644619",
+    "spent": "76.068720401",
+    "payouts": "64.149365020",
+    "realized": "-11.919355381",
+    "pending_cost": "0",
+    "states": {
+      "NO_TRADE": 42,
+      "SETTLED": 9,
+      "SKIP": 1
+    },
+    "rows": [
+      {
+        "condition": "0xf6664de538dbcba76c253305abfdaba3b9e794c859c2ebcafd7b9cec2195de24",
+        "slug": "btc-up-or-down-hourly-p-1791115509366",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791126000.0,
+        "p_up": 0.6528735937251834,
+        "decision_at": 1791127819.9341547,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x78262dd280639f4e153ef847848148c2503f687f783cb34849a4009d27373de0",
+        "slug": "eth-up-or-down-hourly-p-1791115510440",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791126000.0,
+        "p_up": 0.6982872470390773,
+        "decision_at": 1791127820.2329166,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xed5b4a4cead6f9409b524c5d69427a3ca201e3c0f567fbd41aad9e468097feac",
+        "slug": "btc-up-or-down-hourly-p-1791119106335",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791129600.0,
+        "p_up": 0.45447476787098884,
+        "decision_at": 1791131407.4655154,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x7812c4cffcd6b3388a0f8b35af0922eaec0c1c59614f9de552efb0240b3b5c7a",
+        "slug": "eth-up-or-down-hourly-p-1791119107396",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791129600.0,
+        "p_up": 0.46086068489746046,
+        "decision_at": 1791131407.8507462,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x5fc095d28724e6be26c2dee75c7deda36a7de55b9803e5779aa2b7d1393d3577",
+        "slug": "btc-up-or-down-hourly-p-1791122709422",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791133200.0,
+        "p_up": 0.5550496449699276,
+        "decision_at": 1791135020.1483927,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x8fdf3d88088a3e2557c226aad25566fe9482785726ddc69a05a71f7f2274ab1b",
+        "slug": "eth-up-or-down-hourly-p-1791122710506",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791133200.0,
+        "p_up": 0.5153551566178365,
+        "decision_at": 1791135020.5355725,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xe0a7cebd3e72805ba2958480c466303cb1a56e404cd49fd24a9e2da621bfd0ef",
+        "slug": "btc-up-or-down-hourly-p-1791126309566",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791136800.0,
+        "p_up": 0.531999549385739,
+        "decision_at": 1791138604.4645977,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x77fb2283b570241b0468b9ba03ba1c51d729d1e5b2876d41022a44880df38593",
+        "slug": "eth-up-or-down-hourly-p-1791126310898",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791136800.0,
+        "p_up": 0.37710026409454894,
+        "decision_at": 1791138605.027801,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xffeae70eefbb85a085860f8a847e5c40b17a7ec69279de01f564e935d4c415c1",
+        "slug": "btc-up-or-down-hourly-p-1791129909016",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791140400.0,
+        "p_up": 0.960930292188303,
+        "decision_at": 1791142204.643171,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+        "slug": "eth-up-or-down-hourly-p-1791129910155",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791140400.0,
+        "p_up": 0.8225402044444312,
+        "decision_at": 1791142204.904444,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.1671223317367978019417475728",
+        "shares": "59.836407",
+        "execution_proof": {
+          "artifact": 11313543428,
+          "line": 603,
+          "sha256": "532e125719de25d3ff0a47b9094ff0b0197f49355bf2ee81f86d6e4df8758edb"
+        },
+        "fill_at": 1791142223.211626,
+        "gross_shares": "59.836407",
+        "net_shares": "58.04131479",
+        "cost_usdc": "9.437170748",
+        "vwap": "0.1577162002390952384557448444",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-9.437170748"
+      },
+      {
+        "condition": "0xe07212a0d1c4076b3cfcc2f7337a18bd1f6574cc6d684e733a51cac6439316c0",
+        "slug": "btc-up-or-down-hourly-p-1791133509165",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791144000.0,
+        "p_up": 0.7177642818819026,
+        "decision_at": 1791145808.83281,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x5e551ff7772e7f61b2f593f86b1749dabda76accdca4badd9dfa64e0828c4d46",
+        "slug": "eth-up-or-down-hourly-p-1791133510235",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791144000.0,
+        "p_up": 0.5543605960848634,
+        "decision_at": 1791145808.9993575,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x93e984e663b9273b5707776978ac16fd05f3780a388d5e952e4621798610c05d",
+        "slug": "eth-up-or-down-hourly-p-1791137110677",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791147600.0,
+        "p_up": 0.44482850113161615,
+        "decision_at": 1791149412.3466794,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x87ff64f96c3811c64c7959faae155f74fe39e715ebd62194269a4294c26d646d",
+        "slug": "btc-up-or-down-hourly-p-1791140709215",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791151200.0,
+        "p_up": 0.9097614545264425,
+        "decision_at": 1791153017.583815,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb0bf7513a2d46898e704454e2c49480e8476bc8ae8f3b7be41a7bfcf49339880",
+        "slug": "eth-up-or-down-hourly-p-1791140710269",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791151200.0,
+        "p_up": 0.9971331731194202,
+        "decision_at": 1791153017.9022968,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x38944dcbc11c6a7f219eb47b22a6a9d65a588a61f5aa1e4d2ec63c9188ee0964",
+        "slug": "btc-up-or-down-hourly-p-1791144304833",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791154800.0,
+        "p_up": 0.8305538370778135,
+        "decision_at": 1791156606.5570493,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x064eed6fb63741842fbb4579fa7c85b80891f4e73a9dd3a371f697917e2a2cdf",
+        "slug": "eth-up-or-down-hourly-p-1791144305928",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791154800.0,
+        "p_up": 0.5769514072482455,
+        "decision_at": 1791156606.8702087,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xaba7934e4e8d365c888d63e6679604abbcac4c36f350bb39e4186e8e8d2041e8",
+        "slug": "btc-up-or-down-hourly-p-1791147904611",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791158400.0,
+        "p_up": 0.12379919387929061,
+        "decision_at": 1791160209.7543094,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x565c5a83308a2a8ce9b8928a40391dab615d9bebb26b50f69854f8a17c0754b3",
+        "slug": "eth-up-or-down-hourly-p-1791147910039",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791158400.0,
+        "p_up": 0.17300645564061107,
+        "decision_at": 1791160210.0601833,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x639dc96dc083cbf1000d1df392c2581168802d2b9f62d28f56bbbfcd81e31169",
+        "slug": "btc-up-or-down-hourly-p-1791151505921",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791162000.0,
+        "p_up": 0.8083957125433258,
+        "decision_at": 1791163823.1123195,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb8fe93dbcd1530a911d55f35135233c50ffbff36325c57d33be5f0c82a65f330",
+        "slug": "eth-up-or-down-hourly-p-1791151511291",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791162000.0,
+        "p_up": 0.5614955038736797,
+        "decision_at": 1791163823.4721599,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x026e7775f4d0f8ae51b3294817597bc2df709d15e2dfe026aafb3428f975f413",
+        "slug": "btc-up-or-down-hourly-p-1791155104653",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791165600.0,
+        "p_up": 0.33062059954379525,
+        "decision_at": 1791167409.263344,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xd7db4b83ea261bd6bd8d914d3b7f4270aba29d2502d48df5ea3854630f2ad966",
+        "slug": "eth-up-or-down-hourly-p-1791155109854",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791165600.0,
+        "p_up": 0.891363091036935,
+        "decision_at": 1791167409.6244433,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x12023ff828b856ea81c5fe4e63ff3e9737d07fb7a5f55a6fff50f3cd304f81ec",
+        "slug": "btc-up-or-down-hourly-p-1791158704645",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791169200.0,
+        "p_up": 0.360989454204977,
+        "decision_at": 1791171016.4705815,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1ce01aecef6fb8640536d6bb2967dd4adeee162e324456aaf0fead85212ae265",
+        "slug": "eth-up-or-down-hourly-p-1791158710005",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791169200.0,
+        "p_up": 0.33888186114221935,
+        "decision_at": 1791171016.6946661,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xe775afbf3b38ee6f6cfb67dd2b5443623b86b93c0670566b7b1694ede54dbf84",
+        "slug": "btc-up-or-down-hourly-p-1791162304652",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791172800.0,
+        "p_up": 0.0615696885665723,
+        "decision_at": 1791174615.8960226,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x65f12b728508cb4b530a334b1e5168141b5d9e189b9cb0ef2b49fcd3326b359f",
+        "slug": "eth-up-or-down-hourly-p-1791162310030",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791172800.0,
+        "p_up": 0.16509090849305474,
+        "decision_at": 1791174616.2328024,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x222e97d68f6942dbe1597014b77aa7ca069d7406bc017a35ce242d65f27a8674",
+        "slug": "btc-up-or-down-hourly-p-1791165909390",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791176400.0,
+        "p_up": 0.4519053064933428,
+        "decision_at": 1791178221.802693,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x4a5586cf0dbedc44f3399371c9360cf4e02600f25284f5995266c7c8dbc0ce67",
+        "slug": "eth-up-or-down-hourly-p-1791165910714",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791176400.0,
+        "p_up": 0.183757344871101,
+        "decision_at": 1791178222.1132486,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x4cb6f3d484b5f20284d838dc19fcdf60a69e7d7a0506d4998091aeea8e8128c0",
+        "slug": "btc-up-or-down-hourly-p-1791169504779",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791180000.0,
+        "p_up": 0.7171964756010907,
+        "decision_at": 1791181814.09557,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+        "slug": "eth-up-or-down-hourly-p-1791169505824",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791180000.0,
+        "p_up": 0.787610800451884,
+        "decision_at": 1791181814.446202,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.2000170131666723212621359223",
+        "shares": "49.995747",
+        "execution_proof": {
+          "artifact": 11329181459,
+          "line": 42888,
+          "sha256": "262243cdb846ff638c7ca252eed6980681c375d329ae63791196cdaff1da029e"
+        },
+        "fill_at": 1791181831.705908,
+        "gross_shares": "49.995747",
+        "net_shares": "48.49587459",
+        "cost_usdc": "7.349374809",
+        "vwap": "0.147",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-7.349374809"
+      },
+      {
+        "condition": "0xbf3ab1f53587f9ef6974dcca427299c578f739e14066342469860f4b36bd43bc",
+        "slug": "btc-up-or-down-hourly-p-1791173109435",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791183600.0,
+        "p_up": 0.5750279954460847,
+        "decision_at": 1791185412.1441412,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x2be5f9c206d22aa499df6ec9e90e4dac44df446b0126765a68c7e45509bb12a1",
+        "slug": "eth-up-or-down-hourly-p-1791173110474",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791183600.0,
+        "p_up": 0.44391115389407365,
+        "decision_at": 1791185412.4148746,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+        "slug": "btc-up-or-down-hourly-p-1791176704736",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791187200.0,
+        "p_up": 0.7495971691569934,
+        "decision_at": 1791189004.8166344,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.2358162581725402243689320388",
+        "shares": "42.405897",
+        "execution_proof": {
+          "artifact": 11336050647,
+          "line": 6749,
+          "sha256": "7a7d16d086644a883fb87e273d75024293e63326d5962c37b570473de0039093"
+        },
+        "fill_at": 1791189022.918726,
+        "gross_shares": "42.405897",
+        "net_shares": "41.13372009",
+        "cost_usdc": "5.979231477",
+        "vwap": "0.141",
+        "payout_usdc": "41.133720090",
+        "pnl_usdc": "35.154488613"
+      },
+      {
+        "condition": "0xcb401fa97a0460e948c2198869267d1d54c6abb98786f8dd632d10b8f53c5c90",
+        "slug": "eth-up-or-down-hourly-p-1791176705846",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791187200.0,
+        "p_up": 0.5319388072062825,
+        "decision_at": 1791189005.115474,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xea3775a944abb92736ab820f5826bc26164136dd4760822d3644791bfae2efcf",
+        "slug": "btc-up-or-down-hourly-p-1791180304666",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791190800.0,
+        "p_up": 0.05934204364138179,
+        "decision_at": 1791192605.8872905,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xee85dc2db0f2e0e0d4ed7485810701a414f0bd2cf7bda224c33e8f2fa893423b",
+        "slug": "eth-up-or-down-hourly-p-1791180305716",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791190800.0,
+        "p_up": 0.3423571755147756,
+        "decision_at": 1791192606.1935368,
+        "status": "SKIP",
+        "side": "YES",
+        "cap": "0.3224140390770216815533980583",
+        "shares": "31.016019",
+        "execution_proof": {
+          "artifact": 11338900983,
+          "line": 11129,
+          "sha256": "ddb9e5d20991d9a93be929545d74a308df10751e10cbc2cdf716b61581a77ea1"
+        },
+        "reason": "DEPTH_OR_PRICE_BOUND_FAILED"
+      },
+      {
+        "condition": "0xde9219fdcd0905fb539371567a9638484a80bb65e4c6b0a72335369752a747a2",
+        "slug": "btc-up-or-down-hourly-p-1791183909217",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791194400.0,
+        "p_up": 0.6860190826431154,
+        "decision_at": 1791196209.2144313,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xba17fd86ce0def73dd4b66e0413ebef80bc04c49bdb2153f20350f0581e86909",
+        "slug": "eth-up-or-down-hourly-p-1791183910255",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791194400.0,
+        "p_up": 0.5435234093565728,
+        "decision_at": 1791196209.5280292,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1be12f0d9d346e5b8ea41a555bbd3ee2551fb06629332b8907bfe61a06e87612",
+        "slug": "eth-up-or-down-hourly-p-1791187510481",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791198000.0,
+        "p_up": 0.8589419632799704,
+        "decision_at": 1791199812.0658903,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x37253fcd6cb40fb3e881f03a7f44f2abff98b0df0da8c0f18b20f193e3681423",
+        "slug": "btc-up-or-down-hourly-p-1791191105198",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791201600.0,
+        "p_up": 0.10201310289743798,
+        "decision_at": 1791203409.149221,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x357c8bf71afe435f9f787919d3b8e1d0951f94ebaef406ccf65774bbf551ce2c",
+        "slug": "eth-up-or-down-hourly-p-1791191106242",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791201600.0,
+        "p_up": 0.24368741306597602,
+        "decision_at": 1791203409.4616241,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+        "slug": "btc-up-or-down-hourly-p-1791194705341",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791205200.0,
+        "p_up": 0.8618356073958249,
+        "decision_at": 1791207007.2355347,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.8116315914310195660194174757",
+        "shares": "12.320860",
+        "execution_proof": {
+          "artifact": 11349836430,
+          "line": 24807,
+          "sha256": "f8254cbe446169f5e0e7c8077ee2834340ee3a3fb8dbc643abcc2c6d2dbe549a"
+        },
+        "fill_at": 1791207024.855658,
+        "gross_shares": "12.320860",
+        "net_shares": "11.95123420",
+        "cost_usdc": "8.969586080",
+        "vwap": "0.728",
+        "payout_usdc": "11.951234200",
+        "pnl_usdc": "2.981648120"
+      },
+      {
+        "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+        "slug": "eth-up-or-down-hourly-p-1791194706337",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791205200.0,
+        "p_up": 0.9309126246931925,
+        "decision_at": 1791207007.5667284,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.8766847048081521601941747573",
+        "shares": "11.406609",
+        "execution_proof": {
+          "artifact": 11349836430,
+          "line": 24815,
+          "sha256": "a83ebf5f8d4732e7b1c9f7898a2c20296b9b676891336d3689cc72fbb1cf4d69"
+        },
+        "fill_at": 1791207025.168446,
+        "gross_shares": "11.406609",
+        "net_shares": "11.06441073",
+        "cost_usdc": "9.322825989",
+        "vwap": "0.8173179241087338051124571729",
+        "payout_usdc": "11.064410730",
+        "pnl_usdc": "1.741584741"
+      },
+      {
+        "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+        "slug": "btc-up-or-down-hourly-p-1791198305358",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791208800.0,
+        "p_up": 0.33861864638935635,
+        "decision_at": 1791210605.1590664,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.3188932883472579218446601942",
+        "shares": "31.358452",
+        "execution_proof": {
+          "artifact": 11352548629,
+          "line": 31673,
+          "sha256": "478f18f01baad16da87cffe6ade78ec16836469437f8cb2f097a0ca27be49015"
+        },
+        "fill_at": 1791210622.875323,
+        "gross_shares": "31.358452",
+        "net_shares": "30.41769844",
+        "cost_usdc": "8.027763712",
+        "vwap": "0.256",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-8.027763712"
+      },
+      {
+        "condition": "0x414fdadc0c543dcfa28ead703e0f0eaf47ab96b900feaddf2d3e58edd108966b",
+        "slug": "eth-up-or-down-hourly-p-1791198306405",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791208800.0,
+        "p_up": 0.22587285158534798,
+        "decision_at": 1791210605.5124416,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x70acab06c1bb9750a52f053494f85bb96b4c08068ba17f9183c24770a4e5502f",
+        "slug": "eth-up-or-down-hourly-p-1791201911098",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791212400.0,
+        "p_up": 0.509524640357258,
+        "decision_at": 1791214210.0697875,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1398c0abcb741413e56505f8c9eede7e53e9f396d0386f48ec44ef6976db46fd",
+        "slug": "eth-up-or-down-hourly-p-1791205507927",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791216000.0,
+        "p_up": 0.2053415044860002,
+        "decision_at": 1791217806.7139723,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.1933798634479807708737864078",
+        "shares": "51.711692",
+        "execution_proof": {
+          "artifact": 11359620308,
+          "line": 52094,
+          "sha256": "755afc893a0ea10513f78c5bb640d9fd2ea3bb545aa29cd0a7fcda10cfdd9bff"
+        },
+        "fill_at": 1791217824.292442,
+        "gross_shares": "51.711692",
+        "net_shares": "50.16034124",
+        "cost_usdc": "9.27622148",
+        "vwap": "0.1793834454304840769859164539",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-9.276221480"
+      },
+      {
+        "condition": "0x80c429806ba47b2fc4e56eb7be743d5ba5a3ac1d614e4c63923af5a68ec26f2c",
+        "slug": "btc-up-or-down-hourly-p-1791209105478",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791219600.0,
+        "p_up": 0.6202003313174609,
+        "decision_at": 1791221409.940844,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.3576754161379251718446601942",
+        "shares": "27.958309",
+        "execution_proof": {
+          "artifact": 11361428049,
+          "line": 41751,
+          "sha256": "b184f419726605c90f9d71b9f8f567f8a589c3cf1126521e03b4339003fd3f86"
+        },
+        "fill_at": 1791221427.730032,
+        "gross_shares": "27.958309",
+        "net_shares": "27.11955973",
+        "cost_usdc": "9.787241386",
+        "vwap": "0.3500655703461893922125261581",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-9.787241386"
+      },
+      {
+        "condition": "0xeed3f1f85fab89c71eed5c088d793dce1442694ed26dd5a22aaf3cc1a7c4ff5e",
+        "slug": "eth-up-or-down-hourly-p-1791209106592",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791219600.0,
+        "p_up": 0.6937692715578231,
+        "decision_at": 1791221410.2511237,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.2883920452319530029126213592",
+        "shares": "34.675020",
+        "execution_proof": {
+          "artifact": 11361428049,
+          "line": 41757,
+          "sha256": "e36292d7121e70ebd641636f89e9d58b694ab55e500783166808e4eda10e2487"
+        },
+        "fill_at": 1791221428.060161,
+        "gross_shares": "34.675020",
+        "net_shares": "33.63476940",
+        "cost_usdc": "7.919304720",
+        "vwap": "0.2283864499573468162383179592",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-7.919304720"
+      },
+      {
+        "condition": "0xdb468f6e1a0a2b4077d1b90e4a8c808f96f092ffd9c0f45858ad7fe09512fbe5",
+        "slug": "btc-up-or-down-hourly-p-1791212705264",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791223200.0,
+        "p_up": 0.8054785034223542,
+        "decision_at": 1791225008.17376,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x8f09ffc8e4435a720217fa20bf472853144b5c4de089c88ed4b39d809a36074b",
+        "slug": "eth-up-or-down-hourly-p-1791212706415",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791223200.0,
+        "p_up": 0.6950892047094819,
+        "decision_at": 1791225008.49787,
+        "status": "NO_TRADE"
+      }
+    ]
+  },
+  "ewma30": {
+    "cash": "129.562730130",
+    "spent": "42.248168250",
+    "payouts": "71.810898380",
+    "realized": "29.562730130",
+    "pending_cost": "0",
+    "states": {
+      "NO_TRADE": 45,
+      "SKIP": 2,
+      "SETTLED": 5
+    },
+    "rows": [
+      {
+        "condition": "0xf6664de538dbcba76c253305abfdaba3b9e794c859c2ebcafd7b9cec2195de24",
+        "slug": "btc-up-or-down-hourly-p-1791115509366",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791126000.0,
+        "p_up": 0.6236167405400115,
+        "decision_at": 1791127819.9341547,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x78262dd280639f4e153ef847848148c2503f687f783cb34849a4009d27373de0",
+        "slug": "eth-up-or-down-hourly-p-1791115510440",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791126000.0,
+        "p_up": 0.6675101196864982,
+        "decision_at": 1791127820.2329166,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xed5b4a4cead6f9409b524c5d69427a3ca201e3c0f567fbd41aad9e468097feac",
+        "slug": "btc-up-or-down-hourly-p-1791119106335",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791129600.0,
+        "p_up": 0.4528492665963434,
+        "decision_at": 1791131407.4655154,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x7812c4cffcd6b3388a0f8b35af0922eaec0c1c59614f9de552efb0240b3b5c7a",
+        "slug": "eth-up-or-down-hourly-p-1791119107396",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791129600.0,
+        "p_up": 0.45557668941910906,
+        "decision_at": 1791131407.8507462,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x5fc095d28724e6be26c2dee75c7deda36a7de55b9803e5779aa2b7d1393d3577",
+        "slug": "btc-up-or-down-hourly-p-1791122709422",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791133200.0,
+        "p_up": 0.5586969928896781,
+        "decision_at": 1791135020.1483927,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x8fdf3d88088a3e2557c226aad25566fe9482785726ddc69a05a71f7f2274ab1b",
+        "slug": "eth-up-or-down-hourly-p-1791122710506",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791133200.0,
+        "p_up": 0.5148370385915065,
+        "decision_at": 1791135020.5355725,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xe0a7cebd3e72805ba2958480c466303cb1a56e404cd49fd24a9e2da621bfd0ef",
+        "slug": "btc-up-or-down-hourly-p-1791126309566",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791136800.0,
+        "p_up": 0.5382513099759558,
+        "decision_at": 1791138604.4645977,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x77fb2283b570241b0468b9ba03ba1c51d729d1e5b2876d41022a44880df38593",
+        "slug": "eth-up-or-down-hourly-p-1791126310898",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791136800.0,
+        "p_up": 0.3561432385112505,
+        "decision_at": 1791138605.027801,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xffeae70eefbb85a085860f8a847e5c40b17a7ec69279de01f564e935d4c415c1",
+        "slug": "btc-up-or-down-hourly-p-1791129909016",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791140400.0,
+        "p_up": 0.9532012357601107,
+        "decision_at": 1791142204.643171,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+        "slug": "eth-up-or-down-hourly-p-1791129910155",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791140400.0,
+        "p_up": 0.8270607683124234,
+        "decision_at": 1791142204.904444,
+        "status": "SKIP",
+        "side": "NO",
+        "cap": "0.1628651016863585738834951456",
+        "shares": "61.400508",
+        "execution_proof": {
+          "artifact": 11313543428,
+          "line": 603,
+          "sha256": "532e125719de25d3ff0a47b9094ff0b0197f49355bf2ee81f86d6e4df8758edb"
+        },
+        "reason": "DEPTH_OR_PRICE_BOUND_FAILED"
+      },
+      {
+        "condition": "0xe07212a0d1c4076b3cfcc2f7337a18bd1f6574cc6d684e733a51cac6439316c0",
+        "slug": "btc-up-or-down-hourly-p-1791133509165",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791144000.0,
+        "p_up": 0.7222163102493645,
+        "decision_at": 1791145808.83281,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x5e551ff7772e7f61b2f593f86b1749dabda76accdca4badd9dfa64e0828c4d46",
+        "slug": "eth-up-or-down-hourly-p-1791133510235",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791144000.0,
+        "p_up": 0.5544802202493733,
+        "decision_at": 1791145808.9993575,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x93e984e663b9273b5707776978ac16fd05f3780a388d5e952e4621798610c05d",
+        "slug": "eth-up-or-down-hourly-p-1791137110677",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791147600.0,
+        "p_up": 0.45073026712675385,
+        "decision_at": 1791149412.3466794,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x87ff64f96c3811c64c7959faae155f74fe39e715ebd62194269a4294c26d646d",
+        "slug": "btc-up-or-down-hourly-p-1791140709215",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791151200.0,
+        "p_up": 0.8755922225893027,
+        "decision_at": 1791153017.583815,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb0bf7513a2d46898e704454e2c49480e8476bc8ae8f3b7be41a7bfcf49339880",
+        "slug": "eth-up-or-down-hourly-p-1791140710269",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791151200.0,
+        "p_up": 0.9844283072566835,
+        "decision_at": 1791153017.9022968,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x38944dcbc11c6a7f219eb47b22a6a9d65a588a61f5aa1e4d2ec63c9188ee0964",
+        "slug": "btc-up-or-down-hourly-p-1791144304833",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791154800.0,
+        "p_up": 0.8545721499745147,
+        "decision_at": 1791156606.5570493,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x064eed6fb63741842fbb4579fa7c85b80891f4e73a9dd3a371f697917e2a2cdf",
+        "slug": "eth-up-or-down-hourly-p-1791144305928",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791154800.0,
+        "p_up": 0.5802281568841712,
+        "decision_at": 1791156606.8702087,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xaba7934e4e8d365c888d63e6679604abbcac4c36f350bb39e4186e8e8d2041e8",
+        "slug": "btc-up-or-down-hourly-p-1791147904611",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791158400.0,
+        "p_up": 0.12817116017468821,
+        "decision_at": 1791160209.7543094,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x565c5a83308a2a8ce9b8928a40391dab615d9bebb26b50f69854f8a17c0754b3",
+        "slug": "eth-up-or-down-hourly-p-1791147910039",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791158400.0,
+        "p_up": 0.17159318229629117,
+        "decision_at": 1791160210.0601833,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x639dc96dc083cbf1000d1df392c2581168802d2b9f62d28f56bbbfcd81e31169",
+        "slug": "btc-up-or-down-hourly-p-1791151505921",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791162000.0,
+        "p_up": 0.7922445192537606,
+        "decision_at": 1791163823.1123195,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xb8fe93dbcd1530a911d55f35135233c50ffbff36325c57d33be5f0c82a65f330",
+        "slug": "eth-up-or-down-hourly-p-1791151511291",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791162000.0,
+        "p_up": 0.5612520427674138,
+        "decision_at": 1791163823.4721599,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x026e7775f4d0f8ae51b3294817597bc2df709d15e2dfe026aafb3428f975f413",
+        "slug": "btc-up-or-down-hourly-p-1791155104653",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791165600.0,
+        "p_up": 0.3075104640484539,
+        "decision_at": 1791167409.263344,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xd7db4b83ea261bd6bd8d914d3b7f4270aba29d2502d48df5ea3854630f2ad966",
+        "slug": "eth-up-or-down-hourly-p-1791155109854",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791165600.0,
+        "p_up": 0.8922727822709028,
+        "decision_at": 1791167409.6244433,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x12023ff828b856ea81c5fe4e63ff3e9737d07fb7a5f55a6fff50f3cd304f81ec",
+        "slug": "btc-up-or-down-hourly-p-1791158704645",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791169200.0,
+        "p_up": 0.34500037520856575,
+        "decision_at": 1791171016.4705815,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1ce01aecef6fb8640536d6bb2967dd4adeee162e324456aaf0fead85212ae265",
+        "slug": "eth-up-or-down-hourly-p-1791158710005",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791169200.0,
+        "p_up": 0.3313018475684764,
+        "decision_at": 1791171016.6946661,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xe775afbf3b38ee6f6cfb67dd2b5443623b86b93c0670566b7b1694ede54dbf84",
+        "slug": "btc-up-or-down-hourly-p-1791162304652",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791172800.0,
+        "p_up": 0.07568771480779118,
+        "decision_at": 1791174615.8960226,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x65f12b728508cb4b530a334b1e5168141b5d9e189b9cb0ef2b49fcd3326b359f",
+        "slug": "eth-up-or-down-hourly-p-1791162310030",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791172800.0,
+        "p_up": 0.16848441979940432,
+        "decision_at": 1791174616.2328024,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x222e97d68f6942dbe1597014b77aa7ca069d7406bc017a35ce242d65f27a8674",
+        "slug": "btc-up-or-down-hourly-p-1791165909390",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791176400.0,
+        "p_up": 0.4467025632259342,
+        "decision_at": 1791178221.802693,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x4a5586cf0dbedc44f3399371c9360cf4e02600f25284f5995266c7c8dbc0ce67",
+        "slug": "eth-up-or-down-hourly-p-1791165910714",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791176400.0,
+        "p_up": 0.16534673614443052,
+        "decision_at": 1791178222.1132486,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x4cb6f3d484b5f20284d838dc19fcdf60a69e7d7a0506d4998091aeea8e8128c0",
+        "slug": "btc-up-or-down-hourly-p-1791169504779",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791180000.0,
+        "p_up": 0.7468725740491584,
+        "decision_at": 1791181814.09557,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+        "slug": "eth-up-or-down-hourly-p-1791169505824",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791180000.0,
+        "p_up": 0.819814463222307,
+        "decision_at": 1791181814.446202,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xbf3ab1f53587f9ef6974dcca427299c578f739e14066342469860f4b36bd43bc",
+        "slug": "btc-up-or-down-hourly-p-1791173109435",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791183600.0,
+        "p_up": 0.5654986820416336,
+        "decision_at": 1791185412.1441412,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x2be5f9c206d22aa499df6ec9e90e4dac44df446b0126765a68c7e45509bb12a1",
+        "slug": "eth-up-or-down-hourly-p-1791173110474",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791183600.0,
+        "p_up": 0.44805308007830974,
+        "decision_at": 1791185412.4148746,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+        "slug": "btc-up-or-down-hourly-p-1791176704736",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791187200.0,
+        "p_up": 0.7889922024063876,
+        "decision_at": 1791189004.8166344,
+        "status": "SETTLED",
+        "side": "NO",
+        "cap": "0.1987160812289359777669902913",
+        "shares": "50.323053",
+        "execution_proof": {
+          "artifact": 11336050647,
+          "line": 6749,
+          "sha256": "7a7d16d086644a883fb87e273d75024293e63326d5962c37b570473de0039093"
+        },
+        "fill_at": 1791189022.918726,
+        "gross_shares": "50.323053",
+        "net_shares": "48.81336141",
+        "cost_usdc": "7.095550473",
+        "vwap": "0.141",
+        "payout_usdc": "48.813361410",
+        "pnl_usdc": "41.717810937"
+      },
+      {
+        "condition": "0xcb401fa97a0460e948c2198869267d1d54c6abb98786f8dd632d10b8f53c5c90",
+        "slug": "eth-up-or-down-hourly-p-1791176705846",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791187200.0,
+        "p_up": 0.5341502130071736,
+        "decision_at": 1791189005.115474,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xea3775a944abb92736ab820f5826bc26164136dd4760822d3644791bfae2efcf",
+        "slug": "btc-up-or-down-hourly-p-1791180304666",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791190800.0,
+        "p_up": 0.06695121051430264,
+        "decision_at": 1791192605.8872905,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xee85dc2db0f2e0e0d4ed7485810701a414f0bd2cf7bda224c33e8f2fa893423b",
+        "slug": "eth-up-or-down-hourly-p-1791180305716",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791190800.0,
+        "p_up": 0.3311666026012835,
+        "decision_at": 1791192606.1935368,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xde9219fdcd0905fb539371567a9638484a80bb65e4c6b0a72335369752a747a2",
+        "slug": "btc-up-or-down-hourly-p-1791183909217",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791194400.0,
+        "p_up": 0.7141097212503307,
+        "decision_at": 1791196209.2144313,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xba17fd86ce0def73dd4b66e0413ebef80bc04c49bdb2153f20350f0581e86909",
+        "slug": "eth-up-or-down-hourly-p-1791183910255",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791194400.0,
+        "p_up": 0.5473711925766359,
+        "decision_at": 1791196209.5280292,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1be12f0d9d346e5b8ea41a555bbd3ee2551fb06629332b8907bfe61a06e87612",
+        "slug": "eth-up-or-down-hourly-p-1791187510481",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791198000.0,
+        "p_up": 0.8466099615279389,
+        "decision_at": 1791199812.0658903,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x37253fcd6cb40fb3e881f03a7f44f2abff98b0df0da8c0f18b20f193e3681423",
+        "slug": "btc-up-or-down-hourly-p-1791191105198",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791201600.0,
+        "p_up": 0.09995751259639507,
+        "decision_at": 1791203409.149221,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x357c8bf71afe435f9f787919d3b8e1d0951f94ebaef406ccf65774bbf551ce2c",
+        "slug": "eth-up-or-down-hourly-p-1791191106242",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791201600.0,
+        "p_up": 0.24727589971344865,
+        "decision_at": 1791203409.4616241,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+        "slug": "btc-up-or-down-hourly-p-1791194705341",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791205200.0,
+        "p_up": 0.8624058479091261,
+        "decision_at": 1791207007.2355347,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.8121686140503420553398058252",
+        "shares": "12.312714",
+        "execution_proof": {
+          "artifact": 11349836430,
+          "line": 24807,
+          "sha256": "f8254cbe446169f5e0e7c8077ee2834340ee3a3fb8dbc643abcc2c6d2dbe549a"
+        },
+        "fill_at": 1791207024.855658,
+        "gross_shares": "12.312714",
+        "net_shares": "11.94333258",
+        "cost_usdc": "8.963655792",
+        "vwap": "0.728",
+        "payout_usdc": "11.943332580",
+        "pnl_usdc": "2.979676788"
+      },
+      {
+        "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+        "slug": "eth-up-or-down-hourly-p-1791194706337",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791205200.0,
+        "p_up": 0.931772132841271,
+        "decision_at": 1791207007.5667284,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.8774941445204202621359223301",
+        "shares": "11.396087",
+        "execution_proof": {
+          "artifact": 11349836430,
+          "line": 24815,
+          "sha256": "a83ebf5f8d4732e7b1c9f7898a2c20296b9b676891336d3689cc72fbb1cf4d69"
+        },
+        "fill_at": 1791207025.168446,
+        "gross_shares": "11.396087",
+        "net_shares": "11.05420439",
+        "cost_usdc": "9.314187427",
+        "vwap": "0.8173145244503661651582687988",
+        "payout_usdc": "11.054204390",
+        "pnl_usdc": "1.740016963"
+      },
+      {
+        "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+        "slug": "btc-up-or-down-hourly-p-1791198305358",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791208800.0,
+        "p_up": 0.35129953252373025,
+        "decision_at": 1791210605.1590664,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.3308354820854547014563106796",
+        "shares": "30.226503",
+        "execution_proof": {
+          "artifact": 11352548629,
+          "line": 31673,
+          "sha256": "478f18f01baad16da87cffe6ade78ec16836469437f8cb2f097a0ca27be49015"
+        },
+        "fill_at": 1791210622.875323,
+        "gross_shares": "30.226503",
+        "net_shares": "29.31970791",
+        "cost_usdc": "7.737984768",
+        "vwap": "0.256",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-7.737984768"
+      },
+      {
+        "condition": "0x414fdadc0c543dcfa28ead703e0f0eaf47ab96b900feaddf2d3e58edd108966b",
+        "slug": "eth-up-or-down-hourly-p-1791198306405",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791208800.0,
+        "p_up": 0.2449274753741973,
+        "decision_at": 1791210605.5124416,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x70acab06c1bb9750a52f053494f85bb96b4c08068ba17f9183c24770a4e5502f",
+        "slug": "eth-up-or-down-hourly-p-1791201911098",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791212400.0,
+        "p_up": 0.5116551257079519,
+        "decision_at": 1791214210.0697875,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x1398c0abcb741413e56505f8c9eede7e53e9f396d0386f48ec44ef6976db46fd",
+        "slug": "eth-up-or-down-hourly-p-1791205507927",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791216000.0,
+        "p_up": 0.2082974950060798,
+        "decision_at": 1791217806.7139723,
+        "status": "SETTLED",
+        "side": "YES",
+        "cap": "0.1961636603455314621359223301",
+        "shares": "50.977841",
+        "execution_proof": {
+          "artifact": 11359620308,
+          "line": 52094,
+          "sha256": "755afc893a0ea10513f78c5bb640d9fd2ea3bb545aa29cd0a7fcda10cfdd9bff"
+        },
+        "fill_at": 1791217824.292442,
+        "gross_shares": "50.977841",
+        "net_shares": "49.44850577",
+        "cost_usdc": "9.13678979",
+        "vwap": "0.1792306149254143579756545594",
+        "payout_usdc": "0E-9",
+        "pnl_usdc": "-9.136789790"
+      },
+      {
+        "condition": "0x80c429806ba47b2fc4e56eb7be743d5ba5a3ac1d614e4c63923af5a68ec26f2c",
+        "slug": "btc-up-or-down-hourly-p-1791209105478",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791219600.0,
+        "p_up": 0.6745691178756261,
+        "decision_at": 1791221409.940844,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0xeed3f1f85fab89c71eed5c088d793dce1442694ed26dd5a22aaf3cc1a7c4ff5e",
+        "slug": "eth-up-or-down-hourly-p-1791209106592",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791219600.0,
+        "p_up": 0.7499466411753164,
+        "decision_at": 1791221410.2511237,
+        "status": "SKIP",
+        "side": "NO",
+        "cap": "0.2354871437475175650485436893",
+        "shares": "42.465163",
+        "execution_proof": {
+          "artifact": 11361428049,
+          "line": 41757,
+          "sha256": "e36292d7121e70ebd641636f89e9d58b694ab55e500783166808e4eda10e2487"
+        },
+        "reason": "DEPTH_OR_PRICE_BOUND_FAILED"
+      },
+      {
+        "condition": "0xdb468f6e1a0a2b4077d1b90e4a8c808f96f092ffd9c0f45858ad7fe09512fbe5",
+        "slug": "btc-up-or-down-hourly-p-1791212705264",
+        "symbol": "BTCUSDT",
+        "hour_start": 1791223200.0,
+        "p_up": 0.798459519449127,
+        "decision_at": 1791225008.17376,
+        "status": "NO_TRADE"
+      },
+      {
+        "condition": "0x8f09ffc8e4435a720217fa20bf472853144b5c4de089c88ed4b39d809a36074b",
+        "slug": "eth-up-or-down-hourly-p-1791212706415",
+        "symbol": "ETHUSDT",
+        "hour_start": 1791223200.0,
+        "p_up": 0.6990566312611589,
+        "decision_at": 1791225008.49787,
+        "status": "NO_TRADE"
+      }
+    ]
+  }
+}

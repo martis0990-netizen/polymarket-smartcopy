@@ -1,0 +1,1588 @@
+{
+  "schema": "limitless-hourly-decision-market-comparison-v1",
+  "status": "DISCOVERY_DESCRIPTIVE_ONLY",
+  "sources": [
+    {
+      "run": 37210772462,
+      "artifact": 11306859808,
+      "sha256": "5c8966af186c370f541a42eb3af0943dd8fe9a2c52606568c422e0202b4e0b5f"
+    },
+    {
+      "run": 37214242349,
+      "artifact": 11308499615,
+      "sha256": "2e09ecaf97d68afdf24446afdd9d3233235767fc77719f94242fd09aa52259b6"
+    },
+    {
+      "run": 37217704573,
+      "artifact": 11309924573,
+      "sha256": "556dc05cdc36fcb505dc304a5d4ea8e4e164479e194dc46ca48faea4bbafaeb7"
+    },
+    {
+      "run": 37221185940,
+      "artifact": 11311113181,
+      "sha256": "ffb66776f4aefddbc9ebcec46ada5da0fd0564086531f8601ae7129d4632104e"
+    },
+    {
+      "run": 37224818632,
+      "artifact": 11312467158,
+      "sha256": "336c6eedee34713d0413f2c7eb4b3a97f16d36f54a8c1b820ad1e08d9dc8c002"
+    },
+    {
+      "run": 37228344962,
+      "artifact": 11313543428,
+      "sha256": "7cd90ddb5ed632bc6eb0ac54f365b5f7b4a509780d3a23748104dac0e2a0d545"
+    },
+    {
+      "run": 37231867228,
+      "artifact": 11315113546,
+      "sha256": "bb221caab3d4c662ddcb3ed7aabc411bd20868dd53c8d9870a3437243481cb05"
+    },
+    {
+      "run": 37235540585,
+      "artifact": 11316855831,
+      "sha256": "2f20bfe7fd5e6ca3602a45c1ded44ceb477b8057fe5d40f50d5ed93f0aadd63b"
+    },
+    {
+      "run": 37239193650,
+      "artifact": 11318380130,
+      "sha256": "964bc112dbf78e910cb0eba11ec0c99b2c64be1f50a9773c89b31584b2dd4282"
+    },
+    {
+      "run": 37242684772,
+      "artifact": 11319191845,
+      "sha256": "e0b64bd98261b9b4fa3ccc1e30ed1879a53795f746f443668b5e1c3644a4eb13"
+    },
+    {
+      "run": 37246016706,
+      "artifact": 11320990439,
+      "sha256": "c7d42b832333b1df077b9c7529b77cfb970332ab30d6ce5aaa4c3b3ad6dbf53d"
+    },
+    {
+      "run": 37249619047,
+      "artifact": 11322140903,
+      "sha256": "71271deef82d63d78fe37023bf2811943776e272dbff4fbf67d582264028eac3"
+    },
+    {
+      "run": 37253280899,
+      "artifact": 11322922049,
+      "sha256": "a9aea6cf488ba3a0a8aacd2e6601443ce54e4558add72d222821a30cb6f2248a"
+    },
+    {
+      "run": 37256941304,
+      "artifact": 11324950599,
+      "sha256": "6ed34d84cf739944649a14bc64f999badd3c095a78e29150b9b436144bc7c777"
+    },
+    {
+      "run": 37260697529,
+      "artifact": 11326490018,
+      "sha256": "820f6b00a8ac321c535b64b0e1a5ea98ad664c9ac45cb3b41ce74d745aadcfe1"
+    },
+    {
+      "run": 37264564901,
+      "artifact": 11326799614,
+      "sha256": "c17290ac4d66c9417a140afcd0ee3ad51c8e82150132e3f1e11396e5b5d01ec3"
+    },
+    {
+      "run": 37268511734,
+      "artifact": 11329181459,
+      "sha256": "cd79db484cd8ac80a3f4b1ca36323c672fbb99e5b6c6a02fc008ec8c851cc084"
+    },
+    {
+      "run": 37272859934,
+      "artifact": 11330887058,
+      "sha256": "f2def6cfe0b1217c1fef0a47cb3199765b5cf845464672a48facb76a22473117"
+    },
+    {
+      "run": 37277785767,
+      "artifact": 11333186316,
+      "sha256": "7e8df8377dba4ca95d5430f4cfabbcc2b5b02d2730c4bf792534c41270a682d9"
+    },
+    {
+      "run": 37283196223,
+      "artifact": 11336050647,
+      "sha256": "b54fe1c9b882276345bc720370768a032213ebfac6a498871fae68791b3dbc0f"
+    },
+    {
+      "run": 37289060103,
+      "artifact": 11338900983,
+      "sha256": "f57dd16396e5d5b168921d5358850dad0dd7d3ed2c836999abc9d860f8ded52f"
+    },
+    {
+      "run": 37295123273,
+      "artifact": 11340867547,
+      "sha256": "4720ca35b59c153c693b089e0026aa4c1d1d03562f5eee3d0e67df4ddde66d02"
+    },
+    {
+      "run": 37300980257,
+      "artifact": 11344077412,
+      "sha256": "1822b2946c2dc48972f3ac75407924647a1482cc0eaab3de7a06b93bcfbf9c9e"
+    },
+    {
+      "run": 37306934684,
+      "artifact": 11345709904,
+      "sha256": "10fac9a0347f8e2671be0424de6ed67c55390c6d425049066d4e9ad7e1ca03bb"
+    },
+    {
+      "run": 37313335391,
+      "artifact": 11349836430,
+      "sha256": "977c35ec92105df3cb86663fd71e62e4b52bc67e2900a3a52128193ed4ab0159"
+    },
+    {
+      "run": 37320416291,
+      "artifact": 11352548629,
+      "sha256": "9d3e39d91d0fe7a93b0af548fdbe43c0a18e490273c68f72e70e7732f2924eb2"
+    },
+    {
+      "run": 37327854527,
+      "artifact": 11356137271,
+      "sha256": "7e8552fa1594bdc8f00cc32818b4cb6b0646a8cd12c417639c6e5140f03d7896"
+    },
+    {
+      "run": 37335319038,
+      "artifact": 11359620308,
+      "sha256": "9286292448774bc0c6d3216873f9a45a7ee974e880f9892381f99238e60ea8d8"
+    },
+    {
+      "run": 37342610834,
+      "artifact": 11361428049,
+      "sha256": "ba0a797fe7d4d1b8dafeb6e2f616bf22412b6446341872ef2a60f5c26e14f113"
+    },
+    {
+      "run": 37349579066,
+      "artifact": 11364617509,
+      "sha256": "a7c640795a88116f7ec7cd0745878270e166b5ce40bfdc3cb67612bd7e49ea4f"
+    }
+  ],
+  "decision_state_artifact": 11364617509,
+  "state_scored_total": 100,
+  "matched_decisions": 52,
+  "scored_matched": 50,
+  "matched_clusters": 27,
+  "model_brier": 0.1912055266740664,
+  "market_mid_brier": 0.19310365,
+  "paired_delta_brier": -0.001898123325933594,
+  "cluster_bootstrap_95": [
+    -0.015320249892066401,
+    0.009910207310647977
+  ],
+  "bootstrap_seed": 1015,
+  "bootstrap_draws": 10000,
+  "by_asset": {
+    "BTCUSDT": {
+      "scored": 23,
+      "model_brier": 0.20422091450559163,
+      "market_brier": 0.20602582608695652,
+      "filled": 4,
+      "filled_pnl_usdc": "20.321131635"
+    },
+    "ETHUSDT": {
+      "scored": 27,
+      "model_brier": 0.18011834444721156,
+      "market_brier": 0.18209587037037037,
+      "filled": 5,
+      "filled_pnl_usdc": "-32.240487016"
+    }
+  },
+  "matched_settled_model": 9,
+  "matched_model_no_trade": 40,
+  "matched_model_pnl_usdc": "-11.919355381",
+  "selection_errors": [],
+  "rows": [
+    {
+      "condition": "0xf6664de538dbcba76c253305abfdaba3b9e794c859c2ebcafd7b9cec2195de24",
+      "slug": "btc-up-or-down-hourly-p-1791115509366",
+      "hour_start": 1791126000,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791127819.9341547,
+      "p_up": 0.6528735937251834,
+      "yes_bid": 0.61,
+      "yes_ask": 0.658,
+      "market_mid": 0.634,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11306859808,
+        "line": 60432,
+        "sha256": "a848ff0b1868465cbc28b9249af7173aa437f7dbef08beb625cc707855495fc1"
+      },
+      "resolution_proof": {
+        "artifact": 11308499615,
+        "line": 41496,
+        "sha256": "2e6a723d6f74ce907b665caedd9bbceb29bc612e107e8fb502e10625a8e6f5d7"
+      }
+    },
+    {
+      "condition": "0x78262dd280639f4e153ef847848148c2503f687f783cb34849a4009d27373de0",
+      "slug": "eth-up-or-down-hourly-p-1791115510440",
+      "hour_start": 1791126000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791127820.2329166,
+      "p_up": 0.6982872470390773,
+      "yes_bid": 0.651,
+      "yes_ask": 0.708,
+      "market_mid": 0.6795,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11306859808,
+        "line": 60437,
+        "sha256": "fb7929593a6d023b0cc33b4170566ca3ab391a15b0c6ef71e3d4a7b5f5b48926"
+      },
+      "resolution_proof": {
+        "artifact": 11308499615,
+        "line": 41503,
+        "sha256": "c05f1ac36a5abc9855324919e6bf497876ee3a721a1ed52424137742b29bb5e2"
+      }
+    },
+    {
+      "condition": "0xed5b4a4cead6f9409b524c5d69427a3ca201e3c0f567fbd41aad9e468097feac",
+      "slug": "btc-up-or-down-hourly-p-1791119106335",
+      "hour_start": 1791129600,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791131407.4655154,
+      "p_up": 0.45447476787098884,
+      "yes_bid": 0.439,
+      "yes_ask": 0.49,
+      "market_mid": 0.4645,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11308499615,
+        "line": 60377,
+        "sha256": "185d8d4ffb25920a32924c6c4c912c4c6ee0ebdd5e70d733c5ffabd8b21c4f4d"
+      },
+      "resolution_proof": {
+        "artifact": 11309924573,
+        "line": 33258,
+        "sha256": "40e53f76100d6befab4f42bf1c97d6b5685b6bea638c072624db036c697c91a7"
+      }
+    },
+    {
+      "condition": "0x7812c4cffcd6b3388a0f8b35af0922eaec0c1c59614f9de552efb0240b3b5c7a",
+      "slug": "eth-up-or-down-hourly-p-1791119107396",
+      "hour_start": 1791129600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791131407.8507462,
+      "p_up": 0.46086068489746046,
+      "yes_bid": 0.423,
+      "yes_ask": 0.471,
+      "market_mid": 0.44699999999999995,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11308499615,
+        "line": 60380,
+        "sha256": "719e59a6d401b52fd3e4b72d11e4e0d6b560edfc780d862f4ce7126fd1a7f5b0"
+      },
+      "resolution_proof": {
+        "artifact": 11309924573,
+        "line": 33264,
+        "sha256": "bf456dd4c2b355f4b216a1731596abdd51c05eb0a416b277dcc3276ef44b71f6"
+      }
+    },
+    {
+      "condition": "0x5fc095d28724e6be26c2dee75c7deda36a7de55b9803e5779aa2b7d1393d3577",
+      "slug": "btc-up-or-down-hourly-p-1791122709422",
+      "hour_start": 1791133200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791135020.1483927,
+      "p_up": 0.5550496449699276,
+      "yes_bid": 0.53,
+      "yes_ask": 0.584,
+      "market_mid": 0.5569999999999999,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11309924573,
+        "line": 39758,
+        "sha256": "42063a82efd445a41d80fbc1e9ef92e0fe1774e589c72b9986bf39081a080665"
+      },
+      "resolution_proof": {
+        "artifact": 11311113181,
+        "line": 35776,
+        "sha256": "e1b8382857dbbd4199401a71526b5c3a7f05d684cbef9d326e482c7cd803863d"
+      }
+    },
+    {
+      "condition": "0x8fdf3d88088a3e2557c226aad25566fe9482785726ddc69a05a71f7f2274ab1b",
+      "slug": "eth-up-or-down-hourly-p-1791122710506",
+      "hour_start": 1791133200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791135020.5355725,
+      "p_up": 0.5153551566178365,
+      "yes_bid": 0.485,
+      "yes_ask": 0.54,
+      "market_mid": 0.5125,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11309924573,
+        "line": 39763,
+        "sha256": "b7b4c102f0b2b76123c94185f540ae19faf37d4354a5cca1200e131d6571437f"
+      },
+      "resolution_proof": {
+        "artifact": 11311113181,
+        "line": 35783,
+        "sha256": "7f0bbc9cdbf350d9949f316319face02c37663c473e65ae72fb956dff139fea9"
+      }
+    },
+    {
+      "condition": "0xe0a7cebd3e72805ba2958480c466303cb1a56e404cd49fd24a9e2da621bfd0ef",
+      "slug": "btc-up-or-down-hourly-p-1791126309566",
+      "hour_start": 1791136800,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791138604.4645977,
+      "p_up": 0.531999549385739,
+      "yes_bid": 0.559,
+      "yes_ask": 0.61,
+      "market_mid": 0.5845,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11311113181,
+        "line": 48421,
+        "sha256": "4a95f3ff79dd459b03469af7783d8f2a0d6cc8d736d5c39f3a6089feb68a8669"
+      },
+      "resolution_proof": {
+        "artifact": 11312467158,
+        "line": 38910,
+        "sha256": "e33e4fff1546b8fcafba463bb0ce139528fdcf56bc1bdb837b7da00256a94cce"
+      }
+    },
+    {
+      "condition": "0x77fb2283b570241b0468b9ba03ba1c51d729d1e5b2876d41022a44880df38593",
+      "slug": "eth-up-or-down-hourly-p-1791126310898",
+      "hour_start": 1791136800,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791138605.027801,
+      "p_up": 0.37710026409454894,
+      "yes_bid": 0.311,
+      "yes_ask": 0.359,
+      "market_mid": 0.33499999999999996,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11311113181,
+        "line": 48425,
+        "sha256": "31e73562e655d4a8941a88abcc7267fad0b1d41f66cf49dc11d31d3fdb5463d5"
+      },
+      "resolution_proof": {
+        "artifact": 11312467158,
+        "line": 38912,
+        "sha256": "9b97b2b9c83e8e98fe11e9751fcd746f3f76b7b5cd71280d508e5aa5eab5e98d"
+      }
+    },
+    {
+      "condition": "0xffeae70eefbb85a085860f8a847e5c40b17a7ec69279de01f564e935d4c415c1",
+      "slug": "btc-up-or-down-hourly-p-1791129909016",
+      "hour_start": 1791140400,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791142204.643171,
+      "p_up": 0.960930292188303,
+      "yes_bid": 0.877,
+      "yes_ask": 0.927,
+      "market_mid": 0.902,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11313543428,
+        "line": 541,
+        "sha256": "0ac4d59bc4dec4362d6f9586f31eea2d781aa279fb21c63a1d3789e36ee11b75"
+      },
+      "resolution_proof": {
+        "artifact": 11313543428,
+        "line": 40345,
+        "sha256": "515888ff578117fb45dd630cc32ae712e4ec54cef197f109ad26e98cccc6f1eb"
+      }
+    },
+    {
+      "condition": "0xb216ee25f35bdab1fd5bdc0d7f20e8555ad7fd284ad81cb6a097eb3a82cc5b31",
+      "slug": "eth-up-or-down-hourly-p-1791129910155",
+      "hour_start": 1791140400,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791142204.904444,
+      "p_up": 0.8225402044444312,
+      "yes_bid": 0.859,
+      "yes_ask": 0.884,
+      "market_mid": 0.8714999999999999,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "NO",
+      "model_cost_usdc": "9.437170748",
+      "model_net_shares": "58.04131479",
+      "model_pnl_usdc": "-9.437170748",
+      "proof": {
+        "artifact": 11313543428,
+        "line": 543,
+        "sha256": "6c6981733df238be27359e94272a6c3493f8545a331d234efd49d6218656e97b"
+      },
+      "resolution_proof": {
+        "artifact": 11313543428,
+        "line": 40351,
+        "sha256": "0ce6db111b2ce60c441087eb5f2b3ee4e636aceff953fc19e243f32e762dd6f7"
+      }
+    },
+    {
+      "condition": "0xe07212a0d1c4076b3cfcc2f7337a18bd1f6574cc6d684e733a51cac6439316c0",
+      "slug": "btc-up-or-down-hourly-p-1791133509165",
+      "hour_start": 1791144000,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791145808.83281,
+      "p_up": 0.7177642818819026,
+      "yes_bid": 0.649,
+      "yes_ask": 0.699,
+      "market_mid": 0.6739999999999999,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11315113546,
+        "line": 5481,
+        "sha256": "43421811f17abbb1817b5f8f1fd2d711140855e5c4ead9c26b90b88e2a2cbe10"
+      },
+      "resolution_proof": {
+        "artifact": 11316855831,
+        "line": 16,
+        "sha256": "2e868228c27fd8b95e91fc7edaf22c8abe8dc2e72f5879b5dcc88995d7d81d55"
+      }
+    },
+    {
+      "condition": "0x5e551ff7772e7f61b2f593f86b1749dabda76accdca4badd9dfa64e0828c4d46",
+      "slug": "eth-up-or-down-hourly-p-1791133510235",
+      "hour_start": 1791144000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791145808.9993575,
+      "p_up": 0.5543605960848634,
+      "yes_bid": 0.51,
+      "yes_ask": 0.55,
+      "market_mid": 0.53,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11315113546,
+        "line": 5485,
+        "sha256": "c3894c0432327e6a33104adbca41eac53ae7fd37c6c78bb720910741eee18659"
+      },
+      "resolution_proof": {
+        "artifact": 11316855831,
+        "line": 18,
+        "sha256": "76d2fe5635bf6e79c325699db5ca4e2c9df30df63d396d33d65855cc87d526cf"
+      }
+    },
+    {
+      "condition": "0x93e984e663b9273b5707776978ac16fd05f3780a388d5e952e4621798610c05d",
+      "slug": "eth-up-or-down-hourly-p-1791137110677",
+      "hour_start": 1791147600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791149412.3466794,
+      "p_up": 0.44482850113161615,
+      "yes_bid": 0.43,
+      "yes_ask": 0.472,
+      "market_mid": 0.45099999999999996,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11316855831,
+        "line": 10002,
+        "sha256": "35f1ee6f577c38368bad29be0bc5c7632d70a343b75c17bd28e69f20c519b7b2"
+      },
+      "resolution_proof": {
+        "artifact": 11318380130,
+        "line": 3337,
+        "sha256": "1b5fe4767830ec4aab6d41955f42da6ac08d1e509a4c3e13660bf8cf607e2790"
+      }
+    },
+    {
+      "condition": "0x87ff64f96c3811c64c7959faae155f74fe39e715ebd62194269a4294c26d646d",
+      "slug": "btc-up-or-down-hourly-p-1791140709215",
+      "hour_start": 1791151200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791153017.583815,
+      "p_up": 0.9097614545264425,
+      "yes_bid": 0.869,
+      "yes_ask": 0.89,
+      "market_mid": 0.8795,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11318380130,
+        "line": 14063,
+        "sha256": "a59c829d5d35bf919a524e4f1aff6f991d721e179e726a3db39abc2b0b3c019c"
+      },
+      "resolution_proof": {
+        "artifact": 11319191845,
+        "line": 7577,
+        "sha256": "e83b711ee7bab6b22bb9e0a87fee5014736aaa4b8e75e5faff4c3501b7e07182"
+      }
+    },
+    {
+      "condition": "0xb0bf7513a2d46898e704454e2c49480e8476bc8ae8f3b7be41a7bfcf49339880",
+      "slug": "eth-up-or-down-hourly-p-1791140710269",
+      "hour_start": 1791151200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791153017.9022968,
+      "p_up": 0.9971331731194202,
+      "yes_bid": 0.943,
+      "yes_ask": 0.966,
+      "market_mid": 0.9544999999999999,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11318380130,
+        "line": 14067,
+        "sha256": "c7c6c49031cd10b50b3da61434802e39ce5a3c53a4341248494fa8515fb22521"
+      },
+      "resolution_proof": {
+        "artifact": 11319191845,
+        "line": 7586,
+        "sha256": "7ab2ba90bfface98efa22b0133f3ec3758d14798079461b6327b819735439b39"
+      }
+    },
+    {
+      "condition": "0x38944dcbc11c6a7f219eb47b22a6a9d65a588a61f5aa1e4d2ec63c9188ee0964",
+      "slug": "btc-up-or-down-hourly-p-1791144304833",
+      "hour_start": 1791154800,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791156606.5570493,
+      "p_up": 0.8305538370778135,
+      "yes_bid": 0.786,
+      "yes_ask": 0.83,
+      "market_mid": 0.808,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11319191845,
+        "line": 21558,
+        "sha256": "632b2c9040d7c049977a41c6cdcc15704dac1d7b59d0d2f7899b8ad508d496a3"
+      },
+      "resolution_proof": {
+        "artifact": 11320990439,
+        "line": 14217,
+        "sha256": "77dfefb5cce3ba076728100fe4e4ae6bf7542cbff6b796a81b9dcfa7dda83f0a"
+      }
+    },
+    {
+      "condition": "0x064eed6fb63741842fbb4579fa7c85b80891f4e73a9dd3a371f697917e2a2cdf",
+      "slug": "eth-up-or-down-hourly-p-1791144305928",
+      "hour_start": 1791154800,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791156606.8702087,
+      "p_up": 0.5769514072482455,
+      "yes_bid": 0.57,
+      "yes_ask": 0.61,
+      "market_mid": 0.59,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11319191845,
+        "line": 21562,
+        "sha256": "11343744e18017f0d70727568cdec124724a8ee1c3cc9b9137231d6237806bf9"
+      },
+      "resolution_proof": {
+        "artifact": 11320990439,
+        "line": 14226,
+        "sha256": "56fda8581b7176f6afd9c0e7d5554a31e38630393a7862c8982935063893d0ca"
+      }
+    },
+    {
+      "condition": "0xaba7934e4e8d365c888d63e6679604abbcac4c36f350bb39e4186e8e8d2041e8",
+      "slug": "btc-up-or-down-hourly-p-1791147904611",
+      "hour_start": 1791158400,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791160209.7543094,
+      "p_up": 0.12379919387929061,
+      "yes_bid": 0.09,
+      "yes_ask": 0.131,
+      "market_mid": 0.1105,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11320990439,
+        "line": 27733,
+        "sha256": "182b6debf51415de286db908cd4f5340b29c48ee4faca5b47f03ae4887591a47"
+      },
+      "resolution_proof": {
+        "artifact": 11322140903,
+        "line": 18527,
+        "sha256": "cb306ebfedf9a0682cb0d1b5f55e7716591e1fc8553af04ce4e72fb52756d717"
+      }
+    },
+    {
+      "condition": "0x565c5a83308a2a8ce9b8928a40391dab615d9bebb26b50f69854f8a17c0754b3",
+      "slug": "eth-up-or-down-hourly-p-1791147910039",
+      "hour_start": 1791158400,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791160210.0601833,
+      "p_up": 0.17300645564061107,
+      "yes_bid": 0.148,
+      "yes_ask": 0.18,
+      "market_mid": 0.16399999999999998,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11320990439,
+        "line": 27735,
+        "sha256": "755c5de8d333504909df4c834c837cf9a48b4a15513b239dac29cd3bba4375f0"
+      },
+      "resolution_proof": {
+        "artifact": 11322140903,
+        "line": 18537,
+        "sha256": "f91b9bc813c7bf2ef0d7d4a1d4954b161fbedd630b82b816df4f50d87b709955"
+      }
+    },
+    {
+      "condition": "0x639dc96dc083cbf1000d1df392c2581168802d2b9f62d28f56bbbfcd81e31169",
+      "slug": "btc-up-or-down-hourly-p-1791151505921",
+      "hour_start": 1791162000,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791163823.1123195,
+      "p_up": 0.8083957125433258,
+      "yes_bid": 0.733,
+      "yes_ask": 0.776,
+      "market_mid": 0.7545,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11322140903,
+        "line": 35172,
+        "sha256": "c8d87c4dff2b79f051d88d4ec93f37bef80a9a7882925b7c620e8b75c32f2223"
+      },
+      "resolution_proof": {
+        "artifact": 11322922049,
+        "line": 17417,
+        "sha256": "e1e7db0ceddbfe0601fe737969e889bd71a635b69773e0cc1510eb32ca1b76d6"
+      }
+    },
+    {
+      "condition": "0xb8fe93dbcd1530a911d55f35135233c50ffbff36325c57d33be5f0c82a65f330",
+      "slug": "eth-up-or-down-hourly-p-1791151511291",
+      "hour_start": 1791162000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791163823.4721599,
+      "p_up": 0.5614955038736797,
+      "yes_bid": 0.539,
+      "yes_ask": 0.587,
+      "market_mid": 0.563,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11322140903,
+        "line": 35183,
+        "sha256": "2a7aa7827edb6e1a2507033986183e3d03fe1639e05fd41183cea416b4f4a3fe"
+      },
+      "resolution_proof": {
+        "artifact": 11322922049,
+        "line": 17423,
+        "sha256": "0e6cb6fd76b3397af75e0fe0fe78ccfbfa0d42be993d32e5b69588a08ec7b204"
+      }
+    },
+    {
+      "condition": "0x026e7775f4d0f8ae51b3294817597bc2df709d15e2dfe026aafb3428f975f413",
+      "slug": "btc-up-or-down-hourly-p-1791155104653",
+      "hour_start": 1791165600,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791167409.263344,
+      "p_up": 0.33062059954379525,
+      "yes_bid": 0.29,
+      "yes_ask": 0.34,
+      "market_mid": 0.315,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11322922049,
+        "line": 31300,
+        "sha256": "eaf16e2db4476afd5351a60e35d8722f0ef9df776954207f4dc9702501474d39"
+      },
+      "resolution_proof": {
+        "artifact": 11324950599,
+        "line": 23493,
+        "sha256": "e20ec8535eea4398256868fd0ada7645b6cdfd49565fd1d7a3fa6df235fdd15e"
+      }
+    },
+    {
+      "condition": "0xd7db4b83ea261bd6bd8d914d3b7f4270aba29d2502d48df5ea3854630f2ad966",
+      "slug": "eth-up-or-down-hourly-p-1791155109854",
+      "hour_start": 1791165600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791167409.6244433,
+      "p_up": 0.891363091036935,
+      "yes_bid": 0.86,
+      "yes_ask": 0.9,
+      "market_mid": 0.88,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11322922049,
+        "line": 31303,
+        "sha256": "58ba1192fff1013c2fefe86b451bf312d2e244e7273702c086c04ef25618641d"
+      },
+      "resolution_proof": {
+        "artifact": 11324950599,
+        "line": 23505,
+        "sha256": "8b02990732ef668bec678f40d02f56b3dd12384ec75fc9dd1899fbff88917455"
+      }
+    },
+    {
+      "condition": "0x12023ff828b856ea81c5fe4e63ff3e9737d07fb7a5f55a6fff50f3cd304f81ec",
+      "slug": "btc-up-or-down-hourly-p-1791158704645",
+      "hour_start": 1791169200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791171016.4705815,
+      "p_up": 0.360989454204977,
+      "yes_bid": 0.32,
+      "yes_ask": 0.38,
+      "market_mid": 0.35,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11324950599,
+        "line": 35302,
+        "sha256": "2c9a3792a5853c699e3ab3fea3f6ddf1fee6fd46c56a9824c947b0aa50ab7753"
+      },
+      "resolution_proof": {
+        "artifact": 11326490018,
+        "line": 27396,
+        "sha256": "b00768dccbffecdd143fe6f2e919547ba2349907cdb8feed45b9c672ecf20ae5"
+      }
+    },
+    {
+      "condition": "0x1ce01aecef6fb8640536d6bb2967dd4adeee162e324456aaf0fead85212ae265",
+      "slug": "eth-up-or-down-hourly-p-1791158710005",
+      "hour_start": 1791169200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791171016.6946661,
+      "p_up": 0.33888186114221935,
+      "yes_bid": 0.263,
+      "yes_ask": 0.308,
+      "market_mid": 0.2855,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11324950599,
+        "line": 35305,
+        "sha256": "367b58747b1fb33655a84297aaa64fb7401b58559b82673693c1ba3bb87cab3e"
+      },
+      "resolution_proof": {
+        "artifact": 11326490018,
+        "line": 27403,
+        "sha256": "678bc8d862b9061a7561bd0786dfe3d527094ef0f26b6310e761e2839134ee70"
+      }
+    },
+    {
+      "condition": "0xe775afbf3b38ee6f6cfb67dd2b5443623b86b93c0670566b7b1694ede54dbf84",
+      "slug": "btc-up-or-down-hourly-p-1791162304652",
+      "hour_start": 1791172800,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791174615.8960226,
+      "p_up": 0.0615696885665723,
+      "yes_bid": 0.071,
+      "yes_ask": 0.12,
+      "market_mid": 0.0955,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11326490018,
+        "line": 41954,
+        "sha256": "aff33e76da982d6daa6a735132981db12cada4870acfa797203a0c6e8fea716c"
+      },
+      "resolution_proof": {
+        "artifact": 11326799614,
+        "line": 31445,
+        "sha256": "0f3346bff2db439bac0f9735d249f271dff1905273adee1799bcd5be9bee6759"
+      }
+    },
+    {
+      "condition": "0x65f12b728508cb4b530a334b1e5168141b5d9e189b9cb0ef2b49fcd3326b359f",
+      "slug": "eth-up-or-down-hourly-p-1791162310030",
+      "hour_start": 1791172800,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791174616.2328024,
+      "p_up": 0.16509090849305474,
+      "yes_bid": 0.114,
+      "yes_ask": 0.204,
+      "market_mid": 0.159,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11326490018,
+        "line": 41961,
+        "sha256": "d34a53c874bb2cc1504999c4bb1be3816ff027cb3a2f312f9374ae715f905ad8"
+      },
+      "resolution_proof": {
+        "artifact": 11326799614,
+        "line": 31456,
+        "sha256": "8209b0b1de1fdeabd0a61ab6b23a1b48c3d47401aec5c65ec95a03d64b0898f8"
+      }
+    },
+    {
+      "condition": "0x222e97d68f6942dbe1597014b77aa7ca069d7406bc017a35ce242d65f27a8674",
+      "slug": "btc-up-or-down-hourly-p-1791165909390",
+      "hour_start": 1791176400,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791178221.802693,
+      "p_up": 0.4519053064933428,
+      "yes_bid": 0.399,
+      "yes_ask": 0.461,
+      "market_mid": 0.43000000000000005,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11326799614,
+        "line": 46071,
+        "sha256": "cae774bbef20655308a08ca449e9f1ad31e68002647c1796d8f0a61b36f86dc3"
+      },
+      "resolution_proof": {
+        "artifact": 11329181459,
+        "line": 31215,
+        "sha256": "9cd34fb3868b8a2497a87833c2852a06febd4e164a9d7a1b8955d382e64c2ede"
+      }
+    },
+    {
+      "condition": "0x4a5586cf0dbedc44f3399371c9360cf4e02600f25284f5995266c7c8dbc0ce67",
+      "slug": "eth-up-or-down-hourly-p-1791165910714",
+      "hour_start": 1791176400,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791178222.1132486,
+      "p_up": 0.183757344871101,
+      "yes_bid": 0.147,
+      "yes_ask": 0.204,
+      "market_mid": 0.1755,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11326799614,
+        "line": 46083,
+        "sha256": "6d2f1fb89afb0b76483329eb5be2b6db63d14f786449f8ecdbdb7323617dbd24"
+      },
+      "resolution_proof": {
+        "artifact": 11329181459,
+        "line": 31223,
+        "sha256": "7becbf11579528d7982ae1f1d664b74cc594db5fcfec7d0f2267f37618ead8cf"
+      }
+    },
+    {
+      "condition": "0x4cb6f3d484b5f20284d838dc19fcdf60a69e7d7a0506d4998091aeea8e8128c0",
+      "slug": "btc-up-or-down-hourly-p-1791169504779",
+      "hour_start": 1791180000,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791181814.09557,
+      "p_up": 0.7171964756010907,
+      "yes_bid": 0.726,
+      "yes_ask": 0.788,
+      "market_mid": 0.757,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11329181459,
+        "line": 42772,
+        "sha256": "fa20fa3f9e19799863108d6b65e99fd0581d5d0431624b13f615d2de849b019a"
+      },
+      "resolution_proof": {
+        "artifact": 11330887058,
+        "line": 33081,
+        "sha256": "34a87ad11d4babd21fba97c39a515abbe6b8ed1b382fd82d53c137e8d7bbaf62"
+      }
+    },
+    {
+      "condition": "0x95851a892ef67530f1bc9ca885ae8f9f7598a9b394af6db102a4d1cc0e7423db",
+      "slug": "eth-up-or-down-hourly-p-1791169505824",
+      "hour_start": 1791180000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791181814.446202,
+      "p_up": 0.787610800451884,
+      "yes_bid": 0.824,
+      "yes_ask": 0.88,
+      "market_mid": 0.852,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "NO",
+      "model_cost_usdc": "7.349374809",
+      "model_net_shares": "48.49587459",
+      "model_pnl_usdc": "-7.349374809",
+      "proof": {
+        "artifact": 11329181459,
+        "line": 42774,
+        "sha256": "8b5816df11c64c444cf12fab450b1bcac54ba17bad2cbdf5a8ab4716dd44d8b0"
+      },
+      "resolution_proof": {
+        "artifact": 11330887058,
+        "line": 33089,
+        "sha256": "68d17c901047360e616ee68b9ea2c2c25b113b4e39d090d04b6ace8023ebe2e2"
+      }
+    },
+    {
+      "condition": "0xbf3ab1f53587f9ef6974dcca427299c578f739e14066342469860f4b36bd43bc",
+      "slug": "btc-up-or-down-hourly-p-1791173109435",
+      "hour_start": 1791183600,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791185412.1441412,
+      "p_up": 0.5750279954460847,
+      "yes_bid": 0.55,
+      "yes_ask": 0.61,
+      "market_mid": 0.5800000000000001,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11333186316,
+        "line": 1047,
+        "sha256": "caecb9db6649ca7bd9d3cbf3961f4cc54e950535f734eace01a5f230270c4caf"
+      },
+      "resolution_proof": {
+        "artifact": 11333186316,
+        "line": 43022,
+        "sha256": "f73a8e77130b5b1642bfa7403e69eb4bfd6512245abbcdb5a72296563cb67bec"
+      }
+    },
+    {
+      "condition": "0x2be5f9c206d22aa499df6ec9e90e4dac44df446b0126765a68c7e45509bb12a1",
+      "slug": "eth-up-or-down-hourly-p-1791173110474",
+      "hour_start": 1791183600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791185412.4148746,
+      "p_up": 0.44391115389407365,
+      "yes_bid": 0.383,
+      "yes_ask": 0.435,
+      "market_mid": 0.40900000000000003,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11333186316,
+        "line": 1050,
+        "sha256": "ab93db8d1c432ab3b271a71d6eb406b60f9c3de72d3b3bbe798fa5f4ee91cd9b"
+      },
+      "resolution_proof": {
+        "artifact": 11333186316,
+        "line": 43028,
+        "sha256": "2bf53b49533b1e7a5178c8cbe57bb447f97df93a425e17ca8d7e30da407deda3"
+      }
+    },
+    {
+      "condition": "0x146834761eae52e6a139c0205dd8cf448753c323ba07ef9e0fee710addf2176e",
+      "slug": "btc-up-or-down-hourly-p-1791176704736",
+      "hour_start": 1791187200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791189004.8166344,
+      "p_up": 0.7495971691569934,
+      "yes_bid": 0.827,
+      "yes_ask": 0.872,
+      "market_mid": 0.8494999999999999,
+      "yes_won": 0,
+      "model_action": "SETTLED",
+      "model_side": "NO",
+      "model_cost_usdc": "5.979231477",
+      "model_net_shares": "41.13372009",
+      "model_pnl_usdc": "35.154488613",
+      "proof": {
+        "artifact": 11336050647,
+        "line": 6597,
+        "sha256": "6c04b85bd083d6059ad3d5a942d6e435d44801b75f20ed6334bc9c3906a06fae"
+      },
+      "resolution_proof": {
+        "artifact": 11338900983,
+        "line": 19,
+        "sha256": "4c2a2ae1ac61332ba88aea8e17f0cde69803d6f9cb27da8de64ed431dc20d6f6"
+      }
+    },
+    {
+      "condition": "0xcb401fa97a0460e948c2198869267d1d54c6abb98786f8dd632d10b8f53c5c90",
+      "slug": "eth-up-or-down-hourly-p-1791176705846",
+      "hour_start": 1791187200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791189005.115474,
+      "p_up": 0.5319388072062825,
+      "yes_bid": 0.57,
+      "yes_ask": 0.61,
+      "market_mid": 0.59,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11336050647,
+        "line": 6605,
+        "sha256": "8ac4a40d29a96b177510a253f303888986bc6629ddcde704d21b58174e3e7a5e"
+      },
+      "resolution_proof": {
+        "artifact": 11338900983,
+        "line": 23,
+        "sha256": "d0fcdc48e4413f05301ecf32bba45642a3d124fdec0c2b8ce6f7d8417bcbe915"
+      }
+    },
+    {
+      "condition": "0xea3775a944abb92736ab820f5826bc26164136dd4760822d3644791bfae2efcf",
+      "slug": "btc-up-or-down-hourly-p-1791180304666",
+      "hour_start": 1791190800,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791192605.8872905,
+      "p_up": 0.05934204364138179,
+      "yes_bid": 0.043,
+      "yes_ask": 0.078,
+      "market_mid": 0.0605,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11338900983,
+        "line": 11024,
+        "sha256": "c3e61db3c1064e8f56926b0c4abc739756de995e2e1d46275aa1b6b1fa670018"
+      },
+      "resolution_proof": {
+        "artifact": 11340867547,
+        "line": 2897,
+        "sha256": "c425090e646229095d0404fe2bcd7c8eba4b1d58b03274c8077cf55178e0f0ac"
+      }
+    },
+    {
+      "condition": "0xee85dc2db0f2e0e0d4ed7485810701a414f0bd2cf7bda224c33e8f2fa893423b",
+      "slug": "eth-up-or-down-hourly-p-1791180305716",
+      "hour_start": 1791190800,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791192606.1935368,
+      "p_up": 0.3423571755147756,
+      "yes_bid": 0.262,
+      "yes_ask": 0.308,
+      "market_mid": 0.28500000000000003,
+      "yes_won": 0,
+      "model_action": "SKIP",
+      "model_side": "YES",
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11338900983,
+        "line": 11026,
+        "sha256": "f6153fd5881acb0495d3716ce82e6a9ac0cb72ac7ea96f6f15c703d136bd4463"
+      },
+      "resolution_proof": {
+        "artifact": 11340867547,
+        "line": 2905,
+        "sha256": "3ad747b5700712c6ea2eb43f158570b3de50c3df5bb873fe38a8165807e38bf0"
+      }
+    },
+    {
+      "condition": "0xde9219fdcd0905fb539371567a9638484a80bb65e4c6b0a72335369752a747a2",
+      "slug": "btc-up-or-down-hourly-p-1791183909217",
+      "hour_start": 1791194400,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791196209.2144313,
+      "p_up": 0.6860190826431154,
+      "yes_bid": 0.68,
+      "yes_ask": 0.728,
+      "market_mid": 0.704,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11340867547,
+        "line": 14614,
+        "sha256": "69ba86d6d70cc4d926aa93d0f109e045ba64bdbea1b3e31d6e118e748b5c974e"
+      },
+      "resolution_proof": {
+        "artifact": 11344077412,
+        "line": 5224,
+        "sha256": "a292a43164f15923423b61a8355a3706d6880634ac27294f742a578f93bdaa10"
+      }
+    },
+    {
+      "condition": "0xba17fd86ce0def73dd4b66e0413ebef80bc04c49bdb2153f20350f0581e86909",
+      "slug": "eth-up-or-down-hourly-p-1791183910255",
+      "hour_start": 1791194400,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791196209.5280292,
+      "p_up": 0.5435234093565728,
+      "yes_bid": 0.53,
+      "yes_ask": 0.571,
+      "market_mid": 0.5505,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11340867547,
+        "line": 14618,
+        "sha256": "b36ffa8aded07a6a34a9a9e6d307bcfd768bd8bcecd34bad5a9b323c69fd12db"
+      },
+      "resolution_proof": {
+        "artifact": 11344077412,
+        "line": 5226,
+        "sha256": "8aa4380b9d186da6ebb9587677f46ad03157ae112338b03417e0b6915a5f491a"
+      }
+    },
+    {
+      "condition": "0x1be12f0d9d346e5b8ea41a555bbd3ee2551fb06629332b8907bfe61a06e87612",
+      "slug": "eth-up-or-down-hourly-p-1791187510481",
+      "hour_start": 1791198000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791199812.0658903,
+      "p_up": 0.8589419632799704,
+      "yes_bid": 0.805,
+      "yes_ask": 0.859,
+      "market_mid": 0.8320000000000001,
+      "yes_won": 1,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11344077412,
+        "line": 20175,
+        "sha256": "4212775faa6aa7c47470953250515ca4b0090f7cad2d25047159a930afabf9f2"
+      },
+      "resolution_proof": {
+        "artifact": 11345709904,
+        "line": 10466,
+        "sha256": "47c57fb6f552a1a37b0edcb792e153c07ac61ef9770ed913fd2c37e744e68b3c"
+      }
+    },
+    {
+      "condition": "0x37253fcd6cb40fb3e881f03a7f44f2abff98b0df0da8c0f18b20f193e3681423",
+      "slug": "btc-up-or-down-hourly-p-1791191105198",
+      "hour_start": 1791201600,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791203409.149221,
+      "p_up": 0.10201310289743798,
+      "yes_bid": 0.119,
+      "yes_ask": 0.175,
+      "market_mid": 0.147,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11345709904,
+        "line": 21239,
+        "sha256": "75e65afd1dd41073acc73a57f7b3366fa97815f1c65154949306c465289c4259"
+      },
+      "resolution_proof": {
+        "artifact": 11349836430,
+        "line": 11169,
+        "sha256": "25a5e5ed7fa28dac70b2662bdc3a20737b178caa948f31ff674080138b0c9d17"
+      }
+    },
+    {
+      "condition": "0x357c8bf71afe435f9f787919d3b8e1d0951f94ebaef406ccf65774bbf551ce2c",
+      "slug": "eth-up-or-down-hourly-p-1791191106242",
+      "hour_start": 1791201600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791203409.4616241,
+      "p_up": 0.24368741306597602,
+      "yes_bid": 0.233,
+      "yes_ask": 0.277,
+      "market_mid": 0.255,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11345709904,
+        "line": 21242,
+        "sha256": "ee002e386b7941ec96328b84b10e73062be8ec9b9423eafdfd79f8d54cb036d6"
+      },
+      "resolution_proof": {
+        "artifact": 11349836430,
+        "line": 11174,
+        "sha256": "a8c29ed7a8ea541c89ce47c7b4627ca5048685a329e2ba2cfe743c22be110ab2"
+      }
+    },
+    {
+      "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+      "slug": "btc-up-or-down-hourly-p-1791194705341",
+      "hour_start": 1791205200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791207007.2355347,
+      "p_up": 0.8618356073958249,
+      "yes_bid": 0.682,
+      "yes_ask": 0.728,
+      "market_mid": 0.7050000000000001,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "YES",
+      "model_cost_usdc": "8.969586080",
+      "model_net_shares": "11.95123420",
+      "model_pnl_usdc": "2.981648120",
+      "proof": {
+        "artifact": 11349836430,
+        "line": 24608,
+        "sha256": "2fd6a19ddf495c6471e4bad66812022461b8369e35559ff5301112f5ccdcb068"
+      },
+      "resolution_proof": {
+        "artifact": 11352548629,
+        "line": 17853,
+        "sha256": "5a697c984551282402fb33ef1916875d6f2b17e9c6d18c43b39c634cf0889f23"
+      }
+    },
+    {
+      "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+      "slug": "eth-up-or-down-hourly-p-1791194706337",
+      "hour_start": 1791205200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791207007.5667284,
+      "p_up": 0.9309126246931925,
+      "yes_bid": 0.783,
+      "yes_ask": 0.824,
+      "market_mid": 0.8035,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "YES",
+      "model_cost_usdc": "9.322825989",
+      "model_net_shares": "11.06441073",
+      "model_pnl_usdc": "1.741584741",
+      "proof": {
+        "artifact": 11349836430,
+        "line": 24614,
+        "sha256": "48ad00cef8cdfcd33f20bf3daab87f1e9b6466f92d5e93f72ca7be00124e3312"
+      },
+      "resolution_proof": {
+        "artifact": 11352548629,
+        "line": 17859,
+        "sha256": "b37d05a86babec2de2763a9e3cca4c3c5a13446138dc1021ce91d6fd08214cbe"
+      }
+    },
+    {
+      "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+      "slug": "btc-up-or-down-hourly-p-1791198305358",
+      "hour_start": 1791208800,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791210605.1590664,
+      "p_up": 0.33861864638935635,
+      "yes_bid": 0.262,
+      "yes_ask": 0.308,
+      "market_mid": 0.28500000000000003,
+      "yes_won": 0,
+      "model_action": "SETTLED",
+      "model_side": "YES",
+      "model_cost_usdc": "8.027763712",
+      "model_net_shares": "30.41769844",
+      "model_pnl_usdc": "-8.027763712",
+      "proof": {
+        "artifact": 11352548629,
+        "line": 31498,
+        "sha256": "c1f4e5cc597c6d421ef092b3834dcd4255cfc44e07dd4454909dd22bd83f2236"
+      },
+      "resolution_proof": {
+        "artifact": 11356137271,
+        "line": 25936,
+        "sha256": "18e1aabe35975ec6c41f4b57665e9090620b0670a6ede248349e7d802e9652d5"
+      }
+    },
+    {
+      "condition": "0x414fdadc0c543dcfa28ead703e0f0eaf47ab96b900feaddf2d3e58edd108966b",
+      "slug": "eth-up-or-down-hourly-p-1791198306405",
+      "hour_start": 1791208800,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791210605.5124416,
+      "p_up": 0.22587285158534798,
+      "yes_bid": 0.185,
+      "yes_ask": 0.236,
+      "market_mid": 0.2105,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11352548629,
+        "line": 31501,
+        "sha256": "309c58d97a71a02a0439fac87f51e19771b4c663d24face88e217abd33d9231c"
+      },
+      "resolution_proof": {
+        "artifact": 11356137271,
+        "line": 25950,
+        "sha256": "fa6ba4ac6cc2fc78d50cfcf9530929581806efa46e76ed6461fb64714ae5b948"
+      }
+    },
+    {
+      "condition": "0x70acab06c1bb9750a52f053494f85bb96b4c08068ba17f9183c24770a4e5502f",
+      "slug": "eth-up-or-down-hourly-p-1791201911098",
+      "hour_start": 1791212400,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791214210.0697875,
+      "p_up": 0.509524640357258,
+      "yes_bid": 0.505,
+      "yes_ask": 0.56,
+      "market_mid": 0.5325,
+      "yes_won": 0,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": "0",
+      "proof": {
+        "artifact": 11356137271,
+        "line": 41136,
+        "sha256": "44c210a0d021dc40fbb7a840a7427bf3808f8ba8ddd4a34ee0b7ceb26d58b547"
+      },
+      "resolution_proof": {
+        "artifact": 11359620308,
+        "line": 37860,
+        "sha256": "5b7d5a473337fe09a5aa2123f04c311cdef731200badc84a4a2ce6115569d5c3"
+      }
+    },
+    {
+      "condition": "0x1398c0abcb741413e56505f8c9eede7e53e9f396d0386f48ec44ef6976db46fd",
+      "slug": "eth-up-or-down-hourly-p-1791205507927",
+      "hour_start": 1791216000,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791217806.7139723,
+      "p_up": 0.2053415044860002,
+      "yes_bid": 0.128,
+      "yes_ask": 0.162,
+      "market_mid": 0.14500000000000002,
+      "yes_won": 0,
+      "model_action": "SETTLED",
+      "model_side": "YES",
+      "model_cost_usdc": "9.27622148",
+      "model_net_shares": "50.16034124",
+      "model_pnl_usdc": "-9.276221480",
+      "proof": {
+        "artifact": 11359620308,
+        "line": 51932,
+        "sha256": "b1d82b15e2b3af5e8474bc14347967e11a7f8d8670d88e89ec4f9227d5e1dc4a"
+      },
+      "resolution_proof": {
+        "artifact": 11361428049,
+        "line": 30049,
+        "sha256": "3ab69984044b76f3e7473f89f1931d15df80147044f2f253adf611a25313cc47"
+      }
+    },
+    {
+      "condition": "0x80c429806ba47b2fc4e56eb7be743d5ba5a3ac1d614e4c63923af5a68ec26f2c",
+      "slug": "btc-up-or-down-hourly-p-1791209105478",
+      "hour_start": 1791219600,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791221409.940844,
+      "p_up": 0.6202003313174609,
+      "yes_bid": 0.679,
+      "yes_ask": 0.737,
+      "market_mid": 0.708,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "NO",
+      "model_cost_usdc": "9.787241386",
+      "model_net_shares": "27.11955973",
+      "model_pnl_usdc": "-9.787241386",
+      "proof": {
+        "artifact": 11361428049,
+        "line": 41687,
+        "sha256": "11890ac90e2bc77cad4f12ba04f4f2959db1b232d8ccc50b24d4217d8d2eec62"
+      },
+      "resolution_proof": {
+        "artifact": 11364617509,
+        "line": 37690,
+        "sha256": "5d47207f47e933a994996bc536ba4bad429b0d8430623e120931076eae14bc98"
+      }
+    },
+    {
+      "condition": "0xeed3f1f85fab89c71eed5c088d793dce1442694ed26dd5a22aaf3cc1a7c4ff5e",
+      "slug": "eth-up-or-down-hourly-p-1791209106592",
+      "hour_start": 1791219600,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791221410.2511237,
+      "p_up": 0.6937692715578231,
+      "yes_bid": 0.775,
+      "yes_ask": 0.815,
+      "market_mid": 0.7949999999999999,
+      "yes_won": 1,
+      "model_action": "SETTLED",
+      "model_side": "NO",
+      "model_cost_usdc": "7.919304720",
+      "model_net_shares": "33.63476940",
+      "model_pnl_usdc": "-7.919304720",
+      "proof": {
+        "artifact": 11361428049,
+        "line": 41689,
+        "sha256": "80a63619e8fd296c35771e13da73ee791f0a50ce5384164e07d2f7b4b4fa8734"
+      },
+      "resolution_proof": {
+        "artifact": 11364617509,
+        "line": 37697,
+        "sha256": "428cc7046963c5bdb8fac1facbeecdf8acac8a78573eb14bc2b9cfc4ff0306da"
+      }
+    },
+    {
+      "condition": "0xdb468f6e1a0a2b4077d1b90e4a8c808f96f092ffd9c0f45858ad7fe09512fbe5",
+      "slug": "btc-up-or-down-hourly-p-1791212705264",
+      "hour_start": 1791223200,
+      "symbol": "BTCUSDT",
+      "decision_at": 1791225008.17376,
+      "p_up": 0.8054785034223542,
+      "yes_bid": 0.723,
+      "yes_ask": 0.767,
+      "market_mid": 0.745,
+      "yes_won": null,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": null,
+      "proof": {
+        "artifact": 11364617509,
+        "line": 50083,
+        "sha256": "3cf2870848b2cfc2ab286578daaa5a65d342b8e0e8780dfadcf77ee5710fbfd2"
+      }
+    },
+    {
+      "condition": "0x8f09ffc8e4435a720217fa20bf472853144b5c4de089c88ed4b39d809a36074b",
+      "slug": "eth-up-or-down-hourly-p-1791212706415",
+      "hour_start": 1791223200,
+      "symbol": "ETHUSDT",
+      "decision_at": 1791225008.49787,
+      "p_up": 0.6950892047094819,
+      "yes_bid": 0.645,
+      "yes_ask": 0.689,
+      "market_mid": 0.667,
+      "yes_won": null,
+      "model_action": "NO_TRADE",
+      "model_side": null,
+      "model_cost_usdc": null,
+      "model_net_shares": null,
+      "model_pnl_usdc": null,
+      "proof": {
+        "artifact": 11364617509,
+        "line": 50086,
+        "sha256": "26e241821d57dd1b916657c58842089112ea33795d67824e1bc74c59798d502c"
+      }
+    }
+  ],
+  "raw_resolution_verified": 50,
+  "raw_resolution_inconsistent": 0
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "limitless-hourly-ewma30-ism-hour-overlay-v1",
+  "input_sha256": "503f839e110c2e8bd01869ec082f09336266620d6c0ca807d9fb245b52c3d431",
+  "input_schema": "limitless-hourly-ewma30-frozen-cohort-shadow-pnl-v1",
+  "scope": "matched decisions in pinned shadow evidence only",
+  "event": {
+    "name": "ISM Services PMI September 2026",
+    "scheduled_at": "2026-10-05T14:00:00Z",
+    "prior_schedule_source": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/august/",
+    "excluded_utc_hour_buckets": [
+      "2026-10-05T13",
+      "2026-10-05T14"
+    ],
+    "rule_status": "illustrative_posthoc_not_frozen"
+  },
+  "variants": {
+    "frozen": {
+      "original_settled": 9,
+      "original_pnl_usdc": "-11.919355381",
+      "excluded_decisions": 4,
+      "excluded_settled": 3,
+      "excluded_cost_usdc": "26.320175781",
+      "excluded_pnl_usdc": "-3.304530851",
+      "retained_settled": 6,
+      "retained_pnl_usdc": "-8.614824530",
+      "retained_cash_usdc": "91.385175470",
+      "excluded_rows": [
+        {
+          "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+          "symbol": "BTCUSDT",
+          "decision_at": "2026-10-05T13:30:07.235535+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "2.981648120",
+          "cost_usdc": "8.969586080",
+          "payout_usdc": "11.951234200"
+        },
+        {
+          "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+          "symbol": "ETHUSDT",
+          "decision_at": "2026-10-05T13:30:07.566728+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "1.741584741",
+          "cost_usdc": "9.322825989",
+          "payout_usdc": "11.064410730"
+        },
+        {
+          "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+          "symbol": "BTCUSDT",
+          "decision_at": "2026-10-05T14:30:05.159066+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "-8.027763712",
+          "cost_usdc": "8.027763712",
+          "payout_usdc": "0E-9"
+        },
+        {
+          "condition": "0x414fdadc0c543dcfa28ead703e0f0eaf47ab96b900feaddf2d3e58edd108966b",
+          "symbol": "ETHUSDT",
+          "decision_at": "2026-10-05T14:30:05.512442+00:00",
+          "status": "NO_TRADE",
+          "pnl_usdc": null,
+          "cost_usdc": null,
+          "payout_usdc": null
+        }
+      ]
+    },
+    "ewma30": {
+      "original_settled": 5,
+      "original_pnl_usdc": "29.562730130",
+      "excluded_decisions": 4,
+      "excluded_settled": 3,
+      "excluded_cost_usdc": "26.015827987",
+      "excluded_pnl_usdc": "-3.018291017",
+      "retained_settled": 2,
+      "retained_pnl_usdc": "32.581021147",
+      "retained_cash_usdc": "132.581021147",
+      "excluded_rows": [
+        {
+          "condition": "0x839663b7c965a5e0c9f71cff36a48d375e31ab7f209662fe56a386e3c11e754a",
+          "symbol": "BTCUSDT",
+          "decision_at": "2026-10-05T13:30:07.235535+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "2.979676788",
+          "cost_usdc": "8.963655792",
+          "payout_usdc": "11.943332580"
+        },
+        {
+          "condition": "0x36f3305d70ee9a05efcc6207169631aa27cf60c85d06e4128f0b0f4dca96629f",
+          "symbol": "ETHUSDT",
+          "decision_at": "2026-10-05T13:30:07.566728+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "1.740016963",
+          "cost_usdc": "9.314187427",
+          "payout_usdc": "11.054204390"
+        },
+        {
+          "condition": "0xf5b1144e5a965685d4d99779c39b5d52e685a2a9f46e16f4d89cb5e6b74b3265",
+          "symbol": "BTCUSDT",
+          "decision_at": "2026-10-05T14:30:05.159066+00:00",
+          "status": "SETTLED",
+          "pnl_usdc": "-7.737984768",
+          "cost_usdc": "7.737984768",
+          "payout_usdc": "0E-9"
+        },
+        {
+          "condition": "0x414fdadc0c543dcfa28ead703e0f0eaf47ab96b900feaddf2d3e58edd108966b",
+          "symbol": "ETHUSDT",
+          "decision_at": "2026-10-05T14:30:05.512442+00:00",
+          "status": "NO_TRADE",
+          "pnl_usdc": null,
+          "cost_usdc": null,
+          "payout_usdc": null
+        }
+      ]
+    }
+  }
+}
