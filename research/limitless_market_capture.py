@@ -15,6 +15,7 @@ import urllib.error
 from collections import Counter
 from limitless_hourly_paper import HourlyPaper
 from limitless_inventory_paper import InventoryPaper, VERSION, LEGACY_VERSION, digest, payouts, timestamp as finite_time
+from limitless_binance_fast_reference import capture as capture_fast_reference
 
 BASE = "https://api.limitless.exchange"
 NS = "/markets"
@@ -282,6 +283,8 @@ async def capture(args):
                       {"interval": "1m", "from": current - 3 * 3600, "to": current}, slug=slug)
 
     next_discovery = next_metadata = next_book = next_connect = 0
+    fast_task = (asyncio.create_task(capture_fast_reference(recorder, end))
+                 if getattr(args, "fast_reference", False) else None)
     try:
         while time.monotonic() < end and not recorder.capped:
             t = time.monotonic()
@@ -305,6 +308,12 @@ async def capture(args):
                 recorder.flush()
             await asyncio.sleep(min(1, max(0, end - time.monotonic())))
     finally:
+        if fast_task is not None:
+            fast_task.cancel()
+            try:
+                await fast_task
+            except asyncio.CancelledError:
+                pass
         if client.connected:
             await client.disconnect()
         recorder.flush()
@@ -319,8 +328,11 @@ async def capture(args):
                    "counts": dict(recorder.counts), "uncompressed_bytes": recorder.bytes,
                    "size_cap_reached": recorder.capped, "markets_seen": len(watched),
                    "unresolved_carried": len(state["watched"]), "active_slugs": active,
+                   "maker_reference_protocol": ("public-binance-1s-kline-v1"
+                       if getattr(args, "fast_reference", False) else None),
                    "limitations": ["GitHub job gaps are missing observations",
                        "Book frames are coalesced states, not fills or queue events",
+                       "Binance 1s stream is a received reference, not maker order/fill evidence",
                        "Oracle response schemas and settlement streams require verification before paper PnL"]}
         (recorder.out / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
         print(json.dumps(summary))
@@ -346,6 +358,8 @@ if __name__ == "__main__":
     parser.add_argument("--until", default="2026-10-10T09:00:00Z")
     parser.add_argument("--out", default="limitless_market_capture")
     parser.add_argument("--state")
+    parser.add_argument("--fast-reference", action="store_true",
+                        help="Record public Binance BTC/ETH 1s stream for maker diagnostics")
     parser.add_argument("--selftest", action="store_true")
     args = parser.parse_args()
     if args.selftest:
