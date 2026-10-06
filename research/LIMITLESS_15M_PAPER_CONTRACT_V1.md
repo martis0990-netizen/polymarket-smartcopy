@@ -1,5 +1,7 @@
 # Limitless 15m Chainlink paper contract v1 — frozen before prospective windows
 
+> **Update 2026-10-06:** The offline executor has now produced a [negative discovery replay](LIMITLESS_STATUS_2026-10-06.md): model −98.909305129 USDC from an independent 100 USDC account. This does not establish prospective main-state acceptance; the trading version is paused. The frozen contract below is preserved for audit, not promoted or tuned on these outcomes. Its original October 6 holdout cannot be relabeled as untouched for a revised model.
+
 Status: **SPECIFIED, EXECUTOR NOT YET VERIFIED**. Version `limitless-15m-oracle-paper-v1`; independent of hourly-v1 and inventory-v2. Freeze date 2026-10-04 UTC. Earliest prospective market open: **2026-10-05 00:00:00 UTC**. Discovery: October 5 UTC; untouched holdout: October 6 00:00 UTC until the existing capture cutoff October 10 09:00 UTC. Earlier 15m archives, including the 186 scored in [the feasibility audit](LIMITLESS_15M_FEASIBILITY_2026-10-04.md), are inspected discovery data only. They cannot be reclassified as prospective results.
 
 This contract does not enable orders, secrets, subscriptions, new workflows, schedules or extra data requests. Its future executor must run offline from completed **main** capture ZIPs, validate artifact SHA256, order by receipt, deduplicate by condition and preserve first failed attempts. PR smoke is technical evidence only. If the required raw record is missing, the result is UNKNOWN/SKIP, never reconstructed from a later favorable snapshot.
