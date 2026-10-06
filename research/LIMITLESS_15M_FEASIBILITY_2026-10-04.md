@@ -1,5 +1,7 @@
 # Limitless 15-minute feasibility snapshot — 2026-10-04
 
+> **Update 2026-10-06:** This page is a historical forecast/coverage snapshot, not the latest 15m trading result. The subsequent [offline paper replay](LIMITLESS_STATUS_2026-10-06.md) lost **98.909305129 USDC** in the model's independent 100 USDC discovery account (37 settled entries, 6 wins); constant50 lost 99.918423072. The earlier Brier comparison with 50% must not be presented as executable edge. Current 15m trading development is paused pending a bounded postmortem. The source report and machine evidence are linked in the new status page.
+
 Status: **DATA FEASIBILITY ONLY / NO 15M SIGNAL OR PNL**. This note does not change the frozen hourly-v1 benchmark, inventory-v2, their fees, timing, cohort, holdout, or capture workflows. Public Limitless and Binance data only; no orders.
 
 ## Reproducible observation

@@ -1,5 +1,7 @@
 # Limitless 15m structure: prospective paired paper test v1
 
+> **Update 2026-10-06:** The [discovery replay](LIMITLESS_STATUS_2026-10-06.md) recorded 0 structure-account entries because H1 was UNKNOWN on all 87 decisions; the model account lost 98.909305129 USDC. Zero filtered trades do not validate this gate. The paired trading proposal is paused. The frozen definitions below remain historical research specifications, not an active profitable bot.
+
 Status: **FROZEN PROPOSAL; NOT RUNNING; NO PNL CLAIM**. Specified 2026-10-04 UTC before the first prospective 15m window on 2026-10-05 00:00 UTC. This is a separate experiment. The hourly-v1, inventory-v2, existing 15m model/constant-50 control, and October 6 hourly structural diagnostic remain unchanged. No real orders.
 
 ## Prerequisite
