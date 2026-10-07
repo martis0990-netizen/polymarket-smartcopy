@@ -1,6 +1,6 @@
 # Limitless hourly: first eligible event, then opposite-side quote
 
-As of 2026-10-08 UTC. Retrospective paper diagnostic on the same 96 SHA256-verified main capture ZIPs and 162 hourly BTC/ETH conditions. Protocol was committed on branch `research/hourly-status-20261007` as `0a64a8b19aee4a3c5c9accd4bfce0e8b10b53533` **before calculating results**; causal second-quote request boundary was clarified in `71907bec6d4849a792797b0c1e54d67d4ba2a884`. No source capture, frozen hourly-v1 rule, fee, hurdle or holdout was changed. This experiment reuses an already inspected holdout and cannot validate a new profitable strategy.
+As of 2026-10-07 22:20 UTC (2026-10-08 01:20 Moscow). Retrospective paper diagnostic on the same 96 SHA256-verified main capture ZIPs and 162 hourly BTC/ETH conditions. Protocol was committed on branch `research/hourly-status-20261007` as `0a64a8b19aee4a3c5c9accd4bfce0e8b10b53533` **before calculating results**; causal second-quote request boundary was clarified in `71907bec6d4849a792797b0c1e54d67d4ba2a884`. No source capture, frozen hourly-v1 rule, fee, hurdle or holdout was changed. This experiment reuses an already inspected holdout and cannot validate a new profitable strategy.
 
 ## Result
 
