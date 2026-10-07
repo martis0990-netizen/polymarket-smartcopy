@@ -25,6 +25,8 @@ These 10 trades occupy **six UTC hour clusters**. In every chosen trade the mode
 
 Across **56 already scored holdout conditions**, including NO_TRADE, model Brier is **0.17520**, compared with **0.15792** for the decision-book midpoint. Lower is better; on this sample the market reference was better calibrated. This does not imply that the midpoint can be bought or sold at that price. Paper execution itself assumes visible REST depth available at receipt; real fills could be worse.
 
+The selection gate makes the observed gap worse. On the **10 selected, settled conditions**, model Brier is **0.22568** versus market midpoint **0.15852**; the model has the lower per-condition squared error only **once**. On the other **46 scored conditions**, model Brier is **0.16423** versus midpoint **0.15780**. The subset split is retrospective and small, but it points directly at selection on the model–market disagreement, not merely a small fee difference. These conditional scores are descriptive and cannot be used to choose a new threshold on this same holdout.
+
 At decision time six losing bets bought the side **opposite the current hour-open/reference move** and that move persisted to settlement. Three losing bets followed the then-current move, which reversed before hour close. The one winner followed the current move. This is a descriptive partition of these 10 outcomes, not a proven regime filter. All **10/10** Limitless payouts agree with independently captured closed Binance 1h open/close direction; the observed miss is not explained by an outcome-decoder or Binance hourly settlement mismatch in these trades. Frozen model probabilities were independently recomputed from decision-time raw Binance 1m during the 36-archive replay.
 
 ## Next analysis gate
