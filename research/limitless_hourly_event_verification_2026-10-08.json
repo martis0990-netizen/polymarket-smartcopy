@@ -1,0 +1,9 @@
+{
+  "schema": "limitless-hourly-event-verification-v1",
+  "fixed_window_valid_forecasts_crosschecked": 533,
+  "max_probability_difference": 0.0,
+  "reference_pointer_mismatches": [],
+  "missing_source_books": [],
+  "chronology_or_pair_constraint_errors": [],
+  "condition_rows": 162
+}
