@@ -1,0 +1,2058 @@
+{
+  "schema": "limitless-hourly-structure-versus-market-diagnostic-2026-10-07",
+  "status": "RECONCILED_DIAGNOSTIC_ONLY",
+  "report": {
+    "scored_holdout": 56,
+    "hour_clusters": 31,
+    "groups": {
+      "HH_HL": {
+        "n": 4,
+        "hour_clusters": 3,
+        "model_brier": 0.1522740401702082,
+        "market_brier": 0.164781625,
+        "model_minus_market_brier": -0.012507584829791779,
+        "mean_model_confidence": 0.6329044668710698,
+        "model_favourite_correct": 3
+      },
+      "LH_LL": {
+        "n": 12,
+        "hour_clusters": 10,
+        "model_brier": 0.24353209638551984,
+        "market_brier": 0.2224524375,
+        "model_minus_market_brier": 0.021079658885519832,
+        "mean_model_confidence": 0.7588441421646515,
+        "model_favourite_correct": 9
+      },
+      "MIXED_OR_EQUAL": {
+        "n": 18,
+        "hour_clusters": 14,
+        "model_brier": 0.19148899379354434,
+        "market_brier": 0.15896415277777778,
+        "model_minus_market_brier": 0.03252484101576655,
+        "mean_model_confidence": 0.7323155335929438,
+        "model_favourite_correct": 13
+      },
+      "INSUFFICIENT_SWINGS": {
+        "n": 0,
+        "hour_clusters": 0,
+        "model_brier": null,
+        "market_brier": null,
+        "model_minus_market_brier": null,
+        "mean_model_confidence": null,
+        "model_favourite_correct": 0
+      },
+      "UNKNOWN": {
+        "n": 22,
+        "hour_clusters": 20,
+        "model_brier": 0.12877865269346683,
+        "market_brier": 0.12062967045454545,
+        "model_minus_market_brier": 0.008148982238921387,
+        "mean_model_confidence": 0.7269906393658547,
+        "model_favourite_correct": 19
+      }
+    },
+    "predefined_model_brier_mixed_minus_aligned": -0.029228588538147582,
+    "incremental_relative_brier_mixed_minus_aligned": 0.019841993059074615,
+    "predefined_contrast_cluster_bootstrap_95pct": [
+      -0.18513705209960477,
+      0.12254600341521812
+    ],
+    "incremental_contrast_cluster_bootstrap_95pct": [
+      -0.007126514319482632,
+      0.05152216863827217
+    ],
+    "bootstrap_seed": 20261007,
+    "bootstrap_draws": 10000,
+    "higher_frames": {
+      "ready_h4_h1": 0,
+      "by_frame": {
+        "H4": [
+          {
+            "state": "UNKNOWN",
+            "reason": "LATEST_COMPLETE_BAR_MISSING",
+            "n": 7
+          },
+          {
+            "state": "UNKNOWN",
+            "reason": "CONFLICTING_CLOSED_SOURCE",
+            "n": 28
+          },
+          {
+            "state": "UNKNOWN",
+            "reason": "INSUFFICIENT_WARMUP",
+            "n": 21
+          }
+        ],
+        "H1": [
+          {
+            "state": "UNKNOWN",
+            "reason": "INSUFFICIENT_WARMUP",
+            "n": 14
+          },
+          {
+            "state": "UNKNOWN",
+            "reason": "CONFLICTING_CLOSED_SOURCE",
+            "n": 28
+          },
+          {
+            "state": "UNKNOWN",
+            "reason": "INSUFFICIENT_SWINGS",
+            "n": 14
+          }
+        ]
+      }
+    },
+    "unknown_reasons": {
+      "CONFLICT_IN_121M_WINDOW": 22
+    }
+  },
+  "source": {
+    "state_artifact": 11470560416,
+    "archives": [
+      {
+        "run": 37387593991,
+        "artifact": 11381034166,
+        "sha256": "52bf2f2e2dc100e114c514da44fa69a6b58235c0d2124bad56e96cab3159a460"
+      },
+      {
+        "run": 37392752368,
+        "artifact": 11384130707,
+        "sha256": "0ce5b75832e91e9e624bfd5841ab186c663273ee031de9591a30affef05d11cb"
+      },
+      {
+        "run": 37397577030,
+        "artifact": 11385278898,
+        "sha256": "08fb64426b0324344fcfa9b94bb00511736c80e7025c1894a8d69fa94d60792f"
+      },
+      {
+        "run": 37402229222,
+        "artifact": 11386758072,
+        "sha256": "5760fda3d85d0cc310da851e8390df71fced3b06b07eee5aeb7c3a36437accfd"
+      },
+      {
+        "run": 37406740407,
+        "artifact": 11389526139,
+        "sha256": "35935c4aa0d053b566ee729586fd911ed7b7cd82494021d22e9d6dad52a24f8c"
+      },
+      {
+        "run": 37411137000,
+        "artifact": 11391016390,
+        "sha256": "2040b45b4388d0fd00d1ad89f28973e9f5d223650c3c5c0c413f7c06cac137a9"
+      },
+      {
+        "run": 37415503822,
+        "artifact": 11392267927,
+        "sha256": "8161b6d47211bad05b6353f10425fd809e4ec484d5602908544fb6d36f941dd0"
+      },
+      {
+        "run": 37420048536,
+        "artifact": 11395255294,
+        "sha256": "e0c267b7a3fc9ba6731ec3e1d78eb3a92d874942a9b68281ee4709d3710c4497"
+      },
+      {
+        "run": 37425008657,
+        "artifact": 11396721933,
+        "sha256": "b11547ef7763b64c2776469a52b85462e98e0b646f2523a3872025c0c7f74d20"
+      },
+      {
+        "run": 37430590433,
+        "artifact": 11399108296,
+        "sha256": "09d6af383eb495fa0315c047111b6d829cf2999dfb9dc2cabb9c269b80162da1"
+      },
+      {
+        "run": 37436572517,
+        "artifact": 11401599040,
+        "sha256": "f5c66a6b48862c7dc4470b74d6d57b85c7317d21a577f33fdea06a9376252d8c"
+      },
+      {
+        "run": 37442906611,
+        "artifact": 11404453914,
+        "sha256": "40bfe95eb9cdf8161126fb83417fe0d5a87176658daa2b5c51d86806026588a6"
+      },
+      {
+        "run": 37449228396,
+        "artifact": 11409676558,
+        "sha256": "c71da150ff4f66f3d11dac0e56f0c69f6ffc72d0ea66f8ff0b216afec23ed9f1"
+      },
+      {
+        "run": 37455327860,
+        "artifact": 11412677949,
+        "sha256": "e99107fadaa7b100721b8e878f7059f28d759d372dacd07b4f0225a3980d552f"
+      },
+      {
+        "run": 37461566013,
+        "artifact": 11415948919,
+        "sha256": "aca73ad9565ab22c37b07b3db89f43a8da0ee782b4b738586de08482f158225e"
+      },
+      {
+        "run": 37468332946,
+        "artifact": 11417994486,
+        "sha256": "ce8ef21d5e4078219390ee7d52ee9d20b74b90067ad3abe1909b07a1f3ce3316"
+      },
+      {
+        "run": 37475681064,
+        "artifact": 11422097180,
+        "sha256": "5d464d8fe5e45d4b3fdde4c218d19fc50c05adc591968ac35faec58397a1a7a9"
+      },
+      {
+        "run": 37483398332,
+        "artifact": 11425277513,
+        "sha256": "788c5b14c90d67c4c70c7459e76059f799a94bf160db14bdf6986a2cde00f9bb"
+      },
+      {
+        "run": 37491277603,
+        "artifact": 11428826971,
+        "sha256": "e75bac8c587e61a72462bca14a427eef611e4bea2fd5c208859afa11e0240d64"
+      },
+      {
+        "run": 37498639259,
+        "artifact": 11432160726,
+        "sha256": "cc4a04223f90573adcb206a5147c761872e097ae470a4961f0d7654bfb5fd2b3"
+      },
+      {
+        "run": 37505829978,
+        "artifact": 11435614143,
+        "sha256": "f6608e371bc4e9eadbe2af0c1c3eae716763e92027d189eb673df259b9f0cc9e"
+      },
+      {
+        "run": 37512980140,
+        "artifact": 11438687333,
+        "sha256": "df9fbb46d476a1d6db67cf41f807ca96c611244e3f416d1369e0b363c82df4e6"
+      },
+      {
+        "run": 37520026832,
+        "artifact": 11442940714,
+        "sha256": "6782f9777137e450cd9794e1d1658ea1b767f3b2976a9ad5c04d52bf1c0a9ce5"
+      },
+      {
+        "run": 37526921049,
+        "artifact": 11445003835,
+        "sha256": "94bf7deb1cb0118f35fa1c4e83a4be322010c47f4f20e923728c0448ee087b64"
+      },
+      {
+        "run": 37533792990,
+        "artifact": 11448341500,
+        "sha256": "2e4114b8497dfe74faf888af7072deba144c8c0b843d99a1f6ad767b70032437"
+      },
+      {
+        "run": 37540015279,
+        "artifact": 11450766323,
+        "sha256": "5b9b88257e1076470a998c16d885617874d1d78bd480a57322afa34cd2923636"
+      },
+      {
+        "run": 37545633008,
+        "artifact": 11452572074,
+        "sha256": "7bcb5e118eea1e26e119727c14e0522e7633cb3e0844b1bb9acf564de288b47f"
+      },
+      {
+        "run": 37550675704,
+        "artifact": 11453319707,
+        "sha256": "980a7c774b45ce172f23654aa8fa3812970814facde7ec4e83b9e132624abeeb"
+      },
+      {
+        "run": 37555499863,
+        "artifact": 11455689859,
+        "sha256": "4adda2e6266b9538f854818bc992805e45fdb639ce14bf4c27dda1725b80ce66"
+      },
+      {
+        "run": 37560057419,
+        "artifact": 11458621544,
+        "sha256": "be58c3e85ea869b154298605b1163423dfbd19e841b5821943bc5ed10722007f"
+      },
+      {
+        "run": 37564502373,
+        "artifact": 11459309742,
+        "sha256": "521f5c454cc372f86081d029058964493501108be3e760cde3c2314a42e24629"
+      },
+      {
+        "run": 37568836795,
+        "artifact": 11461003329,
+        "sha256": "69dd8a78ed343fa90786f6fdaabf588007b15ecb4ca4f5d49f7bc46dd06ebc65"
+      },
+      {
+        "run": 37573240775,
+        "artifact": 11462399286,
+        "sha256": "343ee0a057255e9c3f5ba1afb7ce8fc596197339e8d7e519f125af13671f5c14"
+      },
+      {
+        "run": 37577779464,
+        "artifact": 11465133020,
+        "sha256": "3431971f991a88d753a9028d119f6f7130ce065460bf12a806e66f1aba2c7741"
+      },
+      {
+        "run": 37582713347,
+        "artifact": 11467850234,
+        "sha256": "5a5349dda8c13d4c70195902f2db37b13e7ce45472dc8adc8e5f1cd56918647c"
+      },
+      {
+        "run": 37588187303,
+        "artifact": 11470560416,
+        "sha256": "73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b"
+      }
+    ],
+    "classifier_sha256": "565f8f3404aaca9ce1cbe71f52b31958a4dd90950471f17577503053e9f6568e",
+    "probability_evidence": "hourly_probability_audit_20261007.json"
+  },
+  "binance_response_count": 12726,
+  "data_errors": [],
+  "rows": [
+    {
+      "condition": "0x0bf4ecc59ed50c2dbd2ebf262eb002e9c6276943290c6aa2b78a1a7a94a63eab",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791252000.0,
+      "decision_at": 1791253822.6671736,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.42480327334080414,
+      "p_up_market_mid": 0.4205,
+      "realized_up": 0.0,
+      "brier_model": 0.18045782104106195,
+      "brier_market_mid": 0.17682024999999998,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11386758072,
+        "line": 22957,
+        "sha256": "277d9433c3dd8c4a20ecc9cae693167820ed4e6f7c0ef1b3d254cbc799303ade"
+      },
+      "m1_window_sha256": "9ecb077fa4fcdeddfa653fb391817a4230f6e54ede4962e6a2f48c4c4ca4469e",
+      "m1_first_source": {
+        "artifact": 11384130707,
+        "line": 15932
+      },
+      "m1_last_source": {
+        "artifact": 11386758072,
+        "line": 22949
+      },
+      "last_two_highs": [
+        85604.01,
+        85754.01
+      ],
+      "last_two_lows": [
+        85563.74,
+        85454.67
+      ]
+    },
+    {
+      "condition": "0x0e47584bf452c2d2cdc9ff0443b687cb1b47a5eb900c1b71a50261d079d61310",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791306000.0,
+      "decision_at": 1791307807.417416,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.5883340260100867,
+      "p_up_market_mid": 0.595,
+      "realized_up": 1.0,
+      "brier_model": 0.169468874141064,
+      "brier_market_mid": 0.16402500000000003,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11432160726,
+        "line": 43037,
+        "sha256": "3e054837df6aa4647248f3ed5eb7aa865978beb77b67352b7ec632aa697b705d"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x1170a0f644f783f1772a67541906753474dd05ab2c2103b9d53cd25f89b7b3b5",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791338400.0,
+      "decision_at": 1791340223.3763742,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.004893702251634491,
+      "p_up_market_mid": 0.0235,
+      "realized_up": 0.0,
+      "brier_model": 2.3948321727652486e-05,
+      "brier_market_mid": 0.00055225,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11458621544,
+        "line": 25965,
+        "sha256": "f20c2478f5c9f6b192855977e9bae1390da7b039ba22f43e653d9a5b714425a0"
+      },
+      "m1_window_sha256": "76b2796c251192f287d8f5df73cc77290ded6fd9d0788f299b8ec18299f1505d",
+      "m1_first_source": {
+        "artifact": 11453319707,
+        "line": 14728
+      },
+      "m1_last_source": {
+        "artifact": 11458621544,
+        "line": 25936
+      },
+      "last_two_highs": [
+        2620.25,
+        2621.34
+      ],
+      "last_two_lows": [
+        2610.67,
+        2607.14
+      ]
+    },
+    {
+      "condition": "0x11f5c6d5954209f3a79469d5aa97eab63e381ca7d7dd8f9d25350d55f477ed88",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791352800.0,
+      "decision_at": 1791354608.9403827,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.1402809530881296,
+      "p_up_market_mid": 0.1925,
+      "realized_up": 0.0,
+      "brier_model": 0.01967874579931402,
+      "brier_market_mid": 0.03705625,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11465133020,
+        "line": 36123,
+        "sha256": "dde058004388d84a95d97c3b741be9c5a3f44e575ae8f752e78af7a8fa1405a7"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x14ad8088dfbb13e7324cd86994407ead3b7fe4d3e5e2cc9a4fd479299fb86dab",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791280800.0,
+      "decision_at": 1791282605.0398235,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.7305262892326286,
+      "p_up_market_mid": 0.8395,
+      "realized_up": 1.0,
+      "brier_model": 0.07261608079473691,
+      "brier_market_mid": 0.02576024999999999,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11409676558,
+        "line": 9038,
+        "sha256": "a93f32be6ffaeef578a2d29cabeba60e36127f83d1b8ff3f29f411e6f7f45ba3"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x1cd4323e832c3bceb96f01f46829e448e863339c3243317dcd832bd80ff82ef7",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791316800.0,
+      "decision_at": 1791318641.4660354,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.7213749746452984,
+      "p_up_market_mid": 0.735,
+      "realized_up": 1.0,
+      "brier_model": 0.07763190475390809,
+      "brier_market_mid": 0.07022500000000001,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11445003835,
+        "line": 59,
+        "sha256": "569ca82535dff0b1ebf5f903052347563779a4c1d8d5e95e02c790f92b9cbc9c"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x281cdbd4cb293ae7c8d7c47dce86d7c8b10a7ce3a4986bba2ae0a2c78cb453a7",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791259200.0,
+      "decision_at": 1791261004.4415135,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.7334814169748529,
+      "p_up_market_mid": 0.7725,
+      "realized_up": 1.0,
+      "brier_model": 0.07103215509773222,
+      "brier_market_mid": 0.05175625000000002,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11391016390,
+        "line": 26335,
+        "sha256": "4367d018428e087016471c9fcbd23404d6a8ecd23194f18d45a404e442dd79f1"
+      },
+      "m1_window_sha256": "346e4a602480f41a930460f65480ebe3648255940c697f2296d430a2ae10ff9f",
+      "m1_first_source": {
+        "artifact": 11386758072,
+        "line": 22949
+      },
+      "m1_last_source": {
+        "artifact": 11391016390,
+        "line": 26316
+      },
+      "last_two_highs": [
+        85633.07,
+        85624.72
+      ],
+      "last_two_lows": [
+        85580.14,
+        85592.45
+      ]
+    },
+    {
+      "condition": "0x29d83b7a63613d6a730cd8d50471accb790b2492d18cf6820a7a995e8081e073",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791298800.0,
+      "decision_at": 1791300608.6100726,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.20705450785898089,
+      "p_up_market_mid": 0.17,
+      "realized_up": 0.0,
+      "brier_model": 0.04287156922472478,
+      "brier_market_mid": 0.028900000000000006,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11425277513,
+        "line": 33579,
+        "sha256": "04172e4d02cabe6e69a693768debd5591b62c3802c3c0ac1e3c5a7734a21e569"
+      },
+      "m1_window_sha256": "7e3f02a2849720c6cd9914b823e889c684a22bb9a6bb8d0cb57673301323a730",
+      "m1_first_source": {
+        "artifact": 11417994486,
+        "line": 22143
+      },
+      "m1_last_source": {
+        "artifact": 11425277513,
+        "line": 33568
+      },
+      "last_two_highs": [
+        2724.31,
+        2721.76
+      ],
+      "last_two_lows": [
+        2720.17,
+        2714.04
+      ]
+    },
+    {
+      "condition": "0x2b1ee93898f4ca9510fdd2f618edc4f5754a68685e9147f14cd590dae59e1a1c",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791291600.0,
+      "decision_at": 1791293407.2522054,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.12924674180315576,
+      "p_up_market_mid": 0.2205,
+      "realized_up": 0.0,
+      "brier_model": 0.016704720266731612,
+      "brier_market_mid": 0.048620250000000004,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11417994486,
+        "line": 22162,
+        "sha256": "461ea2bccb420df2afd707cfa3358949d02a97d5d427f2c91a027d81a0878b51"
+      },
+      "m1_window_sha256": "af9e2ba765a7c89b221912f0a2b9c39384abf352f3ef705f5773862e1def2b0f",
+      "m1_first_source": {
+        "artifact": 11412677949,
+        "line": 13855
+      },
+      "m1_last_source": {
+        "artifact": 11417994486,
+        "line": 22143
+      },
+      "last_two_highs": [
+        2713.97,
+        2712.92
+      ],
+      "last_two_lows": [
+        2709.54,
+        2711.93
+      ]
+    },
+    {
+      "condition": "0x2e900aa05430b7c41d202f5bdd411287cc2d99db6c8b7930c55c4241952ba6d9",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791342000.0,
+      "decision_at": 1791343812.3178432,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.41259415450986137,
+      "p_up_market_mid": 0.3155,
+      "realized_up": 0.0,
+      "brier_model": 0.17023393633570735,
+      "brier_market_mid": 0.09954025,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11459309742,
+        "line": 34569,
+        "sha256": "db3e767fda1662e9cc6a2f7683f64093fb63a84b350d9725f956c2a85f53c2a1"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x2ed2c63965cdd03c0cbaefa29e1f1f6ec61d25d5e20f1f62712ce127341d98cf",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791277200.0,
+      "decision_at": 1791279009.7700057,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.021346177328337212,
+      "p_up_market_mid": 0.0605,
+      "realized_up": 0.0,
+      "brier_model": 0.0004556592865328176,
+      "brier_market_mid": 0.00366025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11404453914,
+        "line": 2631,
+        "sha256": "887fa251bc1fb002611a93db18109fa0893f1f35a189e58bcba33bf3e7e95a54"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x2f2746e9a3fdfa34e105bbf733420233cf2dbf9d2dec9d27d07e1ad18a97bb41",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791302400.0,
+      "decision_at": 1791304220.2287235,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.5054804155598833,
+      "p_up_market_mid": 0.5195,
+      "realized_up": 0.0,
+      "brier_model": 0.2555104505145923,
+      "brier_market_mid": 0.26988024999999993,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11428826971,
+        "line": 38533,
+        "sha256": "e4679f877a66b34ddfd756f6c3c493f7e033db719e0ab04225daf7ada16c592f"
+      },
+      "m1_window_sha256": "aaee105f75bd7986f50d89421e5b11c59f312e5b4eaee9229d6c723859ca0622",
+      "m1_first_source": {
+        "artifact": 11422097180,
+        "line": 31222
+      },
+      "m1_last_source": {
+        "artifact": 11428826971,
+        "line": 38298
+      },
+      "last_two_highs": [
+        2707.57,
+        2706.52
+      ],
+      "last_two_lows": [
+        2703.07,
+        2704.3
+      ]
+    },
+    {
+      "condition": "0x31e4d145fd6444828b647fdc5f96b63ce340173ec58afa3e195ca8ae0263c92e",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791277200.0,
+      "decision_at": 1791279009.4608638,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.13386766842847325,
+      "p_up_market_mid": 0.156,
+      "realized_up": 0.0,
+      "brier_model": 0.017920552650475655,
+      "brier_market_mid": 0.024336,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11404453914,
+        "line": 2628,
+        "sha256": "fc1d2f7825854d8159ff31dc719dde21f19434955e72f4ea14df51e81015e6e1"
+      },
+      "m1_window_sha256": "a77eb3ccd23c7987501697e7e4ddf0198501a578f287e8e5cd7ce9f6a2288af1",
+      "m1_first_source": {
+        "artifact": 11396721933,
+        "line": 45163
+      },
+      "m1_last_source": {
+        "artifact": 11404453914,
+        "line": 2611
+      },
+      "last_two_highs": [
+        86013.5,
+        86129.0
+      ],
+      "last_two_lows": [
+        85981.62,
+        85878.53
+      ]
+    },
+    {
+      "condition": "0x3335b2ea45575efc23001bdbaf1e4aa9014b6d376b46cc2b3733fe41e4a854b7",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791356400.0,
+      "decision_at": 1791358215.4845114,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.5131566078163932,
+      "p_up_market_mid": 0.525,
+      "realized_up": 0.0,
+      "brier_model": 0.26332970414562756,
+      "brier_market_mid": 0.275625,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11467850234,
+        "line": 78215,
+        "sha256": "a8d86bdcda6de6a926dc6ac7af2c10b957661603992d99127b2fea525e510574"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x36680c3e8a7da5e8ad9d2b25d74fec360168a7925058944c860ad3383e97b1f4",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791270000.0,
+      "decision_at": 1791271820.1024637,
+      "group": "HH_HL",
+      "unknown_reason": null,
+      "p_up_model": 0.49136140478979307,
+      "p_up_market_mid": 0.4955,
+      "realized_up": 1.0,
+      "brier_model": 0.25871322053741275,
+      "brier_market_mid": 0.25452024999999995,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11396721933,
+        "line": 45179,
+        "sha256": "189053d7e5b6c5944ae1c4219e7a2f8d9dfd5d8c5a955dc1ddfb3fc78a8fa434"
+      },
+      "m1_window_sha256": "1c9c3d6b71be68cdb5cb595522866bdf5ef9f2c27e38c1ea827fc44920bf6299",
+      "m1_first_source": {
+        "artifact": 11392267927,
+        "line": 33330
+      },
+      "m1_last_source": {
+        "artifact": 11396721933,
+        "line": 45163
+      },
+      "last_two_highs": [
+        85347.5,
+        85410.0
+      ],
+      "last_two_lows": [
+        85298.64,
+        85325.13
+      ]
+    },
+    {
+      "condition": "0x3c70424b07fa757562b388f9ba1e355259d04f31d2b1debc8c3b9cc0de7fb968",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791352800.0,
+      "decision_at": 1791354609.144759,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.20906515338386134,
+      "p_up_market_mid": 0.254,
+      "realized_up": 0.0,
+      "brier_model": 0.043708238359417464,
+      "brier_market_mid": 0.064516,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11465133020,
+        "line": 36129,
+        "sha256": "19579cf2a355db6759a549d976822e7f3e7d2451ebf5251a10eed7fb93a8f57e"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x3f496eeff34316c19d9c3dc120aa54daf222eae6ab70691b1b9944bdd96b55c4",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791244800.0,
+      "decision_at": 1791246607.0450783,
+      "group": "HH_HL",
+      "unknown_reason": null,
+      "p_up_model": 0.6456192909981733,
+      "p_up_market_mid": 0.608,
+      "realized_up": 1.0,
+      "brier_model": 0.12558568691263738,
+      "brier_market_mid": 0.15366400000000002,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11384130707,
+        "line": 15951,
+        "sha256": "fbec0dc89df86b060c0f0108dfb0571befa35d8e3c8b421d41c87afc1be05bbc"
+      },
+      "m1_window_sha256": "492ea8e2252718417548a06cfd0ff6e42d05a1f02b60dddccd560a4ccf2185b5",
+      "m1_first_source": {
+        "artifact": 11381034166,
+        "line": 29
+      },
+      "m1_last_source": {
+        "artifact": 11384130707,
+        "line": 15932
+      },
+      "last_two_highs": [
+        85912.01,
+        85968.01
+      ],
+      "last_two_lows": [
+        85822.71,
+        85854.94
+      ]
+    },
+    {
+      "condition": "0x498bbe74c7610aeb17d0f3702b017ca1fae425f56fb9659c291b8e32d9a88ee6",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791331200.0,
+      "decision_at": 1791333015.4436834,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.10444886091475475,
+      "p_up_market_mid": 0.1335,
+      "realized_up": 0.0,
+      "brier_model": 0.010909564546389782,
+      "brier_market_mid": 0.01782225,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11453319707,
+        "line": 14740,
+        "sha256": "4a8e2364267521f1e06aed8f77ea8f9d77ebd8440909467e780b019127cbe22f"
+      },
+      "m1_window_sha256": "0df90448ef6f7e00deee5484a836750876f7d8edbb26df45957870b6b08a6ab0",
+      "m1_first_source": {
+        "artifact": 11450766323,
+        "line": 10438
+      },
+      "m1_last_source": {
+        "artifact": 11453319707,
+        "line": 14724
+      },
+      "last_two_highs": [
+        85619.21,
+        85598.22
+      ],
+      "last_two_lows": [
+        85471.54,
+        85464.92
+      ]
+    },
+    {
+      "condition": "0x4bd04ef1d355035a33e9dc7575199679eb67d4031358c01d844ebfe8d5bde6cb",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791298800.0,
+      "decision_at": 1791300608.229393,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.1436586573684256,
+      "p_up_market_mid": 0.0955,
+      "realized_up": 0.0,
+      "brier_model": 0.0206378098368987,
+      "brier_market_mid": 0.00912025,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11425277513,
+        "line": 33575,
+        "sha256": "9740f5e198cdab7c155556f27e6ebaaf35e09bd784edf0ef3622439c38aee971"
+      },
+      "m1_window_sha256": "2027fbeb4c866b7d21d58ee5754ddd4e140e694b53d0131d98b8155fdab7d4fd",
+      "m1_first_source": {
+        "artifact": 11417994486,
+        "line": 22132
+      },
+      "m1_last_source": {
+        "artifact": 11425277513,
+        "line": 33557
+      },
+      "last_two_highs": [
+        86630.77,
+        86662.0
+      ],
+      "last_two_lows": [
+        86556.36,
+        86242.0
+      ]
+    },
+    {
+      "condition": "0x4c775ade4bfddbcb72e6d91a4aead84db31abbe8f29e1d9a576c535fb1ec6484",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791327600.0,
+      "decision_at": 1791329412.0808587,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.5929973811655761,
+      "p_up_market_mid": 0.5645,
+      "realized_up": 1.0,
+      "brier_model": 0.16565113173807935,
+      "brier_market_mid": 0.18966025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11452572074,
+        "line": 13451,
+        "sha256": "449f294764b35180cbe82b42e90210bc5a967bd415d1b0ec86e6011e70ff8dab"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x523cfc3d2c7a8f0e8843b4d575b8de0480a63b9d53db5ef84a76b8ca4bf84895",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791273600.0,
+      "decision_at": 1791275411.424557,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.9792678066318199,
+      "p_up_market_mid": 0.9445,
+      "realized_up": 1.0,
+      "brier_model": 0.00042982384185561123,
+      "brier_market_mid": 0.0030802499999999992,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11399108296,
+        "line": 42418,
+        "sha256": "f6efe7e34a228dd4556439a293db1dce7687f871a5daa51439408410b5845f95"
+      },
+      "m1_window_sha256": "3acc90e83f2c33edf271709713eba748aa07b7dc394bacfe6eeb57233166ed12",
+      "m1_first_source": {
+        "artifact": 11395255294,
+        "line": 35794
+      },
+      "m1_last_source": {
+        "artifact": 11399108296,
+        "line": 42404
+      },
+      "last_two_highs": [
+        85907.41,
+        85874.02
+      ],
+      "last_two_lows": [
+        85768.02,
+        85804.63
+      ]
+    },
+    {
+      "condition": "0x54492fee7634b7c2783b59c1efa82cb33d91898647e7bfed49d39373acf31d77",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791306000.0,
+      "decision_at": 1791307807.1396945,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.5721328969777731,
+      "p_up_market_mid": 0.605,
+      "realized_up": 1.0,
+      "brier_model": 0.1830702578486329,
+      "brier_market_mid": 0.15602500000000002,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11432160726,
+        "line": 43031,
+        "sha256": "831c28b508d23833b1c3a44f8e7aac43fbb0633220c27e6b61f09e5c12244248"
+      },
+      "m1_window_sha256": "6fd9f2a3674607953622f3edcf2d38447f66400a9d1fbd2769155b320e2360d2",
+      "m1_first_source": {
+        "artifact": 11425277513,
+        "line": 33557
+      },
+      "m1_last_source": {
+        "artifact": 11432160726,
+        "line": 43006
+      },
+      "last_two_highs": [
+        85650.0,
+        85559.53
+      ],
+      "last_two_lows": [
+        85512.0,
+        85478.0
+      ]
+    },
+    {
+      "condition": "0x563ee0f20048d9469c0b1b73999f07abce08a292487fb190b52e57f0d45b573a",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791259200.0,
+      "decision_at": 1791261004.7540455,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.8301270788355446,
+      "p_up_market_mid": 0.8895,
+      "realized_up": 1.0,
+      "brier_model": 0.02885680934494528,
+      "brier_market_mid": 0.01221025000000001,
+      "model_action_status": "SKIP",
+      "market_book_proof": {
+        "artifact": 11391016390,
+        "line": 26337,
+        "sha256": "7d7f9d7aa10fd74b47dbe0012518d9fd025ce2b9c52eef802927bab944629d8c"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x57309e144f41f7f928b34c26e7055dc4e25e415db1d35d1e9a4babb5757a7004",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791342000.0,
+      "decision_at": 1791343812.1005647,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.6092527876581801,
+      "p_up_market_mid": 0.745,
+      "realized_up": 1.0,
+      "brier_model": 0.15268338395290326,
+      "brier_market_mid": 0.065025,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11459309742,
+        "line": 34565,
+        "sha256": "f1f191fccf846930d697e814c64b633ca3cb37df77404bb53c7e1f2310657f7a"
+      },
+      "m1_window_sha256": "d27d733fb29ab63a7a659d9cbd5846693b45292af1bffb615bfbdb07d1d41589",
+      "m1_first_source": {
+        "artifact": 11455689859,
+        "line": 16921
+      },
+      "m1_last_source": {
+        "artifact": 11459309742,
+        "line": 34544
+      },
+      "last_two_highs": [
+        84118.03,
+        84076.01
+      ],
+      "last_two_lows": [
+        83948.01,
+        83988.0
+      ]
+    },
+    {
+      "condition": "0x6ccec494095f3e86bc0ce6a7e04f0c2992c537ec6ea1652276a54e28599fdbe8",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791273600.0,
+      "decision_at": 1791275411.7118638,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.9710494283881377,
+      "p_up_market_mid": 0.929,
+      "realized_up": 1.0,
+      "brier_model": 0.0008381355966535684,
+      "brier_market_mid": 0.005040999999999993,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11399108296,
+        "line": 42422,
+        "sha256": "3264be6a6ee0a241432edd7364f0295c5cc3201b591d75407108414645637c7d"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x8761780a32ec65f3fd24ea0539debf02f6da97176ff07f57d4b0ca1f1903ffc4",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791255600.0,
+      "decision_at": 1791257403.2576714,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.2519133711354572,
+      "p_up_market_mid": 0.2155,
+      "realized_up": 0.0,
+      "brier_model": 0.0634603465568306,
+      "brier_market_mid": 0.046440249999999995,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11389526139,
+        "line": 35746,
+        "sha256": "206460c96132409f7c1e00b3e4ebe4457ba06c18c80836b5b6ddb363f776a5c6"
+      },
+      "m1_window_sha256": "8f7d38e028e2395d577de54e03d769ef6918c13843125997ef8cf67e90651fab",
+      "m1_first_source": {
+        "artifact": 11385278898,
+        "line": 23789
+      },
+      "m1_last_source": {
+        "artifact": 11389526139,
+        "line": 35727
+      },
+      "last_two_highs": [
+        2702.03,
+        2701.36
+      ],
+      "last_two_lows": [
+        2700.0,
+        2700.27
+      ]
+    },
+    {
+      "condition": "0x88c3de6b12796cf6c2f2b9d68d03a5e45e13c76c50a864179b5aea14be737c57",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791345600.0,
+      "decision_at": 1791347412.2680907,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.48993830027652086,
+      "p_up_market_mid": 0.475,
+      "realized_up": 0.0,
+      "brier_model": 0.2400395380778463,
+      "brier_market_mid": 0.225625,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11461003329,
+        "line": 40263,
+        "sha256": "4bbaa886874455b37c68428488b6947997f747492856ed6e2668dc0de7f0f1aa"
+      },
+      "m1_window_sha256": "c4ac4ef4cdde5f8022a22bc3d25c9fd7ca8755934961ba1d93626ffb835c45cf",
+      "m1_first_source": {
+        "artifact": 11458621544,
+        "line": 25924
+      },
+      "m1_last_source": {
+        "artifact": 11461003329,
+        "line": 40248
+      },
+      "last_two_highs": [
+        84219.68,
+        84174.01
+      ],
+      "last_two_lows": [
+        84130.03,
+        84100.0
+      ]
+    },
+    {
+      "condition": "0x894f57d829fc99e7e92579fef3cdc408e4c4c86447d7ac73950470a056ae2f66",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791334800.0,
+      "decision_at": 1791336605.9354699,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.0004037338341602581,
+      "p_up_market_mid": 0.0145,
+      "realized_up": 0.0,
+      "brier_model": 1.6300100884574278e-07,
+      "brier_market_mid": 0.00021025000000000001,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11455689859,
+        "line": 16940,
+        "sha256": "7bbdd0262553323ca513fe2348c97fada638b34f98cdb169f351f93d2f26c716"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x89fd47ba26bccc96c7d74139fd1e0cf2b3a1990503c5231647bcd3ca1b371c70",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791356400.0,
+      "decision_at": 1791358215.7909222,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.49833299400239334,
+      "p_up_market_mid": 0.5455,
+      "realized_up": 0.0,
+      "brier_model": 0.2483357729113894,
+      "brier_market_mid": 0.29757025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11467850234,
+        "line": 78219,
+        "sha256": "3c7b74d2165d6c7efd37a4bc5132282c72e54e002a26db8a4954d76531f23ac5"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x8bec1ae99b80b7a01f9d0a9be180b944877e31267d7ab1a36e9f56ac2e7cb30d",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791320400.0,
+      "decision_at": 1791322217.9409375,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.3530339066015935,
+      "p_up_market_mid": 0.316,
+      "realized_up": 0.0,
+      "brier_model": 0.12463293921038264,
+      "brier_market_mid": 0.099856,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11448341500,
+        "line": 3056,
+        "sha256": "7e4ea573bcedde4b1af7bedb1f1084599fee54651aee2ad94ec6386e4c1de827"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x8cc466387c41b048b07a32c2fef70e37c459ad50638088bfbbd07f7d9af15711",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791327600.0,
+      "decision_at": 1791329411.798778,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.19377617719272194,
+      "p_up_market_mid": 0.285,
+      "realized_up": 1.0,
+      "brier_model": 0.6499968524619812,
+      "brier_market_mid": 0.5112250000000002,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11452572074,
+        "line": 13447,
+        "sha256": "4280a68077a149a3d00b9f088a88ab24f34b0a027b150a4a949488e9922ac920"
+      },
+      "m1_window_sha256": "c382f0b7be86e5388dd60a34935290429861435a7e44d0e97be7c4406265fe90",
+      "m1_first_source": {
+        "artifact": 11448341500,
+        "line": 3042
+      },
+      "m1_last_source": {
+        "artifact": 11452572074,
+        "line": 13427
+      },
+      "last_two_highs": [
+        85533.91,
+        85535.67
+      ],
+      "last_two_lows": [
+        85500.0,
+        85456.0
+      ]
+    },
+    {
+      "condition": "0x8d012dc2888fe00b0f799cbb80150d82496c5d0a63230b01986a57a0c8e8b1da",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791345600.0,
+      "decision_at": 1791347412.5780845,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.3240181254873767,
+      "p_up_market_mid": 0.3155,
+      "realized_up": 0.0,
+      "brier_model": 0.10498774564435338,
+      "brier_market_mid": 0.09954025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11461003329,
+        "line": 40269,
+        "sha256": "3b08d55feb1380282c08d4828ee9f2fd63c0817057e0785af257a75937a6ea48"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x947c8f1ced63d9435ca2a348f1f89e226b6e6ff38c8411d4b8edac2b44f2fad4",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791248400.0,
+      "decision_at": 1791250220.0358276,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.650713119345679,
+      "p_up_market_mid": 0.6475,
+      "realized_up": 0.0,
+      "brier_model": 0.42342756368858386,
+      "brier_market_mid": 0.41925624999999994,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11385278898,
+        "line": 23990,
+        "sha256": "0ab875eddaee027fbddfd0eac620729f6e9d45c9a41ea468f1750c0774986e79"
+      },
+      "m1_window_sha256": "4d3417f3a16dcf48448117dd92a5fac90b23f939d803331d3346c398a05b1f79",
+      "m1_first_source": {
+        "artifact": 11381034166,
+        "line": 12962
+      },
+      "m1_last_source": {
+        "artifact": 11385278898,
+        "line": 23971
+      },
+      "last_two_highs": [
+        86068.01,
+        85978.01
+      ],
+      "last_two_lows": [
+        85852.33,
+        85904.79
+      ]
+    },
+    {
+      "condition": "0x95116ed8756202d912e8dc8d2e1df3e3a675a4254e35a41c9ee9a2cfb2aec039",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791262800.0,
+      "decision_at": 1791264605.2364447,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.5437456926806105,
+      "p_up_market_mid": 0.5435,
+      "realized_up": 0.0,
+      "brier_model": 0.29565937830871686,
+      "brier_market_mid": 0.29539224999999997,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11392267927,
+        "line": 33350,
+        "sha256": "7d8ac3e6ee6f29b779b085ee1d7ee2663646fdea26e2f8a900550fea20fc31c7"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0x957970c3839ffd82b2e781f9bc505633a57d3317b867efb5999cec7c9164ff33",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791338400.0,
+      "decision_at": 1791340223.081076,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.07544673204966346,
+      "p_up_market_mid": 0.0755,
+      "realized_up": 0.0,
+      "brier_model": 0.0056922093769737146,
+      "brier_market_mid": 0.00570025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11458621544,
+        "line": 25956,
+        "sha256": "177e808b983b080cc6946fc26c06f48609f9c44f491c8be2a895f2c492e1f8f9"
+      },
+      "m1_window_sha256": "8e367c554e79bc7eb33dfb6a6ad8426bc1d3e1e30658b212f8973144e2a270f5",
+      "m1_first_source": {
+        "artifact": 11453319707,
+        "line": 14724
+      },
+      "m1_last_source": {
+        "artifact": 11458621544,
+        "line": 25924
+      },
+      "last_two_highs": [
+        84103.45,
+        84097.69
+      ],
+      "last_two_lows": [
+        83900.0,
+        83713.6
+      ]
+    },
+    {
+      "condition": "0x9a3615d4f1cefe3d0372eb6301afdd9d0594ec642cce51614b4aae95aa6db630",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791316800.0,
+      "decision_at": 1791318641.141068,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.4755046013324367,
+      "p_up_market_mid": 0.475,
+      "realized_up": 0.0,
+      "brier_model": 0.2261046258883196,
+      "brier_market_mid": 0.225625,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11445003835,
+        "line": 57,
+        "sha256": "c84df643d91bc3cceb7ddde2cb90070ca79fb3d45c2a04ebec2f8f8136f63592"
+      },
+      "m1_window_sha256": "834b87855a7e281a4f726d04699004cd1e19aab03eabe8e4a03a88e624dfde76",
+      "m1_first_source": {
+        "artifact": 11435614143,
+        "line": 40959
+      },
+      "m1_last_source": {
+        "artifact": 11445003835,
+        "line": 49
+      },
+      "last_two_highs": [
+        85668.01,
+        85633.76
+      ],
+      "last_two_lows": [
+        85636.91,
+        85603.02
+      ]
+    },
+    {
+      "condition": "0x9db4c14d793e8c40a9efc747923e8ee4e7a4d13bb6bf0ed68d9b1ba0421870a7",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791331200.0,
+      "decision_at": 1791333015.7464862,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.11681889382871719,
+      "p_up_market_mid": 0.1555,
+      "realized_up": 0.0,
+      "brier_model": 0.013646653955365098,
+      "brier_market_mid": 0.02418025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11453319707,
+        "line": 14744,
+        "sha256": "1d0f852eef0fefd6850038a0f8a9c1b81af06dfee6b19faec805cc942265c0b5"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xa59041ded6e082df6c0350653668e78d12348f686d43d4a90b7bea0a898d68c8",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791349200.0,
+      "decision_at": 1791351006.4947684,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.7559542135817403,
+      "p_up_market_mid": 0.784,
+      "realized_up": 1.0,
+      "brier_model": 0.05955834586850683,
+      "brier_market_mid": 0.04665599999999999,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11462399286,
+        "line": 42894,
+        "sha256": "37cc7c6e182cf09bce5f6e10827619240a9215d4878854b139cb93f3ad879a35"
+      },
+      "m1_window_sha256": "3327d32a3635b324093494b3217e4ae136303c5019c331c3aea5475548dfb62b",
+      "m1_first_source": {
+        "artifact": 11459309742,
+        "line": 34544
+      },
+      "m1_last_source": {
+        "artifact": 11462399286,
+        "line": 42852
+      },
+      "last_two_highs": [
+        84244.01,
+        84234.01
+      ],
+      "last_two_lows": [
+        84160.2,
+        84216.95
+      ]
+    },
+    {
+      "condition": "0xa66cc22d7bd8da39a8e3f1df02e250dd59631254226af2df68aad769ade73787",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791313200.0,
+      "decision_at": 1791315006.5860617,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.21895036506200366,
+      "p_up_market_mid": 0.3035,
+      "realized_up": 1.0,
+      "brier_model": 0.6100385322367773,
+      "brier_market_mid": 0.48511225,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11438687333,
+        "line": 45214,
+        "sha256": "5ff2f3201dbd63a1049b270a3ade13d1b17d3f56b7a0c4b0d27cc83640628d00"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xac21d2c877783f04fa71f38890b04c40b2f77ff050b92b4385e210ed209893ab",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791313200.0,
+      "decision_at": 1791315006.2581174,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.4722603047350506,
+      "p_up_market_mid": 0.5575,
+      "realized_up": 1.0,
+      "brier_model": 0.2785091859583416,
+      "brier_market_mid": 0.19580625000000002,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11438687333,
+        "line": 45206,
+        "sha256": "98b867074816eb3ad396fac10eeca394b081fb30ad950368600faa7b37bb55b5"
+      },
+      "m1_window_sha256": "fdc88bc9e4b326750746d03659c107129b6f29560c8aaf3f253b8fcdfdccf7a5",
+      "m1_first_source": {
+        "artifact": 11432160726,
+        "line": 43006
+      },
+      "m1_last_source": {
+        "artifact": 11438687333,
+        "line": 45180
+      },
+      "last_two_highs": [
+        85536.54,
+        85515.37
+      ],
+      "last_two_lows": [
+        85438.0,
+        85457.31
+      ]
+    },
+    {
+      "condition": "0xaf2539ae6b970c1ef20ff160cef3780ebb1bc3b5f87eec5c67d33fe10db5b7e5",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791302400.0,
+      "decision_at": 1791304219.930073,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.4944402932911817,
+      "p_up_market_mid": 0.4905,
+      "realized_up": 0.0,
+      "brier_model": 0.2444712036298698,
+      "brier_market_mid": 0.24059025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11428826971,
+        "line": 38525,
+        "sha256": "a2786e0221de6e0775ecb834d4ba15639ae6906ea9b2f3a93f354cb5c11f46d6"
+      },
+      "m1_window_sha256": "5783101c80af26c70420704548c1159fc164e261cec6c5928995cc0c32da3c26",
+      "m1_first_source": {
+        "artifact": 11422097180,
+        "line": 31219
+      },
+      "m1_last_source": {
+        "artifact": 11428826971,
+        "line": 38510
+      },
+      "last_two_highs": [
+        85800.0,
+        85800.0
+      ],
+      "last_two_lows": [
+        85667.96,
+        85658.8
+      ]
+    },
+    {
+      "condition": "0xb2371fafbd6d990bb653e53b98a33727becd934980000d7ac0ed2ee11e14af16",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791244800.0,
+      "decision_at": 1791246607.3997238,
+      "group": "HH_HL",
+      "unknown_reason": null,
+      "p_up_model": 0.8130925237132156,
+      "p_up_market_mid": 0.756,
+      "realized_up": 1.0,
+      "brier_model": 0.03493440469189487,
+      "brier_market_mid": 0.059536,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11384130707,
+        "line": 15958,
+        "sha256": "be199798620c799c4ed795cb78140a0e5303e94c22198180c15dde3142ab4df4"
+      },
+      "m1_window_sha256": "1477fb5316e458d2252458ef7848d2099964a7010aacceb4bdfc35d8962ad5cf",
+      "m1_first_source": {
+        "artifact": 11381034166,
+        "line": 30
+      },
+      "m1_last_source": {
+        "artifact": 11384130707,
+        "line": 15941
+      },
+      "last_two_highs": [
+        2715.55,
+        2716.45
+      ],
+      "last_two_lows": [
+        2713.05,
+        2713.35
+      ]
+    },
+    {
+      "condition": "0xb26c4aef037f7a11972615abae22c737568b8a3a8e558bad5cf005cdcadea7c7",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791291600.0,
+      "decision_at": 1791293406.968173,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.11857861682679871,
+      "p_up_market_mid": 0.258,
+      "realized_up": 1.0,
+      "brier_model": 0.7769036547149594,
+      "brier_market_mid": 0.5505639999999999,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11417994486,
+        "line": 22154,
+        "sha256": "91d29cd27976b5a63cb4f76f3f5c15f87841fb1780fe5a51b0dd407238e926ab"
+      },
+      "m1_window_sha256": "c3f4abfaaec072d55bb81d54ee3d4f631bbac4205de9bc21c32b53e44f224023",
+      "m1_first_source": {
+        "artifact": 11412677949,
+        "line": 13847
+      },
+      "m1_last_source": {
+        "artifact": 11417994486,
+        "line": 22132
+      },
+      "last_two_highs": [
+        86107.05,
+        86118.38
+      ],
+      "last_two_lows": [
+        86084.0,
+        85977.9
+      ]
+    },
+    {
+      "condition": "0xbf4b3e2aa0ddb5196017642edf4e820a3e250b32069770d87fdea366f1131cf8",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791280800.0,
+      "decision_at": 1791282604.7792819,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.7249752681878212,
+      "p_up_market_mid": 0.775,
+      "realized_up": 1.0,
+      "brier_model": 0.07563860310836087,
+      "brier_market_mid": 0.05062499999999999,
+      "model_action_status": "SETTLED",
+      "market_book_proof": {
+        "artifact": 11409676558,
+        "line": 9033,
+        "sha256": "c2a66e861fa0231dbdc6b9aba45b30da282057d730687bfe8e45fe2644d90a25"
+      },
+      "m1_window_sha256": "984a1932a3275af006a83b7e911da1aa300c09052c6557117967ccc4fc8244aa",
+      "m1_first_source": {
+        "artifact": 11399108296,
+        "line": 42404
+      },
+      "m1_last_source": {
+        "artifact": 11409676558,
+        "line": 9010
+      },
+      "last_two_highs": [
+        86170.0,
+        86136.01
+      ],
+      "last_two_lows": [
+        86047.02,
+        86027.71
+      ]
+    },
+    {
+      "condition": "0xbfe5734b6a7b34b904c2d8c34f652d9b76aad9026525a4245fc4f60f85f00247",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791248400.0,
+      "decision_at": 1791250220.313271,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.3573496813321728,
+      "p_up_market_mid": 0.335,
+      "realized_up": 0.0,
+      "brier_model": 0.12769879474820547,
+      "brier_market_mid": 0.11222500000000002,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11385278898,
+        "line": 23996,
+        "sha256": "83fc8b53f442416d572663e15ba9ee4ff9a2284ae08c1fcb662bb6fee68b86af"
+      },
+      "m1_window_sha256": "8c1784782ea8c58f99762a9806b90c71b4af88567a51a0311208018bd02d5708",
+      "m1_first_source": {
+        "artifact": 11381034166,
+        "line": 12968
+      },
+      "m1_last_source": {
+        "artifact": 11385278898,
+        "line": 23789
+      },
+      "last_two_highs": [
+        2718.98,
+        2717.13
+      ],
+      "last_two_lows": [
+        2714.83,
+        2714.83
+      ]
+    },
+    {
+      "condition": "0xce2c7abd84a44e045b912647c0d083e1214ac01762c91175d99ad472bedcbbf1",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791252000.0,
+      "decision_at": 1791253822.9940894,
+      "group": "MIXED_OR_EQUAL",
+      "unknown_reason": null,
+      "p_up_model": 0.3276816673732909,
+      "p_up_market_mid": 0.299,
+      "realized_up": 0.0,
+      "brier_model": 0.10737527513254007,
+      "brier_market_mid": 0.089401,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11386758072,
+        "line": 22963,
+        "sha256": "9e9d28b8cf1f8f8c0ca0888a61c4a80120bb56acc82f85f5bf020291560e5f52"
+      },
+      "m1_window_sha256": "691ef769da2f82ed11cd4ed4fea9a0f3a4b18d533e165585a30b32ea543e82dc",
+      "m1_first_source": {
+        "artifact": 11384130707,
+        "line": 15941
+      },
+      "m1_last_source": {
+        "artifact": 11386758072,
+        "line": 22955
+      },
+      "last_two_highs": [
+        2706.65,
+        2710.5
+      ],
+      "last_two_lows": [
+        2704.49,
+        2702.12
+      ]
+    },
+    {
+      "condition": "0xcf4b13db4d79e1d2ee125723a77acd4c327c32b33021d2eaddb0c241eae898da",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791324000.0,
+      "decision_at": 1791325823.51283,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.23401813404441413,
+      "p_up_market_mid": 0.235,
+      "realized_up": 0.0,
+      "brier_model": 0.054764487061629376,
+      "brier_market_mid": 0.055224999999999996,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11450766323,
+        "line": 10487,
+        "sha256": "08a79dc65b7d9b56bf53d7d82d11dbfbe831cdc185b42f4b9c569894ee1c1e81"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xd0fa30981c1904bb1a96ec238baccd6ba0249d62988c3354b31c59f573370781",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791270000.0,
+      "decision_at": 1791271820.3125105,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.524854556287721,
+      "p_up_market_mid": 0.5355,
+      "realized_up": 1.0,
+      "brier_model": 0.22576319268053846,
+      "brier_market_mid": 0.21576025000000001,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11396721933,
+        "line": 45182,
+        "sha256": "eea14cbbd422e1b48d9160daf42ff7c52ff443537d0ef816ef9a76a238eb32ac"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xd524a270e6e1ce75a8a371fe0db8613db66e9cf40cc14828c2c40fd949a68d75",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791284400.0,
+      "decision_at": 1791286211.879947,
+      "group": "HH_HL",
+      "unknown_reason": null,
+      "p_up_model": 0.5642674575626835,
+      "p_up_market_mid": 0.5625,
+      "realized_up": 1.0,
+      "brier_model": 0.18986284853888785,
+      "brier_market_mid": 0.19140625,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11412677949,
+        "line": 13857,
+        "sha256": "e66ab772a6256e5e42b60dfdbbbc5b7eeb344f235273ace143105e2af4b7ac6c"
+      },
+      "m1_window_sha256": "7f9bb40d76ae8b63a9cbe312c73235d01b614b70a21ae70be6a5b7fe08cba9f5",
+      "m1_first_source": {
+        "artifact": 11404453914,
+        "line": 2611
+      },
+      "m1_last_source": {
+        "artifact": 11412677949,
+        "line": 13847
+      },
+      "last_two_highs": [
+        86199.32,
+        86378.24
+      ],
+      "last_two_lows": [
+        86070.01,
+        86258.0
+      ]
+    },
+    {
+      "condition": "0xd75014bb144f3f553fa670dbb107ace17eabc123c36e673377204d1b6fa830b7",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791349200.0,
+      "decision_at": 1791351006.8069313,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.85585262305257,
+      "p_up_market_mid": 0.8775,
+      "realized_up": 1.0,
+      "brier_model": 0.020778466280824463,
+      "brier_market_mid": 0.015006250000000013,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11462399286,
+        "line": 42897,
+        "sha256": "4bbfd353a9213b5a99f60fb6591481ea4c01303e77bdc7b1562507888024c68d"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xe58a6020dd65432a2a1b43c95ac576766764656db8adeec06d9980e22d51b208",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791295200.0,
+      "decision_at": 1791297011.5685394,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.22924025623009897,
+      "p_up_market_mid": 0.257,
+      "realized_up": 1.0,
+      "brier_model": 0.5940705826162433,
+      "brier_market_mid": 0.552049,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11422097180,
+        "line": 31235,
+        "sha256": "86cd24527a515902c43361451232f4c911c874aaf7bce6ce4bbb8206d9199f92"
+      },
+      "m1_window_sha256": "bad616fbfee561b5558bc243568df5f186fa3776262e1f934c17b6af833a10a1",
+      "m1_first_source": {
+        "artifact": 11415948919,
+        "line": 18286
+      },
+      "m1_last_source": {
+        "artifact": 11422097180,
+        "line": 31222
+      },
+      "last_two_highs": [
+        2713.62,
+        2711.47
+      ],
+      "last_two_lows": [
+        2707.95,
+        2706.01
+      ]
+    },
+    {
+      "condition": "0xe72918b7b37fe7f3a176a312173f12f29fb3e223d608df102196f25e228f6c7d",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791334800.0,
+      "decision_at": 1791336605.6219347,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.013551067350689505,
+      "p_up_market_mid": 0.0755,
+      "realized_up": 0.0,
+      "brier_model": 0.0001836314263429231,
+      "brier_market_mid": 0.00570025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11455689859,
+        "line": 16937,
+        "sha256": "3477dd20677cb79414c23f823adfb37367c758131919c361d674a74ef5e322c4"
+      },
+      "m1_window_sha256": "ad2f8280a62d1e477ba2e1f442935842de7df7e888db94c790136c0fcf679792",
+      "m1_first_source": {
+        "artifact": 11452572074,
+        "line": 13427
+      },
+      "m1_last_source": {
+        "artifact": 11455689859,
+        "line": 16921
+      },
+      "last_two_highs": [
+        85566.61,
+        85461.67
+      ],
+      "last_two_lows": [
+        85414.0,
+        85307.02
+      ]
+    },
+    {
+      "condition": "0xedd170e10d3b58fd1776807d2e7ba8c0182ded4effe4573d16ed0cb2997c6aec",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791288000.0,
+      "decision_at": 1791289819.7480025,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.3005794902017244,
+      "p_up_market_mid": 0.3205,
+      "realized_up": 0.0,
+      "brier_model": 0.09034802992992855,
+      "brier_market_mid": 0.10272025,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11415948919,
+        "line": 18483,
+        "sha256": "d4655d9f559c84cce9aad03fb6d9d1bf41294799be118f0b15ccf91c51943b1f"
+      },
+      "m1_window_sha256": "7c2acc5918763f9556775bf4062f00b272ddb2a6bb3d7df11dfec8a3e45a484f",
+      "m1_first_source": {
+        "artifact": 11409676558,
+        "line": 9010
+      },
+      "m1_last_source": {
+        "artifact": 11415948919,
+        "line": 18466
+      },
+      "last_two_highs": [
+        86296.01,
+        86183.77
+      ],
+      "last_two_lows": [
+        86230.0,
+        86135.26
+      ]
+    },
+    {
+      "condition": "0xf4a04cc1faf7df59aeea127aa9be08e3588810b418f51c10c10c183a156990c6",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791309600.0,
+      "decision_at": 1791311420.2160208,
+      "group": "UNKNOWN",
+      "unknown_reason": "CONFLICT_IN_121M_WINDOW",
+      "p_up_model": 0.3493620008949146,
+      "p_up_market_mid": 0.3445,
+      "realized_up": 0.0,
+      "brier_model": 0.12205380766929831,
+      "brier_market_mid": 0.11868024999999999,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11435614143,
+        "line": 40989,
+        "sha256": "fd3e33c90a6901db95152cfc3239480a76cba25e2424d0492c4122dd945adc7e"
+      },
+      "m1_window_sha256": null,
+      "m1_first_source": null,
+      "m1_last_source": null,
+      "last_two_highs": [],
+      "last_two_lows": []
+    },
+    {
+      "condition": "0xf78907dcbec141be003a28dd8c2487034e700ad1e57a19dfaa7dd2098e6ab613",
+      "symbol": "ETHUSDT",
+      "hour_start": 1791288000.0,
+      "decision_at": 1791289820.0096586,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.13515766649448713,
+      "p_up_market_mid": 0.185,
+      "realized_up": 1.0,
+      "brier_model": 0.7479522618232608,
+      "brier_market_mid": 0.664225,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11415948919,
+        "line": 18487,
+        "sha256": "d2e1a4db894805370031304e0bccbca4ed95296611ce7a5e4d6fd8c9546d6b8f"
+      },
+      "m1_window_sha256": "ed96f7f0f669f29399effe27393e90d4cf9b5122f5a1be2f81eb82c42ec0ae32",
+      "m1_first_source": {
+        "artifact": 11409676558,
+        "line": 9024
+      },
+      "m1_last_source": {
+        "artifact": 11415948919,
+        "line": 18286
+      },
+      "last_two_highs": [
+        2712.47,
+        2712.13
+      ],
+      "last_two_lows": [
+        2709.99,
+        2708.13
+      ]
+    },
+    {
+      "condition": "0xfb4a324efa56bdc577d721c68623898666050afcf560f0fb1c50075beb678f8d",
+      "symbol": "BTCUSDT",
+      "hour_start": 1791295200.0,
+      "decision_at": 1791297011.2673042,
+      "group": "LH_LL",
+      "unknown_reason": null,
+      "p_up_model": 0.16005697648041955,
+      "p_up_market_mid": 0.2035,
+      "realized_up": 1.0,
+      "brier_model": 0.7055042827592144,
+      "brier_market_mid": 0.63441225,
+      "model_action_status": "NO_TRADE",
+      "market_book_proof": {
+        "artifact": 11422097180,
+        "line": 31229,
+        "sha256": "c218f11fac25602ee1df5b94d1ad55d0a68f0866240f0890492db4e8f53f8a61"
+      },
+      "m1_window_sha256": "5658f27175f8961ea81ce7708adb1ba6b166fd3b0b33af9343fa3d79ec112e74",
+      "m1_first_source": {
+        "artifact": 11415948919,
+        "line": 18466
+      },
+      "m1_last_source": {
+        "artifact": 11422097180,
+        "line": 31219
+      },
+      "last_two_highs": [
+        86352.05,
+        86191.04
+      ],
+      "last_two_lows": [
+        86021.19,
+        85950.0
+      ]
+    }
+  ],
+  "limitations": [
+    "121 closed M1 bars only; H4/H1 hierarchy unavailable in this archive set",
+    "Mixed/aligned groups are small, time clustered and exploratory against market midpoint",
+    "No revised probability or retrospective PnL filter",
+    "Unknown and conflicting source rows remain visible"
+  ]
+}
