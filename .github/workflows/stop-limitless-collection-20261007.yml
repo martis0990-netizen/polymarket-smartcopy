@@ -1,0 +1,43 @@
+name: Stop Limitless collection now
+
+on:
+  push:
+    branches:
+      - ops/stop-limitless-collection-20261007
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  stop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Disable collectors and cancel active main runs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stop_receipt
+          for workflow in limitless-market-capture.yml limitless-readonly-probe.yml limitless-wallet-discovery.yml; do
+            gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow/disable"
+            gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow" > "stop_receipt/$workflow.json"
+            state=$(jq -r '.state' "stop_receipt/$workflow.json")
+            test "$state" = "disabled_manually"
+            gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow/runs?per_page=100" \
+              --jq '.workflow_runs[] | select(.head_branch=="main" and .status!="completed") | .id' |
+              while read -r run_id; do
+                gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/cancel" || true
+              done
+          done
+          date -u +%Y-%m-%dT%H:%M:%SZ > stop_receipt/stopped_at_utc.txt
+      - name: Upload stop receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: limitless-collection-stop-${{ github.run_id }}
+          path: stop_receipt/
+          retention-days: 90
+          if-no-files-found: warn
