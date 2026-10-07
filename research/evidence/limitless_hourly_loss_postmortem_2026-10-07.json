@@ -398,5 +398,19 @@
     "Correlated BTC/ETH hourly outcomes; ten fills are not ten independent hours",
     "REST paper fills optimistic; no real orders placed"
   ],
-  "reference_recalculation": "Frozen p_up and sigma exactly reproduced from raw Binance 1m by hourly_ewma_full_shadow.analyze on 36 digest-verified main archives"
+  "reference_recalculation": "Frozen p_up and sigma exactly reproduced from raw Binance 1m by hourly_ewma_full_shadow.analyze on 36 digest-verified main archives",
+  "selection_diagnostic": {
+    "selected_settled": {
+      "conditions": 10,
+      "model_brier": 0.22567957966553456,
+      "market_mid_brier": 0.158518625,
+      "model_better_count": 1
+    },
+    "other_scored": {
+      "conditions": 46,
+      "model_brier": 0.1642308210476477,
+      "market_mid_brier": 0.15779515217391304,
+      "model_better_count": 21
+    }
+  }
 }
