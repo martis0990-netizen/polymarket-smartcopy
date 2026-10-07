@@ -447,7 +447,10 @@
       "selected_n": 19,
       "selected_model_brier": 0.1690130100211118,
       "selected_market_brier": 0.17307184210526316,
-      "selected_p_minus_q_mean": 0.092499442815309
+      "selected_p_minus_q_mean": 0.092499442815309,
+      "model_implied_selected_expected_pnl_same_fills_usdc": 29.70052708803934,
+      "market_mid_implied_selected_expected_pnl_same_fills_usdc": -15.868138310430009,
+      "selected_market_mid_implied_negative_count": 16
     },
     "holdout": {
       "n": 56,
@@ -457,7 +460,10 @@
       "selected_n": 10,
       "selected_model_brier": 0.22567957966553456,
       "selected_market_brier": 0.158518625,
-      "selected_p_minus_q_mean": 0.08841911341009108
+      "selected_p_minus_q_mean": 0.08841911341009108,
+      "model_implied_selected_expected_pnl_same_fills_usdc": 16.792460009923907,
+      "market_mid_implied_selected_expected_pnl_same_fills_usdc": -6.082298975370001,
+      "selected_market_mid_implied_negative_count": 8
     }
   },
   "relative_brier_shift_holdout_minus_discovery": 0.020125110137908075,
@@ -2245,5 +2251,6 @@
     "earlier discovery and later holdout are adjacent regimes, not randomized cohorts",
     "all observed fills remain REST-depth paper assumptions",
     "selection gaps and phase difference are descriptive and cannot tune a replacement against holdout"
-  ]
+  ],
+  "method_note": "market midpoint expected PnL on exactly the frozen model's executed paper fills = net_shares * decision-side mid probability - actual cost; decision midpoint is a forecast benchmark, not fill or ground truth"
 }
