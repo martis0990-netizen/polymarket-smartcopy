@@ -2,6 +2,8 @@
 
 **Frozen data.** Final successful main [capture 37588187303](https://github.com/martis0990-netizen/polymarket-smartcopy/actions/runs/37588187303), artifact `11470560416`, ZIP SHA256 `73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b`, 2026-10-07 08:30:08 UTC. Collection remains stopped. The state and saved `hourly_paper_report.json` recompute identically with current `HourlyPaper`. No trading rule, sizing, fee or holdout changed. [Machine evidence](evidence/limitless_hourly_probability_audit_2026-10-07.json) provides all 160 resolved decision rows, market book proofs for holdout, 56 later closed 1h candle proofs, and all 36 source ZIP identities.
 
+**Follow-up:** [full discovery versus holdout market reconciliation](LIMITLESS_HOURLY_DISCOVERY_HOLDOUT_MARKET_2026-10-07.md) subsequently matched 104/104 discovery decision midpoints, superseding the coverage gap below.
+
 ## 1. Probabilities at every resolved decision
 
 | Phase | Resolved decisions | UTC hour clusters | Frozen model Brier | Contemporaneous market-mid Brier |
