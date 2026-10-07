@@ -11,6 +11,8 @@ As of the last **successful** main capture, [run 37588187303](https://github.com
 
 The 29 MODEL actions together net **−51.293 USDC** on 252.207 of paper spend; the 132 control actions net **−54.683** on 713.883. These cumulative flows are not a funded account return and do not add to inventory v2 PnL. There were 104 discovery and 58 holdout decisions; MODEL made 83 and 47 NO_TRADE decisions respectively, and 2 and 1 skips after a candidate decision. The control had 15 and 12 NO_TRADE decisions, 0 and 2 skips, plus one holdout PENDING without a fill. Eight conditions in each phase missed the decision window. No skipped or pending action is counted as a trade.
 
+**Follow-up:** [the later market baseline reconciliation](LIMITLESS_HOURLY_DISCOVERY_HOLDOUT_MARKET_2026-10-07.md) matched decision books for all 104 resolved discovery forecasts.
+
 ## Repeated failure patterns
 
 1. **The discovery gain is concentrated.** Its two largest wins returned +51.071 and +35.154, jointly +86.224. Removing either the largest leaves discovery at −27.985; removing both leaves **−63.139** across 17 trades. This is outcome sensitivity, not proof that these wins were invalid. The holdout loses in all six entry-hour clusters: −16.242, −6.814, −17.893, −8.149, −9.740, −15.541. BTC and ETH in the same hour are correlated; ten fills are only six time clusters.
