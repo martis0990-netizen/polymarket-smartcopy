@@ -291,7 +291,8 @@
       }
     ],
     "classifier_sha256": "565f8f3404aaca9ce1cbe71f52b31958a4dd90950471f17577503053e9f6568e",
-    "probability_evidence": "hourly_probability_audit_20261007.json"
+    "probability_evidence": "research/evidence/limitless_hourly_probability_audit_2026-10-07.json",
+    "probability_evidence_sha256": "5f1cbff64bce205106a932d9e37e67d51a368ee2c18de1ded9f8bce101895022"
   },
   "binance_response_count": 12726,
   "data_errors": [],
