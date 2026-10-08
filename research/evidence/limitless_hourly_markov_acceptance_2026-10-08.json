@@ -1,0 +1,62 @@
+{
+  "schema": "limitless-hourly-markov-acceptance-v1",
+  "asof_utc": "2026-10-08T07:55:08Z",
+  "protocol_commit": "77aa5c8eb09269fb500191638d3a0714f09ed0f3",
+  "workflow_run": 37745936693,
+  "job_id": 113207311617,
+  "workflow_head_sha": "80c75c3dc226052ebdb2ba8cff61baf827530a44",
+  "artifact_id": 11535802844,
+  "artifact_zip_sha256": "11b0f4a684c84f1beda1975566df0f1db81b27ef2be8f17f8335aefd4e675409",
+  "source_archives": 96,
+  "total_conditions": 162,
+  "conditional_opportunities": 154,
+  "summary": {
+    "discovery": {
+      "conditional_first_opportunities": 97,
+      "valid_markov_forecasts": 97,
+      "scored_binary_forecasts": 97,
+      "skips": {
+        "DEPTH_OR_PRICE_BOUND_FAILED": 31,
+        "NO_EXECUTABLE_EDGE": 4
+      },
+      "markov_brier": 0.21382658178926356,
+      "frozen_brier_same_events": 0.2138278368165971,
+      "markov_log_loss": 0.6143136707041067,
+      "frozen_log_loss_same_events": 0.6142246407353336,
+      "markov_paper_fills": 62,
+      "markov_paper_wins": 33,
+      "markov_settled_pnl_usdc": "94.902147654",
+      "frozen_settled_pnl_same_events_usdc": "119.599141550",
+      "markov_top_two_pnl_usdc": [
+        "47.526980816",
+        "27.261182508"
+      ],
+      "markov_pnl_excluding_top_two_usdc": "20.113984330",
+      "active_hour_clusters": 46
+    },
+    "holdout": {
+      "conditional_first_opportunities": 57,
+      "valid_markov_forecasts": 57,
+      "scored_binary_forecasts": 55,
+      "skips": {
+        "DEPTH_OR_PRICE_BOUND_FAILED": 16,
+        "NO_EXECUTABLE_EDGE": 2,
+        "NO_FIRST_REQUEST": 2
+      },
+      "markov_brier": 0.19258850113996742,
+      "frozen_brier_same_events": 0.19238934779441036,
+      "markov_log_loss": 0.5600383925642937,
+      "frozen_log_loss_same_events": 0.5594113647513823,
+      "markov_paper_fills": 37,
+      "markov_paper_wins": 11,
+      "markov_settled_pnl_usdc": "-152.212447455",
+      "frozen_settled_pnl_same_events_usdc": "-152.665714556",
+      "markov_top_two_pnl_usdc": [
+        "16.238190176",
+        "14.724079080"
+      ],
+      "markov_pnl_excluding_top_two_usdc": "-183.174716711",
+      "active_hour_clusters": 26
+    }
+  }
+}
