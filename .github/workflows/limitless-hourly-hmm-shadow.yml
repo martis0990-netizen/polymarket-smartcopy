@@ -1,0 +1,35 @@
+name: Limitless hourly HMM shadow
+on:
+  pull_request:
+    paths:
+      - research/limitless_hourly_hmm_shadow.py
+      - .github/workflows/limitless-hourly-hmm-shadow.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  hmm-shadow:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recompute frozen HMM shadow on verified capture archives
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python research/limitless_hourly_hmm_shadow.py --output hmm_evidence.json
+          python - <<'PY'
+          import pathlib
+          data=pathlib.Path('hmm_evidence.json').read_text()
+          for i in range(0,len(data),2500):
+              print(f'HMM_JSON_PART:{i//2500:04d}:'+data[i:i+2500].replace('\n',''),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: limitless-hourly-hmm-shadow
+          path: hmm_evidence.json
+          retention-days: 30
