@@ -1,0 +1,2126 @@
+{
+  "schema": "limitless-final-review-v1",
+  "as_of_utc": "2026-10-10T10:00:49+00:00",
+  "source_main": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+  "scope": "LIMITLESS_AND_PUBLIC_BINANCE_PAPER_ONLY",
+  "status": "NO_PROMOTION",
+  "artifacts": [
+    {
+      "run_id": 37582713347,
+      "artifact_id": 11467850234,
+      "sha256": "5a5349dda8c13d4c70195902f2db37b13e7ce45472dc8adc8e5f1cd56918647c",
+      "github_digest_match": true
+    },
+    {
+      "run_id": 37588187303,
+      "artifact_id": 11470560416,
+      "sha256": "73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b",
+      "github_digest_match": true
+    },
+    {
+      "run_id": 37596229199,
+      "artifact_id": 11470474384,
+      "sha256": "8a4207186dfc659607b26a57507549daf9ac172a78d4ca1aa34053ac7b90fef0",
+      "github_digest_match": true
+    },
+    {
+      "run_id": 37589820380,
+      "artifact_id": 11470667489,
+      "sha256": "d275a3e3ded4ef120409ff08da4ce662c7fac3eea234f08c2fe05c443e17dbf2",
+      "github_digest_match": true
+    },
+    {
+      "run_id": 37560062877,
+      "artifact_id": 11456765866,
+      "sha256": "e2a38920b786a828e40adfdb52028137f678c45ccc0eba4a873ba3f9099c7cd7",
+      "github_digest_match": true
+    },
+    {
+      "run_id": 37558764411,
+      "artifact_id": 11456295217,
+      "sha256": "17c5e7f4aab9cfd90ada26fe653dab85fc437913367a6de10e5c9d4913df5a38",
+      "github_digest_match": true
+    }
+  ],
+  "verification_scope": {
+    "downloaded_zip_count": 6,
+    "last_two_market_checkpoints_individually_and_pair_replayed": true,
+    "wallet_aggregate": "Verified saved audit artifact; 103 underlying observer ZIPs not all redownloaded/recomputed in this review",
+    "historical_market_lineage": "Last two main checkpoints revalidated here; not a new full historical ZIP replay",
+    "regression_suite_rerun": false
+  },
+  "market_checks": {
+    "as_of_utc": "2026-10-10T10:00:49+00:00",
+    "source_main": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+    "checkpoints": [
+      {
+        "file": "11467850234.zip",
+        "zip_sha256": "5a5349dda8c13d4c70195902f2db37b13e7ce45472dc8adc8e5f1cd56918647c",
+        "summary": {
+          "status": "CAPTURE_ONLY_NO_PNL",
+          "started_at": "2026-10-07T06:39:38.699725+00:00",
+          "ended_at": "2026-10-07T07:34:38.930586+00:00",
+          "counts": {
+            "listing": 663,
+            "binance_fast_connect": 1,
+            "binance_fast_reference": 6598,
+            "discovery": 51,
+            "ws_connect": 1,
+            "ws_event": 77483,
+            "binance_1h": 100,
+            "oracle_candles": 98,
+            "binance_1m": 348,
+            "book": 690,
+            "heartbeat": 178,
+            "subscription": 49,
+            "market": 216,
+            "paper_settlement": 2,
+            "request_error": 2,
+            "paper_decision": 2,
+            "ws_disconnect": 1
+          },
+          "uncompressed_bytes": 145917101,
+          "size_cap_reached": false,
+          "markets_seen": 14,
+          "unresolved_carried": 6,
+          "active_slugs": [
+            "btc-up-or-down-15-min-1791358200",
+            "eth-up-or-down-15-min-1791358200",
+            "btc-up-or-down-hourly-p-1791345909267",
+            "eth-up-or-down-hourly-p-1791345910429"
+          ],
+          "maker_reference_protocol": "public-binance-1s-kline-v1",
+          "limitations": [
+            "GitHub job gaps are missing observations",
+            "Book frames are coalesced states, not fills or queue events",
+            "Binance 1s stream is a received reference, not maker order/fill evidence",
+            "Oracle response schemas and settlement streams require verification before paper PnL"
+          ]
+        },
+        "hourly_report_equals_state": true,
+        "inventory_report_equals_state": true,
+        "raw_evidence_rows": 85,
+        "raw_fingerprints_valid": true,
+        "inventory_archive_alone": {
+          "version": "limitless-inventory-paper-v2",
+          "status": "RECONCILED_PAPER_ONLY",
+          "checkpoints": 1,
+          "errors": [],
+          "legacy_v1_checkpoints_excluded": 0,
+          "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+          "raw_sources": 85,
+          "latest_artifact": "11467850234.zip",
+          "report": {
+            "version": "limitless-inventory-paper-v2",
+            "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+            "started_at": 1791058984.920855,
+            "initial_capital": "100",
+            "cash": "6.019112775",
+            "open_cost_basis": "0",
+            "realized_pnl": "-93.980887225",
+            "admission_skips": {
+              "FIRST_ENTRY_ATTEMPT_FAILED": 3
+            },
+            "positions": 27,
+            "management_states": {
+              "HOLD": 26,
+              "SKIP": 1
+            },
+            "settled_positions": 27,
+            "seed_hold_settled_pnl": "-93.980887225",
+            "managed_settled_pnl": "-93.980887225",
+            "no_trade_control_pnl": "0",
+            "phases": {
+              "discovery": {
+                "positions": 17,
+                "settled_positions": 17,
+                "matched_conditions": 17,
+                "resolved_hour_clusters": 14,
+                "managed_settled_pnl": "-19.602187197",
+                "seed_hold_settled_pnl": "-19.602187197",
+                "managed_minus_seed_hold": "0E-9",
+                "settled_entry_cost": "150.083052517",
+                "realized_pnl": "-19.602187197",
+                "open_positions": 0,
+                "open_cost_basis": "0",
+                "management_states": {
+                  "HOLD": 16,
+                  "SKIP": 1
+                },
+                "hour_clusters": [
+                  {
+                    "hour_start": 1791072000.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "4.293074788",
+                    "seed_hold_settled_pnl": "4.293074788",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791086400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "4.127065196",
+                    "seed_hold_settled_pnl": "4.127065196",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791090000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "1.846117255",
+                    "seed_hold_settled_pnl": "1.846117255",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791093600.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.390450955",
+                    "seed_hold_settled_pnl": "-9.390450955",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791100800.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "8.842479300",
+                    "seed_hold_settled_pnl": "8.842479300",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791104400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.612551130",
+                    "seed_hold_settled_pnl": "-8.612551130",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791115200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.788566270",
+                    "seed_hold_settled_pnl": "-8.788566270",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791140400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.437170748",
+                    "seed_hold_settled_pnl": "-9.437170748",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791180000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-7.349374809",
+                    "seed_hold_settled_pnl": "-7.349374809",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791187200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "35.154488613",
+                    "seed_hold_settled_pnl": "35.154488613",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791205200.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "4.723232861",
+                    "seed_hold_settled_pnl": "4.723232861",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791208800.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.027763712",
+                    "seed_hold_settled_pnl": "-8.027763712",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791216000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.27622148",
+                    "seed_hold_settled_pnl": "-9.27622148",
+                    "managed_minus_seed_hold": "0E-8"
+                  },
+                  {
+                    "hour_start": 1791219600.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-17.706546106",
+                    "seed_hold_settled_pnl": "-17.706546106",
+                    "managed_minus_seed_hold": "0E-9"
+                  }
+                ],
+                "no_trade_control_pnl": "0",
+                "feasibility": "INSUFFICIENT_DATA"
+              },
+              "holdout": {
+                "positions": 10,
+                "settled_positions": 10,
+                "matched_conditions": 10,
+                "resolved_hour_clusters": 6,
+                "managed_settled_pnl": "-74.378700028",
+                "seed_hold_settled_pnl": "-74.378700028",
+                "managed_minus_seed_hold": "0E-9",
+                "settled_entry_cost": "86.207538658",
+                "realized_pnl": "-74.378700028",
+                "open_positions": 0,
+                "open_cost_basis": "0",
+                "management_states": {
+                  "HOLD": 10
+                },
+                "hour_clusters": [
+                  {
+                    "hour_start": 1791280800.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-16.241753759",
+                    "seed_hold_settled_pnl": "-16.241753759",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791291600.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-6.814109520",
+                    "seed_hold_settled_pnl": "-6.814109520",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791298800.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-17.893147970",
+                    "seed_hold_settled_pnl": "-17.893147970",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791313200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.148932910",
+                    "seed_hold_settled_pnl": "-8.148932910",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791327600.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.739535310",
+                    "seed_hold_settled_pnl": "-9.739535310",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791342000.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-15.541220559",
+                    "seed_hold_settled_pnl": "-15.541220559",
+                    "managed_minus_seed_hold": "0E-9"
+                  }
+                ],
+                "no_trade_control_pnl": "0",
+                "feasibility": "INSUFFICIENT_DATA"
+              }
+            },
+            "limitations": [
+              "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+              "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+              "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+              "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+              "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+              "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+              "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+              "No passive maker fills or profitable-strategy verdict."
+            ]
+          }
+        },
+        "hourly_archive_alone": {
+          "version": "limitless-hourly-v1",
+          "status": "PAPER_ONLY_NOT_LIVE",
+          "phases": {
+            "discovery": {
+              "conditions_seen": 112,
+              "decision_conditions": 104,
+              "hour_clusters": 56,
+              "scored_conditions": 104,
+              "brier_model": 0.20586293909699957,
+              "brier_50": 0.25,
+              "skips": {
+                "MISSED_DECISION_WINDOW": 8
+              },
+              "no_trade_control_pnl_usdc": 0,
+              "variants": {
+                "model": {
+                  "states": {
+                    "NO_TRADE": 83,
+                    "SETTLED": 19,
+                    "SKIP": 2
+                  },
+                  "settled_trades": 19,
+                  "net_pnl_usdc": 23.085530853999995,
+                  "settled_cost_usdc": 165.999468476,
+                  "net_return_on_spent": 0.1390699082710477,
+                  "mean_pnl_per_settled_trade": 1.2150279396842103
+                },
+                "constant50": {
+                  "states": {
+                    "SETTLED": 89,
+                    "NO_TRADE": 15
+                  },
+                  "settled_trades": 89,
+                  "net_pnl_usdc": 17.309766641999996,
+                  "settled_cost_usdc": 497.690223608,
+                  "net_return_on_spent": 0.03478020226419765,
+                  "mean_pnl_per_settled_trade": 0.19449176002247187
+                }
+              },
+              "feasibility": "INSUFFICIENT_DATA"
+            },
+            "holdout": {
+              "conditions_seen": 64,
+              "decision_conditions": 56,
+              "hour_clusters": 32,
+              "scored_conditions": 54,
+              "brier_model": 0.17221755718129855,
+              "brier_50": 0.25,
+              "skips": {
+                "MISSED_DECISION_WINDOW": 8
+              },
+              "no_trade_control_pnl_usdc": 0,
+              "variants": {
+                "model": {
+                  "states": {
+                    "NO_TRADE": 45,
+                    "SKIP": 1,
+                    "SETTLED": 10
+                  },
+                  "settled_trades": 10,
+                  "net_pnl_usdc": -74.378700028,
+                  "settled_cost_usdc": 86.207538658,
+                  "net_return_on_spent": -0.8627864939175792,
+                  "mean_pnl_per_settled_trade": -7.4378700027999995
+                },
+                "constant50": {
+                  "states": {
+                    "SETTLED": 43,
+                    "NO_TRADE": 11,
+                    "SKIP": 2
+                  },
+                  "settled_trades": 43,
+                  "net_pnl_usdc": -71.992366613,
+                  "settled_cost_usdc": 216.19236388299998,
+                  "net_return_on_spent": -0.33300143131771837,
+                  "mean_pnl_per_settled_trade": -1.6742410840232558
+                }
+              },
+              "feasibility": "INSUFFICIENT_DATA"
+            }
+          },
+          "assumptions": [
+            "3% buy fee in contracts",
+            "Observed REST depth is assumed executable at receipt",
+            "Queue, matching races and REST cache staleness are not reproduced",
+            "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+          ],
+          "archive_checkpoints": 1,
+          "excluded_conflicting_conditions": []
+        }
+      },
+      {
+        "file": "market-last.zip",
+        "zip_sha256": "73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b",
+        "summary": {
+          "status": "CAPTURE_ONLY_NO_PNL",
+          "started_at": "2026-10-07T07:35:07.909500+00:00",
+          "ended_at": "2026-10-07T08:30:08.092385+00:00",
+          "counts": {
+            "binance_fast_connect": 1,
+            "listing": 624,
+            "binance_fast_reference": 6598,
+            "discovery": 48,
+            "ws_connect": 1,
+            "ws_event": 49638,
+            "market": 208,
+            "binance_1h": 96,
+            "oracle_candles": 96,
+            "binance_1m": 370,
+            "book": 740,
+            "heartbeat": 185,
+            "subscription": 47,
+            "paper_settlement": 2,
+            "paper_decision": 2,
+            "ws_disconnect": 1
+          },
+          "uncompressed_bytes": 139625760,
+          "size_cap_reached": false,
+          "markets_seen": 14,
+          "unresolved_carried": 4,
+          "active_slugs": [
+            "btc-up-or-down-15-min-1791360900",
+            "eth-up-or-down-15-min-1791360900",
+            "btc-up-or-down-hourly-p-1791349510072",
+            "eth-up-or-down-hourly-p-1791349511196"
+          ],
+          "maker_reference_protocol": "public-binance-1s-kline-v1",
+          "limitations": [
+            "GitHub job gaps are missing observations",
+            "Book frames are coalesced states, not fills or queue events",
+            "Binance 1s stream is a received reference, not maker order/fill evidence",
+            "Oracle response schemas and settlement streams require verification before paper PnL"
+          ]
+        },
+        "hourly_report_equals_state": true,
+        "inventory_report_equals_state": true,
+        "raw_evidence_rows": 85,
+        "raw_fingerprints_valid": true,
+        "inventory_archive_alone": {
+          "version": "limitless-inventory-paper-v2",
+          "status": "RECONCILED_PAPER_ONLY",
+          "checkpoints": 1,
+          "errors": [],
+          "legacy_v1_checkpoints_excluded": 0,
+          "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+          "raw_sources": 85,
+          "latest_artifact": "market-last.zip",
+          "report": {
+            "version": "limitless-inventory-paper-v2",
+            "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+            "started_at": 1791058984.920855,
+            "initial_capital": "100",
+            "cash": "6.019112775",
+            "open_cost_basis": "0",
+            "realized_pnl": "-93.980887225",
+            "admission_skips": {
+              "FIRST_ENTRY_ATTEMPT_FAILED": 3
+            },
+            "positions": 27,
+            "management_states": {
+              "HOLD": 26,
+              "SKIP": 1
+            },
+            "settled_positions": 27,
+            "seed_hold_settled_pnl": "-93.980887225",
+            "managed_settled_pnl": "-93.980887225",
+            "no_trade_control_pnl": "0",
+            "phases": {
+              "discovery": {
+                "positions": 17,
+                "settled_positions": 17,
+                "matched_conditions": 17,
+                "resolved_hour_clusters": 14,
+                "managed_settled_pnl": "-19.602187197",
+                "seed_hold_settled_pnl": "-19.602187197",
+                "managed_minus_seed_hold": "0E-9",
+                "settled_entry_cost": "150.083052517",
+                "realized_pnl": "-19.602187197",
+                "open_positions": 0,
+                "open_cost_basis": "0",
+                "management_states": {
+                  "HOLD": 16,
+                  "SKIP": 1
+                },
+                "hour_clusters": [
+                  {
+                    "hour_start": 1791072000.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "4.293074788",
+                    "seed_hold_settled_pnl": "4.293074788",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791086400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "4.127065196",
+                    "seed_hold_settled_pnl": "4.127065196",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791090000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "1.846117255",
+                    "seed_hold_settled_pnl": "1.846117255",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791093600.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.390450955",
+                    "seed_hold_settled_pnl": "-9.390450955",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791100800.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "8.842479300",
+                    "seed_hold_settled_pnl": "8.842479300",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791104400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.612551130",
+                    "seed_hold_settled_pnl": "-8.612551130",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791115200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.788566270",
+                    "seed_hold_settled_pnl": "-8.788566270",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791140400.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.437170748",
+                    "seed_hold_settled_pnl": "-9.437170748",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791180000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-7.349374809",
+                    "seed_hold_settled_pnl": "-7.349374809",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791187200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "35.154488613",
+                    "seed_hold_settled_pnl": "35.154488613",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791205200.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "4.723232861",
+                    "seed_hold_settled_pnl": "4.723232861",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791208800.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.027763712",
+                    "seed_hold_settled_pnl": "-8.027763712",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791216000.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.27622148",
+                    "seed_hold_settled_pnl": "-9.27622148",
+                    "managed_minus_seed_hold": "0E-8"
+                  },
+                  {
+                    "hour_start": 1791219600.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-17.706546106",
+                    "seed_hold_settled_pnl": "-17.706546106",
+                    "managed_minus_seed_hold": "0E-9"
+                  }
+                ],
+                "no_trade_control_pnl": "0",
+                "feasibility": "INSUFFICIENT_DATA"
+              },
+              "holdout": {
+                "positions": 10,
+                "settled_positions": 10,
+                "matched_conditions": 10,
+                "resolved_hour_clusters": 6,
+                "managed_settled_pnl": "-74.378700028",
+                "seed_hold_settled_pnl": "-74.378700028",
+                "managed_minus_seed_hold": "0E-9",
+                "settled_entry_cost": "86.207538658",
+                "realized_pnl": "-74.378700028",
+                "open_positions": 0,
+                "open_cost_basis": "0",
+                "management_states": {
+                  "HOLD": 10
+                },
+                "hour_clusters": [
+                  {
+                    "hour_start": 1791280800.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-16.241753759",
+                    "seed_hold_settled_pnl": "-16.241753759",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791291600.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-6.814109520",
+                    "seed_hold_settled_pnl": "-6.814109520",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791298800.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-17.893147970",
+                    "seed_hold_settled_pnl": "-17.893147970",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791313200.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-8.148932910",
+                    "seed_hold_settled_pnl": "-8.148932910",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791327600.0,
+                    "conditions": 1,
+                    "managed_settled_pnl": "-9.739535310",
+                    "seed_hold_settled_pnl": "-9.739535310",
+                    "managed_minus_seed_hold": "0E-9"
+                  },
+                  {
+                    "hour_start": 1791342000.0,
+                    "conditions": 2,
+                    "managed_settled_pnl": "-15.541220559",
+                    "seed_hold_settled_pnl": "-15.541220559",
+                    "managed_minus_seed_hold": "0E-9"
+                  }
+                ],
+                "no_trade_control_pnl": "0",
+                "feasibility": "INSUFFICIENT_DATA"
+              }
+            },
+            "limitations": [
+              "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+              "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+              "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+              "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+              "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+              "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+              "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+              "No passive maker fills or profitable-strategy verdict."
+            ]
+          }
+        },
+        "hourly_archive_alone": {
+          "version": "limitless-hourly-v1",
+          "status": "PAPER_ONLY_NOT_LIVE",
+          "phases": {
+            "discovery": {
+              "conditions_seen": 112,
+              "decision_conditions": 104,
+              "hour_clusters": 56,
+              "scored_conditions": 104,
+              "brier_model": 0.20586293909699957,
+              "brier_50": 0.25,
+              "skips": {
+                "MISSED_DECISION_WINDOW": 8
+              },
+              "no_trade_control_pnl_usdc": 0,
+              "variants": {
+                "model": {
+                  "states": {
+                    "NO_TRADE": 83,
+                    "SETTLED": 19,
+                    "SKIP": 2
+                  },
+                  "settled_trades": 19,
+                  "net_pnl_usdc": 23.085530853999995,
+                  "settled_cost_usdc": 165.999468476,
+                  "net_return_on_spent": 0.1390699082710477,
+                  "mean_pnl_per_settled_trade": 1.2150279396842103
+                },
+                "constant50": {
+                  "states": {
+                    "SETTLED": 89,
+                    "NO_TRADE": 15
+                  },
+                  "settled_trades": 89,
+                  "net_pnl_usdc": 17.309766641999996,
+                  "settled_cost_usdc": 497.690223608,
+                  "net_return_on_spent": 0.03478020226419765,
+                  "mean_pnl_per_settled_trade": 0.19449176002247187
+                }
+              },
+              "feasibility": "INSUFFICIENT_DATA"
+            },
+            "holdout": {
+              "conditions_seen": 66,
+              "decision_conditions": 58,
+              "hour_clusters": 33,
+              "scored_conditions": 56,
+              "brier_model": 0.17520381365798463,
+              "brier_50": 0.25,
+              "skips": {
+                "MISSED_DECISION_WINDOW": 8
+              },
+              "no_trade_control_pnl_usdc": 0,
+              "variants": {
+                "model": {
+                  "states": {
+                    "NO_TRADE": 47,
+                    "SKIP": 1,
+                    "SETTLED": 10
+                  },
+                  "settled_trades": 10,
+                  "net_pnl_usdc": -74.378700028,
+                  "settled_cost_usdc": 86.207538658,
+                  "net_return_on_spent": -0.8627864939175792,
+                  "mean_pnl_per_settled_trade": -7.4378700027999995
+                },
+                "constant50": {
+                  "states": {
+                    "SETTLED": 43,
+                    "NO_TRADE": 12,
+                    "SKIP": 2,
+                    "PENDING": 1
+                  },
+                  "settled_trades": 43,
+                  "net_pnl_usdc": -71.992366613,
+                  "settled_cost_usdc": 216.19236388299998,
+                  "net_return_on_spent": -0.33300143131771837,
+                  "mean_pnl_per_settled_trade": -1.6742410840232558
+                }
+              },
+              "feasibility": "INSUFFICIENT_DATA"
+            }
+          },
+          "assumptions": [
+            "3% buy fee in contracts",
+            "Observed REST depth is assumed executable at receipt",
+            "Queue, matching races and REST cache staleness are not reproduced",
+            "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+          ],
+          "archive_checkpoints": 1,
+          "excluded_conflicting_conditions": []
+        }
+      }
+    ],
+    "inventory_pair": {
+      "version": "limitless-inventory-paper-v2",
+      "status": "RECONCILED_PAPER_ONLY",
+      "checkpoints": 2,
+      "errors": [],
+      "legacy_v1_checkpoints_excluded": 0,
+      "legacy_status": "UNVERIFIED_V1_NO_EDGE",
+      "raw_sources": 85,
+      "latest_artifact": "market-last.zip",
+      "report": {
+        "version": "limitless-inventory-paper-v2",
+        "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+        "started_at": 1791058984.920855,
+        "initial_capital": "100",
+        "cash": "6.019112775",
+        "open_cost_basis": "0",
+        "realized_pnl": "-93.980887225",
+        "admission_skips": {
+          "FIRST_ENTRY_ATTEMPT_FAILED": 3
+        },
+        "positions": 27,
+        "management_states": {
+          "HOLD": 26,
+          "SKIP": 1
+        },
+        "settled_positions": 27,
+        "seed_hold_settled_pnl": "-93.980887225",
+        "managed_settled_pnl": "-93.980887225",
+        "no_trade_control_pnl": "0",
+        "phases": {
+          "discovery": {
+            "positions": 17,
+            "settled_positions": 17,
+            "matched_conditions": 17,
+            "resolved_hour_clusters": 14,
+            "managed_settled_pnl": "-19.602187197",
+            "seed_hold_settled_pnl": "-19.602187197",
+            "managed_minus_seed_hold": "0E-9",
+            "settled_entry_cost": "150.083052517",
+            "realized_pnl": "-19.602187197",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {
+              "HOLD": 16,
+              "SKIP": 1
+            },
+            "hour_clusters": [
+              {
+                "hour_start": 1791072000.0,
+                "conditions": 2,
+                "managed_settled_pnl": "4.293074788",
+                "seed_hold_settled_pnl": "4.293074788",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791086400.0,
+                "conditions": 1,
+                "managed_settled_pnl": "4.127065196",
+                "seed_hold_settled_pnl": "4.127065196",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791090000.0,
+                "conditions": 1,
+                "managed_settled_pnl": "1.846117255",
+                "seed_hold_settled_pnl": "1.846117255",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791093600.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-9.390450955",
+                "seed_hold_settled_pnl": "-9.390450955",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791100800.0,
+                "conditions": 1,
+                "managed_settled_pnl": "8.842479300",
+                "seed_hold_settled_pnl": "8.842479300",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791104400.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-8.612551130",
+                "seed_hold_settled_pnl": "-8.612551130",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791115200.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-8.788566270",
+                "seed_hold_settled_pnl": "-8.788566270",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791140400.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-9.437170748",
+                "seed_hold_settled_pnl": "-9.437170748",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791180000.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-7.349374809",
+                "seed_hold_settled_pnl": "-7.349374809",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791187200.0,
+                "conditions": 1,
+                "managed_settled_pnl": "35.154488613",
+                "seed_hold_settled_pnl": "35.154488613",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791205200.0,
+                "conditions": 2,
+                "managed_settled_pnl": "4.723232861",
+                "seed_hold_settled_pnl": "4.723232861",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791208800.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-8.027763712",
+                "seed_hold_settled_pnl": "-8.027763712",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791216000.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-9.27622148",
+                "seed_hold_settled_pnl": "-9.27622148",
+                "managed_minus_seed_hold": "0E-8"
+              },
+              {
+                "hour_start": 1791219600.0,
+                "conditions": 2,
+                "managed_settled_pnl": "-17.706546106",
+                "seed_hold_settled_pnl": "-17.706546106",
+                "managed_minus_seed_hold": "0E-9"
+              }
+            ],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          },
+          "holdout": {
+            "positions": 10,
+            "settled_positions": 10,
+            "matched_conditions": 10,
+            "resolved_hour_clusters": 6,
+            "managed_settled_pnl": "-74.378700028",
+            "seed_hold_settled_pnl": "-74.378700028",
+            "managed_minus_seed_hold": "0E-9",
+            "settled_entry_cost": "86.207538658",
+            "realized_pnl": "-74.378700028",
+            "open_positions": 0,
+            "open_cost_basis": "0",
+            "management_states": {
+              "HOLD": 10
+            },
+            "hour_clusters": [
+              {
+                "hour_start": 1791280800.0,
+                "conditions": 2,
+                "managed_settled_pnl": "-16.241753759",
+                "seed_hold_settled_pnl": "-16.241753759",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791291600.0,
+                "conditions": 2,
+                "managed_settled_pnl": "-6.814109520",
+                "seed_hold_settled_pnl": "-6.814109520",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791298800.0,
+                "conditions": 2,
+                "managed_settled_pnl": "-17.893147970",
+                "seed_hold_settled_pnl": "-17.893147970",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791313200.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-8.148932910",
+                "seed_hold_settled_pnl": "-8.148932910",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791327600.0,
+                "conditions": 1,
+                "managed_settled_pnl": "-9.739535310",
+                "seed_hold_settled_pnl": "-9.739535310",
+                "managed_minus_seed_hold": "0E-9"
+              },
+              {
+                "hour_start": 1791342000.0,
+                "conditions": 2,
+                "managed_settled_pnl": "-15.541220559",
+                "seed_hold_settled_pnl": "-15.541220559",
+                "managed_minus_seed_hold": "0E-9"
+              }
+            ],
+            "no_trade_control_pnl": "0",
+            "feasibility": "INSUFFICIENT_DATA"
+          }
+        },
+        "limitations": [
+          "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+          "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+          "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+          "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+          "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+          "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+          "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+          "No passive maker fills or profitable-strategy verdict."
+        ]
+      }
+    },
+    "hourly_pair": {
+      "version": "limitless-hourly-v1",
+      "status": "PAPER_ONLY_NOT_LIVE",
+      "phases": {
+        "discovery": {
+          "conditions_seen": 112,
+          "decision_conditions": 104,
+          "hour_clusters": 56,
+          "scored_conditions": 104,
+          "brier_model": 0.20586293909699957,
+          "brier_50": 0.25,
+          "skips": {
+            "MISSED_DECISION_WINDOW": 8
+          },
+          "no_trade_control_pnl_usdc": 0,
+          "variants": {
+            "model": {
+              "states": {
+                "NO_TRADE": 83,
+                "SETTLED": 19,
+                "SKIP": 2
+              },
+              "settled_trades": 19,
+              "net_pnl_usdc": 23.085530853999995,
+              "settled_cost_usdc": 165.999468476,
+              "net_return_on_spent": 0.1390699082710477,
+              "mean_pnl_per_settled_trade": 1.2150279396842103
+            },
+            "constant50": {
+              "states": {
+                "SETTLED": 89,
+                "NO_TRADE": 15
+              },
+              "settled_trades": 89,
+              "net_pnl_usdc": 17.309766641999996,
+              "settled_cost_usdc": 497.690223608,
+              "net_return_on_spent": 0.03478020226419765,
+              "mean_pnl_per_settled_trade": 0.19449176002247187
+            }
+          },
+          "feasibility": "INSUFFICIENT_DATA"
+        },
+        "holdout": {
+          "conditions_seen": 66,
+          "decision_conditions": 58,
+          "hour_clusters": 33,
+          "scored_conditions": 56,
+          "brier_model": 0.17520381365798463,
+          "brier_50": 0.25,
+          "skips": {
+            "MISSED_DECISION_WINDOW": 8
+          },
+          "no_trade_control_pnl_usdc": 0,
+          "variants": {
+            "model": {
+              "states": {
+                "NO_TRADE": 47,
+                "SKIP": 1,
+                "SETTLED": 10
+              },
+              "settled_trades": 10,
+              "net_pnl_usdc": -74.378700028,
+              "settled_cost_usdc": 86.207538658,
+              "net_return_on_spent": -0.8627864939175792,
+              "mean_pnl_per_settled_trade": -7.4378700027999995
+            },
+            "constant50": {
+              "states": {
+                "SETTLED": 43,
+                "NO_TRADE": 12,
+                "SKIP": 2,
+                "PENDING": 1
+              },
+              "settled_trades": 43,
+              "net_pnl_usdc": -71.992366613,
+              "settled_cost_usdc": 216.19236388299998,
+              "net_return_on_spent": -0.33300143131771837,
+              "mean_pnl_per_settled_trade": -1.6742410840232558
+            }
+          },
+          "feasibility": "INSUFFICIENT_DATA"
+        }
+      },
+      "assumptions": [
+        "3% buy fee in contracts",
+        "Observed REST depth is assumed executable at receipt",
+        "Queue, matching races and REST cache staleness are not reproduced",
+        "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+      ],
+      "archive_checkpoints": 2,
+      "excluded_conflicting_conditions": []
+    },
+    "continuity": {
+      "started_at_equal": true,
+      "history_unchanged": true,
+      "entry_attempts_prefix": true,
+      "admission_skips_prefix": true,
+      "positions_present": true,
+      "evidence_prefix": true,
+      "legacy_digests": [
+        "cdd8166e55c911a26062daa3af94ea7acd5734eed01dfb9fc4eca1f6a7b21629"
+      ]
+    }
+  },
+  "hourly_report": {
+    "version": "limitless-hourly-v1",
+    "status": "PAPER_ONLY_NOT_LIVE",
+    "phases": {
+      "discovery": {
+        "conditions_seen": 112,
+        "decision_conditions": 104,
+        "hour_clusters": 56,
+        "scored_conditions": 104,
+        "brier_model": 0.20586293909699957,
+        "brier_50": 0.25,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 8
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 83,
+              "SETTLED": 19,
+              "SKIP": 2
+            },
+            "settled_trades": 19,
+            "net_pnl_usdc": 23.085530853999995,
+            "settled_cost_usdc": 165.999468476,
+            "net_return_on_spent": 0.1390699082710477,
+            "mean_pnl_per_settled_trade": 1.2150279396842103
+          },
+          "constant50": {
+            "states": {
+              "SETTLED": 89,
+              "NO_TRADE": 15
+            },
+            "settled_trades": 89,
+            "net_pnl_usdc": 17.309766641999996,
+            "settled_cost_usdc": 497.690223608,
+            "net_return_on_spent": 0.03478020226419765,
+            "mean_pnl_per_settled_trade": 0.19449176002247187
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "conditions_seen": 66,
+        "decision_conditions": 58,
+        "hour_clusters": 33,
+        "scored_conditions": 56,
+        "brier_model": 0.17520381365798463,
+        "brier_50": 0.25,
+        "skips": {
+          "MISSED_DECISION_WINDOW": 8
+        },
+        "no_trade_control_pnl_usdc": 0,
+        "variants": {
+          "model": {
+            "states": {
+              "NO_TRADE": 47,
+              "SKIP": 1,
+              "SETTLED": 10
+            },
+            "settled_trades": 10,
+            "net_pnl_usdc": -74.378700028,
+            "settled_cost_usdc": 86.207538658,
+            "net_return_on_spent": -0.8627864939175792,
+            "mean_pnl_per_settled_trade": -7.4378700027999995
+          },
+          "constant50": {
+            "states": {
+              "SETTLED": 43,
+              "NO_TRADE": 12,
+              "SKIP": 2,
+              "PENDING": 1
+            },
+            "settled_trades": 43,
+            "net_pnl_usdc": -71.992366613,
+            "settled_cost_usdc": 216.19236388299998,
+            "net_return_on_spent": -0.33300143131771837,
+            "mean_pnl_per_settled_trade": -1.6742410840232558
+          }
+        },
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "assumptions": [
+      "3% buy fee in contracts",
+      "Observed REST depth is assumed executable at receipt",
+      "Queue, matching races and REST cache staleness are not reproduced",
+      "No portfolio funding/capital lockup model; 10 USDC cap per condition and variant"
+    ]
+  },
+  "inventory_report": {
+    "version": "limitless-inventory-paper-v2",
+    "status": "INDEPENDENT_PAPER_ASSUMPTIONS_NOT_LIVE",
+    "started_at": 1791058984.920855,
+    "initial_capital": "100",
+    "cash": "6.019112775",
+    "open_cost_basis": "0",
+    "realized_pnl": "-93.980887225",
+    "admission_skips": {
+      "FIRST_ENTRY_ATTEMPT_FAILED": 3
+    },
+    "positions": 27,
+    "management_states": {
+      "HOLD": 26,
+      "SKIP": 1
+    },
+    "settled_positions": 27,
+    "seed_hold_settled_pnl": "-93.980887225",
+    "managed_settled_pnl": "-93.980887225",
+    "no_trade_control_pnl": "0",
+    "phases": {
+      "discovery": {
+        "positions": 17,
+        "settled_positions": 17,
+        "matched_conditions": 17,
+        "resolved_hour_clusters": 14,
+        "managed_settled_pnl": "-19.602187197",
+        "seed_hold_settled_pnl": "-19.602187197",
+        "managed_minus_seed_hold": "0E-9",
+        "settled_entry_cost": "150.083052517",
+        "realized_pnl": "-19.602187197",
+        "open_positions": 0,
+        "open_cost_basis": "0",
+        "management_states": {
+          "HOLD": 16,
+          "SKIP": 1
+        },
+        "hour_clusters": [
+          {
+            "hour_start": 1791072000.0,
+            "conditions": 2,
+            "managed_settled_pnl": "4.293074788",
+            "seed_hold_settled_pnl": "4.293074788",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791086400.0,
+            "conditions": 1,
+            "managed_settled_pnl": "4.127065196",
+            "seed_hold_settled_pnl": "4.127065196",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791090000.0,
+            "conditions": 1,
+            "managed_settled_pnl": "1.846117255",
+            "seed_hold_settled_pnl": "1.846117255",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791093600.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-9.390450955",
+            "seed_hold_settled_pnl": "-9.390450955",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791100800.0,
+            "conditions": 1,
+            "managed_settled_pnl": "8.842479300",
+            "seed_hold_settled_pnl": "8.842479300",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791104400.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-8.612551130",
+            "seed_hold_settled_pnl": "-8.612551130",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791115200.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-8.788566270",
+            "seed_hold_settled_pnl": "-8.788566270",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791140400.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-9.437170748",
+            "seed_hold_settled_pnl": "-9.437170748",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791180000.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-7.349374809",
+            "seed_hold_settled_pnl": "-7.349374809",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791187200.0,
+            "conditions": 1,
+            "managed_settled_pnl": "35.154488613",
+            "seed_hold_settled_pnl": "35.154488613",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791205200.0,
+            "conditions": 2,
+            "managed_settled_pnl": "4.723232861",
+            "seed_hold_settled_pnl": "4.723232861",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791208800.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-8.027763712",
+            "seed_hold_settled_pnl": "-8.027763712",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791216000.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-9.27622148",
+            "seed_hold_settled_pnl": "-9.27622148",
+            "managed_minus_seed_hold": "0E-8"
+          },
+          {
+            "hour_start": 1791219600.0,
+            "conditions": 2,
+            "managed_settled_pnl": "-17.706546106",
+            "seed_hold_settled_pnl": "-17.706546106",
+            "managed_minus_seed_hold": "0E-9"
+          }
+        ],
+        "no_trade_control_pnl": "0",
+        "feasibility": "INSUFFICIENT_DATA"
+      },
+      "holdout": {
+        "positions": 10,
+        "settled_positions": 10,
+        "matched_conditions": 10,
+        "resolved_hour_clusters": 6,
+        "managed_settled_pnl": "-74.378700028",
+        "seed_hold_settled_pnl": "-74.378700028",
+        "managed_minus_seed_hold": "0E-9",
+        "settled_entry_cost": "86.207538658",
+        "realized_pnl": "-74.378700028",
+        "open_positions": 0,
+        "open_cost_basis": "0",
+        "management_states": {
+          "HOLD": 10
+        },
+        "hour_clusters": [
+          {
+            "hour_start": 1791280800.0,
+            "conditions": 2,
+            "managed_settled_pnl": "-16.241753759",
+            "seed_hold_settled_pnl": "-16.241753759",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791291600.0,
+            "conditions": 2,
+            "managed_settled_pnl": "-6.814109520",
+            "seed_hold_settled_pnl": "-6.814109520",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791298800.0,
+            "conditions": 2,
+            "managed_settled_pnl": "-17.893147970",
+            "seed_hold_settled_pnl": "-17.893147970",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791313200.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-8.148932910",
+            "seed_hold_settled_pnl": "-8.148932910",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791327600.0,
+            "conditions": 1,
+            "managed_settled_pnl": "-9.739535310",
+            "seed_hold_settled_pnl": "-9.739535310",
+            "managed_minus_seed_hold": "0E-9"
+          },
+          {
+            "hour_start": 1791342000.0,
+            "conditions": 2,
+            "managed_settled_pnl": "-15.541220559",
+            "seed_hold_settled_pnl": "-15.541220559",
+            "managed_minus_seed_hold": "0E-9"
+          }
+        ],
+        "no_trade_control_pnl": "0",
+        "feasibility": "INSUFFICIENT_DATA"
+      }
+    },
+    "limitations": [
+      "Entries require independently observed first eligible hourly entry attempt; no old fill backfill.",
+      "100 USDC funded paper ledger; entry10, condition20, no borrowing; management only once per condition.",
+      "Buy fee3%, sell fee1.5%, hypothetical merge cost0.01 USDC; no rebates/rewards.",
+      "Probability +/-0.03 is an engineering stress scenario, not calibrated uncertainty.",
+      "First post-delay REST depth assumes executable liquidity; no matching/cache/queue guarantees.",
+      "Paper merge is assumed successful; no on-chain transaction or signing is performed.",
+      "Realized interim PnL excludes open risk; seed-hold settled comparison is paired by admitted condition.",
+      "No passive maker fills or profitable-strategy verdict."
+    ]
+  },
+  "wallets": {
+    "scopes": {
+      "FIXED_COHORT": {
+        "canonical_buy_records": 15,
+        "status_counts": {
+          "DEPTH_SUPPORTS_10_USDC_QUOTE": 14,
+          "INSUFFICIENT_VISIBLE_DEPTH": 1
+        },
+        "ten_usdc_depth_quote_fraction": 0.9333333333333333,
+        "at_or_below_source_price_records": 2,
+        "detection_delay_p50_s": 36.611007,
+        "vwap_minus_source_p50": 0.29403888323923744,
+        "independent_intents": null,
+        "data_qualified_quotes": 10,
+        "copy_eligible_records": 0
+      },
+      "DISCOVERY_FEED": {
+        "canonical_buy_records": 2777,
+        "status_counts": {
+          "UNVERIFIED_POST_DETECTION_REQUEST": 204,
+          "FIRST_BOOK_REQUEST_FAILED": 47,
+          "INSUFFICIENT_VISIBLE_DEPTH": 425,
+          "DEPTH_SUPPORTS_10_USDC_QUOTE": 2101
+        },
+        "ten_usdc_depth_quote_fraction": 0.7565718401152323,
+        "at_or_below_source_price_records": 459,
+        "detection_delay_p50_s": 52.531714,
+        "vwap_minus_source_p50": 0.044,
+        "independent_intents": null,
+        "data_qualified_quotes": 1746,
+        "copy_eligible_records": 0
+      }
+    },
+    "aggregate_as_of": "2026-10-07T08:49:36+00:00",
+    "frozen_week_final_audit": {
+      "entry_diagnostics": {
+        "schema": "limitless-entry-aggregate-v2",
+        "scopes": {
+          "FIXED_COHORT": {
+            "canonical_buy_records": 15,
+            "status_counts": {
+              "DEPTH_SUPPORTS_10_USDC_QUOTE": 14,
+              "INSUFFICIENT_VISIBLE_DEPTH": 1
+            },
+            "ten_usdc_depth_quote_fraction": 0.9333333333333333,
+            "at_or_below_source_price_records": 2,
+            "detection_delay_p50_s": 36.611007,
+            "vwap_minus_source_p50": 0.29403888323923744,
+            "independent_intents": null,
+            "data_qualified_quotes": 10,
+            "copy_eligible_records": 0
+          },
+          "DISCOVERY_FEED": {
+            "canonical_buy_records": 2777,
+            "status_counts": {
+              "UNVERIFIED_POST_DETECTION_REQUEST": 204,
+              "FIRST_BOOK_REQUEST_FAILED": 47,
+              "INSUFFICIENT_VISIBLE_DEPTH": 425,
+              "DEPTH_SUPPORTS_10_USDC_QUOTE": 2101
+            },
+            "ten_usdc_depth_quote_fraction": 0.7565718401152323,
+            "at_or_below_source_price_records": 459,
+            "detection_delay_p50_s": 52.531714,
+            "vwap_minus_source_p50": 0.044,
+            "independent_intents": null,
+            "data_qualified_quotes": 1746,
+            "copy_eligible_records": 0
+          }
+        },
+        "data_errors": 0,
+        "quarantined_records": 0,
+        "copy_eligible_records": 0
+      },
+      "legacy_feasibility_gate_unchanged": true,
+      "status": "INSUFFICIENT_DATA",
+      "window_utc": [
+        "2026-10-03T09:00:00+00:00",
+        "2026-10-10T09:00:00+00:00"
+      ],
+      "segments": 103,
+      "segment_errors": [],
+      "coverage_by_wallet": {
+        "0x61761b4ff620607295e894f7c529a4de35dec3b4": {
+          "polls": 11122,
+          "covered_seconds": 316961.4,
+          "fraction": 0.5241
+        },
+        "0xc2faf128201d89cba789c1dde5424d49bd75e44e": {
+          "polls": 11122,
+          "covered_seconds": 322844.2,
+          "fraction": 0.5338
+        },
+        "0xff612b93bf130a2bccdf303e360e89d225685e71": {
+          "polls": 11122,
+          "covered_seconds": 326290.9,
+          "fraction": 0.5395
+        }
+      },
+      "candidate_buy_events": 18,
+      "independent_episode_proxy_60s": 18,
+      "episodes_with_outcome_and_observed_ask": 15,
+      "episode_first_seen_delay_p50_s": 37.554728,
+      "order_side_groups_not_independent_intents": 18,
+      "candidate_events_unknown_outcome": 0,
+      "gross_quote_gap_sample_count": 15,
+      "observed_ask_minus_source_price_median": 0.02299999999999991,
+      "quote_gap_is_not_fill_or_pnl": true,
+      "reason": "Proxy episodes need source-intent review; this is a data feasibility audit, not PnL."
+    },
+    "manifest_runs": 128,
+    "manifest_status_counts": {
+      "cancelled:downloaded": 1,
+      "cancelled:missing_artifact": 24,
+      "success:downloaded": 101,
+      "failure:missing_artifact": 1,
+      "failure:downloaded": 1
+    },
+    "latest_observer_in_audit": true,
+    "observation_quality": {
+      "feed:GLOBAL": {
+        "successful_polls": 11122,
+        "request_errors": 0,
+        "instrumented_pages": 10126,
+        "legacy_pages_completeness_unknown": 996,
+        "saturated_pages": 10126,
+        "possible_page_gap_warnings": 0,
+        "poll_gap_p50_s": 30.000516,
+        "poll_gap_max_s": 6705.556598,
+        "lost_events_count": null,
+        "all_exchange_events_covered": false
+      },
+      "history:0x61761b4ff620607295e894f7c529a4de35dec3b4": {
+        "successful_polls": 11122,
+        "request_errors": 0,
+        "instrumented_pages": 10126,
+        "legacy_pages_completeness_unknown": 996,
+        "saturated_pages": 10126,
+        "possible_page_gap_warnings": 0,
+        "poll_gap_p50_s": 30.002519,
+        "poll_gap_max_s": 6709.302162,
+        "lost_events_count": null,
+        "all_exchange_events_covered": false
+      },
+      "history:0xc2faf128201d89cba789c1dde5424d49bd75e44e": {
+        "successful_polls": 11122,
+        "request_errors": 0,
+        "instrumented_pages": 10126,
+        "legacy_pages_completeness_unknown": 996,
+        "saturated_pages": 10126,
+        "possible_page_gap_warnings": 0,
+        "poll_gap_p50_s": 30.002112,
+        "poll_gap_max_s": 6708.130478,
+        "lost_events_count": null,
+        "all_exchange_events_covered": false
+      },
+      "history:0xff612b93bf130a2bccdf303e360e89d225685e71": {
+        "successful_polls": 11122,
+        "request_errors": 0,
+        "instrumented_pages": 10126,
+        "legacy_pages_completeness_unknown": 996,
+        "saturated_pages": 10126,
+        "possible_page_gap_warnings": 0,
+        "poll_gap_p50_s": 30.001697,
+        "poll_gap_max_s": 6707.110317,
+        "lost_events_count": null,
+        "all_exchange_events_covered": false
+      }
+    },
+    "blindcopy_pnl": null,
+    "smartcopy_pnl": null,
+    "economic_status": "INSUFFICIENT_DATA"
+  },
+  "discovery": {
+    "candidate_count": 47,
+    "cumulative_first_seen": 242,
+    "enriched_count": 12,
+    "leaderboard_states": {
+      "leaderboard_position_size": "READY",
+      "leaderboard_pnl": "READY"
+    },
+    "request_errors": 0,
+    "first_seen_prefix_preserved": true,
+    "candidate_first_seen_matches": true,
+    "pnl_raw_comparisons": 24,
+    "pnl_all_match": true,
+    "profiles": [
+      {
+        "account": "0x368dc824e134c83cd523fa6d9801290f45fb4689",
+        "profile_matches_raw": true,
+        "trace_matches_raw": true,
+        "pages": 10,
+        "history_status": "TRUNCATED_PAGE_CAP",
+        "cursor_chain_ok": true,
+        "last_cursor_present": true,
+        "api_window_pnl": {
+          "1w": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1w",
+            "window_start": "2026-09-30T02:00:00.000Z",
+            "realized_pnl_usd": "1913.878833",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "1913878833",
+                  "formatted": "1913.878833",
+                  "usd": "1913.878833"
+                }
+              }
+            ],
+            "timeline_points": 169,
+            "portfolio_drawdown": null
+          },
+          "1m": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1m",
+            "window_start": "2026-09-07T02:00:00.000Z",
+            "realized_pnl_usd": "2910.815928",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "2910815928",
+                  "formatted": "2910.815928",
+                  "usd": "2910.815928"
+                }
+              }
+            ],
+            "timeline_points": 181,
+            "portfolio_drawdown": null
+          }
+        }
+      },
+      {
+        "account": "0x3eda6446d3f458e8ce2b9c433c59d719e331fc28",
+        "profile_matches_raw": true,
+        "trace_matches_raw": true,
+        "pages": 10,
+        "history_status": "TRUNCATED_PAGE_CAP",
+        "cursor_chain_ok": true,
+        "last_cursor_present": true,
+        "api_window_pnl": {
+          "1w": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1w",
+            "window_start": "2026-09-30T02:00:00.000Z",
+            "realized_pnl_usd": "53461.929946",
+            "categories": [
+              {
+                "id": "2a91349c-3308-4234-afb7-0663e42968c1",
+                "name": "Sport",
+                "slug": "sport",
+                "path": "/sport",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "50745804286",
+                  "formatted": "50745.804286",
+                  "usd": "50745.804286"
+                }
+              },
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "1913660845",
+                  "formatted": "1913.660845",
+                  "usd": "1913.660845"
+                }
+              },
+              {
+                "id": "f2a04a4e-580a-4cd1-bcc9-c23ed9ff8916",
+                "name": "Esports",
+                "slug": "esports",
+                "path": "/esports",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "924866063",
+                  "formatted": "924.866063",
+                  "usd": "924.866063"
+                }
+              },
+              {
+                "id": "b93842aa-be7a-4cd3-b138-2302fc6a581d",
+                "name": "Politics",
+                "slug": "politics",
+                "path": "/politics",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "638738",
+                  "formatted": "0.638738",
+                  "usd": "0.638738"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-123039986",
+                  "formatted": "-123.039986",
+                  "usd": "-123.039986"
+                }
+              }
+            ],
+            "timeline_points": 169,
+            "portfolio_drawdown": null
+          },
+          "1m": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1m",
+            "window_start": "2026-09-07T02:00:00.000Z",
+            "realized_pnl_usd": "51828.42819",
+            "categories": [
+              {
+                "id": "2a91349c-3308-4234-afb7-0663e42968c1",
+                "name": "Sport",
+                "slug": "sport",
+                "path": "/sport",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "46355092687",
+                  "formatted": "46355.092687",
+                  "usd": "46355.092687"
+                }
+              },
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "5017138565",
+                  "formatted": "5017.138565",
+                  "usd": "5017.138565"
+                }
+              },
+              {
+                "id": "f2a04a4e-580a-4cd1-bcc9-c23ed9ff8916",
+                "name": "Esports",
+                "slug": "esports",
+                "path": "/esports",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "415114373",
+                  "formatted": "415.114373",
+                  "usd": "415.114373"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "105875005",
+                  "formatted": "105.875005",
+                  "usd": "105.875005"
+                }
+              },
+              {
+                "id": "other",
+                "name": "Other",
+                "slug": null,
+                "path": null,
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "1690871",
+                  "formatted": "1.690871",
+                  "usd": "1.690871"
+                }
+              },
+              {
+                "id": "b93842aa-be7a-4cd3-b138-2302fc6a581d",
+                "name": "Politics",
+                "slug": "politics",
+                "path": "/politics",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-66483311",
+                  "formatted": "-66.483311",
+                  "usd": "-66.483311"
+                }
+              }
+            ],
+            "timeline_points": 181,
+            "portfolio_drawdown": null
+          }
+        }
+      },
+      {
+        "account": "0x40dab11f0aa6b7d2ba1773fc3d3f64e5ba26ebda",
+        "profile_matches_raw": true,
+        "trace_matches_raw": true,
+        "pages": 10,
+        "history_status": "TRUNCATED_PAGE_CAP",
+        "cursor_chain_ok": true,
+        "last_cursor_present": true,
+        "api_window_pnl": {
+          "1w": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1w",
+            "window_start": "2026-09-30T02:00:00.000Z",
+            "realized_pnl_usd": "173.05244",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "181290440",
+                  "formatted": "181.29044",
+                  "usd": "181.29044"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-8238000",
+                  "formatted": "-8.238",
+                  "usd": "-8.238"
+                }
+              }
+            ],
+            "timeline_points": 169,
+            "portfolio_drawdown": null
+          },
+          "1m": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1m",
+            "window_start": "2026-09-07T02:00:00.000Z",
+            "realized_pnl_usd": "796.928011",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "653571211",
+                  "formatted": "653.571211",
+                  "usd": "653.571211"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "143356800",
+                  "formatted": "143.3568",
+                  "usd": "143.3568"
+                }
+              }
+            ],
+            "timeline_points": 181,
+            "portfolio_drawdown": null
+          }
+        }
+      },
+      {
+        "account": "0xcc3b50eda74a9881064d052f55666de8efa82b81",
+        "profile_matches_raw": true,
+        "trace_matches_raw": true,
+        "pages": 10,
+        "history_status": "TRUNCATED_PAGE_CAP",
+        "cursor_chain_ok": true,
+        "last_cursor_present": true,
+        "api_window_pnl": {
+          "1w": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1w",
+            "window_start": "2026-09-30T02:00:00.000Z",
+            "realized_pnl_usd": "344.89245",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "344892450",
+                  "formatted": "344.89245",
+                  "usd": "344.89245"
+                }
+              }
+            ],
+            "timeline_points": 169,
+            "portfolio_drawdown": null
+          },
+          "1m": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1m",
+            "window_start": "2026-09-07T02:00:00.000Z",
+            "realized_pnl_usd": "1891.86883",
+            "categories": [
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "1891868830",
+                  "formatted": "1891.86883",
+                  "usd": "1891.86883"
+                }
+              }
+            ],
+            "timeline_points": 181,
+            "portfolio_drawdown": null
+          }
+        }
+      },
+      {
+        "account": "0x0650f62edd8d57750239ca98a10ac300ae547755",
+        "profile_matches_raw": true,
+        "trace_matches_raw": true,
+        "pages": 10,
+        "history_status": "TRUNCATED_PAGE_CAP",
+        "cursor_chain_ok": true,
+        "last_cursor_present": true,
+        "api_window_pnl": {
+          "1w": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1w",
+            "window_start": "2026-09-30T02:00:00.000Z",
+            "realized_pnl_usd": "96.291209",
+            "categories": [
+              {
+                "id": "2a91349c-3308-4234-afb7-0663e42968c1",
+                "name": "Sport",
+                "slug": "sport",
+                "path": "/sport",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "366808361",
+                  "formatted": "366.808361",
+                  "usd": "366.808361"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "19300417",
+                  "formatted": "19.300417",
+                  "usd": "19.300417"
+                }
+              },
+              {
+                "id": "b93842aa-be7a-4cd3-b138-2302fc6a581d",
+                "name": "Politics",
+                "slug": "politics",
+                "path": "/politics",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-2002",
+                  "formatted": "-0.002002",
+                  "usd": "-0.002002"
+                }
+              },
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-11344517",
+                  "formatted": "-11.344517",
+                  "usd": "-11.344517"
+                }
+              },
+              {
+                "id": "f2a04a4e-580a-4cd1-bcc9-c23ed9ff8916",
+                "name": "Esports",
+                "slug": "esports",
+                "path": "/esports",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-278471050",
+                  "formatted": "-278.47105",
+                  "usd": "-278.47105"
+                }
+              }
+            ],
+            "timeline_points": 169,
+            "portfolio_drawdown": null
+          },
+          "1m": {
+            "status": "API_BEST_EFFORT_WINDOW_PNL",
+            "timeframe": "1m",
+            "window_start": "2026-09-07T02:00:00.000Z",
+            "realized_pnl_usd": "1988.932096",
+            "categories": [
+              {
+                "id": "2a91349c-3308-4234-afb7-0663e42968c1",
+                "name": "Sport",
+                "slug": "sport",
+                "path": "/sport",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "1973300628",
+                  "formatted": "1973.300628",
+                  "usd": "1973.300628"
+                }
+              },
+              {
+                "id": "5e76699e-8763-4c91-85de-3efeb064efec",
+                "name": "Crypto",
+                "slug": "crypto",
+                "path": "/crypto",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "514507761",
+                  "formatted": "514.507761",
+                  "usd": "514.507761"
+                }
+              },
+              {
+                "id": "4962ba38-2482-4e33-beff-2d3eb49f15bb",
+                "name": "Finance",
+                "slug": "finance",
+                "path": "/finance",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "93471851",
+                  "formatted": "93.471851",
+                  "usd": "93.471851"
+                }
+              },
+              {
+                "id": "b93842aa-be7a-4cd3-b138-2302fc6a581d",
+                "name": "Politics",
+                "slug": "politics",
+                "path": "/politics",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-2002",
+                  "formatted": "-0.002002",
+                  "usd": "-0.002002"
+                }
+              },
+              {
+                "id": "f2a04a4e-580a-4cd1-bcc9-c23ed9ff8916",
+                "name": "Esports",
+                "slug": "esports",
+                "path": "/esports",
+                "icon": null,
+                "realisedPnl": {
+                  "raw": "-592346142",
+                  "formatted": "-592.346142",
+                  "usd": "-592.346142"
+                }
+              }
+            ],
+            "timeline_points": 181,
+            "portfolio_drawdown": null
+          }
+        }
+      }
+    ]
+  },
+  "maker": {
+    "latest_main_rest_spread_median": 0.051,
+    "two_sided_rest_snapshots": 740,
+    "markets": 14,
+    "received_binance_1s_frames": 6598,
+    "execution_proven": false,
+    "pnl": null,
+    "status": "MICROSTRUCTURE_ONLY"
+  },
+  "limitations": [
+    "Collection stopped October 7; do not extrapolate missing remainder of frozen week",
+    "Observed buys and 60s episode proxies are not independent intents",
+    "Historical API wallet PnL is not follower PnL",
+    "No maker queue/fill evidence; touch is not fill",
+    "Inventory management executed no SELL or COMPLETE_PAIR; no benefit over matched seed hold",
+    "15m Chainlink TWAP60 not evaluated with hourly Binance spot model",
+    "No thresholds, fees, cohort, holdout, schedule or code changed"
+  ]
+}
