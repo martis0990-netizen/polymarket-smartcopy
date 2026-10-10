@@ -1,0 +1,416 @@
+{
+  "schema": "limitless-hourly-holdout-postmortem-2026-10-07",
+  "as_of_utc": "2026-10-07T08:30:08.092385+00:00",
+  "last_completed_main_run": 37588187303,
+  "last_completed_artifact": 11470560416,
+  "last_completed_zip_sha256": "73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b",
+  "stop_action_run": 37596060915,
+  "stop_action_artifact": 11469729047,
+  "stop_receipt_sha256": "b81d379f1b939c774cfb3244c355622995c45afff804b29e4fc465d1e7827fc0",
+  "cancelled_current_run": 37594185151,
+  "cancelled_artifact": 11470598838,
+  "cancelled_artifact_status": "raw capture only; no state/report; excluded from main ledger",
+  "holdout_settled_trade_count": 10,
+  "winning_trades": 1,
+  "realized_pnl": "-74.378700028",
+  "model_expected_pnl_at_entry": "16.7924600099239120340801953",
+  "avg_model_probability": "0.478469113410091095",
+  "avg_market_mid_probability": "0.39005",
+  "model_brier_on_all_scored": 0.17520381365798463,
+  "market_mid_brier_on_all_scored": 0.15792434375,
+  "hour_clusters": 6,
+  "close_checks": 10,
+  "rows": [
+    {
+      "condition": "0xbf4b3e2aa0ddb5196017642edf4e820a3e250b32069770d87fdea366f1131cf8",
+      "slug": "btc-up-or-down-hourly-p-1791270305367",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-06T10:00:00+00:00",
+      "decision_at_utc": "2026-10-06T10:30:04.779282+00:00",
+      "side": "NO",
+      "model_probability": "0.2750247318121788",
+      "market_mid_probability": "0.225",
+      "probability_gap": "0.0500247318121788",
+      "entry_vwap": "0.2313739457538658724088378235",
+      "entry_cost": "8.933223335",
+      "net_shares": "37.45117717",
+      "model_expected_pnl": "1.366776622229643402517996",
+      "winner": false,
+      "settled_pnl": "-8.933223335",
+      "hour_open": "85992",
+      "decision_reference_price": "86136.41",
+      "reference_relation": "ABOVE",
+      "settlement_close": "86157.15000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11409676558,
+        "line": 9033,
+        "sha256": "c2a66e861fa0231dbdc6b9aba45b30da282057d730687bfe8e45fe2644d90a25"
+      },
+      "closed_binance_candle": {
+        "opening": "85992.00000000",
+        "close": "86157.15000000",
+        "proof": {
+          "artifact": 11409676558,
+          "line": 39477,
+          "sha256": "093d16abb289dff2962127caa2e893c0be32085103fff655273aebd5e9673d59"
+        },
+        "observed_at": "2026-10-06T11:01:18.648250+00:00"
+      }
+    },
+    {
+      "condition": "0x14ad8088dfbb13e7324cd86994407ead3b7fe4d3e5e2cc9a4fd479299fb86dab",
+      "slug": "eth-up-or-down-hourly-p-1791270306472",
+      "symbol": "ETHUSDT",
+      "hour_start_utc": "2026-10-06T10:00:00+00:00",
+      "decision_at_utc": "2026-10-06T10:30:05.039824+00:00",
+      "side": "NO",
+      "model_probability": "0.2694737107673714",
+      "market_mid_probability": "0.1605",
+      "probability_gap": "0.1089737107673714",
+      "entry_vwap": "0.1854731191604189500181653015",
+      "entry_cost": "7.308530424",
+      "net_shares": "38.22265212",
+      "model_expected_pnl": "2.991469478146735269037368",
+      "winner": false,
+      "settled_pnl": "-7.308530424",
+      "hour_open": "2710.74",
+      "decision_reference_price": "2716.99",
+      "reference_relation": "ABOVE",
+      "settlement_close": "2713.94000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11409676558,
+        "line": 9038,
+        "sha256": "a93f32be6ffaeef578a2d29cabeba60e36127f83d1b8ff3f29f411e6f7f45ba3"
+      },
+      "closed_binance_candle": {
+        "opening": "2710.74000000",
+        "close": "2713.94000000",
+        "proof": {
+          "artifact": 11409676558,
+          "line": 39493,
+          "sha256": "afbb6994e95806ae63705a386da07b9ab8498bea0821d9a4b8732e9c1df149d5"
+        },
+        "observed_at": "2026-10-06T11:01:19.286184+00:00"
+      }
+    },
+    {
+      "condition": "0xb26c4aef037f7a11972615abae22c737568b8a3a8e558bad5cf005cdcadea7c7",
+      "slug": "btc-up-or-down-hourly-p-1791281105997",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-06T13:00:00+00:00",
+      "decision_at_utc": "2026-10-06T13:30:06.968173+00:00",
+      "side": "NO",
+      "model_probability": "0.88142138317320129",
+      "market_mid_probability": "0.742",
+      "probability_gap": "0.13942138317320129",
+      "entry_vwap": "0.762",
+      "entry_cost": "9.179877246",
+      "net_shares": "11.68567051",
+      "model_expected_pnl": "1.1201226182304885368469579",
+      "winner": false,
+      "settled_pnl": "-9.179877246",
+      "hour_open": "86214",
+      "decision_reference_price": "86006.32",
+      "reference_relation": "BELOW",
+      "settlement_close": "86324.01000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11417994486,
+        "line": 22154,
+        "sha256": "91d29cd27976b5a63cb4f76f3f5c15f87841fb1780fe5a51b0dd407238e926ab"
+      },
+      "closed_binance_candle": {
+        "opening": "86214.00000000",
+        "close": "86324.01000000",
+        "proof": {
+          "artifact": 11417994486,
+          "line": 63011,
+          "sha256": "e69943c7278b84bd1d4f9d5a7019d57f070c4db1acdcf5e63bd787e808a38203"
+        },
+        "observed_at": "2026-10-06T14:00:47.555381+00:00"
+      }
+    },
+    {
+      "condition": "0x2b1ee93898f4ca9510fdd2f618edc4f5754a68685e9147f14cd590dae59e1a1c",
+      "slug": "eth-up-or-down-hourly-p-1791281111321",
+      "symbol": "ETHUSDT",
+      "hour_start_utc": "2026-10-06T13:00:00+00:00",
+      "decision_at_utc": "2026-10-06T13:30:07.252205+00:00",
+      "side": "NO",
+      "model_probability": "0.87075325819684424",
+      "market_mid_probability": "0.7795",
+      "probability_gap": "0.09125325819684424",
+      "entry_vwap": "0.776",
+      "entry_cost": "9.463070904",
+      "net_shares": "11.82883863",
+      "model_expected_pnl": "0.8369288737571952902049912",
+      "winner": true,
+      "settled_pnl": "2.365767726",
+      "hour_open": "2715.72",
+      "decision_reference_price": "2709.85",
+      "reference_relation": "BELOW",
+      "settlement_close": "2714.79000000",
+      "final_relation": "BELOW",
+      "decision_book_proof": {
+        "artifact": 11417994486,
+        "line": 22162,
+        "sha256": "461ea2bccb420df2afd707cfa3358949d02a97d5d427f2c91a027d81a0878b51"
+      },
+      "closed_binance_candle": {
+        "opening": "2715.72000000",
+        "close": "2714.79000000",
+        "proof": {
+          "artifact": 11417994486,
+          "line": 63028,
+          "sha256": "8c99d35760a44d0ea99f5b22e827fbba4a78e09e049cceb85e8ec50ed0fbac1a"
+        },
+        "observed_at": "2026-10-06T14:00:48.191572+00:00"
+      }
+    },
+    {
+      "condition": "0x4bd04ef1d355035a33e9dc7575199679eb67d4031358c01d844ebfe8d5bde6cb",
+      "slug": "btc-up-or-down-hourly-p-1791288310093",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-06T15:00:00+00:00",
+      "decision_at_utc": "2026-10-06T15:30:08.229393+00:00",
+      "side": "YES",
+      "model_probability": "0.1436586573684256",
+      "market_mid_probability": "0.0955",
+      "probability_gap": "0.0481586573684256",
+      "entry_vwap": "0.1143483122304985546407593525",
+      "entry_cost": "8.452076996",
+      "net_shares": "71.69773236",
+      "model_expected_pnl": "1.847922971198320583372416",
+      "winner": false,
+      "settled_pnl": "-8.452076996",
+      "hour_open": "86595.6",
+      "decision_reference_price": "86278.0",
+      "reference_relation": "BELOW",
+      "settlement_close": "85720.65000000",
+      "final_relation": "BELOW",
+      "decision_book_proof": {
+        "artifact": 11425277513,
+        "line": 33575,
+        "sha256": "9740f5e198cdab7c155556f27e6ebaaf35e09bd784edf0ef3622439c38aee971"
+      },
+      "closed_binance_candle": {
+        "opening": "86595.60000000",
+        "close": "85720.65000000",
+        "proof": {
+          "artifact": 11428826971,
+          "line": 2424,
+          "sha256": "b91b8275c001cdd254a7549aab4af50f0191429d706bbb1410113a1ce2440b9c"
+        },
+        "observed_at": "2026-10-06T16:01:25.418555+00:00"
+      }
+    },
+    {
+      "condition": "0x29d83b7a63613d6a730cd8d50471accb790b2492d18cf6820a7a995e8081e073",
+      "slug": "eth-up-or-down-hourly-p-1791288311679",
+      "symbol": "ETHUSDT",
+      "hour_start_utc": "2026-10-06T15:00:00+00:00",
+      "decision_at_utc": "2026-10-06T15:30:08.610073+00:00",
+      "side": "YES",
+      "model_probability": "0.20705450785898089",
+      "market_mid_probability": "0.170",
+      "probability_gap": "0.03705450785898089",
+      "entry_vwap": "0.1840943514969843052604199866",
+      "entry_cost": "9.441070974",
+      "net_shares": "49.74535487",
+      "model_expected_pnl": "0.8589289968782082895984343",
+      "winner": false,
+      "settled_pnl": "-9.441070974",
+      "hour_open": "2722.25",
+      "decision_reference_price": "2715.15",
+      "reference_relation": "BELOW",
+      "settlement_close": "2702.04000000",
+      "final_relation": "BELOW",
+      "decision_book_proof": {
+        "artifact": 11425277513,
+        "line": 33579,
+        "sha256": "04172e4d02cabe6e69a693768debd5591b62c3802c3c0ac1e3c5a7734a21e569"
+      },
+      "closed_binance_candle": {
+        "opening": "2722.25000000",
+        "close": "2702.04000000",
+        "proof": {
+          "artifact": 11428826971,
+          "line": 2437,
+          "sha256": "e2b08a6f844812e4be824ea62db4d91e4c8afc243dd9ba1eeeb76f80d96a4a63"
+        },
+        "observed_at": "2026-10-06T16:01:26.068877+00:00"
+      }
+    },
+    {
+      "condition": "0xac21d2c877783f04fa71f38890b04c40b2f77ff050b92b4385e210ed209893ab",
+      "slug": "btc-up-or-down-hourly-p-1791302706409",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-06T19:00:00+00:00",
+      "decision_at_utc": "2026-10-06T19:30:06.258117+00:00",
+      "side": "NO",
+      "model_probability": "0.5277396952649494",
+      "market_mid_probability": "0.4425",
+      "probability_gap": "0.0852396952649494",
+      "entry_vwap": "0.405",
+      "entry_cost": "8.148932910",
+      "net_shares": "19.51719734",
+      "model_expected_pnl": "2.151066866637481024914596",
+      "winner": false,
+      "settled_pnl": "-8.148932910",
+      "hour_open": "85507.07",
+      "decision_reference_price": "85497.92",
+      "reference_relation": "BELOW",
+      "settlement_close": "85614.00000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11438687333,
+        "line": 45206,
+        "sha256": "98b867074816eb3ad396fac10eeca394b081fb30ad950368600faa7b37bb55b5"
+      },
+      "closed_binance_candle": {
+        "opening": "85507.07000000",
+        "close": "85614.00000000",
+        "proof": {
+          "artifact": 11442940714,
+          "line": 24582,
+          "sha256": "49d377ed3015a84fa805158f85755f0146b5d052100608793a88537e725d99c8"
+        },
+        "observed_at": "2026-10-06T20:00:51.329499+00:00"
+      }
+    },
+    {
+      "condition": "0x8cc466387c41b048b07a32c2fef70e37c459ad50638088bfbbd07f7d9af15711",
+      "slug": "btc-up-or-down-hourly-p-1791317105290",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-06T23:00:00+00:00",
+      "decision_at_utc": "2026-10-06T23:30:11.798778+00:00",
+      "side": "NO",
+      "model_probability": "0.80622382280727806",
+      "market_mid_probability": "0.715",
+      "probability_gap": "0.09122382280727806",
+      "entry_vwap": "0.7394833323589504909750636449",
+      "entry_cost": "9.739535310",
+      "net_shares": "12.77560810",
+      "model_expected_pnl": "0.5604642910696263222882860",
+      "winner": false,
+      "settled_pnl": "-9.739535310",
+      "hour_open": "85534.53",
+      "decision_reference_price": "85460.0",
+      "reference_relation": "BELOW",
+      "settlement_close": "85549.93000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11452572074,
+        "line": 13447,
+        "sha256": "4280a68077a149a3d00b9f088a88ab24f34b0a027b150a4a949488e9922ac920"
+      },
+      "closed_binance_candle": {
+        "opening": "85534.53000000",
+        "close": "85549.93000000",
+        "proof": {
+          "artifact": 11452572074,
+          "line": 44792,
+          "sha256": "40be6c2b413b30f1a6344895fe32c258e00cd2b0b3535d11b6488cba4afdb36b"
+        },
+        "observed_at": "2026-10-07T00:00:28.391202+00:00"
+      }
+    },
+    {
+      "condition": "0x57309e144f41f7f928b34c26e7055dc4e25e415db1d35d1e9a4babb5757a7004",
+      "slug": "btc-up-or-down-hourly-p-1791331509230",
+      "symbol": "BTCUSDT",
+      "hour_start_utc": "2026-10-07T03:00:00+00:00",
+      "decision_at_utc": "2026-10-07T03:30:12.100565+00:00",
+      "side": "NO",
+      "model_probability": "0.3907472123418199",
+      "market_mid_probability": "0.255",
+      "probability_gap": "0.1357472123418199",
+      "entry_vwap": "0.241",
+      "entry_cost": "6.549175723",
+      "net_shares": "26.35975291",
+      "model_expected_pnl": "3.750824244601675023720909",
+      "winner": false,
+      "settled_pnl": "-6.549175723",
+      "hour_open": "83868.41",
+      "decision_reference_price": "83975.9",
+      "reference_relation": "ABOVE",
+      "settlement_close": "84150.39000000",
+      "final_relation": "ABOVE",
+      "decision_book_proof": {
+        "artifact": 11459309742,
+        "line": 34565,
+        "sha256": "f1f191fccf846930d697e814c64b633ca3cb37df77404bb53c7e1f2310657f7a"
+      },
+      "closed_binance_candle": {
+        "opening": "83868.41000000",
+        "close": "84150.39000000",
+        "proof": {
+          "artifact": 11461003329,
+          "line": 6684,
+          "sha256": "8c337ab0e72e5aa2a7f29be57717e113aca75e28d1889917b041bbaed9302831"
+        },
+        "observed_at": "2026-10-07T04:00:42.130906+00:00"
+      }
+    },
+    {
+      "condition": "0x2e900aa05430b7c41d202f5bdd411287cc2d99db6c8b7930c55c4241952ba6d9",
+      "slug": "eth-up-or-down-hourly-p-1791331510329",
+      "symbol": "ETHUSDT",
+      "hour_start_utc": "2026-10-07T03:00:00+00:00",
+      "decision_at_utc": "2026-10-07T03:30:12.317843+00:00",
+      "side": "YES",
+      "model_probability": "0.41259415450986137",
+      "market_mid_probability": "0.3155",
+      "probability_gap": "0.09709415450986137",
+      "entry_vwap": "0.3493944876844302751456214332",
+      "entry_cost": "8.992044836",
+      "net_shares": "24.96399857",
+      "model_expected_pnl": "1.3079550471745382915782409",
+      "winner": false,
+      "settled_pnl": "-8.992044836",
+      "hour_open": "2612.54",
+      "decision_reference_price": "2608.57",
+      "reference_relation": "BELOW",
+      "settlement_close": "2611.14000000",
+      "final_relation": "BELOW",
+      "decision_book_proof": {
+        "artifact": 11459309742,
+        "line": 34569,
+        "sha256": "db3e767fda1662e9cc6a2f7683f64093fb63a84b350d9725f956c2a85f53c2a1"
+      },
+      "closed_binance_candle": {
+        "opening": "2612.54000000",
+        "close": "2611.14000000",
+        "proof": {
+          "artifact": 11461003329,
+          "line": 6704,
+          "sha256": "e5ba18824933155de45c0d07f7c6771dac0f4ac9ef569575dc857ae02b99e95d"
+        },
+        "observed_at": "2026-10-07T04:00:43.628003+00:00"
+      }
+    }
+  ],
+  "limitations": [
+    "Retrospective diagnosis, no new filter or threshold",
+    "Market midpoint is probability reference, not fill price",
+    "Correlated BTC/ETH hourly outcomes; ten fills are not ten independent hours",
+    "REST paper fills optimistic; no real orders placed"
+  ],
+  "reference_recalculation": "Frozen p_up and sigma exactly reproduced from raw Binance 1m by hourly_ewma_full_shadow.analyze on 36 digest-verified main archives",
+  "selection_diagnostic": {
+    "selected_settled": {
+      "conditions": 10,
+      "model_brier": 0.22567957966553456,
+      "market_mid_brier": 0.158518625,
+      "model_better_count": 1
+    },
+    "other_scored": {
+      "conditions": 46,
+      "model_brier": 0.1642308210476477,
+      "market_mid_brier": 0.15779515217391304,
+      "model_better_count": 21
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "limitless-hourly-model-vs-book-forecast-v1",
+  "method": "One convex mixing weight between decision-time Binance model probability and non-executable YES bid-ask midpoint, fitted by discovery binary log-loss on all resolved conditions. Evaluation on old holdout is descriptive only because old holdout was inspected. No new fills, trading thresholds, or PnL optimization.",
+  "weight_model_from_discovery_logloss": 0.7253314947283294,
+  "discovery": {
+    "market_midpoint_forecast_only": {
+      "n": 104,
+      "brier": 0.20870857932692308,
+      "logloss": 0.6123823235925276
+    },
+    "discovery_fitted_mix": {
+      "n": 104,
+      "brier": 0.206152208286278,
+      "logloss": 0.6026928263877913
+    },
+    "original_model": {
+      "n": 104,
+      "brier": 0.20586293909699957,
+      "logloss": 0.605508148753872
+    }
+  },
+  "old_holdout": {
+    "market_midpoint_forecast_only": {
+      "n": 56,
+      "brier": 0.15792434375,
+      "logloss": 0.4788247666411175
+    },
+    "discovery_fitted_mix": {
+      "n": 56,
+      "brier": 0.16996455568869015,
+      "logloss": 0.5103274417398135
+    },
+    "original_model": {
+      "n": 56,
+      "brier": 0.17520381365798463,
+      "logloss": 0.5254760648411371
+    }
+  },
+  "discovery_selected": {
+    "market_midpoint_forecast_only": {
+      "n": 21,
+      "brier": 0.19127667857142858,
+      "logloss": 0.6057148442195615
+    },
+    "discovery_fitted_mix": {
+      "n": 21,
+      "brier": 0.18548380258776903,
+      "logloss": 0.5824310897541172
+    },
+    "original_model": {
+      "n": 21,
+      "brier": 0.1857607764249741,
+      "logloss": 0.6037690378328299
+    }
+  },
+  "old_holdout_selected": {
+    "market_midpoint_forecast_only": {
+      "n": 11,
+      "brier": 0.14521786363636366,
+      "logloss": 0.4500485663700224
+    },
+    "discovery_fitted_mix": {
+      "n": 11,
+      "brier": 0.18892014722564485,
+      "logloss": 0.569761249431211
+    },
+    "original_model": {
+      "n": 11,
+      "brier": 0.207786600545481,
+      "logloss": 0.627116801038695
+    }
+  }
+}

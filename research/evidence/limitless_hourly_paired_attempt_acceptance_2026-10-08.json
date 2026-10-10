@@ -1,0 +1,58 @@
+{
+  "schema": "limitless-hourly-paired-attempt-acceptance-v1",
+  "asof_utc": "2026-10-08T07:33:40Z",
+  "repository": "martis0990-netizen/polymarket-smartcopy",
+  "branch": "research/hourly-status-20261007",
+  "protocol_commit": "0abe27fa0d0c919084c8343c5c7c8062c2504336",
+  "workflow_run": 37743942529,
+  "workflow_head_sha": "94aa6cc3e58f79be0fa42dc38b8eac6f5de45c0c",
+  "workflow_conclusion": "success",
+  "job_id": 113200873954,
+  "artifact": {
+    "id": 11534838638,
+    "name": "limitless-hourly-paired-attempt-37743942529",
+    "zip_digest": "sha256:ef99e1634703b96c0aa95f9e3469b977a43f5719b797ed0722c8d29fa6779745",
+    "size_in_bytes": 18559,
+    "expires_at": "2026-11-07T07:32:41Z"
+  },
+  "source_archive_count": 96,
+  "verified_pair_quote_sources": 60,
+  "previous_first_leg_pnl_usdc": {
+    "discovery": "119.599141550",
+    "holdout": "-152.665714556"
+  },
+  "summary": {
+    "discovery": {
+      "observed_pair_quotes": 42,
+      "paired_paper_second_fills": 32,
+      "all_first_leg_paper_fills": 65,
+      "second_fail_reasons": {
+        "PAIRED_COST_BOUND_FAILED": 9,
+        "NO_FIRST_REQUEST": 1
+      },
+      "paired_settled_pnl_usdc": "180.575509301",
+      "one_sided_fallback_pnl_usdc": "65.950686915",
+      "paired_quote_cohort_total_pnl_usdc": "246.526196216",
+      "all_first_fills_with_second_policy_settled_pnl_usdc": "70.273395818",
+      "active_hour_clusters": 34
+    },
+    "holdout": {
+      "observed_pair_quotes": 18,
+      "paired_paper_second_fills": 14,
+      "all_first_leg_paper_fills": 37,
+      "second_fail_reasons": {
+        "PAIRED_COST_BOUND_FAILED": 4
+      },
+      "paired_settled_pnl_usdc": "25.510061998",
+      "one_sided_fallback_pnl_usdc": "-1.751085328",
+      "paired_quote_cohort_total_pnl_usdc": "23.758976670",
+      "all_first_fills_with_second_policy_settled_pnl_usdc": "-144.175995894",
+      "active_hour_clusters": 15
+    }
+  },
+  "limitations": [
+    "Old holdout repeatedly inspected",
+    "Quote-based paper execution proxy, no real fills",
+    "No maker queue or shared-bankroll cash ledger"
+  ]
+}
