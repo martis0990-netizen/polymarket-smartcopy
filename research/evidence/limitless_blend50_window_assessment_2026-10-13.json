@@ -1,0 +1,987 @@
+{
+  "schema": "limitless-hourly-market-blend50-window-assessment-v1",
+  "as_of_utc": "2026-10-13T12:45:02Z",
+  "repo": "martis0990-netizen/polymarket-smartcopy",
+  "main_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+  "protocol_ref": "PR#54 head 8b8ede43161906c5ba31df67424d953a574e5294",
+  "protocol_sha": "da02c5f2c707a8811442b84211368785879d3caa",
+  "script_blobs": {
+    "ewma_full": "bef46268e1c638d4be53f594aadf6262b93de445",
+    "blend50": "82e89f464a3e17d3027cd0459ed3b5ed945b83ac"
+  },
+  "cohort": {
+    "decision_at_gte": "2026-10-06T00:00:00Z",
+    "decision_at_lt": "2026-10-13T00:00:00Z",
+    "funded_cash_usdc_each": "100",
+    "blend_weight_model": "0.5",
+    "blend_weight_market_mid": "0.5"
+  },
+  "decision": "INSUFFICIENT_DATA_WAIT",
+  "economic_report": null,
+  "reason": "Last planned UTC hour and 135.497752 hours of the preregistered week have no successful main capture ZIP.",
+  "main_run_inventory": {
+    "search_pages": 5,
+    "successful_runs_after_start": 35,
+    "cancelled_runs_after_start": 7,
+    "last_successful_run": 37588187303,
+    "last_successful_artifact": 11470560416,
+    "last_capture_end_utc": "2026-10-07T08:30:08.092385Z",
+    "last_cancelled_run": 37594185151,
+    "last_cancelled_run_is_not_data": true,
+    "artifact_metadata": [
+      {
+        "run_id": 37588187303,
+        "artifacts": [
+          {
+            "id": 11470560416,
+            "name": "limitless-market-37588187303",
+            "digest": "sha256:73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b",
+            "size_in_bytes": 15374519,
+            "expired": false,
+            "workflow_run_id": 37588187303,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37582713347,
+        "artifacts": [
+          {
+            "id": 11467850234,
+            "name": "limitless-market-37582713347",
+            "digest": "sha256:5a5349dda8c13d4c70195902f2db37b13e7ce45472dc8adc8e5f1cd56918647c",
+            "size_in_bytes": 15713123,
+            "expired": false,
+            "workflow_run_id": 37582713347,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37577779464,
+        "artifacts": [
+          {
+            "id": 11465133020,
+            "name": "limitless-market-37577779464",
+            "digest": "sha256:3431971f991a88d753a9028d119f6f7130ce065460bf12a806e66f1aba2c7741",
+            "size_in_bytes": 14722085,
+            "expired": false,
+            "workflow_run_id": 37577779464,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37573240775,
+        "artifacts": [
+          {
+            "id": 11462399286,
+            "name": "limitless-market-37573240775",
+            "digest": "sha256:343ee0a057255e9c3f5ba1afb7ce8fc596197339e8d7e519f125af13671f5c14",
+            "size_in_bytes": 15398568,
+            "expired": false,
+            "workflow_run_id": 37573240775,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37568836795,
+        "artifacts": [
+          {
+            "id": 11461003329,
+            "name": "limitless-market-37568836795",
+            "digest": "sha256:69dd8a78ed343fa90786f6fdaabf588007b15ecb4ca4f5d49f7bc46dd06ebc65",
+            "size_in_bytes": 16088872,
+            "expired": false,
+            "workflow_run_id": 37568836795,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37564502373,
+        "artifacts": [
+          {
+            "id": 11459309742,
+            "name": "limitless-market-37564502373",
+            "digest": "sha256:521f5c454cc372f86081d029058964493501108be3e760cde3c2314a42e24629",
+            "size_in_bytes": 15703911,
+            "expired": false,
+            "workflow_run_id": 37564502373,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37560057419,
+        "artifacts": [
+          {
+            "id": 11458621544,
+            "name": "limitless-market-37560057419",
+            "digest": "sha256:be58c3e85ea869b154298605b1163423dfbd19e841b5821943bc5ed10722007f",
+            "size_in_bytes": 15089311,
+            "expired": false,
+            "workflow_run_id": 37560057419,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37555499863,
+        "artifacts": [
+          {
+            "id": 11455689859,
+            "name": "limitless-market-37555499863",
+            "digest": "sha256:4adda2e6266b9538f854818bc992805e45fdb639ce14bf4c27dda1725b80ce66",
+            "size_in_bytes": 14449390,
+            "expired": false,
+            "workflow_run_id": 37555499863,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37550675704,
+        "artifacts": [
+          {
+            "id": 11453319707,
+            "name": "limitless-market-37550675704",
+            "digest": "sha256:980a7c774b45ce172f23654aa8fa3812970814facde7ec4e83b9e132624abeeb",
+            "size_in_bytes": 14671408,
+            "expired": false,
+            "workflow_run_id": 37550675704,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37545633008,
+        "artifacts": [
+          {
+            "id": 11452572074,
+            "name": "limitless-market-37545633008",
+            "digest": "sha256:7bcb5e118eea1e26e119727c14e0522e7633cb3e0844b1bb9acf564de288b47f",
+            "size_in_bytes": 14835379,
+            "expired": false,
+            "workflow_run_id": 37545633008,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37540015279,
+        "artifacts": [
+          {
+            "id": 11450766323,
+            "name": "limitless-market-37540015279",
+            "digest": "sha256:5b9b88257e1076470a998c16d885617874d1d78bd480a57322afa34cd2923636",
+            "size_in_bytes": 14664586,
+            "expired": false,
+            "workflow_run_id": 37540015279,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37533792990,
+        "artifacts": [
+          {
+            "id": 11448341500,
+            "name": "limitless-market-37533792990",
+            "digest": "sha256:2e4114b8497dfe74faf888af7072deba144c8c0b843d99a1f6ad767b70032437",
+            "size_in_bytes": 14964322,
+            "expired": false,
+            "workflow_run_id": 37533792990,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37526921049,
+        "artifacts": [
+          {
+            "id": 11445003835,
+            "name": "limitless-market-37526921049",
+            "digest": "sha256:94bf7deb1cb0118f35fa1c4e83a4be322010c47f4f20e923728c0448ee087b64",
+            "size_in_bytes": 14597355,
+            "expired": false,
+            "workflow_run_id": 37526921049,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37520026832,
+        "artifacts": [
+          {
+            "id": 11442940714,
+            "name": "limitless-market-37520026832",
+            "digest": "sha256:6782f9777137e450cd9794e1d1658ea1b767f3b2976a9ad5c04d52bf1c0a9ce5",
+            "size_in_bytes": 15075489,
+            "expired": false,
+            "workflow_run_id": 37520026832,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37512980140,
+        "artifacts": [
+          {
+            "id": 11438687333,
+            "name": "limitless-market-37512980140",
+            "digest": "sha256:df9fbb46d476a1d6db67cf41f807ca96c611244e3f416d1369e0b363c82df4e6",
+            "size_in_bytes": 14847292,
+            "expired": false,
+            "workflow_run_id": 37512980140,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37505829978,
+        "artifacts": [
+          {
+            "id": 11435614143,
+            "name": "limitless-market-37505829978",
+            "digest": "sha256:f6608e371bc4e9eadbe2af0c1c3eae716763e92027d189eb673df259b9f0cc9e",
+            "size_in_bytes": 14549880,
+            "expired": false,
+            "workflow_run_id": 37505829978,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37498639259,
+        "artifacts": [
+          {
+            "id": 11432160726,
+            "name": "limitless-market-37498639259",
+            "digest": "sha256:cc4a04223f90573adcb206a5147c761872e097ae470a4961f0d7654bfb5fd2b3",
+            "size_in_bytes": 15406571,
+            "expired": false,
+            "workflow_run_id": 37498639259,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37491277603,
+        "artifacts": [
+          {
+            "id": 11428826971,
+            "name": "limitless-market-37491277603",
+            "digest": "sha256:e75bac8c587e61a72462bca14a427eef611e4bea2fd5c208859afa11e0240d64",
+            "size_in_bytes": 15691789,
+            "expired": false,
+            "workflow_run_id": 37491277603,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37483398332,
+        "artifacts": [
+          {
+            "id": 11425277513,
+            "name": "limitless-market-37483398332",
+            "digest": "sha256:788c5b14c90d67c4c70c7459e76059f799a94bf160db14bdf6986a2cde00f9bb",
+            "size_in_bytes": 15366960,
+            "expired": false,
+            "workflow_run_id": 37483398332,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37475681064,
+        "artifacts": [
+          {
+            "id": 11422097180,
+            "name": "limitless-market-37475681064",
+            "digest": "sha256:5d464d8fe5e45d4b3fdde4c218d19fc50c05adc591968ac35faec58397a1a7a9",
+            "size_in_bytes": 14846482,
+            "expired": false,
+            "workflow_run_id": 37475681064,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37468332946,
+        "artifacts": [
+          {
+            "id": 11417994486,
+            "name": "limitless-market-37468332946",
+            "digest": "sha256:ce8ef21d5e4078219390ee7d52ee9d20b74b90067ad3abe1909b07a1f3ce3316",
+            "size_in_bytes": 15435590,
+            "expired": false,
+            "workflow_run_id": 37468332946,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37461566013,
+        "artifacts": [
+          {
+            "id": 11415948919,
+            "name": "limitless-market-37461566013",
+            "digest": "sha256:aca73ad9565ab22c37b07b3db89f43a8da0ee782b4b738586de08482f158225e",
+            "size_in_bytes": 15470074,
+            "expired": false,
+            "workflow_run_id": 37461566013,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37455327860,
+        "artifacts": [
+          {
+            "id": 11412677949,
+            "name": "limitless-market-37455327860",
+            "digest": "sha256:e99107fadaa7b100721b8e878f7059f28d759d372dacd07b4f0225a3980d552f",
+            "size_in_bytes": 14915955,
+            "expired": false,
+            "workflow_run_id": 37455327860,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37449228396,
+        "artifacts": [
+          {
+            "id": 11409676558,
+            "name": "limitless-market-37449228396",
+            "digest": "sha256:c71da150ff4f66f3d11dac0e56f0c69f6ffc72d0ea66f8ff0b216afec23ed9f1",
+            "size_in_bytes": 14859951,
+            "expired": false,
+            "workflow_run_id": 37449228396,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37442906611,
+        "artifacts": [
+          {
+            "id": 11404453914,
+            "name": "limitless-market-37442906611",
+            "digest": "sha256:40bfe95eb9cdf8161126fb83417fe0d5a87176658daa2b5c51d86806026588a6",
+            "size_in_bytes": 14153926,
+            "expired": false,
+            "workflow_run_id": 37442906611,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37436572517,
+        "artifacts": [
+          {
+            "id": 11401599040,
+            "name": "limitless-market-37436572517",
+            "digest": "sha256:f5c66a6b48862c7dc4470b74d6d57b85c7317d21a577f33fdea06a9376252d8c",
+            "size_in_bytes": 14252591,
+            "expired": false,
+            "workflow_run_id": 37436572517,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37430590433,
+        "artifacts": [
+          {
+            "id": 11399108296,
+            "name": "limitless-market-37430590433",
+            "digest": "sha256:09d6af383eb495fa0315c047111b6d829cf2999dfb9dc2cabb9c269b80162da1",
+            "size_in_bytes": 13350895,
+            "expired": false,
+            "workflow_run_id": 37430590433,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37425008657,
+        "artifacts": [
+          {
+            "id": 11396721933,
+            "name": "limitless-market-37425008657",
+            "digest": "sha256:b11547ef7763b64c2776469a52b85462e98e0b646f2523a3872025c0c7f74d20",
+            "size_in_bytes": 14040677,
+            "expired": false,
+            "workflow_run_id": 37425008657,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37420048536,
+        "artifacts": [
+          {
+            "id": 11395255294,
+            "name": "limitless-market-37420048536",
+            "digest": "sha256:e0c267b7a3fc9ba6731ec3e1d78eb3a92d874942a9b68281ee4709d3710c4497",
+            "size_in_bytes": 13490406,
+            "expired": false,
+            "workflow_run_id": 37420048536,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37415503822,
+        "artifacts": [
+          {
+            "id": 11392267927,
+            "name": "limitless-market-37415503822",
+            "digest": "sha256:8161b6d47211bad05b6353f10425fd809e4ec484d5602908544fb6d36f941dd0",
+            "size_in_bytes": 13591250,
+            "expired": false,
+            "workflow_run_id": 37415503822,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37411137000,
+        "artifacts": [
+          {
+            "id": 11391016390,
+            "name": "limitless-market-37411137000",
+            "digest": "sha256:2040b45b4388d0fd00d1ad89f28973e9f5d223650c3c5c0c413f7c06cac137a9",
+            "size_in_bytes": 13043607,
+            "expired": false,
+            "workflow_run_id": 37411137000,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37406740407,
+        "artifacts": [
+          {
+            "id": 11389526139,
+            "name": "limitless-market-37406740407",
+            "digest": "sha256:35935c4aa0d053b566ee729586fd911ed7b7cd82494021d22e9d6dad52a24f8c",
+            "size_in_bytes": 14376434,
+            "expired": false,
+            "workflow_run_id": 37406740407,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37402229222,
+        "artifacts": [
+          {
+            "id": 11386758072,
+            "name": "limitless-market-37402229222",
+            "digest": "sha256:5760fda3d85d0cc310da851e8390df71fced3b06b07eee5aeb7c3a36437accfd",
+            "size_in_bytes": 14012743,
+            "expired": false,
+            "workflow_run_id": 37402229222,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37397577030,
+        "artifacts": [
+          {
+            "id": 11385278898,
+            "name": "limitless-market-37397577030",
+            "digest": "sha256:08fb64426b0324344fcfa9b94bb00511736c80e7025c1894a8d69fa94d60792f",
+            "size_in_bytes": 13813156,
+            "expired": false,
+            "workflow_run_id": 37397577030,
+            "branch": "main"
+          }
+        ]
+      },
+      {
+        "run_id": 37392752368,
+        "artifacts": [
+          {
+            "id": 11384130707,
+            "name": "limitless-market-37392752368",
+            "digest": "sha256:0ce5b75832e91e9e624bfd5841ab186c663273ee031de9591a30affef05d11cb",
+            "size_in_bytes": 13588544,
+            "expired": false,
+            "workflow_run_id": 37392752368,
+            "branch": "main"
+          }
+        ]
+      }
+    ],
+    "runs": [
+      {
+        "id": 37594185151,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T08:30:14Z",
+        "updated_at": "2026-10-07T08:48:12Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37588187303,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T07:34:43Z",
+        "updated_at": "2026-10-07T08:30:18Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37582713347,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T06:39:24Z",
+        "updated_at": "2026-10-07T07:34:46Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37577779464,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T05:44:01Z",
+        "updated_at": "2026-10-07T06:39:28Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37573240775,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T04:48:41Z",
+        "updated_at": "2026-10-07T05:44:05Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37568836795,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T03:53:21Z",
+        "updated_at": "2026-10-07T04:48:44Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37564502373,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T02:57:59Z",
+        "updated_at": "2026-10-07T03:53:25Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37560057419,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T02:02:36Z",
+        "updated_at": "2026-10-07T02:58:03Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37558545246,
+        "event": "schedule",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T01:43:56Z",
+        "updated_at": "2026-10-07T02:02:38Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37555499863,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T01:07:15Z",
+        "updated_at": "2026-10-07T02:02:39Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37550675704,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-07T00:11:48Z",
+        "updated_at": "2026-10-07T01:07:19Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37545633008,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T23:16:25Z",
+        "updated_at": "2026-10-07T00:11:52Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37540015279,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T22:21:03Z",
+        "updated_at": "2026-10-06T23:16:28Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37536452005,
+        "event": "schedule",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T21:48:30Z",
+        "updated_at": "2026-10-06T22:21:06Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37533792990,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T21:25:33Z",
+        "updated_at": "2026-10-06T22:21:07Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37526921049,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T20:30:09Z",
+        "updated_at": "2026-10-06T21:25:37Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37520026832,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T19:34:48Z",
+        "updated_at": "2026-10-06T20:30:13Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37512980140,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T18:39:25Z",
+        "updated_at": "2026-10-06T19:34:51Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37505829978,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T17:44:06Z",
+        "updated_at": "2026-10-06T18:39:28Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37502848034,
+        "event": "schedule",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T17:20:57Z",
+        "updated_at": "2026-10-06T17:44:09Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37498639259,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T16:48:46Z",
+        "updated_at": "2026-10-06T17:44:10Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37491277603,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T15:53:27Z",
+        "updated_at": "2026-10-06T16:48:49Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37483398332,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T14:58:07Z",
+        "updated_at": "2026-10-06T15:53:29Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37475681064,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T14:02:45Z",
+        "updated_at": "2026-10-06T14:58:12Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37468332946,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T13:07:22Z",
+        "updated_at": "2026-10-06T14:02:49Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37461566013,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T12:12:02Z",
+        "updated_at": "2026-10-06T13:07:25Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37455327860,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T11:16:40Z",
+        "updated_at": "2026-10-06T12:12:06Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37451206205,
+        "event": "schedule",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T10:39:18Z",
+        "updated_at": "2026-10-06T11:16:44Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37449228396,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "ca44b0d50ceca861a09dfe5a70d80ef7c158837e",
+        "created_at": "2026-10-06T10:21:21Z",
+        "updated_at": "2026-10-06T11:16:43Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37442906611,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "1a000dac2cd1316e1d109020d733f1f4cf0fd561",
+        "created_at": "2026-10-06T09:25:59Z",
+        "updated_at": "2026-10-06T10:21:24Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37436572517,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "59dce4f3941638c2462c9d159fb86faeb7650962",
+        "created_at": "2026-10-06T08:30:34Z",
+        "updated_at": "2026-10-06T09:26:03Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37436538080,
+        "event": "push",
+        "head_branch": "main",
+        "head_sha": "59dce4f3941638c2462c9d159fb86faeb7650962",
+        "created_at": "2026-10-06T08:30:17Z",
+        "updated_at": "2026-10-06T08:30:37Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37430590433,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T07:35:15Z",
+        "updated_at": "2026-10-06T08:30:37Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37425008657,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T06:39:56Z",
+        "updated_at": "2026-10-06T07:35:18Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37420048536,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T05:44:35Z",
+        "updated_at": "2026-10-06T06:40:00Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37415503822,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T04:49:13Z",
+        "updated_at": "2026-10-06T05:44:39Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37411137000,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T03:53:51Z",
+        "updated_at": "2026-10-06T04:49:17Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37407916821,
+        "event": "schedule",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T03:12:55Z",
+        "updated_at": "2026-10-06T03:53:53Z",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "id": 37406740407,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T02:58:26Z",
+        "updated_at": "2026-10-06T03:53:55Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37402229222,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T02:03:04Z",
+        "updated_at": "2026-10-06T02:58:28Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37397577030,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T01:07:45Z",
+        "updated_at": "2026-10-06T02:03:06Z",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 37392752368,
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "head_sha": "f47812216524628771e1b7ede4c41b484c609d80",
+        "created_at": "2026-10-06T00:12:22Z",
+        "updated_at": "2026-10-06T01:07:49Z",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "coverage": {
+    "missing_hours_to_window_end": 135.49775222222223,
+    "max_possible_elapsed_fraction": 0.1934657605820106,
+    "raw_coverage_fraction": null,
+    "raw_coverage_note": "upper bound from last completion only, not measured raw receipt coverage"
+  },
+  "prior_published_bounded_checkpoint": {
+    "as_of_utc": "2026-10-06T09:25:54Z",
+    "source": "research/LIMITLESS_HOURLY_BLEND50_PROSPECTIVE_CHECK_2026-10-06.json",
+    "decision_count": 14,
+    "blend_fills": 0,
+    "frozen_fills": 0,
+    "blend_pnl_usdc": "0",
+    "frozen_pnl_usdc": "0",
+    "not_final": true
+  },
+  "prior_verified_last_archive": {
+    "source": "research/LIMITLESS_FINAL_REVIEW_2026-10-10.md on research/hourly-status-20261007",
+    "artifact": 11470560416,
+    "zip_sha256": "73c77d52bd73f82ff3c07f354172a6a406dacbcb96d5abc2ba30b4e3844a741b"
+  },
+  "verification": {
+    "github_artifact_metadata_checked_for_all_35_successful_runs": true,
+    "artifact_zip_hashes_independently_checked_this_run": false,
+    "ewma_full_shadow_executed_this_run": false,
+    "blend50_shadow_executed_this_run": false,
+    "frozen_reproduction_for_full_cohort": null,
+    "payout_and_cash_conservation_full_cohort": null,
+    "btc_eth_breakdown_full_cohort": null,
+    "largest_win_removal_full_cohort": null,
+    "raw_decision_and_execution_receipts_full_cohort": null,
+    "binary_access_error": "Connector returned a file reference, but the local network proxy at port 8889 rejected the connection; direct DNS also unavailable.",
+    "not_unreconciled_reason": "No contradictory raw ZIP or ledger was observed; final data is absent and binary replay was inaccessible."
+  },
+  "guardrails": {
+    "main_only": true,
+    "pull_request_and_cancelled_excluded": true,
+    "no_fee_threshold_or_window_change": true,
+    "no_live_orders": true,
+    "no_pnl_claim": true
+  }
+}
