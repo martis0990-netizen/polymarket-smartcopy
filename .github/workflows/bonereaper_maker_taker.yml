@@ -1,0 +1,87 @@
+name: Bonereaper maker-taker receipts
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [research/bonereaper-correction-overlay]
+    paths:
+      - .github/workflows/bonereaper_maker_taker.yml
+      - docs/BONEREAPER_MAKER_TAKER_CONTRACT.md
+      - src/smartcopy/maker_taker.py
+      - tests/test_maker_taker.py
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  collect-and-analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest
+      - name: Download frozen Stage 3A wallet evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVIDENCE: ${{ runner.temp }}/stage3a
+        run: |
+          mkdir -p "$EVIDENCE"
+          gh run download 32971365532 \
+            -R martis0990-netizen/polymarket-smartcopy \
+            -n live-wallet-observer-v1-smoke \
+            -D "$EVIDENCE"
+          printf '%s  %s\n' \
+            e3a5318d9a54f87c3b044327a38387e853ef5bb3d1fb3d8ea35c70aed27db7fb \
+            "$EVIDENCE/live_activity.jsonl" \
+            | sha256sum -c -
+      - name: Collect Polygon receipts and decode roles
+        env:
+          EVIDENCE: ${{ runner.temp }}/stage3a
+          OUT: ${{ runner.temp }}/bonereaper-maker-taker-20260826
+        run: |
+          python -m smartcopy.maker_taker \
+            --wallet-activity "$EVIDENCE/live_activity.jsonl" \
+            --expected-wallet-sha256 e3a5318d9a54f87c3b044327a38387e853ef5bb3d1fb3d8ea35c70aed27db7fb \
+            --output "$OUT" \
+            --rpc-url https://polygon-bor-rpc.publicnode.com \
+            --batch-size 20
+      - name: Verify artifact hashes and frozen population
+        env:
+          OUT: ${{ runner.temp }}/bonereaper-maker-taker-20260826
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ['OUT'])
+          manifest = json.loads((root / 'collection_manifest.json').read_text())
+          summary = json.loads((root / 'maker_taker_summary.json').read_text())
+          assert manifest['chain_id'] == 137
+          assert manifest['receipt_requests'] == 77
+          assert manifest['receipt_responses'] == 77
+          assert manifest['wallet_activity']['sha256'] == \
+              'e3a5318d9a54f87c3b044327a38387e853ef5bb3d1fb3d8ea35c70aed27db7fb'
+          assert summary['primary_mechanism']['verdict'] == 'INCONCLUSIVE'
+          corrected = summary['schema_corrected_secondary']
+          assert summary['completeness']['schema_corrected_uniquely_matched_rows'] == 77
+          assert summary['completeness']['schema_corrected_ambiguous_rows'] == 0
+          assert corrected['verdict_under_original_80_20_gate'] == 'MIXED_EXECUTION'
+          for name, expected in manifest['artifacts'].items():
+              raw = (root / name).read_bytes()
+              assert len(raw) == expected['bytes']
+              assert hashlib.sha256(raw).hexdigest() == expected['sha256']
+          print(json.dumps(corrected, sort_keys=True, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bonereaper-maker-taker-20260826
+          path: ${{ runner.temp }}/bonereaper-maker-taker-20260826
+          if-no-files-found: error
+          retention-days: 30
